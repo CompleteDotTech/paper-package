@@ -87,16 +87,31 @@ def interval_lineage_bounds(proofs, intervals, *, atom_cap=10):
             marginals = {a: float(atom_vectors[a] @ x) for a in atoms}
             if any(marginals[a] < bounds[a][0] - 1e-7 or marginals[a] > bounds[a][1] + 1e-7 for a in atoms):
                 return _staged("residual_staged", len(atoms))
+            c = sign * objective
+            y_eq = np.asarray(result.eqlin.marginals, dtype=float)
+            y_ub = np.minimum(np.asarray(result.ineqlin.marginals, dtype=float), 0.0)
+            if not np.isfinite(y_eq).all() or not np.isfinite(y_ub).all():
+                return _staged("nonfinite_dual_staged", len(atoms))
+            reduced = c - eq.T @ y_eq - aub.T @ y_ub
+            correction = float(min(0.0, np.min(reduced)))
+            padding = PAD * (1.0 + float(np.abs(y_eq).sum()) + float(np.abs(y_ub).sum()))
+            dual_lower = float(eq_target @ y_eq + bub @ y_ub) + correction - padding
+            signed_primal = float(c @ x)
+            if dual_lower > signed_primal + 1e-6:
+                return _staged("dual_verification_staged", len(atoms))
             value = float(objective @ x)
-            solutions.append({"value": value, "support": [[int(i), float(v)] for i, v in enumerate(x) if v > 1e-12],
+            solutions.append({"value": value, "signed_primal": signed_primal, "dual_lower": dual_lower,
+                              "dual_eq": y_eq.tolist(), "dual_ub": y_ub.tolist(),
+                              "reduced_min": float(np.min(reduced)), "padding": padding,
+                              "support": [[int(i), float(v)] for i, v in enumerate(x) if v > 1e-12],
                               "marginals": marginals})
-        lo = max(0.0, solutions[0]["value"] - PAD)
-        hi = min(1.0, solutions[1]["value"] + PAD)
+        lo = max(0.0, solutions[0]["dual_lower"])
+        hi = min(1.0, -solutions[1]["dual_lower"])
         if lo > hi + 1e-7:
             return _staged("numeric_inconsistency", len(atoms))
         return {"status": "bounded", "certified": True, "lower": lo, "upper": hi, "atoms": len(atoms),
                 "worlds": len(worlds), "min": solutions[0], "max": solutions[1],
-                "assumption": "Every supplied marginal interval contains the true atom probability; numerical LP bounds are outward padded."}
+                "assumption": "Every supplied marginal interval contains the true atom probability; independently checked dual outer bounds are outward padded."}
     except (TypeError, ValueError, KeyError, OverflowError):
         return _staged("invalid_input")
 

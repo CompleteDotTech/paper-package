@@ -24,7 +24,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt
       - run: python -B -m graph_synthesis.dspy_jev_optimizer.verify
-      - run: python -B -m unittest graph_synthesis.dspy_benchmark.test_study -v
+      - run: python -B -m unittest graph_synthesis.dspy_benchmark.test_study graph_synthesis.dspy_benchmark.test_sdk_signature -v
   live:
     needs: verify
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
@@ -66,7 +66,7 @@ jobs:
           dspy,lm,predictor=proposer(17)
           with dspy.context(lm=lm,adapter=dspy.JSONAdapter()):
               p=predictor(task='entity_resolution',questions_json=canonical([{'type':'noul','instructions':'Do both records identify the same entity?'}]),training_feedback_json='[]',iteration=0)
-          assert len(p.instructions)==1 and len(p.criteria)==1
+          assert len(p.improved_instructions)==1 and len(p.improved_criteria)==1
           print('Real local DSPy proposal contract passed.')
           PY
       - name: Run five fresh searches and raw/calibrated comparisons

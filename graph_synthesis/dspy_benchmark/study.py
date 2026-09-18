@@ -216,7 +216,7 @@ class Live:
                 with gzip.open(self.out/'calls.jsonl.gz','at',encoding='utf-8') as f:f.write(canonical(record)+'\n')
             if error is None:return raw
             if code in [401,403]:raise RuntimeError('Jev authentication/permission failure')
-            if code and code not in [429,500,502,503,504]:raise RuntimeError(error)
+            if code and code not in [429,500,502,503,504,529]:raise RuntimeError(error)
             time.sleep(2**attempt)
         raise RuntimeError('Jev request failed after bounded retries')
     def evaluate(self,task,arm,rows,configs,demos,phase):
@@ -242,8 +242,8 @@ def proposer(seed):
         questions_json: str=dspy.InputField()
         training_feedback_json: str=dspy.InputField()
         iteration: int=dspy.InputField()
-        instructions: list[str]=dspy.OutputField()
-        criteria: list[dict[str,str]]=dspy.OutputField()
+        improved_instructions: list[str]=dspy.OutputField()
+        improved_criteria: list[dict[str,str]]=dspy.OutputField()
     lm=dspy.LM('openai/local-qwen',api_base='http://127.0.0.1:8080/v1',api_key='local-no-secret',
                temperature=.8,max_tokens=1000,timeout=240,num_retries=0,cache=False,seed=seed)
     return dspy,lm,dspy.Predict(Revise)
@@ -272,7 +272,7 @@ def search(task,arm,baseline,parts,live,output,seed):
         try:
             with dspy.context(lm=lm,adapter=dspy.JSONAdapter()):
                 proposal=predictor(task=task,questions_json=canonical(list(incumbent.values())),training_feedback_json=canonical(feedback),iteration=iteration)
-            instructions,criteria=proposal.instructions,proposal.criteria
+            instructions,criteria=proposal.improved_instructions,proposal.improved_criteria
             if len(instructions)!=len(baseline) or len(criteria)!=len(baseline):raise ValueError('Question count changed')
             candidate={k:{**q,'instructions':instructions[i],**({'criteria':criteria[i]} if 'criteria' in q else {})} for i,(k,q) in enumerate(baseline.items())}
             candidate=validate_questions(candidate,baseline);fingerprint=digest(candidate)

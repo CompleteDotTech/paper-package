@@ -8,7 +8,7 @@ from .run import HERE, ROOT, sha, write
 
 START = '<!-- NOVEL_MECHANISMS_RESEARCH_START -->'
 END = '<!-- NOVEL_MECHANISMS_RESEARCH_END -->'
-ANCHOR = '<!-- RELIABILITY_RESEARCH_END -->'
+ANCHOR = '<!-- UNCERTAINTY_RESEARCH_END -->'
 TITLES = ['Unlabeled label-shift correction','Dependence-robust lineage certificates','Protected-fact minimal repair','Bipartite conflict optimization','Indexed interval conflict construction']
 STEMS = ['01_label_shift','02_dependence_bounds','03_minimal_repair','04_bipartite_capacity','05_indexed_conflicts']
 

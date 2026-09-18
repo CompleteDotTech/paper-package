@@ -58,6 +58,22 @@ Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query
 
 <!-- UNCERTAINTY_RESEARCH_END -->
 
+<!-- NOVEL_MECHANISMS_RESEARCH_START -->
+
+## Five previously untested mechanisms after PR #17
+
+[Executed report](graph_synthesis/novel_mechanisms/RESULTS.md), [frozen protocol](graph_synthesis/novel_mechanisms/PROTOCOL.md), [five figures](graph_synthesis/novel_mechanisms/figures/) and [updated full paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. Label-shift correction ties at 18 wrong edges per 150 accepted. Dependence-safe certificates, protected-fact repair, bipartite optimization and indexed conflict construction meet controlled targets. No fresh Jev calls, independent semantic accuracy or worldwide novelty claims; no production policy changes. Negative results and assumption-breaking controls are retained.
+
+<!-- NOVEL_MECHANISMS_RESEARCH_END -->
+
+<!-- INTERVAL_REGRET_RESEARCH_START -->
+
+## Distinct replacement after concurrent novelty overlap
+
+Original H4 is concurrent replication of the separately merged bipartite study, not counted twice. The five distinct additions are H1, H2, H3, H5 and H6. [H6 results](graph_synthesis/novel_mechanisms/REGRET_RESULTS.md): 62/128 lower worst-case priority-regret cases, with 0 regressions; primary target met. This is controlled interval-priority optimization, not semantic validation. All six executed outcomes and both frozen protocols remain available.
+
+<!-- INTERVAL_REGRET_RESEARCH_END -->
+
 <!-- FRONTIER_RESEARCH_START -->
 
 ## Five structural-frontier extensions after PR #17

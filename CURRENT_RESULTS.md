@@ -40,13 +40,15 @@
 
 <!-- SOURCE_STRUCTURAL_RESEARCH_END -->
 
-<!-- FRONTIER_RESEARCH_START -->
+<!-- ASSUMPTION_AWARE_RESEARCH_START -->
 
-## Five structural-frontier extensions after PR #17
+## Five assumption-aware improvements after PR #17
 
-[Executed report](graph_synthesis/frontier/RESULTS.md), [pre-execution protocol](graph_synthesis/frontier/PROTOCOL.md), [novelty audit](graph_synthesis/frontier/NOVELTY.md), [five figure pairs](graph_synthesis/frontier/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1/H3/H4/H5 meet controlled supplied-input targets; H2 fails its frozen review-quality target. Source-conditioned probabilities prevent nine independent-marginal false admissions on 96 controlled fixtures; all three review selectors tie at 13.043478 expected contaminated groups. Ten large lineage formulas and nine bipartite conflict fixtures are exact. Connected-path summary transitions fall by 96.47%, excluding linear witness decoding. No new Jev calls, independent semantic-accuracy finding, worldwide novelty claim or production-policy change. All earlier studies and negative results remain intact.
+[Executed results](graph_synthesis/assumption_aware/RESULTS.md), [frozen protocol](graph_synthesis/assumption_aware/PROTOCOL.md), [five figures](graph_synthesis/assumption_aware/figures/), [novelty boundary](graph_synthesis/assumption_aware/NOVELTY.md), and [complete updated paper](manuscript/paper-current.pdf).
 
-<!-- FRONTIER_RESEARCH_END -->
+Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query-exposure review fails: weighted residual contamination rises 50 to 63 at 20 idealized reviews. Repair-invariant answers, connected-tree delta updates and grounded cyclic provenance meet their controlled targets. Balanced-tree DP visits fall 97.63%, but including eager reconstruction visits reduces the counted saving to 48.81%. Indexed grounding reduces dependency inspections 94.28%, with rule initialization reported separately. No new Jev calls, independent semantic validation, global novelty claim, external-system superiority or default production-policy change. Negative results and false-priority/source controls remain visible.
+
+<!-- ASSUMPTION_AWARE_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

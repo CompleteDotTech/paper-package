@@ -1,0 +1,6 @@
+hypothesis,mechanism,primary_target_met,fresh_service_calls
+H1,Unlabeled label-shift correction,False,0
+H2,Dependence-robust lineage certificates,True,0
+H3,Protected-fact minimal repair,True,0
+H4,Bipartite conflict optimization,True,0
+H5,Indexed interval conflict construction,True,0

@@ -1030,350 +1030,340 @@ python -B -m graph_synthesis.reliability.report --figures --update-paper
 python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
 </code></pre>
 <p>The machine-readable results preserve development fold exclusions, all calibration candidates, group predictions, review IDs, sensitivity assumptions, random fixtures, mutation events, oracle outputs and source hashes. Five SVG/PNG figure pairs and summary.csv are regenerated from results.json. The extension manifest binds source, results, figures and validation records. Original raw calls and the archived original manuscript are untouched. The complete current manuscript retains all preceding studies and their limitations.</p>
-<h1>Dependence-aware certificates for Jev graph synthesis</h1>
+<h1>Reliability ranking, source diversity and bounded exact inference for Jev graph synthesis</h1>
 <p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026</p>
 <h2>Abstract</h2>
-<p>Five frozen exploratory tests extend the graph pipeline beyond independent-source assumptions and a single chosen repair. A development-fitted beta-binomial source model changes contamination Brier from 0.140410 to 0.131444, a 6.39% reduction; its primary target is not met. Dependence-aware probability bounds prevent 20/20 independence-induced false admissions in supplied correlated-source controls. Integer flow certificates recover all seven analytic bipartite optima, including 2,048-vertex cycles previously staged. Query classification agrees with finite enumeration, and delta-indexed updates match full recomputation across 640 random mutations. Declared boundary graph-element visits fall by 99.11% on the fixed local-update workload, but by 0.00% on its connected control. These are conditional algorithm and saved-response findings, not new Jev semantic-accuracy evidence or a comparison against KARMA.</p>
-<h2>1. Motivation, novelty boundary and frozen methodology</h2>
-<p>The preceding <a href="../graph_synthesis/reliability/RESULTS.md">reliability study</a> exposed three limitations: its calibration multiplier worsened Brier; exact lineage probabilities remained conditional on independent primitives; and incremental maintenance still scanned the global snapshot. Its conflict optimizer also returned one optimum and staged components outside its cutset/cap limits. The five extensions here test these specific gaps without changing candidate extraction, accepted Jev edges or production policy.</p>
-<p>The inspected repository inventory did not contain these five integrated experiments. This is a <strong>repository-scoped new-experiment claim, not a worldwide first-attempt claim</strong>. Beta-binomial random effects, extremal-probability linear programs, weighted bipartite covers, consistent query answering across repairs and incremental maintenance all have antecedents. A targeted primary-source search and its references are recorded in the <a href="../graph_synthesis/certificates/PROTOCOL.md">protocol</a>. Established ingredients do not become novel algorithms merely through new names or integration.</p>
-<p>Protocol commit <code>bc70b76621daca198b3b97eb4f698b17d4c40a0b</code> precedes this suite's implementation/execution; the inspected baseline is <code>a62a3257645d8e35cd4e45be53bfa9511d27724b</code>. Hypotheses were informed by already public results, so this is exploratory follow-up rather than independent preregistration. H1 reuses 73 development candidates in 40 groups and 263 previously inspected evaluation candidates in 149 disjoint groups. Saved calls are reconstructed and hashes checked before use. <strong>Fresh service calls: 0.</strong> H2-H5 use controlled fixtures rather than additional Jev observations.</p>
+<p>Five refinements follow the latest risk-controlled experiments. Source-balanced reliability ranking reduces wrong accepted edges from 17 to 15 at an equal volume of 145 edges, but the 11.76% reduction misses the frozen 20% target. Source diversification covers more source groups but retains fewer correct edges and contaminates more groups. Dependence-robust review allocation meets its mathematical objective yet worsens the observed-label reviewer simulation at the primary budget. Bounded exact lineage inference recovers 16 controlled high-probability admissions lost by conservative bounds, without an oracle error. Feedback-cutset conditioning extends exact conflict optimization to the tested cyclic components of up to 256 assertions. These last two successes concern supplied probability and priority models, not improved scientific extraction or factual truth. No fresh Jev calls, independent semantic validation or production-policy change is claimed.</p>
+<h2>1. Research motivation and evidence boundary</h2>
+<p>The <a href="../graph_synthesis/risk_control/RESULTS.md">preceding risk-control study</a> exposed a useful distinction: reliable execution, estimated risk, structural consistency and factual correctness are different properties. Its economical routing guard rejected every learned candidate, source-risk gating lost substantial correct-edge coverage, qualifier checks supplied no valid veto, and review risk estimates were optimistic. The controlled forest solver succeeded but staged large cyclic components. The <a href="../graph_synthesis/followup/RESULTS.md">earlier follow-up</a> supplied conservative probability bounds for shared proof lineage. These findings motivate different acceptance rankings and exact downstream inference instead of another correlated vote.</p>
+<p>The <a href="../graph_synthesis/structural/PROTOCOL.md">protocol</a> was committed as <code>466c3dadffee223d67eb06e2ad1032155fc84430</code> before these new policies were executed, against baseline <code>338981392c77f4771cdbb58a9f8c90fd723da64a</code>. Earlier aggregate results and test cases had already been inspected. This is a frozen exploratory follow-up, not an independent preregistration. H1-H3 reuse authentic captured requests and responses: 73 development candidates in 40 source groups and 263 evaluation candidates in 149 groups. Fitting uses development labels only; selection interfaces receive no gold labels. Raw-response reconstruction, hashes and source-group separation pass before analysis.</p>
+<p><strong>Fresh service calls: 0.</strong> The historical 3,024 calls are not counted again. H1-H2 are counterfactual selection over the single-rich capture. H3 is an analytic simulation using assumed reviewer sensitivity and false-removal rates. H4-H5 compare controlled algorithms with independent finite or analytic oracles. No benchmark here evaluates candidate discovery, source extraction, a live human reviewer, an external system such as KARMA, or unattended database writes.</p>
+<p>An accepted edge is a valid SUPPORTS or REFUTES prediction. It is correct only when its polarity equals the gold label. A wrong polarity is both a wrong accepted edge and a missed gold edge. NOT_ENOUGH_INFO and operational errors are not accepted edges. Source groups are dependence units derived from source identifiers, not measured graph-connected components. A represented group contains an accepted edge; a contaminated group contains at least one wrong accepted edge.</p>
+<h2>2. Frozen primary criteria</h2>
 <table>
 <thead>
 <tr>
 <th>Hypothesis</th>
-<th>Frozen primary requirement</th>
-<th>Result</th>
-<th>Evidence class</th>
+<th>Required conjunction</th>
+<th>Executed outcome</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>H1: Source random-effects forecasting</td>
-<td>At least 10% lower Brier than same-marginal independence, absolute bias &lt;=0.03, and no regression versus prior feature risk</td>
+<td>H1: Reliability ranking</td>
+<td>At K=145: at least 20% fewer wrong edges, at least 95% natural correct-edge retention, no fewer source groups</td>
 <td>Not met</td>
-<td>Previously inspected saved-response forecasts</td>
 </tr>
 <tr>
-<td>H2: Dependence-aware lineage bounds</td>
-<td>Zero finite-oracle/bound/invariance failures; prevent all 20 correlated-source false admissions</td>
-<td>Met</td>
-<td>Supplied finite probability models</td>
+<td>H2: Source-diverse acceptance</td>
+<td>At K=100: at least 10% more source groups, at least 98% correct-edge retention, no extra contaminated groups</td>
+<td>Not met</td>
 </tr>
 <tr>
-<td>H3: Bipartite flow certificates</td>
-<td>Zero finite-oracle/certificate failures, no small-case regression, all seven large analytic optima recovered</td>
-<td>Met</td>
-<td>Supplied conflict graphs and integer priorities</td>
+<td>H3: Dependence-robust review</td>
+<td>At budget 20: strictly fewer expected contaminated observed groups, no fewer expected correct edges, no worse union-bound objective</td>
+<td>Not met</td>
 </tr>
 <tr>
-<td>H4: Repair-invariant queries</td>
-<td>Zero classification/witness failures; preserve all oracle-certain answers and reject the tie-control false certainty</td>
-<td>Met</td>
-<td>Priority-relative graph-repair semantics</td>
+<td>H4: Exact shared lineage</td>
+<td>All finite/analytic oracles and invariance checks pass; recover at least one valid 0.95 admission without false admissions</td>
+<td>Met, controlled algorithms only</td>
 </tr>
 <tr>
-<td>H5: Delta-indexed graph updates</td>
-<td>Zero mutation mismatches/invalid-state changes; at least 75% fewer declared boundary visits on the frozen local workload</td>
-<td>Met</td>
-<td>In-memory controlled graph mutations</td>
+<td>H5: Feedback-cutset conflicts</td>
+<td>All finite/analytic oracles and order checks pass; no prior utility regression; all 16 large cycles exact and unstaged</td>
+<td>Met, controlled algorithms only</td>
 </tr>
 </tbody>
 </table>
-<p>These outcomes must not be combined into a semantic success percentage. A failed conjunction remains failed even when one endpoint improves.</p>
-<h2>2. H1: Source-random-effects contamination forecasts</h2>
-<p>For each source, n counts base1 SUPPORTS/REFUTES decisions and k counts disagreements with the stored gold relation label. Empty accepted groups are excluded. The development-only marginal error estimate is (sum(k)+0.5)/(sum(n)+1). A grid of intraclass correlations {0,0.01,0.05,0.1,0.2,0.4,0.6,0.8} is selected by beta-binomial development log likelihood with a lower-correlation tie rule. At positive rho, alpha=mu(1/rho-1) and beta=(1-mu)(1/rho-1); contamination is 1-B(alpha,beta+n)/B(alpha,beta). The rho=0 comparator has the identical marginal estimate and uses 1-(1-mu)^n. Predictions consume only source exposure counts, not evaluation labels.</p>
-<p>Development selects mu=0.121622 and rho=0.6. All 40 source-excluded development sensitivity fits are retained; held-out source IDs do not enter their training fits. Evaluation uses 98 nonempty source groups, of which 60 are singletons. Singletons cannot distinguish these dependence models at fixed marginal error rate.</p>
+<p>Each target is a conjunction, not an invitation to substitute a favorable secondary metric. Target indicators are engineering criteria, not statistical discoveries. The two evidence types must not be pooled into a semantic success percentage.</p>
+<h2>3. H1: Source-balanced empirical reliability ranking</h2>
+<p>The policy changes acceptance order rather than requesting another answer. Six bins combine predicted polarity with score intervals [0,0.90), [0.90,0.99) and [0.99,1]. Every development source group with positive predictions contributes total edge weight one. A Beta(1,1)-smoothed global correctness mean supplies four pseudo-observations per bin. Unseen bins use the global mean. Selection orders estimated bin reliability, raw score and finally ID. The unweighted-fit ablation uses the same bins and smoothing without source balancing. No evaluation outcome chooses a parameter.</p>
+<p>This exploits label-conditional reliability differences without assuming that raw confidence is calibrated. The fitted global mean is 0.90; bin estimates range from about 0.683 to 0.968. These small-sample estimates are ranking features, not deployment-certified probabilities. Calibration and decision ranking are distinct: a score transformation can alter acceptance order without improving all proper scoring rules. See <a href="https://proceedings.mlr.press/v70/guo17a.html">Guo et al., On Calibration of Modern Neural Networks</a> for the general calibration distinction, not evidence validating this specific ranking.</p>
 <table>
 <thead>
 <tr>
-<th>Forecast</th>
-<th style="text-align:right">Brier</th>
-<th style="text-align:right">Clipped log loss</th>
-<th style="text-align:right">Predicted contaminated</th>
-<th style="text-align:right">Observed contaminated</th>
-<th style="text-align:right">Bias</th>
+<th style="text-align:right">Accepted budget</th>
+<th>Policy</th>
+<th style="text-align:right">Correct / wrong edges</th>
+<th style="text-align:right">Represented / contaminated groups</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Prior feature-risk model</td>
-<td style="text-align:right" class="numeric">0.128923</td>
-<td style="text-align:right" class="numeric">0.467074</td>
-<td style="text-align:right" class="numeric">8.04%</td>
-<td style="text-align:right" class="numeric">15.31%</td>
-<td style="text-align:right" class="numeric">-7.26%</td>
+<td style="text-align:right" class="numeric">100</td>
+<td>raw</td>
+<td style="text-align:right">92 / 8</td>
+<td style="text-align:right">69 / 6</td>
 </tr>
 <tr>
-<td>Prior development-selected multiplier</td>
-<td style="text-align:right" class="numeric">0.134900</td>
-<td style="text-align:right" class="numeric">0.441344</td>
-<td style="text-align:right" class="numeric">13.64%</td>
-<td style="text-align:right" class="numeric">15.31%</td>
-<td style="text-align:right" class="numeric">-1.67%</td>
+<td style="text-align:right" class="numeric">100</td>
+<td>balanced</td>
+<td style="text-align:right">89 / 11</td>
+<td style="text-align:right">74 / 11</td>
 </tr>
 <tr>
-<td>Same-marginal independence</td>
-<td style="text-align:right" class="numeric">0.140410</td>
-<td style="text-align:right" class="numeric">0.457499</td>
-<td style="text-align:right" class="numeric">17.38%</td>
-<td style="text-align:right" class="numeric">15.31%</td>
-<td style="text-align:right" class="numeric">+2.07%</td>
+<td style="text-align:right" class="numeric">100</td>
+<td>unweighted</td>
+<td style="text-align:right">93 / 7</td>
+<td style="text-align:right">74 / 7</td>
 </tr>
 <tr>
-<td>Source random effects</td>
-<td style="text-align:right" class="numeric">0.131444</td>
-<td style="text-align:right" class="numeric">0.435042</td>
-<td style="text-align:right" class="numeric">14.07%</td>
-<td style="text-align:right" class="numeric">15.31%</td>
-<td style="text-align:right" class="numeric">-1.24%</td>
+<td style="text-align:right" class="numeric">125</td>
+<td>raw</td>
+<td style="text-align:right">114 / 11</td>
+<td style="text-align:right">83 / 9</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">125</td>
+<td>balanced</td>
+<td style="text-align:right">111 / 14</td>
+<td style="text-align:right">84 / 12</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">125</td>
+<td>unweighted</td>
+<td style="text-align:right">111 / 14</td>
+<td style="text-align:right">84 / 12</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">145</td>
+<td>raw</td>
+<td style="text-align:right">128 / 17</td>
+<td style="text-align:right">95 / 15</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">145</td>
+<td>balanced</td>
+<td style="text-align:right">130 / 15</td>
+<td style="text-align:right">95 / 13</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">145</td>
+<td>unweighted</td>
+<td style="text-align:right">130 / 15</td>
+<td style="text-align:right">95 / 13</td>
 </tr>
 </tbody>
 </table>
-<p>The new-minus-same-marginal Brier difference is -0.008966; its descriptive paired 95% interval is [-0.021889, +0.001383], and its 99% interval is [-0.026211, +0.004667]. The frozen conjunction is <strong>not met</strong>. The forecast can improve relative to its matched marginal comparator while still failing the improvement threshold or regressing versus the richer prior feature model. No accepted edge is changed.</p>
-<p>Positive correlation lowers the probability of at least one error at fixed marginal error probability and exposure, because errors cluster rather than spread across groups. It does not universally make an underpredicted contamination rate more accurate. The fitted exchangeable beta-binomial model is neither a distribution-shift guarantee nor a calibration certificate.</p>
-<figure><img src="../graph_synthesis/certificates/figures/01_source_risk.png" alt="H1. All forecasts scored on the same 98 nonempty evaluation source groups." /></figure>
-<h2>3. H2: Lineage bounds without assumed independence</h2>
-<p>A monotone DNF formula is evaluated over at most 1,024 Boolean worlds for at most ten atoms. Nonnegative world masses sum to one and satisfy supplied marginal and optional conjunction constraints. Two linear programs minimize and maximize the DNF truth indicator. They use SciPy HiGHS; solver failures, infeasibility and capacity excess return [0,1] with no admission certificate. These probabilities are supplied model inputs, not Jev scores reinterpreted as fact probabilities.</p>
-<p>For a minimization objective c, equality matrix A, target b and returned dual y, c dot z &gt;= b dot y + min(0,min(c-A-transpose y)) for every feasible simplex vector z. The implementation subtracts an additional 1e-9 times (1+sum(abs(y))) outward pad. It saves primal support, duals and residuals. This is a checked, outward-padded floating-point bound conditional on supplied constraints, <strong>not formal interval-arithmetic verification or an unconditional truth guarantee</strong>.</p>
-<p>The 128 seeded arbitrary-joint fixtures have 0 containment, constraint-monotonicity, invariance or control failures. The 50 two-event OR/AND grid cases match their analytic Frechet bounds within 1e-8. Mean interval width is 0.326563 using marginals alone and 0.239902 with one valid conjunction constraint. The primary target is <strong>met</strong>.</p>
+<p>At the primary budget, the balanced and unweighted variants both retain 130 correct edges, versus 128 for confidence ranking. Balanced retention is 98.48% of the natural single-rich baseline's 132 correct edges. Represented groups remain 95. However, reducing 17 mistakes to 15 is only 11.76%, below 20%, so H1 fails. At K=100 the balanced fit is worse than both raw confidence and the unweighted ablation. Source balancing therefore cannot be credited with a general improvement.</p>
+<p>The fixed-selection balanced-minus-raw precision difference at K=145 has descriptive 95% interval [+0.00, +3.48] percentage points and 99% interval [-0.09, +4.32] points. The former touches zero and the latter crosses it. These intervals do not establish a resolved independent accuracy effect. All variants require the same 263 captured single-rich calls and 941,809 recorded input tokens; this is not a token-saving method.</p>
+<figure><img src="../graph_synthesis/structural/figures/01_reliability_ranking.png" alt="H1. Wrong edges at equal accepted volume; the frozen 20% reduction remains unmet." /></figure>
+<h2>4. H2: Diminishing-return source diversification</h2>
+<p>The separate diversity policy repeatedly selects the positive prediction maximizing raw_score / (1 + already_selected_in_source), with raw-score and ID tie-breaking. It does not train on labels or change predictions. The premise is that spreading a limited acceptance budget across sources might improve useful coverage without sacrificing correctness.</p>
 <table>
 <thead>
 <tr>
-<th>Two 0.8-marginal sources supporting an OR</th>
-<th style="text-align:right">Probability or interval</th>
-<th>Admission at 0.95</th>
+<th style="text-align:right">Accepted budget</th>
+<th style="text-align:right">Confidence: correct / wrong; groups / contaminated</th>
+<th style="text-align:right">Diverse: correct / wrong; groups / contaminated</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Assume independence without justification</td>
-<td style="text-align:right" class="numeric">0.96</td>
-<td>Yes; false under perfect correlation</td>
+<td style="text-align:right" class="numeric">100</td>
+<td style="text-align:right">92 / 8; 69 / 6</td>
+<td style="text-align:right">85 / 15; 98 / 15</td>
 </tr>
 <tr>
-<td>Actual perfectly correlated sources</td>
-<td style="text-align:right" class="numeric">0.80</td>
-<td>No</td>
+<td style="text-align:right" class="numeric">125</td>
+<td style="text-align:right">114 / 11; 83 / 9</td>
+<td style="text-align:right">108 / 17; 98 / 15</td>
 </tr>
 <tr>
-<td>Marginals only, arbitrary dependence</td>
-<td style="text-align:right">Approximately [0.80,1.00]</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Explicit joint probability 0.80</td>
-<td style="text-align:right">Approximately [0.80,0.80]</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Explicit joint probability 0.64</td>
-<td style="text-align:right">Approximately [0.96,0.96]</td>
-<td>Yes, conditional on this constraint</td>
+<td style="text-align:right" class="numeric">145</td>
+<td style="text-align:right">128 / 17; 95 / 15</td>
+<td style="text-align:right">127 / 18; 98 / 15</td>
 </tr>
 </tbody>
 </table>
-<p>Across 20 marginal settings, the method prevents 20 false admissions from an unjustified independence assumption. It also withholds 20 genuinely high-probability admissions when only marginals are provided, and recovers 20 when the correct joint constraint is supplied. That conservatism is a real information tradeoff, not free accuracy. Infeasible and 11-atom cases stage. The false-premise control supplies 0.99 for an actually 0.50-probability atom; the resulting conditional bound still admits it. Arithmetic cannot repair incorrect evidence metadata.</p>
-<figure><img src="../graph_synthesis/certificates/figures/02_dependence_bounds.png" alt="H2. The correlated-source negative control separates assumed independence from valid lower bounds." /></figure>
-<h2>4. H3: Integer-flow certificates for bipartite conflicts</h2>
-<p>A bipartite conflict component is reduced to minimum weighted vertex cover: source-to-left and right-to-sink capacities are supplied priorities, and conflict arcs have capacity one greater than total priority. An integer max-flow/min-cut certificate gives a minimum cover; its complement is a maximum-weight independent set. The verifier reconstructs the original network, checks capacity bounds and conservation, proves flow equals cut capacity, checks the cover/independent-set relationship and verifies the reported utility. No hidden tie-breaking weight perturbation changes the objective.</p>
-<p>The new route supports components up to 2,048 vertices and 50,000 edges. Non-bipartite components use the actual prior cutset solver with its original limits; unsupported cases stage rather than silently accepting a heuristic solution. These are explicit conflict graphs, not newly extracted relationships.</p>
-<p>All 128 small bipartite cases match independent subset enumeration and their flow certificates. Another 128 small general graphs have no utility regression. Reordering or repeating edges preserves outputs. Total failures: 0. The primary target is <strong>met</strong>.</p>
+<p>At K=100, coverage rises from 69 to 98 represented groups (42.03%), but correct edges fall from 92 to 85. Retention is only 92.39%, below 98%. Contaminated groups increase from 6 to 15. H2 fails despite the favorable coverage count. At larger budgets the correctness penalty narrows, but no diagnostic budget replaces the primary test.</p>
+<p>The mechanism is visible in the policy: a high-confidence second edge in one source can be displaced by a less reliable first edge in another. Coverage is a design preference, not a free accuracy gain. Source-group coverage is not graph-node recall, relationship diversity or recovered scientific knowledge. The ranking still consumes the same full single-rich acquisition budget.</p>
+<figure><img src="../graph_synthesis/structural/figures/02_source_coverage.png" alt="H2. Budget labels show the tradeoff between represented sources and correct edges." /></figure>
+<h2>5. H3: Review allocation robust to dependence, conditional on valid marginals</h2>
+<p>For residual edge-error marginals q_i, the probability of any error in a group lies between max(q_i) and min(1, sum(q_i)). The prior independent estimate 1 - product(1-q_i) lies between those bounds. A review multiplies its edge marginal by 1-s, where assumed sensitivity s=0.75. Group-budget dynamic programming minimizes the sum of the upper envelopes. For a fixed review count within a group, reviewing its highest-risk edges minimizes the residual sum; enumerating all group counts then yields the exact global allocation for this supplied objective. This establishes optimality of the modeled allocation, not correctness of the supplied risks.</p>
+<p>The development-only risk features and acquisition charges are unchanged from the previous independent-risk optimizer. False removal of a correct reviewed edge is assumed to be 0.05 and measured in the outcome simulation, not included in the allocation objective. Exact subset enumeration on 64 eight-edge fixtures finds zero objective failures. Enumeration of 64 four-edge joint distributions, including dependent errors, finds zero containment failures. These checks validate arithmetic under supplied marginals. A miscalibration control supplies four marginals of 0.01 although the actual union event has probability one: the computed upper envelope 0.04 is then invalid for truth. Removing an independence assumption cannot repair inaccurate marginal estimates.</p>
 <table>
 <thead>
 <tr>
-<th>Analytic topology</th>
-<th style="text-align:right">Vertices</th>
-<th style="text-align:right">Edges</th>
-<th style="text-align:right">Previous utility</th>
-<th style="text-align:right">New utility</th>
-<th style="text-align:right">Oracle utility</th>
+<th style="text-align:right">Reviews</th>
+<th style="text-align:right">Independent allocation: expected contaminated / correct</th>
+<th style="text-align:right">Robust allocation: expected contaminated / correct</th>
+<th style="text-align:right">Fitted upper envelope (both)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>complete bipartite</td>
-<td style="text-align:right" class="numeric">32</td>
-<td style="text-align:right" class="numeric">256</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">48</td>
-<td style="text-align:right" class="numeric">48</td>
+<td style="text-align:right" class="numeric">10</td>
+<td style="text-align:right">12.7500 / 131.70</td>
+<td style="text-align:right">12.7500 / 131.70</td>
+<td style="text-align:right" class="numeric">4.5364</td>
 </tr>
 <tr>
-<td>complete bipartite</td>
-<td style="text-align:right" class="numeric">64</td>
-<td style="text-align:right" class="numeric">1024</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">96</td>
-<td style="text-align:right" class="numeric">96</td>
+<td style="text-align:right" class="numeric">20</td>
+<td style="text-align:right">10.6875 / 131.35</td>
+<td style="text-align:right">12.1875 / 131.25</td>
+<td style="text-align:right" class="numeric">4.0978</td>
 </tr>
 <tr>
-<td>complete bipartite</td>
-<td style="text-align:right" class="numeric">128</td>
-<td style="text-align:right" class="numeric">4096</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">192</td>
-<td style="text-align:right" class="numeric">192</td>
+<td style="text-align:right" class="numeric">30</td>
+<td style="text-align:right">9.1875 / 130.95</td>
+<td style="text-align:right">10.6875 / 130.85</td>
+<td style="text-align:right" class="numeric">3.8786</td>
 </tr>
 <tr>
-<td>complete bipartite</td>
-<td style="text-align:right" class="numeric">256</td>
-<td style="text-align:right" class="numeric">16384</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">384</td>
-<td style="text-align:right" class="numeric">384</td>
-</tr>
-<tr>
-<td>even cycle</td>
-<td style="text-align:right" class="numeric">512</td>
-<td style="text-align:right" class="numeric">512</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">256</td>
-<td style="text-align:right" class="numeric">256</td>
-</tr>
-<tr>
-<td>even cycle</td>
-<td style="text-align:right" class="numeric">1024</td>
-<td style="text-align:right" class="numeric">1024</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">512</td>
-<td style="text-align:right" class="numeric">512</td>
-</tr>
-<tr>
-<td>even cycle</td>
-<td style="text-align:right" class="numeric">2048</td>
-<td style="text-align:right" class="numeric">2048</td>
-<td style="text-align:right" class="numeric">0</td>
-<td style="text-align:right" class="numeric">1024</td>
-<td style="text-align:right" class="numeric">1024</td>
+<td style="text-align:right" class="numeric">40</td>
+<td style="text-align:right">9.1875 / 130.45</td>
+<td style="text-align:right">9.1875 / 130.45</td>
+<td style="text-align:right" class="numeric">3.6593</td>
 </tr>
 </tbody>
 </table>
-<p>Complete-bipartite fixtures assign priority 3 on one balanced side and 2 on the other; cycles use unit priorities. Prior zero utility means staged, not an incorrect accepted graph. The 2,050-cycle and 50,176-edge complete-bipartite controls stage; a 17-cycle still uses the prior exact route, while the dense 17-clique remains unsupported. A false assertion of priority 9 still defeats a true conflicting assertion of priority 8. Certified optimality concerns supplied priorities, not semantic truth.</p>
-<figure><img src="../graph_synthesis/certificates/figures/03_bipartite_capacity.png" alt="H3. Previously staged analytic conflict components are solved exactly with integer certificates." /></figure>
-<h2>5. H4: Queries invariant across admissible graph repairs</h2>
-<p>Let U be maximum supplied priority. Admissible repairs are all independent sets with utility at least U-epsilon, using epsilon=0 and floor(0.05U). For a conjunction of up to eight required vertices, constrained inclusion tests whether some admissible repair contains the conjunction. Constrained exclusion of each required vertex tests whether any admissible repair falsifies it. Answers are certain, ambiguous or impossible, with an explicit counterexample for ambiguity. Staged optimization propagates unsupported status rather than false certainty.</p>
-<p>Across 128 seeded general graphs and two tolerance settings, classifications and witnesses have 0 oracle failures. Every oracle-certain answer is retained and larger tolerance creates no new certain answers. Among exact-optimum random cases, 2 affirmative answers from one selected optimum are not invariant across all optima. The explicit equal-weight conflict control also returns an alternative repair that falsifies the chosen optimum's affirmative answer. Primary target: <strong>met</strong>.</p>
+<p>At the primary budget 20, the robust allocation leaves 12.1875 expected contaminated groups, versus 10.6875, and retains 131.25 rather than 131.35 expected correct edges. H3 fails. Both allocations tie the fitted upper-envelope objective, so a different optimum can still be worse under the observed-label simulation. The fitted upper envelope near 4.10 is far below either simulation outcome; it is not a calibrated empirical upper confidence bound.</p>
+<p>Risk-feature acquisition requires 1,274,247 recorded input tokens before reviewer cost. The stored sensitivity analysis crosses s in {0.5,0.75,1} with false-removal rates {0,0.01,0.05}, keeping selected IDs fixed. These are expectations under assumed independent reviewer detections, not measured human trials or guarantees about correlated reviewer mistakes.</p>
+<figure><img src="../graph_synthesis/structural/figures/03_review_allocation.png" alt="H3. Observed-label reviewer simulations diverge despite equal modeled robust objectives." /></figure>
+<h2>6. H4: Bounded exact inference over shared proof lineage</h2>
+<p>A sufficient proof is a conjunction of explicitly supplied primitive Bernoulli events. The accepted assertion is the disjunction of its sufficient proofs. The previous component bounds deduplicate and account conservatively for shared atoms, but can be too loose for admission. The refinement canonicalizes proof clauses, absorbs supersets, and applies Shannon decomposition: P(F) = p_a P(F | a=true) + (1-p_a) P(F | a=false). The most frequent atom is conditioned first, with lexical tie-breaking; canonical residual formulas are memoized. Shared proofs are never treated as independent witnesses.</p>
+<p>The exactness follows by the law of total probability and independence of the supplied primitive atoms, not independence of clauses. This is an application of established Boolean/probabilistic inference rather than a newly invented theorem. <a href="https://arxiv.org/abs/1106.1819">Darwiche and Marquis, A Knowledge Compilation Map</a> situates representation/tractability tradeoffs; <a href="https://arxiv.org/abs/1201.6569">Fink, Han and Olteanu, Aggregation in Probabilistic Databases via Knowledge Compilation</a> provides related probabilistic-database context. Neither reference validates Jev scores as source reliabilities.</p>
+<p>All 128 seeded eight-atom fixtures match full possible-world enumeration within 1e-10. All 512 duplicate/order checks pass. Eight larger shared-hub fixtures also match the analytic probability 0.99 * (1 - 0.5^(n-1)). Their atoms are the independent hub and leaves; proofs share the hub. The old lower bound stays 0.495 while exact probabilities exceed the 0.95 admission threshold.</p>
 <table>
 <thead>
 <tr>
-<th>Repair tolerance</th>
-<th style="text-align:right">Certain conjunctions</th>
-<th style="text-align:right">Ambiguous conjunctions</th>
-<th style="text-align:right">Impossible conjunctions</th>
+<th style="text-align:right">Primitive atoms</th>
+<th style="text-align:right">Old lower bound</th>
+<th style="text-align:right">Exact / analytic probability</th>
+<th style="text-align:right">Memoized states</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Exact maximum priority</td>
-<td style="text-align:right" class="numeric">69</td>
-<td style="text-align:right" class="numeric">7</td>
-<td style="text-align:right" class="numeric">52</td>
+<td style="text-align:right" class="numeric">8</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.982265625</td>
+<td style="text-align:right" class="numeric">10</td>
 </tr>
-<tr>
-<td>Within floor(5% of optimum)</td>
-<td style="text-align:right" class="numeric">65</td>
-<td style="text-align:right" class="numeric">12</td>
-<td style="text-align:right" class="numeric">51</td>
-</tr>
-</tbody>
-</table>
-<p>Some sampled conjunctions are empty and hence tautological; these counts describe the fixture distribution, not a population query-success rate. Conflicting conjunctions are impossible. Zero-priority optional vertices can be ambiguous. The high-priority false assertion is still repair-certain under its supplied objective: repair certainty must not be presented as factual certainty.</p>
-<figure><img src="../graph_synthesis/certificates/figures/04_repair_queries.png" alt="H4. Query status across exact and near-optimal admissible repairs." /></figure>
-<h2>6. H5: Delta-indexed maintenance without global snapshot rescans</h2>
-<p>The in-memory index validates an initial graph and maintains private adjacency, priorities, component membership and cached solutions. An explicit mutation API supports weight changes, vertex insertion/deletion and edge insertion/deletion. It copies, validates, discovers and solves only affected old components and their replacements before publication. Bridge insertion joins two scopes; bridge or vertex deletion discovers splits inside the affected old scope. Unaffected solutions are reused. Mutations return selection/staging deltas and aggregate utility rather than forcing a full graph materialization. Snapshot audit is a separate operation.</p>
-<p>Independent full-snapshot mutation and optimization checks find 0 failures across 640 seeded mutations, deliberate bridge controls and locality/stress workloads. Each of the five mutation types appears 128 times in the randomized test. Invalid mutations produce 0 state changes; tests also inject a solver exception before publication. This is not a concurrent or durable database transaction protocol.</p>
-<table>
-<thead>
-<tr>
-<th>Workload, including cold build</th>
-<th style="text-align:right">Delta-index boundary visits</th>
-<th style="text-align:right">Full-rescan boundary visits</th>
-<th style="text-align:right">Reduction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>512 eight-vertex components; 128 local updates</td>
-<td style="text-align:right" class="numeric">65,920</td>
-<td style="text-align:right" class="numeric">7,391,616</td>
-<td style="text-align:right" class="numeric">99.11%</td>
-</tr>
-<tr>
-<td>One 64-vertex component; 128 updates</td>
-<td style="text-align:right" class="numeric">123,096</td>
-<td style="text-align:right" class="numeric">123,096</td>
-<td style="text-align:right" class="numeric">0.00%</td>
-</tr>
-</tbody>
-</table>
-<p>The frozen primary target is <strong>met</strong>. The comparator uses the same optimizer but copies, validates, discovers and prepares every component on every update. The boundary metric counts declared passes for graph copying, validation, discovery, solver input, mutation validation and publication. It explicitly excludes sorting, optimizer-internal work, certificate-check work and the audit materialization. Therefore the percentage is <strong>not</strong> a measured reduction in all CPU operations, service latency or database I/O. It improves on the previous study's solver-vertex-only scope, but is still an instrumented boundary measure.</p>
-<h3>Separate single-host timing measurements</h3>
-<p>Three repetitions alternate policy order. Timings include cold construction and 64 updates, but exclude snapshot comparison for both policies. Medians below are descriptive, not a primary endpoint or a portable speed guarantee. All individual measurements and environment details are retained in <a href="../graph_synthesis/certificates/timings.json">timings.json</a>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Components</th>
-<th style="text-align:right">Vertices</th>
-<th style="text-align:right">Delta-index median seconds</th>
-<th style="text-align:right">Full-rescan median seconds</th>
-<th style="text-align:right">Ratio</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td style="text-align:right" class="numeric">16</td>
-<td style="text-align:right" class="numeric">128</td>
-<td style="text-align:right" class="numeric">0.011026</td>
-<td style="text-align:right" class="numeric">0.125704</td>
-<td style="text-align:right">11.40x</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.989969788</td>
+<td style="text-align:right" class="numeric">18</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">32</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.990000000</td>
+<td style="text-align:right" class="numeric">34</td>
 </tr>
 <tr>
 <td style="text-align:right" class="numeric">64</td>
-<td style="text-align:right" class="numeric">512</td>
-<td style="text-align:right" class="numeric">0.017190</td>
-<td style="text-align:right" class="numeric">0.555562</td>
-<td style="text-align:right">32.32x</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.990000000</td>
+<td style="text-align:right" class="numeric">66</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">96</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.990000000</td>
+<td style="text-align:right" class="numeric">98</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">128</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.990000000</td>
+<td style="text-align:right" class="numeric">130</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">192</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.990000000</td>
+<td style="text-align:right" class="numeric">194</td>
 </tr>
 <tr>
 <td style="text-align:right" class="numeric">256</td>
-<td style="text-align:right" class="numeric">2048</td>
-<td style="text-align:right" class="numeric">0.042154</td>
-<td style="text-align:right" class="numeric">2.336416</td>
-<td style="text-align:right">55.43x</td>
-</tr>
-<tr>
-<td style="text-align:right" class="numeric">512</td>
-<td style="text-align:right" class="numeric">4096</td>
-<td style="text-align:right" class="numeric">0.075171</td>
-<td style="text-align:right" class="numeric">4.910725</td>
-<td style="text-align:right">65.33x</td>
+<td style="text-align:right" class="numeric">0.495000</td>
+<td style="text-align:right" class="numeric">0.990000000</td>
+<td style="text-align:right" class="numeric">258</td>
 </tr>
 </tbody>
 </table>
-<figure><img src="../graph_synthesis/certificates/figures/05_delta_locality.png" alt="H5. Benefits depend on component locality; the connected control has no counted-work saving." /></figure>
-<h2>7. Interpretation, uncertainty and falsifying controls</h2>
-<p>H1 uses 4,000 paired source-group bootstrap draws with seed 20260922 and fixed fitted policies. The 95% and 99% percentile intervals are descriptive, not simultaneous; they omit fitting uncertainty and cannot undo repeated use of the same evaluation corpus. Neither a favorable score nor a passed point threshold would establish out-of-distribution calibration. H2-H5 finite/analytic fixtures test implementation behavior under supplied assumptions rather than estimates of Jev accuracy.</p>
-<p>The retained negative controls are essential: incorrect marginal probabilities defeat lineage certificates; false priorities defeat semantic interpretation of flow certificates and repair certainty; uncertain dependence withholds some valid admissions; unsupported topologies stage; and connected updates remove locality savings. The structural methods remain opt-in research prototypes. Candidate-generation recall, semantic relation qualifiers, source independence discovery and real database behavior are not solved by this suite.</p>
-<p>The next independent semantic claim still requires a policy frozen before inspecting a new source-disjoint, independently adjudicated corpus, and matched evidence/resource budgets against an implemented external system such as KARMA. This suite does not claim that such a comparison ran.</p>
-<h2>8. Reproducibility and artifact integrity</h2>
-<pre><code class="language-bash">python -m pip install -r graph_synthesis/certificates/requirements.txt
-python -B -m graph_synthesis.certificates.run --timings
-python -B -m unittest discover -s graph_synthesis/certificates/tests -v
-python -B -m graph_synthesis.certificates.run --check
-python -B -m graph_synthesis.certificates.report --figures --update-paper
-python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
-</code></pre>
-<p>The <a href="../graph_synthesis/certificates/results.json">machine-readable results</a> preserve fit candidates, held-source exclusions, predictions, complete fixture inputs, joint-world probabilities, LP witnesses, graph certificates, mutation events, oracle outputs and source hashes. Timings are deliberately separate from deterministic replay. Five SVG/PNG figure pairs and a summary CSV are regenerated from recorded results; the extension manifest hashes its source and artifacts. Original raw evidence and the archived manuscript remain unchanged, and the complete current manuscript retains every preceding study.</p>
-<h2>9. Primary foundations</h2>
-<ul>
-<li><a href="https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.stats.betabinom.html">SciPy beta-binomial definition</a> and <a href="https://docs.scipy.org/doc/scipy-1.17.0/reference/optimize.linprog-highs.html">HiGHS linear programming and dual marginals</a>.</li>
-<li><a href="https://arxiv.org/abs/2605.03556">Optimal Union Probability Interval Is NP-Hard</a>, situating finite-world extremal-probability programs and their complexity.</li>
-<li><a href="https://arxiv.org/abs/2111.10577">Distributed CONGEST Approximation of Weighted Vertex Covers and Matchings</a>, an antecedent for weighted bipartite cover formulations.</li>
-<li><a href="https://arxiv.org/abs/2402.09265">Computational Complexity of Preferred Subset Repairs on Data-Graphs</a> and <a href="https://arxiv.org/abs/0809.1551">Consistent Query Answers in the Presence of Universal Constraints</a>.</li>
-<li><a href="https://arxiv.org/html/1504.03947v1">A Feature-based Classification of Model Repair Approaches</a> and the <a href="https://docs.typesafe.ai/introduction">TypeSafe typed-decision interface</a>.</li>
-</ul>
-<p>These sources motivate established components; they do not validate this implementation or certify worldwide novelty.</p>
+<p>Across the 128 finite fixtures and eight analytic fixtures, exact inference recovers 16 oracle-valid admissions that the old lower bound would withhold, with 0 false admissions. H4 meets its controlled target. The endpoint counts fixtures, not newly discovered scientific graph edges. Values rounded to 0.99 in the table retain normal floating-point limitations; no symbolic exact-arithmetic claim is made.</p>
+<p>The implementation caps supplied atoms at 256, input proofs at 512 and memoized residual states at 4,096. On input/state exhaustion it returns the prior valid bounds with nonexact status and no point probability. The one-state control returns [0.25,0.50], containing the exact probability 0.375. This finite cap is a safety boundary, not a polynomial-time guarantee for arbitrary Boolean formulas. A corrupted-lineage control declares two aliases of the same 0.9 event independent and obtains 0.99 instead of 0.9. Incorrect primitive identity or uncalibrated reliability can therefore invalidate apparently precise answers. Raw Jev confidence is not promoted to primitive reliability.</p>
+<figure><img src="../graph_synthesis/structural/figures/04_exact_lineage.png" alt="H4. Eight controlled shared-hub families resolve the old lower-bound abstention." /></figure>
+<h2>7. H5: Feedback-cutset conditioning for cyclic conflicts</h2>
+<p>The prior solver handled forest components by exact dynamic programming, cyclic components of at most 16 vertices by enumeration, and staged larger cycles. The refinement finds a bounded feedback set by repeatedly removing a deterministic maximum-degree vertex from the current cycle-containing 2-core. If at most four removals leave a forest, every independent assignment of the cutset is enumerated. For each assignment, selected cutset vertices exclude their neighbors and the residual forest is solved exactly. Maximizing across these assignments is exact for the supplied weighted independent-set problem because every feasible solution has one enumerated cutset assignment.</p>
+<p>Cutset discovery is a heuristic: failing its four-removal cap does not prove that the graph lacks a smaller feedback vertex set. Such failures retain the prior solver behavior, including exact small-component fallback and explicit staging. Components over 256 vertices remain staged. No asymptotic improvement is claimed for conflict construction, and the generic graph backend does not establish that these cyclic topologies arise in a particular scientific corpus.</p>
+<p>All 128 seeded ten-vertex graphs agree with exhaustive subset enumeration, have consistent selected sets, and never regress below prior utility. All 256 input-order checks pass. Sixteen large uniform/weighted cycles agree with an independently implemented two-path recurrence; the prior solver stages every one of them.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Cycle vertices</th>
+<th style="text-align:right">Uniform: new / oracle</th>
+<th style="text-align:right">Weighted: new / oracle</th>
+<th style="text-align:right">Prior utility (both)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right" class="numeric">17</td>
+<td style="text-align:right">8 / 8</td>
+<td style="text-align:right">60 / 60</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">24</td>
+<td style="text-align:right">12 / 12</td>
+<td style="text-align:right">84 / 84</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">32</td>
+<td style="text-align:right">16 / 16</td>
+<td style="text-align:right">114 / 114</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">48</td>
+<td style="text-align:right">24 / 24</td>
+<td style="text-align:right">171 / 171</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">64</td>
+<td style="text-align:right">32 / 32</td>
+<td style="text-align:right">221 / 221</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">96</td>
+<td style="text-align:right">48 / 48</td>
+<td style="text-align:right">333 / 333</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">128</td>
+<td style="text-align:right">64 / 64</td>
+<td style="text-align:right">447 / 447</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">256</td>
+<td style="text-align:right">128 / 128</td>
+<td style="text-align:right">882 / 882</td>
+<td style="text-align:right" class="numeric">0</td>
+</tr>
+</tbody>
+</table>
+<p>H5 meets its controlled target. The 17-clique cap control stages all 17 vertices, and the 257-cycle control stages all 257. A semantic control offers two conflicting assertions with priorities nine and eight and marks the higher-priority assertion false. The exact solver still chooses the false assertion. Optimal priority retention and consistency are not factual validation. This extension changes research-only solvers, not the default graph compiler.</p>
+<figure><img src="../graph_synthesis/structural/figures/05_cutset_capacity.png" alt="H5. Weighted cycle utility equals the independent oracle beyond the prior cyclic cap." /></figure>
+<h2>8. Uncertainty, limitations and next discriminating evidence</h2>
+<p>H1-H2 use 4,000 paired source-group bootstrap draws, seed 20260921. Fitted rankings and accepted IDs are fixed in each resample. Reported 95% and 99% percentile intervals are descriptive, not simultaneous; they omit fitting uncertainty and cannot undo prior test exposure. No result is an independent confirmatory p-value. Repeated model responses are not new independent labels, and source groups do not remove every possible dependency or public-corpus training overlap.</p>
+<p>The strongest semantic lead is a small equal-volume ranking improvement, not a validated deployment policy. The strongest controlled improvements exploit structure already supplied to the algorithm. They require independently credible primitive reliabilities, correct provenance and well-specified conflict priorities. Larger candidate sets, diverse real graph topologies, externally adjudicated edge truth and fresh source-disjoint evaluations remain necessary before translating those gains into claims about Jev-assisted graph synthesis. A matched-evidence comparison with <a href="https://arxiv.org/abs/2502.06472">KARMA</a> has not been run here.</p>
+<p>A discriminating next semantic experiment should freeze the ranking before obtaining new independently adjudicated source groups, compare it with raw-confidence ranking at matched accepted volume and acquisition cost, and report source coverage alongside correct and wrong edges. A next systems experiment should preserve a real extracted provenance/conflict graph, blind its truth labels during policy selection, and measure cap/staging frequency and wall-clock cost. Those are future evidence requirements, not unexecuted results represented as complete.</p>
+<h3>Concurrent study and overlap</h3>
+<p>PR #17 merged while this extension was executing. Both studies began from PR #16 and froze protocols independently before their own runs. Its small-lineage Shannon evaluator and four-vertex cycle-cutset solver overlap with H4/H5 here; those mechanisms are not claimed as new relative to PR #17. H4 here additionally tests exact shared-hub formulas through 256 atoms, whereas that implementation caps each exact component at 16 atoms. H5 supplies a separate implementation and a different sixteen-cycle fixture grid, not a new optimization mechanism. The two studies reuse the same semantic capture and their sample counts or outcomes must not be pooled as independent evidence. Both reports and all original artifacts are preserved in the integrated manuscript.</p>
+<h2>9. Reproduction and claim audit</h2>
+<p>Run <code>python -B -m graph_synthesis.structural.run --check</code> to reconstruct inputs and reproduce all five outcomes without service access. Run <code>python -B -m unittest discover -s graph_synthesis/structural/tests -v</code> for implementation regressions. Run <code>python -B -m graph_synthesis.structural.report --figures --update-paper</code> to regenerate this report, five PNG/SVG figures and the additive current-paper section. The shared renderer then builds the full HTML/PDF, and its build record binds manuscript, renderer and PDF SHA-256 hashes.</p>
+<p><code>results.json</code> retains fitted parameters, selected IDs, all finite fixtures, oracle outputs, control failures, descriptive intervals and reviewer sensitivities. <code>summary.csv</code> records all equal-volume policy comparisons. <code>artifact-manifest.json</code> binds extension files without rewriting archived evidence. <a href="../graph_synthesis/structural/CLAIM_EVIDENCE.md">CLAIM_EVIDENCE.md</a> maps each conclusion to its evidence and forbidden extrapolation. Environment files distinguish local execution from CI. The original 161-file study and earlier extension outputs remain intact. The full manuscript remains an author-review draft.</p>
 <h1>Do additional Jev calls improve graph edges?</h1>
 <p>Timothy Wayne Gregg — exploratory research addendum, September 18, 2026</p>
 <h2>Design and evidence boundary</h2>

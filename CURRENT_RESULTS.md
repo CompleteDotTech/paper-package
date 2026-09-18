@@ -24,13 +24,13 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
-<!-- CERTIFICATES_RESEARCH_START -->
+<!-- STRUCTURAL_RESEARCH_START -->
 
-## Five dependence-aware certificate experiments after PR #17
+## Five structural refinements after PR #16
 
-[Executed report](graph_synthesis/certificates/RESULTS.md), [frozen protocol](graph_synthesis/certificates/PROTOCOL.md), [five figures](graph_synthesis/certificates/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 not met; H2 met; H3 met; H4 met; H5 met. Source-random-effects forecasting is saved-response reuse; lineage bounds, flow certificates, repair queries and delta updates are controlled algorithms. No fresh Jev calls, worldwide novelty claim, new semantic-accuracy claim or production-policy change. Negative and assumption-breaking controls are retained.
+[Executed report](graph_synthesis/structural/RESULTS.md), [frozen protocol](graph_synthesis/structural/PROTOCOL.md), [five figures](graph_synthesis/structural/figures/) and [updated full paper](manuscript/paper-current.pdf). No fresh Jev calls. Reliability ranking reduces matched-volume wrong edges from 17 to 15 but misses its 20% target. Source diversification and dependence-robust review worsen primary quality outcomes. Exact shared-lineage inference recovers 16 controlled admissions; feedback-cutset optimization solves all 16 tested large cycles through 256 assertions. Controlled probability/priority gains are not semantic-accuracy gains. Negative results retained; no production-policy change.
 
-<!-- CERTIFICATES_RESEARCH_END -->
+<!-- STRUCTURAL_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

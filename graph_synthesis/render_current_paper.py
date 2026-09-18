@@ -37,7 +37,7 @@ def render(output):
     from .render_paper import CSS
     root = Path(__file__).resolve().parents[1]
     source = root / "manuscript/paper-current.md"
-    markdown = re.sub(r"<!-- (?:FOLLOWUP|ADAPTIVE|RISK_CONTROL|RELIABILITY|CERTIFICATES)_RESEARCH_(?:START|END) -->", "", source.read_text(encoding="utf-8"))
+    markdown = re.sub(r"<!-- (?:FOLLOWUP|ADAPTIVE|RISK_CONTROL|STRUCTURAL|RELIABILITY|CERTIFICATES)_RESEARCH_(?:START|END) -->", "", source.read_text(encoding="utf-8"))
     validate_images(markdown, source, root)
     body = MarkdownIt("commonmark", {"html": False}).enable("table").render(markdown)
     body = re.sub(r"<p>(<img [^>]+>)</p>", r"<figure>\1</figure>", body)

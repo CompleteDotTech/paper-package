@@ -1,0 +1,19 @@
+{
+  "base_main": "a62a3257645d8e35cd4e45be53bfa9511d27724b",
+  "both_study_replays_verified": true,
+  "prior_reliability_and_risk_artifacts_unchanged": true,
+  "results_sha256": "4f847884a6543f77decbb1dc151b70c6d24554fdac207db88d8e7f78fe27f476",
+  "run_id": "35326071772",
+  "source_commit": "adda2c1f5caf65cfdb82a0bb5eaa0622882fd340",
+  "test_counts": {
+    "graph_synthesis/adaptive/tests": 64,
+    "graph_synthesis/corpus/tests": 32,
+    "graph_synthesis/followup/tests": 67,
+    "graph_synthesis/reliability/tests": 63,
+    "graph_synthesis/risk_control/tests": 66,
+    "graph_synthesis/structural/tests": 36,
+    "graph_synthesis/tests": 200,
+    "graph_synthesis/theory_suite/tests": 37
+  },
+  "total_tests_passed": 565
+}

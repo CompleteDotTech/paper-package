@@ -2,84 +2,15 @@ name: Adaptive improvement experiments
 on:
   pull_request:
   push:
-    branches: [main, research/jev-adaptive-improvements]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
   group: adaptive-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
-  build-research:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/research/jev-adaptive-improvements' && contains(github.event.head_commit.message, '[build-adaptive]')
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: write
-    env:
-      PYTHONDONTWRITEBYTECODE: '1'
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          ref: ${{ github.sha }}
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.12'
-      - name: Materialize reviewed research sources
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import base64, gzip, hashlib, json
-          parts=[Path(f'.adaptive-source.part{i}') for i in range(1,5)]
-          bundle=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
-          assert hashlib.sha256(bundle).hexdigest() == '1ae1e6ccd404e7b24ebb19e6906e0cf825bf9ba8111a1c0c0f4a1d4e25824a34'
-          files=json.loads(gzip.decompress(bundle))
-          allowed={'graph_synthesis/adaptive/__init__.py','graph_synthesis/adaptive/methods.py','graph_synthesis/adaptive/run.py','graph_synthesis/adaptive/report.py','graph_synthesis/adaptive/README.md','graph_synthesis/adaptive/CLAIM_EVIDENCE.md','graph_synthesis/adaptive/tests/test_adaptive.py','graph_synthesis/adaptive/tests/test_reporting.py','graph_synthesis/render_current_paper.py'}
-          assert set(files)==allowed
-          for name,text in files.items():
-              path=Path(name);path.parent.mkdir(parents=True,exist_ok=True)
-              path.write_text(text,encoding='utf-8',newline='\n')
-          for part in parts:part.unlink()
-          PY
-      - run: python -m pip install -r graph_synthesis/requirements-figures.txt
-      - name: Execute experiments and record environment
-        run: |
-          set -o pipefail
-          mkdir -p graph_synthesis/adaptive/validation
-          python -B -m unittest discover -s graph_synthesis/adaptive/tests -v 2>&1 | tee graph_synthesis/adaptive/validation/unit-tests.log
-          python -B -m graph_synthesis.adaptive.run | tee graph_synthesis/adaptive/validation/execution.log
-          python -B -m graph_synthesis.adaptive.run --check | tee graph_synthesis/adaptive/validation/replay.log
-          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/adaptive-frozen-inventory.json"
-          cp "$RUNNER_TEMP/adaptive-frozen-inventory.json" graph_synthesis/adaptive/validation/frozen-inventory.json
-          python - <<'PY'
-          import importlib.metadata as m, json, platform, os
-          from pathlib import Path
-          value={'python':platform.python_version(),'platform':platform.platform(),'packages':{k:m.version(k) for k in ['numpy','matplotlib','markdown-it-py','weasyprint']},'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'execution':'No fresh service calls; offline saved-response replay and controlled algorithms.'}
-          Path('graph_synthesis/adaptive/environment.json').write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
-          PY
-          python -B -m graph_synthesis.adaptive.report --figures --update-paper
-          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
-      - name: Commit measured results without altering archived evidence
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- '.adaptive-source.part*' graph_synthesis/adaptive graph_synthesis/render_current_paper.py manuscript/paper-current.md manuscript/paper-current.html manuscript/paper-current.pdf manuscript/paper-current.build.json CURRENT_RESULTS.md
-          git diff --cached --check
-          git commit -m 'Record five adaptive benchmarks, negative findings, figures and full paper'
-          git push origin HEAD:research/jev-adaptive-improvements
-      - name: Archive executed source and paper for independent inspection
-        run: git archive --format=tar HEAD > "$RUNNER_TEMP/adaptive-executed-source.tar"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
-        with:
-          name: adaptive-executed-evidence
-          path: |
-            ${{ runner.temp }}/adaptive-executed-source.tar
-            graph_synthesis/adaptive/validation/
-            manuscript/paper-current.pdf
-          retention-days: 14
   replay:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     strategy:
       fail-fast: false
       matrix:
@@ -111,10 +42,10 @@ jobs:
           from pathlib import Path
           import hashlib,json
           sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
-          manifest=json.loads(Path('graph_synthesis/adaptive/artifact-manifest.json').read_text())
+          manifest=json.loads(Path('graph_synthesis/adaptive/artifact-manifest.json').read_text(encoding='utf-8'))
           for path,want in manifest['sha256'].items():
               assert sha(path)==want, path
-          build=json.loads(Path('manuscript/paper-current.build.json').read_text())
+          build=json.loads(Path('manuscript/paper-current.build.json').read_text(encoding='utf-8'))
           assert sha('manuscript/paper-current.md')==build['source_sha256']
           assert sha('graph_synthesis/render_current_paper.py')==build['renderer_sha256']
           assert sha('manuscript/paper-current.pdf')==build['pdf_sha256']
@@ -122,7 +53,6 @@ jobs:
           PY
           git diff --exit-code
   figures-and-paper:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:

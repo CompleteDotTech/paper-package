@@ -1,0 +1,102 @@
+name: Falsification source verification
+on:
+  push:
+    branches: [research/graph-synthesis-falsification]
+    paths: ['.github/workflows/falsification-transfer.yml']
+permissions:
+  contents: write
+jobs:
+  verified-branch-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Restore allowlisted sources after exact hash verification
+        run: |
+          python - <<'PY'
+          import base64, hashlib, json, lzma
+          from pathlib import Path
+          allowed = {
+              '.github/workflows/graph-falsification.yml',
+              'experiments/falsification/PROTOCOL.md',
+              'experiments/falsification/README.md',
+              'experiments/falsification/PAPER_ADDENDUM.md',
+              'experiments/falsification/challenge.json',
+              'graph_synthesis/README.md',
+              'graph_synthesis/falsification.py',
+              'graph_synthesis/stress_mechanisms.py',
+              'graph_synthesis/semantic_challenge.py',
+              'graph_synthesis/tests/test_falsification.py',
+              'graph_synthesis/tests/test_semantic_challenge.py',
+          }
+          data = base64.b64decode(''.join(Path(f'.research-transfer/part{i}.b64').read_text() for i in range(1, 5)), validate=True)
+          assert hashlib.sha256(data).hexdigest() == 'cb2e9441e0133f2d169786311b5d34f16b6715fb8f86c77b2ced80fa438b0c0e'
+          files = json.loads(lzma.decompress(data))['files']
+          assert {entry['path'] for entry in files} == allowed and len(files) == len(allowed)
+          for entry in files:
+              path = Path(entry['path'])
+              content = entry['content'].encode('utf-8')
+              assert hashlib.sha256(content).hexdigest() == entry['sha256'], str(path)
+              assert not path.is_symlink()
+              if str(path).startswith('.github/'):
+                  assert path.read_bytes() == content, 'Workflow must already match connector-committed bytes'
+              else:
+                  path.parent.mkdir(parents=True, exist_ok=True)
+                  path.write_bytes(content)
+          Path('/tmp/falsification-input-manifest.json').write_text(json.dumps({e['path']: e['sha256'] for e in files}, indent=2))
+          PY
+      - name: Install existing pinned verification dependencies
+        run: python -m pip install -r graph_synthesis/requirements-verification.txt -r graph_synthesis/requirements-figures.txt
+      - name: Reproduce research and verify exact local reference hashes
+        run: |
+          python -B -m graph_synthesis.falsification
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected = {
+              'experiments/falsification/results.json': 'dd7135163c95de3674014987f9ae648e3b7a8ebcb748228a4ca257d8fb51d45c',
+              'experiments/falsification/RESULTS.md': '5d1920d8c2aaa63eda57f649e6efa707b58ad9f24fe83e59610406135f79eacf',
+          }
+          for name, sha in expected.items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == sha, name
+          PY
+          python -B -m graph_synthesis.verify --output /tmp/falsification-frozen.json
+          python -B -m graph_synthesis.falsification --check
+          python -B -m graph_synthesis.visualize --check
+          python -B -m graph_synthesis.visualize_evidence --check
+      - name: Run complete extension suite
+        run: |
+          set -o pipefail
+          python -B -m unittest discover -s graph_synthesis/tests -v 2>&1 | tee /tmp/falsification-all-tests.log
+      - name: Publish tested sources to working branch only
+        run: |
+          test "${GITHUB_REF}" = 'refs/heads/research/graph-synthesis-falsification'
+          rm .research-transfer/part{1,2,3,4}.b64
+          git diff --exit-code -- .github/workflows/
+          git add experiments/falsification graph_synthesis/README.md graph_synthesis/falsification.py graph_synthesis/semantic_challenge.py graph_synthesis/stress_mechanisms.py graph_synthesis/tests/test_falsification.py graph_synthesis/tests/test_semantic_challenge.py .research-transfer/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Add graph-synthesis falsification experiments, 65 tests, and paper addendum'
+          git push origin HEAD:refs/heads/research/graph-synthesis-falsification
+          git archive --format=tar HEAD -o /tmp/falsification-verified-source.tar
+      - name: Archive execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: falsification-verified-build
+          path: |
+            /tmp/falsification-input-manifest.json
+            /tmp/falsification-frozen.json
+            /tmp/falsification-all-tests.log
+            /tmp/falsification-verified-source.tar
+            experiments/falsification/results.json
+            experiments/falsification/RESULTS.md
+          if-no-files-found: error
+          retention-days: 14

@@ -16,6 +16,14 @@
 
 <!-- RISK_CONTROL_RESEARCH_END -->
 
+<!-- RELIABILITY_RESEARCH_START -->
+
+## Five reliability and structural improvements after PR #16
+
+[Executed report](graph_synthesis/reliability/RESULTS.md), [frozen protocol](graph_synthesis/reliability/PROTOCOL.md), [five figures](graph_synthesis/reliability/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. H1 scores captured predictions; H2 simulates review; H3-H5 test controlled algorithms. No fresh Jev calls, independent semantic-accuracy claim or production-policy change. Negative results and assumption-breaking controls are retained.
+
+<!-- RELIABILITY_RESEARCH_END -->
+
 <!-- STRUCTURAL_RESEARCH_START -->
 
 ## Five structural refinements after PR #16

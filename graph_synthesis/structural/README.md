@@ -14,3 +14,7 @@ python -B -m graph_synthesis.verify --output /tmp/original-inventory.json
 ```
 
 Omit `--check` to regenerate results. Figure/Markdown generation is deterministic with the pinned dependencies. PDF bytes may vary with renderer/fonts; `paper-current.build.json` records the actual artifact hashes. Source fitting and gold-free policy execution are separate interfaces. Every operational failure remains in the captured evidence.
+
+## Concurrent integration
+
+PR #17 completed in parallel from the same PR #16 baseline. Its exact-lineage and cycle-cutset mechanisms overlap with H4/H5 here. This extension adds the specified larger lineage-capacity evaluation and separate cyclic fixtures; it does not claim those mechanisms are newly introduced relative to PR #17. Both studies remain separate exploratory evidence, not independent semantic samples. The shared manuscript preserves both sections.

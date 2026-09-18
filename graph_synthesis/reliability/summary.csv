@@ -1,0 +1,6 @@
+hypothesis,title,primary_target_met,fresh_service_calls
+H1,Out-of-group risk calibration,False,0
+H2,Single-view review prioritization,True,0
+H3,Exact bounded lineage,True,0
+H4,Cycle-cutset optimization,True,0
+H5,Incremental conflict maintenance,True,0

@@ -164,6 +164,8 @@ def render(r):
         'H1-H2 use 4,000 paired source-group bootstrap draws, seed 20260921. Fitted rankings and accepted IDs are fixed in each resample. Reported 95% and 99% percentile intervals are descriptive, not simultaneous; they omit fitting uncertainty and cannot undo prior test exposure. No result is an independent confirmatory p-value. Repeated model responses are not new independent labels, and source groups do not remove every possible dependency or public-corpus training overlap.', '',
         'The strongest semantic lead is a small equal-volume ranking improvement, not a validated deployment policy. The strongest controlled improvements exploit structure already supplied to the algorithm. They require independently credible primitive reliabilities, correct provenance and well-specified conflict priorities. Larger candidate sets, diverse real graph topologies, externally adjudicated edge truth and fresh source-disjoint evaluations remain necessary before translating those gains into claims about Jev-assisted graph synthesis. A matched-evidence comparison with [KARMA](https://arxiv.org/abs/2502.06472) has not been run here.', '',
         'A discriminating next semantic experiment should freeze the ranking before obtaining new independently adjudicated source groups, compare it with raw-confidence ranking at matched accepted volume and acquisition cost, and report source coverage alongside correct and wrong edges. A next systems experiment should preserve a real extracted provenance/conflict graph, blind its truth labels during policy selection, and measure cap/staging frequency and wall-clock cost. Those are future evidence requirements, not unexecuted results represented as complete.', '',
+        '### Concurrent study and overlap', '',
+        'PR #17 merged while this extension was executing. Both studies began from PR #16 and froze protocols independently before their own runs. Its small-lineage Shannon evaluator and four-vertex cycle-cutset solver overlap with H4/H5 here; those mechanisms are not claimed as new relative to PR #17. H4 here additionally tests exact shared-hub formulas through 256 atoms, whereas that implementation caps each exact component at 16 atoms. H5 supplies a separate implementation and a different sixteen-cycle fixture grid, not a new optimization mechanism. The two studies reuse the same semantic capture and their sample counts or outcomes must not be pooled as independent evidence. Both reports and all original artifacts are preserved in the integrated manuscript.', '',
         '## 9. Reproduction and claim audit', '',
         'Run `python -B -m graph_synthesis.structural.run --check` to reconstruct inputs and reproduce all five outcomes without service access. Run `python -B -m unittest discover -s graph_synthesis/structural/tests -v` for implementation regressions. Run `python -B -m graph_synthesis.structural.report --figures --update-paper` to regenerate this report, five PNG/SVG figures and the additive current-paper section. The shared renderer then builds the full HTML/PDF, and its build record binds manuscript, renderer and PDF SHA-256 hashes.', '',
         '`results.json` retains fitted parameters, selected IDs, all finite fixtures, oracle outputs, control failures, descriptive intervals and reviewer sensitivities. `summary.csv` records all equal-volume policy comparisons. `artifact-manifest.json` binds extension files without rewriting archived evidence. [CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md) maps each conclusion to its evidence and forbidden extrapolation. Environment files distinguish local execution from CI. The original 161-file study and earlier extension outputs remain intact. The full manuscript remains an author-review draft.', '']
@@ -174,10 +176,11 @@ def insert(text, section):
     if text.count(START) != text.count(END) or text.count(START) > 1:
         raise ValueError('Unbalanced or duplicate structural manuscript markers')
     text = re.sub(re.escape(START)+r'.*?'+re.escape(END)+r'\s*', '', text, flags=re.S)
-    if text.count(ANCHOR) != 1:
-        raise ValueError('Expected one risk-control anchor')
-    before, after = text.split(ANCHOR, 1)
-    return before+ANCHOR+'\n\n'+START+'\n\n'+section.strip()+'\n\n'+END+'\n\n'+after.lstrip()
+    anchor = '<!-- RELIABILITY_RESEARCH_END -->' if '<!-- RELIABILITY_RESEARCH_END -->' in text else ANCHOR
+    if text.count(anchor) != 1:
+        raise ValueError('Expected one predecessor research anchor')
+    before, after = text.split(anchor, 1)
+    return before+anchor+'\n\n'+START+'\n\n'+section.strip()+'\n\n'+END+'\n\n'+after.lstrip()
 
 
 def update_paper(text):

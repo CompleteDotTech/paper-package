@@ -1,0 +1,39 @@
+name: DSPy benchmark execution preflight
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/dspy-benchmark-preflight.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  credentials:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check live execution prerequisites without exposing credentials
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DSPY_PROPOSER_MODEL: ${{ vars.DSPY_PROPOSER_MODEL }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          names = ['TYPESAFE_API_KEY', 'OPENAI_API_KEY', 'OPENROUTER_API_KEY', 'ANTHROPIC_API_KEY']
+          available = {name: bool(os.environ.get(name, '').strip()) for name in names}
+          result = {'credential_presence_only': available,
+                    'proposer_model_variable_present': bool(os.environ.get('DSPY_PROPOSER_MODEL', '').strip()),
+                    'live_inference_executed': False,
+                    'note': 'No credential values are recorded; this job makes no inference calls.'}
+          result['status'] = 'ready_for_provider_selection' if available['TYPESAFE_API_KEY'] and any(available[n] for n in names[1:]) else 'blocked_missing_credentials'
+          pathlib.Path('execution-preflight.json').write_text(json.dumps(result, indent=2)+'\n')
+          print(json.dumps(result, indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-execution-preflight
+          path: execution-preflight.json
+          retention-days: 7

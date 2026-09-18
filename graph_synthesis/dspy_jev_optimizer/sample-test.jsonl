@@ -1,3 +1,0 @@
-{"id":"te-1","state":{"claim":"The parser improved exact-match accuracy.","evidence":"Exact match increased from 62.4% to 68.9% under the preregistered test."},"label":"supports"}
-{"id":"te-2","state":{"claim":"The treatment shortened hospital stay.","evidence":"Median stay was 5.8 days for treatment and 5.2 days for control."},"label":"refutes"}
-{"id":"te-3","state":{"claim":"The algorithm is robust to distribution shift.","evidence":"The paper reports only in-distribution evaluation."},"label":"insufficient"}

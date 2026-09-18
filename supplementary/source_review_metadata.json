@@ -1,0 +1,234 @@
+{
+  "review_scope": "Primary source metadata and documented licensing; no model API calls; full documentation bodies not redistributed",
+  "review_date_utc": "2026-09-18",
+  "sources": [
+    {
+      "citation_or_source_key": "typesafe_api_2026",
+      "url": "https://docs.typesafe.ai/api",
+      "fetched_at_utc": "2026-09-18T01:13:30.443044+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/api",
+      "bytes": 516684,
+      "sha256": "2ab47ba94eb7b69c446093152ac536b70a637771fa87c56672a060c4c89417c1",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "typesafe_models_2026",
+      "url": "https://docs.typesafe.ai/models",
+      "fetched_at_utc": "2026-09-18T01:13:30.443556+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/models",
+      "bytes": 339375,
+      "sha256": "239b7a04be789c4a161726f9ac205967c5eaaded1695f7580014ab1caf23c54b",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "typesafe_confidence_2026",
+      "url": "https://docs.typesafe.ai/confidence",
+      "fetched_at_utc": "2026-09-18T01:13:30.443556+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/confidence",
+      "bytes": 310107,
+      "sha256": "3c25c08ba875ae759213c0e496bde4d53d71f403bbf59eea1ad3c8a4a639ce98",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "typesafe_choice_2026",
+      "url": "https://docs.typesafe.ai/primitives/choice",
+      "fetched_at_utc": "2026-09-18T01:13:30.443556+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/primitives/choice",
+      "bytes": 547590,
+      "sha256": "2f3cacf6e13103ca6a3e123ab231adf2d88f257300d1fc82b2ed62095f5ea1c5",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "typesafe_noul_2026",
+      "url": "https://docs.typesafe.ai/primitives/noul",
+      "fetched_at_utc": "2026-09-18T01:13:30.444560+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/primitives/noul",
+      "bytes": 332216,
+      "sha256": "e4ccff6baeb9589464c45ec783d4c910f75adbb68774a6e52ef775688ce8e2e5",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "typesafe_entity_alignment_2026",
+      "url": "https://docs.typesafe.ai/cookbooks/entity_alignment",
+      "fetched_at_utc": "2026-09-18T01:13:30.509524+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/cookbooks/entity_alignment",
+      "bytes": 519400,
+      "sha256": "e60c5d295266e2bfaf010086237873bf8319f1ca16c139957185d27612d89cc7",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "typesafe_extraction_cascade_2026",
+      "url": "https://docs.typesafe.ai/cookbooks/sde_cascade",
+      "fetched_at_utc": "2026-09-18T01:13:31.770413+00:00",
+      "status": 200,
+      "final_url": "https://docs.typesafe.ai/cookbooks/sde_cascade",
+      "bytes": 610107,
+      "sha256": "4d52089ef142d0635a8768647688633ad9102ca5b70c7d8d1da088f20ae79d92",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "scifact_license_2026",
+      "url": "https://raw.githubusercontent.com/allenai/scifact/master/LICENSE.md",
+      "fetched_at_utc": "2026-09-18T01:13:31.789054+00:00",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/allenai/scifact/master/LICENSE.md",
+      "bytes": 542,
+      "sha256": "56ee69bc639cbab8f0b2e4b67091ec5e9390aa99a1d65f0a35e4274686c9a806",
+      "content_type": "text/plain; charset=utf-8",
+      "preserved_file": "licenses/SCIFACT_LICENSE.md"
+    },
+    {
+      "citation_or_source_key": "ditto_license_2026",
+      "url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/LICENSE",
+      "fetched_at_utc": "2026-09-18T01:13:31.838353+00:00",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "content_type": "text/plain; charset=utf-8",
+      "preserved_file": "licenses/DITTO_APACHE_LICENSE.txt"
+    },
+    {
+      "citation_or_source_key": "ditto_repository_2026",
+      "url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/README.md",
+      "fetched_at_utc": "2026-09-18T01:13:31.854903+00:00",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/README.md",
+      "bytes": 6512,
+      "sha256": "2ac1bbcd066d2415ed3b7eb51cff73389ae427eee0615550c4f43d110cbfcd78",
+      "content_type": "text/plain; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "deepmatcher_datasets_2026",
+      "url": "https://raw.githubusercontent.com/anhaidgroup/deepmatcher/master/Datasets.md",
+      "fetched_at_utc": "2026-09-18T01:13:31.861008+00:00",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/anhaidgroup/deepmatcher/master/Datasets.md",
+      "bytes": 16697,
+      "sha256": "f7de01ff5121c885a6ee2de2b245a4bcb372f760af0a28256bb0108dc2af5bb0",
+      "content_type": "text/plain; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "leipzig_er_data_2026",
+      "url": "https://dbs.uni-leipzig.de/research/projects/benchmark-datasets-for-entity-resolution",
+      "fetched_at_utc": "2026-09-18T01:13:31.920908+00:00",
+      "status": "fetch_failed",
+      "error_type": "URLError",
+      "web_reader_verification": {
+        "status": "content_read_successfully",
+        "access_date_utc": "2026-09-18",
+        "license_link_destination": "https://creativecommons.org/licenses/by/4.0/",
+        "note": "Direct byte fetch failed, but web reader returned benchmark content and followed the license link. No body hash is asserted."
+      }
+    },
+    {
+      "citation_or_source_key": "cc_by_4",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "fetched_at_utc": "2026-09-18T01:13:31.948879+00:00",
+      "status": 200,
+      "final_url": "https://creativecommons.org/licenses/by/4.0/",
+      "bytes": 32178,
+      "sha256": "231a5dac65bbf135ba27145969a63cd289faadc172f1512c4810a6c60ba91036",
+      "content_type": "text/html",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "odc_by_1",
+      "url": "https://opendatacommons.org/licenses/by/1-0/",
+      "fetched_at_utc": "2026-09-18T01:13:32.008415+00:00",
+      "status": 200,
+      "final_url": "https://opendatacommons.org/licenses/by/1-0/",
+      "bytes": 46288,
+      "sha256": "0b9bb2f9572d900af671debe4a2c193adec1c09e31bf78dc4c31204e0ad01b0f",
+      "content_type": "text/html; charset=utf-8",
+      "body_preserved": false
+    },
+    {
+      "citation_or_source_key": "li2020ditto_crossref",
+      "url": "https://api.crossref.org/works/10.14778/3421424.3421431",
+      "fetched_at_utc": "2026-09-18T01:13:32.077915+00:00",
+      "status": 200,
+      "final_url": "https://api.crossref.org/works/10.14778/3421424.3421431",
+      "bytes": 18420,
+      "sha256": "1652faf998519d27d2787a99b266abfdad122dfcb17d6370281ecce38178a611",
+      "content_type": "application/json",
+      "body_preserved": false,
+      "selected_metadata": {
+        "DOI": "10.14778/3421424.3421431",
+        "title": [
+          "Deep entity matching with pre-trained language models"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2020,
+              9
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2020,
+              9
+            ]
+          ]
+        },
+        "volume": "14",
+        "issue": "1",
+        "page": "50-60"
+      }
+    },
+    {
+      "citation_or_source_key": "kopcke2010entitymatching_crossref",
+      "url": "https://api.crossref.org/works/10.14778/1920841.1920904",
+      "fetched_at_utc": "2026-09-18T01:13:32.090830+00:00",
+      "status": 200,
+      "final_url": "https://api.crossref.org/works/10.14778/1920841.1920904",
+      "bytes": 11337,
+      "sha256": "b82b2ff581cc83673e2603f3f5b2a1ae1a1061b3b99d74414b0b5790ac82aba6",
+      "content_type": "application/json",
+      "body_preserved": false,
+      "selected_metadata": {
+        "DOI": "10.14778/1920841.1920904",
+        "title": [
+          "Evaluation of entity resolution approaches on real-world match problems"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2010,
+              9
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2010,
+              9
+            ]
+          ]
+        },
+        "volume": "3",
+        "issue": "1-2",
+        "page": "484-493"
+      }
+    }
+  ]
+}

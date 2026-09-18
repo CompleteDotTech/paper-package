@@ -1,0 +1,110 @@
+{
+  "study": "two-case real-adapter/compiler integration smoke; not a held-out benchmark",
+  "timestamp_utc": "2026-09-18T00:20:56.438423+00:00",
+  "model_id": "cross-encoder/nli-deberta-v3-small",
+  "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+  "model_metadata": {
+    "model_id": "cross-encoder/nli-deberta-v3-small",
+    "requested_revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+    "model_revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+    "local_checkpoint_sha256": {},
+    "device": "cuda",
+    "label_mapping": {
+      "0": "contradiction",
+      "1": "entailment",
+      "2": "neutral"
+    },
+    "max_length": 512,
+    "score_type": "raw_logits",
+    "input_serialization_version": "pair-v2",
+    "temperature": 1.0,
+    "task": "relation_support"
+  },
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 3060",
+  "execution_mode": "real",
+  "weights_updated": false,
+  "load_seconds": 3.4792694999996456,
+  "dependencies": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "safetensors": "0.8.0"
+  },
+  "source_sha256": {
+    "pgc/experiments/run_real_compiler_smoke.py": "546cce444dad156a6ecb93c4f96ee29c0e219b4efe92f9523db8f020d8a104cb",
+    "pgc/decision/specialist_nli.py": "b20d736031a8e8d55469d982d9b5183491ed8bd1ecc5277b5cc26779a4c49ccc",
+    "pgc/decision/pair_backend.py": "b45d38d148a59154dfd6dd5a9e7c47053cd3176837bca5f15193ce47147b3a75",
+    "pgc/decision/local_model.py": "a146e18986c2f2468086d83a332140a803b37d984a2dc715fcf280b7f36a8cfe",
+    "pgc/compiler/orchestrator.py": "713f3449f444bac3117e9c9cd5fe905227c63c66c0d374c6c58ab99a5c02137e",
+    "pgc/compiler/graph_store.py": "a9332b35537333715d236e18aa3e57e510ee4d5b6045df7a4d60130e4a222b96",
+    "pgc/ir/__init__.py": "c766792001df278e4a39c3c830cca73d9f249a604b6c6a248879fb3ed8a69266"
+  },
+  "cases": [
+    {
+      "id": "manual_entailment",
+      "data_provenance": "manually constructed integration fixture",
+      "claim": "Alice lives in Paris",
+      "evidence": "Alice lives in Paris.",
+      "expected_class": "SUPPORTS",
+      "selected_class": "SUPPORTS",
+      "distribution": {
+        "REFUTES": 0.0001003692084772819,
+        "SUPPORTS": 0.996017716329689,
+        "NOT_ENOUGH_INFO": 0.0038819144618337425
+      },
+      "execution_mode": "real",
+      "compiler_threshold": 0.85,
+      "transaction_status": "committed",
+      "graph_version_before": "v1",
+      "graph_version_after": "v2",
+      "edges_after": {
+        "residence": {
+          "id": "residence",
+          "subject": "alice",
+          "predicate": "lives in",
+          "object": "paris",
+          "properties": {}
+        }
+      },
+      "provenance_entries_after": 1,
+      "atomic_transaction_entries_after": 1,
+      "model_calls": 1,
+      "rejected_candidates": {},
+      "errors": [],
+      "integration_assertions_passed": true
+    },
+    {
+      "id": "manual_contradiction",
+      "data_provenance": "manually constructed integration fixture",
+      "claim": "Alice lives in Paris",
+      "evidence": "Alice does not live in Paris. She lives in London.",
+      "expected_class": "REFUTES",
+      "selected_class": "REFUTES",
+      "distribution": {
+        "REFUTES": 0.9983282463267692,
+        "SUPPORTS": 0.0005227524074642102,
+        "NOT_ENOUGH_INFO": 0.0011490012657665244
+      },
+      "execution_mode": "real",
+      "compiler_threshold": 0.85,
+      "transaction_status": "no_op",
+      "graph_version_before": "v1",
+      "graph_version_after": "v1",
+      "edges_after": {},
+      "provenance_entries_after": 0,
+      "atomic_transaction_entries_after": 0,
+      "model_calls": 1,
+      "rejected_candidates": {
+        "residence": "REFUTES"
+      },
+      "errors": [],
+      "integration_assertions_passed": true
+    }
+  ],
+  "all_integration_assertions_passed": true,
+  "limitations": [
+    "Manually selected simple inputs; no generalization estimate",
+    "In-memory graph state only",
+    "Model probabilities are not certified semantic truth; no calibration claim"
+  ]
+}

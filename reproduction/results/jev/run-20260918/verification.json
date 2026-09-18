@@ -1,0 +1,380 @@
+{
+  "status": "passed",
+  "verified_at": "2026-09-18T01:02:11.023630+00:00",
+  "verifier_sha256": "baaed6b1ee6f0c7606bbe0e88fa46574b1aabe0c0ad37f5f6dabf184c559d1c8",
+  "run_directory": "results\\jev\\run-20260918",
+  "inputs_sha256": {
+    "manifest.json": "88033772e4c474363792f0a43203a4da22531016a89ae91843ee059dd14b4d97",
+    "plan.json": "7ed8622f2022b263f3d0b9cda413b4caafe50ebcf0589b05b886dbd615987040",
+    "calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2",
+    "results.json": "0722492caeced0b97d880485945469343f3f2327986446f986858a1991d38e62",
+    "calibration.json": "c9547f81eb7e9c19383abba309f89d9aa5a1ddbd04bb3efd8b77d9af1c916c35",
+    "PROTOCOL.md": "58739c60a5520b5d8c51e6d5005d249977d20052106e1ff43782a25dd449123a"
+  },
+  "datasets": {
+    "relation_support": {
+      "train": 459,
+      "calibration": 150,
+      "evaluation": 339,
+      "demonstrations": 6,
+      "development": 60,
+      "evaluation_identity_or_component_keys": 247
+    },
+    "entity_resolution": {
+      "train": 4592,
+      "calibration": 390,
+      "evaluation": 413,
+      "demonstrations": 6,
+      "development": 60,
+      "evaluation_identity_or_component_keys": 476
+    }
+  },
+  "n_calls_including_probe": 3405,
+  "n_predictions": 3644,
+  "stage_http_jobs": {
+    "development": 240,
+    "calibration": 1080,
+    "evaluation": 1504,
+    "fixtures": 300,
+    "fresh_repeat_1": 80,
+    "fresh_repeat_2": 80,
+    "batching": 120
+  },
+  "phase_counts": [
+    {
+      "task": "entity_resolution",
+      "split": "batching",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "batching",
+      "arm": "identity_contract",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "batching",
+      "arm": "identity_noul",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "calibration",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 390
+    },
+    {
+      "task": "entity_resolution",
+      "split": "calibration",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 390
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "identity_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "identity_noul",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 413
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 413
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 100
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 100
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "baseline_noul",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "baseline_noul",
+      "repeat": 2,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 2,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "batching",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "batching",
+      "arm": "conditional_nouls",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "batching",
+      "arm": "evidence_contract",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "calibration",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 150
+    },
+    {
+      "task": "relation_support",
+      "split": "calibration",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 150
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "conditional_nouls",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "evidence_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 339
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 339
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 50
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 50
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "baseline_choice",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "baseline_choice",
+      "repeat": 2,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 2,
+      "count": 20
+    }
+  ],
+  "http_attempts": 3405,
+  "reported_input_tokens": 4792778,
+  "reported_output_tokens": 139613,
+  "unknown_usage_attempts": 0,
+  "input_token_budget_charge": 4792778,
+  "estimated_input_usd": 0.201296676,
+  "estimated_peak_concurrency": 4,
+  "research_request_window_utc": {
+    "first_start": "2026-09-18T00:50:07.557183+00:00",
+    "last_start": "2026-09-18T00:56:57.263451+00:00"
+  },
+  "service_errors": {
+    "Probabilities must sum to one": 5
+  },
+  "comparisons": {
+    "relation_support": {
+      "baseline": "baseline_choice",
+      "selected": "fewshot_contract",
+      "raw_scores": {
+        "baseline_choice": {
+          "n_examples": 339,
+          "n_semantic_examples": 339,
+          "n_excluded_gold": 0,
+          "n_errors": 1,
+          "probability_score_denominator": 338,
+          "accuracy": 0.8525073746312685,
+          "macro_f1": 0.8508243643054886,
+          "brier_score": 0.23396745562130178,
+          "log_loss": 1.2415260739619185
+        },
+        "fewshot_contract": {
+          "n_examples": 339,
+          "n_semantic_examples": 339,
+          "n_excluded_gold": 0,
+          "n_errors": 2,
+          "probability_score_denominator": 337,
+          "accuracy": 0.8495575221238938,
+          "macro_f1": 0.8527279258098224,
+          "brier_score": 0.2305519287833828,
+          "log_loss": 1.2400990144625583
+        }
+      },
+      "macro_f1_delta": 0.001903561504333795
+    },
+    "entity_resolution": {
+      "baseline": "baseline_noul",
+      "selected": "fewshot_contract",
+      "raw_scores": {
+        "baseline_noul": {
+          "n_examples": 413,
+          "n_semantic_examples": 413,
+          "n_excluded_gold": 0,
+          "n_errors": 0,
+          "probability_score_denominator": 413,
+          "accuracy": 0.9806295399515739,
+          "macro_f1": 0.96045197740113,
+          "brier_score": 0.0408363196125908,
+          "log_loss": 0.10668499987119476
+        },
+        "fewshot_contract": {
+          "n_examples": 413,
+          "n_semantic_examples": 413,
+          "n_excluded_gold": 0,
+          "n_errors": 0,
+          "probability_score_denominator": 413,
+          "accuracy": 0.9927360774818402,
+          "macro_f1": 0.9858601997146933,
+          "brier_score": 0.018383535108958838,
+          "log_loss": 0.033516086126895876
+        }
+      },
+      "macro_f1_delta": 0.025408222313563322
+    }
+  },
+  "credential_pattern_scan": {
+    "text_files_scanned": 16,
+    "binary_figures_skipped": 1,
+    "matches": 0,
+    "limitation": "Text patterns and structured fields only; binary figures skipped, no environment/key comparison, no proof of absence of every possible secret."
+  },
+  "checks": [
+    "Frozen source, protocol, source-data and plan hashes",
+    "Training/demo/development/held-out identity isolation",
+    "Every planned phase observation and HTTP payload",
+    "Independent raw-response validation and probability reconstruction",
+    "Failure persistence and conservative token/retry accounting",
+    "Development-only selection and pre-evaluation calibration freeze",
+    "Independent raw/calibrated point scores",
+    "Three distinct fresh calls with identical semantic payloads per repeat example"
+  ],
+  "limitations": [
+    "Does not rerun model inference or establish immutable vendor weights.",
+    "Recomputes point scores but does not independently regenerate bootstrap intervals.",
+    "Concurrency is inferred from recorded attempt start times and durations.",
+    "Secret screening uses patterns, not live credential comparison."
+  ]
+}

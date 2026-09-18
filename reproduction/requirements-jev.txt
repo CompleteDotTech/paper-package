@@ -1,0 +1,2 @@
+# Jev HTTP inference, calibration, analysis, and cached replay need no GPU or local model.
+numpy==2.5.3

@@ -1,0 +1,55 @@
+{
+  "transformers": "4.57.6",
+  "base_model": "cross-encoder/nli-deberta-v3-small",
+  "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+  "saved_checkpoint": "er-title-only",
+  "original_class": "DebertaV2TokenizerFast",
+  "saved_class": "DebertaV2TokenizerFast",
+  "checked_real_pair_encodings": 21580,
+  "special_cases": 14,
+  "mismatches": [],
+  "source_split_hash": "faef8f3a423aa7fc22242e901a23bd8c1743517706c006df92273913d26d629a",
+  "cpu_only": true,
+  "warning_assessment": "Spurious Mistral regex warning in installed Transformers 4.57.6: non-Mistral local checkpoint guard is restricted to saved transformers_version <= 4.57.2.",
+  "warning_source": ".venv/Lib/site-packages/transformers/tokenization_utils_base.py:2390-2508",
+  "no_tokenizer_flags_changed": true,
+  "tokenizer_hashes": {
+    "tokenizer.json": {
+      "saved_sha256": "2a1b8c4c397722bd206838456c092c72755e27a43991e807e1d5fff5923d69a2",
+      "pinned_original_sha256": "5124ef2ead1a10a717703bc436de7f353da76d6340e4587719b42b1693707964"
+    },
+    "tokenizer_config.json": {
+      "saved_sha256": "f3eecd07c370ef0bf7dd3780d3cd68cf9c8b00c267e21a208ddcd8f82bfec1a6",
+      "pinned_original_sha256": "f3eecd07c370ef0bf7dd3780d3cd68cf9c8b00c267e21a208ddcd8f82bfec1a6"
+    },
+    "spm.model": {
+      "saved_sha256": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd",
+      "pinned_original_sha256": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd"
+    },
+    "special_tokens_map.json": {
+      "saved_sha256": "b70b72bbc44ed96ae896e1b26d2d269d40a58709c9de1428c9bbfa872fe7f7ce",
+      "pinned_original_sha256": "ed7c099c988dbb414b18a6980d20cb57b91b7cd119f6f6941eb364b0e892e712"
+    },
+    "added_tokens.json": {
+      "saved_sha256": "a4b6bfe668f2b3cf6f0cd535e98a0663d2d0d4a4a15f13075ad3597d33985a23",
+      "pinned_original_sha256": "a4b6bfe668f2b3cf6f0cd535e98a0663d2d0d4a4a15f13075ad3597d33985a23"
+    }
+  },
+  "method": "Compare all tokenizer output fields on each prepared row, both title-only and full-context inputs, both untruncated and max_length=256; plus paired Unicode, whitespace, punctuation, special tokens, URLs, and a long string. Only tokenizers loaded, no model or CUDA calls.",
+  "serialized_file_differences": {
+    "vocabulary_tokens_identical": true,
+    "vocabulary_scores_float32_identical": true,
+    "remaining_tokenizer_json_identical": false,
+    "special_tokens_map_change": "Strings expanded to equivalent AddedToken dictionaries by save_pretrained; roundtrip probes include these special tokens.",
+    "truncation_defaults": {
+      "original": null,
+      "saved": {
+        "direction": "Right",
+        "max_length": 256,
+        "strategy": "LongestFirst",
+        "stride": 0
+      },
+      "note": "Training saved a tokenizer after max_length=256 tokenization. Explicit inference truncation settings override this state; all explicit true/false probes and default special-text probes matched."
+    }
+  }
+}

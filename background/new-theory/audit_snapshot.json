@@ -1,0 +1,622 @@
+{
+  "schema_version": 1,
+  "scope": "Offline audit of two saved JSON artifacts; no model calls, no imports from pgc, no source edits",
+  "interpretation": [
+    "Exact counts characterize saved records, not verified specialist model performance.",
+    "Answerable subset excludes uncertain gold labels and is a different evaluation target.",
+    "API errors count as failures for end-to-end exact accuracy but have no probabilistic score.",
+    "No three-class Brier is fabricated: uncertainty probabilities are absent.",
+    "Saved Brier is a top-prediction correctness score; it is not a proper multiclass Brier score.",
+    "No execution provenance, hardware, measured wall-clock timing, or monetary cost can be reconstructed."
+  ],
+  "datasets": {
+    "benchmark_relation_support_50_results.json": {
+      "source_path": "C:\\Users\\timot\\Documents\\projects\\research\\test\\typed-probabilistic-graph-compiler\\benchmark_relation_support_50_results.json",
+      "sha256": "605c4b162d3ed5e76bbece6ac8a68dfbad0726d6d88dec6e37d540ab6c0831a6",
+      "saved_timestamp": "2026-09-17T22:50:01.850604",
+      "example_count": 50,
+      "raw_row_count": 200,
+      "gold_label_counts": {
+        "false": 15,
+        "true": 15,
+        "uncertain": 20
+      },
+      "majority_baselines": {
+        "status": "Descriptive baselines using observed evaluation-set class counts; not fitted deployment predictors",
+        "strict_all_labels": {
+          "labels_tied_for_majority": [
+            "uncertain"
+          ],
+          "numerator": 20,
+          "denominator": 50,
+          "value": 0.4
+        },
+        "answerable_binary": {
+          "labels_tied_for_majority": [
+            "false",
+            "true"
+          ],
+          "numerator": 15,
+          "denominator": 30,
+          "value": 0.5
+        }
+      },
+      "backends": {
+        "jev-typesafe": {
+          "strict_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 50,
+            "value": 0.0
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 30,
+            "value": 0.0
+          },
+          "confusion": {
+            "false": {
+              "ERROR": 15
+            },
+            "true": {
+              "ERROR": 15
+            },
+            "uncertain": {
+              "ERROR": 20
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "true",
+            "valid_distribution_rows": 0,
+            "answerable_rows": 30,
+            "excluded_answerable_rows": 30,
+            "value": null
+          },
+          "rows": 50,
+          "saved_reported_accuracy": 0.0,
+          "saved_reported_brier_not_standard_multiclass_brier": 1.0,
+          "saved_correct_count": 0,
+          "saved_correct_but_not_exact_count": 0,
+          "uncertain_gold_rows": 20,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 50,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 50,
+            "error_rows": 50,
+            "nonerror_rows_without_explicit_mode_marker": 0,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0
+          }
+        },
+        "specialist-nli": {
+          "strict_exact_accuracy": {
+            "numerator": 19,
+            "denominator": 50,
+            "value": 0.38
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 19,
+            "denominator": 30,
+            "value": 0.6333333333333333
+          },
+          "confusion": {
+            "false": {
+              "true": 8,
+              "false": 7
+            },
+            "true": {
+              "true": 12,
+              "false": 3
+            },
+            "uncertain": {
+              "true": 14,
+              "false": 6
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "true",
+            "valid_distribution_rows": 30,
+            "answerable_rows": 30,
+            "excluded_answerable_rows": 0,
+            "value": 0.2523437458153763
+          },
+          "rows": 50,
+          "saved_reported_accuracy": 0.38,
+          "saved_reported_brier_not_standard_multiclass_brier": 0.33893095821296026,
+          "saved_correct_count": 19,
+          "saved_correct_but_not_exact_count": 0,
+          "uncertain_gold_rows": 20,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 0,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 50,
+            "error_rows": 0,
+            "nonerror_rows_without_explicit_mode_marker": 50,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0,
+            "rows_compatible_with_current_random_fallback_ranges": 50,
+            "interpretation": "Current specialist fallback samples p in [0.3, 0.9] and synthetic latency in [50, 150] ms. Compatibility is circumstantial; execution mode is not recoverable from these records."
+          }
+        },
+        "mock-realistic-backend": {
+          "strict_exact_accuracy": {
+            "numerator": 15,
+            "denominator": 50,
+            "value": 0.3
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 15,
+            "denominator": 30,
+            "value": 0.5
+          },
+          "confusion": {
+            "false": {
+              "true": 15
+            },
+            "true": {
+              "true": 15
+            },
+            "uncertain": {
+              "true": 20
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "true",
+            "valid_distribution_rows": 30,
+            "answerable_rows": 30,
+            "excluded_answerable_rows": 0,
+            "value": 0.32097427094897385
+          },
+          "rows": 50,
+          "saved_reported_accuracy": 0.3,
+          "saved_reported_brier_not_standard_multiclass_brier": 0.43486143843828307,
+          "saved_correct_count": 15,
+          "saved_correct_but_not_exact_count": 0,
+          "uncertain_gold_rows": 20,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 0,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 50,
+            "error_rows": 0,
+            "nonerror_rows_without_explicit_mode_marker": 50,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0
+          }
+        },
+        "calibration-control": {
+          "strict_exact_accuracy": {
+            "numerator": 15,
+            "denominator": 50,
+            "value": 0.3
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 15,
+            "denominator": 30,
+            "value": 0.5
+          },
+          "confusion": {
+            "false": {
+              "true": 15
+            },
+            "true": {
+              "true": 15
+            },
+            "uncertain": {
+              "true": 20
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "true",
+            "valid_distribution_rows": 30,
+            "answerable_rows": 30,
+            "excluded_answerable_rows": 0,
+            "value": 0.37249999999999994
+          },
+          "rows": 50,
+          "saved_reported_accuracy": 0.3,
+          "saved_reported_brier_not_standard_multiclass_brier": 0.5125000000000001,
+          "saved_correct_count": 15,
+          "saved_correct_but_not_exact_count": 0,
+          "uncertain_gold_rows": 20,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 0,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 50,
+            "error_rows": 0,
+            "nonerror_rows_without_explicit_mode_marker": 50,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0
+          }
+        }
+      }
+    },
+    "benchmark_entity_resolution_100_results.json": {
+      "source_path": "C:\\Users\\timot\\Documents\\projects\\research\\test\\typed-probabilistic-graph-compiler\\benchmark_entity_resolution_100_results.json",
+      "sha256": "1cea5de3052e9bd1c8e5e1b043392b0f17c060e2f76dc53e3b1617b355489d14",
+      "saved_timestamp": "2026-09-17T22:50:05.916479",
+      "example_count": 100,
+      "raw_row_count": 400,
+      "gold_label_counts": {
+        "different": 12,
+        "same": 76,
+        "uncertain": 12
+      },
+      "majority_baselines": {
+        "status": "Descriptive baselines using observed evaluation-set class counts; not fitted deployment predictors",
+        "strict_all_labels": {
+          "labels_tied_for_majority": [
+            "same"
+          ],
+          "numerator": 76,
+          "denominator": 100,
+          "value": 0.76
+        },
+        "answerable_binary": {
+          "labels_tied_for_majority": [
+            "same"
+          ],
+          "numerator": 76,
+          "denominator": 88,
+          "value": 0.8636363636363636
+        }
+      },
+      "backends": {
+        "jev-typesafe": {
+          "strict_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 100,
+            "value": 0.0
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 88,
+            "value": 0.0
+          },
+          "confusion": {
+            "different": {
+              "ERROR": 12
+            },
+            "same": {
+              "ERROR": 76
+            },
+            "uncertain": {
+              "ERROR": 12
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "same",
+            "valid_distribution_rows": 0,
+            "answerable_rows": 88,
+            "excluded_answerable_rows": 88,
+            "value": null
+          },
+          "rows": 100,
+          "saved_reported_accuracy": 0.12,
+          "saved_reported_brier_not_standard_multiclass_brier": 1.0,
+          "saved_correct_count": 12,
+          "saved_correct_but_not_exact_count": 12,
+          "uncertain_gold_rows": 12,
+          "error_rows_credited_correct": 12,
+          "empty_distribution_rows": 100,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 100,
+            "error_rows": 100,
+            "nonerror_rows_without_explicit_mode_marker": 0,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0
+          },
+          "label_adapter_diagnostic": {
+            "status": "Counterfactual recoding of saved outputs only; no inference or rerun",
+            "adapter": {
+              "true": "same",
+              "false": "different"
+            },
+            "strict_exact_accuracy": {
+              "numerator": 0,
+              "denominator": 100,
+              "value": 0.0
+            },
+            "answerable_exact_accuracy": {
+              "numerator": 0,
+              "denominator": 88,
+              "value": 0.0
+            },
+            "confusion": {
+              "different": {
+                "ERROR": 12
+              },
+              "same": {
+                "ERROR": 76
+              },
+              "uncertain": {
+                "ERROR": 12
+              }
+            },
+            "binary_brier_answerable": {
+              "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+              "first_binary_label": "same",
+              "valid_distribution_rows": 0,
+              "answerable_rows": 88,
+              "excluded_answerable_rows": 88,
+              "value": null
+            }
+          }
+        },
+        "specialist-er": {
+          "strict_exact_accuracy": {
+            "numerator": 56,
+            "denominator": 100,
+            "value": 0.56
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 56,
+            "denominator": 88,
+            "value": 0.6363636363636364
+          },
+          "confusion": {
+            "different": {
+              "same": 9,
+              "different": 3
+            },
+            "same": {
+              "same": 53,
+              "different": 23
+            },
+            "uncertain": {
+              "different": 5,
+              "same": 7
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "same",
+            "valid_distribution_rows": 88,
+            "answerable_rows": 88,
+            "excluded_answerable_rows": 0,
+            "value": 0.2061032119329368
+          },
+          "rows": 100,
+          "saved_reported_accuracy": 0.68,
+          "saved_reported_brier_not_standard_multiclass_brier": 0.19982451413245209,
+          "saved_correct_count": 68,
+          "saved_correct_but_not_exact_count": 12,
+          "uncertain_gold_rows": 12,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 0,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 100,
+            "error_rows": 0,
+            "nonerror_rows_without_explicit_mode_marker": 100,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0,
+            "rows_compatible_with_current_random_fallback_ranges": 100,
+            "interpretation": "Current specialist fallback samples p in [0.3, 0.9] and synthetic latency in [50, 150] ms. Compatibility is circumstantial; execution mode is not recoverable from these records."
+          },
+          "label_adapter_diagnostic": {
+            "status": "Counterfactual recoding of saved outputs only; no inference or rerun",
+            "adapter": {
+              "true": "same",
+              "false": "different"
+            },
+            "strict_exact_accuracy": {
+              "numerator": 56,
+              "denominator": 100,
+              "value": 0.56
+            },
+            "answerable_exact_accuracy": {
+              "numerator": 56,
+              "denominator": 88,
+              "value": 0.6363636363636364
+            },
+            "confusion": {
+              "different": {
+                "same": 9,
+                "different": 3
+              },
+              "same": {
+                "same": 53,
+                "different": 23
+              },
+              "uncertain": {
+                "different": 5,
+                "same": 7
+              }
+            },
+            "binary_brier_answerable": {
+              "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+              "first_binary_label": "same",
+              "valid_distribution_rows": 88,
+              "answerable_rows": 88,
+              "excluded_answerable_rows": 0,
+              "value": 0.2061032119329368
+            }
+          }
+        },
+        "mock-realistic-backend": {
+          "strict_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 100,
+            "value": 0.0
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 88,
+            "value": 0.0
+          },
+          "confusion": {
+            "different": {
+              "true": 12
+            },
+            "same": {
+              "true": 76
+            },
+            "uncertain": {
+              "true": 12
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "same",
+            "valid_distribution_rows": 0,
+            "answerable_rows": 88,
+            "excluded_answerable_rows": 88,
+            "value": null
+          },
+          "rows": 100,
+          "saved_reported_accuracy": 0.12,
+          "saved_reported_brier_not_standard_multiclass_brier": 0.536979122929959,
+          "saved_correct_count": 12,
+          "saved_correct_but_not_exact_count": 12,
+          "uncertain_gold_rows": 12,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 0,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 100,
+            "error_rows": 0,
+            "nonerror_rows_without_explicit_mode_marker": 100,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0
+          },
+          "label_adapter_diagnostic": {
+            "status": "Counterfactual recoding of saved outputs only; no inference or rerun",
+            "adapter": {
+              "true": "same",
+              "false": "different"
+            },
+            "strict_exact_accuracy": {
+              "numerator": 76,
+              "denominator": 100,
+              "value": 0.76
+            },
+            "answerable_exact_accuracy": {
+              "numerator": 76,
+              "denominator": 88,
+              "value": 0.8636363636363636
+            },
+            "confusion": {
+              "different": {
+                "same": 12
+              },
+              "same": {
+                "same": 76
+              },
+              "uncertain": {
+                "same": 12
+              }
+            },
+            "binary_brier_answerable": {
+              "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+              "first_binary_label": "same",
+              "valid_distribution_rows": 88,
+              "answerable_rows": 88,
+              "excluded_answerable_rows": 0,
+              "value": 0.14213904853672402
+            }
+          }
+        },
+        "calibration-control": {
+          "strict_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 100,
+            "value": 0.0
+          },
+          "answerable_exact_accuracy": {
+            "numerator": 0,
+            "denominator": 88,
+            "value": 0.0
+          },
+          "confusion": {
+            "different": {
+              "true": 12
+            },
+            "same": {
+              "true": 76
+            },
+            "uncertain": {
+              "true": 12
+            }
+          },
+          "binary_brier_answerable": {
+            "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+            "first_binary_label": "same",
+            "valid_distribution_rows": 0,
+            "answerable_rows": 88,
+            "excluded_answerable_rows": 88,
+            "value": null
+          },
+          "rows": 100,
+          "saved_reported_accuracy": 0.12,
+          "saved_reported_brier_not_standard_multiclass_brier": 0.6384999999999986,
+          "saved_correct_count": 12,
+          "saved_correct_but_not_exact_count": 12,
+          "uncertain_gold_rows": 12,
+          "error_rows_credited_correct": 0,
+          "empty_distribution_rows": 0,
+          "provenance": {
+            "rows_with_explicit_mode_marker": 0,
+            "rows_without_explicit_mode_marker": 100,
+            "error_rows": 0,
+            "nonerror_rows_without_explicit_mode_marker": 100,
+            "rows_with_saved_error_message": 0,
+            "rows_with_backend_version": 0,
+            "rows_with_model_revision": 0
+          },
+          "label_adapter_diagnostic": {
+            "status": "Counterfactual recoding of saved outputs only; no inference or rerun",
+            "adapter": {
+              "true": "same",
+              "false": "different"
+            },
+            "strict_exact_accuracy": {
+              "numerator": 76,
+              "denominator": 100,
+              "value": 0.76
+            },
+            "answerable_exact_accuracy": {
+              "numerator": 76,
+              "denominator": 88,
+              "value": 0.8636363636363636
+            },
+            "confusion": {
+              "different": {
+                "same": 12
+              },
+              "same": {
+                "same": 76
+              },
+              "uncertain": {
+                "same": 12
+              }
+            },
+            "binary_brier_answerable": {
+              "definition": "mean((p(first_binary_label) - indicator(gold == first_binary_label)) ** 2)",
+              "first_binary_label": "same",
+              "valid_distribution_rows": 88,
+              "answerable_rows": 88,
+              "excluded_answerable_rows": 0,
+              "value": 0.11795454545454544
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "check": "Real re-inference from reused trained ER checkpoints after CLI/reuse repair",
+  "training_repeated": false,
+  "source_artifact_sha256": "b3f23e83cf56d8a78b59de27ce0876ac29218538b361893cfbb81a9c223757fe",
+  "repeated_artifact": "results\\reproduction\\er\\er_results.json",
+  "repeated_artifact_sha256": "ec629850b6fe776d1a4a43f7a28f90eff36fdfa94088c1a05f466d2cbb2db5f2",
+  "script_sha256": "047a7eb370a7b7eef91d34d0d28d838b7a138f355b252ff820459f37f48c17f5",
+  "tolerance": 1e-07,
+  "all_checks_passed": true,
+  "arms": {
+    "train-prior": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "lexical-logistic": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "er-title-only": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "er-title-only-calibrated": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "er-full-context": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "er-full-context-calibrated": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "er-no-hard-negatives": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    },
+    "er-no-hard-negatives-calibrated": {
+      "rows": 413,
+      "all_argmax_predictions_equal": true,
+      "maximum_probability_difference": 0.0
+    }
+  },
+  "limit": "Tests repeat inference/checkpoint reuse on this environment, not independent training or cross-hardware determinism."
+}

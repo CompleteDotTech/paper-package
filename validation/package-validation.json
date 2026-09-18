@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-09-18T01:16:08.296919+00:00",
+  "package_files_verified": 164,
+  "package_manifest_sha256": "d8290223444b2efcf8e3644d79d08784f416dbb34d2600689671218f56442765",
+  "replay": {
+    "network_attempts": 0,
+    "exact_byte_equality": {
+      "calls.jsonl": true,
+      "predictions.jsonl": true,
+      "calibration.json": true,
+      "results.json": true
+    },
+    "calls": 3405,
+    "predictions": 3644
+  },
+  "tests": {
+    "exit_code": 0,
+    "output": "Saved 2 records to C:\\Users\\timot\\AppData\\Local\\Temp\\tmplflaz_ye\\dry-run.json\n........................................................................................................................................\n----------------------------------------------------------------------\nRan 136 tests in 1.952s\n\nOK\n"
+  }
+}

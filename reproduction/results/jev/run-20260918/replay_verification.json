@@ -1,0 +1,22 @@
+{
+  "verified_at_utc": "2026-09-18T00:58:27.537908+00:00",
+  "network_blocked_during_replay": true,
+  "network_calls": 0,
+  "cached_logical_calls": 3405,
+  "new_calls": 0,
+  "all_recorded_predictions_reconstructed": 3644,
+  "exact_byte_equality": {
+    "calls.jsonl": true,
+    "predictions.jsonl": true,
+    "results.json": true,
+    "calibration.json": true
+  },
+  "sha256": {
+    "calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2",
+    "results.json": "0722492caeced0b97d880485945469343f3f2327986446f986858a1991d38e62",
+    "calibration.json": "c9547f81eb7e9c19383abba309f89d9aa5a1ddbd04bb3efd8b77d9af1c916c35"
+  },
+  "method": "Replay in an isolated copy with HTTP disabled, verify every reconstructed prediction against its journal row; restore copied original-run manifest before deterministic analysis.",
+  "scope": "Exact local reproduction from cached responses; fresh API variability is a separate recorded experiment."
+}

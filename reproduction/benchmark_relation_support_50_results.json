@@ -1,0 +1,3050 @@
+{
+  "timestamp": "2026-09-17T22:50:01.850604",
+  "dataset": "scifact_50",
+  "n_examples": 50,
+  "n_backends": 4,
+  "backends": {
+    "jev-typesafe": {
+      "backend": "jev-typesafe",
+      "n_examples": 50,
+      "accuracy": 0.0,
+      "brier_score": 1.0,
+      "mean_confidence": 0.0,
+      "total_tokens": 0,
+      "mean_latency_ms": 0.0,
+      "tokens_per_example": 0.0
+    },
+    "specialist-nli": {
+      "backend": "specialist-nli",
+      "n_examples": 50,
+      "accuracy": 0.38,
+      "brier_score": 0.33893095821296026,
+      "mean_confidence": 0.6726317371048409,
+      "total_tokens": 0,
+      "mean_latency_ms": 99.08589390251689,
+      "tokens_per_example": 0.0
+    },
+    "mock-realistic-backend": {
+      "backend": "mock-realistic-backend",
+      "n_examples": 50,
+      "accuracy": 0.3,
+      "brier_score": 0.43486143843828307,
+      "mean_confidence": 0.7665517569376948,
+      "total_tokens": 0,
+      "mean_latency_ms": 30.43398289313245,
+      "tokens_per_example": 0.0
+    },
+    "calibration-control": {
+      "backend": "calibration-control",
+      "n_examples": 50,
+      "accuracy": 0.3,
+      "brier_score": 0.5125000000000001,
+      "mean_confidence": 0.8500000000000008,
+      "total_tokens": 0,
+      "mean_latency_ms": 0.0,
+      "tokens_per_example": 0.0
+    }
+  },
+  "raw_results": [
+    {
+      "example_id": "scifact_001",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_001",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7374946899265971,
+      "distribution": {
+        "true": 0.7374946899265971,
+        "false": 0.26250531007340294
+      },
+      "brier_score": 0.06890903781673342,
+      "latency_ms": 128.2049742528352,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_001",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7553008266256889,
+      "distribution": {
+        "true": 0.7553008266256889,
+        "false": 0.24469917337431113
+      },
+      "brier_score": 0.059877685450071175,
+      "latency_ms": 40.03556358737812,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_001",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_002",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_002",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7790262129335269,
+      "distribution": {
+        "true": 0.7790262129335269,
+        "false": 0.22097378706647308
+      },
+      "brier_score": 0.04882941457049898,
+      "latency_ms": 67.6661955278672,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_002",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.9098173938063154,
+      "distribution": {
+        "true": 0.9098173938063154,
+        "false": 0.09018260619368457
+      },
+      "brier_score": 0.008132902459885193,
+      "latency_ms": 18.498982235656875,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_002",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_003",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_003",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7409894094418792,
+      "distribution": {
+        "true": 0.7409894094418792,
+        "false": 0.2590105905581208
+      },
+      "brier_score": 0.0670864860212665,
+      "latency_ms": 101.6588410780117,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_003",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.9802582816156783,
+      "distribution": {
+        "true": 0.9802582816156783,
+        "false": 0.019741718384321705
+      },
+      "brier_score": 0.00038973544476586557,
+      "latency_ms": 10.83118708728124,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_003",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_004",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_004",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.6268130318490437,
+      "distribution": {
+        "true": 0.37318696815095626,
+        "false": 0.6268130318490437
+      },
+      "brier_score": 0.39289457689579027,
+      "latency_ms": 61.56431612485521,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_004",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.9311354720086922,
+      "distribution": {
+        "true": 0.9311354720086922,
+        "false": 0.06886452799130782
+      },
+      "brier_score": 0.004742323215465619,
+      "latency_ms": 24.723746116579832,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_004",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_005",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_005",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5552849622936776,
+      "distribution": {
+        "true": 0.5552849622936776,
+        "false": 0.44471503770632237
+      },
+      "brier_score": 0.19777146476213572,
+      "latency_ms": 122.86570138004723,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_005",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.8698403185169432,
+      "distribution": {
+        "true": 0.8698403185169432,
+        "false": 0.1301596814830568
+      },
+      "brier_score": 0.016941542683770797,
+      "latency_ms": 29.882706636070424,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_005",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_006",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_006",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.8857455370585325,
+      "distribution": {
+        "true": 0.8857455370585325,
+        "false": 0.11425446294146746
+      },
+      "brier_score": 0.013054082302043161,
+      "latency_ms": 63.384784897306425,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_006",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5819855548411859,
+      "distribution": {
+        "true": 0.5819855548411859,
+        "false": 0.41801444515881414
+      },
+      "brier_score": 0.17473607636143124,
+      "latency_ms": 46.8533335395001,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_006",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_007",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_007",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7268141398466066,
+      "distribution": {
+        "true": 0.7268141398466066,
+        "false": 0.2731858601533934
+      },
+      "brier_score": 0.07463051418774942,
+      "latency_ms": 134.24165571827774,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_007",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7189415828077446,
+      "distribution": {
+        "true": 0.7189415828077446,
+        "false": 0.28105841719225544
+      },
+      "brier_score": 0.0789938338746159,
+      "latency_ms": 31.591938035073277,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_007",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_008",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_008",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5089019694854056,
+      "distribution": {
+        "true": 0.5089019694854056,
+        "false": 0.49109803051459444
+      },
+      "brier_score": 0.24117727557531354,
+      "latency_ms": 57.76980564882591,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_008",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.6835429550773185,
+      "distribution": {
+        "true": 0.6835429550773185,
+        "false": 0.31645704492268145
+      },
+      "brier_score": 0.10014506128119603,
+      "latency_ms": 22.009792573030822,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_008",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_009",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_009",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7000102572832861,
+      "distribution": {
+        "true": 0.7000102572832861,
+        "false": 0.29998974271671386
+      },
+      "brier_score": 0.08999384573524018,
+      "latency_ms": 110.1642151482049,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_009",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.857367893635703,
+      "distribution": {
+        "true": 0.857367893635703,
+        "false": 0.14263210636429702
+      },
+      "brier_score": 0.02034391776591614,
+      "latency_ms": 46.170619879630095,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_009",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_010",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_010",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5141246739447554,
+      "distribution": {
+        "true": 0.5141246739447554,
+        "false": 0.48587532605524464
+      },
+      "brier_score": 0.23607483246929029,
+      "latency_ms": 146.60905015769316,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_010",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.6675940837354108,
+      "distribution": {
+        "true": 0.6675940837354108,
+        "false": 0.33240591626458915
+      },
+      "brier_score": 0.11049369316770105,
+      "latency_ms": 18.26463063156899,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_010",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_011",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_011",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7422374216938816,
+      "distribution": {
+        "true": 0.7422374216938816,
+        "false": 0.2577625783061184
+      },
+      "brier_score": 0.0664415467750178,
+      "latency_ms": 90.73299480242687,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_011",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.703643967247058,
+      "distribution": {
+        "true": 0.703643967247058,
+        "false": 0.296356032752942
+      },
+      "brier_score": 0.08782689814906282,
+      "latency_ms": 15.751519742852391,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_011",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_012",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_012",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.6961016418295474,
+      "distribution": {
+        "true": 0.6961016418295474,
+        "false": 0.30389835817045263
+      },
+      "brier_score": 0.09235421209869671,
+      "latency_ms": 73.14886123782657,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_012",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7468107831175799,
+      "distribution": {
+        "true": 0.7468107831175799,
+        "false": 0.25318921688242013
+      },
+      "brier_score": 0.06410477954553317,
+      "latency_ms": 26.020127490473914,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_012",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_013",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_013",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.6306703139467698,
+      "distribution": {
+        "true": 0.3693296860532302,
+        "false": 0.6306703139467698
+      },
+      "brier_score": 0.39774504489371715,
+      "latency_ms": 125.22863106809523,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_013",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.9841671993499104,
+      "distribution": {
+        "true": 0.9841671993499104,
+        "false": 0.01583280065008963
+      },
+      "brier_score": 0.00025067757642547857,
+      "latency_ms": 25.388976304741256,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_013",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_014",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_014",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.8269987697499164,
+      "distribution": {
+        "true": 0.8269987697499164,
+        "false": 0.17300123025008363
+      },
+      "brier_score": 0.02992942566804245,
+      "latency_ms": 147.37661059028943,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_014",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.6380493050737662,
+      "distribution": {
+        "true": 0.6380493050737662,
+        "false": 0.3619506949262338
+      },
+      "brier_score": 0.13100830555758355,
+      "latency_ms": 30.38700766461084,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_014",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_015",
+      "backend": "jev-typesafe",
+      "gold_label": "true",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_015",
+      "backend": "specialist-nli",
+      "gold_label": "true",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.5101344553084975,
+      "distribution": {
+        "true": 0.48986554469150245,
+        "false": 0.5101344553084975
+      },
+      "brier_score": 0.26023716249289747,
+      "latency_ms": 65.78626775282768,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_015",
+      "backend": "mock-realistic-backend",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7054962661391442,
+      "distribution": {
+        "true": 0.7054962661391442,
+        "false": 0.2945037338608558
+      },
+      "brier_score": 0.08673244925798579,
+      "latency_ms": 43.78189034116846,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_015",
+      "backend": "calibration-control",
+      "gold_label": "true",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_016",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_016",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6683171655351268,
+      "distribution": {
+        "true": 0.6683171655351268,
+        "false": 0.33168283446487323
+      },
+      "brier_score": 0.44664783374890604,
+      "latency_ms": 96.10063009797113,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_016",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6828152713871747,
+      "distribution": {
+        "true": 0.6828152713871747,
+        "false": 0.3171847286128253
+      },
+      "brier_score": 0.466236694839541,
+      "latency_ms": 14.075896333110984,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_016",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_017",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_017",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.588441683718163,
+      "distribution": {
+        "true": 0.588441683718163,
+        "false": 0.41155831628183703
+      },
+      "brier_score": 0.34626361513706655,
+      "latency_ms": 109.81272495061702,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_017",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.683990988420931,
+      "distribution": {
+        "true": 0.683990988420931,
+        "false": 0.316009011579069
+      },
+      "brier_score": 0.4678436722410421,
+      "latency_ms": 43.64661727034321,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_017",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_018",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_018",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.680077342509583,
+      "distribution": {
+        "true": 0.319922657490417,
+        "false": 0.680077342509583
+      },
+      "brier_score": 0.1023505067757307,
+      "latency_ms": 130.46345037728332,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_018",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6503597165175389,
+      "distribution": {
+        "true": 0.6503597165175389,
+        "false": 0.3496402834824611
+      },
+      "brier_score": 0.4229677608687735,
+      "latency_ms": 35.5576272533539,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_018",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_019",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_019",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.869728763240607,
+      "distribution": {
+        "true": 0.869728763240607,
+        "false": 0.130271236759393
+      },
+      "brier_score": 0.7564281216080359,
+      "latency_ms": 118.41839847593268,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_019",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9126622528906787,
+      "distribution": {
+        "true": 0.9126622528906787,
+        "false": 0.0873377471093213
+      },
+      "brier_score": 0.8329523878514892,
+      "latency_ms": 42.7980640512537,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_019",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_020",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_020",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.5540502833018803,
+      "distribution": {
+        "true": 0.44594971669811967,
+        "false": 0.5540502833018803
+      },
+      "brier_score": 0.1988711498231332,
+      "latency_ms": 105.10815813180133,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_020",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7983997983791105,
+      "distribution": {
+        "true": 0.7983997983791105,
+        "false": 0.20160020162088954
+      },
+      "brier_score": 0.6374422380518042,
+      "latency_ms": 21.054277027320207,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_020",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_021",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_021",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.6822101717499057,
+      "distribution": {
+        "true": 0.3177898282500943,
+        "false": 0.6822101717499057
+      },
+      "brier_score": 0.10099037493922441,
+      "latency_ms": 90.37441143529549,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_021",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7988735583707621,
+      "distribution": {
+        "true": 0.7988735583707621,
+        "false": 0.20112644162923787
+      },
+      "brier_score": 0.6381989622639634,
+      "latency_ms": 22.15157528067424,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_021",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_022",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_022",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.665037671591147,
+      "distribution": {
+        "true": 0.665037671591147,
+        "false": 0.334962328408853
+      },
+      "brier_score": 0.44227510463537434,
+      "latency_ms": 59.87816211451414,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_022",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6133969115869882,
+      "distribution": {
+        "true": 0.6133969115869882,
+        "false": 0.38660308841301183
+      },
+      "brier_score": 0.3762557711444554,
+      "latency_ms": 22.290417704935003,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_022",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_023",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_023",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.5581989129190408,
+      "distribution": {
+        "true": 0.4418010870809592,
+        "false": 0.5581989129190408
+      },
+      "brier_score": 0.19518820054591732,
+      "latency_ms": 74.15582085064558,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_023",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6728852736508375,
+      "distribution": {
+        "true": 0.6728852736508375,
+        "false": 0.3271147263491625
+      },
+      "brier_score": 0.45277459149616245,
+      "latency_ms": 23.18176730225604,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_023",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_024",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_024",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8497457930587586,
+      "distribution": {
+        "true": 0.8497457930587586,
+        "false": 0.15025420694124136
+      },
+      "brier_score": 0.7220679128210586,
+      "latency_ms": 148.30241775519204,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_024",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7583274488342149,
+      "distribution": {
+        "true": 0.7583274488342149,
+        "false": 0.24167255116578512
+      },
+      "brier_score": 0.5750605196554088,
+      "latency_ms": 33.28089112728492,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_024",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_025",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_025",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.5859367609117725,
+      "distribution": {
+        "true": 0.4140632390882275,
+        "false": 0.5859367609117725
+      },
+      "brier_score": 0.17144836596423466,
+      "latency_ms": 149.17725469362506,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_025",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7412554342927797,
+      "distribution": {
+        "true": 0.7412554342927797,
+        "false": 0.25874456570722026
+      },
+      "brier_score": 0.5494596188685775,
+      "latency_ms": 37.747456591087015,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_025",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_026",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_026",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7087831592850491,
+      "distribution": {
+        "true": 0.7087831592850491,
+        "false": 0.2912168407149509
+      },
+      "brier_score": 0.5023735668860952,
+      "latency_ms": 129.21260393289626,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_026",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8466138404708334,
+      "distribution": {
+        "true": 0.8466138404708334,
+        "false": 0.15338615952916657
+      },
+      "brier_score": 0.7167549948767739,
+      "latency_ms": 48.35196745462002,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_026",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_027",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_027",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6607193936741829,
+      "distribution": {
+        "true": 0.6607193936741829,
+        "false": 0.33928060632581714
+      },
+      "brier_score": 0.43655011717717984,
+      "latency_ms": 90.93014545239306,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_027",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7278474711333545,
+      "distribution": {
+        "true": 0.7278474711333545,
+        "false": 0.27215252886664554
+      },
+      "brier_score": 0.5297619412352192,
+      "latency_ms": 37.25422931224577,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_027",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_028",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_028",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.6219877824941913,
+      "distribution": {
+        "true": 0.3780122175058087,
+        "false": 0.6219877824941913
+      },
+      "brier_score": 0.14289323658365882,
+      "latency_ms": 123.97772844082299,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_028",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9693661893136067,
+      "distribution": {
+        "true": 0.9693661893136067,
+        "false": 0.03063381068639326
+      },
+      "brier_score": 0.9396708089843833,
+      "latency_ms": 27.98009648691608,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_028",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_029",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_029",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6942232294772277,
+      "distribution": {
+        "true": 0.6942232294772277,
+        "false": 0.3057767705227723
+      },
+      "brier_score": 0.48194589234579155,
+      "latency_ms": 50.898112280075146,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_029",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7910635859302064,
+      "distribution": {
+        "true": 0.7910635859302064,
+        "false": 0.20893641406979357
+      },
+      "brier_score": 0.6257815969847571,
+      "latency_ms": 38.41299703405332,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_029",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_030",
+      "backend": "jev-typesafe",
+      "gold_label": "false",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_030",
+      "backend": "specialist-nli",
+      "gold_label": "false",
+      "predicted_label": "false",
+      "correct": true,
+      "confidence": 0.5031202829603046,
+      "distribution": {
+        "true": 0.49687971703969536,
+        "false": 0.5031202829603046
+      },
+      "brier_score": 0.24688945320544772,
+      "latency_ms": 56.915969259085585,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_030",
+      "backend": "mock-realistic-backend",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6733102459605488,
+      "distribution": {
+        "true": 0.6733102459605488,
+        "false": 0.3266897540394512
+      },
+      "brier_score": 0.4533466873154547,
+      "latency_ms": 22.851667599481186,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_030",
+      "backend": "calibration-control",
+      "gold_label": "false",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_031",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_031",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5826184689826246,
+      "distribution": {
+        "true": 0.5826184689826246,
+        "false": 0.4173815310173754
+      },
+      "brier_score": 0.3394442803996575,
+      "latency_ms": 101.06618556376147,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_031",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5079030757650111,
+      "distribution": {
+        "true": 0.5079030757650111,
+        "false": 0.49209692423498885
+      },
+      "brier_score": 0.25796553437155867,
+      "latency_ms": 48.921770851724936,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_031",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_032",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_032",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6240311470000368,
+      "distribution": {
+        "true": 0.6240311470000368,
+        "false": 0.3759688529999632
+      },
+      "brier_score": 0.38941487242618156,
+      "latency_ms": 132.7512783602408,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_032",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.660431166105222,
+      "distribution": {
+        "true": 0.660431166105222,
+        "false": 0.339568833894778
+      },
+      "brier_score": 0.43616932516310336,
+      "latency_ms": 32.462720489995704,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_032",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_033",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_033",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.5823097413988512,
+      "distribution": {
+        "true": 0.4176902586011488,
+        "false": 0.5823097413988512
+      },
+      "brier_score": 0.3390846349279969,
+      "latency_ms": 124.99077293452767,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_033",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5647930286722065,
+      "distribution": {
+        "true": 0.5647930286722065,
+        "false": 0.4352069713277935
+      },
+      "brier_score": 0.3189911652367239,
+      "latency_ms": 30.8627372584191,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_033",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_034",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_034",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.6941591245138738,
+      "distribution": {
+        "true": 0.30584087548612615,
+        "false": 0.6941591245138738
+      },
+      "brier_score": 0.4818568901458678,
+      "latency_ms": 67.00052121391708,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_034",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7179077578905728,
+      "distribution": {
+        "true": 0.7179077578905728,
+        "false": 0.2820922421094272
+      },
+      "brier_score": 0.5153915488394694,
+      "latency_ms": 25.721475224159708,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_034",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_035",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_035",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.5937048003194862,
+      "distribution": {
+        "true": 0.40629519968051375,
+        "false": 0.5937048003194862
+      },
+      "brier_score": 0.352485389922401,
+      "latency_ms": 121.6933721877701,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_035",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9717115735466049,
+      "distribution": {
+        "true": 0.9717115735466049,
+        "false": 0.028288426453395132
+      },
+      "brier_score": 0.9442233821644189,
+      "latency_ms": 25.918166046114116,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_035",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_036",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_036",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8921516688042388,
+      "distribution": {
+        "true": 0.8921516688042388,
+        "false": 0.1078483311957612
+      },
+      "brier_score": 0.7959346001501882,
+      "latency_ms": 113.85133776210469,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_036",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7879110276349247,
+      "distribution": {
+        "true": 0.7879110276349247,
+        "false": 0.2120889723650753
+      },
+      "brier_score": 0.6208037874687231,
+      "latency_ms": 40.136561309903875,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_036",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_037",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_037",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6717290887133502,
+      "distribution": {
+        "true": 0.6717290887133502,
+        "false": 0.32827091128664976
+      },
+      "brier_score": 0.451219968623668,
+      "latency_ms": 120.2423018989694,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_037",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5924724554382749,
+      "distribution": {
+        "true": 0.5924724554382749,
+        "false": 0.40752754456172513
+      },
+      "brier_score": 0.3510236104530586,
+      "latency_ms": 25.125769034055608,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_037",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_038",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_038",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7024233441195646,
+      "distribution": {
+        "true": 0.7024233441195646,
+        "false": 0.29757665588043536
+      },
+      "brier_score": 0.49339855436411234,
+      "latency_ms": 50.92852389398175,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_038",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7108916652660072,
+      "distribution": {
+        "true": 0.7108916652660072,
+        "false": 0.2891083347339928
+      },
+      "brier_score": 0.5053669597446768,
+      "latency_ms": 27.248818492156566,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_038",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_039",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_039",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.617958094523458,
+      "distribution": {
+        "true": 0.617958094523458,
+        "false": 0.38204190547654204
+      },
+      "brier_score": 0.381872206587063,
+      "latency_ms": 69.98359076903932,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_039",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9665621870480094,
+      "distribution": {
+        "true": 0.9665621870480094,
+        "false": 0.03343781295199055
+      },
+      "brier_score": 0.9342424614310312,
+      "latency_ms": 49.15578662051309,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_039",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_040",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_040",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8784790035510228,
+      "distribution": {
+        "true": 0.8784790035510228,
+        "false": 0.12152099644897718
+      },
+      "brier_score": 0.771725359679998,
+      "latency_ms": 145.97213101337428,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_040",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7061827200534602,
+      "distribution": {
+        "true": 0.7061827200534602,
+        "false": 0.29381727994653983
+      },
+      "brier_score": 0.49869403410210367,
+      "latency_ms": 35.36720842429639,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_040",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_041",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_041",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7229214574095599,
+      "distribution": {
+        "true": 0.7229214574095599,
+        "false": 0.27707854259044007
+      },
+      "brier_score": 0.5226154335831622,
+      "latency_ms": 106.0713391578067,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_041",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7776143907794403,
+      "distribution": {
+        "true": 0.7776143907794403,
+        "false": 0.22238560922055972
+      },
+      "brier_score": 0.60468414074728,
+      "latency_ms": 33.69728128548524,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_041",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_042",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_042",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7016350378108008,
+      "distribution": {
+        "true": 0.7016350378108008,
+        "false": 0.29836496218919917
+      },
+      "brier_score": 0.4922917262837639,
+      "latency_ms": 96.29122774484183,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_042",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8251939851105794,
+      "distribution": {
+        "true": 0.8251939851105794,
+        "false": 0.1748060148894206
+      },
+      "brier_score": 0.6809451130626791,
+      "latency_ms": 30.18189906626842,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_042",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_043",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_043",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6811141908997338,
+      "distribution": {
+        "true": 0.6811141908997338,
+        "false": 0.3188858091002662
+      },
+      "brier_score": 0.463916541044999,
+      "latency_ms": 115.90348447624486,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_043",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5873111004667436,
+      "distribution": {
+        "true": 0.5873111004667436,
+        "false": 0.4126888995332564
+      },
+      "brier_score": 0.3449343287314574,
+      "latency_ms": 31.304183803826323,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_043",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_044",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_044",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.5338634283845073,
+      "distribution": {
+        "true": 0.4661365716154927,
+        "false": 0.5338634283845073
+      },
+      "brier_score": 0.28501016016645997,
+      "latency_ms": 115.1463916603428,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_044",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7784231749356341,
+      "distribution": {
+        "true": 0.7784231749356341,
+        "false": 0.22157682506436593
+      },
+      "brier_score": 0.6059426392768728,
+      "latency_ms": 46.080338306466025,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_044",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_045",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_045",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7452605310060981,
+      "distribution": {
+        "true": 0.7452605310060981,
+        "false": 0.2547394689939019
+      },
+      "brier_score": 0.5554132590754913,
+      "latency_ms": 79.95615916558222,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_045",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9436518444227622,
+      "distribution": {
+        "true": 0.9436518444227622,
+        "false": 0.056348155577237824
+      },
+      "brier_score": 0.890478803482481,
+      "latency_ms": 43.70824547778187,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_045",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_046",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_046",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6459487570055136,
+      "distribution": {
+        "true": 0.6459487570055136,
+        "false": 0.3540512429944864
+      },
+      "brier_score": 0.41724979667696804,
+      "latency_ms": 65.40004643163361,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_046",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9178676822415797,
+      "distribution": {
+        "true": 0.9178676822415797,
+        "false": 0.08213231775842034
+      },
+      "brier_score": 0.8424810821035295,
+      "latency_ms": 22.496096502187186,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_046",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_047",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_047",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.5600177358819307,
+      "distribution": {
+        "true": 0.4399822641180693,
+        "false": 0.5600177358819307
+      },
+      "brier_score": 0.31361986450232393,
+      "latency_ms": 56.76028658529786,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_047",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9231865859370025,
+      "distribution": {
+        "true": 0.9231865859370025,
+        "false": 0.07681341406299746
+      },
+      "brier_score": 0.8522734724540185,
+      "latency_ms": 21.54254308527037,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_047",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_048",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_048",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "false",
+      "correct": false,
+      "confidence": 0.6013974403928597,
+      "distribution": {
+        "true": 0.3986025596071403,
+        "false": 0.6013974403928597
+      },
+      "brier_score": 0.3616788813110832,
+      "latency_ms": 72.58781430037179,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_048",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8685779910939135,
+      "distribution": {
+        "true": 0.8685779910939135,
+        "false": 0.13142200890608646
+      },
+      "brier_score": 0.7544277266127385,
+      "latency_ms": 15.935390057413873,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_048",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_049",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_049",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7451808530390722,
+      "distribution": {
+        "true": 0.7451808530390722,
+        "false": 0.2548191469609278
+      },
+      "brier_score": 0.5552945037360394,
+      "latency_ms": 111.72610273056853,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_049",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9360699701116012,
+      "distribution": {
+        "true": 0.9360699701116012,
+        "false": 0.0639300298883988
+      },
+      "brier_score": 0.8762269889447339,
+      "latency_ms": 16.58401128649028,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_049",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_050",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_050",
+      "backend": "specialist-nli",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7827570584666094,
+      "distribution": {
+        "true": 0.7827570584666094,
+        "false": 0.21724294153339063
+      },
+      "brier_score": 0.6127086125792989,
+      "latency_ms": 55.84293364192793,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "scifact_050",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5278045936274897,
+      "distribution": {
+        "true": 0.5278045936274897,
+        "false": 0.47219540637251034
+      },
+      "brier_score": 0.2785776890542795,
+      "latency_ms": 18.420572339541742,
+      "tokens_used": null
+    },
+    {
+      "example_id": "scifact_050",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    }
+  ]
+}

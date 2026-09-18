@@ -1,0 +1,11 @@
+# Tested research runtime: Python 3.12; use requirements-research.lock for exact reproduction.
+# For CUDA on this Windows host, install torch from the cu128 index documented in README.md.
+torch==2.8.0
+transformers==4.57.6
+sentencepiece==0.2.2
+protobuf==7.36.2
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+requests==2.34.2
+matplotlib==3.11.2

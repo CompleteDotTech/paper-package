@@ -1,0 +1,1552 @@
+{
+  "provenance": {
+    "results_sha256": "0722492caeced0b97d880485945469343f3f2327986446f986858a1991d38e62",
+    "data_manifest_sha256": "1337e7f7a37b7ff8ce4c3f3201d377c5f0686f4b239b99d6dcf5bd57cb1609e6",
+    "model": "jev-1.13.0",
+    "seed": 20260917,
+    "rounding": "JSON retains source precision; Markdown displays six decimal places.",
+    "comparison": "selected minus baseline; unadjusted paired 95% percentile bootstrap intervals, conditional on fixed selection"
+  },
+  "splits": [
+    {
+      "task": "scifact",
+      "split": "train",
+      "rows": 459,
+      "labels": {
+        "NOT_ENOUGH_INFO": 198,
+        "REFUTES": 82,
+        "SUPPORTS": 179
+      },
+      "groups": 255,
+      "row_ids_sha256": "fd9c235ca5f2bcd4a41c28ebc3bab7cecdf92ca700c621c800df6bd61e1e59c7"
+    },
+    {
+      "task": "scifact",
+      "split": "calibration",
+      "rows": 150,
+      "labels": {
+        "SUPPORTS": 65,
+        "NOT_ENOUGH_INFO": 55,
+        "REFUTES": 30
+      },
+      "groups": 73,
+      "row_ids_sha256": "4341381c347f4429662518e35d429d6a0d1bcdbd20a882b480eae73b2aca4193"
+    },
+    {
+      "task": "scifact",
+      "split": "evaluation",
+      "rows": 339,
+      "labels": {
+        "NOT_ENOUGH_INFO": 130,
+        "SUPPORTS": 138,
+        "REFUTES": 71
+      },
+      "groups": 247,
+      "row_ids_sha256": "8b572ea59b9bc782238df3993f607173641f57324a9f1a6ea00d365a685fa392"
+    },
+    {
+      "task": "entity_resolution",
+      "split": "train",
+      "rows": 4592,
+      "labels": {
+        "different": 3283,
+        "same": 1309
+      },
+      "groups": 4592,
+      "row_ids_sha256": "77ffb629a498eaaef18522b740ed56dc94e095e661e1c8162010995f91e7291f"
+    },
+    {
+      "task": "entity_resolution",
+      "split": "calibration",
+      "rows": 390,
+      "labels": {
+        "same": 334,
+        "different": 56
+      },
+      "groups": 390,
+      "row_ids_sha256": "e97a6f261ca87a935bf4226462fc9f761c9c0a3e5b2dcf3cf6450d5fc15d285c"
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "rows": 413,
+      "labels": {
+        "same": 350,
+        "different": 63
+      },
+      "groups": 413,
+      "row_ids_sha256": "5b96bf30960efae0b7d736996807ff185b26cb95490bcfb6e2524a65948ac860"
+    }
+  ],
+  "development": [
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "macro_f1": 0.8963256856994998,
+      "brier_score": 0.19774666666666668,
+      "accuracy": 0.9,
+      "n_errors": 0,
+      "n_examples": 60,
+      "probability_score_denominator": 60,
+      "selected": true
+    },
+    {
+      "task": "relation_support",
+      "arm": "conditional_nouls",
+      "macro_f1": 0.8576465201465201,
+      "brier_score": 0.22489782101694913,
+      "accuracy": 0.85,
+      "n_errors": 1,
+      "n_examples": 60,
+      "probability_score_denominator": 59,
+      "selected": false
+    },
+    {
+      "task": "relation_support",
+      "arm": "evidence_contract",
+      "macro_f1": 0.841897971309736,
+      "brier_score": 0.23789152542372882,
+      "accuracy": 0.8333333333333334,
+      "n_errors": 1,
+      "n_examples": 60,
+      "probability_score_denominator": 59,
+      "selected": false
+    },
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "macro_f1": 0.793190249072602,
+      "brier_score": 0.2837830508474576,
+      "accuracy": 0.7833333333333333,
+      "n_errors": 1,
+      "n_examples": 60,
+      "probability_score_denominator": 59,
+      "selected": false
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "macro_f1": 1.0,
+      "brier_score": 0.009206666666666667,
+      "accuracy": 1.0,
+      "n_errors": 0,
+      "n_examples": 60,
+      "probability_score_denominator": 60,
+      "selected": true
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "identity_contract",
+      "macro_f1": 1.0,
+      "brier_score": 0.01924666666666667,
+      "accuracy": 1.0,
+      "n_errors": 0,
+      "n_examples": 60,
+      "probability_score_denominator": 60,
+      "selected": false
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "identity_noul",
+      "macro_f1": 1.0,
+      "brier_score": 0.03230666666666667,
+      "accuracy": 1.0,
+      "n_errors": 0,
+      "n_examples": 60,
+      "probability_score_denominator": 60,
+      "selected": false
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "macro_f1": 0.9818785865297492,
+      "brier_score": 0.04105666666666667,
+      "accuracy": 0.9833333333333333,
+      "n_errors": 0,
+      "n_examples": 60,
+      "probability_score_denominator": 60,
+      "selected": false
+    }
+  ],
+  "evaluation": [
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "version": "raw",
+      "n_examples": 339,
+      "n_semantic_examples": 339,
+      "n_excluded_gold": 0,
+      "n_errors": 1,
+      "probability_score_denominator": 338,
+      "accuracy": 0.8525073746312685,
+      "macro_f1": 0.8508243643054886,
+      "balanced_accuracy": 0.8613887711254521,
+      "brier_score": 0.23396745562130178,
+      "log_loss": 1.2415260739619185,
+      "ece_10_bins": 0.08890532544378704,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "version": "calibrated",
+      "n_examples": 339,
+      "n_semantic_examples": 339,
+      "n_excluded_gold": 0,
+      "n_errors": 1,
+      "probability_score_denominator": 338,
+      "accuracy": 0.8525073746312685,
+      "macro_f1": 0.8508243643054886,
+      "balanced_accuracy": 0.8613887711254521,
+      "brier_score": 0.27692983625798795,
+      "log_loss": 0.563852630382368,
+      "ece_10_bins": 0.13611776368426115,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "version": "raw",
+      "n_examples": 339,
+      "n_semantic_examples": 339,
+      "n_excluded_gold": 0,
+      "n_errors": 2,
+      "probability_score_denominator": 337,
+      "accuracy": 0.8495575221238938,
+      "macro_f1": 0.8527279258098224,
+      "balanced_accuracy": 0.8542161927342576,
+      "brier_score": 0.2305519287833828,
+      "log_loss": 1.2400990144625583,
+      "ece_10_bins": 0.07272997032640946,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "version": "calibrated",
+      "n_examples": 339,
+      "n_semantic_examples": 339,
+      "n_excluded_gold": 0,
+      "n_errors": 2,
+      "probability_score_denominator": 337,
+      "accuracy": 0.8495575221238938,
+      "macro_f1": 0.8527279258098224,
+      "balanced_accuracy": 0.8542161927342576,
+      "brier_score": 0.25052975289558077,
+      "log_loss": 0.6255704653227647,
+      "ece_10_bins": 0.11401957103408888,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "version": "raw",
+      "n_examples": 413,
+      "n_semantic_examples": 413,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 413,
+      "accuracy": 0.9806295399515739,
+      "macro_f1": 0.96045197740113,
+      "balanced_accuracy": 0.9365079365079365,
+      "brier_score": 0.0408363196125908,
+      "log_loss": 0.10668499987119476,
+      "ece_10_bins": 0.06254237288135597,
+      "false_merge_count": 8,
+      "false_merge_denominator": 63,
+      "false_merge_rate": 0.12698412698412698
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "version": "calibrated",
+      "n_examples": 413,
+      "n_semantic_examples": 413,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 413,
+      "accuracy": 0.9806295399515739,
+      "macro_f1": 0.96045197740113,
+      "balanced_accuracy": 0.9365079365079365,
+      "brier_score": 0.031248241741850757,
+      "log_loss": 0.06534626189911072,
+      "ece_10_bins": 0.01228002835072997,
+      "false_merge_count": 8,
+      "false_merge_denominator": 63,
+      "false_merge_rate": 0.12698412698412698
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "version": "raw",
+      "n_examples": 413,
+      "n_semantic_examples": 413,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 413,
+      "accuracy": 0.9927360774818402,
+      "macro_f1": 0.9858601997146933,
+      "balanced_accuracy": 0.9826984126984126,
+      "brier_score": 0.018383535108958838,
+      "log_loss": 0.033516086126895876,
+      "ece_10_bins": 0.01670702179176764,
+      "false_merge_count": 2,
+      "false_merge_denominator": 63,
+      "false_merge_rate": 0.031746031746031744
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "version": "calibrated",
+      "n_examples": 413,
+      "n_semantic_examples": 413,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 413,
+      "accuracy": 0.9927360774818402,
+      "macro_f1": 0.9858601997146933,
+      "balanced_accuracy": 0.9826984126984126,
+      "brier_score": 0.01558321376572631,
+      "log_loss": 0.02609365876329618,
+      "ece_10_bins": 0.008034502343423573,
+      "false_merge_count": 2,
+      "false_merge_denominator": 63,
+      "false_merge_rate": 0.031746031746031744
+    }
+  ],
+  "paired_effects": [
+    {
+      "task": "relation_support",
+      "version": "raw",
+      "metric": "accuracy",
+      "n_pairs": 339,
+      "n_groups": 247,
+      "n_brier_pairs": 336,
+      "difference": -0.002949852507374673,
+      "ci95": [
+        -0.03801728586171308,
+        0.03095975232198134
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "relation_support",
+      "version": "raw",
+      "metric": "macro_f1",
+      "n_pairs": 339,
+      "n_groups": 247,
+      "n_brier_pairs": 336,
+      "difference": 0.001903561504333795,
+      "ci95": [
+        -0.03138976106561282,
+        0.03373443028776314
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "relation_support",
+      "version": "raw",
+      "metric": "brier_score",
+      "n_pairs": 339,
+      "n_groups": 247,
+      "n_brier_pairs": 336,
+      "difference": -0.00335833333333338,
+      "ci95": [
+        -0.03678074642268607,
+        0.03374965789473695
+      ],
+      "valid_resamples": 2000,
+      "direction": "lower is better"
+    },
+    {
+      "task": "relation_support",
+      "version": "calibrated",
+      "metric": "accuracy",
+      "n_pairs": 339,
+      "n_groups": 247,
+      "n_brier_pairs": 336,
+      "difference": -0.002949852507374673,
+      "ci95": [
+        -0.03801728586171308,
+        0.03095975232198134
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "relation_support",
+      "version": "calibrated",
+      "metric": "macro_f1",
+      "n_pairs": 339,
+      "n_groups": 247,
+      "n_brier_pairs": 336,
+      "difference": 0.001903561504333795,
+      "ci95": [
+        -0.03138976106561282,
+        0.03373443028776314
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "relation_support",
+      "version": "calibrated",
+      "metric": "brier_score",
+      "n_pairs": 339,
+      "n_groups": 247,
+      "n_brier_pairs": 336,
+      "difference": -0.025004948923765313,
+      "ci95": [
+        -0.046170455761448945,
+        -0.0023255681675798993
+      ],
+      "valid_resamples": 2000,
+      "direction": "lower is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "raw",
+      "metric": "accuracy",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": 0.01210653753026636,
+      "ci95": [
+        0.0,
+        0.02421307506053272
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "raw",
+      "metric": "macro_f1",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": 0.025408222313563322,
+      "ci95": [
+        0.0009601134373394993,
+        0.05396393348211855
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "raw",
+      "metric": "brier_score",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": -0.022452784503631758,
+      "ci95": [
+        -0.03332496368038735,
+        -0.012205230024213082
+      ],
+      "valid_resamples": 2000,
+      "direction": "lower is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "raw",
+      "metric": "false_merge_rate",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": -0.09523809523809523,
+      "ci95": [
+        -0.17393029675638372,
+        -0.030757575757575824
+      ],
+      "valid_resamples": 2000,
+      "direction": "lower is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "calibrated",
+      "metric": "accuracy",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": 0.01210653753026636,
+      "ci95": [
+        0.0,
+        0.02421307506053272
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "calibrated",
+      "metric": "macro_f1",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": 0.025408222313563322,
+      "ci95": [
+        0.0009601134373394993,
+        0.05396393348211855
+      ],
+      "valid_resamples": 2000,
+      "direction": "higher is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "calibrated",
+      "metric": "brier_score",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": -0.0156650279761244,
+      "ci95": [
+        -0.03369447622674846,
+        -0.00036857774152633304
+      ],
+      "valid_resamples": 2000,
+      "direction": "lower is better"
+    },
+    {
+      "task": "entity_resolution",
+      "version": "calibrated",
+      "metric": "false_merge_rate",
+      "n_pairs": 413,
+      "n_groups": 413,
+      "n_brier_pairs": 413,
+      "difference": -0.09523809523809523,
+      "ci95": [
+        -0.17393029675638372,
+        -0.030757575757575824
+      ],
+      "valid_resamples": 2000,
+      "direction": "lower is better"
+    }
+  ],
+  "calibration": [
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "n_calibration_rows": 150,
+      "n_fit_rows": 149,
+      "n_excluded_rows": 1,
+      "fit_class_counts": {
+        "NOT_ENOUGH_INFO": 55,
+        "SUPPORTS": 65,
+        "REFUTES": 29
+      },
+      "missing_fit_classes": [],
+      "n_clipped_probability_coordinates": 176,
+      "temperature": 4.803020132038449,
+      "calibration_log_loss_before": 0.7949874309349728,
+      "calibration_log_loss_after": 0.4725793438798177,
+      "boundary_fit": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "n_calibration_rows": 150,
+      "n_fit_rows": 150,
+      "n_excluded_rows": 0,
+      "fit_class_counts": {
+        "NOT_ENOUGH_INFO": 55,
+        "REFUTES": 30,
+        "SUPPORTS": 65
+      },
+      "missing_fit_classes": [],
+      "n_clipped_probability_coordinates": 178,
+      "temperature": 3.1499754428309736,
+      "calibration_log_loss_before": 0.6124744299393288,
+      "calibration_log_loss_after": 0.4357955654662564,
+      "boundary_fit": null
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "n_calibration_rows": 390,
+      "n_fit_rows": 390,
+      "n_excluded_rows": 0,
+      "fit_class_counts": {
+        "same": 334,
+        "different": 56
+      },
+      "missing_fit_classes": [],
+      "n_clipped_probability_coordinates": 0,
+      "temperature": 0.2997078260089508,
+      "calibration_log_loss_before": 0.0823987714108213,
+      "calibration_log_loss_after": 0.011739092651635962,
+      "boundary_fit": null
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "n_calibration_rows": 390,
+      "n_fit_rows": 390,
+      "n_excluded_rows": 0,
+      "fit_class_counts": {
+        "different": 56,
+        "same": 334
+      },
+      "missing_fit_classes": [],
+      "n_clipped_probability_coordinates": 304,
+      "temperature": 0.6238873352858962,
+      "calibration_log_loss_before": 0.017511537996956365,
+      "calibration_log_loss_after": 0.014383812411358294,
+      "boundary_fit": null
+    }
+  ],
+  "confusion": [
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "SUPPORTS",
+      "count": 122
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "REFUTES",
+      "count": 6
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 10
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "SUPPORTS",
+      "count": 4
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "REFUTES",
+      "count": 65
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 2
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "SUPPORTS",
+      "count": 14
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "REFUTES",
+      "count": 13
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 102
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "ERROR",
+      "count": 1
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "SUPPORTS",
+      "count": 110
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "REFUTES",
+      "count": 5
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 22
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "ERROR",
+      "count": 1
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "SUPPORTS",
+      "count": 2
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "REFUTES",
+      "count": 62
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 7
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "SUPPORTS",
+      "count": 6
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "REFUTES",
+      "count": 7
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 116
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "ERROR",
+      "count": 1
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "SUPPORTS",
+      "count": 15
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "REFUTES",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "SUPPORTS",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "SUPPORTS",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "REFUTES",
+      "count": 15
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "REFUTES",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "SUPPORTS",
+      "count": 2
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "REFUTES",
+      "count": 2
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 16
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "SUPPORTS",
+      "count": 12
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "REFUTES",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 3
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "SUPPORTS",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "SUPPORTS",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "REFUTES",
+      "count": 15
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "REFUTES",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "SUPPORTS",
+      "count": 0
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "REFUTES",
+      "count": 2
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "NOT_ENOUGH_INFO",
+      "count": 18
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "NOT_ENOUGH_INFO",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "gold": "same",
+      "prediction": "same",
+      "count": 350
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "gold": "same",
+      "prediction": "different",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "gold": "same",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "gold": "different",
+      "prediction": "same",
+      "count": 8
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "gold": "different",
+      "prediction": "different",
+      "count": 55
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "gold": "different",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "same",
+      "prediction": "same",
+      "count": 349
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "same",
+      "prediction": "different",
+      "count": 1
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "same",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "different",
+      "prediction": "same",
+      "count": 2
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "different",
+      "prediction": "different",
+      "count": 61
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "gold": "different",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "gold": "same",
+      "prediction": "same",
+      "count": 75
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "gold": "same",
+      "prediction": "different",
+      "count": 1
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "gold": "same",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "gold": "different",
+      "prediction": "same",
+      "count": 3
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "gold": "different",
+      "prediction": "different",
+      "count": 9
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "gold": "different",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "same",
+      "prediction": "same",
+      "count": 75
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "same",
+      "prediction": "different",
+      "count": 1
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "same",
+      "prediction": "ERROR",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "different",
+      "prediction": "same",
+      "count": 0
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "different",
+      "prediction": "different",
+      "count": 12
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "gold": "different",
+      "prediction": "ERROR",
+      "count": 0
+    }
+  ],
+  "fixtures": [
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "version": "raw",
+      "n_examples": 50,
+      "n_semantic_examples": 50,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 50,
+      "accuracy": 0.92,
+      "macro_f1": 0.9212962962962963,
+      "balanced_accuracy": 0.9333333333333332,
+      "brier_score": 0.13253600000000001,
+      "log_loss": 0.2482899719814055,
+      "ece_10_bins": 0.06780000000000007,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "version": "calibrated",
+      "n_examples": 50,
+      "n_semantic_examples": 50,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 50,
+      "accuracy": 0.92,
+      "macro_f1": 0.9212962962962963,
+      "balanced_accuracy": 0.9333333333333332,
+      "brier_score": 0.17495569327775162,
+      "log_loss": 0.27144507775803284,
+      "ece_10_bins": 0.10101701880414929,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "version": "raw",
+      "n_examples": 50,
+      "n_semantic_examples": 50,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 50,
+      "accuracy": 0.9,
+      "macro_f1": 0.9014792231255645,
+      "balanced_accuracy": 0.9,
+      "brier_score": 0.104296,
+      "log_loss": 0.16761033750474166,
+      "ece_10_bins": 0.044400000000000064,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "version": "calibrated",
+      "n_examples": 50,
+      "n_semantic_examples": 50,
+      "n_excluded_gold": 0,
+      "n_errors": 0,
+      "probability_score_denominator": 50,
+      "accuracy": 0.9,
+      "macro_f1": 0.9014792231255645,
+      "balanced_accuracy": 0.9,
+      "brier_score": 0.15370206434981085,
+      "log_loss": 0.26467627878017974,
+      "ece_10_bins": 0.1133570167380114,
+      "false_merge_count": null,
+      "false_merge_denominator": null,
+      "false_merge_rate": null
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "version": "raw",
+      "n_examples": 100,
+      "n_semantic_examples": 88,
+      "n_excluded_gold": 12,
+      "n_errors": 0,
+      "probability_score_denominator": 88,
+      "accuracy": 0.9545454545454546,
+      "macro_f1": 0.8961038961038961,
+      "balanced_accuracy": 0.868421052631579,
+      "brier_score": 0.07179772727272728,
+      "log_loss": 0.1382730264535057,
+      "ece_10_bins": 0.04875000000000001,
+      "false_merge_count": 3,
+      "false_merge_denominator": 12,
+      "false_merge_rate": 0.25
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "version": "calibrated",
+      "n_examples": 100,
+      "n_semantic_examples": 88,
+      "n_excluded_gold": 12,
+      "n_errors": 0,
+      "probability_score_denominator": 88,
+      "accuracy": 0.9545454545454546,
+      "macro_f1": 0.8961038961038961,
+      "balanced_accuracy": 0.868421052631579,
+      "brier_score": 0.08264661451578341,
+      "log_loss": 0.19341726889179067,
+      "ece_10_bins": 0.04910486510380643,
+      "false_merge_count": 3,
+      "false_merge_denominator": 12,
+      "false_merge_rate": 0.25
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "version": "raw",
+      "n_examples": 100,
+      "n_semantic_examples": 88,
+      "n_excluded_gold": 12,
+      "n_errors": 0,
+      "probability_score_denominator": 88,
+      "accuracy": 0.9886363636363636,
+      "macro_f1": 0.9766887417218543,
+      "balanced_accuracy": 0.993421052631579,
+      "brier_score": 0.047509090909090904,
+      "log_loss": 0.12329639782877022,
+      "ece_10_bins": 0.05954545454545464,
+      "false_merge_count": 0,
+      "false_merge_denominator": 12,
+      "false_merge_rate": 0.0
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "version": "calibrated",
+      "n_examples": 100,
+      "n_semantic_examples": 88,
+      "n_excluded_gold": 12,
+      "n_errors": 0,
+      "probability_score_denominator": 88,
+      "accuracy": 0.9886363636363636,
+      "macro_f1": 0.9766887417218543,
+      "balanced_accuracy": 0.993421052631579,
+      "brier_score": 0.03533748228979406,
+      "log_loss": 0.10591904619759993,
+      "ece_10_bins": 0.019619734075001404,
+      "false_merge_count": 0,
+      "false_merge_denominator": 12,
+      "false_merge_rate": 0.0
+    }
+  ],
+  "repeatability": [
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "n_examples": 20,
+      "n_examples_with_initial_plus_two_repeats": 20,
+      "n_pairwise_comparisons": 60,
+      "n_fresh_comparisons": 60,
+      "n_valid_fresh_comparisons": 60,
+      "n_fresh_comparisons_with_error": 0,
+      "provenance_counts": {
+        "fresh_recorded_calls": 60
+      },
+      "exact_distribution_matches": 32,
+      "argmax_flips": 0,
+      "n_examples_with_all_three_fresh_labels_identical": 20,
+      "classification_agreement": 1.0,
+      "max_total_variation": 0.050000000000000044,
+      "mean_total_variation": 0.008333333333333335,
+      "max_coordinate_change": 0.050000000000000044,
+      "recorded_utc_window": [
+        "2026-09-18T00:53:18.298180+00:00",
+        "2026-09-18T00:56:11.171087+00:00"
+      ],
+      "note": "Fresh means distinct recorded real call IDs, not proof of provider internals. Identical probabilities do not establish caching. Cached replay is excluded from fresh-repeat agreement."
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "n_examples": 20,
+      "n_examples_with_initial_plus_two_repeats": 20,
+      "n_pairwise_comparisons": 60,
+      "n_fresh_comparisons": 60,
+      "n_valid_fresh_comparisons": 60,
+      "n_fresh_comparisons_with_error": 0,
+      "provenance_counts": {
+        "fresh_recorded_calls": 60
+      },
+      "exact_distribution_matches": 51,
+      "argmax_flips": 0,
+      "n_examples_with_all_three_fresh_labels_identical": 20,
+      "classification_agreement": 1.0,
+      "max_total_variation": 0.09,
+      "mean_total_variation": 0.006,
+      "max_coordinate_change": 0.09000000000000002,
+      "recorded_utc_window": [
+        "2026-09-18T00:53:17.573438+00:00",
+        "2026-09-18T00:56:10.810801+00:00"
+      ],
+      "note": "Fresh means distinct recorded real call IDs, not proof of provider internals. Identical probabilities do not establish caching. Cached replay is excluded from fresh-repeat agreement."
+    },
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "n_examples": 20,
+      "n_examples_with_initial_plus_two_repeats": 20,
+      "n_pairwise_comparisons": 60,
+      "n_fresh_comparisons": 60,
+      "n_valid_fresh_comparisons": 60,
+      "n_fresh_comparisons_with_error": 0,
+      "provenance_counts": {
+        "fresh_recorded_calls": 60
+      },
+      "exact_distribution_matches": 35,
+      "argmax_flips": 2,
+      "n_examples_with_all_three_fresh_labels_identical": 19,
+      "classification_agreement": 0.9666666666666667,
+      "max_total_variation": 0.13999999999999996,
+      "mean_total_variation": 0.011000000000000003,
+      "max_coordinate_change": 0.14,
+      "recorded_utc_window": [
+        "2026-09-18T00:53:23.841730+00:00",
+        "2026-09-18T00:56:11.236880+00:00"
+      ],
+      "note": "Fresh means distinct recorded real call IDs, not proof of provider internals. Identical probabilities do not establish caching. Cached replay is excluded from fresh-repeat agreement."
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "n_examples": 20,
+      "n_examples_with_initial_plus_two_repeats": 20,
+      "n_pairwise_comparisons": 60,
+      "n_fresh_comparisons": 60,
+      "n_valid_fresh_comparisons": 60,
+      "n_fresh_comparisons_with_error": 0,
+      "provenance_counts": {
+        "fresh_recorded_calls": 60
+      },
+      "exact_distribution_matches": 27,
+      "argmax_flips": 0,
+      "n_examples_with_all_three_fresh_labels_identical": 20,
+      "classification_agreement": 1.0,
+      "max_total_variation": 0.22000000000000003,
+      "mean_total_variation": 0.02066666666666667,
+      "max_coordinate_change": 0.22000000000000008,
+      "recorded_utc_window": [
+        "2026-09-18T00:53:15.539094+00:00",
+        "2026-09-18T00:56:11.057986+00:00"
+      ],
+      "note": "Fresh means distinct recorded real call IDs, not proof of provider internals. Identical probabilities do not establish caching. Cached replay is excluded from fresh-repeat agreement."
+    }
+  ],
+  "batching": [
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "n_pairs": 20,
+      "n_errors": 0,
+      "n_valid_pairs": 20,
+      "classification_agreement": 1.0,
+      "exact_distribution_matches": 11,
+      "mean_total_variation": 0.00549999999999999,
+      "max_total_variation": 0.020000000000000004,
+      "max_coordinate_change": 0.020000000000000018
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "identity_contract",
+      "n_pairs": 20,
+      "n_errors": 0,
+      "n_valid_pairs": 20,
+      "classification_agreement": 1.0,
+      "exact_distribution_matches": 16,
+      "mean_total_variation": 0.006500000000000003,
+      "max_total_variation": 0.060000000000000026,
+      "max_coordinate_change": 0.06000000000000005
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "identity_noul",
+      "n_pairs": 20,
+      "n_errors": 0,
+      "n_valid_pairs": 20,
+      "classification_agreement": 1.0,
+      "exact_distribution_matches": 11,
+      "mean_total_variation": 0.008000000000000004,
+      "max_total_variation": 0.040000000000000036,
+      "max_coordinate_change": 0.040000000000000036
+    },
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "n_pairs": 20,
+      "n_errors": 0,
+      "n_valid_pairs": 20,
+      "classification_agreement": 1.0,
+      "exact_distribution_matches": 14,
+      "mean_total_variation": 0.005000000000000003,
+      "max_total_variation": 0.03000000000000001,
+      "max_coordinate_change": 0.030000000000000027
+    },
+    {
+      "task": "relation_support",
+      "arm": "conditional_nouls",
+      "n_pairs": 20,
+      "n_errors": 0,
+      "n_valid_pairs": 20,
+      "classification_agreement": 1.0,
+      "exact_distribution_matches": 7,
+      "mean_total_variation": 0.008070000000000006,
+      "max_total_variation": 0.02580000000000001,
+      "max_coordinate_change": 0.025800000000000045
+    },
+    {
+      "task": "relation_support",
+      "arm": "evidence_contract",
+      "n_pairs": 20,
+      "n_errors": 0,
+      "n_valid_pairs": 20,
+      "classification_agreement": 1.0,
+      "exact_distribution_matches": 15,
+      "mean_total_variation": 0.006,
+      "max_total_variation": 0.06999999999999998,
+      "max_coordinate_change": 0.07
+    }
+  ],
+  "usage": {
+    "n_calls": 3405,
+    "n_http_attempts": 3405,
+    "n_retries": 0,
+    "unknown_usage_attempts": 0,
+    "budget_input_token_charge": 4792778,
+    "n_questions_in_recorded_payloads": 3726,
+    "n_calls_with_usage": 3405,
+    "n_calls_missing_usage": 0,
+    "reported_input_tokens": 4792778,
+    "reported_output_tokens": 139613,
+    "reported_total_tokens": 4932391,
+    "n_failed_calls": 5,
+    "execution_modes": {
+      "real": 3405
+    },
+    "sum_call_latency_ms": 1454044.0991000705,
+    "mean_call_latency_ms": 427.0320408517094,
+    "latency_denominator": 3405,
+    "call_latency_percentiles_ms": {
+      "p50": 387.543499999083,
+      "p90": 493.14831999945443,
+      "p95": 611.0542200003688,
+      "p99": 1403.3073999999763
+    },
+    "recorded_stage_wall_seconds": 378.4741176999996,
+    "unit_prices_usd_per_million_tokens": {
+      "input": 0.042,
+      "output": 0.0
+    },
+    "estimated_usd_for_reported_usage": 0.201296676,
+    "estimate_complete": true,
+    "invoice_verified": false,
+    "note": "Reported usage summed once per logical calls.jsonl entry; shared batches are never multiplied by prediction count. HTTP attempts/retries are counted separately; usage absent from retry responses is unknown. USD is a unit-price estimate, not a verified invoice. Missing usage is unknown; summed call latency is not parallel wall time."
+  }
+}

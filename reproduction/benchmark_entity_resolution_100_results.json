@@ -1,0 +1,6046 @@
+{
+  "timestamp": "2026-09-17T22:50:05.916479",
+  "dataset": "entity_resolution_100",
+  "n_examples": 100,
+  "n_backends": 4,
+  "backends": {
+    "jev-typesafe": {
+      "n_examples": 100,
+      "accuracy": 0.12,
+      "brier_score": 1.0,
+      "mean_confidence": 0.0,
+      "total_tokens": 0,
+      "mean_latency_ms": 0.0,
+      "tokens_per_example": 0.0
+    },
+    "specialist-er": {
+      "n_examples": 100,
+      "accuracy": 0.68,
+      "brier_score": 0.19982451413245209,
+      "mean_confidence": 0.6513142393004765,
+      "total_tokens": 0,
+      "mean_latency_ms": 100.88054791560724,
+      "tokens_per_example": 0.0
+    },
+    "mock-realistic-backend": {
+      "n_examples": 100,
+      "accuracy": 0.12,
+      "brier_score": 0.536979122929959,
+      "mean_confidence": 0.754689819951762,
+      "total_tokens": 0,
+      "mean_latency_ms": 29.405482180118838,
+      "tokens_per_example": 0.0
+    },
+    "calibration-control": {
+      "n_examples": 100,
+      "accuracy": 0.12,
+      "brier_score": 0.6384999999999986,
+      "mean_confidence": 0.8499999999999993,
+      "total_tokens": 0,
+      "mean_latency_ms": 0.0,
+      "tokens_per_example": 0.0
+    }
+  },
+  "raw_results": [
+    {
+      "example_id": "er_person_001",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_001",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7355616425022498,
+      "distribution": {
+        "same": 0.7355616425022498,
+        "different": 0.26443835749775024
+      },
+      "brier_score": 0.06992764491610796,
+      "latency_ms": 122.84180373534652,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_001",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7735840365586547,
+      "distribution": {
+        "true": 0.7735840365586547,
+        "false": 0.2264159634413453
+      },
+      "brier_score": 0.598432261618382,
+      "latency_ms": 48.8510270213374,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_001",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_002",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_002",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8528722170975767,
+      "distribution": {
+        "same": 0.8528722170975767,
+        "different": 0.14712778290242334
+      },
+      "brier_score": 0.021646584501782615,
+      "latency_ms": 128.33858823720422,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_002",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7797285490674086,
+      "distribution": {
+        "true": 0.7797285490674086,
+        "false": 0.22027145093259137
+      },
+      "brier_score": 0.6079766102307662,
+      "latency_ms": 30.824410626284514,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_002",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_003",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_003",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6818766417756769,
+      "distribution": {
+        "same": 0.6818766417756769,
+        "different": 0.31812335822432314
+      },
+      "brier_score": 0.10120247104792103,
+      "latency_ms": 146.36977841648724,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_003",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8621619822399281,
+      "distribution": {
+        "true": 0.8621619822399281,
+        "false": 0.13783801776007187
+      },
+      "brier_score": 0.7433232836198821,
+      "latency_ms": 17.617579581474033,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_003",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_004",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_004",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8555896892571706,
+      "distribution": {
+        "same": 0.8555896892571706,
+        "different": 0.1444103107428294
+      },
+      "brier_score": 0.020854337848840547,
+      "latency_ms": 103.92869240232226,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_004",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8055262524593525,
+      "distribution": {
+        "true": 0.8055262524593525,
+        "false": 0.1944737475406475
+      },
+      "brier_score": 0.6488725434012085,
+      "latency_ms": 26.046121337913597,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_004",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_005",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_005",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5517307937521987,
+      "distribution": {
+        "same": 0.5517307937521987,
+        "different": 0.4482692062478013
+      },
+      "brier_score": 0.20094528127003383,
+      "latency_ms": 62.54871233500843,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_005",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8155117967130516,
+      "distribution": {
+        "true": 0.8155117967130516,
+        "false": 0.18448820328694837
+      },
+      "brier_score": 0.6650594905781496,
+      "latency_ms": 33.5851566090372,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_005",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_006",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_006",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.5386086977003057,
+      "distribution": {
+        "same": 0.5386086977003057,
+        "different": 0.4613913022996943
+      },
+      "brier_score": 0.2900993292384193,
+      "latency_ms": 85.12783758250174,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_006",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5455476216891737,
+      "distribution": {
+        "true": 0.5455476216891737,
+        "false": 0.4544523783108263
+      },
+      "brier_score": 0.2976222075307138,
+      "latency_ms": 17.898851728540887,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_006",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_007",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_007",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.5321564909271471,
+      "distribution": {
+        "same": 0.5321564909271471,
+        "different": 0.4678435090728529
+      },
+      "brier_score": 0.2831905308358948,
+      "latency_ms": 120.98417966553812,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_007",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5103625712703558,
+      "distribution": {
+        "true": 0.5103625712703558,
+        "false": 0.4896374287296442
+      },
+      "brier_score": 0.260469954153689,
+      "latency_ms": 20.388996545828757,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_007",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_008",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_008",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.5329062795857028,
+      "distribution": {
+        "same": 0.4670937204142972,
+        "different": 0.5329062795857028
+      },
+      "brier_score": 0.21817654365046965,
+      "latency_ms": 56.95256372054133,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_008",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7907818470445009,
+      "distribution": {
+        "true": 0.7907818470445009,
+        "false": 0.20921815295549906
+      },
+      "brier_score": 0.0437722355261106,
+      "latency_ms": 48.26761800668161,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_008",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_009",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_009",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5526221691688304,
+      "distribution": {
+        "same": 0.5526221691688304,
+        "different": 0.44737783083116955
+      },
+      "brier_score": 0.20014692351920257,
+      "latency_ms": 145.0481105182979,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_009",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.9733938409682026,
+      "distribution": {
+        "true": 0.9733938409682026,
+        "false": 0.026606159031797416
+      },
+      "brier_score": 0.0007078876984252952,
+      "latency_ms": 31.652345764061167,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_009",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_010",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_010",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.864953317246,
+      "distribution": {
+        "same": 0.864953317246,
+        "different": 0.135046682754
+      },
+      "brier_score": 0.018237606522859523,
+      "latency_ms": 126.3280573318286,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_010",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.9595631233700226,
+      "distribution": {
+        "true": 0.9595631233700226,
+        "false": 0.040436876629977414
+      },
+      "brier_score": 0.0016351409915880135,
+      "latency_ms": 10.267962172947524,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_010",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_011",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_011",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7038789756549777,
+      "distribution": {
+        "same": 0.7038789756549777,
+        "different": 0.2961210243450223
+      },
+      "brier_score": 0.08768766105914529,
+      "latency_ms": 84.47185904309524,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_011",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5530907244873482,
+      "distribution": {
+        "true": 0.5530907244873482,
+        "false": 0.4469092755126518
+      },
+      "brier_score": 0.3059093495139397,
+      "latency_ms": 17.21069364209128,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_011",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_012",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_012",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5450549563615894,
+      "distribution": {
+        "same": 0.45494504363841065,
+        "different": 0.5450549563615894
+      },
+      "brier_score": 0.29708490545433414,
+      "latency_ms": 66.6180161165023,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_012",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9378408079273721,
+      "distribution": {
+        "true": 0.9378408079273721,
+        "false": 0.06215919207262788
+      },
+      "brier_score": 0.879545381013866,
+      "latency_ms": 31.225658075439267,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_012",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_013",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_013",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7358365186716826,
+      "distribution": {
+        "same": 0.7358365186716826,
+        "different": 0.26416348132831735
+      },
+      "brier_score": 0.06978234486749627,
+      "latency_ms": 79.14721257326167,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_013",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9760245337441035,
+      "distribution": {
+        "true": 0.9760245337441035,
+        "false": 0.023975466255896527
+      },
+      "brier_score": 0.9526238904703945,
+      "latency_ms": 28.218312981152817,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_013",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_014",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_014",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5672741954706069,
+      "distribution": {
+        "same": 0.5672741954706069,
+        "different": 0.43272580452939313
+      },
+      "brier_score": 0.18725162190561057,
+      "latency_ms": 63.89198132987005,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_014",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.622727340887699,
+      "distribution": {
+        "true": 0.622727340887699,
+        "false": 0.377272659112301
+      },
+      "brier_score": 0.38778934108906443,
+      "latency_ms": 29.562832615777555,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_014",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_015",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_015",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7728657604861333,
+      "distribution": {
+        "same": 0.7728657604861333,
+        "different": 0.2271342395138667
+      },
+      "brier_score": 0.05158996275954256,
+      "latency_ms": 114.08570423659417,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_015",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6096583529317304,
+      "distribution": {
+        "true": 0.6096583529317304,
+        "false": 0.39034164706826957
+      },
+      "brier_score": 0.3716833072994304,
+      "latency_ms": 17.3172141854824,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_015",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_016",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_016",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.5026833661982532,
+      "distribution": {
+        "same": 0.5026833661982532,
+        "different": 0.49731663380174684
+      },
+      "brier_score": 0.2526905666524071,
+      "latency_ms": 92.34834411405652,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_016",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8236110193032362,
+      "distribution": {
+        "true": 0.8236110193032362,
+        "false": 0.1763889806967638
+      },
+      "brier_score": 0.6783351111177157,
+      "latency_ms": 20.144439198236,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_016",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_017",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_017",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.7285853916231568,
+      "distribution": {
+        "same": 0.7285853916231568,
+        "different": 0.27141460837684317
+      },
+      "brier_score": 0.5308366728866688,
+      "latency_ms": 130.07251291708798,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_017",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8396647276967348,
+      "distribution": {
+        "true": 0.8396647276967348,
+        "false": 0.16033527230326516
+      },
+      "brier_score": 0.7050368549380318,
+      "latency_ms": 30.583840812643533,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_017",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_018",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_018",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.5379801220785867,
+      "distribution": {
+        "same": 0.4620198779214133,
+        "different": 0.5379801220785867
+      },
+      "brier_score": 0.21346236759451764,
+      "latency_ms": 146.5306007231274,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_018",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.825690495527411,
+      "distribution": {
+        "true": 0.825690495527411,
+        "false": 0.17430950447258897
+      },
+      "brier_score": 0.6817647944043016,
+      "latency_ms": 17.96977071299219,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_018",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_019",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_019",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5571708220227043,
+      "distribution": {
+        "same": 0.5571708220227043,
+        "different": 0.4428291779772957
+      },
+      "brier_score": 0.19609768086804744,
+      "latency_ms": 94.92850444719909,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_019",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.8837611852266358,
+      "distribution": {
+        "true": 0.8837611852266358,
+        "false": 0.11623881477336417
+      },
+      "brier_score": 0.013511462059916466,
+      "latency_ms": 11.842358447015592,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_019",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_020",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_020",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.6762586758638702,
+      "distribution": {
+        "same": 0.6762586758638702,
+        "different": 0.32374132413612977
+      },
+      "brier_score": 0.4573257966811551,
+      "latency_ms": 108.83951577390616,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_020",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.885576568238428,
+      "distribution": {
+        "true": 0.885576568238428,
+        "false": 0.11442343176157199
+      },
+      "brier_score": 0.7842458582129511,
+      "latency_ms": 42.88182441567592,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_020",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_021",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_021",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8687800831439634,
+      "distribution": {
+        "same": 0.8687800831439634,
+        "different": 0.13121991685603662
+      },
+      "brier_score": 0.017218666579705163,
+      "latency_ms": 90.53416325573917,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_021",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7326601935034491,
+      "distribution": {
+        "true": 0.7326601935034491,
+        "false": 0.26733980649655087
+      },
+      "brier_score": 0.5367909591445115,
+      "latency_ms": 31.06114633626146,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_021",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_022",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_022",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7238493450572105,
+      "distribution": {
+        "same": 0.7238493450572105,
+        "different": 0.27615065494278945
+      },
+      "brier_score": 0.07625918422533157,
+      "latency_ms": 81.72815128655326,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_022",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5296344230589638,
+      "distribution": {
+        "true": 0.5296344230589638,
+        "false": 0.4703655769410362
+      },
+      "brier_score": 0.28051262208900146,
+      "latency_ms": 14.394106608061264,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_022",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_023",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_023",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5030249797445623,
+      "distribution": {
+        "same": 0.5030249797445623,
+        "different": 0.4969750202554377
+      },
+      "brier_score": 0.24698417075789272,
+      "latency_ms": 54.25355691831051,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_023",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9547454720768924,
+      "distribution": {
+        "true": 0.9547454720768924,
+        "false": 0.04525452792310758
+      },
+      "brier_score": 0.9115389164513281,
+      "latency_ms": 46.09916268473834,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_023",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_024",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_024",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7428715014232359,
+      "distribution": {
+        "same": 0.7428715014232359,
+        "different": 0.2571284985767641
+      },
+      "brier_score": 0.06611506478034099,
+      "latency_ms": 92.1573583156017,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_024",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7704674478682243,
+      "distribution": {
+        "true": 0.7704674478682243,
+        "false": 0.2295325521317757
+      },
+      "brier_score": 0.5936200882245749,
+      "latency_ms": 16.522963298926538,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_024",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_025",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_025",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8244982721030185,
+      "distribution": {
+        "same": 0.8244982721030185,
+        "different": 0.17550172789698149
+      },
+      "brier_score": 0.03080085649482613,
+      "latency_ms": 143.7695932715199,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_person_025",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5477252312920989,
+      "distribution": {
+        "true": 0.5477252312920989,
+        "false": 0.45227476870790106
+      },
+      "brier_score": 0.3000029289939833,
+      "latency_ms": 40.241246432840896,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_person_025",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_001",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_001",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6091855532008341,
+      "distribution": {
+        "same": 0.6091855532008341,
+        "different": 0.3908144467991659
+      },
+      "brier_score": 0.15273593182693807,
+      "latency_ms": 137.59050536107733,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_001",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9480765384957763,
+      "distribution": {
+        "true": 0.9480765384957763,
+        "false": 0.05192346150422367
+      },
+      "brier_score": 0.8988491228461333,
+      "latency_ms": 25.969153839206804,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_001",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_002",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_002",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5055176249877456,
+      "distribution": {
+        "same": 0.5055176249877456,
+        "different": 0.49448237501225445
+      },
+      "brier_score": 0.24451281919775986,
+      "latency_ms": 100.91771501942684,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_002",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.548332605477272,
+      "distribution": {
+        "true": 0.548332605477272,
+        "false": 0.45166739452272797
+      },
+      "brier_score": 0.30066864622949363,
+      "latency_ms": 43.58418869511237,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_002",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_003",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_003",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8139560749096924,
+      "distribution": {
+        "same": 0.8139560749096924,
+        "different": 0.18604392509030765
+      },
+      "brier_score": 0.034612342063008006,
+      "latency_ms": 89.60653501718559,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_003",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9636927168967129,
+      "distribution": {
+        "true": 0.9636927168967129,
+        "false": 0.036307283103287125
+      },
+      "brier_score": 0.928703652599768,
+      "latency_ms": 17.08219069794538,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_003",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_004",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_004",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8957606412425045,
+      "distribution": {
+        "same": 0.8957606412425045,
+        "different": 0.10423935875749546
+      },
+      "brier_score": 0.010865843914173846,
+      "latency_ms": 125.02599640459559,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_004",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7587836308344118,
+      "distribution": {
+        "true": 0.7587836308344118,
+        "false": 0.2412163691655882
+      },
+      "brier_score": 0.5757525984222529,
+      "latency_ms": 41.72358717524303,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_004",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_005",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_005",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.697779153034868,
+      "distribution": {
+        "same": 0.3022208469651319,
+        "different": 0.697779153034868
+      },
+      "brier_score": 0.4868957464100578,
+      "latency_ms": 91.4796397962557,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_005",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6523720672473032,
+      "distribution": {
+        "true": 0.6523720672473032,
+        "false": 0.34762793275269677
+      },
+      "brier_score": 0.42558931412451995,
+      "latency_ms": 34.18608013872304,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_005",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_006",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_006",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.6134513018130404,
+      "distribution": {
+        "same": 0.3865486981869596,
+        "different": 0.6134513018130404
+      },
+      "brier_score": 0.37632249969611403,
+      "latency_ms": 92.67096151621926,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_006",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7047267192569068,
+      "distribution": {
+        "true": 0.7047267192569068,
+        "false": 0.2952732807430932
+      },
+      "brier_score": 0.4966397488346031,
+      "latency_ms": 46.75696371845508,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_006",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_007",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_007",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6918337985868255,
+      "distribution": {
+        "same": 0.6918337985868255,
+        "different": 0.3081662014131745
+      },
+      "brier_score": 0.09496640769342525,
+      "latency_ms": 52.634833322167886,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_007",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9813682197967124,
+      "distribution": {
+        "true": 0.9813682197967124,
+        "false": 0.018631780203287596
+      },
+      "brier_score": 0.9630835828269684,
+      "latency_ms": 29.513086986465797,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_007",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_008",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_008",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6156616331615095,
+      "distribution": {
+        "same": 0.6156616331615095,
+        "different": 0.38433836683849054
+      },
+      "brier_score": 0.14771598022407811,
+      "latency_ms": 56.87742439960842,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_008",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5433494260511235,
+      "distribution": {
+        "true": 0.5433494260511235,
+        "false": 0.45665057394887654
+      },
+      "brier_score": 0.2952285987900853,
+      "latency_ms": 40.893886845745605,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_008",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_009",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_009",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5017883358209028,
+      "distribution": {
+        "same": 0.4982116641790973,
+        "different": 0.5017883358209028
+      },
+      "brier_score": 0.2517915339659111,
+      "latency_ms": 100.63200708461014,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_009",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5884146762331672,
+      "distribution": {
+        "true": 0.5884146762331672,
+        "false": 0.41158532376683277
+      },
+      "brier_score": 0.346231831206583,
+      "latency_ms": 19.624069965339427,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_009",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_010",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_010",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5239126550378336,
+      "distribution": {
+        "same": 0.4760873449621664,
+        "different": 0.5239126550378336
+      },
+      "brier_score": 0.274484470108792,
+      "latency_ms": 102.53190182590157,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_010",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8620125470116208,
+      "distribution": {
+        "true": 0.8620125470116208,
+        "false": 0.13798745298837922
+      },
+      "brier_score": 0.7430656312054618,
+      "latency_ms": 41.697199782754225,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_010",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_011",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_011",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7489164649654245,
+      "distribution": {
+        "same": 0.7489164649654245,
+        "different": 0.2510835350345755
+      },
+      "brier_score": 0.0630429415654589,
+      "latency_ms": 119.45819951795568,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_011",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8112819823202446,
+      "distribution": {
+        "true": 0.8112819823202446,
+        "false": 0.18871801767975538
+      },
+      "brier_score": 0.6581784548374657,
+      "latency_ms": 25.020703263653985,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_011",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_012",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_012",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5623504188653958,
+      "distribution": {
+        "same": 0.43764958113460417,
+        "different": 0.5623504188653958
+      },
+      "brier_score": 0.31623799359808613,
+      "latency_ms": 83.08191481612968,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_012",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8544041290167359,
+      "distribution": {
+        "true": 0.8544041290167359,
+        "false": 0.1455958709832641
+      },
+      "brier_score": 0.7300064156808471,
+      "latency_ms": 19.531123699407473,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_012",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_013",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_013",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7789139347868099,
+      "distribution": {
+        "same": 0.7789139347868099,
+        "different": 0.22108606521319007
+      },
+      "brier_score": 0.048879048231450936,
+      "latency_ms": 114.63376521483228,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_013",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9673460550270212,
+      "distribution": {
+        "true": 0.9673460550270212,
+        "false": 0.0326539449729788
+      },
+      "brier_score": 0.9357583901763408,
+      "latency_ms": 37.42972926992057,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_013",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_014",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_014",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.542014030605118,
+      "distribution": {
+        "same": 0.542014030605118,
+        "different": 0.457985969394882
+      },
+      "brier_score": 0.2097511481625698,
+      "latency_ms": 63.833575490769555,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_014",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7057214447824829,
+      "distribution": {
+        "true": 0.7057214447824829,
+        "false": 0.2942785552175171
+      },
+      "brier_score": 0.498042757625875,
+      "latency_ms": 19.506951105043903,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_014",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_015",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_015",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.509977668802416,
+      "distribution": {
+        "same": 0.49002233119758404,
+        "different": 0.509977668802416
+      },
+      "brier_score": 0.2600772226771467,
+      "latency_ms": 111.54464566564113,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_015",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8100296865940249,
+      "distribution": {
+        "true": 0.8100296865940249,
+        "false": 0.18997031340597514
+      },
+      "brier_score": 0.6561480931636141,
+      "latency_ms": 15.791652212041525,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_015",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_016",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_016",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7078015117130387,
+      "distribution": {
+        "same": 0.7078015117130387,
+        "different": 0.29219848828696127
+      },
+      "brier_score": 0.08537995655718544,
+      "latency_ms": 88.06113763318328,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_016",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5004088422537638,
+      "distribution": {
+        "true": 0.5004088422537638,
+        "false": 0.4995911577462362
+      },
+      "brier_score": 0.24959132489822466,
+      "latency_ms": 45.92881436183209,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_016",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_017",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_017",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.6256427684923187,
+      "distribution": {
+        "same": 0.37435723150768135,
+        "different": 0.6256427684923187
+      },
+      "brier_score": 0.1401433367820957,
+      "latency_ms": 100.87589034428422,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_017",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5773305013132408,
+      "distribution": {
+        "true": 0.5773305013132408,
+        "false": 0.4226694986867592
+      },
+      "brier_score": 0.17864950512011632,
+      "latency_ms": 40.75449772216538,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_017",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_018",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_018",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.5811547760744389,
+      "distribution": {
+        "same": 0.41884522392556117,
+        "different": 0.5811547760744389
+      },
+      "brier_score": 0.17543132160525343,
+      "latency_ms": 94.59549429082158,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_018",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7711598638867478,
+      "distribution": {
+        "true": 0.7711598638867478,
+        "false": 0.22884013611325216
+      },
+      "brier_score": 0.052367807896331775,
+      "latency_ms": 23.04159899852963,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_018",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_019",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_019",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5333574840231478,
+      "distribution": {
+        "same": 0.46664251597685225,
+        "different": 0.5333574840231478
+      },
+      "brier_score": 0.2844702057635023,
+      "latency_ms": 109.74305456626723,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_019",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8253902665012338,
+      "distribution": {
+        "true": 0.8253902665012338,
+        "false": 0.17460973349876618
+      },
+      "brier_score": 0.6812690920349778,
+      "latency_ms": 36.86426425321784,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_019",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_020",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_020",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7406068434619069,
+      "distribution": {
+        "same": 0.7406068434619069,
+        "different": 0.25939315653809314
+      },
+      "brier_score": 0.06728480965879569,
+      "latency_ms": 122.87062190313954,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_020",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9528377193963273,
+      "distribution": {
+        "true": 0.9528377193963273,
+        "false": 0.04716228060367267
+      },
+      "brier_score": 0.9078997195043942,
+      "latency_ms": 29.150133161518657,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_020",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_021",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_021",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5000961278683019,
+      "distribution": {
+        "same": 0.49990387213169807,
+        "different": 0.5000961278683019
+      },
+      "brier_score": 0.250096137108869,
+      "latency_ms": 60.5566284181822,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_021",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7420806473045283,
+      "distribution": {
+        "true": 0.7420806473045283,
+        "false": 0.2579193526954717
+      },
+      "brier_score": 0.5506836871039077,
+      "latency_ms": 20.46104336111887,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_021",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_022",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_022",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.5493466378508284,
+      "distribution": {
+        "same": 0.4506533621491716,
+        "different": 0.5493466378508284
+      },
+      "brier_score": 0.20308845281635243,
+      "latency_ms": 147.0545943333569,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_022",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6113402707552282,
+      "distribution": {
+        "true": 0.6113402707552282,
+        "false": 0.38865972924477177
+      },
+      "brier_score": 0.37373692664707575,
+      "latency_ms": 36.44804298717384,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_022",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_023",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_023",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6916240392408921,
+      "distribution": {
+        "same": 0.6916240392408921,
+        "different": 0.3083759607591079
+      },
+      "brier_score": 0.09509573317410284,
+      "latency_ms": 112.48410898270055,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_023",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8359127319632524,
+      "distribution": {
+        "true": 0.8359127319632524,
+        "false": 0.16408726803674756
+      },
+      "brier_score": 0.6987500954582683,
+      "latency_ms": 13.065983530549508,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_023",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_024",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_024",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.6906183815361688,
+      "distribution": {
+        "same": 0.3093816184638311,
+        "different": 0.6906183815361688
+      },
+      "brier_score": 0.47695374891563724,
+      "latency_ms": 54.47222456835785,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_024",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9653201237444666,
+      "distribution": {
+        "true": 0.9653201237444666,
+        "false": 0.03467987625553337
+      },
+      "brier_score": 0.9318429413060324,
+      "latency_ms": 12.15133746283561,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_024",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_025",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_025",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6231946663857673,
+      "distribution": {
+        "same": 0.6231946663857673,
+        "different": 0.37680533361423274
+      },
+      "brier_score": 0.14198225944013323,
+      "latency_ms": 110.83698313533706,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_org_025",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7355834110673478,
+      "distribution": {
+        "true": 0.7355834110673478,
+        "false": 0.2644165889326522
+      },
+      "brier_score": 0.5410829546374748,
+      "latency_ms": 18.19993294871442,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_org_025",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_001",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_001",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8255417126413103,
+      "distribution": {
+        "same": 0.8255417126413103,
+        "different": 0.17445828735868973
+      },
+      "brier_score": 0.030435694028127163,
+      "latency_ms": 68.46359402433524,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_001",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7370710375005423,
+      "distribution": {
+        "true": 0.7370710375005423,
+        "false": 0.26292896249945774
+      },
+      "brier_score": 0.5432737143221258,
+      "latency_ms": 22.519895959183973,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_001",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_002",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_002",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.6056340341511135,
+      "distribution": {
+        "same": 0.39436596584888656,
+        "different": 0.6056340341511135
+      },
+      "brier_score": 0.3667925833221521,
+      "latency_ms": 78.35093837122479,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_002",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9602704935570736,
+      "distribution": {
+        "true": 0.9602704935570736,
+        "false": 0.03972950644292639
+      },
+      "brier_score": 0.9221194207963458,
+      "latency_ms": 43.973154852483745,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_002",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_003",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_003",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.676736579494493,
+      "distribution": {
+        "same": 0.32326342050550705,
+        "different": 0.676736579494493
+      },
+      "brier_score": 0.45797239802590617,
+      "latency_ms": 120.95165510899427,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_003",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8665098440149476,
+      "distribution": {
+        "true": 0.8665098440149476,
+        "false": 0.13349015598505243
+      },
+      "brier_score": 0.7508393097748087,
+      "latency_ms": 17.299904213743286,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_003",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_004",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_004",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5099585210077854,
+      "distribution": {
+        "same": 0.4900414789922146,
+        "different": 0.5099585210077854
+      },
+      "brier_score": 0.2600576931484479,
+      "latency_ms": 92.2190209274716,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_004",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5258945857923742,
+      "distribution": {
+        "true": 0.5258945857923742,
+        "false": 0.47410541420762575
+      },
+      "brier_score": 0.27656511536573286,
+      "latency_ms": 21.58695511562702,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_004",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_005",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_005",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5625789613498662,
+      "distribution": {
+        "same": 0.4374210386501338,
+        "different": 0.5625789613498662
+      },
+      "brier_score": 0.3164950877534942,
+      "latency_ms": 131.2563550316948,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_005",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.838823257053811,
+      "distribution": {
+        "true": 0.838823257053811,
+        "false": 0.161176742946189
+      },
+      "brier_score": 0.7036244565743639,
+      "latency_ms": 23.551906425609236,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_005",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_006",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_006",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.525070490125723,
+      "distribution": {
+        "same": 0.47492950987427696,
+        "different": 0.525070490125723
+      },
+      "brier_score": 0.275699019600867,
+      "latency_ms": 89.20956726487235,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_006",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7471114873153006,
+      "distribution": {
+        "true": 0.7471114873153006,
+        "false": 0.25288851268469936
+      },
+      "brier_score": 0.5581755744784807,
+      "latency_ms": 14.172870325019113,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_006",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_007",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_007",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5450317696629206,
+      "distribution": {
+        "same": 0.5450317696629206,
+        "different": 0.45496823033707945
+      },
+      "brier_score": 0.20699609061605379,
+      "latency_ms": 98.71127587992738,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_007",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8157968696129053,
+      "distribution": {
+        "true": 0.8157968696129053,
+        "false": 0.18420313038709468
+      },
+      "brier_score": 0.6655245324702156,
+      "latency_ms": 16.42324370033016,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_007",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_008",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_008",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5899279991251323,
+      "distribution": {
+        "same": 0.5899279991251323,
+        "different": 0.4100720008748677
+      },
+      "brier_score": 0.1681590459015175,
+      "latency_ms": 84.56651955930903,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_008",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8606299090033426,
+      "distribution": {
+        "true": 0.8606299090033426,
+        "false": 0.13937009099665743
+      },
+      "brier_score": 0.7406838402711017,
+      "latency_ms": 33.934750093854134,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_008",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_009",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_009",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5903763658764128,
+      "distribution": {
+        "same": 0.40962363412358715,
+        "different": 0.5903763658764128
+      },
+      "brier_score": 0.3485442533854401,
+      "latency_ms": 127.62904297231833,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_009",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8851103629194907,
+      "distribution": {
+        "true": 0.8851103629194907,
+        "false": 0.11488963708050925
+      },
+      "brier_score": 0.7834203545474726,
+      "latency_ms": 12.128696721974638,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_009",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_010",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_010",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6267300037430158,
+      "distribution": {
+        "same": 0.6267300037430158,
+        "different": 0.3732699962569842
+      },
+      "brier_score": 0.13933049010568901,
+      "latency_ms": 84.50026506646884,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_010",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.630612218009337,
+      "distribution": {
+        "true": 0.630612218009337,
+        "false": 0.369387781990663
+      },
+      "brier_score": 0.39767176950265554,
+      "latency_ms": 37.031658147912,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_010",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_011",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_011",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5378660729956193,
+      "distribution": {
+        "same": 0.5378660729956193,
+        "different": 0.4621339270043807
+      },
+      "brier_score": 0.2135677664884903,
+      "latency_ms": 51.42916552946185,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_011",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6049167642867546,
+      "distribution": {
+        "true": 0.6049167642867546,
+        "false": 0.39508323571324544
+      },
+      "brier_score": 0.365924291715157,
+      "latency_ms": 47.49681267781269,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_011",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_012",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_012",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5646759637264497,
+      "distribution": {
+        "same": 0.4353240362735503,
+        "different": 0.5646759637264497
+      },
+      "brier_score": 0.3188589440103947,
+      "latency_ms": 147.51231860224945,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_012",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6305480489138121,
+      "distribution": {
+        "true": 0.6305480489138121,
+        "false": 0.3694519510861879
+      },
+      "brier_score": 0.3975908419890152,
+      "latency_ms": 33.729663282369344,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_012",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_013",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_013",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5992394023602909,
+      "distribution": {
+        "same": 0.400760597639709,
+        "different": 0.5992394023602909
+      },
+      "brier_score": 0.35908786134111864,
+      "latency_ms": 116.62144927148525,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_013",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7954521505511571,
+      "distribution": {
+        "true": 0.7954521505511571,
+        "false": 0.20454784944884286
+      },
+      "brier_score": 0.6327441238164607,
+      "latency_ms": 39.37639394519252,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_013",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_014",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_014",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6355274976254233,
+      "distribution": {
+        "same": 0.6355274976254233,
+        "different": 0.36447250237457673
+      },
+      "brier_score": 0.13284020498718585,
+      "latency_ms": 93.83612643791919,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_014",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5054207084717717,
+      "distribution": {
+        "true": 0.5054207084717717,
+        "false": 0.4945792915282283
+      },
+      "brier_score": 0.2554500925521076,
+      "latency_ms": 49.403334291959474,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_014",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_015",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_015",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5114117521750658,
+      "distribution": {
+        "same": 0.48858824782493415,
+        "different": 0.5114117521750658
+      },
+      "brier_score": 0.261541980262771,
+      "latency_ms": 95.92344947298758,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_015",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8380795113506302,
+      "distribution": {
+        "true": 0.8380795113506302,
+        "false": 0.1619204886493698
+      },
+      "brier_score": 0.702377267345711,
+      "latency_ms": 49.04710848682253,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_015",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_016",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_016",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.6968952858168829,
+      "distribution": {
+        "same": 0.30310471418311713,
+        "different": 0.6968952858168829
+      },
+      "brier_score": 0.48566303939379485,
+      "latency_ms": 57.85896361662344,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_016",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6754583282443507,
+      "distribution": {
+        "true": 0.6754583282443507,
+        "false": 0.3245416717556493
+      },
+      "brier_score": 0.456243953194653,
+      "latency_ms": 35.73486241724619,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_016",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_017",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_017",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6508238246004425,
+      "distribution": {
+        "same": 0.6508238246004425,
+        "different": 0.3491761753995575
+      },
+      "brier_score": 0.12192400146666253,
+      "latency_ms": 54.422891003601194,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_017",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7106572838635291,
+      "distribution": {
+        "true": 0.7106572838635291,
+        "false": 0.2893427161364709
+      },
+      "brier_score": 0.5050337751082886,
+      "latency_ms": 30.19078397510963,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_017",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_018",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_018",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7567761561002586,
+      "distribution": {
+        "same": 0.7567761561002586,
+        "different": 0.2432238438997414
+      },
+      "brier_score": 0.059157838241365765,
+      "latency_ms": 126.23126259820314,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_018",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.929771669471515,
+      "distribution": {
+        "true": 0.929771669471515,
+        "false": 0.07022833052848498
+      },
+      "brier_score": 0.8644753573518482,
+      "latency_ms": 38.08725318049285,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_018",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_019",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_019",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7021332979048576,
+      "distribution": {
+        "same": 0.7021332979048576,
+        "different": 0.29786670209514243
+      },
+      "brier_score": 0.08872457221703633,
+      "latency_ms": 112.3400973647799,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_019",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5134831606060933,
+      "distribution": {
+        "true": 0.5134831606060933,
+        "false": 0.48651683939390666
+      },
+      "brier_score": 0.26366495622602304,
+      "latency_ms": 19.1572888567231,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_019",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_020",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_020",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.8477803653509726,
+      "distribution": {
+        "same": 0.8477803653509726,
+        "different": 0.15221963464902744
+      },
+      "brier_score": 0.7187315478746286,
+      "latency_ms": 125.22221329106709,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_020",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8198374123351526,
+      "distribution": {
+        "true": 0.8198374123351526,
+        "false": 0.18016258766484738
+      },
+      "brier_score": 0.672133382664399,
+      "latency_ms": 32.53677544963555,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_020",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_021",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_021",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7247726856693013,
+      "distribution": {
+        "same": 0.7247726856693013,
+        "different": 0.2752273143306987
+      },
+      "brier_score": 0.07575007455368922,
+      "latency_ms": 126.18995978427819,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_021",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6445313548064591,
+      "distribution": {
+        "true": 0.6445313548064591,
+        "false": 0.35546864519354093
+      },
+      "brier_score": 0.41542066732864963,
+      "latency_ms": 38.993379671006835,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_021",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_022",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_022",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8430922059953658,
+      "distribution": {
+        "same": 0.8430922059953658,
+        "different": 0.15690779400463417
+      },
+      "brier_score": 0.024620055819400712,
+      "latency_ms": 93.03414291263397,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_022",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8980921463332422,
+      "distribution": {
+        "true": 0.8980921463332422,
+        "false": 0.10190785366675781
+      },
+      "brier_score": 0.8065695033054497,
+      "latency_ms": 38.09230087263367,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_022",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_023",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_023",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6483409057524957,
+      "distribution": {
+        "same": 0.6483409057524957,
+        "different": 0.3516590942475043
+      },
+      "brier_score": 0.12366411856697511,
+      "latency_ms": 106.39177562320045,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_023",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5040834984243825,
+      "distribution": {
+        "true": 0.5040834984243825,
+        "false": 0.4959165015756175
+      },
+      "brier_score": 0.25410017338376445,
+      "latency_ms": 37.69728683046122,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_023",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_024",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_024",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7901875639998557,
+      "distribution": {
+        "same": 0.7901875639998557,
+        "different": 0.20981243600014432
+      },
+      "brier_score": 0.044021258300314656,
+      "latency_ms": 107.8102240521259,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_024",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8951225120035398,
+      "distribution": {
+        "true": 0.8951225120035398,
+        "false": 0.10487748799646024
+      },
+      "brier_score": 0.8012443114955272,
+      "latency_ms": 27.507804583933027,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_024",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_025",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_025",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.876101214397035,
+      "distribution": {
+        "same": 0.876101214397035,
+        "different": 0.12389878560296497
+      },
+      "brier_score": 0.7675533378679595,
+      "latency_ms": 135.07696923696273,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_protein_025",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.869998404130941,
+      "distribution": {
+        "true": 0.869998404130941,
+        "false": 0.13000159586905902
+      },
+      "brier_score": 0.7568972231903841,
+      "latency_ms": 27.89658450505492,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_protein_025",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_001",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_001",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7811714676159611,
+      "distribution": {
+        "same": 0.7811714676159611,
+        "different": 0.21882853238403888
+      },
+      "brier_score": 0.04788592658535235,
+      "latency_ms": 73.9835855670489,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_001",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7745205488272932,
+      "distribution": {
+        "true": 0.7745205488272932,
+        "false": 0.22547945117270685
+      },
+      "brier_score": 0.5998820805557314,
+      "latency_ms": 32.68456882992218,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_001",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_002",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_002",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.6390188118736341,
+      "distribution": {
+        "same": 0.3609811881263659,
+        "different": 0.6390188118736341
+      },
+      "brier_score": 0.40834504192839094,
+      "latency_ms": 134.95295275142948,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_002",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9598337271940325,
+      "distribution": {
+        "true": 0.9598337271940325,
+        "false": 0.04016627280596752
+      },
+      "brier_score": 0.9212807838591883,
+      "latency_ms": 29.14452844554188,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_002",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_003",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_003",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8158666565860813,
+      "distribution": {
+        "same": 0.8158666565860813,
+        "different": 0.18413334341391874
+      },
+      "brier_score": 0.03390508815678813,
+      "latency_ms": 135.94806591798078,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_003",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.877067156079173,
+      "distribution": {
+        "true": 0.877067156079173,
+        "false": 0.12293284392082704
+      },
+      "brier_score": 0.7692467962728083,
+      "latency_ms": 13.194632194418748,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_003",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_004",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_004",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6733596357440799,
+      "distribution": {
+        "same": 0.6733596357440799,
+        "different": 0.32664036425592013
+      },
+      "brier_score": 0.10669392756124019,
+      "latency_ms": 117.30087021707722,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_004",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9593963465011408,
+      "distribution": {
+        "true": 0.9593963465011408,
+        "false": 0.040603653498859194
+      },
+      "brier_score": 0.920441349679737,
+      "latency_ms": 34.79243438685455,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_004",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_005",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_005",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6692704601308418,
+      "distribution": {
+        "same": 0.6692704601308418,
+        "different": 0.3307295398691582
+      },
+      "brier_score": 0.10938202854206511,
+      "latency_ms": 109.83364499703724,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_005",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7744533932985637,
+      "distribution": {
+        "true": 0.7744533932985637,
+        "false": 0.22554660670143634
+      },
+      "brier_score": 0.05087127179453241,
+      "latency_ms": 48.09788787542673,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_005",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_006",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_006",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5663422857455465,
+      "distribution": {
+        "same": 0.5663422857455465,
+        "different": 0.43365771425445354
+      },
+      "brier_score": 0.18805901313239728,
+      "latency_ms": 104.89233451656534,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_006",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.6313389507553109,
+      "distribution": {
+        "true": 0.6313389507553109,
+        "false": 0.3686610492446891
+      },
+      "brier_score": 0.1359109692301951,
+      "latency_ms": 42.1730630365079,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_006",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_007",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_007",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7582671687509592,
+      "distribution": {
+        "same": 0.7582671687509592,
+        "different": 0.24173283124904077
+      },
+      "brier_score": 0.05843476170367722,
+      "latency_ms": 144.70225215975438,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_007",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.865490210019876,
+      "distribution": {
+        "true": 0.865490210019876,
+        "false": 0.13450978998012397
+      },
+      "brier_score": 0.7490733036402492,
+      "latency_ms": 20.884513746987196,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_007",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_008",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_008",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6273020990813885,
+      "distribution": {
+        "same": 0.6273020990813885,
+        "different": 0.37269790091861155
+      },
+      "brier_score": 0.1389037253491392,
+      "latency_ms": 110.1629877821918,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_008",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9564972594872233,
+      "distribution": {
+        "true": 0.9564972594872233,
+        "false": 0.043502740512776694
+      },
+      "brier_score": 0.9148870074065686,
+      "latency_ms": 34.73418817448527,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_008",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_009",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_009",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5277432925142189,
+      "distribution": {
+        "same": 0.5277432925142189,
+        "different": 0.4722567074857811
+      },
+      "brier_score": 0.2230263977653106,
+      "latency_ms": 52.40898216643824,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_009",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.734869862030176,
+      "distribution": {
+        "true": 0.734869862030176,
+        "false": 0.265130137969824
+      },
+      "brier_score": 0.5400337141202499,
+      "latency_ms": 28.614311851793705,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_009",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_010",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_010",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.6452480850886775,
+      "distribution": {
+        "same": 0.6452480850886775,
+        "different": 0.3547519149113225
+      },
+      "brier_score": 0.12584892113325022,
+      "latency_ms": 73.65102359431879,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_010",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.592686381110725,
+      "distribution": {
+        "true": 0.592686381110725,
+        "false": 0.407313618889275
+      },
+      "brier_score": 0.3512771463541276,
+      "latency_ms": 41.4446592937917,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_010",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_011",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_011",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.6725393665740627,
+      "distribution": {
+        "same": 0.3274606334259373,
+        "different": 0.6725393665740627
+      },
+      "brier_score": 0.10723046644371612,
+      "latency_ms": 68.0686006744513,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_011",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.8029782861404864,
+      "distribution": {
+        "true": 0.8029782861404864,
+        "false": 0.19702171385951361
+      },
+      "brier_score": 0.6447741280131128,
+      "latency_ms": 13.565663771356178,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_011",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_012",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_012",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8850953376296227,
+      "distribution": {
+        "same": 0.8850953376296227,
+        "different": 0.11490466237037733
+      },
+      "brier_score": 0.013203081434450408,
+      "latency_ms": 104.05713872143981,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_012",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7510541080471707,
+      "distribution": {
+        "true": 0.7510541080471707,
+        "false": 0.24894589195282935
+      },
+      "brier_score": 0.5640822732145311,
+      "latency_ms": 43.17957591608359,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_012",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_013",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_013",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.625792101287981,
+      "distribution": {
+        "same": 0.625792101287981,
+        "different": 0.374207898712019
+      },
+      "brier_score": 0.14003155145846466,
+      "latency_ms": 60.06730436244814,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_013",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6983443678625012,
+      "distribution": {
+        "true": 0.6983443678625012,
+        "false": 0.3016556321374988
+      },
+      "brier_score": 0.4876848561252764,
+      "latency_ms": 19.771584150400653,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_013",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_014",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_014",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.6772429772027045,
+      "distribution": {
+        "same": 0.32275702279729546,
+        "different": 0.6772429772027045
+      },
+      "brier_score": 0.45865805017038297,
+      "latency_ms": 85.58274350234598,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_014",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.9036652047434246,
+      "distribution": {
+        "true": 0.9036652047434246,
+        "false": 0.0963347952565754
+      },
+      "brier_score": 0.8166108022639755,
+      "latency_ms": 43.88640832091319,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_014",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_015",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_015",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "different",
+      "correct": false,
+      "confidence": 0.5704415001965601,
+      "distribution": {
+        "same": 0.42955849980343985,
+        "different": 0.5704415001965601
+      },
+      "brier_score": 0.3254035051465021,
+      "latency_ms": 119.52709931599324,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_015",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.6270491680307517,
+      "distribution": {
+        "true": 0.6270491680307517,
+        "false": 0.3729508319692483
+      },
+      "brier_score": 0.3931906591280579,
+      "latency_ms": 23.917177129401956,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_015",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_016",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_016",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5862944321872197,
+      "distribution": {
+        "same": 0.5862944321872197,
+        "different": 0.41370556781278034
+      },
+      "brier_score": 0.171152296839295,
+      "latency_ms": 135.03936523317432,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_016",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7127146328911618,
+      "distribution": {
+        "true": 0.7127146328911618,
+        "false": 0.28728536710883823
+      },
+      "brier_score": 0.5079621479371835,
+      "latency_ms": 14.525710668734648,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_016",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_017",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_017",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.5080907957259642,
+      "distribution": {
+        "same": 0.49190920427403584,
+        "different": 0.5080907957259642
+      },
+      "brier_score": 0.2419746652495151,
+      "latency_ms": 75.28558890722935,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_017",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.7095949958113725,
+      "distribution": {
+        "true": 0.7095949958113725,
+        "false": 0.29040500418862747
+      },
+      "brier_score": 0.08433506645779673,
+      "latency_ms": 26.070155676387166,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_017",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_018",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_018",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5407292869870463,
+      "distribution": {
+        "same": 0.5407292869870463,
+        "different": 0.45927071301295375
+      },
+      "brier_score": 0.21092958783142693,
+      "latency_ms": 54.653976331153785,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_018",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5332433261274083,
+      "distribution": {
+        "true": 0.5332433261274083,
+        "false": 0.4667566738725917
+      },
+      "brier_score": 0.28434844485942157,
+      "latency_ms": 41.69113064653268,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_018",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_019",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_019",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5743277584069578,
+      "distribution": {
+        "same": 0.5743277584069578,
+        "different": 0.4256722415930422
+      },
+      "brier_score": 0.18119685726284526,
+      "latency_ms": 122.01701421364882,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_019",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7582763778175312,
+      "distribution": {
+        "true": 0.7582763778175312,
+        "false": 0.2417236221824688
+      },
+      "brier_score": 0.5749830651560753,
+      "latency_ms": 12.867055370962252,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_019",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_020",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_020",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.7235758385344939,
+      "distribution": {
+        "same": 0.7235758385344939,
+        "different": 0.2764241614655061
+      },
+      "brier_score": 0.07641031704190818,
+      "latency_ms": 139.72509960456298,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_020",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.7278988978447047,
+      "distribution": {
+        "true": 0.7278988978447047,
+        "false": 0.27210110215529526
+      },
+      "brier_score": 0.529836805483536,
+      "latency_ms": 11.76362774439816,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_020",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_021",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_021",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "different",
+      "correct": true,
+      "confidence": 0.5000406186047526,
+      "distribution": {
+        "same": 0.4999593813952474,
+        "different": 0.5000406186047526
+      },
+      "brier_score": 0.24995938304511847,
+      "latency_ms": 144.12239558547984,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_021",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5754295376011792,
+      "distribution": {
+        "true": 0.5754295376011792,
+        "false": 0.4245704623988208
+      },
+      "brier_score": 0.1802600775415485,
+      "latency_ms": 36.38642163529486,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_021",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_022",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_022",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.5515114678832332,
+      "distribution": {
+        "same": 0.5515114678832332,
+        "different": 0.44848853211676676
+      },
+      "brier_score": 0.30416489920671863,
+      "latency_ms": 50.814929829412335,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_022",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.751836895104513,
+      "distribution": {
+        "true": 0.751836895104513,
+        "false": 0.24816310489548699
+      },
+      "brier_score": 0.5652587168403945,
+      "latency_ms": 37.83515114609409,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_022",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_023",
+      "backend": "jev-typesafe",
+      "gold_label": "uncertain",
+      "predicted_label": "ERROR",
+      "correct": true,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_023",
+      "backend": "specialist-er",
+      "gold_label": "uncertain",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.8503995198117154,
+      "distribution": {
+        "same": 0.8503995198117154,
+        "different": 0.14960048018828465
+      },
+      "brier_score": 0.022380303672565348,
+      "latency_ms": 118.18782269913889,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_023",
+      "backend": "mock-realistic-backend",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.5306184613676695,
+      "distribution": {
+        "true": 0.5306184613676695,
+        "false": 0.46938153863233045
+      },
+      "brier_score": 0.22031902880885393,
+      "latency_ms": 31.636507480151526,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_023",
+      "backend": "calibration-control",
+      "gold_label": "uncertain",
+      "predicted_label": "true",
+      "correct": true,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.022500000000000006,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_024",
+      "backend": "jev-typesafe",
+      "gold_label": "different",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_024",
+      "backend": "specialist-er",
+      "gold_label": "different",
+      "predicted_label": "same",
+      "correct": false,
+      "confidence": 0.6161655835224631,
+      "distribution": {
+        "same": 0.6161655835224631,
+        "different": 0.3838344164775369
+      },
+      "brier_score": 0.37966002631757745,
+      "latency_ms": 131.47766585291922,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_024",
+      "backend": "mock-realistic-backend",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5158310582170265,
+      "distribution": {
+        "true": 0.5158310582170265,
+        "false": 0.48416894178297354
+      },
+      "brier_score": 0.26608168062129733,
+      "latency_ms": 28.098158405527517,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_024",
+      "backend": "calibration-control",
+      "gold_label": "different",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_025",
+      "backend": "jev-typesafe",
+      "gold_label": "same",
+      "predicted_label": "ERROR",
+      "correct": false,
+      "confidence": null,
+      "distribution": {},
+      "brier_score": 1.0,
+      "latency_ms": null,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_025",
+      "backend": "specialist-er",
+      "gold_label": "same",
+      "predicted_label": "same",
+      "correct": true,
+      "confidence": 0.5584233193292681,
+      "distribution": {
+        "same": 0.5584233193292681,
+        "different": 0.44157668067073186
+      },
+      "brier_score": 0.19498996491218148,
+      "latency_ms": 109.91634715777775,
+      "tokens_used": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "example_id": "er_chem_025",
+      "backend": "mock-realistic-backend",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.5146928553146636,
+      "distribution": {
+        "true": 0.5146928553146636,
+        "false": 0.4853071446853364
+      },
+      "brier_score": 0.26490873531196124,
+      "latency_ms": 26.966577507570292,
+      "tokens_used": null
+    },
+    {
+      "example_id": "er_chem_025",
+      "backend": "calibration-control",
+      "gold_label": "same",
+      "predicted_label": "true",
+      "correct": false,
+      "confidence": 0.85,
+      "distribution": {
+        "true": 0.85,
+        "false": 0.15000000000000002
+      },
+      "brier_score": 0.7224999999999999,
+      "latency_ms": null,
+      "tokens_used": null
+    }
+  ]
+}

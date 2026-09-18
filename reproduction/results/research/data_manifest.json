@@ -1,0 +1,133 @@
+{
+  "scifact": {
+    "dataset": "SciFact original release",
+    "source": {
+      "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+      "sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+      "bytes": 3115079,
+      "local_file": ".cache\\research-data\\scifact-data.tar.gz"
+    },
+    "task": "classification of supplied cited abstracts; not open-corpus retrieval or leaderboard evaluation",
+    "evaluation": "official development claims; training/calibration purge overlapping documents and duplicate abstracts",
+    "purged_training_claims": 272,
+    "split_summary": {
+      "train": {
+        "rows": 459,
+        "labels": {
+          "NOT_ENOUGH_INFO": 198,
+          "REFUTES": 82,
+          "SUPPORTS": 179
+        },
+        "groups": 255,
+        "row_ids_sha256": "fd9c235ca5f2bcd4a41c28ebc3bab7cecdf92ca700c621c800df6bd61e1e59c7"
+      },
+      "calibration": {
+        "rows": 150,
+        "labels": {
+          "SUPPORTS": 65,
+          "NOT_ENOUGH_INFO": 55,
+          "REFUTES": 30
+        },
+        "groups": 73,
+        "row_ids_sha256": "4341381c347f4429662518e35d429d6a0d1bcdbd20a882b480eae73b2aca4193"
+      },
+      "evaluation": {
+        "rows": 339,
+        "labels": {
+          "NOT_ENOUGH_INFO": 130,
+          "SUPPORTS": 138,
+          "REFUTES": 71
+        },
+        "groups": 247,
+        "row_ids_sha256": "8b572ea59b9bc782238df3993f607173641f57324a9f1a6ea00d365a685fa392"
+      }
+    },
+    "splits_sha256": "cd48ed975a8b02d57be219eef6eec92e384905d4b4d9580afc9026d79504a381",
+    "group_unit": "connected claim/document/duplicate-abstract component"
+  },
+  "entity_resolution": {
+    "dataset": "DBLP-ACM structured identity pairs, Ditto serialized ER-Magellan data",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/data/er_magellan/Structured/DBLP-ACM/train.txt",
+        "sha256": "4f757d2d5dae4f7d7d118b796c683a232b4e11bf000e2012b64f8af95a981a4e",
+        "bytes": 2894612,
+        "local_file": ".cache\\research-data\\dblp-acm-train.txt"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/data/er_magellan/Structured/DBLP-ACM/valid.txt",
+        "sha256": "b13444a2bf1a503ed558e782f42b247cf56e16e67be2e58d92d7435161299e2e",
+        "bytes": 966837,
+        "local_file": ".cache\\research-data\\dblp-acm-valid.txt"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/megagonlabs/ditto/52985564a93fb11308439516d3e17a033d43ec8f/data/er_magellan/Structured/DBLP-ACM/test.txt",
+        "sha256": "ded891e469b1d08e21269038c984dc761ae2fd5b142b00c46c30fce45adc6e68",
+        "bytes": 961602,
+        "local_file": ".cache\\research-data\\dblp-acm-test.txt"
+      }
+    ],
+    "source_revision": "52985564a93fb11308439516d3e17a033d43ec8f",
+    "task": "bibliographic identity matching; not a biomedical generalization test",
+    "split_policy": "positive identity components hashed 60/20/20; cross-split negatives dropped; held-out identity-disjoint maximal matching",
+    "discarded_cross_split_pairs": 5623,
+    "discarded_reused_identity_pairs": {
+      "calibration": 457,
+      "evaluation": 536
+    },
+    "ambiguous_record_quarantine": {
+      "conflicting_serialized_pairs": 7,
+      "record_hashes": [
+        "08fc1cdd78c2d439b793ca5b1b648d7bebb55ff24d440b6f57649e0b704374d2",
+        "52c3bf67dd2baa30395b67d94442c7a59c1f024bbaf6cfd58a9183b576531908",
+        "570a597ddaf989a7d8c3d906fa52b05c6c92c3c8cc0fc742406ae30219983269",
+        "79240fa6bb0ab4ed9f840e70219fa987ba073e4f56faeb712e05b70404cdc036",
+        "7e7bf71e021535d67505abafbe3b74ed9bff5ab2176ef4003c552fc4915c47c3",
+        "82ba05f5ec7945342aabfd0b16e3ed11f1a08c4e4fa353db11b59d5cc3fc3cca",
+        "846a09890cab9742c2451ef3e40784f0711a9f7211567809cc386febb40f4815",
+        "997a8513f4492a603bb6f7bf3f510fef5f0adcdd63b5a4027f7e53598dde9d61",
+        "afa4cd2332cbafe922e2388fc6a27402e968e761333c724d8b0df23b6fe48d3e",
+        "b6ce141c90ffc6162eda449509dafd86d2c97fb444883719461540e2212ab4fb",
+        "d0f04df37d8a4c7a5b4847531ea742f77893f15b9338905b2f6fd05df54a7c15",
+        "fad51be5e8cd51f746aad29d1dbb6bcbfbd9802b5a42f7497c9b196c3f0a7300"
+      ],
+      "excluded_pairs": 92
+    },
+    "identity_consistency_quarantine": {
+      "inconsistent_positive_components": 0,
+      "excluded_pairs": 0
+    },
+    "grouping_uses_labels": "positive labels define split groups only, never model features",
+    "split_summary": {
+      "train": {
+        "rows": 4592,
+        "labels": {
+          "different": 3283,
+          "same": 1309
+        },
+        "groups": 4592,
+        "row_ids_sha256": "77ffb629a498eaaef18522b740ed56dc94e095e661e1c8162010995f91e7291f"
+      },
+      "calibration": {
+        "rows": 390,
+        "labels": {
+          "same": 334,
+          "different": 56
+        },
+        "groups": 390,
+        "row_ids_sha256": "e97a6f261ca87a935bf4226462fc9f761c9c0a3e5b2dcf3cf6450d5fc15d285c"
+      },
+      "evaluation": {
+        "rows": 413,
+        "labels": {
+          "same": 350,
+          "different": 63
+        },
+        "groups": 413,
+        "row_ids_sha256": "5b96bf30960efae0b7d736996807ff185b26cb95490bcfb6e2524a65948ac860"
+      }
+    },
+    "splits_sha256": "faef8f3a423aa7fc22242e901a23bd8c1743517706c006df92273913d26d629a",
+    "group_unit": "disjoint underlying identity groups in calibration/evaluation"
+  }
+}

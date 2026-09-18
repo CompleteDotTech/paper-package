@@ -1,0 +1,71 @@
+{
+  "probe": "compiler-staging-semantics",
+  "scope": "Offline deterministic backend; no graph persistence or semantic model evaluation",
+  "manifest": {
+    "repository_name": "typed-probabilistic-graph-compiler",
+    "repository_commit": "f812d74c816d9f90162ae5db3be94bdb514b1075",
+    "repository_status_before": "",
+    "repository_status_after": "",
+    "python_version": "3.14.3",
+    "bytecode_writes_disabled": true,
+    "source_sha256": {
+      "pgc/compiler/orchestrator.py": "a5c96b93624598b82a0077071455e2d32da9cd9d908eacfe57881c6a11081185",
+      "pgc/ir/__init__.py": "4ca4eccb0e4749b7fca996fea88d26913ab5074b44c819cf7274eae407f6aa81",
+      "pgc/decision/__init__.py": "c845e158561a3579cae48b3122f8363b343be45155bf446448c696291ebaa996"
+    }
+  },
+  "input": {
+    "candidate_edges": 1,
+    "candidate_nodes": 0,
+    "evidence_items": 0,
+    "backend_distribution": {
+      "true": 0.01,
+      "false": 0.99
+    },
+    "backend_confidence": 0.99,
+    "constraint_formal_spec": "False",
+    "dry_run": true
+  },
+  "observed": {
+    "backend_call_count": 2,
+    "backend_requests": [
+      {
+        "state": "Subject: S\nRelation: relation\nObject: O\nEvidence:\n",
+        "options": null,
+        "primitive": "noul"
+      },
+      {
+        "state": "",
+        "options": null,
+        "primitive": "noul"
+      }
+    ],
+    "second_request_state_empty": true,
+    "recorded_decision_count": 1,
+    "selected_decision_outcomes": [
+      "false"
+    ],
+    "negative_decision_selected": true,
+    "constraint_marked_evaluated": true,
+    "constraint_status": "pass",
+    "transaction_mutation_count": 1,
+    "mutation_operations": [
+      "create_node"
+    ],
+    "mutation_statuses": [
+      "auto_committable"
+    ],
+    "mutation_committed_at_set": [
+      false
+    ],
+    "dry_run_transaction_committed_at_set": true,
+    "dry_run_transaction_committed_by": "deterministic-false-offline-probe",
+    "transaction_graph_version_before": "v1",
+    "transaction_graph_version_after_differs": true,
+    "compiler_graph_version_after": "v1",
+    "transaction_read_set_size": 0,
+    "transaction_affected_set_size": 0,
+    "provenance_entry_count": 0,
+    "compiler_error_count": 0
+  }
+}

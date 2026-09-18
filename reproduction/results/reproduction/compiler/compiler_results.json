@@ -1,0 +1,501 @@
+{
+  "execution_mode": "mock",
+  "study": "synthetic controlled compiler mechanisms",
+  "neural_or_api_execution": false,
+  "source_sha256": {
+    "pgc/compiler/orchestrator.py": "713f3449f444bac3117e9c9cd5fe905227c63c66c0d374c6c58ab99a5c02137e",
+    "pgc/compiler/graph_store.py": "a9332b35537333715d236e18aa3e57e510ee4d5b6045df7a4d60130e4a222b96",
+    "pgc/ir/__init__.py": "c766792001df278e4a39c3c830cca73d9f249a604b6c6a248879fb3ed8a69266",
+    "pgc/experiments/run_compiler_research.py": "d1218c79ce1d11dc05947462583cf301efe4c8ccfc0a24f4327bf4e47237a6b2"
+  },
+  "quality_comparison": {
+    "design": "Same seven candidate edges and frozen probability vectors; no fitting or model calls",
+    "comparator": "Confidence-only positive-edge application is a deliberately flawed mechanism baseline",
+    "threshold": 0.85,
+    "threshold_eligible_candidates": 6,
+    "frozen_predictions_sha256": "3a9ff4eb5f19cfc9834022d1770aa5f7fa4f33fb199a027a47b5a78a0bd47bc2",
+    "frozen_rows": [
+      {
+        "id": "valid_high",
+        "distribution": {
+          "SUPPORTS": 0.99,
+          "REFUTES": 0.0050000000000000044,
+          "NOT_ENOUGH_INFO": 0.0050000000000000044
+        },
+        "gold": "SUPPORTS",
+        "subject": "s0",
+        "object": "o0",
+        "predicate": "knows"
+      },
+      {
+        "id": "confident_refutation",
+        "distribution": {
+          "SUPPORTS": 0.0050000000000000044,
+          "REFUTES": 0.99,
+          "NOT_ENOUGH_INFO": 0.0050000000000000044
+        },
+        "gold": "REFUTES",
+        "subject": "s1",
+        "object": "o1",
+        "predicate": "knows"
+      },
+      {
+        "id": "confident_unknown",
+        "distribution": {
+          "SUPPORTS": 0.010000000000000009,
+          "REFUTES": 0.010000000000000009,
+          "NOT_ENOUGH_INFO": 0.98
+        },
+        "gold": "NOT_ENOUGH_INFO",
+        "subject": "s2",
+        "object": "o2",
+        "predicate": "knows"
+      },
+      {
+        "id": "valid_second",
+        "distribution": {
+          "SUPPORTS": 0.97,
+          "REFUTES": 0.015000000000000013,
+          "NOT_ENOUGH_INFO": 0.015000000000000013
+        },
+        "gold": "SUPPORTS",
+        "subject": "s3",
+        "object": "o3",
+        "predicate": "knows"
+      },
+      {
+        "id": "semantic_false_positive",
+        "distribution": {
+          "SUPPORTS": 0.96,
+          "REFUTES": 0.020000000000000018,
+          "NOT_ENOUGH_INFO": 0.020000000000000018
+        },
+        "gold": "REFUTES",
+        "subject": "s4",
+        "object": "o4",
+        "predicate": "knows"
+      },
+      {
+        "id": "semantic_false_negative",
+        "distribution": {
+          "SUPPORTS": 0.025000000000000022,
+          "REFUTES": 0.95,
+          "NOT_ENOUGH_INFO": 0.025000000000000022
+        },
+        "gold": "SUPPORTS",
+        "subject": "s5",
+        "object": "o5",
+        "predicate": "knows"
+      },
+      {
+        "id": "weak_true_positive",
+        "distribution": {
+          "SUPPORTS": 0.6,
+          "REFUTES": 0.2,
+          "NOT_ENOUGH_INFO": 0.2
+        },
+        "gold": "SUPPORTS",
+        "subject": "s6",
+        "object": "o6",
+        "predicate": "knows"
+      }
+    ],
+    "same_candidate_pool": {
+      "confidence_only_positive": {
+        "candidates": 7,
+        "committed": 6,
+        "correct_committed": 3,
+        "false_committed": 3,
+        "gold_positive_count": 4,
+        "committed_precision": 0.5,
+        "positive_recall": 0.75,
+        "coverage": 0.8571428571428571,
+        "committed_ids": [
+          "confident_refutation",
+          "confident_unknown",
+          "semantic_false_negative",
+          "semantic_false_positive",
+          "valid_high",
+          "valid_second"
+        ]
+      },
+      "typed_actions": {
+        "candidates": 7,
+        "committed": 3,
+        "correct_committed": 2,
+        "false_committed": 1,
+        "gold_positive_count": 4,
+        "committed_precision": 0.6666666666666666,
+        "positive_recall": 0.5,
+        "coverage": 0.42857142857142855,
+        "committed_ids": [
+          "semantic_false_positive",
+          "valid_high",
+          "valid_second"
+        ]
+      }
+    },
+    "matched_committed_count": {
+      "selection": "Baseline takes the K highest max-class confidences, lexicographic ID tie-break; K equals typed commits",
+      "confidence_only_positive": {
+        "candidates": 7,
+        "committed": 3,
+        "correct_committed": 1,
+        "false_committed": 2,
+        "gold_positive_count": 4,
+        "committed_precision": 0.3333333333333333,
+        "positive_recall": 0.25,
+        "coverage": 0.42857142857142855,
+        "committed_ids": [
+          "confident_refutation",
+          "confident_unknown",
+          "valid_high"
+        ]
+      },
+      "typed_actions": {
+        "candidates": 7,
+        "committed": 3,
+        "correct_committed": 2,
+        "false_committed": 1,
+        "gold_positive_count": 4,
+        "committed_precision": 0.6666666666666666,
+        "positive_recall": 0.5,
+        "coverage": 0.42857142857142855,
+        "committed_ids": [
+          "semantic_false_positive",
+          "valid_high",
+          "valid_second"
+        ]
+      }
+    },
+    "typed_backend_calls": 7,
+    "typed_provenance_entries": 3,
+    "interpretation": "Typed polarity removes known negative proposals but retains a semantic false positive and misses positives; no generalization claim"
+  },
+  "scenarios": [
+    {
+      "scenario": "positive_valid",
+      "expected_status": "committed",
+      "status": "committed",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 1,
+      "new_committed_mutations": 1,
+      "coverage_of_this_attempt": 1.0,
+      "edges_before": 0,
+      "edges_after": 1,
+      "provenance_before": 0,
+      "provenance_after": 1,
+      "version_before": "v1",
+      "version_after": "v2",
+      "unchanged_snapshot": false,
+      "backend_calls_this_attempt": 1,
+      "reasons": [],
+      "rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      }
+    },
+    {
+      "scenario": "referential_failure",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 0,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 1,
+      "reasons": [
+        "Unresolved edge dependency: ab",
+        "No valid mutations: Unresolved edge dependency: ab"
+      ],
+      "rule_results": {
+        "referential": "unknown",
+        "no_self_loops": "unknown"
+      }
+    },
+    {
+      "scenario": "domain_type_failure",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "domain": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 1,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 1,
+      "reasons": [
+        "Constraints did not pass: domain"
+      ],
+      "rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "domain": "fail"
+      }
+    },
+    {
+      "scenario": "unique_property_failure",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "unique": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 1,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 1,
+      "reasons": [
+        "Constraints did not pass: unique"
+      ],
+      "rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "unique": "fail"
+      }
+    },
+    {
+      "scenario": "cardinality_failure",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "one": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 2,
+      "planned_mutations": 2,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 2,
+      "reasons": [
+        "Constraints did not pass: one"
+      ],
+      "rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "one": "fail"
+      }
+    },
+    {
+      "scenario": "self_loop_failure",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 1,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 1,
+      "reasons": [
+        "Constraints did not pass: no_self_loops"
+      ],
+      "rule_results": {
+        "referential": "pass",
+        "no_self_loops": "fail"
+      }
+    },
+    {
+      "scenario": "unsupported_rule",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "unknown": "unknown"
+      },
+      "initial_graph_satisfies_relevant_rules": null,
+      "candidate_mutations": 1,
+      "planned_mutations": 1,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 1,
+      "reasons": [
+        "Constraints did not pass: unknown"
+      ],
+      "rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass",
+        "unknown": "unknown"
+      }
+    },
+    {
+      "scenario": "stale_version",
+      "expected_status": "conflict",
+      "status": "conflict",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 0,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 0,
+      "reasons": [
+        "Expected v0; current v1"
+      ],
+      "rule_results": {
+        "referential": "unknown",
+        "no_self_loops": "unknown"
+      }
+    },
+    {
+      "scenario": "apply_failure",
+      "expected_status": "rejected",
+      "status": "rejected",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 2,
+      "planned_mutations": 2,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 0,
+      "edges_after": 0,
+      "provenance_before": 0,
+      "provenance_after": 0,
+      "version_before": "v1",
+      "version_after": "v1",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 2,
+      "reasons": [
+        "Injected failure during shadow application"
+      ],
+      "rule_results": {
+        "referential": "unknown",
+        "no_self_loops": "unknown"
+      }
+    },
+    {
+      "scenario": "idempotent_replay",
+      "expected_status": "committed",
+      "status": "committed",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 1,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 1,
+      "edges_after": 1,
+      "provenance_before": 1,
+      "provenance_after": 1,
+      "version_before": "v2",
+      "version_after": "v2",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 0,
+      "reasons": [],
+      "rule_results": {
+        "referential": "unknown",
+        "no_self_loops": "unknown"
+      }
+    },
+    {
+      "scenario": "retry_payload_conflict",
+      "expected_status": "conflict",
+      "status": "conflict",
+      "initial_rule_results": {
+        "referential": "pass",
+        "no_self_loops": "pass"
+      },
+      "initial_graph_satisfies_relevant_rules": true,
+      "candidate_mutations": 1,
+      "planned_mutations": 0,
+      "new_committed_mutations": 0,
+      "coverage_of_this_attempt": 0.0,
+      "edges_before": 1,
+      "edges_after": 1,
+      "provenance_before": 1,
+      "provenance_after": 1,
+      "version_before": "v2",
+      "version_after": "v2",
+      "unchanged_snapshot": true,
+      "backend_calls_this_attempt": 0,
+      "reasons": [
+        "Idempotency key reused with a different payload"
+      ],
+      "rule_results": {
+        "referential": "unknown",
+        "no_self_loops": "unknown"
+      }
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-09-18T00:23:52.145119+00:00",
+  "status": "pass",
+  "passed_checks": 30,
+  "failed_checks": [],
+  "checks": [
+    {
+      "check": "historical:benchmark_relation_support_50_results.json",
+      "status": "pass",
+      "detail": {
+        "sha256": "605c4b162d3ed5e76bbece6ac8a68dfbad0726d6d88dec6e37d540ab6c0831a6",
+        "unchanged": true
+      }
+    },
+    {
+      "check": "historical:benchmark_entity_resolution_100_results.json",
+      "status": "pass",
+      "detail": {
+        "sha256": "1cea5de3052e9bd1c8e5e1b043392b0f17c060e2f76dc53e3b1617b355489d14",
+        "unchanged": true
+      }
+    },
+    {
+      "check": "splits:scifact",
+      "status": "pass",
+      "detail": {
+        "counts": {
+          "train": 459,
+          "calibration": 150,
+          "evaluation": 339
+        },
+        "split_sha256": "cd48ed975a8b02d57be219eef6eec92e384905d4b4d9580afc9026d79504a381",
+        "group_and_entity_or_document_disjoint": true
+      }
+    },
+    {
+      "check": "splits:entity_resolution",
+      "status": "pass",
+      "detail": {
+        "counts": {
+          "train": 4592,
+          "calibration": 390,
+          "evaluation": 413
+        },
+        "split_sha256": "faef8f3a423aa7fc22242e901a23bd8c1743517706c006df92273913d26d629a",
+        "group_and_entity_or_document_disjoint": true
+      }
+    },
+    {
+      "check": "nli:full",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.471976401179941,
+        "full_sum_brier": 0.949600085414459
+      }
+    },
+    {
+      "check": "nli:full_calibrated",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.471976401179941,
+        "full_sum_brier": 0.6136179951588543
+      }
+    },
+    {
+      "check": "nli:selected",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.4896755162241888,
+        "full_sum_brier": 0.909393208398279
+      }
+    },
+    {
+      "check": "nli:selected_calibrated",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.4896755162241888,
+        "full_sum_brier": 0.6042667621562685
+      }
+    },
+    {
+      "check": "nli:prefix80",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.40412979351032446,
+        "full_sum_brier": 1.1453179595036411
+      }
+    },
+    {
+      "check": "nli:wrong_hypothesis",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.3805309734513274,
+        "full_sum_brier": 1.2071638558399584
+      }
+    },
+    {
+      "check": "nli:train_prior",
+      "status": "pass",
+      "detail": {
+        "records": 339,
+        "semantic_records": 339,
+        "excluded_uncertain": 0,
+        "accuracy": 0.3834808259587021,
+        "full_sum_brier": 0.6468978201452323
+      }
+    },
+    {
+      "check": "er:train-prior",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.15254237288135594,
+        "full_sum_brier": 0.8911263819709818
+      }
+    },
+    {
+      "check": "er:lexical-logistic",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9564164648910412,
+        "full_sum_brier": 0.07340570912944462
+      }
+    },
+    {
+      "check": "er:er-title-only",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9782082324455206,
+        "full_sum_brier": 0.04229684313885985
+      }
+    },
+    {
+      "check": "er:er-title-only-calibrated",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9782082324455206,
+        "full_sum_brier": 0.04037917450365572
+      }
+    },
+    {
+      "check": "er:er-full-context",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9806295399515739,
+        "full_sum_brier": 0.03214882508684492
+      }
+    },
+    {
+      "check": "er:er-full-context-calibrated",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9806295399515739,
+        "full_sum_brier": 0.027536405325661675
+      }
+    },
+    {
+      "check": "er:er-no-hard-negatives",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9830508474576272,
+        "full_sum_brier": 0.030502603241382573
+      }
+    },
+    {
+      "check": "er:er-no-hard-negatives-calibrated",
+      "status": "pass",
+      "detail": {
+        "records": 413,
+        "semantic_records": 413,
+        "excluded_uncertain": 0,
+        "accuracy": 0.9830508474576272,
+        "full_sum_brier": 0.027105864481934545
+      }
+    },
+    {
+      "check": "fixture:relation_support:specialist-nli",
+      "status": "pass",
+      "detail": {
+        "records": 50,
+        "semantic_records": 50,
+        "excluded_uncertain": 0,
+        "accuracy": 0.68,
+        "full_sum_brier": 0.5728087957840434
+      }
+    },
+    {
+      "check": "fixture:relation_support:constant-SUPPORTS",
+      "status": "pass",
+      "detail": {
+        "records": 50,
+        "semantic_records": 50,
+        "excluded_uncertain": 0,
+        "accuracy": 0.3,
+        "full_sum_brier": 1.4
+      }
+    },
+    {
+      "check": "fixture:relation_support:constant-NOT_ENOUGH_INFO",
+      "status": "pass",
+      "detail": {
+        "records": 50,
+        "semantic_records": 50,
+        "excluded_uncertain": 0,
+        "accuracy": 0.4,
+        "full_sum_brier": 1.2
+      }
+    },
+    {
+      "check": "fixture:relation_support:lexical-overlap-negation",
+      "status": "pass",
+      "detail": {
+        "records": 50,
+        "semantic_records": 50,
+        "excluded_uncertain": 0,
+        "accuracy": 0.56,
+        "full_sum_brier": 0.88
+      }
+    },
+    {
+      "check": "fixture:entity_resolution:specialist-er",
+      "status": "pass",
+      "detail": {
+        "records": 100,
+        "semantic_records": 88,
+        "excluded_uncertain": 12,
+        "accuracy": 0.5113636363636364,
+        "full_sum_brier": 0.876955552565969
+      }
+    },
+    {
+      "check": "fixture:entity_resolution:constant-same",
+      "status": "pass",
+      "detail": {
+        "records": 100,
+        "semantic_records": 88,
+        "excluded_uncertain": 12,
+        "accuracy": 0.8636363636363636,
+        "full_sum_brier": 0.2727272727272727
+      }
+    },
+    {
+      "check": "fixture:entity_resolution:normalized-exact",
+      "status": "pass",
+      "detail": {
+        "records": 100,
+        "semantic_records": 88,
+        "excluded_uncertain": 12,
+        "accuracy": 0.1590909090909091,
+        "full_sum_brier": 1.6818181818181819
+      }
+    },
+    {
+      "check": "fixture:entity_resolution:dblp-train-lexical-logistic",
+      "status": "pass",
+      "detail": {
+        "records": 100,
+        "semantic_records": 88,
+        "excluded_uncertain": 12,
+        "accuracy": 0.13636363636363635,
+        "full_sum_brier": 1.620710712090189
+      }
+    },
+    {
+      "check": "advanced:synthetic_tags_counts",
+      "status": "pass",
+      "detail": {
+        "execution_mode": "synthetic",
+        "evaluation_conditions": 13,
+        "episodes_per_condition": 300,
+        "api_calls": 0,
+        "raw_episode_outcomes_available_for_recomputation": false
+      }
+    },
+    {
+      "check": "compiler:mock_tags_counts",
+      "status": "pass",
+      "detail": {
+        "execution_mode": "mock",
+        "scenarios": 11,
+        "frozen_candidates": 7,
+        "neural_or_api_execution": false
+      }
+    },
+    {
+      "check": "compiler:real_integration_smoke",
+      "status": "pass",
+      "detail": {
+        "execution_mode": "real",
+        "manually_constructed_cases": 2,
+        "all_recorded_assertions_passed": true,
+        "held_out_generalization_evaluation": false
+      }
+    }
+  ],
+  "input_sha256": {
+    "benchmark_relation_support_50_results.json": "605c4b162d3ed5e76bbece6ac8a68dfbad0726d6d88dec6e37d540ab6c0831a6",
+    "benchmark_entity_resolution_100_results.json": "1cea5de3052e9bd1c8e5e1b043392b0f17c060e2f76dc53e3b1617b355489d14",
+    "results/research/data_manifest.json": "1337e7f7a37b7ff8ce4c3f3201d377c5f0686f4b239b99d6dcf5bd57cb1609e6",
+    ".cache/research-data/scifact-prepared.json": "99e4783162284db4448068a5caccd462bbafb8306721f94916f75f1bc406317d",
+    ".cache/research-data/entity_resolution-prepared.json": "2b910a97ea4d8bef02a01bdf19d17c4c11bfd2dd741d00acf1c9e508e3587d30",
+    "results/research/nli_results.json": "64a1fe66f8173f782047df76eed5f5d67bec336a5aa7173525f2ce48b38b19fe",
+    "results/research/er_results.json": "b3f23e83cf56d8a78b59de27ce0876ac29218538b361893cfbb81a9c223757fe",
+    "results/research/fixture_diagnostics.json": "e3214083f9e30661a7d006093c7d63abdcab741f1cf8cb8fbbd58b396ddd2601",
+    "results/research/advanced_experiments.json": "3b98415ba00287d22994be574f5b445ae9be8a9af575d7d9ac7401e08a2decc6",
+    "results/research/compiler_results.json": "1f72a0588fe777999cde4d1b50a4f5e152b995fb8a5dc1c1c3a9fdf37bef9388",
+    "results/research/real_compiler_smoke.json": "21502ca991346dd3ad25134d2e9a0b6276516502a262e8342aab2fe07af8acec"
+  },
+  "verifier_source_sha256": "f204b5ffda008425df8f1ab0a4ae4484e32e957e5ee0e9d629e6e6fdc8d9d127",
+  "model_calls": 0,
+  "network_calls": 0,
+  "gpu_used": false,
+  "limitations": [
+    "Checks saved records and prepared data; execution_mode is recorded provenance, not independently authenticated proof of model execution.",
+    "Recomputes point metrics and logits/probabilities, not bootstrap confidence intervals or model training.",
+    "Checks declared groups/documents/identities and exact prepared hashes; does not establish absence of all semantic near-duplicates or pretraining contamination.",
+    "Synthetic episode outcomes are not stored individually, so their aggregate quality estimates cannot be independently recomputed here.",
+    "Compiler artifact checks verify recorded outcomes/counts; runtime behavior is covered by separate compiler tests, not rerun by this verifier.",
+    "Checkpoint hash presence is verified; weights are not loaded or rehashed, and monetary cost/latency measurements are not independently repeated.",
+    "Historical execution source hashes are not required to equal later CLI/reporting code; this does not rewrite execution provenance.",
+    "Historical intermediate archive and partial artifacts are not treated as current headline results."
+  ]
+}

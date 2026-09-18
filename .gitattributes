@@ -1,0 +1,2 @@
+# Preserve every archival byte if this directory is placed in its own repository.
+* -text -whitespace

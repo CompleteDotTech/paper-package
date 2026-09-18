@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: post-certificates-publisher
+  group: post-certificates-publisher-final
   cancel-in-progress: false
 
 jobs:

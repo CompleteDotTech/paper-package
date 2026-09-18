@@ -1,0 +1,22 @@
+name: Adaptive improvement experiments
+on:
+  push:
+    branches: [research/jev-adaptive-improvements]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Archive tracked public research inputs
+        run: git archive --format=tar HEAD > "$RUNNER_TEMP/research-source.tar"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: adaptive-research-source
+          path: ${{ runner.temp }}/research-source.tar
+          retention-days: 7

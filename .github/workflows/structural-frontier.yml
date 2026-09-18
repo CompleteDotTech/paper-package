@@ -1,0 +1,22 @@
+name: Structural frontier research
+on:
+  push:
+    branches: [research/structure-aware-next-five]
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Package tracked research sources without credentials
+        run: git archive --format=zip --output="$RUNNER_TEMP/research-source.zip" HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: structural-frontier-source
+          path: ${{ runner.temp }}/research-source.zip
+          retention-days: 1

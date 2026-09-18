@@ -1,0 +1,381 @@
+{
+  "status": "passed",
+  "verified_at": "2026-09-18T05:05:15.009995+00:00",
+  "verifier_sha256": "c59545465e8de150dd8447945f96877320bafaecb256c3b6412b92453daf3100",
+  "run_directory": "experiments\\jev-rerun-20260918",
+  "inputs_sha256": {
+    "manifest.json": "d1b9cd81e108e60dce2d182dae4c9f14719bf46c74c397299172af9f8607c34e",
+    "plan.json": "009a5591488a93c709a6033c3414a4103e5d431d16871369b2c374ebac6c6942",
+    "calls.jsonl": "0eb3121cb20bd643eb14241079d5368c246ef63e522573b10c845a8927ea91a8",
+    "predictions.jsonl": "9fc0f0a345f6fbbd311759a5143c1d1be62313b72e26acd54e3ae289e040d76f",
+    "results.json": "3d1f4c22d8648e44feb793303864c99ae43251aee2f72810b876dc8a6dce84ac",
+    "calibration.json": "f7b1a21607dc0a30608d4922ef75f57018426412f1d6576acd98ac96220ca010",
+    "PROTOCOL.md": "58739c60a5520b5d8c51e6d5005d249977d20052106e1ff43782a25dd449123a"
+  },
+  "datasets": {
+    "relation_support": {
+      "train": 459,
+      "calibration": 150,
+      "evaluation": 339,
+      "demonstrations": 6,
+      "development": 60,
+      "evaluation_identity_or_component_keys": 247
+    },
+    "entity_resolution": {
+      "train": 4592,
+      "calibration": 390,
+      "evaluation": 413,
+      "demonstrations": 6,
+      "development": 60,
+      "evaluation_identity_or_component_keys": 476
+    }
+  },
+  "n_calls_including_probe": 3404,
+  "n_predictions": 3644,
+  "stage_http_jobs": {
+    "development": 240,
+    "calibration": 1080,
+    "evaluation": 1504,
+    "fixtures": 300,
+    "fresh_repeat_1": 80,
+    "fresh_repeat_2": 80,
+    "batching": 120
+  },
+  "phase_counts": [
+    {
+      "task": "entity_resolution",
+      "split": "batching",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "batching",
+      "arm": "identity_contract",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "batching",
+      "arm": "identity_noul",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "calibration",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 390
+    },
+    {
+      "task": "entity_resolution",
+      "split": "calibration",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 390
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "identity_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "development",
+      "arm": "identity_noul",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 413
+    },
+    {
+      "task": "entity_resolution",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 413
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "baseline_noul",
+      "repeat": 0,
+      "count": 100
+    },
+    {
+      "task": "entity_resolution",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 100
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "baseline_noul",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "baseline_noul",
+      "repeat": 2,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "entity_resolution",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 2,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "batching",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "batching",
+      "arm": "conditional_nouls",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "batching",
+      "arm": "evidence_contract",
+      "repeat": 0,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "calibration",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 150
+    },
+    {
+      "task": "relation_support",
+      "split": "calibration",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 150
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "conditional_nouls",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "evidence_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "development",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 60
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 339
+    },
+    {
+      "task": "relation_support",
+      "split": "evaluation",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 339
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "baseline_choice",
+      "repeat": 0,
+      "count": 50
+    },
+    {
+      "task": "relation_support",
+      "split": "fixtures",
+      "arm": "fewshot_contract",
+      "repeat": 0,
+      "count": 50
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "baseline_choice",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "baseline_choice",
+      "repeat": 2,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 1,
+      "count": 20
+    },
+    {
+      "task": "relation_support",
+      "split": "repeatability",
+      "arm": "fewshot_contract",
+      "repeat": 2,
+      "count": 20
+    }
+  ],
+  "http_attempts": 3404,
+  "reported_input_tokens": 4792410,
+  "reported_output_tokens": 139558,
+  "unknown_usage_attempts": 0,
+  "input_token_budget_charge": 4792410,
+  "estimated_input_usd": 0.20128122,
+  "estimated_peak_concurrency": 4,
+  "research_request_window_utc": {
+    "first_start": "2026-09-18T04:53:14.833007+00:00",
+    "last_start": "2026-09-18T04:59:05.447674+00:00"
+  },
+  "service_errors": {
+    "choice must be a highest-probability option": 2,
+    "Probabilities must sum to one": 2
+  },
+  "comparisons": {
+    "entity_resolution": {
+      "baseline": "baseline_noul",
+      "selected": "fewshot_contract",
+      "raw_scores": {
+        "baseline_noul": {
+          "n_examples": 413,
+          "n_semantic_examples": 413,
+          "n_excluded_gold": 0,
+          "n_errors": 0,
+          "probability_score_denominator": 413,
+          "accuracy": 0.9806295399515739,
+          "macro_f1": 0.96045197740113,
+          "brier_score": 0.04065084745762712,
+          "log_loss": 0.10674399385652673
+        },
+        "fewshot_contract": {
+          "n_examples": 413,
+          "n_semantic_examples": 413,
+          "n_excluded_gold": 0,
+          "n_errors": 0,
+          "probability_score_denominator": 413,
+          "accuracy": 0.9878934624697336,
+          "macro_f1": 0.9764336661911555,
+          "brier_score": 0.018149636803874093,
+          "log_loss": 0.033291371590527065
+        }
+      },
+      "macro_f1_delta": 0.015981688790025483
+    },
+    "relation_support": {
+      "baseline": "baseline_choice",
+      "selected": "fewshot_contract",
+      "raw_scores": {
+        "baseline_choice": {
+          "n_examples": 339,
+          "n_semantic_examples": 339,
+          "n_excluded_gold": 0,
+          "n_errors": 1,
+          "probability_score_denominator": 338,
+          "accuracy": 0.8436578171091446,
+          "macro_f1": 0.8432084887058352,
+          "brier_score": 0.23419230769230767,
+          "log_loss": 1.2402059703433008
+        },
+        "fewshot_contract": {
+          "n_examples": 339,
+          "n_semantic_examples": 339,
+          "n_excluded_gold": 0,
+          "n_errors": 2,
+          "probability_score_denominator": 337,
+          "accuracy": 0.855457227138643,
+          "macro_f1": 0.856575547956871,
+          "brier_score": 0.22442908011869436,
+          "log_loss": 1.3207419226879307
+        }
+      },
+      "macro_f1_delta": 0.013367059251035762
+    }
+  },
+  "credential_pattern_scan": {
+    "text_files_scanned": 69,
+    "binary_figures_skipped": 30,
+    "matches": 0,
+    "limitation": "Text patterns and structured fields only; binary figures skipped, no environment/key comparison, no proof of absence of every possible secret."
+  },
+  "checks": [
+    "Frozen source, protocol, source-data and plan hashes",
+    "Training/demo/development/held-out identity isolation",
+    "Every planned phase observation and HTTP payload",
+    "Independent raw-response validation and probability reconstruction",
+    "Failure persistence and conservative token/retry accounting",
+    "Development-only selection and pre-evaluation calibration freeze",
+    "Independent raw/calibrated point scores",
+    "Three distinct fresh calls with identical semantic payloads per repeat example"
+  ],
+  "limitations": [
+    "Does not rerun model inference or establish immutable vendor weights.",
+    "Recomputes point scores but does not independently regenerate bootstrap intervals.",
+    "Concurrency is inferred from recorded attempt start times and durations.",
+    "Secret screening uses patterns, not live credential comparison."
+  ]
+}

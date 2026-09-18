@@ -1,0 +1,805 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Jev: fresh execution and graph synthesis</title><style>
+@page { size: A4; margin: 19mm 18mm 19mm;
+  @top-right { content: "Jev / graph-synthesis assessment"; font: 8pt sans-serif; }
+  @bottom-center { content: counter(page); font: 9pt sans-serif; }
+}
+body { font-family: "DejaVu Serif", serif; font-size: 10.5pt; line-height: 1.45; }
+h1,h2,h3 { font-family: "DejaVu Sans", sans-serif; line-height: 1.22; break-after: avoid; }
+h1 { font-size: 23pt; margin: 0 0 12pt; }
+h2 { font-size: 15pt; margin-top: 22pt; }
+h3 { font-size: 11.5pt; margin-top: 17pt; }
+p { margin: 7pt 0; orphans: 3; widows: 3; }
+code,pre { font-family: "DejaVu Sans Mono", monospace; font-size: 8.2pt; overflow-wrap: anywhere; }
+pre { white-space: pre-wrap; }
+a { text-decoration: none; overflow-wrap: anywhere; }
+table { break-inside: avoid; width: 100%; border-collapse: collapse; font: 8pt/1.3 "DejaVu Sans", sans-serif; margin: 12pt 0; }
+thead { display: table-header-group; }
+th,td { padding: 5pt 4pt; text-align: left; border-bottom: .4pt solid; vertical-align: top; overflow-wrap: anywhere; }
+tr { break-inside: avoid; }
+figure { margin: 16pt 0; break-inside: avoid; }
+figure img { width: 100%; max-height: 103mm; object-fit: contain; }
+figcaption { font: 8.7pt/1.35 "DejaVu Sans", sans-serif; margin-top: 6pt; }
+</style></head><body><h1>Fresh Jev execution and graph-synthesis falsification</h1>
+<p>Timothy Wayne Gregg — updated research draft, September 18, 2026</p>
+<h2>Evidence scope</h2>
+<p>This update executes a fresh pinned Jev 1.13.0 service run of the original development, calibration, evaluation, fixture, repeatability and batching protocol. It uses the same data and development-only selection rule. It is a same-data service repeat, not independent validation, a new preregistration, or a new training run. No evaluation labels were used to retune the prompts. The separate 48-case public synthetic challenge uses its exact gold-free exported inputs and fixed question contract; its AI-assisted labels remain provisional pending human adjudication.</p>
+<h2>Fresh results</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Run</th>
+<th>Arm</th>
+<th style="text-align:right">Accuracy</th>
+<th style="text-align:right">Macro-F1</th>
+<th style="text-align:right">Invalid responses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entity_resolution</td>
+<td>Original</td>
+<td>baseline_noul</td>
+<td style="text-align:right">98.0630%</td>
+<td style="text-align:right">0.960452</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>entity_resolution</td>
+<td>Original</td>
+<td>fewshot_contract</td>
+<td style="text-align:right">99.2736%</td>
+<td style="text-align:right">0.985860</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>entity_resolution</td>
+<td>Fresh</td>
+<td>baseline_noul</td>
+<td style="text-align:right">98.0630%</td>
+<td style="text-align:right">0.960452</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>entity_resolution</td>
+<td>Fresh</td>
+<td>fewshot_contract</td>
+<td style="text-align:right">98.7893%</td>
+<td style="text-align:right">0.976434</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>relation_support</td>
+<td>Original</td>
+<td>baseline_choice</td>
+<td style="text-align:right">85.2507%</td>
+<td style="text-align:right">0.850824</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>relation_support</td>
+<td>Original</td>
+<td>fewshot_contract</td>
+<td style="text-align:right">84.9558%</td>
+<td style="text-align:right">0.852728</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>relation_support</td>
+<td>Fresh</td>
+<td>baseline_choice</td>
+<td style="text-align:right">84.3658%</td>
+<td style="text-align:right">0.843208</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>relation_support</td>
+<td>Fresh</td>
+<td>fewshot_contract</td>
+<td style="text-align:right">85.5457%</td>
+<td style="text-align:right">0.856576</td>
+<td style="text-align:right">2</td>
+</tr>
+</tbody>
+</table>
+<p><img src="../experiments/jev-rerun-20260918/figures/run_comparison.png" alt="Original and fresh comparison" /></p>
+<p><strong>entity_resolution:</strong> selected-minus-baseline macro-F1 = +0.015982; exploratory paired 95% interval [-0.008627, +0.042517]. No resolved improvement in raw operational macro F1: the paired interval includes zero or evidence is unavailable.</p>
+<p><strong>relation_support:</strong> selected-minus-baseline macro-F1 = +0.013367; exploratory paired 95% interval [-0.017452, +0.042768]. No resolved improvement in raw operational macro F1: the paired interval includes zero or evidence is unavailable.</p>
+<p>Entity baseline: 8 false merges and 0 missed matches. Service failures, if any, are separately retained in the table.
+Entity selected: 3 false merges and 2 missed matches. Service failures, if any, are separately retained in the table.</p>
+<p>The intervention bundles explicit instructions, typed question format and demonstrations. These runs cannot isolate causal contributions of each ingredient. Intervals are conditional on development selection, unadjusted and exploratory. Repeating this test set does not increase its number of independent entities or documents.</p>
+<p><img src="../experiments/jev-rerun-20260918/figures/fresh_calibration.png" alt="Fresh calibration comparison" /></p>
+<p>Calibration temperatures are fitted on the separate calibration partition. Brier scores use valid eligible responses, while operational accuracy and F1 retain failures. Calibration changes probability scores, not the selected labels; improvements in one scoring rule do not establish calibrated transaction-level safety.</p>
+<h2>Fresh repeatability and resource accounting</h2>
+<ul>
+<li>entity_resolution / baseline_noul: 20/20 examples had identical labels across the three fresh responses; 0 pairwise argmax flips.</li>
+<li>entity_resolution / fewshot_contract: 20/20 examples had identical labels across the three fresh responses; 0 pairwise argmax flips.</li>
+<li>relation_support / baseline_choice: 19/20 examples had identical labels across the three fresh responses; 2 pairwise argmax flips.</li>
+<li>relation_support / fewshot_contract: 19/20 examples had identical labels across the three fresh responses; 1 pairwise argmax flips.</li>
+</ul>
+<p>Across the original and fresh held-out evaluations (distinct from the within-run 20-case panels):</p>
+<table>
+<thead>
+<tr>
+<th>Task / arm</th>
+<th style="text-align:right">Common valid pairs</th>
+<th style="text-align:right">Changed labels</th>
+<th style="text-align:right">Identical distributions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entity_resolution / baseline_noul</td>
+<td style="text-align:right">413/413</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">247</td>
+</tr>
+<tr>
+<td>entity_resolution / fewshot_contract</td>
+<td style="text-align:right">413/413</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">341</td>
+</tr>
+<tr>
+<td>relation_support / baseline_choice</td>
+<td style="text-align:right">337/339</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">209</td>
+</tr>
+<tr>
+<td>relation_support / fewshot_contract</td>
+<td style="text-align:right">335/339</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">189</td>
+</tr>
+</tbody>
+</table>
+<p>The main run records 3,404 logical calls, 3,404 HTTP attempts, 4,792,410 input tokens and 4 failed calls. Estimated cost at the original protocol price is $0.201281; this is not a current price quote or invoice. The challenge adds 48 requests and 22,880 input tokens. Probability variation remains distinct from label stability.</p>
+<h2>Fresh synthetic challenge</h2>
+<p>Against provisional labels, Jev classified 46/48 correctly and got both cases correct in 22/24 paired groups. It accepted 35 positive edges, of which 2 were wrong. These small, public, hand-constructed cases are diagnostics, not a deployment-risk estimate.</p>
+<p><img src="../experiments/jev-rerun-20260918/figures/challenge_families.png" alt="Synthetic challenge results" /></p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Family</th>
+<th>Provisional gold</th>
+<th>Jev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>case-027</td>
+<td>multi_hop_context</td>
+<td>NOT_ENOUGH_INFO</td>
+<td>REFUTES</td>
+</tr>
+<tr>
+<td>case-038</td>
+<td>schema_typing</td>
+<td>REFUTES</td>
+<td>SUPPORTS</td>
+</tr>
+</tbody>
+</table>
+<p>The generic imported-journal evaluator retains <code>fresh_execution_verified: false</code>: hashes alone do not authenticate provider execution. The companion live execution audit and raw journals separately record the actual HTTPS responses and bind their requests. Gold labels, rationales, families and pair IDs were excluded from inference payloads.</p>
+<h2>Reproduced graph falsification findings</h2>
+<p>PR #10's reference results reproduce exactly. On the original unequal-acceptance SciFact operating points, complete, error-free positive components fall from 140/164 to 126/164 with few-shot prompting, despite improved edge precision. The paired interval for the component difference is approximately [-13.30, -3.70] percentage points. This is not a matched-volume comparison and does not contradict the earlier unresolved matched-volume result. The formulations share 34 errors across 336 common-success examples, including 31 wrong-label agreements; their judgments are not independent corroboration. Five of 73 few-shot positive actions scored exactly 1.0 were wrong.</p>
+<p><img src="../experiments/jev-rerun-20260918/figures/candidate_loss.png" alt="Candidate availability intervention" /></p>
+<p>Candidate-loss bands describe variation over 100 synthetic removal masks, not confidence intervals or new retrieval measurements. Compiler witnesses remain constructed: a false identity bridge between two 100-record clusters induces 10,000 false cross-cluster identities; explicit retraction repairs them. Exact qualifier comparison misses overlapping temporal intervals. Twenty seeded repair episodes exercise 1,600 assertions and 782 withdrawals. These deterministic properties do not establish Jev factual correctness.</p>
+<h2>Interpretation and next experiment</h2>
+<p>The original entity macro-F1 interval excluded zero; the fresh-run interval includes it. The descriptive entity advantage persists but its interval-based finding does not reproduce in this run. Neither task establishes a resolved fresh macro-F1 improvement. Independent identity-disjoint data and larger clusters remain necessary. Relation precision, recall, component completeness and total accuracy answer different questions. Do not select a universal winner from one metric, promote correlated fusion without matched-cost benefit, or infer production safety from typed outputs. Prioritize independent entity-matching confirmation and controlled ablations before further prompt tuning on this already inspected test set.</p>
+<h2>Artifacts and reproduction</h2>
+<p>The run directory contains the frozen plan, captured source, raw requests/responses, prediction journal, calibration, analysis, verification, challenge evidence and figures. <code>python -B -m graph_synthesis.report_fresh_run --run-dir experiments/jev-rerun-20260918</code> regenerates this update and its four graphics without inference. The original study and its 161-file inventory remain unchanged. The current full manuscript incorporates this update before the original study as explicitly historical evidence.</p>
+<hr />
+<h1>Original study (historical evidence; unchanged text)</h1>
+<hr />
+<h2>title: &quot;Improving Typed Entity Decisions with Jev: A Reproducible Same-Model Case Study&quot;
+subtitle: &quot;Positive evidence for bibliographic matching, an inconclusive relation-verification result, and explicit limits on repeatability&quot;
+date: &quot;2026-09-18&quot;
+bibliography: &quot;references.bib&quot;</h2>
+<h1>Manuscript status</h1>
+<p>This is a detailed empirical manuscript draft grounded in the completed <code>run-20260918</code> artifacts. It is suitable for author review and development into a paper, not a claim of submission readiness. Author names, affiliations, contributions, funding, conflicts of interest, venue format, and final data-distribution permissions require the authors' confirmation. No independent replication, new adjudicated dataset, or additional experiment is implied by packaging the study.</p>
+<p>The <a href="../reproduction/results/jev/PROTOCOL.md">frozen protocol</a>, <a href="../reproduction/results/jev/run-20260918/RESULTS.md">complete results</a>, <a href="../supplementary/METHODS_AND_REPRODUCIBILITY.md">methods supplement</a>, and <a href="../supplementary/SUBMISSION_READINESS.md">submission-readiness assessment</a> are companion documents. Citation keys refer to the package bibliography. Tables below are rounded presentations; machine-readable artifacts retain full precision.</p>
+<h1>Abstract</h1>
+<p>Typed semantic decision services offer bounded outputs, but the quality and repeatability of those outputs must be measured on the intended task. We investigate whether changes to request formulation improve a fixed Jev model without replacing or fine-tuning it. A locally frozen protocol compares four formulations per task, selects one alternative using 60 training-derived development examples, fits scalar temperature calibration on a separate split, and evaluates the retained alternative against a corrected baseline. On 413 identity-disjoint DBLP–ACM bibliographic pairs, a bundled intervention comprising explicit identity instructions, a typed Choice contract, and six training demonstrations raises operational macro-F1 from 0.9605 to 0.9859. The paired 95% percentile bootstrap interval for the difference is [0.0010, 0.0540]. Predictions of identity on different-entity pairs fall from 8/63 to 2/63, while missed matches increase from 0/350 to 1/350. On 339 SciFact claim–cited-abstract examples, selected-formulation macro-F1 changes from 0.8508 to 0.8527, with an interval spanning zero. Calibration has task- and metric-dependent effects. Cached replay reconstructs all 3,644 predictions exactly; three fresh calls on 20 fixed examples per task preserve selected-formulation labels while probabilities vary. The study uses 3,405 HTTP calls and 4.79 million input tokens, with approximately $0.20 estimated provider charges. These results support further independent evaluation of the entity-matching formulation, not general Jev superiority, a causal claim about demonstrations alone, or a guarantee of safe graph mutation.</p>
+<p><strong>Keywords:</strong> entity resolution; typed decisions; Jev; scientific claim verification; calibration; reproducibility; probabilistic interfaces.</p>
+<h1>1. Introduction</h1>
+<p>Entity resolution and evidence verification are consequential components of knowledge construction. A system that conflates two publications may attach subsequent information to the wrong identity. A system that mistakes a related abstract for support may preserve a well-formed but unsupported claim. Typed outputs make these decisions easier to parse and inspect, but they do not determine whether the decisions are correct.</p>
+<p>This study examines a narrower and directly testable question than autonomous graph synthesis: <strong>with the decision service, candidate records, and candidate evidence fixed, can request formulation improve Jev's decisions in a repeatable experiment?</strong> The practical objective is an improved decision component whose benefits and failure modes can be traced to saved observations. End-to-end graph construction, candidate discovery, cluster consistency, database mutation, and schema evolution are outside the experiment.</p>
+<p>The study uses TypeSafe's Jev service with the requested model identifier <code>jev-1.13.0</code>. Its documented interface accepts shared state and typed questions, including Choice distributions over supplied alternatives and Noul probabilities for propositions [@typesafe_api_2026; @typesafe_choice_2026; @typesafe_noul_2026]. We compare a valid generic baseline with explicit task criteria, a task-specific alternative primitive where applicable, and training demonstrations. A corrected transport and parser are shared by all arms. Repairing a broken integration is therefore distinguished from improving semantic classification.</p>
+<p>Two tasks test whether an apparently helpful intervention transfers across decision types. Bibliographic entity matching asks whether two supplied records describe the same publication. Scientific claim verification asks whether a supplied abstract supports, refutes, or leaves unresolved a supplied claim. Both tasks use fixed candidates; neither includes retrieval. The same local selection procedure chooses the demonstration-bearing formulation for both tasks. The evaluation outcomes differ: entity matching improves on the primary metric, whereas claim verification does not show a resolved gain.</p>
+<p>The empirical contributions are threefold. First, we provide a bounded same-model comparison with separate demonstration, development, calibration, and evaluation uses of data. Second, we report a positive bibliographic matching result alongside its costs, error tradeoff, task-specific uncertainty, and an inconclusive companion result. Third, we provide an auditable experiment record that distinguishes deterministic reconstruction of stored service outputs from variation in fresh service calls. These are contributions of an empirical case study and its artifact package. We make no priority claim for typed classification, prompt engineering, few-shot learning, temperature scaling, or using Jev for entity matching.</p>
+<h1>2. Related work and positioning</h1>
+<p>Entity matching has established supervised and language-model approaches. Ditto frames matching using pretrained language models and provides the serialized DBLP–ACM source used here [@li2020ditto]. This study does not rerun Ditto or evaluate a new matcher architecture. It reuses source records under a custom identity-disjoint split and changes requests to one fixed remote model. Published scores on another split or protocol are not directly comparable with the scores reported here.</p>
+<p>SciFact provides scientific claims, abstracts, and evidence annotations [@wadden2020scifact]. Our derived task classifies supplied cited abstracts from official development claims. It does not evaluate open-corpus evidence retrieval, rationale extraction, or the complete original benchmark. The repository's internal task name, <code>relation_support</code>, should be read as evidence classification in this paper; it does not mean that the experiment evaluated arbitrary graph relations.</p>
+<p>TypeSafe already documents entity alignment with Jev and a cascade combining generative extraction with Jev verification [@typesafe_entity_alignment_2026; @typesafe_extraction_cascade_2026]. Accordingly, using Jev for entity resolution is not a novelty claim. The present study asks whether specific changes improve measured outcomes over a corrected baseline on fixed records and preserves the evidence necessary to audit that comparison. Vendor documentation establishes interface semantics; it is not independent evidence of task accuracy or calibration.</p>
+<p>Temperature scaling is an established postprocessing approach to calibration [@guo2017calibration]. Here it is applied to clipped log probabilities returned by the service, rather than to internal model logits. This distinction matters because output quantization and clipping can discard information unavailable to the calibrator. Positive scalar temperature normally preserves the top-label ordering; its effect is evaluated with probability metrics rather than credited as an accuracy improvement.</p>
+<p>Paired resampling and careful selection of the statistical test are established practices in evaluating language-processing systems [@koehn2004significance; @dror2018testing]. Our bootstrap implementation preserves dependence between arms and resamples claim/document components for SciFact. These intervals are conditional on the selected formulations and observed service outputs. They neither repeat the entire selection process nor establish robustness across model deployments or datasets.</p>
+<h1>3. Research questions and scope</h1>
+<p>The primary question is whether the best predeclared nonbaseline formulation selected on development data improves operational macro-F1 over the corrected baseline on the fixed evaluation split. The question is evaluated separately for each task. The study additionally asks how probability calibration, fresh-call variation, batching, integration failures, and token use affect interpretation.</p>
+<p>The protocol was locally frozen at <strong>2026-09-18 00:41:53 UTC</strong>, before live development. The executable manifest was created before research requests began at 00:50:07 UTC. The protocol is a timestamped local design record, not an external preregistration. Public labels and original fixtures had already appeared in earlier repository research. They were held out from this Jev selection procedure, not independently blinded from the research environment. Both qualifications limit confirmatory interpretation.</p>
+<p>The requested model identifier, candidate evidence bytes, label meanings, parser validation, and scoring procedure are fixed. The few-shot arm deliberately adds six labeled training examples. It therefore receives additional training information and consumes additional tokens, although the evaluated candidate and its evidence remain unchanged. The entity-matching primary comparison bundles instructions, a Noul-to-Choice change, explicit option descriptions, demonstrations, and their request context. It cannot identify the separate causal effect of demonstrations or of any other one component.</p>
+<h1>4. Data construction</h1>
+<h2>4.1 Scientific claim verification</h2>
+<p>The source is the pinned SciFact release archive, checked against a recorded SHA-256 digest. For each claim, the preprocessing code creates one row per supplied cited document. It uses the document's complete abstract, preserves the actual claim, and maps annotated <code>SUPPORT</code> and <code>CONTRADICT</code> labels to <code>SUPPORTS</code> and <code>REFUTES</code>. A cited document with no corresponding evidence annotation is assigned <code>NOT_ENOUGH_INFO</code>. This operational label derivation is part of the experiment; an absence of a dataset annotation is not an independent proof that a document is semantically irrelevant.</p>
+<p>Official development claims supply the evaluation rows. Whole training claims are purged if any cited document or duplicate abstract overlaps evaluation; 272 training claims are removed. Connected components link claims, documents, and identical abstract content. The remaining training components are divided deterministically into training and calibration. The result is 459 training rows, 150 calibration rows, and 339 evaluation rows. Evaluation contains 247 connected components and 138 SUPPORTS, 71 REFUTES, and 130 NOT_ENOUGH_INFO labels.</p>
+<p>The service receives only the supplied claim and abstract sentences. Gold labels and rationale sentence indices are not used to select evidence or appear in the evaluated input. The full abstract is available; there is no gold-rationale extraction advantage.</p>
+<h2>4.2 Bibliographic entity matching</h2>
+<p>The source is the DBLP–ACM serialization in Ditto revision <code>52985564a93fb11308439516d3e17a033d43ec8f</code>. The original train, validation, and test source files are pooled for a new split. Each record's serialized attributes are parsed into a structured object, and hashes identify exact record representations. Positive pair labels define identity components for grouping. These labels are used to create disjoint partitions, not as input features for the evaluated record pair.</p>
+<p>Seven conflicting serialized pairs cause their affected identity components to be quarantined, excluding 92 pairs. No additional inconsistent positive component is found by the subsequent consistency check. Identity components are assigned deterministically to training, calibration, or evaluation with nominal 60/20/20 hash buckets. Pairs crossing partitions are dropped, removing 5,623 pairs. Calibration and evaluation then use deterministic maximal matchings over identity components so that no underlying identity is reused within each held-out set. This removes another 457 calibration candidates and 536 evaluation candidates.</p>
+<p>The final splits contain 4,592 training, 390 calibration, and 413 evaluation pairs. The evaluation pairs are identity-disjoint but not a representative random sample of all candidate pairs. In particular, the label mixture changes from 1,309 same versus 3,283 different in training to 350 same versus 63 different in evaluation. Cross-partition filtering and maximal matching sacrifice coverage to reduce dependence. This selection-induced shift limits extrapolation to production candidate populations and comparison with standard DBLP–ACM results.</p>
+<h2>4.3 Development, demonstrations, and diagnostic fixtures</h2>
+<p>Each task uses six deterministically chosen training demonstrations and 60 additional training-derived development rows. SciFact demonstrations contain two examples per class from distinct components. Entity demonstrations contain three same and three different pairs with no reused identity. Negative entity demonstrations prioritize a lowercased-title <code>difflib.SequenceMatcher</code> ratio of at least 0.65; seeded hashes order candidates within priority tiers. If a tier lacks enough eligible examples, the deterministic ordering continues into the remaining candidates. Selection uses labels and lexical similarity, not Jev performance.</p>
+<p>Development selection excludes every demonstration component or identity. SciFact then selects one row per component; entity matching greedily selects identity-disjoint pairs. The fixed seed is <code>20260917</code>. The achieved development compositions are 18 SUPPORTS, 15 REFUTES, and 27 NOT_ENOUGH_INFO for SciFact, and 21 same versus 39 different for entity matching. Remaining training rows do not train a model in this experiment.</p>
+<p>Two original repository fixture sets provide secondary diagnostics: 50 relation examples and 100 entity examples. Of the entity fixtures, 88 have binary labels and 12 are marked uncertain. The latter are retained in response records but excluded from binary correctness and probability metrics. The fixtures have development history and lack independent adjudication; they are not a second natural-data benchmark or a valid source of confirmatory sample size.</p>
+<p><strong>Table 1. Data used by the same-model study.</strong> Demonstrations and development are disjoint subsets of prepared training, rather than extra public-data splits.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th style="text-align:right">Prepared training</th>
+<th style="text-align:right">Demonstrations</th>
+<th style="text-align:right">Development</th>
+<th style="text-align:right">Calibration</th>
+<th style="text-align:right">Evaluation</th>
+<th>Evaluation resampling unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SciFact cited-abstract classification</td>
+<td style="text-align:right">459</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">60</td>
+<td style="text-align:right">150</td>
+<td style="text-align:right">339</td>
+<td>247 connected components</td>
+</tr>
+<tr>
+<td>DBLP–ACM identity matching</td>
+<td style="text-align:right">4,592</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">60</td>
+<td style="text-align:right">390</td>
+<td style="text-align:right">413</td>
+<td>413 identity-disjoint pairs</td>
+</tr>
+</tbody>
+</table>
+<h1>5. Decision formulations and execution</h1>
+<h2>5.1 Valid baseline and probability interpretation</h2>
+<p>All arms use the same repaired adapter and <code>jev-1.13.0</code> request. The earlier integration sent obsolete or incorrect field meanings and mishandled returned probabilities. The study adapter instead sends documented <code>state</code>, <code>questions</code>, <code>instructions</code>, and <code>criteria</code> fields; maps Choice probabilities separately from its selected-string output; and fails on a missing Noul response. Those shared repairs establish a meaningful baseline and are not included in the semantic improvement claim [@typesafe_api_2026].</p>
+<p>For a Choice result, the canonical distribution maps option identifiers explicitly to task labels. A Noul value supplies P(yes), mapped to P(same) and P(different) for identity questions [@typesafe_choice_2026; @typesafe_noul_2026]. Vendor confidence and the maximum canonical probability remain distinct quantities. Neither is multiplied by the other as if it were independent evidence; the documented confidence describes distribution shape [@typesafe_confidence_2026].</p>
+<p>The adapter rejects wrong identifiers, label keys, missing values, nonfinite numbers, out-of-range values, and distributions whose sums violate the frozen tolerance. It validates the reported model identifier. A matching identifier does not prove immutable remote weights. Raw responses, including rejected distributions, are retained. Errors remain operational failures rather than being replaced by a neutral distribution.</p>
+<h2>5.2 Arms</h2>
+<p><strong>Table 2. Predeclared formulations.</strong> Exact byte-level question specifications and demonstrations are in <code>plan.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Arm</th>
+<th>Formulation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SciFact</td>
+<td><code>baseline_choice</code></td>
+<td>Generic support/refute/insufficient-information Choice with canonical label names.</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td><code>evidence_contract</code></td>
+<td>Choice with explicit entailment, contradiction, and insufficiency criteria, including scope, negation, qualifiers, and population.</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td><code>conditional_nouls</code></td>
+<td>Binary support question and a second refutation question explicitly conditional on lack of support; fixed chain mapping.</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td><code>fewshot_contract</code></td>
+<td>Evidence-contract Choice plus six labeled training examples and instruction to classify only the current input.</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td><code>baseline_noul</code></td>
+<td>Generic proposition that the two records refer to the same underlying entity.</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td><code>identity_contract</code></td>
+<td>Choice with explicit same/different identity criteria and instructions covering missing fields, spelling variation, relatedness, and distinct publications.</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td><code>identity_noul</code></td>
+<td>Refined identity instructions with the Noul primitive.</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td><code>fewshot_contract</code></td>
+<td>Identity-contract Choice plus six labeled training examples and instruction to classify only the current input.</td>
+</tr>
+</tbody>
+</table>
+<p>For the conditional Noul arm, let <code>s</code> be the support answer and <code>r</code> the answer to refutation conditional on no support. The constructed score is</p>
+<p>[
+p(\mathrm{SUPPORTS})=s,\qquad
+p(\mathrm{REFUTES})=(1-s)r,\qquad
+p(\mathrm{NEI})=(1-s)(1-r).
+]</p>
+<p>This mapping normalizes valid binary values by construction. It does not demonstrate that independently produced semantic judgments form a calibrated joint model. Both answers must validate for the logical arm prediction to succeed.</p>
+<h2>5.3 Batching, selection, and frozen evaluation</h2>
+<p>During development, the three non-few-shot arms share the same evidence state in one request. Few-shot arms use a separate state containing demonstrations and the current input, so baseline requests receive no demonstrations. The changed co-question context is recorded and later examined with a batching control. All evaluation comparisons use only the baseline and selected arm; unselected variants are not promoted after evaluation inspection.</p>
+<p>For each task, the selected alternative maximizes development operational macro-F1 over the three nonbaseline variants, breaking ties by lower full-sum Brier score and then lexical arm identifier. The rule selects an alternative even if no alternative exceeds the baseline. The selection is recorded before calibration fitting or evaluation calls. Both tasks select <code>fewshot_contract</code>. On entity development, all three refined alternatives reach macro-F1 1.0, and Brier determines the winner. Therefore, evaluation cannot establish that the demonstration-bearing arm is better than the two unselected identity formulations.</p>
+<p>The runner enforces four concurrent requests, at most two retries per request, a 4,000-attempt cap, and a 20-million-input-token accounting cap. No retries occur in the completed run. Requests go to the fixed documented TypeSafe endpoint. Exact payload hashes distinguish stored responses from fresh repeats; a resumed stage reuses recorded responses rather than silently issuing new inference.</p>
+<h1>6. Calibration, metrics, and statistical analysis</h1>
+<h2>6.1 Temperature fitting</h2>
+<p>One scalar temperature is fitted separately for each task's baseline and selected arm using only valid responses in the reserved calibration split. For a canonical probability vector <code>p</code>, the transformation is</p>
+<p>[
+p_T(k)=\frac{\exp(\log(\max(p(k),10^{-15}))/T)}
+{\sum_j\exp(\log(\max(p(j),10^{-15}))/T)}.
+]</p>
+<p>The scalar lies in <code>[0.05, 20]</code> and minimizes mean natural-log loss. The procedure includes <code>T=1</code> and prefers it for equal minima. Temperatures, fit membership, and diagnostics are frozen before evaluation. Calibration applies to the existing evaluation responses and incurs no new model call. It changes confidence estimates while preserving label ranking except possible clipping ties.</p>
+<h2>6.2 Classification and probability metrics</h2>
+<p>The primary endpoint is selected-minus-baseline <strong>operational macro-F1</strong> on all eligible evaluation rows. For each canonical class, failures contribute false negatives for the true class. <code>ERROR</code> is not a new semantic class included in the macro average. Accuracy counts every service failure as incorrect. Balanced accuracy, confusion matrices, class-specific metrics, and failure counts are reported alongside the primary endpoint.</p>
+<p>Probability scores use valid responses. Brier is the mean full sum of squared deviations across all canonical labels, including both binary coordinates, so its range is 0 to 2. Log loss uses natural logarithms and clips gold probabilities at <code>10^-15</code>. Different service-success sets can confound unpaired probability comparisons; paired probability deltas therefore use only common-success rows. Separate common-success classification analysis assesses sensitivity to operational failures.</p>
+<p>For entity matching, the reported false-merge rate is <code>predicted same and gold different / gold different</code>. This is a false-positive rate among negative pairs, not the fraction of predicted merges that are false. A false merge here means an incorrect identity prediction: no database merge is executed, and downstream cluster damage is not measured.</p>
+<p>Ten fixed confidence bins and fixed confidence thresholds <code>0, 0.5, 0.7, 0.8, 0.9, 0.95</code> describe reliability and accuracy/coverage. These analyses do not choose a deployment threshold using evaluation labels or establish an automatic-mutation risk bound.</p>
+<h2>6.3 Paired uncertainty intervals</h2>
+<p>The analysis uses 2,000 paired percentile bootstrap draws with seed <code>20260917</code>. For SciFact, a draw samples connected claim/document components and retains all constituent rows. For entity matching, it samples identity-disjoint evaluation pairs. Both arms use the same sampled units in each draw, and nonlinear metrics are recomputed. Probability comparisons restrict to common-success responses.</p>
+<p>The reported 95% intervals are unadjusted exploratory intervals, conditional on fixed development selection, calibration data, model identifier, and recorded responses. They do not incorporate uncertainty from rerunning prompt selection, choosing a different split, changing demonstrations, or service evolution. The two task endpoints and additional secondary measures are not presented as familywise-controlled discoveries.</p>
+<h1>7. Results</h1>
+<h2>7.1 Development selection</h2>
+<p><strong>Table 3. All predeclared development arms.</strong> Each row has 60 eligible examples. The probability denominator is 59 for the three non-few-shot SciFact variants because one shared request fails validation, and 60 otherwise.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Arm</th>
+<th style="text-align:right">Accuracy</th>
+<th style="text-align:right">Macro-F1</th>
+<th style="text-align:right">Brier</th>
+<th style="text-align:right">Errors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SciFact</td>
+<td>Baseline Choice</td>
+<td style="text-align:right">0.7833</td>
+<td style="text-align:right">0.7932</td>
+<td style="text-align:right">0.2838</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Evidence contract</td>
+<td style="text-align:right">0.8333</td>
+<td style="text-align:right">0.8419</td>
+<td style="text-align:right">0.2379</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Conditional Nouls</td>
+<td style="text-align:right">0.8500</td>
+<td style="text-align:right">0.8576</td>
+<td style="text-align:right">0.2249</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Few-shot contract, selected</td>
+<td style="text-align:right">0.9000</td>
+<td style="text-align:right">0.8963</td>
+<td style="text-align:right">0.1977</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td>Baseline Noul</td>
+<td style="text-align:right">0.9833</td>
+<td style="text-align:right">0.9819</td>
+<td style="text-align:right">0.0411</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td>Identity contract</td>
+<td style="text-align:right">1.0000</td>
+<td style="text-align:right">1.0000</td>
+<td style="text-align:right">0.0192</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td>Identity Noul</td>
+<td style="text-align:right">1.0000</td>
+<td style="text-align:right">1.0000</td>
+<td style="text-align:right">0.0323</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td>Few-shot contract, selected</td>
+<td style="text-align:right">1.0000</td>
+<td style="text-align:right">1.0000</td>
+<td style="text-align:right">0.0092</td>
+<td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>The larger SciFact development gain does not predict a resolved evaluation gain. This discrepancy is evidence for retaining the frozen selection/evaluation separation, rather than selecting a different prompt after seeing evaluation results.</p>
+<h2>7.2 Primary held-out comparisons</h2>
+<p><strong>Table 4. Raw operational evaluation results.</strong> Intervals are selected minus baseline. Accuracy and macro-F1 use all eligible rows, including failures.</p>
+<table>
+<thead>
+<tr>
+<th>Task and measure</th>
+<th style="text-align:right">Baseline</th>
+<th style="text-align:right">Selected</th>
+<th style="text-align:right">Difference</th>
+<th>Paired 95% interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity accuracy, N=413</td>
+<td style="text-align:right">0.9806 (405/413)</td>
+<td style="text-align:right">0.9927 (410/413)</td>
+<td style="text-align:right">+0.0121</td>
+<td>[0.0000, 0.0242]</td>
+</tr>
+<tr>
+<td>Entity macro-F1</td>
+<td style="text-align:right">0.9605</td>
+<td style="text-align:right">0.9859</td>
+<td style="text-align:right">+0.0254</td>
+<td>[0.0010, 0.0540]</td>
+</tr>
+<tr>
+<td>Entity false-merge rate, 63 negatives</td>
+<td style="text-align:right">0.1270 (8/63)</td>
+<td style="text-align:right">0.0317 (2/63)</td>
+<td style="text-align:right">−0.0952</td>
+<td>[−0.1739, −0.0308]</td>
+</tr>
+<tr>
+<td>SciFact accuracy, N=339</td>
+<td style="text-align:right">0.8525 (289/339)</td>
+<td style="text-align:right">0.8496 (288/339)</td>
+<td style="text-align:right">−0.0029</td>
+<td>[−0.0380, 0.0310]</td>
+</tr>
+<tr>
+<td>SciFact macro-F1</td>
+<td style="text-align:right">0.8508</td>
+<td style="text-align:right">0.8527</td>
+<td style="text-align:right">+0.0019</td>
+<td>[−0.0314, 0.0337]</td>
+</tr>
+</tbody>
+</table>
+<p>Entity matching improves on the predeclared primary endpoint in this split: the unadjusted macro-F1 interval is above zero. The accuracy interval includes zero. All 413 responses validate for both arms, so the matching improvement is not explained by differing service-success coverage. The selected arm reduces false-positive identity predictions but introduces one missed match. It is a promising formulation for subsequent validation, not an error-free matcher.</p>
+<p>SciFact does not show a resolved primary improvement. Baseline has one failed evaluation response and the selected arm has two. Restricting classification to the 336 rows where both succeed yields the same accuracy, 0.8542, and macro-F1 0.8512 versus 0.8545. The common-success macro-F1 difference is 0.0033, with an interval [−0.0286, 0.0353]. Thus, excluding failures does not reverse the task-level conclusion.</p>
+<p><img src="../reproduction/results/jev/run-20260918/figures/paired_effects.png" alt="Paired held-out effects" /></p>
+<p><strong>Figure 1.</strong> Selected-minus-baseline held-out effects and paired bootstrap uncertainty. Positive macro-F1 differences favor the selected formulation; lower Brier and false-merge rate are better. The figure is generated from saved results, not from additional inference.</p>
+<h2>7.3 Probability quality and calibration</h2>
+<p><strong>Table 5. Evaluation probability metrics.</strong> Lower is better. Each arm's raw and calibrated values use the same successful response set. SciFact denominators are 338 baseline and 337 selected; entity denominators are 413 for both.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Arm</th>
+<th style="text-align:right">Temperature</th>
+<th style="text-align:right">Raw Brier</th>
+<th style="text-align:right">Calibrated Brier</th>
+<th style="text-align:right">Raw log loss</th>
+<th style="text-align:right">Calibrated log loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity matching</td>
+<td>Baseline</td>
+<td style="text-align:right">0.2997</td>
+<td style="text-align:right">0.0408</td>
+<td style="text-align:right">0.0312</td>
+<td style="text-align:right">0.1067</td>
+<td style="text-align:right">0.0653</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td>Selected</td>
+<td style="text-align:right">0.6239</td>
+<td style="text-align:right">0.0184</td>
+<td style="text-align:right">0.0156</td>
+<td style="text-align:right">0.0335</td>
+<td style="text-align:right">0.0261</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Baseline</td>
+<td style="text-align:right">4.8030</td>
+<td style="text-align:right">0.2340</td>
+<td style="text-align:right">0.2769</td>
+<td style="text-align:right">1.2415</td>
+<td style="text-align:right">0.5639</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Selected</td>
+<td style="text-align:right">3.1500</td>
+<td style="text-align:right">0.2306</td>
+<td style="text-align:right">0.2505</td>
+<td style="text-align:right">1.2401</td>
+<td style="text-align:right">0.6256</td>
+</tr>
+</tbody>
+</table>
+<p>On entity matching, the selected arm's raw Brier reduction is 0.0225, with a paired interval for selected minus baseline of [−0.0333, −0.0122]. Calibration also reduces both entity arms' evaluation Brier and log loss. On SciFact, temperatures above one soften the distributions: evaluation log loss improves markedly within each arm, while Brier worsens. Calibration is therefore not uniformly beneficial across scoring rules. After calibration, the selected SciFact arm has lower Brier than calibrated baseline on common-success rows, but its log loss is higher than calibrated baseline. Neither probability comparison supplies evidence for a classification gain.</p>
+<p>Calibration uses 149/150 valid SciFact baseline responses and all 150 selected responses, and all 390 responses for each entity arm. Calibration log loss falls from 0.7950 to 0.4726 for SciFact baseline, 0.6125 to 0.4358 for SciFact selected, 0.0824 to 0.0117 for entity baseline, and 0.0175 to 0.0144 for entity selected. All fitted temperatures lie inside the declared interval. These fitted losses describe optimization on calibration data; the evaluation metrics are the relevant generalization check.</p>
+<h2>7.4 Confusion-based error analysis</h2>
+<p><strong>Table 6. Entity evaluation confusion.</strong> Rows are gold labels. Columns are predictions.</p>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>Gold</th>
+<th style="text-align:right">Same</th>
+<th style="text-align:right">Different</th>
+<th style="text-align:right">Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>Same</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>Different</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">55</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td>Same</td>
+<td style="text-align:right">349</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td>Different</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">61</td>
+<td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>The entity improvement is concentrated in recognizing distinct records. Recall for different pairs increases from 55/63 (0.8730) to 61/63 (0.9683), while recall for same pairs changes from 1.0000 to 0.9971. Balanced accuracy increases from 0.9365 to 0.9827. This pattern is consistent with the intended distinction between identity and superficial similarity, but the experiment does not establish that distinction as the causal mechanism: the selected intervention is bundled, and no independently adjudicated error taxonomy was collected.</p>
+<p><strong>Table 7. SciFact evaluation confusion.</strong> <code>NEI</code> abbreviates NOT_ENOUGH_INFO.</p>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>Gold</th>
+<th style="text-align:right">SUPPORTS</th>
+<th style="text-align:right">REFUTES</th>
+<th style="text-align:right">NEI</th>
+<th style="text-align:right">Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>SUPPORTS</td>
+<td style="text-align:right">122</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>REFUTES</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">65</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>NEI</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">102</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td>SUPPORTS</td>
+<td style="text-align:right">110</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td>REFUTES</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Selected</td>
+<td>NEI</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">116</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+<p>The selected SciFact formulation recognizes more NEI examples but misses more supported and refuted claims. NEI correct predictions rise from 102 to 116; correct SUPPORTS predictions fall from 122 to 110. This is a change in the error tradeoff, not a broadly improved verifier. A deployment valuing particular error types would require an explicit loss function and fresh validation of the resulting decision policy.</p>
+<h2>7.5 Original fixture diagnostics</h2>
+<p>On the 88 binary entity fixtures, baseline accuracy is 84/88 (0.9545) and selected accuracy is 87/88 (0.9886). Baseline makes three false-positive identity predictions among 12 negatives; selected makes none. Both miss one of 76 positive cases. The 12 uncertain cases are reported separately and receive no correctness credit.</p>
+<p>On the 50 relation fixtures, accuracy changes from 46/50 (0.9200) to 45/50 (0.9000). These descriptive outcomes are compatible with the task-level distinction observed on public data, but they do not constitute independent confirmation. No fixture label drives prompt selection, calibration, or a claim of statistical significance.</p>
+<h1>8. Repeatability, operational behavior, and cost</h1>
+<h2>8.1 Cached replay</h2>
+<p>An isolated copy of the run was replayed with HTTP access disabled. The runner reconstructed all 3,644 prediction records from the saved exact request/response journal without a network call. The replay check also reproduced byte-identical calls, predictions, calibration, and results when the copied original manifest was restored before analysis. Normal replay appends offline stage records to the copied manifest; this provenance change legitimately changes a regenerated report's manifest hash. The <a href="../reproduction/results/jev/run-20260918/replay_verification.json">replay proof</a> records the comparison and hashes.</p>
+<p>This establishes repeatable computation from recorded outputs. It does not show that the service returns the same output on another day or even on an immediate new request.</p>
+<h2>8.2 Fresh service calls</h2>
+<p>Twenty evaluation examples per task were fixed by seeded ID hashing before outcomes were inspected. Each retained arm produced three fresh outputs per example, comprising the original evaluation request and two additional requests with identical complete semantic payloads. These are distinct recorded HTTP calls; their existence does not reveal whether the provider uses an internal cache.</p>
+<p><strong>Table 8. Fresh repeat panel.</strong> Each row contains 20 examples, 60 fresh outputs, and 60 within-example pairwise comparisons. Pairwise comparisons are dependent and are not 60 independent examples. TV denotes total variation distance.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Arm</th>
+<th style="text-align:right">Examples with all three labels identical</th>
+<th style="text-align:right">Pairwise label agreement</th>
+<th style="text-align:right">Exact vector matches</th>
+<th style="text-align:right">Mean TV</th>
+<th style="text-align:right">Maximum TV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity matching</td>
+<td>Baseline</td>
+<td style="text-align:right">20/20</td>
+<td style="text-align:right">60/60</td>
+<td style="text-align:right">32/60</td>
+<td style="text-align:right">0.0083</td>
+<td style="text-align:right">0.0500</td>
+</tr>
+<tr>
+<td>Entity matching</td>
+<td>Selected</td>
+<td style="text-align:right">20/20</td>
+<td style="text-align:right">60/60</td>
+<td style="text-align:right">51/60</td>
+<td style="text-align:right">0.0060</td>
+<td style="text-align:right">0.0900</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Baseline</td>
+<td style="text-align:right">19/20</td>
+<td style="text-align:right">58/60</td>
+<td style="text-align:right">35/60</td>
+<td style="text-align:right">0.0110</td>
+<td style="text-align:right">0.1400</td>
+</tr>
+<tr>
+<td>SciFact</td>
+<td>Selected</td>
+<td style="text-align:right">20/20</td>
+<td style="text-align:right">60/60</td>
+<td style="text-align:right">27/60</td>
+<td style="text-align:right">0.0207</td>
+<td style="text-align:right">0.2200</td>
+</tr>
+</tbody>
+</table>
+<p>All repeated responses validate. Selected-arm labels are stable on this small immediate panel, but selected SciFact probabilities show the largest observed drift. The panel spans approximately 00:53–00:56 UTC on 2026-09-18. It does not establish bitwise determinism, multiday stability, or robustness to vendor changes. Stable labels also do not mean correct labels.</p>
+<h2>8.3 Batching sensitivity and validation failures</h2>
+<p>For each task, 20 preselected development examples compare original shared-state non-few-shot requests with fresh separate-question requests. All six task/arm combinations retain labels on all 20 examples, while probabilities vary. Maximum total variation ranges from 0.0200 to 0.0700. This is an exploratory systems control on development data. It is too small to establish general batching invariance or remove co-question context as a potential confounder.</p>
+<p>Five calls produce probability vectors that fail the frozen normalization criterion. They occur in development, calibration, and evaluation and are retained as failures rather than renormalized after inspection. One failed shared development request affects three arm predictions. These events illustrate the distinction between a typed API contract and the stricter numerical contract required by an evaluator. They do not justify modifying validation selectively after observing performance.</p>
+<h2>8.4 Complete experiment resource accounting</h2>
+<p><strong>Table 9. Recorded resource use for the complete study, including the small toy-input probe and diagnostics.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th style="text-align:right">Recorded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP calls / attempts</td>
+<td style="text-align:right">3,405 / 3,405</td>
+</tr>
+<tr>
+<td>Retries</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Questions in request payloads</td>
+<td style="text-align:right">3,726</td>
+</tr>
+<tr>
+<td>Arm prediction records</td>
+<td style="text-align:right">3,644</td>
+</tr>
+<tr>
+<td>Input tokens</td>
+<td style="text-align:right">4,792,778</td>
+</tr>
+<tr>
+<td>Output tokens</td>
+<td style="text-align:right">139,613</td>
+</tr>
+<tr>
+<td>Calls with reported usage</td>
+<td style="text-align:right">3,405 / 3,405</td>
+</tr>
+<tr>
+<td>Failed calls</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>Request latency p50 / p95 / p99</td>
+<td style="text-align:right">387.5 / 611.1 / 1,403.3 ms</td>
+</tr>
+<tr>
+<td>Sum of recorded stage wall durations</td>
+<td style="text-align:right">378.5 s</td>
+</tr>
+<tr>
+<td>Estimated provider charges</td>
+<td style="text-align:right">USD 0.2013</td>
+</tr>
+</tbody>
+</table>
+<p>The charge estimate uses the recorded documentation rate of $0.042 per million input tokens and zero output-token charge [@typesafe_models_2026]. It is not an invoice or a guarantee of future pricing. Token usage is summed once per call, including failed calls with known usage, rather than multiplied by the number of predictions produced by a shared request. All attempt usage is known in this run.</p>
+<p>The recorded stage wall duration measures the inference stages under concurrency four. It is not total project labor, installation time, end-to-end execution time, or the sum of individual request latencies. The study does not establish an efficiency advantage over a specialist model or another service. Its few-shot arms incur extra context cost; low absolute provider charges do not by themselves establish a superior quality/cost tradeoff for deployment.</p>
+<h1>9. Reproducibility and artifact design</h1>
+<p>The package preserves exact question specifications, six demonstrations per task, candidate inputs, selected IDs, fixed source versions, data hashes, selected-arm identities, calibration fits, raw service responses, canonical predictions, runtime manifests, and analysis outputs. Source snapshots protect the relationship between an observation and the code used to parse and score it. Current source hashes are checked before replay or resumed live execution.</p>
+<p>An independent artifact verifier checks phase completeness, training/development/held-out isolation, payload reconstruction, raw-response validation, operational point metrics, frozen selection and calibration timing, retry/token accounting, and fresh-repeat payload identity. Its <a href="../reproduction/results/jev/run-20260918/verification.json">saved report</a> passes. This verifier recomputes point scores but does not independently regenerate the bootstrap intervals or rerun remote inference. Automated tests validate the implementation; their success does not substitute for independent scientific replication.</p>
+<p>Offline reproduction needs the recorded responses and matching source, not an API credential. A fresh experiment requires a TypeSafe credential supplied through the process environment, a new run directory, and access to the pinned service and source data. Source byte changes intentionally fail hash checks until reviewed. The runner is not a crash-durable billing system: interruption after a response but before journal append can leave an unrecorded request and cause a later retry on resume. Recorded usage is auditable but is not a replacement for billing records.</p>
+<p>The package's <a href="../supplementary/METHODS_AND_REPRODUCIBILITY.md">methods supplement</a> provides execution detail, and its table generator derives presentation tables from saved artifacts. The original run is treated as immutable evidence. Subsequent experiments or corrected policies require a new record identifying what results were already known.</p>
+<h1>10. Limitations and threats to validity</h1>
+<p><strong>Selection and statistical uncertainty.</strong> Development has only 60 examples per task and uses one deterministic selection. The confidence intervals condition on this selection, are unadjusted for multiple comparisons, and are based on one evaluation split. Entity macro-F1 clears zero only narrowly at the lower interval endpoint. Independent confirmation is required before treating the result as a general model improvement.</p>
+<p><strong>Bundled intervention.</strong> The entity contrast changes primitive, instructions, option definitions, demonstrations, and request context. Its gain cannot be attributed solely to six examples. Both refined identity alternatives without demonstrations already achieve perfect development macro-F1. They were not evaluated on the held-out set under this protocol. A subsequent factorial or otherwise controlled study needs new evaluation data.</p>
+<p><strong>Population selection.</strong> DBLP–ACM identity isolation and maximal matching substantially change the label distribution and exclude many candidate pairs. Results apply to the resulting bibliographic comparison set, not to all record linkage, all biomedical entities, or deployment candidate streams. Pairwise accuracy does not establish transitive cluster consistency or safe canonicalization.</p>
+<p><strong>Evidence and labels.</strong> SciFact uses cited abstracts supplied to the classifier, not retrieval. Derived NEI labels follow annotation absence, and source annotations are not newly adjudicated for this study. Dataset membership and labels were not independently blinded from earlier repository work. Original fixtures are especially limited by development history and uncertain labels.</p>
+<p><strong>Service observability.</strong> A requested and returned model identifier does not prove fixed weights, fixed inference infrastructure, or known training data. Potential pretraining exposure to public benchmarks is unknown. Fresh repeats cover only 20 examples per task in one short window. Probabilities vary even when labels agree.</p>
+<p><strong>Probability interpretation.</strong> Choice and Noul outputs, normalized chain scores, vendor confidence, and calibrated probabilities have different meanings. Successful scalar fitting does not guarantee subgroup reliability, distribution-shift robustness, or bounded transaction-level error. Quantization and strict validation affect coverage. The experiment provides no formal semantic-risk guarantee.</p>
+<p><strong>External comparison and novelty.</strong> No newly executed cross-model comparison is part of this study. Historical specialist and compiler experiments in the wider repository are separate evidence and cannot be silently pooled into a superiority claim. Neither generic Jev entity alignment nor few-shot prompting is novel. A publishable contribution needs appropriate positioning and comparison for its intended venue.</p>
+<p><strong>Operational scope.</strong> No graph mutations are committed, no graph lifecycle benchmark is run, and no human review policy is validated. False identity predictions may imply risks for downstream merges, but actual downstream damage, recall of candidate generation, cluster metrics, and correction cost remain unmeasured. The measured provider charge omits research labor and infrastructure overhead.</p>
+<h1>11. Data ethics, disclosure, and release considerations</h1>
+<p>The experiment sends public benchmark abstracts and bibliographic records, together with repository fixtures, to a third-party inference service. It does not collect participant data or evaluate clinical recommendations. Scientific claims in source documents remain dataset content; model classifications should not be interpreted as medical advice or independently verified world truth.</p>
+<p>The SciFact source license distinguishes claims and annotations under CC BY 4.0 from abstracts under ODC-By 1.0; the Leipzig DBLP–ACM source page links to CC BY 4.0 [@scifact_license_2026; @leipzig_er_data_2026]. The package's source and licensing notes should be reviewed before public archival release, especially because plans and raw requests contain source text. These notices must be carried through to derived artifacts, and a repository code license does not replace dataset attribution requirements. Provider terms, provenance acknowledgments, and retention obligations should also be checked for the intended release.</p>
+<p>API credentials are not stored in the research artifacts. Raw journals contain evidence text, requests, responses, and usage, not authorization headers. Pattern-based secret screening reduces accidental disclosure risk but is not proof that every possible sensitive string is absent. Authors must confirm the final public release contents.</p>
+<p>The implementation, analysis, and drafting involved AI-assisted work. Human authors must review claims, citations, data permissions, and final manuscript text and supply accurate contributions and disclosures under the target venue's policy. No author list, affiliation, funding relationship, or vendor independence statement is inferred from the local workspace.</p>
+<h1>12. Discussion and next experiments</h1>
+<p>The immediate practical outcome is a candidate Jev formulation for bibliographic entity matching with fewer false-positive identity decisions on the chosen split. The result makes a focused entity-matching use case worth pursuing. The observed single missed match and residual false merges mean that risk-sensitive deployment still needs an explicit policy, representative validation, and downstream checks.</p>
+<p>The companion SciFact result prevents a broader conclusion that the selected style universally improves Jev. Its development advantage, null evaluation effect, and changed confusion profile suggest that request formulation must be assessed task by task. More explicit criteria may redistribute errors without improving aggregate quality.</p>
+<p>The next empirical step is an independent entity-matching confirmation with new identity-disjoint data and a preregistered primary endpoint. A controlled comparison should separate instruction refinement, primitive selection, demonstrations, and batching context; vary demonstration sets using declared seeds; and include relevant exact-match, lexical, specialist, and constrained-output baselines under matched evidence access. Confidence and review policies should be fitted on separate calibration data and evaluated at a declared loss or coverage target. Cluster-level and graph-update consequences require an additional experiment rather than a relabeling of pairwise scores.</p>
+<p>Longer-term repeat panels should sample multiple days and record model identifiers and service metadata. For relation verification, revised prompts need fresh development data and a new evaluation set; the present evaluation set should remain an audit record rather than become an unacknowledged tuning set. A qualitative error taxonomy should be independently adjudicated before claiming a mechanism for the improvements.</p>
+<h1>13. Conclusion</h1>
+<p>A fixed Jev service benefits from a selected bundle of explicit identity instructions, a typed Choice contract, and six training demonstrations on one identity-disjoint bibliographic matching split. Operational macro-F1 rises from 0.9605 to 0.9859, while false-positive identity predictions decline from eight to two and one true match is missed. A parallel scientific claim-verification experiment shows no resolved classification gain. Calibration improves some probability metrics and worsens others; fresh probabilities vary despite mostly stable labels. The saved protocol, source, responses, and replay evidence make these findings inspectable and reproducible from recorded outputs. They support a narrow use case and a concrete independent-replication agenda, not a general claim about Jev superiority or autonomous graph correctness.</p>
+<h1>References</h1>
+<p>The package bibliography supplies the citation entries used above. The source-verification notes distinguish interface documentation, original papers, dataset provenance, and remaining licensing or metadata questions.</p>
+</body></html>

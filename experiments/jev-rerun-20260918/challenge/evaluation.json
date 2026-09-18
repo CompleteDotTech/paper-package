@@ -1,0 +1,530 @@
+{
+  "classification": "imported_predictions_on_public_synthetic_challenge",
+  "fresh_execution_verified": false,
+  "note": "Hashes bind supplied strings; inspect raw provider journals independently. No live call is made by this evaluator.",
+  "model": "jev-1.13.0/public-challenge-contract-v1",
+  "challenge_hash": "a6837e4f24cdb7a708c5a8ed40e135baaa8e701a3e9e6ff63e46c4117843cbff",
+  "prediction_hash": "9e05c96d14aece92d2e9b14f50abca590a14ceb2ca60447bbb66314846d0c58d",
+  "overall": {
+    "n": 48,
+    "correct": 46,
+    "accuracy_all_cases": 0.9583333333333334,
+    "statuses": {
+      "NOT_ENOUGH_INFO": 13,
+      "REFUTES": 13,
+      "SUPPORTS": 22
+    },
+    "accepted_edges": 35,
+    "wrong_edges": 2,
+    "edge_precision": 0.9428571428571428,
+    "edge_recall_all_gold": 0.9705882352941176
+  },
+  "by_family": {
+    "causality": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "conflicting_sources": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 2,
+        "REFUTES": 1,
+        "SUPPORTS": 1
+      },
+      "accepted_edges": 2,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "coreference": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "direction": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "irrelevant_context": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 2,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 2,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "multi_hop_context": {
+      "n": 4,
+      "correct": 3,
+      "accuracy_all_cases": 0.75,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 2,
+        "SUPPORTS": 1
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 1,
+      "edge_precision": 0.6666666666666666,
+      "edge_recall_all_gold": 1.0
+    },
+    "negation": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "population_scope": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "prompt_injection": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "REFUTES": 2,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 4,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "schema_typing": {
+      "n": 4,
+      "correct": 3,
+      "accuracy_all_cases": 0.75,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 1,
+      "edge_precision": 0.6666666666666666,
+      "edge_recall_all_gold": 0.6666666666666666
+    },
+    "source_correction": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    },
+    "temporal": {
+      "n": 4,
+      "correct": 4,
+      "accuracy_all_cases": 1.0,
+      "statuses": {
+        "NOT_ENOUGH_INFO": 1,
+        "REFUTES": 1,
+        "SUPPORTS": 2
+      },
+      "accepted_edges": 3,
+      "wrong_edges": 0,
+      "edge_precision": 1.0,
+      "edge_recall_all_gold": 1.0
+    }
+  },
+  "paired_cases_all_correct": 22,
+  "paired_case_groups": 24,
+  "decisions": [
+    {
+      "id": "case-001",
+      "family": "direction",
+      "pair": "direction-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-002",
+      "family": "direction",
+      "pair": "direction-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-003",
+      "family": "direction",
+      "pair": "direction-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-004",
+      "family": "direction",
+      "pair": "direction-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-005",
+      "family": "negation",
+      "pair": "negation-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-006",
+      "family": "negation",
+      "pair": "negation-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-007",
+      "family": "negation",
+      "pair": "negation-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-008",
+      "family": "negation",
+      "pair": "negation-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-009",
+      "family": "temporal",
+      "pair": "temporal-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-010",
+      "family": "temporal",
+      "pair": "temporal-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-011",
+      "family": "temporal",
+      "pair": "temporal-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-012",
+      "family": "temporal",
+      "pair": "temporal-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-013",
+      "family": "population_scope",
+      "pair": "population_scope-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-014",
+      "family": "population_scope",
+      "pair": "population_scope-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-015",
+      "family": "population_scope",
+      "pair": "population_scope-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-016",
+      "family": "population_scope",
+      "pair": "population_scope-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-017",
+      "family": "causality",
+      "pair": "causality-1",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-018",
+      "family": "causality",
+      "pair": "causality-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-019",
+      "family": "causality",
+      "pair": "causality-2",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-020",
+      "family": "causality",
+      "pair": "causality-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-021",
+      "family": "coreference",
+      "pair": "coreference-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-022",
+      "family": "coreference",
+      "pair": "coreference-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-023",
+      "family": "coreference",
+      "pair": "coreference-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-024",
+      "family": "coreference",
+      "pair": "coreference-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-025",
+      "family": "multi_hop_context",
+      "pair": "multi_hop_context-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-026",
+      "family": "multi_hop_context",
+      "pair": "multi_hop_context-1",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-027",
+      "family": "multi_hop_context",
+      "pair": "multi_hop_context-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-028",
+      "family": "multi_hop_context",
+      "pair": "multi_hop_context-2",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-029",
+      "family": "conflicting_sources",
+      "pair": "conflicting_sources-1",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-030",
+      "family": "conflicting_sources",
+      "pair": "conflicting_sources-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-031",
+      "family": "conflicting_sources",
+      "pair": "conflicting_sources-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-032",
+      "family": "conflicting_sources",
+      "pair": "conflicting_sources-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-033",
+      "family": "source_correction",
+      "pair": "source_correction-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-034",
+      "family": "source_correction",
+      "pair": "source_correction-1",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-035",
+      "family": "source_correction",
+      "pair": "source_correction-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-036",
+      "family": "source_correction",
+      "pair": "source_correction-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-037",
+      "family": "schema_typing",
+      "pair": "schema_typing-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-038",
+      "family": "schema_typing",
+      "pair": "schema_typing-1",
+      "gold": "REFUTES",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-039",
+      "family": "schema_typing",
+      "pair": "schema_typing-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-040",
+      "family": "schema_typing",
+      "pair": "schema_typing-2",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-041",
+      "family": "prompt_injection",
+      "pair": "prompt_injection-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-042",
+      "family": "prompt_injection",
+      "pair": "prompt_injection-1",
+      "gold": "REFUTES",
+      "label": "REFUTES"
+    },
+    {
+      "id": "case-043",
+      "family": "prompt_injection",
+      "pair": "prompt_injection-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-044",
+      "family": "prompt_injection",
+      "pair": "prompt_injection-2",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-045",
+      "family": "irrelevant_context",
+      "pair": "irrelevant_context-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-046",
+      "family": "irrelevant_context",
+      "pair": "irrelevant_context-1",
+      "gold": "SUPPORTS",
+      "label": "SUPPORTS"
+    },
+    {
+      "id": "case-047",
+      "family": "irrelevant_context",
+      "pair": "irrelevant_context-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "case-048",
+      "family": "irrelevant_context",
+      "pair": "irrelevant_context-2",
+      "gold": "NOT_ENOUGH_INFO",
+      "label": "NOT_ENOUGH_INFO"
+    }
+  ]
+}

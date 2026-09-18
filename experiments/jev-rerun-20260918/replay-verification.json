@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "network_disabled": true,
+  "artifacts": {
+    "calls.jsonl": {
+      "byte_equal": true,
+      "sha256": "0eb3121cb20bd643eb14241079d5368c246ef63e522573b10c845a8927ea91a8"
+    },
+    "predictions.jsonl": {
+      "byte_equal": true,
+      "sha256": "9fc0f0a345f6fbbd311759a5143c1d1be62313b72e26acd54e3ae289e040d76f"
+    },
+    "calibration.json": {
+      "byte_equal": true,
+      "sha256": "f7b1a21607dc0a30608d4922ef75f57018426412f1d6576acd98ac96220ca010"
+    },
+    "results.json": {
+      "byte_equal": true,
+      "sha256": "3d1f4c22d8648e44feb793303864c99ae43251aee2f72810b876dc8a6dce84ac"
+    }
+  }
+}

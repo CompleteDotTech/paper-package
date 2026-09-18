@@ -1,0 +1,389 @@
+{
+  "classification": "fresh_service_rerun_on_previous_fixed_data",
+  "rows": [
+    {
+      "run": "Original",
+      "task": "entity_resolution",
+      "role": "baseline",
+      "arm": "baseline_noul",
+      "n_examples": 413,
+      "accuracy": 0.9806295399515739,
+      "macro_f1": 0.96045197740113,
+      "n_errors": 0,
+      "confusion": {
+        "same": {
+          "same": 350,
+          "different": 0,
+          "ERROR": 0
+        },
+        "different": {
+          "same": 8,
+          "different": 55,
+          "ERROR": 0
+        }
+      },
+      "brier_score": 0.0408363196125908,
+      "log_loss": 0.10668499987119476
+    },
+    {
+      "run": "Original",
+      "task": "entity_resolution",
+      "role": "selected",
+      "arm": "fewshot_contract",
+      "n_examples": 413,
+      "accuracy": 0.9927360774818402,
+      "macro_f1": 0.9858601997146933,
+      "n_errors": 0,
+      "confusion": {
+        "same": {
+          "same": 349,
+          "different": 1,
+          "ERROR": 0
+        },
+        "different": {
+          "same": 2,
+          "different": 61,
+          "ERROR": 0
+        }
+      },
+      "brier_score": 0.018383535108958838,
+      "log_loss": 0.033516086126895876
+    },
+    {
+      "run": "Fresh",
+      "task": "entity_resolution",
+      "role": "baseline",
+      "arm": "baseline_noul",
+      "n_examples": 413,
+      "accuracy": 0.9806295399515739,
+      "macro_f1": 0.96045197740113,
+      "n_errors": 0,
+      "confusion": {
+        "same": {
+          "same": 350,
+          "different": 0,
+          "ERROR": 0
+        },
+        "different": {
+          "same": 8,
+          "different": 55,
+          "ERROR": 0
+        }
+      },
+      "brier_score": 0.04065084745762712,
+      "log_loss": 0.10674399385652673
+    },
+    {
+      "run": "Fresh",
+      "task": "entity_resolution",
+      "role": "selected",
+      "arm": "fewshot_contract",
+      "n_examples": 413,
+      "accuracy": 0.9878934624697336,
+      "macro_f1": 0.9764336661911555,
+      "n_errors": 0,
+      "confusion": {
+        "same": {
+          "same": 348,
+          "different": 2,
+          "ERROR": 0
+        },
+        "different": {
+          "same": 3,
+          "different": 60,
+          "ERROR": 0
+        }
+      },
+      "brier_score": 0.018149636803874093,
+      "log_loss": 0.033291371590527065
+    },
+    {
+      "run": "Original",
+      "task": "relation_support",
+      "role": "baseline",
+      "arm": "baseline_choice",
+      "n_examples": 339,
+      "accuracy": 0.8525073746312685,
+      "macro_f1": 0.8508243643054886,
+      "n_errors": 1,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 122,
+          "REFUTES": 6,
+          "NOT_ENOUGH_INFO": 10,
+          "ERROR": 0
+        },
+        "REFUTES": {
+          "SUPPORTS": 4,
+          "REFUTES": 65,
+          "NOT_ENOUGH_INFO": 2,
+          "ERROR": 0
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 14,
+          "REFUTES": 13,
+          "NOT_ENOUGH_INFO": 102,
+          "ERROR": 1
+        }
+      },
+      "brier_score": 0.23396745562130178,
+      "log_loss": 1.2415260739619185
+    },
+    {
+      "run": "Original",
+      "task": "relation_support",
+      "role": "selected",
+      "arm": "fewshot_contract",
+      "n_examples": 339,
+      "accuracy": 0.8495575221238938,
+      "macro_f1": 0.8527279258098224,
+      "n_errors": 2,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 110,
+          "REFUTES": 5,
+          "NOT_ENOUGH_INFO": 22,
+          "ERROR": 1
+        },
+        "REFUTES": {
+          "SUPPORTS": 2,
+          "REFUTES": 62,
+          "NOT_ENOUGH_INFO": 7,
+          "ERROR": 0
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 6,
+          "REFUTES": 7,
+          "NOT_ENOUGH_INFO": 116,
+          "ERROR": 1
+        }
+      },
+      "brier_score": 0.2305519287833828,
+      "log_loss": 1.2400990144625583
+    },
+    {
+      "run": "Fresh",
+      "task": "relation_support",
+      "role": "baseline",
+      "arm": "baseline_choice",
+      "n_examples": 339,
+      "accuracy": 0.8436578171091446,
+      "macro_f1": 0.8432084887058352,
+      "n_errors": 1,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 120,
+          "REFUTES": 6,
+          "NOT_ENOUGH_INFO": 12,
+          "ERROR": 0
+        },
+        "REFUTES": {
+          "SUPPORTS": 4,
+          "REFUTES": 65,
+          "NOT_ENOUGH_INFO": 2,
+          "ERROR": 0
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 15,
+          "REFUTES": 13,
+          "NOT_ENOUGH_INFO": 101,
+          "ERROR": 1
+        }
+      },
+      "brier_score": 0.23419230769230767,
+      "log_loss": 1.2402059703433008
+    },
+    {
+      "run": "Fresh",
+      "task": "relation_support",
+      "role": "selected",
+      "arm": "fewshot_contract",
+      "n_examples": 339,
+      "accuracy": 0.855457227138643,
+      "macro_f1": 0.856575547956871,
+      "n_errors": 2,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 112,
+          "REFUTES": 5,
+          "NOT_ENOUGH_INFO": 20,
+          "ERROR": 1
+        },
+        "REFUTES": {
+          "SUPPORTS": 1,
+          "REFUTES": 61,
+          "NOT_ENOUGH_INFO": 8,
+          "ERROR": 1
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 6,
+          "REFUTES": 7,
+          "NOT_ENOUGH_INFO": 117,
+          "ERROR": 0
+        }
+      },
+      "brier_score": 0.22442908011869436,
+      "log_loss": 1.3207419226879307
+    }
+  ],
+  "cross_run_stability": [
+    {
+      "task": "entity_resolution",
+      "arm": "baseline_noul",
+      "paired": 413,
+      "common_valid": 413,
+      "changed_labels": 2,
+      "identical_distributions": 247
+    },
+    {
+      "task": "entity_resolution",
+      "arm": "fewshot_contract",
+      "paired": 413,
+      "common_valid": 413,
+      "changed_labels": 2,
+      "identical_distributions": 341
+    },
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "paired": 339,
+      "common_valid": 337,
+      "changed_labels": 3,
+      "identical_distributions": 209
+    },
+    {
+      "task": "relation_support",
+      "arm": "fewshot_contract",
+      "paired": 339,
+      "common_valid": 335,
+      "changed_labels": 4,
+      "identical_distributions": 189
+    }
+  ],
+  "challenge": {
+    "n": 48,
+    "correct": 46,
+    "accuracy_all_cases": 0.9583333333333334,
+    "statuses": {
+      "NOT_ENOUGH_INFO": 13,
+      "REFUTES": 13,
+      "SUPPORTS": 22
+    },
+    "accepted_edges": 35,
+    "wrong_edges": 2,
+    "edge_precision": 0.9428571428571428,
+    "edge_recall_all_gold": 0.9705882352941176
+  },
+  "usage": {
+    "n_calls": 3404,
+    "n_http_attempts": 3404,
+    "n_retries": 0,
+    "unknown_usage_attempts": 0,
+    "budget_input_token_charge": 4792410,
+    "n_questions_in_recorded_payloads": 3724,
+    "n_calls_with_usage": 3404,
+    "n_calls_missing_usage": 0,
+    "reported_input_tokens": 4792410,
+    "reported_output_tokens": 139558,
+    "reported_total_tokens": 4931968,
+    "n_failed_calls": 4,
+    "execution_modes": {
+      "real": 3404
+    },
+    "sum_call_latency_ms": 1339528.5147999385,
+    "mean_call_latency_ms": 393.51601492360123,
+    "latency_denominator": 3404,
+    "call_latency_percentiles_ms": {
+      "p50": 373.235900000509,
+      "p90": 441.86274999810854,
+      "p95": 478.6608700005672,
+      "p99": 791.8341070026506
+    },
+    "recorded_stage_wall_seconds": 350.5627691000045,
+    "unit_prices_usd_per_million_tokens": {
+      "input": 0.042,
+      "output": 0.0
+    },
+    "estimated_usd_for_reported_usage": 0.20128122,
+    "estimate_complete": true,
+    "invoice_verified": false,
+    "note": "Reported usage summed once per logical calls.jsonl entry; shared batches are never multiplied by prediction count. HTTP attempts/retries are counted separately; usage absent from retry responses is unknown. USD is a unit-price estimate, not a verified invoice. Missing usage is unknown; summed call latency is not parallel wall time."
+  },
+  "challenge_usage": {
+    "execution": "live_https_provider_responses",
+    "model": "jev-1.13.0",
+    "requests": 48,
+    "input_tokens": 22880,
+    "request_response_hashes_verified": true,
+    "limitations": "Public synthetic labels need human review; not independent benchmark evidence or provider-signed attestation."
+  },
+  "effects": {
+    "entity_resolution": {
+      "accuracy": {
+        "difference": 0.007263922518159771,
+        "ci95": [
+          -0.004842615012106588,
+          0.01937046004842613
+        ],
+        "valid_resamples": 2000,
+        "direction": "higher is better"
+      },
+      "macro_f1": {
+        "difference": 0.015981688790025483,
+        "ci95": [
+          -0.008626565509174613,
+          0.04251724699162423
+        ],
+        "valid_resamples": 2000,
+        "direction": "higher is better"
+      },
+      "brier_score": {
+        "difference": -0.02250121065375284,
+        "ci95": [
+          -0.03253184019370447,
+          -0.0134072033898304
+        ],
+        "valid_resamples": 2000,
+        "direction": "lower is better"
+      },
+      "false_merge_rate": {
+        "difference": -0.07936507936507936,
+        "ci95": [
+          -0.15384615384615385,
+          -0.017857142857142863
+        ],
+        "valid_resamples": 2000,
+        "direction": "lower is better"
+      }
+    },
+    "relation_support": {
+      "accuracy": {
+        "difference": 0.01179941002949847,
+        "ci95": [
+          -0.02017436824307443,
+          0.04217079585949438
+        ],
+        "valid_resamples": 2000,
+        "direction": "higher is better"
+      },
+      "macro_f1": {
+        "difference": 0.013367059251035762,
+        "ci95": [
+          -0.017452428877047958,
+          0.042768139590772476
+        ],
+        "valid_resamples": 2000,
+        "direction": "higher is better"
+      },
+      "brier_score": {
+        "difference": -0.010480952380952285,
+        "ci95": [
+          -0.04517632646079864,
+          0.025485171292460928
+        ],
+        "valid_resamples": 2000,
+        "direction": "lower is better"
+      }
+    }
+  }
+}

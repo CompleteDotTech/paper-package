@@ -1,0 +1,8 @@
+{
+  "execution": "live_https_provider_responses",
+  "model": "jev-1.13.0",
+  "requests": 48,
+  "input_tokens": 22880,
+  "request_response_hashes_verified": true,
+  "limitations": "Public synthetic labels need human review; not independent benchmark evidence or provider-signed attestation."
+}

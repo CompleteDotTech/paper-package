@@ -81,15 +81,15 @@ z
    </g>
    <g id="PathCollection_4">
     <defs>
-     <path id="m11feda5584" d="M 0 6.892024 
-L 6.892024 0 
-L 0 -6.892024 
-L -6.892024 0 
-z
+     <path id="m571fe6524d" d="M 0 4.873397 
+L 4.873397 0 
+L 0 -4.873397 
+L -4.873397 0 
+L 0 4.873397 
 " style="stroke: #d62728"/>
     </defs>
     <g clip-path="url(#peda266e7ef)">
-     <use xlink:href="#m11feda5584" x="240.871498" y="146.300218" style="fill: #d62728; stroke: #d62728"/>
+     <use xlink:href="#m571fe6524d" x="240.871498" y="146.300218" style="fill: #d62728; stroke: #d62728"/>
     </g>
    </g>
    <g id="PathCollection_5">

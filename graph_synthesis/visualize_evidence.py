@@ -208,6 +208,9 @@ def render(data: dict, output: Path, png: bool = True) -> None:
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from matplotlib.ticker import PercentFormatter
+    from matplotlib.path import Path as MarkerPath
+    # Explicit vertices avoid platform-dependent tiny signed zeros from rotation.
+    diamond = MarkerPath(((0, -1), (1, 0), (0, 1), (-1, 0), (0, -1)))
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 11, "axes.titlesize": 15,
                          "axes.labelsize": 12, "svg.fonttype": "none", "svg.hashsalt": "jev-graph-figures-v1"})
     output.mkdir(parents=True, exist_ok=True)
@@ -245,7 +248,7 @@ def render(data: dict, output: Path, png: bool = True) -> None:
 
     fig, ax = start("Typed-edge precision must be read with recall", "Correct typed edges / 209 gold typed edges", "Correct typed edges / accepted edges")
     positions = [(.91, .84), (.80, .875), (.86, .915), (.765, .945), (.825, .795)]
-    for row, position, marker in zip(data["arms"], positions, ("o", "s", "^", "D", "P")):
+    for row, position, marker in zip(data["arms"], positions, ("o", "s", "^", diamond, "P")):
         ax.scatter(row["recall"], row["precision"], s=95, marker=marker)
         ax.annotate(f'{row["name"]}\n{row["correct"]}/{row["accepted"]} accepted correct',
                     (row["recall"], row["precision"]), xytext=position, textcoords="data", fontsize=10,
@@ -268,7 +271,7 @@ def render(data: dict, output: Path, png: bool = True) -> None:
     save(fig, FIGURES[2], "Exploratory paired 95% component-bootstrap intervals: 1,000 draws (first two), 2,000 (others). No multiplicity correction.")
 
     fig, ax = start("Precision at the same accepted-edge budget", "Accepted typed edges K (score-ranked, label-independent tie break)", "Correct typed edges / K")
-    for row, marker in zip(data["arms"], ("o", "s", "^", "D", "P")):
+    for row, marker in zip(data["arms"], ("o", "s", "^", diamond, "P")):
         points = row["budget_curve"]
         ax.plot([p["accepted"] for p in points], [p["precision"] for p in points], marker=marker, label=row["name"])
     ax.set_ylim(0, 1.04)
@@ -345,7 +348,7 @@ def render(data: dict, output: Path, png: bool = True) -> None:
     save(fig, FIGURES[8], "Real IDs; largest candidate incidence, ties by claim ID. Dotted = candidate only. G=generic; F=few-shot; S=support; NEI=no-info.")
 
     fig, ax = start("Support and refutation have different risk-coverage trade-offs", "Accepted action count / all 339 evaluation candidates", "Incorrect accepted actions / accepted action count")
-    for row, marker in zip(data["predicate_frontiers"], ("o", "s", "^", "D")):
+    for row, marker in zip(data["predicate_frontiers"], ("o", "s", "^", diamond)):
         points = [p for p in row["points"] if p["accepted"]]
         ax.plot([p["coverage"] for p in points], [p["false"]/p["accepted"] for p in points],
                 marker=marker, label=NAMES[row["arm"]] + " / " + row["label"])

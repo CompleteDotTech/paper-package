@@ -1,0 +1,13 @@
+{
+  "execution": "No fresh service calls; offline saved-response replay and controlled algorithms.",
+  "packages": {
+    "markdown-it-py": "4.2.0",
+    "matplotlib": "3.10.8",
+    "numpy": "2.5.3",
+    "weasyprint": "68.0"
+  },
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "run_id": "35315026315",
+  "source_commit": "1cd09ff7ed820c417886e0ea5f32a31d5235aa31"
+}

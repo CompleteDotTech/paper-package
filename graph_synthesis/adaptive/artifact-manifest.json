@@ -1,0 +1,33 @@
+{
+  "note": "Adaptive source and outputs, excluding this self-reference; prior evidence is not rewritten.",
+  "sha256": {
+    "graph_synthesis/adaptive/CLAIM_EVIDENCE.md": "7d424f32c050a762c4eb878049730de832b7a837e033f893c901209e9b56d04f",
+    "graph_synthesis/adaptive/PROTOCOL.md": "8fb0f612a2c06f881deeedb8e400eef08cbe3b6e448341f94eae1b7455a4748c",
+    "graph_synthesis/adaptive/README.md": "38b364e81a09a34cacf1e171599dae81155d806e0a255862aa4c4f448bd05919",
+    "graph_synthesis/adaptive/RESULTS.md": "4f4c4bbf883edbc52090da6b22b38cc1e25a60f9b4a82e294eb42c4cea2544db",
+    "graph_synthesis/adaptive/__init__.py": "2e7d7862e10b31c602cf596dc7c2b0d1f91f53527d8b0185d29c6959c2dc39c3",
+    "graph_synthesis/adaptive/environment.json": "7dba7b1fe672ebcebe2376fb22c307c37d9ff7118b143303e6546405e102d1fc",
+    "graph_synthesis/adaptive/figures/01_routing.png": "93527719e35c60196c0f983ab5cf274d3993a5d7acf3ff466bb25ad42acac4e4",
+    "graph_synthesis/adaptive/figures/01_routing.svg": "bbce997ae0b3a0ac62e40a2df7af51928ed91fb507e17b726d7e33288710d617",
+    "graph_synthesis/adaptive/figures/02_fallback.png": "1417e13f7bbc77ac24059cb7a2a11ddb193c906893c8e5ada3aac207f1210457",
+    "graph_synthesis/adaptive/figures/02_fallback.svg": "29c66f215cf03500685791ab6bb932975f9a724ba17c93999445c17bf4ecee0e",
+    "graph_synthesis/adaptive/figures/03_corroboration.png": "ef6237952491d381783d23f0c12e9efc58546fc343b0a744e496dc52655a9d78",
+    "graph_synthesis/adaptive/figures/03_corroboration.svg": "1949d956c99256bfc9bd3ae1069f257444715383740bbe71d395cf7dda993e09",
+    "graph_synthesis/adaptive/figures/04_review.png": "a065f5761d20d41749bad5a1a59e9e4fb2fd8e4b3192e33981ee89ec9998caa7",
+    "graph_synthesis/adaptive/figures/04_review.svg": "0dbaa89e59ca3e3afc177b536e46ee0dc44bff4b1092718ed45f52a5b3d5e9e1",
+    "graph_synthesis/adaptive/figures/05_joint.png": "3a27a487e6bbe1f9aab2b071ec4271e1a98068710ba1e278986b965817b98664",
+    "graph_synthesis/adaptive/figures/05_joint.svg": "f70bc90a70f31250be57d3506fd268ca925ce407e5809e72e119f587a1e58db7",
+    "graph_synthesis/adaptive/methods.py": "d81c3cab305a5a3cf84c97de9eb0880d9c4d2965c35e2d5de78dc2779becc0d0",
+    "graph_synthesis/adaptive/predictions.json": "75d8c4eae064c6de107b82ab6169aaee53a7300b3c4a88cfab46367a590c5d49",
+    "graph_synthesis/adaptive/report.py": "d83def383e56a1a21b98852807204689396da5603adb640674845828e17c3b15",
+    "graph_synthesis/adaptive/results.json": "487a9716bfbd3936993982f4b90a0dd7520c87ba0783840f70e284efee72a256",
+    "graph_synthesis/adaptive/run.py": "e407591576df2482d9d05e1c377c7b3712df9d3faa2cd8012a01934527bf1c0f",
+    "graph_synthesis/adaptive/summary.csv": "97824bd51b7a9071134eccb3ea318e90144603d17a650c27b16b36578c0b1310",
+    "graph_synthesis/adaptive/tests/test_adaptive.py": "33d3e4ba211b3f1a9a0e9c5565d9114b723b0b8ff24d8d48682f403f56e0f86b",
+    "graph_synthesis/adaptive/tests/test_reporting.py": "3987ac1ce369d421a1cee912dd90100bb4f07abdb80d565db959d8ab0c8625c1",
+    "graph_synthesis/adaptive/validation/execution.log": "53cef09bdc9a160069fed3a7b5fb11a3bb2d021124e6e5521a1650856708bbdc",
+    "graph_synthesis/adaptive/validation/frozen-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
+    "graph_synthesis/adaptive/validation/replay.log": "7c0b62778a9bde5f17071e499e5596e233b2f6dcccd7c5fa29dc17d626208e3f",
+    "graph_synthesis/adaptive/validation/unit-tests.log": "507d2dd91d70826a088596c568face47bdec951ba505f1c525423eff1322ecd9"
+  }
+}

@@ -1,5 +1,13 @@
 # Current Jev research results — September 18, 2026
 
+<!-- ADAPTIVE_RESEARCH_START -->
+
+## Five adaptive improvements after multicall verification
+
+[Executed report](graph_synthesis/adaptive/RESULTS.md), [frozen protocol](graph_synthesis/adaptive/PROTOCOL.md), [five figures](graph_synthesis/adaptive/figures/) and [full updated paper](manuscript/paper-current.pdf). No fresh Jev calls. Compact disagreement routing saves 34.38% of recorded tokens but misses its frozen 40% target; invalid-check fallback removes operational failures but increases wrong edges; redundancy-capped voting fails its matched-volume target. Group-aware review meets its ideal-review target, and joint conflict optimization meets its finite-oracle target. Those controlled results are not independent semantic-accuracy evidence. No production policy changes.
+
+<!-- ADAPTIVE_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

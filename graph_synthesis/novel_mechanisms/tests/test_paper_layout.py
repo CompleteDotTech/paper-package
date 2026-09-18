@@ -9,7 +9,7 @@ from graph_synthesis.novel_mechanisms.regret import insert_section
 class PaperLayoutTests(unittest.TestCase):
     def test_anchor_follows_all_integrated_prior_studies(self):
         self.assertEqual(ANCHOR, LAYOUT_ANCHOR)
-        self.assertEqual(ANCHOR, '<!-- ASSUMPTION_AWARE_RESEARCH_END -->')
+        self.assertEqual(ANCHOR, '<!-- UNCERTAINTY_RESEARCH_END -->')
 
     def test_only_anchor_line_changes_and_transformation_is_idempotent(self):
         source="START = 'unchanged'\nANCHOR = '<!-- RELIABILITY_RESEARCH_END -->'\nEND = 'unchanged'\n"

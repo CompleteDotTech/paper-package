@@ -102,13 +102,13 @@ figcaption { font: 8.7pt/1.35 "DejaVu Sans", sans-serif; margin-top: 6pt; }
 </tr>
 </tbody>
 </table>
-<p><img src="../experiments/jev-rerun-20260918/figures/run_comparison.png" alt="Original and fresh comparison" /></p>
+<figure><img src="../experiments/jev-rerun-20260918/figures/run_comparison.png" alt="Original and fresh comparison" /></figure>
 <p><strong>entity_resolution:</strong> selected-minus-baseline macro-F1 = +0.015982; exploratory paired 95% interval [-0.008627, +0.042517]. No resolved improvement in raw operational macro F1: the paired interval includes zero or evidence is unavailable.</p>
 <p><strong>relation_support:</strong> selected-minus-baseline macro-F1 = +0.013367; exploratory paired 95% interval [-0.017452, +0.042768]. No resolved improvement in raw operational macro F1: the paired interval includes zero or evidence is unavailable.</p>
 <p>Entity baseline: 8 false merges and 0 missed matches. Service failures, if any, are separately retained in the table.
 Entity selected: 3 false merges and 2 missed matches. Service failures, if any, are separately retained in the table.</p>
 <p>The intervention bundles explicit instructions, typed question format and demonstrations. These runs cannot isolate causal contributions of each ingredient. Intervals are conditional on development selection, unadjusted and exploratory. Repeating this test set does not increase its number of independent entities or documents.</p>
-<p><img src="../experiments/jev-rerun-20260918/figures/fresh_calibration.png" alt="Fresh calibration comparison" /></p>
+<figure><img src="../experiments/jev-rerun-20260918/figures/fresh_calibration.png" alt="Fresh calibration comparison" /></figure>
 <p>Calibration temperatures are fitted on the separate calibration partition. Brier scores use valid eligible responses, while operational accuracy and F1 retain failures. Calibration changes probability scores, not the selected labels; improvements in one scoring rule do not establish calibrated transaction-level safety.</p>
 <h2>Fresh repeatability and resource accounting</h2>
 <ul>
@@ -157,7 +157,7 @@ Entity selected: 3 false merges and 2 missed matches. Service failures, if any, 
 <p>The main run records 3,404 logical calls, 3,404 HTTP attempts, 4,792,410 input tokens and 4 failed calls. Estimated cost at the original protocol price is $0.201281; this is not a current price quote or invoice. The challenge adds 48 requests and 22,880 input tokens. Probability variation remains distinct from label stability.</p>
 <h2>Fresh synthetic challenge</h2>
 <p>Against provisional labels, Jev classified 46/48 correctly and got both cases correct in 22/24 paired groups. It accepted 35 positive edges, of which 2 were wrong. These small, public, hand-constructed cases are diagnostics, not a deployment-risk estimate.</p>
-<p><img src="../experiments/jev-rerun-20260918/figures/challenge_families.png" alt="Synthetic challenge results" /></p>
+<figure><img src="../experiments/jev-rerun-20260918/figures/challenge_families.png" alt="Synthetic challenge results" /></figure>
 <table>
 <thead>
 <tr>
@@ -185,13 +185,469 @@ Entity selected: 3 false merges and 2 missed matches. Service failures, if any, 
 <p>The generic imported-journal evaluator retains <code>fresh_execution_verified: false</code>: hashes alone do not authenticate provider execution. The companion live execution audit and raw journals separately record the actual HTTPS responses and bind their requests. Gold labels, rationales, families and pair IDs were excluded from inference payloads.</p>
 <h2>Reproduced graph falsification findings</h2>
 <p>PR #10's reference results reproduce exactly. On the original unequal-acceptance SciFact operating points, complete, error-free positive components fall from 140/164 to 126/164 with few-shot prompting, despite improved edge precision. The paired interval for the component difference is approximately [-13.30, -3.70] percentage points. This is not a matched-volume comparison and does not contradict the earlier unresolved matched-volume result. The formulations share 34 errors across 336 common-success examples, including 31 wrong-label agreements; their judgments are not independent corroboration. Five of 73 few-shot positive actions scored exactly 1.0 were wrong.</p>
-<p><img src="../experiments/jev-rerun-20260918/figures/candidate_loss.png" alt="Candidate availability intervention" /></p>
+<figure><img src="../experiments/jev-rerun-20260918/figures/candidate_loss.png" alt="Candidate availability intervention" /></figure>
 <p>Candidate-loss bands describe variation over 100 synthetic removal masks, not confidence intervals or new retrieval measurements. Compiler witnesses remain constructed: a false identity bridge between two 100-record clusters induces 10,000 false cross-cluster identities; explicit retraction repairs them. Exact qualifier comparison misses overlapping temporal intervals. Twenty seeded repair episodes exercise 1,600 assertions and 782 withdrawals. These deterministic properties do not establish Jev factual correctness.</p>
 <h2>Interpretation and next experiment</h2>
 <p>The original entity macro-F1 interval excluded zero; the fresh-run interval includes it. The descriptive entity advantage persists but its interval-based finding does not reproduce in this run. Neither task establishes a resolved fresh macro-F1 improvement. Independent identity-disjoint data and larger clusters remain necessary. Relation precision, recall, component completeness and total accuracy answer different questions. Do not select a universal winner from one metric, promote correlated fusion without matched-cost benefit, or infer production safety from typed outputs. Prioritize independent entity-matching confirmation and controlled ablations before further prompt tuning on this already inspected test set.</p>
 <h2>Artifacts and reproduction</h2>
 <p>The run directory contains the frozen plan, captured source, raw requests/responses, prediction journal, calibration, analysis, verification, challenge evidence and figures. <code>python -B -m graph_synthesis.report_fresh_run --run-dir experiments/jev-rerun-20260918</code> regenerates this update and its four graphics without inference. The original study and its 161-file inventory remain unchanged. The current full manuscript incorporates this update before the original study as explicitly historical evidence.</p>
 <hr />
+<h1>Follow-up: five evidence-driven improvements</h1>
+<p>This study builds on the ten-theory suite and the September 18 service rerun. <strong>No fresh Jev requests were made in this follow-up.</strong> H1-H3 replay captured observations; H4-H5 execute controlled algorithms against finite oracles. These are different evidence types, not five independent tests of improved model accuracy.</p>
+<p>Baseline <code>1e03d0e7dfbf0b0deb1e39ecf133e66e05be141b</code>; protocol committed as <code>49975b97464ce4ee8e5c67250d6690aaebeaea73</code> before suite execution. Prior results were already known, so this is exploratory, not independent preregistration. Policies were not retuned after viewing the following outcomes.</p>
+<h2>Summary of fixed operational targets</h2>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Evidence</th>
+<th>Primary target met?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1: Guarded probability calibration</td>
+<td>Captured Jev replay</td>
+<td>False</td>
+</tr>
+<tr>
+<td>H2: Edge-aware economical routing</td>
+<td>Captured-token routing counterfactual</td>
+<td>True</td>
+</tr>
+<tr>
+<td>H3: Cross-run stability gate</td>
+<td>Paired captured observations</td>
+<td>False</td>
+</tr>
+<tr>
+<td>H4: Scope and interval conflicts</td>
+<td>Finite controlled oracle</td>
+<td>True</td>
+</tr>
+<tr>
+<td>H5: Duplicate/shared-lineage bounds</td>
+<td>Finite independent-event oracle</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>A target pass is a point-estimate engineering result, not a statistically established general improvement. Do not pool the indicators into a success rate.</p>
+<h2>H1: Guarded probability calibration</h2>
+<p>Tables label the original capture old and the September 18 rerun new; base denotes the baseline formulation.</p>
+<p>The fresh rerun showed that optimizing log loss could worsen Brier score. The proposed change fits a temperature on half of the original calibration components, then chooses a raw/temperature mixture on the other half with a no-worse-Brier constraint. Both components of this mixture preserve label order. No rerun labels enter the fit.</p>
+<p>For the primary relation few-shot arm, selected temperature is 8 and mixture weight is 0; fit/guard valid observations are 62/88.</p>
+<table>
+<thead>
+<tr>
+<th>Task / arm</th>
+<th>Run</th>
+<th style="text-align:right">Raw log loss</th>
+<th style="text-align:right">Temp log loss</th>
+<th style="text-align:right">Guard log loss</th>
+<th style="text-align:right">Raw Brier</th>
+<th style="text-align:right">Temp Brier</th>
+<th style="text-align:right">Guard Brier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity / base</td>
+<td>old</td>
+<td style="text-align:right">0.1067</td>
+<td style="text-align:right">0.0744</td>
+<td style="text-align:right">0.0744</td>
+<td style="text-align:right">0.0408</td>
+<td style="text-align:right">0.0317</td>
+<td style="text-align:right">0.0317</td>
+</tr>
+<tr>
+<td>Entity / base</td>
+<td>new</td>
+<td style="text-align:right">0.1067</td>
+<td style="text-align:right">0.0730</td>
+<td style="text-align:right">0.0730</td>
+<td style="text-align:right">0.0407</td>
+<td style="text-align:right">0.0317</td>
+<td style="text-align:right">0.0317</td>
+</tr>
+<tr>
+<td>Entity / few-shot</td>
+<td>old</td>
+<td style="text-align:right">0.0335</td>
+<td style="text-align:right">0.0269</td>
+<td style="text-align:right">0.0268</td>
+<td style="text-align:right">0.0184</td>
+<td style="text-align:right">0.0149</td>
+<td style="text-align:right">0.0150</td>
+</tr>
+<tr>
+<td>Entity / few-shot</td>
+<td>new</td>
+<td style="text-align:right">0.0333</td>
+<td style="text-align:right">0.0275</td>
+<td style="text-align:right">0.0270</td>
+<td style="text-align:right">0.0181</td>
+<td style="text-align:right">0.0154</td>
+<td style="text-align:right">0.0152</td>
+</tr>
+<tr>
+<td>Relation / base</td>
+<td>old</td>
+<td style="text-align:right">1.2415</td>
+<td style="text-align:right">0.5385</td>
+<td style="text-align:right">0.4535</td>
+<td style="text-align:right">0.2340</td>
+<td style="text-align:right">0.3048</td>
+<td style="text-align:right">0.2282</td>
+</tr>
+<tr>
+<td>Relation / base</td>
+<td>new</td>
+<td style="text-align:right">1.2402</td>
+<td style="text-align:right">0.5396</td>
+<td style="text-align:right">0.4546</td>
+<td style="text-align:right">0.2342</td>
+<td style="text-align:right">0.3036</td>
+<td style="text-align:right">0.2280</td>
+</tr>
+<tr>
+<td>Relation / few-shot</td>
+<td>old</td>
+<td style="text-align:right">1.2401</td>
+<td style="text-align:right">0.5435</td>
+<td style="text-align:right">1.2401</td>
+<td style="text-align:right">0.2306</td>
+<td style="text-align:right">0.3127</td>
+<td style="text-align:right">0.2306</td>
+</tr>
+<tr>
+<td>Relation / few-shot</td>
+<td>new</td>
+<td style="text-align:right">1.3207</td>
+<td style="text-align:right">0.5542</td>
+<td style="text-align:right">1.3207</td>
+<td style="text-align:right">0.2244</td>
+<td style="text-align:right">0.3151</td>
+<td style="text-align:right">0.2244</td>
+</tr>
+</tbody>
+</table>
+<p>Primary target met: <strong>False</strong>. Rerun valid probability N=337; failures=2; label changes=0. Guard-minus-raw descriptive paired 95% component intervals: log loss [0.0, 0.0]; Brier [0.0, 0.0].</p>
+<p>The no-harm constraint holds on the guard partition only. It is not an out-of-sample guarantee, and preserving labels means this intervention cannot improve classification accuracy. Temperature-only here is fitted on the same half-calibration data as the guarded method, not the larger full-calibration fit reported in the previous paper.</p>
+<figure><img src="../graph_synthesis/followup/figures/01_calibration.svg" alt="Probability trade-off" /></figure>
+<h2>H2: Edge-aware economical routing</h2>
+<p>The earlier macro-F1/cost cascade could save tokens while admitting more wrong relationships. This follow-up explicitly constrains correct edges, wrong edges and precision during calibration-only selection. Positive and negative baseline labels have separate escalation thresholds; failed baseline calls escalate. Always-few-shot is an explicit fallback that avoids unnecessary baseline cost.</p>
+<p>Primary selected policy: <code>{&quot;direct&quot;: false, &quot;negative_threshold&quot;: 0, &quot;positive_threshold&quot;: 0.95}</code>.
+Earlier macro-F1 rule, refitted on the same original calibration: threshold 0.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Run</th>
+<th>Policy</th>
+<th style="text-align:right">Correct edges</th>
+<th style="text-align:right">Wrong edges</th>
+<th style="text-align:right">Precision</th>
+<th style="text-align:right">Input tokens</th>
+<th style="text-align:right">Macro-F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>baseline</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>fewshot</td>
+<td style="text-align:right">349</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">99.43%</td>
+<td style="text-align:right">627,844</td>
+<td style="text-align:right">0.9859</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>macro cascade</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>edge cascade</td>
+<td style="text-align:right">349</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">99.43%</td>
+<td style="text-align:right">237,835</td>
+<td style="text-align:right">0.9859</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>baseline</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>fewshot</td>
+<td style="text-align:right">348</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">99.15%</td>
+<td style="text-align:right">627,844</td>
+<td style="text-align:right">0.9764</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>macro cascade</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>edge cascade</td>
+<td style="text-align:right">348</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">99.15%</td>
+<td style="text-align:right">242,280</td>
+<td style="text-align:right">0.9764</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>baseline</td>
+<td style="text-align:right">187</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">83.48%</td>
+<td style="text-align:right">258,495</td>
+<td style="text-align:right">0.8508</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>fewshot</td>
+<td style="text-align:right">172</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">89.58%</td>
+<td style="text-align:right">1,213,458</td>
+<td style="text-align:right">0.8527</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>macro cascade</td>
+<td style="text-align:right">187</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">83.48%</td>
+<td style="text-align:right">262,102</td>
+<td style="text-align:right">0.8524</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>edge cascade</td>
+<td style="text-align:right">175</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">89.29%</td>
+<td style="text-align:right">449,791</td>
+<td style="text-align:right">0.8581</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>baseline</td>
+<td style="text-align:right">185</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">82.96%</td>
+<td style="text-align:right">258,495</td>
+<td style="text-align:right">0.8432</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>fewshot</td>
+<td style="text-align:right">173</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">90.10%</td>
+<td style="text-align:right">1,213,458</td>
+<td style="text-align:right">0.8566</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>macro cascade</td>
+<td style="text-align:right">185</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">82.96%</td>
+<td style="text-align:right">262,342</td>
+<td style="text-align:right">0.8448</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>edge cascade</td>
+<td style="text-align:right">173</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">90.10%</td>
+<td style="text-align:right">442,640</td>
+<td style="text-align:right">0.8566</td>
+</tr>
+</tbody>
+</table>
+<p>Primary target met: <strong>True</strong>. Input-token saving 63.52%; correct-edge retention 100.00%. The joint target requires at least 20% saving, 98% retention, and no extra wrong edges versus all-few-shot.</p>
+<p>The edge-aware and all-few-shot rerun policies differ on 2 labels. These are recorded input-token counterfactuals, not measured new API latency or billing. Baseline requests are charged even when a fallback is needed. Calibration feasibility does not guarantee evaluation safety. A macro-F1-only success is not substituted for the stated graph target.</p>
+<p>Descriptive paired 95% rate-difference intervals versus all-few-shot: correct edges [-0.008645533141, 0.008928571429]; wrong edges [0.0, 0.0]. This is not an equivalence test.</p>
+<figure><img src="../graph_synthesis/followup/figures/02_routing.svg" alt="Routing edge outcomes" /></figure>
+<h2>H3: Cross-run stability gate</h2>
+<p>The intervention accepts only positive labels that agree across exact-input original/rerun observations. Compare it with rerun confidence ranking and a uniform-random subset at exactly the same accepted volume. Stability is not independent corroboration; the two calls share model identity and evidence.</p>
+<table>
+<thead>
+<tr>
+<th>Task / arm</th>
+<th style="text-align:right">Rerun correct / wrong</th>
+<th style="text-align:right">Stable correct / wrong</th>
+<th style="text-align:right">Matched confidence wrong</th>
+<th style="text-align:right">Random expected wrong</th>
+<th style="text-align:right">Retention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity / base</td>
+<td style="text-align:right">350 / 8</td>
+<td style="text-align:right">350 / 7</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">7.978</td>
+<td style="text-align:right">100.00%</td>
+</tr>
+<tr>
+<td>Entity / few-shot</td>
+<td style="text-align:right">348 / 3</td>
+<td style="text-align:right">348 / 2</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2.991</td>
+<td style="text-align:right">100.00%</td>
+</tr>
+<tr>
+<td>Relation / base</td>
+<td style="text-align:right">185 / 38</td>
+<td style="text-align:right">185 / 37</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">37.830</td>
+<td style="text-align:right">100.00%</td>
+</tr>
+<tr>
+<td>Relation / few-shot</td>
+<td style="text-align:right">173 / 19</td>
+<td style="text-align:right">170 / 18</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">18.604</td>
+<td style="text-align:right">98.27%</td>
+</tr>
+</tbody>
+</table>
+<p>Primary target met: <strong>False</strong>. The primary arm has 335 common-valid pairs, 45 double errors and 45 agreements on a wrong label; 5 stable wrong positive edges have rerun score exactly one.
+Two-run input cost is 2,426,916 versus 1,213,458 for the rerun alone.</p>
+<p>Uniform-subset counts are exact expectations, not new random experiments or a significance test. Small volume reductions are not evidence of superiority when matched-volume confidence does better. A same-data repeat does not double the number of independent documents.</p>
+<figure><img src="../graph_synthesis/followup/figures/03_stability.svg" alt="Matched stability errors" /></figure>
+<h2>H4: Scope- and interval-aware conflicts</h2>
+<p>Exact qualifier equality can miss contradictory assertions valid over overlapping time ranges. The opt-in guard checks half-open integer interval intersection, compatible known scope, polarity, and explicitly declared functional predicates. Unsupported/missing qualifiers return unknown and must be staged rather than silently accepted. It does not select which contradictory assertion is true.</p>
+<p>Executed 5,408 exhaustive supported pairs, including 1,160 oracle conflicts.</p>
+<table>
+<thead>
+<tr>
+<th>Guard</th>
+<th style="text-align:right">Missed conflicts</th>
+<th style="text-align:right">False conflict flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exact_qualifier</td>
+<td style="text-align:right">1108</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>interval_scope</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>qualifier_blind</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1544</td>
+</tr>
+</tbody>
+</table>
+<p>Unknown/malformed cases staged: 5/5. Primary target met: <strong>True</strong>.</p>
+<p>The independent oracle enumerates integer instants. This exhausts the declared finite fixture space, not arbitrary interval semantics or extracted real-world qualifiers. No production GraphStore policy is changed, and correct qualifier extraction remains untested.</p>
+<figure><img src="../graph_synthesis/followup/figures/04_intervals.svg" alt="Interval conflict validation" /></figure>
+<h2>H5: Duplicate/shared-lineage probability bounds</h2>
+<p>Alternative proofs cannot be treated as independent when they share sources. This intervention deduplicates identical atom sets, connects overlapping proofs, bounds each component using maximum and summed proof probabilities, and combines disjoint components only under the supplied independent-atom model. An independent finite-state enumeration supplies exact probabilities.</p>
+<p>Executed 1,536 configurations from 384 parameter/proof settings with 1, 2, 5 and 20 copies. These copies are interventions, not independent samples.</p>
+<table>
+<thead>
+<tr>
+<th>Aggregator</th>
+<th style="text-align:right">False admissions at 0.95</th>
+<th style="text-align:right">Correct high-probability admissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dedup_or</td>
+<td style="text-align:right">44</td>
+<td style="text-align:right">364</td>
+</tr>
+<tr>
+<td>lineage_lower</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">336</td>
+</tr>
+<tr>
+<td>naive_or</td>
+<td style="text-align:right">628</td>
+<td style="text-align:right">364</td>
+</tr>
+</tbody>
+</table>
+<p>Bound violations: 0; duplication-invariance failures: 0. Mean interval width 0.1014, maximum 0.6000. Exact high-probability configurations: 364. Primary target met: <strong>True</strong>.</p>
+<p>The conservative lower-bound gate loses 28 correct high-probability admissions compared with naive aggregation; lower false confidence comes with a retention cost.</p>
+<p><strong>Negative control:</strong> falsely declaring two aliases for one source independent produces lower bound 0.96 for actual probability 0.80, and incorrectly passes the 0.95 gate. Thus lineage discovery and provenance integrity are necessary, not optional implementation details.</p>
+<p>These probabilities concern synthetic sufficient-proof validity events, not actual scientific truth. <strong>Raw Jev confidence is not a certified primitive-event probability.</strong> The control shows what the algorithm can guarantee under supplied assumptions and exactly how those assumptions can fail.</p>
+<figure><img src="../graph_synthesis/followup/figures/05_lineage.svg" alt="Duplication and confidence inflation" /></figure>
+<h2>Source separation, uncertainty and limitations</h2>
+<p>Both original/rerun empirical evaluations contain 339 relation candidates and 413 entity pairs; they are repeated observations of the same items. Original calibration component counts and purge audit are in results.json. Group construction uses claim/document or record IDs, not gold identity groups. Exact response reconstruction and pinned SHA-256 checks run before every analysis.</p>
+<p>H1 and H2 intervals use 1,000 paired connected-component bootstrap draws with seed 20260918. They are descriptive 95% intervals, unadjusted for multiple comparisons. No p-value, confirmatory claim, external-model win, candidate-generation recall improvement or deployed graph-risk guarantee is inferred. Invalid responses remain operational errors, with explicit valid-only probability denominators. The source-disjoint independent corpus and matched KARMA comparison remain unexecuted.</p>
+<h2>Reproduction and implementation status</h2>
+<pre><code class="language-bash">python -B -m unittest discover -s graph_synthesis/followup/tests -v
+python -B -m graph_synthesis.followup.run --check
+python -B -m graph_synthesis.followup.report --figures --update-paper
+python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+</code></pre>
+<p>All numerical findings are generated from results.json. Existing frozen evidence and the default compiler remain unchanged. The methods are opt-in research implementations, not validated production replacements. All conclusions remain an AI-assisted author-review draft. See <a href="../graph_synthesis/followup/PROTOCOL.md">PROTOCOL.md</a> for the frozen criteria and <a href="../graph_synthesis/followup/CLAIM_EVIDENCE.md">CLAIM_EVIDENCE.md</a> for evidence boundaries.</p>
 <h1>Original study (historical evidence; unchanged text)</h1>
 <hr />
 <h2>title: &quot;Improving Typed Entity Decisions with Jev: A Reproducible Same-Model Case Study&quot;
@@ -486,7 +942,7 @@ p_T(k)=\frac{\exp(\log(\max(p(k),10^{-15}))/T)}
 </table>
 <p>Entity matching improves on the predeclared primary endpoint in this split: the unadjusted macro-F1 interval is above zero. The accuracy interval includes zero. All 413 responses validate for both arms, so the matching improvement is not explained by differing service-success coverage. The selected arm reduces false-positive identity predictions but introduces one missed match. It is a promising formulation for subsequent validation, not an error-free matcher.</p>
 <p>SciFact does not show a resolved primary improvement. Baseline has one failed evaluation response and the selected arm has two. Restricting classification to the 336 rows where both succeed yields the same accuracy, 0.8542, and macro-F1 0.8512 versus 0.8545. The common-success macro-F1 difference is 0.0033, with an interval [−0.0286, 0.0353]. Thus, excluding failures does not reverse the task-level conclusion.</p>
-<p><img src="../reproduction/results/jev/run-20260918/figures/paired_effects.png" alt="Paired held-out effects" /></p>
+<figure><img src="../reproduction/results/jev/run-20260918/figures/paired_effects.png" alt="Paired held-out effects" /></figure>
 <p><strong>Figure 1.</strong> Selected-minus-baseline held-out effects and paired bootstrap uncertainty. Positive macro-F1 differences favor the selected formulation; lower Brier and false-merge rate are better. The figure is generated from saved results, not from additional inference.</p>
 <h2>7.3 Probability quality and calibration</h2>
 <p><strong>Table 5. Evaluation probability metrics.</strong> Lower is better. Each arm's raw and calibrated values use the same successful response set. SciFact denominators are 338 baseline and 337 selected; entity denominators are 413 for both.</p>

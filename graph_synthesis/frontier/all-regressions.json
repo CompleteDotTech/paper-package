@@ -8,6 +8,8 @@
     "graph_synthesis/adaptive/tests/test_adaptive.py": "33d3e4ba211b3f1a9a0e9c5565d9114b723b0b8ff24d8d48682f403f56e0f86b",
     "graph_synthesis/adaptive/tests/test_paths.py": "1d6a739f2f47e9bfe5992fe9a5ffff4caf5a6d50f2385f0f07d1d99be279d40e",
     "graph_synthesis/adaptive/tests/test_reporting.py": "3987ac1ce369d421a1cee912dd90100bb4f07abdb80d565db959d8ab0c8625c1",
+    "graph_synthesis/assumption_aware/tests/test_methods.py": "6074fab007c07bf12e27f899fb54d61280186ff0f021d9a8b1a0be4478bd7aef",
+    "graph_synthesis/assumption_aware/tests/test_reporting_integration.py": "fee3185441ff29f01999b1b85ab661e5b30d0ea3fd94cc9c63e2c1d633908f46",
     "graph_synthesis/corpus/tests/test_plan.py": "098842e6be66864184eaa9c4fc706aee8dc0f1b0d4c15abc425309c7841bb62b",
     "graph_synthesis/followup/tests/test_followup.py": "86466d1356fee23205e4446c7aa1339cbfffe5544a4fda172bd2ed6a7cbdab8d",
     "graph_synthesis/frontier/tests/test_frontier.py": "a85a4be15f7094eb9f567c0636613c17874a9819821b6d824661cd611851aa1d",
@@ -33,5 +35,5 @@
     "graph_synthesis/tests/test_visualize_evidence.py": "dc6b39d826fbdc072e48570ec7ffdcf6c0c8f586eb4586ecfea625d0715ff76e",
     "graph_synthesis/theory_suite/tests/test_methods.py": "ee30c260f146ecffade7a476ddd56c9e449dfa8dddc8259d86060f672ea46e38"
   },
-  "tests_run": 726
+  "tests_run": 773
 }

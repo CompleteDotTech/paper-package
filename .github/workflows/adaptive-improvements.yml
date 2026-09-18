@@ -49,7 +49,8 @@ jobs:
           python -B -m unittest discover -s graph_synthesis/adaptive/tests -v 2>&1 | tee graph_synthesis/adaptive/validation/unit-tests.log
           python -B -m graph_synthesis.adaptive.run | tee graph_synthesis/adaptive/validation/execution.log
           python -B -m graph_synthesis.adaptive.run --check | tee graph_synthesis/adaptive/validation/replay.log
-          python -B -m graph_synthesis.verify --output graph_synthesis/adaptive/validation/frozen-inventory.json
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/adaptive-frozen-inventory.json"
+          cp "$RUNNER_TEMP/adaptive-frozen-inventory.json" graph_synthesis/adaptive/validation/frozen-inventory.json
           python - <<'PY'
           import importlib.metadata as m, json, platform, os
           from pathlib import Path

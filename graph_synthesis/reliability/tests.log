@@ -63,6 +63,6 @@ test_remote_image_is_rejected (test_rendering.RenderingTests.test_remote_image_i
 test_text_cell_is_not_forced_onto_one_line (test_rendering.RenderingTests.test_text_cell_is_not_forced_onto_one_line) ... ok
 
 ----------------------------------------------------------------------
-Ran 63 tests in 1.813s
+Ran 63 tests in 1.864s
 
 OK

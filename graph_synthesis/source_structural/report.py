@@ -36,6 +36,7 @@ def render(r):
            'The [preceding reliability study](../reliability/RESULTS.md) found that a group-risk multiplier improved mean bias but worsened Brier, and that single-view review features could save acquisition tokens. Its structural experiments also exposed a 16-atom lineage boundary, a four-vertex conflict-cutset boundary, and update-locality limits. This extension changes the risk model, explicitly prices review setup, and broadens the tractable structural cases. It applies established shrinkage, dynamic programming, max-flow/min-cut and dependency indexing rather than claiming a new mathematical algorithm.', '',
            f"The [protocol](PROTOCOL.md) was committed before execution as `{r['protocol_commit']}`, against baseline `{r['baseline_commit']}`. Previous evaluation outcomes informed the hypotheses: this is an exploratory, pre-execution commitment, not an independent preregistration. H1/H2 reuse {r['development']['n']} development candidates in {r['development']['groups']} connected source groups and {r['test']['n']} evaluation candidates in {r['test']['groups']} groups. The original claim/document/duplicate-abstract grouping is preserved. A source group is not necessarily one document. In H2, setup is therefore charged per connected group, not per physical document opened. These hypothetical units cannot establish actual reviewer costs.", '',
            f"Raw responses and input hashes are verified before reconstruction. Development and evaluation groups are disjoint; policy inference receives no evaluation gold. **Fresh service calls: {r['fresh_service_calls']}.** Earlier public test-set inspection still prevents independent confirmation. No production graph policy is changed.", '',
+           'Concurrent integration: [PR #18](https://github.com/CompleteDotTech/paper-package/pull/18) merged during this extension. Its [structural refinement study](../structural/RESULTS.md), frozen protocol and executed evidence are preserved unchanged. Its source-balanced ranking, source-diverse acceptance, dependence-robust review, shared-hub lineage and feedback-cutset tests are separate from the direct source-event, setup-budget, frontier, bipartite-flow and source-cache hypotheses here. Both studies reuse the same semantic capture and must not be pooled as independent observations. No hypothesis, threshold or numerical result here was retuned after viewing PR #18.', '',
            '| Hypothesis | Frozen primary criterion | Outcome | Evidence class |',
            '|---|---|---|---|']
     criteria = ['10% lower Brier than both prior models; absolute bias <=0.03',
@@ -176,10 +177,11 @@ def figures(r):
 
 def replace_after_anchor(text, body):
     text = re.sub(re.escape(START) + r'.*?' + re.escape(END) + r'\s*', '', text, flags=re.S)
-    if text.count(ANCHOR) != 1:
-        raise ValueError('Expected exactly one reliability section anchor')
-    before, after = text.split(ANCHOR, 1)
-    return before + ANCHOR + '\n\n' + START + '\n\n' + body.strip() + '\n\n' + END + '\n\n' + after.lstrip()
+    anchor = '<!-- STRUCTURAL_RESEARCH_END -->' if '<!-- STRUCTURAL_RESEARCH_END -->' in text else ANCHOR
+    if text.count(anchor) != 1:
+        raise ValueError('Expected exactly one predecessor section anchor')
+    before, after = text.split(anchor, 1)
+    return before + anchor + '\n\n' + START + '\n\n' + body.strip() + '\n\n' + END + '\n\n' + after.lstrip()
 
 
 def update_paper(r):

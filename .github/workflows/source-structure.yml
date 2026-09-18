@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   execute-and-publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/research/source-risk-structure'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/source-risk-structure' && contains(github.event.head_commit.message, '[execute source-structure]')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -32,6 +32,23 @@ jobs:
           python -B -m graph_synthesis.source_structural.run | tee graph_synthesis/source_structural/execution.log
           python -B -m unittest discover -s graph_synthesis/source_structural/tests -v 2>&1 | tee graph_synthesis/source_structural/tests.log
           python -B -m graph_synthesis.source_structural.run --check
+          python - <<'PYTEST'
+          import json,re,subprocess,sys
+          from pathlib import Path
+          folders=['graph_synthesis/tests','graph_synthesis/corpus/tests','graph_synthesis/theory_suite/tests','graph_synthesis/followup/tests','graph_synthesis/adaptive/tests','graph_synthesis/risk_control/tests','graph_synthesis/reliability/tests','graph_synthesis/structural/tests','graph_synthesis/source_structural/tests']
+          records=[]
+          with Path('graph_synthesis/source_structural/combined-tests.log').open('w',encoding='utf-8',newline='\n') as log:
+              for folder in folders:
+                  p=subprocess.run([sys.executable,'-B','-m','unittest','discover','-s',folder,'-v'],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+                  log.write('\n### '+folder+'\n'+p.stdout)
+                  match=re.search(r'Ran (\d+) tests?',p.stdout)
+                  count=int(match[1]) if match else 0
+                  records.append({'suite':folder,'tests':count,'passed':p.returncode==0})
+                  if p.returncode or not count:
+                      raise RuntimeError(folder+'\n'+p.stdout)
+          Path('graph_synthesis/source_structural/combined-validation.json').write_text(json.dumps({'suites':records,'total_tests':sum(r['tests'] for r in records),'all_passed':True},indent=2)+'\n',encoding='utf-8',newline='\n')
+          print('All',sum(r['tests'] for r in records),'integrated regression tests passed')
+          PYTEST
           python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/source-original-inventory.json"
           cp "$RUNNER_TEMP/source-original-inventory.json" graph_synthesis/source_structural/original-inventory.json
           python -B -m graph_synthesis.source_structural.report --figures --update-paper
@@ -57,6 +74,13 @@ jobs:
             manuscript/paper-current.html
             manuscript/paper-current.build.json
             CURRENT_RESULTS.md
+          retention-days: 14
+      - name: Archive exact integrated source for independent inspection
+        run: git archive --format=zip --output="$RUNNER_TEMP/source-structure-integrated.zip" HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: source-structure-integrated-source
+          path: ${{ runner.temp }}/source-structure-integrated.zip
           retention-days: 14
   replay:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'

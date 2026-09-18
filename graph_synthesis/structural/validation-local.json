@@ -1,0 +1,18 @@
+{
+  "original_archive_files_verified": 161,
+  "original_files_changed": 0,
+  "paper_pages": 63,
+  "replay_verified": true,
+  "results_sha256": "4f847884a6543f77decbb1dc151b70c6d24554fdac207db88d8e7f78fe27f476",
+  "test_counts": {
+    "graph_synthesis_adaptive_tests": 64,
+    "graph_synthesis_corpus_tests": 32,
+    "graph_synthesis_followup_tests": 67,
+    "graph_synthesis_risk_control_tests": 66,
+    "graph_synthesis_tests": 200,
+    "graph_synthesis_theory_suite_tests": 37,
+    "structural-tests": 32
+  },
+  "total_tests_passed": 498,
+  "visual_inspection": "New tables and all five rendered figures inspected; no clipping found."
+}

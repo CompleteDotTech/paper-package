@@ -24,13 +24,13 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
-<!-- SOURCE_STRUCTURAL_RESEARCH_START -->
+<!-- STRUCTURAL_RESEARCH_START -->
 
-## Five source-aware and structural improvements after PR #17
+## Five structural refinements after PR #16
 
-[Executed report](graph_synthesis/source_structural/RESULTS.md), [frozen protocol](graph_synthesis/source_structural/PROTOCOL.md), [five figures](graph_synthesis/source_structural/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 did not meet its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. Direct group-risk modeling and setup-cost-aware review fail their targets. Frontier lineage, certified bipartite optimization and revision-checked evidence invalidation meet controlled algorithmic targets. No fresh Jev calls, independent semantic validation, real reviewer cost measurements or production-policy changes. Negative results, correlated-detection and global-source controls are retained.
+[Executed report](graph_synthesis/structural/RESULTS.md), [frozen protocol](graph_synthesis/structural/PROTOCOL.md), [five figures](graph_synthesis/structural/figures/) and [updated full paper](manuscript/paper-current.pdf). No fresh Jev calls. Reliability ranking reduces matched-volume wrong edges from 17 to 15 but misses its 20% target. Source diversification and dependence-robust review worsen primary quality outcomes. Exact shared-lineage inference recovers 16 controlled admissions; feedback-cutset optimization solves all 16 tested large cycles through 256 assertions. Controlled probability/priority gains are not semantic-accuracy gains. Negative results retained; no production-policy change.
 
-<!-- SOURCE_STRUCTURAL_RESEARCH_END -->
+<!-- STRUCTURAL_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

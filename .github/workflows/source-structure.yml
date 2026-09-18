@@ -1,0 +1,21 @@
+name: Source-aware structural experiments
+on:
+  push:
+    branches: [research/source-risk-structure]
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - run: git archive --format=zip --output="$RUNNER_TEMP/source-structure-source.zip" HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: source-structure-source
+          path: ${{ runner.temp }}/source-structure-source.zip
+          retention-days: 7

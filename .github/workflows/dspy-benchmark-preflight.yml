@@ -12,23 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Check live execution prerequisites without exposing credentials
+      - name: List configured inference credential names, never values
         env:
-          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          DSPY_PROPOSER_MODEL: ${{ vars.DSPY_PROPOSER_MODEL }}
+          REPO_SECRETS_JSON: ${{ toJSON(secrets) }}
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
         run: |
           python - <<'PY'
           import json, os, pathlib
-          names = ['TYPESAFE_API_KEY', 'OPENAI_API_KEY', 'OPENROUTER_API_KEY', 'ANTHROPIC_API_KEY']
-          available = {name: bool(os.environ.get(name, '').strip()) for name in names}
-          result = {'credential_presence_only': available,
-                    'proposer_model_variable_present': bool(os.environ.get('DSPY_PROPOSER_MODEL', '').strip()),
+          values = json.loads(os.environ.pop('REPO_SECRETS_JSON'))
+          variables = json.loads(os.environ.pop('REPO_VARS_JSON'))
+          names = sorted(name for name, value in values.items() if value and name != 'GITHUB_TOKEN')
+          result = {'configured_secret_names_only': names,
+                    'configured_variable_names_only': sorted(variables),
                     'live_inference_executed': False,
-                    'note': 'No credential values are recorded; this job makes no inference calls.'}
-          result['status'] = 'ready_for_provider_selection' if available['TYPESAFE_API_KEY'] and any(available[n] for n in names[1:]) else 'blocked_missing_credentials'
+                    'note': 'No credential values are printed, exported or archived.'}
+          values.clear(); variables.clear()
           pathlib.Path('execution-preflight.json').write_text(json.dumps(result, indent=2)+'\n')
           print(json.dumps(result, indent=2))
           PY

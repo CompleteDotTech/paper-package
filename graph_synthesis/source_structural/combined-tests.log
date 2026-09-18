@@ -1,3 +1,5 @@
+
+### graph_synthesis/tests
 test_audit_detects_corruption (test_core.CoreTests.test_audit_detects_corruption) ... ok
 test_cascading_retraction_leaves_independent_support (test_core.CoreTests.test_cascading_retraction_leaves_independent_support) ... ok
 test_commits_are_audited (test_core.CoreTests.test_commits_are_audited) ... ok
@@ -201,78 +203,11 @@ test_withdrawal_is_conservative (test_visualize_evidence.FigureTests.test_withdr
 test_wrong_polarity_and_unsupported_are_separate (test_visualize_evidence.FigureTests.test_wrong_polarity_and_unsupported_are_separate) ... ok
 
 ----------------------------------------------------------------------
-Ran 200 tests in 6.886s
+Ran 200 tests in 7.189s
 
 OK
-test_invalid_adjudication_keeps_base (test_adaptive.FailureIsolationTests.test_invalid_adjudication_keeps_base) ... ok
-test_invalid_base_uses_standalone_compact (test_adaptive.FailureIsolationTests.test_invalid_base_uses_standalone_compact) ... ok
-test_invalid_checks_cannot_authorize_adjudication (test_adaptive.FailureIsolationTests.test_invalid_checks_cannot_authorize_adjudication) ... ok
-test_two_failures_remain_failure (test_adaptive.FailureIsolationTests.test_two_failures_remain_failure) ... ok
-test_valid_chain_keeps_adjudication (test_adaptive.FailureIsolationTests.test_valid_chain_keeps_adjudication) ... ok
-test_component_not_batch_limit (test_adaptive.JointTests.test_component_not_batch_limit) ... ok
-test_duplicate_ids_rejected (test_adaptive.JointTests.test_duplicate_ids_rejected) ... ok
-test_empty_batch (test_adaptive.JointTests.test_empty_batch) ... ok
-test_half_open_endpoints (test_adaptive.JointTests.test_half_open_endpoints) ... ok
-test_invalid_limit_rejected (test_adaptive.JointTests.test_invalid_limit_rejected) ... ok
-test_joint_beats_greedy (test_adaptive.JointTests.test_joint_beats_greedy) ... ok
-test_matches_independent_oracle (test_adaptive.JointTests.test_matches_independent_oracle) ... ok
-test_negative_weight_staged (test_adaptive.JointTests.test_negative_weight_staged) ... ok
-test_nonfinite_weight_staged (test_adaptive.JointTests.test_nonfinite_weight_staged) ... ok
-test_opposite_polarities_conflict (test_adaptive.JointTests.test_opposite_polarities_conflict) ... ok
-test_oracle_detects_collision (test_adaptive.JointTests.test_oracle_detects_collision) ... ok
-test_oversized_component_staged (test_adaptive.JointTests.test_oversized_component_staged) ... ok
-test_permutation_invariance (test_adaptive.JointTests.test_permutation_invariance) ... ok
-test_scope_separates_components (test_adaptive.JointTests.test_scope_separates_components) ... ok
-test_stable_zero_weight_ties (test_adaptive.JointTests.test_stable_zero_weight_ties) ... ok
-test_unknown_staged (test_adaptive.JointTests.test_unknown_staged) ... ok
-test_weights_not_truth (test_adaptive.JointTests.test_weights_not_truth) ... ok
-test_duplicates_rejected (test_adaptive.ReviewTests.test_duplicates_rejected) ... ok
-test_empty_risk_fit_rejected (test_adaptive.ReviewTests.test_empty_risk_fit_rejected) ... ok
-test_false_removal_cost (test_adaptive.ReviewTests.test_false_removal_cost) ... ok
-test_group_marginal_differs_from_individual (test_adaptive.ReviewTests.test_group_marginal_differs_from_individual) ... ok
-test_invalid_risk_rejected (test_adaptive.ReviewTests.test_invalid_risk_rejected) ... ok
-test_review_expected_contamination (test_adaptive.ReviewTests.test_review_expected_contamination) ... ok
-test_stable_ties (test_adaptive.ReviewTests.test_stable_ties) ... ok
-test_test_risk_fit_rejected (test_adaptive.ReviewTests.test_test_risk_fit_rejected) ... ok
-test_unreviewed_wrong_contaminates (test_adaptive.ReviewTests.test_unreviewed_wrong_contaminates) ... ok
-test_agree_skips_rich (test_adaptive.RoutingTests.test_agree_skips_rich) ... ok
-test_compact_error_escalates (test_adaptive.RoutingTests.test_compact_error_escalates) ... ok
-test_confidence_has_no_reviewer_cost (test_adaptive.RoutingTests.test_confidence_has_no_reviewer_cost) ... ok
-test_confidence_threshold (test_adaptive.RoutingTests.test_confidence_threshold) ... ok
-test_deduplicate_accounting (test_adaptive.RoutingTests.test_deduplicate_accounting) ... ok
-test_disagree_charges_rich (test_adaptive.RoutingTests.test_disagree_charges_rich) ... ok
-test_fallback_failure_stays_error (test_adaptive.RoutingTests.test_fallback_failure_stays_error) ... ok
-test_negative_usage_rejected (test_adaptive.RoutingTests.test_negative_usage_rejected) ... ok
-test_reviewer_error_escalates (test_adaptive.RoutingTests.test_reviewer_error_escalates) ... ok
-test_unknown_usage_rejected (test_adaptive.RoutingTests.test_unknown_usage_rejected) ... ok
-test_all_views_charged (test_adaptive.VotingTests.test_all_views_charged) ... ok
-test_duplicate_view_cluster_rejected (test_adaptive.VotingTests.test_duplicate_view_cluster_rejected) ... ok
-test_flat_majority (test_adaptive.VotingTests.test_flat_majority) ... ok
-test_identical_errors_collapse (test_adaptive.VotingTests.test_identical_errors_collapse) ... ok
-test_invalid_component_is_error (test_adaptive.VotingTests.test_invalid_component_is_error) ... ok
-test_mixed_fit_rejected (test_adaptive.VotingTests.test_mixed_fit_rejected) ... ok
-test_negative_needs_no_corroboration (test_adaptive.VotingTests.test_negative_needs_no_corroboration) ... ok
-test_no_errors_not_independence (test_adaptive.VotingTests.test_no_errors_not_independence) ... ok
-test_one_cluster_cannot_emit_positive (test_adaptive.VotingTests.test_one_cluster_cannot_emit_positive) ... ok
-test_test_fit_rejected (test_adaptive.VotingTests.test_test_fit_rejected) ... ok
-test_valid_same_cluster_view_can_replace_failure (test_adaptive.VotingTests.test_valid_same_cluster_view_can_replace_failure) ... ok
-test_posix_matches_windows (test_paths.ProvenancePathTests.test_posix_matches_windows) ... ok
-test_windows_uses_forward_slashes (test_paths.ProvenancePathTests.test_windows_uses_forward_slashes) ... ok
-test_ideal_review_does_not_add_missing_edges (test_reporting.MetricBoundaryTests.test_ideal_review_does_not_add_missing_edges) ... ok
-test_matched_selection_uses_id_tie_break (test_reporting.MetricBoundaryTests.test_matched_selection_uses_id_tie_break) ... ok
-test_metric_types_match_saved_json (test_reporting.MetricBoundaryTests.test_metric_types_match_saved_json) ... ok
-test_operational_failures_remain_denominator (test_reporting.MetricBoundaryTests.test_operational_failures_remain_denominator) ... ok
-test_wrong_polarity_is_wrong_accepted_edge (test_reporting.MetricBoundaryTests.test_wrong_polarity_is_wrong_accepted_edge) ... ok
-test_additive_update_keeps_history (test_reporting.ReportingTests.test_additive_update_keeps_history) ... ok
-test_missing_end_fails (test_reporting.ReportingTests.test_missing_end_fails) ... ok
-test_missing_start_fails (test_reporting.ReportingTests.test_missing_start_fails) ... ok
-test_replacing_preserves_both_sides (test_reporting.ReportingTests.test_replacing_preserves_both_sides) ... ok
-test_update_is_idempotent (test_reporting.ReportingTests.test_update_is_idempotent) ... ok
 
-----------------------------------------------------------------------
-Ran 64 tests in 0.009s
-
-OK
+### graph_synthesis/corpus/tests
 test_caps_are_checked_after_group_expansion (test_plan.CorpusPlanningTests.test_caps_are_checked_after_group_expansion) ... ok
 test_cli_and_idempotent_replay (test_plan.CorpusPlanningTests.test_cli_and_idempotent_replay) ... ok
 test_cli_rejects_invalid_input_without_receipt (test_plan.CorpusPlanningTests.test_cli_rejects_invalid_input_without_receipt) ... ok
@@ -307,9 +242,55 @@ test_year_and_domain_validation (test_plan.CorpusPlanningTests.test_year_and_dom
 test_zero_candidate_plan_blocked (test_plan.CorpusPlanningTests.test_zero_candidate_plan_blocked) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 0.266s
+Ran 32 tests in 0.273s
 
 OK
+
+### graph_synthesis/theory_suite/tests
+test_conformal_target_does_not_imply_nominal_coverage (test_methods.ArchiveTests.test_conformal_target_does_not_imply_nominal_coverage) ... ok
+test_cost_calls_are_unique_within_each_comparison (test_methods.ArchiveTests.test_cost_calls_are_unique_within_each_comparison) ... ok
+test_error_rate_budget_counterexample_is_retained (test_methods.ArchiveTests.test_error_rate_budget_counterexample_is_retained) ... ok
+test_eval_gold_changes_do_not_change_calibration_choices (test_methods.ArchiveTests.test_eval_gold_changes_do_not_change_calibration_choices) ... ok
+test_original_recorded_inputs_and_no_post_purge_overlap (test_methods.ArchiveTests.test_original_recorded_inputs_and_no_post_purge_overlap) ... ok
+test_bell_partition_count_and_size_guard (test_methods.MethodTests.test_bell_partition_count_and_size_guard) ... ok
+test_budget_does_not_treat_probability_one_as_certification (test_methods.MethodTests.test_budget_does_not_treat_probability_one_as_certification) ... ok
+test_budget_duplicate_id_rejected (test_methods.MethodTests.test_budget_duplicate_id_rejected) ... ok
+test_budget_is_component_local_and_permutation_stable (test_methods.MethodTests.test_budget_is_component_local_and_permutation_stable) ... ok
+test_cascade_alignment_and_missing_tokens (test_methods.MethodTests.test_cascade_alignment_and_missing_tokens) ... ok
+test_cascade_calibration_only (test_methods.MethodTests.test_cascade_calibration_only) ... ok
+test_cascade_cost_includes_initial_call_and_error_fallback (test_methods.MethodTests.test_cascade_cost_includes_initial_call_and_error_fallback) ... ok
+test_cascade_fit_uses_cheapest_eligible_not_evaluation (test_methods.MethodTests.test_cascade_fit_uses_cheapest_eligible_not_evaluation) ... ok
+test_conformal_empty_or_tiny_calibration_universal (test_methods.MethodTests.test_conformal_empty_or_tiny_calibration_universal) ... ok
+test_conformal_refuses_evaluation_fit (test_methods.MethodTests.test_conformal_refuses_evaluation_fit) ... ok
+test_decoder_incomplete_pairs_and_bad_order (test_methods.MethodTests.test_decoder_incomplete_pairs_and_bad_order) ... ok
+test_exact_decoder_known_triangle (test_methods.MethodTests.test_exact_decoder_known_triangle) ... ok
+test_exact_decoder_permutation_equivariance_without_ties (test_methods.MethodTests.test_exact_decoder_permutation_equivariance_without_ties) ... ok
+test_exact_objective_not_worse_than_greedy (test_methods.MethodTests.test_exact_objective_not_worse_than_greedy) ... ok
+test_features_exclude_gold_and_unknown_annotations (test_methods.MethodTests.test_features_exclude_gold_and_unknown_annotations) ... ok
+test_group_conformal_uses_maximum_and_finite_rank (test_methods.MethodTests.test_group_conformal_uses_maximum_and_finite_rank) ... ok
+test_invalid_probability_rejected (test_methods.MethodTests.test_invalid_probability_rejected) ... ok
+test_lineage_all_withdrawal_subsets (test_methods.MethodTests.test_lineage_all_withdrawal_subsets) ... ok
+test_macro_f1_invalid_alignment (test_methods.MethodTests.test_macro_f1_invalid_alignment) ... ok
+test_macro_f1_known_confusion (test_methods.MethodTests.test_macro_f1_known_confusion) ... ok
+test_offline_socket_guard (test_methods.MethodTests.test_offline_socket_guard) ... ok
+test_prediction_set_ties_errors_and_empty (test_methods.MethodTests.test_prediction_set_ties_errors_and_empty) ... ok
+test_rare_prior_precision_known (test_methods.MethodTests.test_rare_prior_precision_known) ... ok
+test_review_gold_independence (test_methods.MethodTests.test_review_gold_independence) ... ok
+test_review_invalid_budget_and_duplicate (test_methods.MethodTests.test_review_invalid_budget_and_duplicate) ... ok
+test_run_restores_socket_after_input_failure (test_methods.MethodTests.test_run_restores_socket_after_input_failure) ... ok
+test_schema_preview_detects_symmetry_and_inverse_drift (test_methods.MethodTests.test_schema_preview_detects_symmetry_and_inverse_drift) ... ok
+test_schema_preview_invalid_migration_leaves_original (test_methods.MethodTests.test_schema_preview_invalid_migration_leaves_original) ... ok
+test_semantic_cache_key_versions_and_absence (test_methods.MethodTests.test_semantic_cache_key_versions_and_absence) ... ok
+test_semantic_cache_rejects_missing_versions_and_bad_generation (test_methods.MethodTests.test_semantic_cache_rejects_missing_versions_and_bad_generation) ... ok
+test_source_component_purge_transitive_and_label_free (test_methods.MethodTests.test_source_component_purge_transitive_and_label_free) ... ok
+test_topological_review_uses_neighborhood_not_gold (test_methods.MethodTests.test_topological_review_uses_neighborhood_not_gold) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.605s
+
+OK
+
+### graph_synthesis/followup/tests
 test_all_errors_identity (test_followup.CalibrationTests.test_all_errors_identity) ... ok
 test_argmax_preserved_grid (test_followup.CalibrationTests.test_argmax_preserved_grid) ... ok
 test_bad_distribution (test_followup.CalibrationTests.test_bad_distribution) ... ok
@@ -379,77 +360,82 @@ test_stability_is_not_truth (test_followup.RoutingTests.test_stability_is_not_tr
 test_stable_error_staged (test_followup.RoutingTests.test_stable_error_staged) ... ok
 
 ----------------------------------------------------------------------
-Ran 67 tests in 2.650s
+Ran 67 tests in 2.696s
 
 OK
-test_infinity_is_rejected (test_artifacts.ArtifactTests.test_infinity_is_rejected) ... ok
-test_nan_is_rejected (test_artifacts.ArtifactTests.test_nan_is_rejected) ... ok
-test_nested_benchmark_container_types_survive_roundtrip (test_artifacts.ArtifactTests.test_nested_benchmark_container_types_survive_roundtrip) ... ok
-test_normalization_is_idempotent (test_artifacts.ArtifactTests.test_normalization_is_idempotent) ... ok
-test_tuples_become_json_arrays (test_artifacts.ArtifactTests.test_tuples_become_json_arrays) ... ok
-test_boolean_weight (test_methods.GraphTests.test_boolean_weight) ... ok
-test_empty_graph (test_methods.GraphTests.test_empty_graph) ... ok
-test_false_priority_control (test_methods.GraphTests.test_false_priority_control) ... ok
-test_forest_rejects_cycle (test_methods.GraphTests.test_forest_rejects_cycle) ... ok
-test_frozen_graph_oracles (test_methods.GraphTests.test_frozen_graph_oracles) ... ok
-test_invalid_vertex_id (test_methods.GraphTests.test_invalid_vertex_id) ... ok
-test_negative_weight (test_methods.GraphTests.test_negative_weight) ... ok
-test_odd_cycle_extension (test_methods.GraphTests.test_odd_cycle_extension) ... ok
-test_oracle_agreement (test_methods.GraphTests.test_oracle_agreement) ... ok
-test_over_limit (test_methods.GraphTests.test_over_limit) ... ok
-test_self_conflict (test_methods.GraphTests.test_self_conflict) ... ok
-test_unknown_endpoint (test_methods.GraphTests.test_unknown_endpoint) ... ok
-test_wheel_extension (test_methods.GraphTests.test_wheel_extension) ... ok
-test_zero_priority (test_methods.GraphTests.test_zero_priority) ... ok
-test_delete_last_vertex (test_methods.IncrementalTests.test_delete_last_vertex) ... ok
-test_failed_update_is_atomic (test_methods.IncrementalTests.test_failed_update_is_atomic) ... ok
-test_frozen_mutation_oracles (test_methods.IncrementalTests.test_frozen_mutation_oracles) ... ok
-test_input_snapshot_copied (test_methods.IncrementalTests.test_input_snapshot_copied) ... ok
-test_merge_and_split (test_methods.IncrementalTests.test_merge_and_split) ... ok
-test_output_cannot_mutate_cache (test_methods.IncrementalTests.test_output_cannot_mutate_cache) ... ok
-test_unchanged_snapshot_reuses_all (test_methods.IncrementalTests.test_unchanged_snapshot_reuses_all) ... ok
-test_weight_change_invalidates (test_methods.IncrementalTests.test_weight_change_invalidates) ... ok
-test_atom_cap_safe_fallback (test_methods.LineageTests.test_atom_cap_safe_fallback) ... ok
-test_bad_caps (test_methods.LineageTests.test_bad_caps) ... ok
-test_duplicate_invariance (test_methods.LineageTests.test_duplicate_invariance) ... ok
-test_empty_evidence_zero (test_methods.LineageTests.test_empty_evidence_zero) ... ok
-test_empty_proof_rejected (test_methods.LineageTests.test_empty_proof_rejected) ... ok
-test_frozen_random_oracles (test_methods.LineageTests.test_frozen_random_oracles) ... ok
-test_invalid_primitive_probability (test_methods.LineageTests.test_invalid_primitive_probability) ... ok
-test_no_input_mutation (test_methods.LineageTests.test_no_input_mutation) ... ok
-test_probabilities_zero_one (test_methods.LineageTests.test_probabilities_zero_one) ... ok
-test_shared_dependency (test_methods.LineageTests.test_shared_dependency) ... ok
-test_state_cap_safe_fallback (test_methods.LineageTests.test_state_cap_safe_fallback) ... ok
-test_subsumption (test_methods.LineageTests.test_subsumption) ... ok
-test_unknown_atom_rejected (test_methods.LineageTests.test_unknown_atom_rejected) ... ok
-test_insert_idempotent (test_methods.ReportTests.test_insert_idempotent) ... ok
-test_preserves_prior_sections (test_methods.ReportTests.test_preserves_prior_sections) ... ok
-test_replaces_instead_of_duplicates (test_methods.ReportTests.test_replaces_instead_of_duplicates) ... ok
-test_requires_one_anchor (test_methods.ReportTests.test_requires_one_anchor) ... ok
-test_brier_is_proper_loss (test_methods.RiskTests.test_brier_is_proper_loss) ... ok
-test_compact_view_not_required (test_methods.RiskTests.test_compact_view_not_required) ... ok
-test_development_guard (test_methods.RiskTests.test_development_guard) ... ok
-test_empty_fit (test_methods.RiskTests.test_empty_fit) ... ok
-test_gold_free_execution (test_methods.RiskTests.test_gold_free_execution) ... ok
-test_group_multiplier_identity (test_methods.RiskTests.test_group_multiplier_identity) ... ok
-test_group_probability (test_methods.RiskTests.test_group_probability) ... ok
-test_invalid_multiplier (test_methods.RiskTests.test_invalid_multiplier) ... ok
-test_invalid_probability (test_methods.RiskTests.test_invalid_probability) ... ok
-test_nonpositive_omitted (test_methods.RiskTests.test_nonpositive_omitted) ... ok
-test_same_denominator_required (test_methods.RiskTests.test_same_denominator_required) ... ok
-test_smoothed_risk_not_zero (test_methods.RiskTests.test_smoothed_risk_not_zero) ... ok
-test_formatting_is_idempotent (test_rendering.RenderingTests.test_formatting_is_idempotent) ... ok
-test_local_image_is_valid (test_rendering.RenderingTests.test_local_image_is_valid) ... ok
-test_missing_image_is_rejected (test_rendering.RenderingTests.test_missing_image_is_rejected) ... ok
-test_numeric_scores_counts_and_percentages_are_protected (test_rendering.RenderingTests.test_numeric_scores_counts_and_percentages_are_protected) ... ok
-test_path_escape_is_rejected (test_rendering.RenderingTests.test_path_escape_is_rejected) ... ok
-test_remote_image_is_rejected (test_rendering.RenderingTests.test_remote_image_is_rejected) ... ok
-test_text_cell_is_not_forced_onto_one_line (test_rendering.RenderingTests.test_text_cell_is_not_forced_onto_one_line) ... ok
+
+### graph_synthesis/adaptive/tests
+test_invalid_adjudication_keeps_base (test_adaptive.FailureIsolationTests.test_invalid_adjudication_keeps_base) ... ok
+test_invalid_base_uses_standalone_compact (test_adaptive.FailureIsolationTests.test_invalid_base_uses_standalone_compact) ... ok
+test_invalid_checks_cannot_authorize_adjudication (test_adaptive.FailureIsolationTests.test_invalid_checks_cannot_authorize_adjudication) ... ok
+test_two_failures_remain_failure (test_adaptive.FailureIsolationTests.test_two_failures_remain_failure) ... ok
+test_valid_chain_keeps_adjudication (test_adaptive.FailureIsolationTests.test_valid_chain_keeps_adjudication) ... ok
+test_component_not_batch_limit (test_adaptive.JointTests.test_component_not_batch_limit) ... ok
+test_duplicate_ids_rejected (test_adaptive.JointTests.test_duplicate_ids_rejected) ... ok
+test_empty_batch (test_adaptive.JointTests.test_empty_batch) ... ok
+test_half_open_endpoints (test_adaptive.JointTests.test_half_open_endpoints) ... ok
+test_invalid_limit_rejected (test_adaptive.JointTests.test_invalid_limit_rejected) ... ok
+test_joint_beats_greedy (test_adaptive.JointTests.test_joint_beats_greedy) ... ok
+test_matches_independent_oracle (test_adaptive.JointTests.test_matches_independent_oracle) ... ok
+test_negative_weight_staged (test_adaptive.JointTests.test_negative_weight_staged) ... ok
+test_nonfinite_weight_staged (test_adaptive.JointTests.test_nonfinite_weight_staged) ... ok
+test_opposite_polarities_conflict (test_adaptive.JointTests.test_opposite_polarities_conflict) ... ok
+test_oracle_detects_collision (test_adaptive.JointTests.test_oracle_detects_collision) ... ok
+test_oversized_component_staged (test_adaptive.JointTests.test_oversized_component_staged) ... ok
+test_permutation_invariance (test_adaptive.JointTests.test_permutation_invariance) ... ok
+test_scope_separates_components (test_adaptive.JointTests.test_scope_separates_components) ... ok
+test_stable_zero_weight_ties (test_adaptive.JointTests.test_stable_zero_weight_ties) ... ok
+test_unknown_staged (test_adaptive.JointTests.test_unknown_staged) ... ok
+test_weights_not_truth (test_adaptive.JointTests.test_weights_not_truth) ... ok
+test_duplicates_rejected (test_adaptive.ReviewTests.test_duplicates_rejected) ... ok
+test_empty_risk_fit_rejected (test_adaptive.ReviewTests.test_empty_risk_fit_rejected) ... ok
+test_false_removal_cost (test_adaptive.ReviewTests.test_false_removal_cost) ... ok
+test_group_marginal_differs_from_individual (test_adaptive.ReviewTests.test_group_marginal_differs_from_individual) ... ok
+test_invalid_risk_rejected (test_adaptive.ReviewTests.test_invalid_risk_rejected) ... ok
+test_review_expected_contamination (test_adaptive.ReviewTests.test_review_expected_contamination) ... ok
+test_stable_ties (test_adaptive.ReviewTests.test_stable_ties) ... ok
+test_test_risk_fit_rejected (test_adaptive.ReviewTests.test_test_risk_fit_rejected) ... ok
+test_unreviewed_wrong_contaminates (test_adaptive.ReviewTests.test_unreviewed_wrong_contaminates) ... ok
+test_agree_skips_rich (test_adaptive.RoutingTests.test_agree_skips_rich) ... ok
+test_compact_error_escalates (test_adaptive.RoutingTests.test_compact_error_escalates) ... ok
+test_confidence_has_no_reviewer_cost (test_adaptive.RoutingTests.test_confidence_has_no_reviewer_cost) ... ok
+test_confidence_threshold (test_adaptive.RoutingTests.test_confidence_threshold) ... ok
+test_deduplicate_accounting (test_adaptive.RoutingTests.test_deduplicate_accounting) ... ok
+test_disagree_charges_rich (test_adaptive.RoutingTests.test_disagree_charges_rich) ... ok
+test_fallback_failure_stays_error (test_adaptive.RoutingTests.test_fallback_failure_stays_error) ... ok
+test_negative_usage_rejected (test_adaptive.RoutingTests.test_negative_usage_rejected) ... ok
+test_reviewer_error_escalates (test_adaptive.RoutingTests.test_reviewer_error_escalates) ... ok
+test_unknown_usage_rejected (test_adaptive.RoutingTests.test_unknown_usage_rejected) ... ok
+test_all_views_charged (test_adaptive.VotingTests.test_all_views_charged) ... ok
+test_duplicate_view_cluster_rejected (test_adaptive.VotingTests.test_duplicate_view_cluster_rejected) ... ok
+test_flat_majority (test_adaptive.VotingTests.test_flat_majority) ... ok
+test_identical_errors_collapse (test_adaptive.VotingTests.test_identical_errors_collapse) ... ok
+test_invalid_component_is_error (test_adaptive.VotingTests.test_invalid_component_is_error) ... ok
+test_mixed_fit_rejected (test_adaptive.VotingTests.test_mixed_fit_rejected) ... ok
+test_negative_needs_no_corroboration (test_adaptive.VotingTests.test_negative_needs_no_corroboration) ... ok
+test_no_errors_not_independence (test_adaptive.VotingTests.test_no_errors_not_independence) ... ok
+test_one_cluster_cannot_emit_positive (test_adaptive.VotingTests.test_one_cluster_cannot_emit_positive) ... ok
+test_test_fit_rejected (test_adaptive.VotingTests.test_test_fit_rejected) ... ok
+test_valid_same_cluster_view_can_replace_failure (test_adaptive.VotingTests.test_valid_same_cluster_view_can_replace_failure) ... ok
+test_posix_matches_windows (test_paths.ProvenancePathTests.test_posix_matches_windows) ... ok
+test_windows_uses_forward_slashes (test_paths.ProvenancePathTests.test_windows_uses_forward_slashes) ... ok
+test_ideal_review_does_not_add_missing_edges (test_reporting.MetricBoundaryTests.test_ideal_review_does_not_add_missing_edges) ... ok
+test_matched_selection_uses_id_tie_break (test_reporting.MetricBoundaryTests.test_matched_selection_uses_id_tie_break) ... ok
+test_metric_types_match_saved_json (test_reporting.MetricBoundaryTests.test_metric_types_match_saved_json) ... ok
+test_operational_failures_remain_denominator (test_reporting.MetricBoundaryTests.test_operational_failures_remain_denominator) ... ok
+test_wrong_polarity_is_wrong_accepted_edge (test_reporting.MetricBoundaryTests.test_wrong_polarity_is_wrong_accepted_edge) ... ok
+test_additive_update_keeps_history (test_reporting.ReportingTests.test_additive_update_keeps_history) ... ok
+test_missing_end_fails (test_reporting.ReportingTests.test_missing_end_fails) ... ok
+test_missing_start_fails (test_reporting.ReportingTests.test_missing_start_fails) ... ok
+test_replacing_preserves_both_sides (test_reporting.ReportingTests.test_replacing_preserves_both_sides) ... ok
+test_update_is_idempotent (test_reporting.ReportingTests.test_update_is_idempotent) ... ok
 
 ----------------------------------------------------------------------
-Ran 63 tests in 1.824s
+Ran 64 tests in 0.008s
 
 OK
+
+### graph_synthesis/risk_control/tests
 test_duplicate_rejected (test_methods.ForestTests.test_duplicate_rejected) ... ok
 test_empty_single (test_methods.ForestTests.test_empty_single) ... ok
 test_false_priority_control (test_methods.ForestTests.test_false_priority_control) ... ok
@@ -518,9 +504,124 @@ test_report_preserves_boundaries (test_reporting.ReportingTests.test_report_pres
 test_report_update_idempotent (test_reporting.ReportingTests.test_report_update_idempotent) ... ok
 
 ----------------------------------------------------------------------
-Ran 66 tests in 3.590s
+Ran 66 tests in 3.708s
 
 OK
+
+### graph_synthesis/reliability/tests
+test_infinity_is_rejected (test_artifacts.ArtifactTests.test_infinity_is_rejected) ... ok
+test_nan_is_rejected (test_artifacts.ArtifactTests.test_nan_is_rejected) ... ok
+test_nested_benchmark_container_types_survive_roundtrip (test_artifacts.ArtifactTests.test_nested_benchmark_container_types_survive_roundtrip) ... ok
+test_normalization_is_idempotent (test_artifacts.ArtifactTests.test_normalization_is_idempotent) ... ok
+test_tuples_become_json_arrays (test_artifacts.ArtifactTests.test_tuples_become_json_arrays) ... ok
+test_boolean_weight (test_methods.GraphTests.test_boolean_weight) ... ok
+test_empty_graph (test_methods.GraphTests.test_empty_graph) ... ok
+test_false_priority_control (test_methods.GraphTests.test_false_priority_control) ... ok
+test_forest_rejects_cycle (test_methods.GraphTests.test_forest_rejects_cycle) ... ok
+test_frozen_graph_oracles (test_methods.GraphTests.test_frozen_graph_oracles) ... ok
+test_invalid_vertex_id (test_methods.GraphTests.test_invalid_vertex_id) ... ok
+test_negative_weight (test_methods.GraphTests.test_negative_weight) ... ok
+test_odd_cycle_extension (test_methods.GraphTests.test_odd_cycle_extension) ... ok
+test_oracle_agreement (test_methods.GraphTests.test_oracle_agreement) ... ok
+test_over_limit (test_methods.GraphTests.test_over_limit) ... ok
+test_self_conflict (test_methods.GraphTests.test_self_conflict) ... ok
+test_unknown_endpoint (test_methods.GraphTests.test_unknown_endpoint) ... ok
+test_wheel_extension (test_methods.GraphTests.test_wheel_extension) ... ok
+test_zero_priority (test_methods.GraphTests.test_zero_priority) ... ok
+test_delete_last_vertex (test_methods.IncrementalTests.test_delete_last_vertex) ... ok
+test_failed_update_is_atomic (test_methods.IncrementalTests.test_failed_update_is_atomic) ... ok
+test_frozen_mutation_oracles (test_methods.IncrementalTests.test_frozen_mutation_oracles) ... ok
+test_input_snapshot_copied (test_methods.IncrementalTests.test_input_snapshot_copied) ... ok
+test_merge_and_split (test_methods.IncrementalTests.test_merge_and_split) ... ok
+test_output_cannot_mutate_cache (test_methods.IncrementalTests.test_output_cannot_mutate_cache) ... ok
+test_unchanged_snapshot_reuses_all (test_methods.IncrementalTests.test_unchanged_snapshot_reuses_all) ... ok
+test_weight_change_invalidates (test_methods.IncrementalTests.test_weight_change_invalidates) ... ok
+test_atom_cap_safe_fallback (test_methods.LineageTests.test_atom_cap_safe_fallback) ... ok
+test_bad_caps (test_methods.LineageTests.test_bad_caps) ... ok
+test_duplicate_invariance (test_methods.LineageTests.test_duplicate_invariance) ... ok
+test_empty_evidence_zero (test_methods.LineageTests.test_empty_evidence_zero) ... ok
+test_empty_proof_rejected (test_methods.LineageTests.test_empty_proof_rejected) ... ok
+test_frozen_random_oracles (test_methods.LineageTests.test_frozen_random_oracles) ... ok
+test_invalid_primitive_probability (test_methods.LineageTests.test_invalid_primitive_probability) ... ok
+test_no_input_mutation (test_methods.LineageTests.test_no_input_mutation) ... ok
+test_probabilities_zero_one (test_methods.LineageTests.test_probabilities_zero_one) ... ok
+test_shared_dependency (test_methods.LineageTests.test_shared_dependency) ... ok
+test_state_cap_safe_fallback (test_methods.LineageTests.test_state_cap_safe_fallback) ... ok
+test_subsumption (test_methods.LineageTests.test_subsumption) ... ok
+test_unknown_atom_rejected (test_methods.LineageTests.test_unknown_atom_rejected) ... ok
+test_insert_idempotent (test_methods.ReportTests.test_insert_idempotent) ... ok
+test_preserves_prior_sections (test_methods.ReportTests.test_preserves_prior_sections) ... ok
+test_replaces_instead_of_duplicates (test_methods.ReportTests.test_replaces_instead_of_duplicates) ... ok
+test_requires_one_anchor (test_methods.ReportTests.test_requires_one_anchor) ... ok
+test_brier_is_proper_loss (test_methods.RiskTests.test_brier_is_proper_loss) ... ok
+test_compact_view_not_required (test_methods.RiskTests.test_compact_view_not_required) ... ok
+test_development_guard (test_methods.RiskTests.test_development_guard) ... ok
+test_empty_fit (test_methods.RiskTests.test_empty_fit) ... ok
+test_gold_free_execution (test_methods.RiskTests.test_gold_free_execution) ... ok
+test_group_multiplier_identity (test_methods.RiskTests.test_group_multiplier_identity) ... ok
+test_group_probability (test_methods.RiskTests.test_group_probability) ... ok
+test_invalid_multiplier (test_methods.RiskTests.test_invalid_multiplier) ... ok
+test_invalid_probability (test_methods.RiskTests.test_invalid_probability) ... ok
+test_nonpositive_omitted (test_methods.RiskTests.test_nonpositive_omitted) ... ok
+test_same_denominator_required (test_methods.RiskTests.test_same_denominator_required) ... ok
+test_smoothed_risk_not_zero (test_methods.RiskTests.test_smoothed_risk_not_zero) ... ok
+test_formatting_is_idempotent (test_rendering.RenderingTests.test_formatting_is_idempotent) ... ok
+test_local_image_is_valid (test_rendering.RenderingTests.test_local_image_is_valid) ... ok
+test_missing_image_is_rejected (test_rendering.RenderingTests.test_missing_image_is_rejected) ... ok
+test_numeric_scores_counts_and_percentages_are_protected (test_rendering.RenderingTests.test_numeric_scores_counts_and_percentages_are_protected) ... ok
+test_path_escape_is_rejected (test_rendering.RenderingTests.test_path_escape_is_rejected) ... ok
+test_remote_image_is_rejected (test_rendering.RenderingTests.test_remote_image_is_rejected) ... ok
+test_text_cell_is_not_forced_onto_one_line (test_rendering.RenderingTests.test_text_cell_is_not_forced_onto_one_line) ... ok
+
+----------------------------------------------------------------------
+Ran 63 tests in 1.815s
+
+OK
+
+### graph_synthesis/structural/tests
+test_idempotent (test_reporting_integration.IntegrationTests.test_idempotent) ... ok
+test_prior_baseline (test_reporting_integration.IntegrationTests.test_prior_baseline) ... ok
+test_rebuild_order_commutes (test_reporting_integration.IntegrationTests.test_rebuild_order_commutes) ... ok
+test_reliability_precedes_structural (test_reporting_integration.IntegrationTests.test_reliability_precedes_structural) ... ok
+test_caps (test_structural.ConflictTests.test_caps) ... ok
+test_empty_and_forest (test_structural.ConflictTests.test_empty_and_forest) ... ok
+test_large_cycle (test_structural.ConflictTests.test_large_cycle) ... ok
+test_order_and_no_mutation (test_structural.ConflictTests.test_order_and_no_mutation) ... ok
+test_semantics_not_utility (test_structural.ConflictTests.test_semantics_not_utility) ... ok
+test_small_clique_fallback (test_structural.ConflictTests.test_small_clique_fallback) ... ok
+test_validation (test_structural.ConflictTests.test_validation) ... ok
+test_frozen_outcomes_and_oracles (test_structural.EvidenceTests.test_frozen_outcomes_and_oracles) ... ok
+test_absorption (test_structural.LineageTests.test_absorption) ... ok
+test_deterministic_primitives (test_structural.LineageTests.test_deterministic_primitives) ... ok
+test_duplicates_and_immutability (test_structural.LineageTests.test_duplicates_and_immutability) ... ok
+test_false_independence_control (test_structural.LineageTests.test_false_independence_control) ... ok
+test_input_caps (test_structural.LineageTests.test_input_caps) ... ok
+test_shared_atom (test_structural.LineageTests.test_shared_atom) ... ok
+test_state_limit_sound (test_structural.LineageTests.test_state_limit_sound) ... ok
+test_validation (test_structural.LineageTests.test_validation) ... ok
+test_bad_scores (test_structural.RankingTests.test_bad_scores) ... ok
+test_diversity_and_limits (test_structural.RankingTests.test_diversity_and_limits) ... ok
+test_fit_all_nonpositive (test_structural.RankingTests.test_fit_all_nonpositive) ... ok
+test_fit_requires_development (test_structural.RankingTests.test_fit_requires_development) ... ok
+test_group_total_weight (test_structural.RankingTests.test_group_total_weight) ... ok
+test_invalid_budget_and_duplicates (test_structural.RankingTests.test_invalid_budget_and_duplicates) ... ok
+test_no_gold_needed (test_structural.RankingTests.test_no_gold_needed) ... ok
+test_nonpositive_exclusion (test_structural.RankingTests.test_nonpositive_exclusion) ... ok
+test_permutation_and_immutability (test_structural.RankingTests.test_permutation_and_immutability) ... ok
+test_unseen_bin_fallback (test_structural.RankingTests.test_unseen_bin_fallback) ... ok
+test_bound_order (test_structural.ReviewTests.test_bound_order) ... ok
+test_bounds (test_structural.ReviewTests.test_bounds) ... ok
+test_complementarity (test_structural.ReviewTests.test_complementarity) ... ok
+test_empty_and_full (test_structural.ReviewTests.test_empty_and_full) ... ok
+test_order_immutability (test_structural.ReviewTests.test_order_immutability) ... ok
+test_validation (test_structural.ReviewTests.test_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.074s
+
+OK
+
+### graph_synthesis/source_structural/tests
 test_concurrent_evidence_disclosure_is_in_manuscript_source (test_integration.IntegrationTests.test_concurrent_evidence_disclosure_is_in_manuscript_source) ... ok
 test_either_reporter_is_idempotent_after_both_sections (test_integration.IntegrationTests.test_either_reporter_is_idempotent_after_both_sections) ... ok
 test_calculation_failure_after_first_result_rolls_back (test_methods.CacheTests.test_calculation_failure_after_first_result_rolls_back) ... ok
@@ -609,89 +710,6 @@ test_negative_outcomes_retained (test_report.ReportTests.test_negative_outcomes_
 test_no_new_service_claim (test_report.ReportTests.test_no_new_service_claim) ... ok
 
 ----------------------------------------------------------------------
-Ran 86 tests in 0.370s
-
-OK
-test_idempotent (test_reporting_integration.IntegrationTests.test_idempotent) ... ok
-test_prior_baseline (test_reporting_integration.IntegrationTests.test_prior_baseline) ... ok
-test_rebuild_order_commutes (test_reporting_integration.IntegrationTests.test_rebuild_order_commutes) ... ok
-test_reliability_precedes_structural (test_reporting_integration.IntegrationTests.test_reliability_precedes_structural) ... ok
-test_caps (test_structural.ConflictTests.test_caps) ... ok
-test_empty_and_forest (test_structural.ConflictTests.test_empty_and_forest) ... ok
-test_large_cycle (test_structural.ConflictTests.test_large_cycle) ... ok
-test_order_and_no_mutation (test_structural.ConflictTests.test_order_and_no_mutation) ... ok
-test_semantics_not_utility (test_structural.ConflictTests.test_semantics_not_utility) ... ok
-test_small_clique_fallback (test_structural.ConflictTests.test_small_clique_fallback) ... ok
-test_validation (test_structural.ConflictTests.test_validation) ... ok
-test_frozen_outcomes_and_oracles (test_structural.EvidenceTests.test_frozen_outcomes_and_oracles) ... ok
-test_absorption (test_structural.LineageTests.test_absorption) ... ok
-test_deterministic_primitives (test_structural.LineageTests.test_deterministic_primitives) ... ok
-test_duplicates_and_immutability (test_structural.LineageTests.test_duplicates_and_immutability) ... ok
-test_false_independence_control (test_structural.LineageTests.test_false_independence_control) ... ok
-test_input_caps (test_structural.LineageTests.test_input_caps) ... ok
-test_shared_atom (test_structural.LineageTests.test_shared_atom) ... ok
-test_state_limit_sound (test_structural.LineageTests.test_state_limit_sound) ... ok
-test_validation (test_structural.LineageTests.test_validation) ... ok
-test_bad_scores (test_structural.RankingTests.test_bad_scores) ... ok
-test_diversity_and_limits (test_structural.RankingTests.test_diversity_and_limits) ... ok
-test_fit_all_nonpositive (test_structural.RankingTests.test_fit_all_nonpositive) ... ok
-test_fit_requires_development (test_structural.RankingTests.test_fit_requires_development) ... ok
-test_group_total_weight (test_structural.RankingTests.test_group_total_weight) ... ok
-test_invalid_budget_and_duplicates (test_structural.RankingTests.test_invalid_budget_and_duplicates) ... ok
-test_no_gold_needed (test_structural.RankingTests.test_no_gold_needed) ... ok
-test_nonpositive_exclusion (test_structural.RankingTests.test_nonpositive_exclusion) ... ok
-test_permutation_and_immutability (test_structural.RankingTests.test_permutation_and_immutability) ... ok
-test_unseen_bin_fallback (test_structural.RankingTests.test_unseen_bin_fallback) ... ok
-test_bound_order (test_structural.ReviewTests.test_bound_order) ... ok
-test_bounds (test_structural.ReviewTests.test_bounds) ... ok
-test_complementarity (test_structural.ReviewTests.test_complementarity) ... ok
-test_empty_and_full (test_structural.ReviewTests.test_empty_and_full) ... ok
-test_order_immutability (test_structural.ReviewTests.test_order_immutability) ... ok
-test_validation (test_structural.ReviewTests.test_validation) ... ok
-
-----------------------------------------------------------------------
-Ran 36 tests in 0.075s
-
-OK
-test_conformal_target_does_not_imply_nominal_coverage (test_methods.ArchiveTests.test_conformal_target_does_not_imply_nominal_coverage) ... ok
-test_cost_calls_are_unique_within_each_comparison (test_methods.ArchiveTests.test_cost_calls_are_unique_within_each_comparison) ... ok
-test_error_rate_budget_counterexample_is_retained (test_methods.ArchiveTests.test_error_rate_budget_counterexample_is_retained) ... ok
-test_eval_gold_changes_do_not_change_calibration_choices (test_methods.ArchiveTests.test_eval_gold_changes_do_not_change_calibration_choices) ... ok
-test_original_recorded_inputs_and_no_post_purge_overlap (test_methods.ArchiveTests.test_original_recorded_inputs_and_no_post_purge_overlap) ... ok
-test_bell_partition_count_and_size_guard (test_methods.MethodTests.test_bell_partition_count_and_size_guard) ... ok
-test_budget_does_not_treat_probability_one_as_certification (test_methods.MethodTests.test_budget_does_not_treat_probability_one_as_certification) ... ok
-test_budget_duplicate_id_rejected (test_methods.MethodTests.test_budget_duplicate_id_rejected) ... ok
-test_budget_is_component_local_and_permutation_stable (test_methods.MethodTests.test_budget_is_component_local_and_permutation_stable) ... ok
-test_cascade_alignment_and_missing_tokens (test_methods.MethodTests.test_cascade_alignment_and_missing_tokens) ... ok
-test_cascade_calibration_only (test_methods.MethodTests.test_cascade_calibration_only) ... ok
-test_cascade_cost_includes_initial_call_and_error_fallback (test_methods.MethodTests.test_cascade_cost_includes_initial_call_and_error_fallback) ... ok
-test_cascade_fit_uses_cheapest_eligible_not_evaluation (test_methods.MethodTests.test_cascade_fit_uses_cheapest_eligible_not_evaluation) ... ok
-test_conformal_empty_or_tiny_calibration_universal (test_methods.MethodTests.test_conformal_empty_or_tiny_calibration_universal) ... ok
-test_conformal_refuses_evaluation_fit (test_methods.MethodTests.test_conformal_refuses_evaluation_fit) ... ok
-test_decoder_incomplete_pairs_and_bad_order (test_methods.MethodTests.test_decoder_incomplete_pairs_and_bad_order) ... ok
-test_exact_decoder_known_triangle (test_methods.MethodTests.test_exact_decoder_known_triangle) ... ok
-test_exact_decoder_permutation_equivariance_without_ties (test_methods.MethodTests.test_exact_decoder_permutation_equivariance_without_ties) ... ok
-test_exact_objective_not_worse_than_greedy (test_methods.MethodTests.test_exact_objective_not_worse_than_greedy) ... ok
-test_features_exclude_gold_and_unknown_annotations (test_methods.MethodTests.test_features_exclude_gold_and_unknown_annotations) ... ok
-test_group_conformal_uses_maximum_and_finite_rank (test_methods.MethodTests.test_group_conformal_uses_maximum_and_finite_rank) ... ok
-test_invalid_probability_rejected (test_methods.MethodTests.test_invalid_probability_rejected) ... ok
-test_lineage_all_withdrawal_subsets (test_methods.MethodTests.test_lineage_all_withdrawal_subsets) ... ok
-test_macro_f1_invalid_alignment (test_methods.MethodTests.test_macro_f1_invalid_alignment) ... ok
-test_macro_f1_known_confusion (test_methods.MethodTests.test_macro_f1_known_confusion) ... ok
-test_offline_socket_guard (test_methods.MethodTests.test_offline_socket_guard) ... ok
-test_prediction_set_ties_errors_and_empty (test_methods.MethodTests.test_prediction_set_ties_errors_and_empty) ... ok
-test_rare_prior_precision_known (test_methods.MethodTests.test_rare_prior_precision_known) ... ok
-test_review_gold_independence (test_methods.MethodTests.test_review_gold_independence) ... ok
-test_review_invalid_budget_and_duplicate (test_methods.MethodTests.test_review_invalid_budget_and_duplicate) ... ok
-test_run_restores_socket_after_input_failure (test_methods.MethodTests.test_run_restores_socket_after_input_failure) ... ok
-test_schema_preview_detects_symmetry_and_inverse_drift (test_methods.MethodTests.test_schema_preview_detects_symmetry_and_inverse_drift) ... ok
-test_schema_preview_invalid_migration_leaves_original (test_methods.MethodTests.test_schema_preview_invalid_migration_leaves_original) ... ok
-test_semantic_cache_key_versions_and_absence (test_methods.MethodTests.test_semantic_cache_key_versions_and_absence) ... ok
-test_semantic_cache_rejects_missing_versions_and_bad_generation (test_methods.MethodTests.test_semantic_cache_rejects_missing_versions_and_bad_generation) ... ok
-test_source_component_purge_transitive_and_label_free (test_methods.MethodTests.test_source_component_purge_transitive_and_label_free) ... ok
-test_topological_review_uses_neighborhood_not_gold (test_methods.MethodTests.test_topological_review_uses_neighborhood_not_gold) ... ok
-
-----------------------------------------------------------------------
-Ran 37 tests in 0.598s
+Ran 86 tests in 0.377s
 
 OK

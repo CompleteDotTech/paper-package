@@ -62,9 +62,25 @@ test_malformed_vectors (test_methods.ShiftTests.test_malformed_vectors) ... ok
 test_predict_rejects_test_gold (test_methods.ShiftTests.test_predict_rejects_test_gold) ... ok
 test_unidentifiable_retains_exact_prediction (test_methods.ShiftTests.test_unidentifiable_retains_exact_prediction) ... ok
 test_wrong_split_rejected (test_methods.ShiftTests.test_wrong_split_rejected) ... ok
+test_additive_publication_is_idempotent (test_regret.RegretTests.test_additive_publication_is_idempotent) ... ok
+test_disconnected_graph (test_regret.RegretTests.test_disconnected_graph) ... ok
+test_empty_graph (test_regret.RegretTests.test_empty_graph) ... ok
+test_endpoint_oracle_independence (test_regret.RegretTests.test_endpoint_oracle_independence) ... ok
+test_equal_priority_tie_is_lexical (test_regret.RegretTests.test_equal_priority_tie_is_lexical) ... ok
+test_fixed_uncertain_priority_control (test_regret.RegretTests.test_fixed_uncertain_priority_control) ... ok
+test_inputs_are_not_mutated (test_regret.RegretTests.test_inputs_are_not_mutated) ... ok
+test_invalid_bounds (test_regret.RegretTests.test_invalid_bounds) ... ok
+test_invalid_caps (test_regret.RegretTests.test_invalid_caps) ... ok
+test_outside_interval_control_not_certified (test_regret.RegretTests.test_outside_interval_control_not_certified) ... ok
+test_pair_cap_stages (test_regret.RegretTests.test_pair_cap_stages) ... ok
+test_permutation_and_duplicate_edges (test_regret.RegretTests.test_permutation_and_duplicate_edges) ... ok
+test_stored_artifacts (test_regret.RegretTests.test_stored_artifacts) ... ok
+test_unknown_and_self_edges_rejected (test_regret.RegretTests.test_unknown_and_self_edges_rejected) ... ok
+test_vertex_cap_stages_without_partial_optimum (test_regret.RegretTests.test_vertex_cap_stages_without_partial_optimum) ... ok
+test_zero_width_is_nominal_optimum (test_regret.RegretTests.test_zero_width_is_nominal_optimum) ... ok
 test_added_correct_edges_do_not_mask_lost_correct_edges (test_retention.RetentionTests.test_added_correct_edges_do_not_mask_lost_correct_edges) ... ok
 
 ----------------------------------------------------------------------
-Ran 65 tests in 0.482s
+Ran 81 tests in 0.523s
 
 OK

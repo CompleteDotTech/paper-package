@@ -1,4 +1,6 @@
-# Five new mechanisms for evidence-preserving Jev graph synthesis
+# Five initial hypotheses: distinct additions and concurrent replication
+
+**Concurrent novelty reconciliation.** A main-branch study added the same broad bipartite flow mechanism while this branch was running. Original H4 is retained as concurrent replication, not counted as a fifth distinct addition. The five distinct mechanisms are H1, H2, H3, H5 and [H6: interval-priority minimax regret](REGRET_RESULTS.md). Both pre-execution protocols and all six outcomes are preserved; no worldwide novelty claim is made.
 
 Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026
 
@@ -77,7 +79,7 @@ The fixed greedy trap withdraws a,b,c at cost 6, whereas the exact solution with
 
 ![H3. Exact repair improves a subset of feasible cases; infeasible cases remain explicit.](figures/03_minimal_repair.png)
 
-## 5. H4: Bipartite min-cut conflict optimization
+## 5. H4: Bipartite min-cut conflict optimization (concurrent replication)
 
 For each bipartite component up to 256 vertices, a source/sink network computes minimum-weight vertex cover; its complement is a maximum-weight conflict-free assertion set. Cross-edge capacities exceed total priority. Integer max flow, cut capacity, cover membership and positive edge flows form a checkable objective certificate. Nonbipartite graphs retain the actual previous cutset/enumeration/staging implementation. This exploits a different tractable graph family rather than increasing an exponential search cap.
 
@@ -117,8 +119,8 @@ Five alternating-order elapsed-time repeats per method were run on `Linux-6.17.0
 
 | Workload | Pairwise median (s) | Indexed median (s) |
 |---|---:|---:|
-| sparse_2048 | 4.573817 | 0.008085 |
-| dense_256 | 0.111395 | 0.030303 |
+| sparse_2048 | 4.812669 | 0.008373 |
+| dense_256 | 0.110786 | 0.030381 |
 
 Dense-case timing differences include hoisted validation and reduced Python overhead, not fewer pairs or subquadratic behavior. These are not service latency, database I/O or universally transferable speedup estimates.
 

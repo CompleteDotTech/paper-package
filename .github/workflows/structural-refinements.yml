@@ -47,7 +47,7 @@ jobs:
           assert not Path('.structural-source').exists()
           print('Validated',len(manifest['sha256']),'research artifacts and PDF provenance')
           PY
-      - name: Run 32 regressions and replay all five frozen outcomes
+      - name: Run 36 regressions and replay all five frozen outcomes
         run: |
           python -B -m unittest discover -s graph_synthesis/structural/tests -v
           python -B -m graph_synthesis.structural.run --check

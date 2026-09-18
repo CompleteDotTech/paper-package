@@ -10,7 +10,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   execute-and-publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/research/uncertainty-grounding-20260918' && !startsWith(github.event.head_commit.message, 'ci: review snapshot')
+    if: >-
+      github.event_name == 'push' && github.ref == 'refs/heads/research/uncertainty-grounding-20260918' && !startsWith(github.event.head_commit.message, 'ci-review-snapshot')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:

@@ -1,0 +1,22 @@
+name: Assumption-aware graph synthesis
+on:
+  push:
+    branches: [research/assumption-aware-graph-synthesis]
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Archive tracked public research files only
+        run: git archive --format=zip HEAD -o "$RUNNER_TEMP/research-snapshot.zip"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: assumption-aware-source-snapshot
+          path: ${{ runner.temp }}/research-snapshot.zip
+          retention-days: 7

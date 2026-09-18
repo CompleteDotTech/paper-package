@@ -65,6 +65,6 @@ test_wrong_split_rejected (test_methods.ShiftTests.test_wrong_split_rejected) ..
 test_added_correct_edges_do_not_mask_lost_correct_edges (test_retention.RetentionTests.test_added_correct_edges_do_not_mask_lost_correct_edges) ... ok
 
 ----------------------------------------------------------------------
-Ran 65 tests in 0.527s
+Ran 65 tests in 0.482s
 
 OK

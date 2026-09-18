@@ -2,7 +2,8 @@
   "note": "New-mechanism extension only; excludes self-reference. Shared paper uses its build manifest.",
   "sha256": {
     "graph_synthesis/novel_mechanisms/PROTOCOL.md": "3b2ce0544c71d852614508747fd9b81090d6efdc2cb8ac0845fa3c8e7a3c92f6",
-    "graph_synthesis/novel_mechanisms/RESULTS.md": "a694ec3d904389489e890a3281ad3eb789321762ecc240a3cfcf47efa44a04f6",
+    "graph_synthesis/novel_mechanisms/REGRET_PROTOCOL.md": "096af76cf012961cf8d47861a04a8be90ae15960f9ba5cda2f967e747ea3fc0f",
+    "graph_synthesis/novel_mechanisms/RESULTS.md": "9718be0c6a271958e512cf34bd8dd89004cea995ca7f526d6a13b643daecf4a8",
     "graph_synthesis/novel_mechanisms/REVIEW.md": "188ffaa011a59fea0d38a68ece76f4d5403e042809cc56a4b3dc25b4abc59ccd",
     "graph_synthesis/novel_mechanisms/__init__.py": "67e93f7d450fdbd8a0eaaa058cf6c85343e641ab3dc48d76dfd62af05f5f7a69",
     "graph_synthesis/novel_mechanisms/execution.log": "cf1eaf789d294f4d7da5843cfbfba7d4cca8206c24535cc437374df99109c0f1",
@@ -18,17 +19,17 @@
     "graph_synthesis/novel_mechanisms/figures/05_indexed_conflicts.svg": "e03261371ed725af4259b567f60000f6ef861d280d65ab6b51ca1595a930b8e3",
     "graph_synthesis/novel_mechanisms/methods.py": "a564f651ab250ff2cdabdd8e6270da25de33a47a489a8059a458ccad19f75b2e",
     "graph_synthesis/novel_mechanisms/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
-    "graph_synthesis/novel_mechanisms/regression.log": "c25bd0d1e11ad71744c9d7d0d174630be04b1ab30c9fc2cd634b9bdd0dd9fdb3",
+    "graph_synthesis/novel_mechanisms/regression.log": "59b037f91ff8cc6d8ed55bb0a92ec58bf7b640a403f6347e5b07f3c8c8f8e328",
     "graph_synthesis/novel_mechanisms/replay.log": "c5efb5f696dc68b4e6397a8fe0990442aaac38086c7097c03c8320db1dee4895",
     "graph_synthesis/novel_mechanisms/report.py": "ec71c8af59609866f7b9e92311c0378e8029ccd48bed8ad74a3059dab75bb050",
     "graph_synthesis/novel_mechanisms/requirements.txt": "7559277ecc57137cac1bd7949d83177129c23c1c7b0ce9692fe58ab36d87b793",
-    "graph_synthesis/novel_mechanisms/results.json": "3757b71a0eb812b9f0fbf0550f868ac460d2526c92bb6d713746805e719564af",
+    "graph_synthesis/novel_mechanisms/results.json": "c11e9565dcb1b738d595ffc7b3cf662aa3984f17303b67b73e5a03345a06019f",
     "graph_synthesis/novel_mechanisms/run.py": "d19fdb721bb5f0e45016d2bc6c38447892bda2183300d520e81f28e4ecedf3ee",
     "graph_synthesis/novel_mechanisms/summary.csv": "9943f1adefa6e090d9f38933f49bcf242ef84fbbf595c5c82067808f408b46d2",
-    "graph_synthesis/novel_mechanisms/tests.log": "d58afb6672292e85e6c1fb88bbbb6fd0f6923f2a5dd8d31e9d945d894a52216e",
+    "graph_synthesis/novel_mechanisms/tests.log": "4df1c79692a942e7d2a2004c269e31aa362ae22214cbb6518933a6045025c782",
     "graph_synthesis/novel_mechanisms/tests/test_artifacts.py": "a9f3691265ea77523d0a8f06655ce9773cf807eafad36edd6fb8bb8aba905442",
     "graph_synthesis/novel_mechanisms/tests/test_methods.py": "63ea2127b483260be8281ae0659ee210bc138cb40b4461737347c596e47e9acd",
     "graph_synthesis/novel_mechanisms/tests/test_retention.py": "a48bd93c65a79c39ee359370c156bd1c200bff3cf047f966e2559e76962f131e",
-    "graph_synthesis/novel_mechanisms/timings.json": "e1bef001569916eb3ca0a4f32b8bc6edf6a37285c372aa6136fe890ba156b364"
+    "graph_synthesis/novel_mechanisms/timings.json": "d38b32afd8b3bfcdc3a9d923ebb0c3a94d6d5b589fb3fabe13099cba879356a9"
   }
 }

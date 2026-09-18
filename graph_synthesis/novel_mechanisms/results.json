@@ -92,12 +92,12 @@
           ]
         ],
         "estimated_prior": [
-          0.20266666666666677,
+          0.20266666666666688,
           0.6926666666666664,
-          0.10466666666666677
+          0.10466666666666674
         ],
         "kind": "conditional_shift",
-        "l1_prior_error": 1.1906666666666663,
+        "l1_prior_error": 1.1906666666666665,
         "target_confusion": [
           [
             0.1,
@@ -495,7 +495,7 @@
       ],
       "target_prior": [
         0.46926142446732905,
-        0.1186413281423772,
+        0.11864132814237723,
         0.4120972473902938
       ],
       "valid_development": 73,
@@ -3546,7 +3546,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.03191984536919088,
-            "REFUTES": 0.006349184861403346,
+            "REFUTES": 0.006349184861403347,
             "SUPPORTS": 0.9617309697694059
           },
           "score": 0.9617309697694059,
@@ -3556,11 +3556,11 @@
           "id": "scifact-1034-4547102",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.04021032953690226,
-            "REFUTES": 0.9597896704630978,
+            "NOT_ENOUGH_INFO": 0.040210329536902255,
+            "REFUTES": 0.9597896704630977,
             "SUPPORTS": 0.0
           },
-          "score": 0.9597896704630978,
+          "score": 0.9597896704630977,
           "status": "ok"
         },
         {
@@ -3579,7 +3579,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.7839053394366632,
-            "REFUTES": 0.009172165754486431,
+            "REFUTES": 0.009172165754486433,
             "SUPPORTS": 0.20692249480885047
           },
           "score": 0.7839053394366632,
@@ -3590,7 +3590,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.5394898911695089,
-            "REFUTES": 0.008254621272743269,
+            "REFUTES": 0.00825462127274327,
             "SUPPORTS": 0.4522554875577479
           },
           "score": 0.5394898911695089,
@@ -3612,7 +3612,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.5418704063003559,
-            "REFUTES": 0.19760323997005524,
+            "REFUTES": 0.19760323997005527,
             "SUPPORTS": 0.26052635372958893
           },
           "score": 0.5418704063003559,
@@ -3656,7 +3656,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.0516680867564845,
-            "REFUTES": 0.006423320477779104,
+            "REFUTES": 0.006423320477779106,
             "SUPPORTS": 0.9419085927657364
           },
           "score": 0.9419085927657364,
@@ -3699,11 +3699,11 @@
           "id": "scifact-1068-4429668",
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.8706166826605097,
+            "NOT_ENOUGH_INFO": 0.8706166826605096,
             "REFUTES": 0.12938331733949032,
             "SUPPORTS": 0.0
           },
-          "score": 0.8706166826605097,
+          "score": 0.8706166826605096,
           "status": "ok"
         },
         {
@@ -3722,7 +3722,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9204011978180957,
-            "REFUTES": 0.07959880218190432,
+            "REFUTES": 0.07959880218190434,
             "SUPPORTS": 0.0
           },
           "score": 0.9204011978180957,
@@ -3799,7 +3799,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9148357928956585,
-            "REFUTES": 0.06922780445660237,
+            "REFUTES": 0.06922780445660238,
             "SUPPORTS": 0.01593640264773918
           },
           "score": 0.9148357928956585,
@@ -3832,7 +3832,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9701585825456253,
-            "REFUTES": 0.02984141745437473,
+            "REFUTES": 0.029841417454374734,
             "SUPPORTS": 0.0
           },
           "score": 0.9701585825456253,
@@ -3930,7 +3930,7 @@
           "id": "scifact-1188-4394817",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.02997615010712884,
+            "NOT_ENOUGH_INFO": 0.029976150107128837,
             "REFUTES": 0.9540102278667706,
             "SUPPORTS": 0.016013622026100578
           },
@@ -3986,7 +3986,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.4673855376260137,
-            "REFUTES": 0.01602892768352498,
+            "REFUTES": 0.016028927683524985,
             "SUPPORTS": 0.5165855346904612
           },
           "score": 0.5165855346904612,
@@ -3997,10 +3997,10 @@
           "label": "REFUTES",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.4287245011188049,
-            "REFUTES": 0.5552966745770143,
+            "REFUTES": 0.5552966745770144,
             "SUPPORTS": 0.01597882430418084
           },
-          "score": 0.5552966745770143,
+          "score": 0.5552966745770144,
           "status": "ok"
         },
         {
@@ -4019,7 +4019,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.006287216075007183,
-            "REFUTES": 0.006252959038820564,
+            "REFUTES": 0.006252959038820565,
             "SUPPORTS": 0.9874598248861722
           },
           "score": 0.9874598248861722,
@@ -4031,7 +4031,7 @@
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.0,
             "REFUTES": 0.937082105784112,
-            "SUPPORTS": 0.062917894215888
+            "SUPPORTS": 0.06291789421588799
           },
           "score": 0.937082105784112,
           "status": "ok"
@@ -4051,7 +4051,7 @@
           "id": "scifact-1237-3654468",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.010054234495542248,
+            "NOT_ENOUGH_INFO": 0.010054234495542247,
             "REFUTES": 0.9899457655044578,
             "SUPPORTS": 0.0
           },
@@ -4085,7 +4085,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9486693285908327,
-            "REFUTES": 0.019656256913150504,
+            "REFUTES": 0.019656256913150507,
             "SUPPORTS": 0.031674414496016656
           },
           "score": 0.9486693285908327,
@@ -4096,7 +4096,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.08562699934213415,
-            "REFUTES": 0.006550803470649931,
+            "REFUTES": 0.006550803470649932,
             "SUPPORTS": 0.907822197187216
           },
           "score": 0.907822197187216,
@@ -4106,7 +4106,7 @@
           "id": "scifact-1249-7209559",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.030159399083000225,
+            "NOT_ENOUGH_INFO": 0.03015939908300022,
             "REFUTES": 0.9698406009169998,
             "SUPPORTS": 0.0
           },
@@ -4128,9 +4128,9 @@
           "id": "scifact-1261-13023410",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.11840768778360895,
+            "NOT_ENOUGH_INFO": 0.11840768778360894,
             "REFUTES": 0.8341511977710364,
-            "SUPPORTS": 0.04744111444535468
+            "SUPPORTS": 0.047441114445354676
           },
           "score": 0.8341511977710364,
           "status": "ok"
@@ -4162,7 +4162,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.8306223480451667,
-            "REFUTES": 0.1376827586086913,
+            "REFUTES": 0.13768275860869134,
             "SUPPORTS": 0.03169489334614195
           },
           "score": 0.8306223480451667,
@@ -4206,7 +4206,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.47542303432912186,
-            "REFUTES": 0.008014111962168625,
+            "REFUTES": 0.008014111962168627,
             "SUPPORTS": 0.5165628537087096
           },
           "score": 0.5165628537087096,
@@ -4217,7 +4217,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9900539448834141,
-            "REFUTES": 0.009946055116585861,
+            "REFUTES": 0.009946055116585863,
             "SUPPORTS": 0.0
           },
           "score": 0.9900539448834141,
@@ -4272,7 +4272,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9801068057910279,
-            "REFUTES": 0.019893194208972065,
+            "REFUTES": 0.01989319420897207,
             "SUPPORTS": 0.0
           },
           "score": 0.9801068057910279,
@@ -4283,7 +4283,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.09295497483994038,
-            "REFUTES": 0.013206927544820252,
+            "REFUTES": 0.013206927544820255,
             "SUPPORTS": 0.8938380976152392
           },
           "score": 0.8938380976152392,
@@ -4294,7 +4294,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.05976758068473531,
-            "REFUTES": 0.04623260925887585,
+            "REFUTES": 0.046232609258875866,
             "SUPPORTS": 0.893999810056389
           },
           "score": 0.893999810056389,
@@ -4327,7 +4327,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9741823039671403,
-            "REFUTES": 0.009886472399363265,
+            "REFUTES": 0.009886472399363268,
             "SUPPORTS": 0.015931223633496406
           },
           "score": 0.9741823039671403,
@@ -4349,7 +4349,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.012622256676234463,
-            "REFUTES": 0.006276741011631552,
+            "REFUTES": 0.006276741011631554,
             "SUPPORTS": 0.9811010023121342
           },
           "score": 0.9811010023121342,
@@ -4393,7 +4393,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.943002750760972,
-            "REFUTES": 0.009769423222683291,
+            "REFUTES": 0.009769423222683295,
             "SUPPORTS": 0.04722782601634467
           },
           "score": 0.943002750760972,
@@ -4415,7 +4415,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.08562699934213415,
-            "REFUTES": 0.006550803470649931,
+            "REFUTES": 0.006550803470649932,
             "SUPPORTS": 0.907822197187216
           },
           "score": 0.907822197187216,
@@ -4470,7 +4470,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.8394570131073217,
-            "REFUTES": 0.009380708757760087,
+            "REFUTES": 0.009380708757760089,
             "SUPPORTS": 0.1511622781349182
           },
           "score": 0.8394570131073217,
@@ -4536,7 +4536,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.6719899682712972,
-            "REFUTES": 0.14851744647725776,
+            "REFUTES": 0.1485174464772578,
             "SUPPORTS": 0.17949258525144504
           },
           "score": 0.6719899682712972,
@@ -4557,7 +4557,7 @@
           "id": "scifact-203-9558539",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.010054234495542248,
+            "NOT_ENOUGH_INFO": 0.010054234495542247,
             "REFUTES": 0.9899457655044578,
             "SUPPORTS": 0.0
           },
@@ -4623,7 +4623,7 @@
           "id": "scifact-255-5850219",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.09044847064430073,
+            "NOT_ENOUGH_INFO": 0.09044847064430071,
             "REFUTES": 0.9095515293556993,
             "SUPPORTS": 0.0
           },
@@ -4635,7 +4635,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.45710733102730605,
-            "REFUTES": 0.015951463119117187,
+            "REFUTES": 0.01595146311911719,
             "SUPPORTS": 0.5269412058535767
           },
           "score": 0.5269412058535767,
@@ -4744,7 +4744,7 @@
           "id": "scifact-306-7821634",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.02997615010712884,
+            "NOT_ENOUGH_INFO": 0.029976150107128837,
             "REFUTES": 0.9540102278667706,
             "SUPPORTS": 0.016013622026100578
           },
@@ -4799,9 +4799,9 @@
           "id": "scifact-332-29023309",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.019864484647064914,
+            "NOT_ENOUGH_INFO": 0.01986448464706491,
             "REFUTES": 0.9482999713209757,
-            "SUPPORTS": 0.031835544031959456
+            "SUPPORTS": 0.03183554403195945
           },
           "score": 0.9482999713209757,
           "status": "ok"
@@ -4850,7 +4850,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.7307698945089464,
-            "REFUTES": 0.00897269336178765,
+            "REFUTES": 0.008972693361787652,
             "SUPPORTS": 0.260257412129266
           },
           "score": 0.7307698945089464,
@@ -4883,7 +4883,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.12820040958406992,
-            "REFUTES": 0.0067106256010161704,
+            "REFUTES": 0.006710625601016172,
             "SUPPORTS": 0.8650889648149139
           },
           "score": 0.8650889648149139,
@@ -5036,7 +5036,7 @@
           "id": "scifact-453-4200695",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.010054234495542248,
+            "NOT_ENOUGH_INFO": 0.010054234495542247,
             "REFUTES": 0.9899457655044578,
             "SUPPORTS": 0.0
           },
@@ -5047,7 +5047,7 @@
           "id": "scifact-454-4200695",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.010054234495542248,
+            "NOT_ENOUGH_INFO": 0.010054234495542247,
             "REFUTES": 0.9899457655044578,
             "SUPPORTS": 0.0
           },
@@ -5092,7 +5092,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.964293897605463,
-            "REFUTES": 0.019774015825773456,
+            "REFUTES": 0.01977401582577346,
             "SUPPORTS": 0.015932086568763548
           },
           "score": 0.964293897605463,
@@ -5158,7 +5158,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.12820040958406992,
-            "REFUTES": 0.0067106256010161704,
+            "REFUTES": 0.006710625601016172,
             "SUPPORTS": 0.8650889648149139
           },
           "score": 0.8650889648149139,
@@ -5311,7 +5311,7 @@
           "id": "scifact-60-13899137",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.05026015900551109,
+            "NOT_ENOUGH_INFO": 0.05026015900551108,
             "REFUTES": 0.9497398409944889,
             "SUPPORTS": 0.0
           },
@@ -5322,22 +5322,22 @@
           "id": "scifact-60-13901073",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.04021032953690226,
-            "REFUTES": 0.9597896704630978,
+            "NOT_ENOUGH_INFO": 0.040210329536902255,
+            "REFUTES": 0.9597896704630977,
             "SUPPORTS": 0.0
           },
-          "score": 0.9597896704630978,
+          "score": 0.9597896704630977,
           "status": "ok"
         },
         {
           "id": "scifact-606-712078",
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.6869829368068143,
-            "REFUTES": 0.29706077642478584,
+            "NOT_ENOUGH_INFO": 0.6869829368068142,
+            "REFUTES": 0.2970607764247859,
             "SUPPORTS": 0.015956286768399948
           },
-          "score": 0.6869829368068143,
+          "score": 0.6869829368068142,
           "status": "ok"
         },
         {
@@ -5345,7 +5345,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.006287216075007183,
-            "REFUTES": 0.006252959038820564,
+            "REFUTES": 0.006252959038820565,
             "SUPPORTS": 0.9874598248861722
           },
           "score": 0.9874598248861722,
@@ -5356,7 +5356,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.33952805763651017,
-            "REFUTES": 0.00750395727740978,
+            "REFUTES": 0.007503957277409782,
             "SUPPORTS": 0.65296798508608
           },
           "score": 0.65296798508608,
@@ -5421,11 +5421,11 @@
           "id": "scifact-654-57574395",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.04021032953690226,
-            "REFUTES": 0.9597896704630978,
+            "NOT_ENOUGH_INFO": 0.040210329536902255,
+            "REFUTES": 0.9597896704630977,
             "SUPPORTS": 0.0
           },
-          "score": 0.9597896704630978,
+          "score": 0.9597896704630977,
           "status": "ok"
         },
         {
@@ -5444,7 +5444,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.8828072818279048,
-            "REFUTES": 0.009543447243108108,
+            "REFUTES": 0.00954344724310811,
             "SUPPORTS": 0.10764927092898718
           },
           "score": 0.8828072818279048,
@@ -5455,7 +5455,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.18830505064989608,
-            "REFUTES": 0.006936260609474485,
+            "REFUTES": 0.006936260609474486,
             "SUPPORTS": 0.8047586887406295
           },
           "score": 0.8047586887406295,
@@ -5465,11 +5465,11 @@
           "id": "scifact-662-37204802",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.04021032953690226,
-            "REFUTES": 0.9597896704630978,
+            "NOT_ENOUGH_INFO": 0.040210329536902255,
+            "REFUTES": 0.9597896704630977,
             "SUPPORTS": 0.0
           },
-          "score": 0.9597896704630978,
+          "score": 0.9597896704630977,
           "status": "ok"
         },
         {
@@ -5521,7 +5521,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9900539448834141,
-            "REFUTES": 0.009946055116585861,
+            "REFUTES": 0.009946055116585863,
             "SUPPORTS": 0.0
           },
           "score": 0.9900539448834141,
@@ -5620,7 +5620,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.26094399521597833,
-            "REFUTES": 0.007208949849122733,
+            "REFUTES": 0.007208949849122735,
             "SUPPORTS": 0.7318470549348989
           },
           "score": 0.7318470549348989,
@@ -5708,7 +5708,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.1428569658384294,
-            "REFUTES": 0.006765646846227507,
+            "REFUTES": 0.0067656468462275075,
             "SUPPORTS": 0.8503773873153432
           },
           "score": 0.8503773873153432,
@@ -5718,9 +5718,9 @@
           "id": "scifact-787-4740447",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.2281822511428381,
+            "NOT_ENOUGH_INFO": 0.22818225114283805,
             "REFUTES": 0.7400183438971109,
-            "SUPPORTS": 0.03179940496005111
+            "SUPPORTS": 0.031799404960051104
           },
           "score": 0.7400183438971109,
           "status": "ok"
@@ -5730,7 +5730,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.44476950774584334,
-            "REFUTES": 0.007899037508561616,
+            "REFUTES": 0.007899037508561618,
             "SUPPORTS": 0.547331454745595
           },
           "score": 0.547331454745595,
@@ -5751,11 +5751,11 @@
           "id": "scifact-790-15493354",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.1808078346884725,
-            "REFUTES": 0.8191921653115276,
+            "NOT_ENOUGH_INFO": 0.18080783468847247,
+            "REFUTES": 0.8191921653115275,
             "SUPPORTS": 0.0
           },
-          "score": 0.8191921653115276,
+          "score": 0.8191921653115275,
           "status": "ok"
         },
         {
@@ -5862,7 +5862,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.603938442696942,
-            "REFUTES": 0.3643273387179139,
+            "REFUTES": 0.36432733871791395,
             "SUPPORTS": 0.03173421858514412
           },
           "score": 0.603938442696942,
@@ -5872,7 +5872,7 @@
           "id": "scifact-856-43334921",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.09044847064430073,
+            "NOT_ENOUGH_INFO": 0.09044847064430071,
             "REFUTES": 0.9095515293556993,
             "SUPPORTS": 0.0
           },
@@ -5895,10 +5895,10 @@
           "label": "REFUTES",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.03312357808433422,
-            "REFUTES": 0.5023822485613024,
+            "REFUTES": 0.5023822485613025,
             "SUPPORTS": 0.4644941733543632
           },
-          "score": 0.5023822485613024,
+          "score": 0.5023822485613025,
           "status": "ok"
         },
         {
@@ -5906,7 +5906,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.16544111823822202,
-            "REFUTES": 0.2663975809045566,
+            "REFUTES": 0.2663975809045567,
             "SUPPORTS": 0.5681613008572214
           },
           "score": 0.5681613008572214,
@@ -5928,7 +5928,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.38957486626599264,
-            "REFUTES": 0.24969141584854462,
+            "REFUTES": 0.24969141584854465,
             "SUPPORTS": 0.36073371788546277
           },
           "score": 0.38957486626599264,
@@ -6037,9 +6037,9 @@
           "id": "scifact-927-16390264",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.00999313815845295,
+            "NOT_ENOUGH_INFO": 0.009993138158452949,
             "REFUTES": 0.9739914959504471,
-            "SUPPORTS": 0.016015365891100006
+            "SUPPORTS": 0.016015365891100003
           },
           "score": 0.9739914959504471,
           "status": "ok"
@@ -6082,7 +6082,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.006287216075007183,
-            "REFUTES": 0.006252959038820564,
+            "REFUTES": 0.006252959038820565,
             "SUPPORTS": 0.9874598248861722
           },
           "score": 0.9874598248861722,
@@ -6093,7 +6093,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.9900539448834141,
-            "REFUTES": 0.009946055116585861,
+            "REFUTES": 0.009946055116585863,
             "SUPPORTS": 0.0
           },
           "score": 0.9900539448834141,
@@ -6214,7 +6214,7 @@
           "label": "NOT_ENOUGH_INFO",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.5617086749954205,
-            "REFUTES": 0.008338031395282766,
+            "REFUTES": 0.008338031395282768,
             "SUPPORTS": 0.42995329360929674
           },
           "score": 0.5617086749954205,
@@ -6246,7 +6246,7 @@
           "id": "scifact-963-4162857",
           "label": "REFUTES",
           "probabilities": {
-            "NOT_ENOUGH_INFO": 0.05026015900551109,
+            "NOT_ENOUGH_INFO": 0.05026015900551108,
             "REFUTES": 0.9497398409944889,
             "SUPPORTS": 0.0
           },
@@ -6269,7 +6269,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.1428569658384294,
-            "REFUTES": 0.006765646846227507,
+            "REFUTES": 0.0067656468462275075,
             "SUPPORTS": 0.8503773873153432
           },
           "score": 0.8503773873153432,
@@ -6302,7 +6302,7 @@
           "label": "SUPPORTS",
           "probabilities": {
             "NOT_ENOUGH_INFO": 0.2039681055118784,
-            "REFUTES": 0.006995060287063373,
+            "REFUTES": 0.006995060287063375,
             "SUPPORTS": 0.7890368342010581
           },
           "score": 0.7890368342010581,

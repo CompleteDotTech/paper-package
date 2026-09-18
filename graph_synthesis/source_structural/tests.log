@@ -1,3 +1,5 @@
+test_concurrent_evidence_disclosure_is_in_manuscript_source (test_integration.IntegrationTests.test_concurrent_evidence_disclosure_is_in_manuscript_source) ... ok
+test_either_reporter_is_idempotent_after_both_sections (test_integration.IntegrationTests.test_either_reporter_is_idempotent_after_both_sections) ... ok
 test_calculation_failure_after_first_result_rolls_back (test_methods.CacheTests.test_calculation_failure_after_first_result_rolls_back) ... ok
 test_constants_have_no_dependencies (test_methods.CacheTests.test_constants_have_no_dependencies) ... ok
 test_constructor_does_not_alias_inputs (test_methods.CacheTests.test_constructor_does_not_alias_inputs) ... ok
@@ -84,6 +86,6 @@ test_negative_outcomes_retained (test_report.ReportTests.test_negative_outcomes_
 test_no_new_service_claim (test_report.ReportTests.test_no_new_service_claim) ... ok
 
 ----------------------------------------------------------------------
-Ran 84 tests in 0.313s
+Ran 86 tests in 0.380s
 
 OK

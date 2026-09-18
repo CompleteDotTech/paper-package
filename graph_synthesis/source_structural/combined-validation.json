@@ -1,0 +1,51 @@
+{
+  "suites": [
+    {
+      "suite": "graph_synthesis/tests",
+      "tests": 200,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/corpus/tests",
+      "tests": 32,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/theory_suite/tests",
+      "tests": 37,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/followup/tests",
+      "tests": 67,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/adaptive/tests",
+      "tests": 64,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/risk_control/tests",
+      "tests": 66,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/reliability/tests",
+      "tests": 63,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/structural/tests",
+      "tests": 36,
+      "passed": true
+    },
+    {
+      "suite": "graph_synthesis/source_structural/tests",
+      "tests": 86,
+      "passed": true
+    }
+  ],
+  "total_tests": 651,
+  "all_passed": true
+}

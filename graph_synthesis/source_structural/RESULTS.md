@@ -14,6 +14,8 @@ The [protocol](PROTOCOL.md) was committed before execution as `b92009c6c36d87d9f
 
 Raw responses and input hashes are verified before reconstruction. Development and evaluation groups are disjoint; policy inference receives no evaluation gold. **Fresh service calls: 0.** Earlier public test-set inspection still prevents independent confirmation. No production graph policy is changed.
 
+Concurrent integration: [PR #18](https://github.com/CompleteDotTech/paper-package/pull/18) merged during this extension. Its [structural refinement study](../structural/RESULTS.md), frozen protocol and executed evidence are preserved unchanged. Its source-balanced ranking, source-diverse acceptance, dependence-robust review, shared-hub lineage and feedback-cutset tests are separate from the direct source-event, setup-budget, frontier, bipartite-flow and source-cache hypotheses here. Both studies reuse the same semantic capture and must not be pooled as independent observations. No hypothesis, threshold or numerical result here was retuned after viewing PR #18.
+
 | Hypothesis | Frozen primary criterion | Outcome | Evidence class |
 |---|---|---|---|
 | H1: Direct source-event shrinkage | 10% lower Brier than both prior models; absolute bias <=0.03 | Not met | Archived prediction scoring |

@@ -50,6 +50,14 @@ Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query
 
 <!-- ASSUMPTION_AWARE_RESEARCH_END -->
 
+<!-- UNCERTAINTY_RESEARCH_START -->
+
+## Five uncertainty and grounding improvements
+
+[Executed report](graph_synthesis/uncertainty/RESULTS.md), [frozen protocol](graph_synthesis/uncertainty/PROTOCOL.md), [five figures](graph_synthesis/uncertainty/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 met its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. All five are controlled algorithmic/decision-theoretic tests, not new Jev accuracy observations. Dependence uncertainty, repair ambiguity, query-directed review, collateral-aware retraction and recursive grounding are tested with explicit failure controls. No fresh Jev calls, new scientific documents, globally unprecedented algorithm claim or production-policy changes.
+
+<!-- UNCERTAINTY_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

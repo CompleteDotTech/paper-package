@@ -24,3 +24,19 @@ The paper reports a post-hoc transformation of original observations, not indepe
 ## Review and unperformed extensions
 
 Human reviewers should check the model/input interpretation, numerical conclusions, evidence redistribution permissions, and final authorship statements before publication. The automated review consists of explicit negative tests, invariant checks, source/hash auditing, and matched-coverage reanalysis; it is not independent scholarly peer review. Untouched-corpus extraction, independently adjudicated labels, large-cluster inference, fresh temporal replication, production latency/load, and a matched-input KARMA execution remain future experiments, not completed claims.
+
+## Visual-analysis revision
+
+The earlier 60-test count refers to the original graph study. The merged relationship experiment raised the extension count to 85; fifteen new visual regression tests raise the current extension suite to 100. The original 136-test suite remains separate.
+
+| New reporting claim | Exact evidence | Boundary |
+|---|---|---|
+| Six mutually exclusive outcomes for each of 339 rows | `figures/data.json:arms`; `figures/edge_outcomes.csv`; confusion matrices in relationship reference | No-info, abstention, and error remain separate |
+| Unsupported versus wrong-polarity edges: 27/10 generic, 13/7 few-shot | `figures/edge_outcomes.csv:unsupported_edge,wrong_polarity` | Gold no-information means not supported by supplied evidence, not false in the world |
+| Six matched precision intervals include/touch zero | `figures/data.json:matched`; `figures/matched_precision.csv` | Exploratory conditional bootstrap, not equivalence or multiplicity-corrected inference |
+| Isolates increase 180 to 241 of 583 nodes | `figures/topology.csv` | Connectivity is not factual accuracy |
+| Schema-eligible pair densities 224/84900 and 192/84900 | `figures/topology.csv:schema_eligible_pairs,schema_pair_density` | Unevaluated Cartesian pairs do not measure retrieval recall |
+| Confidence bins conserve 224/192 accepted edges and 187/172 correct | `figures/data.json:reliability`; `tests/test_visualize.py` | Evaluation-set descriptive diagnostic; dependent rows |
+| Real claim 133 neighborhood, five candidate documents | `figures/data.json:neighborhood`; frozen plan via `RecordedJev` | Gold-independent selection, not representative sampling |
+| Combined arms require 678 recorded calls / 1471953 input tokens | `figures/edge_outcomes.csv`; relationship reference `recorded_usage` | No fresh usage; input-only historical ratio, not complete deployment cost |
+| Artifact regeneration and lineage | `visualize.py`; `figures/manifest.json`; figures CI | SVG/data reproducibility, not independent inference replication |

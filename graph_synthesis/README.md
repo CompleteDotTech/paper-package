@@ -2,6 +2,18 @@
 
 This additive extension turns exact saved Jev observations into durable, source-bound graph assertions, analyzes relationships and topology, and exercises correction/retraction. It preserves all 161 files in the current baseline MANIFEST inventory. Standalone datasets remain ignored and are acquired through the existing pinned downloader. Read [the research paper](paper.md), [results](RESULTS.md), [protocol](PROTOCOL.md), and [relationship design notes](RELATIONSHIPS.md).
 
+## Visual evidence
+
+The [revised manuscript](paper.md) includes ten reproducible figures. Read the [visual guide](VISUAL_ANALYSIS.md) for interpretation and source lineage. Generate vector SVG, high-resolution PNG, exact JSON/CSV tables, and a source/output hash manifest with:
+
+```sh
+python -m pip install -r graph_synthesis/requirements-figures.txt
+python -B -m graph_synthesis.visualize
+python -B -m graph_synthesis.visualize --check
+```
+
+This requires no model credentials or dataset download. Figure tests are included in the extension suite. Frozen model observations and production acceptance behavior are unchanged.
+
 ## Run
 
 From the repository root, use Python 3.12 and the original NumPy pin for closest replay compatibility:

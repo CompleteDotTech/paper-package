@@ -54,8 +54,15 @@ test_invalid_probability (test_methods.RiskTests.test_invalid_probability) ... o
 test_nonpositive_omitted (test_methods.RiskTests.test_nonpositive_omitted) ... ok
 test_same_denominator_required (test_methods.RiskTests.test_same_denominator_required) ... ok
 test_smoothed_risk_not_zero (test_methods.RiskTests.test_smoothed_risk_not_zero) ... ok
+test_formatting_is_idempotent (test_rendering.RenderingTests.test_formatting_is_idempotent) ... ok
+test_local_image_is_valid (test_rendering.RenderingTests.test_local_image_is_valid) ... ok
+test_missing_image_is_rejected (test_rendering.RenderingTests.test_missing_image_is_rejected) ... ok
+test_numeric_scores_counts_and_percentages_are_protected (test_rendering.RenderingTests.test_numeric_scores_counts_and_percentages_are_protected) ... ok
+test_path_escape_is_rejected (test_rendering.RenderingTests.test_path_escape_is_rejected) ... ok
+test_remote_image_is_rejected (test_rendering.RenderingTests.test_remote_image_is_rejected) ... ok
+test_text_cell_is_not_forced_onto_one_line (test_rendering.RenderingTests.test_text_cell_is_not_forced_onto_one_line) ... ok
 
 ----------------------------------------------------------------------
-Ran 56 tests in 1.788s
+Ran 63 tests in 1.813s
 
 OK

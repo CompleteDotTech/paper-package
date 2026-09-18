@@ -1,0 +1,67 @@
+{
+  "archive_files_verified": 161,
+  "base_commit": "5b511c88c011524ad6adb71f1d5fa22f3dc941e0",
+  "execution_environment": {
+    "numpy": "2.3.5",
+    "platform": "Linux",
+    "python": "3.13.5"
+  },
+  "extension_tests": {
+    "errors": 0,
+    "failures": 0,
+    "run": 60,
+    "skipped": 0
+  },
+  "graph_study_sha256": "82a877d8ec1fd1688a521424253498ed7b7b6168c9580d320132009ddae1d3dd",
+  "network_attempts": 0,
+  "original_files_changed": 0,
+  "original_tests": {
+    "errors": 0,
+    "failures": 0,
+    "run": 136,
+    "skipped": 0
+  },
+  "replay": {
+    "artifacts": {
+      "calibration.json": {
+        "newline_normalized_bytes_equal": true,
+        "raw_bytes_equal": true
+      },
+      "calls.jsonl": {
+        "newline_normalized_bytes_equal": true,
+        "raw_bytes_equal": true
+      },
+      "predictions.jsonl": {
+        "newline_normalized_bytes_equal": true,
+        "raw_bytes_equal": true
+      },
+      "results.json": {
+        "floating_point_roundoff": [
+          {
+            "absolute_difference": 3.469446951953614e-18,
+            "path": "result.tasks.entity_resolution.scores.development.baseline_noul.calibrated.log_loss"
+          }
+        ],
+        "newline_normalized_bytes_equal": false,
+        "numeric_tolerance": {
+          "absolute": 1e-14,
+          "relative": 1e-12
+        },
+        "raw_bytes_equal": false
+      }
+    },
+    "calls": 3405,
+    "predictions": 3644,
+    "temporary_manifest_path_normalization": true
+  },
+  "source_commit": "b4a7e3a2df0b77df9ba01f0c611927ca6d1ec914",
+  "source_git_blobs": {
+    "graph_synthesis/__init__.py": "ed05af4570a766128ae20505f2659d4fef671fdf",
+    "graph_synthesis/core.py": "68217feec539d37e4a524432c93df035f9a0fe39",
+    "graph_synthesis/recorded.py": "8be1744e6aaec422247ec32ebdc952b542595c63",
+    "graph_synthesis/study.py": "a644a73305238920c1bbe95562a8b4f279a6d205",
+    "graph_synthesis/tests/test_core.py": "1220373d0ed7f00f5d8c1ab7f1e43b1028a0ea01",
+    "graph_synthesis/tests/test_research.py": "89afd6b4402381d103c123e84cfbb1053029b0b8",
+    "graph_synthesis/verify.py": "e1cbebebb1056343566ebae9a391094dc2e25305"
+  }
+}

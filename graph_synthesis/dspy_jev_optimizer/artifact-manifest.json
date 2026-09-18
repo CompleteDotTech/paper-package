@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "scope": "Optimizer extension only; excludes this manifest, generated runs, and local caches. Root MANIFEST.json remains immutable.",
+  "files": {
+    ".github/workflows/dspy-jev-optimizer.yml": {
+      "bytes": 2304,
+      "sha256": "7027f242d6d66951935c0876cf331af5b5a84859e63359b4337ee2646b14d76e"
+    },
+    "DSPY_JEV_OPTIMIZER.md": {
+      "bytes": 872,
+      "sha256": "21c122ee5d6a87d2842fa5bc74d7ef81225d480a982c6723db8da08ef6a67463"
+    },
+    "graph_synthesis/dspy_jev_optimizer/.gitignore": {
+      "bytes": 86,
+      "sha256": "d4d5618019f5f64e36505e8c7b0df82029eb068409c89dc073861bd0ed036fb6"
+    },
+    "graph_synthesis/dspy_jev_optimizer/README.md": {
+      "bytes": 9837,
+      "sha256": "1946383e9e19b2b8d5cf607dd05242b58a88d352e320cd0a65c78b897d54c514"
+    },
+    "graph_synthesis/dspy_jev_optimizer/__init__.py": {
+      "bytes": 72,
+      "sha256": "c8bb25e6533bde55b5872d51e6d7910d574762351754a3ed311d98a20c893966"
+    },
+    "graph_synthesis/dspy_jev_optimizer/architecture.md": {
+      "bytes": 4799,
+      "sha256": "f79080de899be87d59f67986952f7f776efd98e7f830df42b58c0deca55ac974"
+    },
+    "graph_synthesis/dspy_jev_optimizer/architecture.mmd": {
+      "bytes": 4721,
+      "sha256": "715d935fbee41f8a886bc0d3f51ca9edf8ff0a29719ef1da433c60e256334e1e"
+    },
+    "graph_synthesis/dspy_jev_optimizer/architecture.svg": {
+      "bytes": 11752,
+      "sha256": "e572a3a26528007f034692c8bd6d677e17d951a083d535e2366c0ba7f7102882"
+    },
+    "graph_synthesis/dspy_jev_optimizer/baseline-config.json": {
+      "bytes": 424,
+      "sha256": "8dc6cc0e070c48edc27963cc1683ca5f2311b223c935cf53e488bc3be018f62b"
+    },
+    "graph_synthesis/dspy_jev_optimizer/core.py": {
+      "bytes": 20811,
+      "sha256": "776318f8b4b99dc484149e8b0f4838e5236eab5f288ac4de51f139cd63e2b38b"
+    },
+    "graph_synthesis/dspy_jev_optimizer/optimize.py": {
+      "bytes": 6883,
+      "sha256": "2057d8e80feca7d7eca1e831bfbea768402e8454c71dcb98e36ae4b890a373ab"
+    },
+    "graph_synthesis/dspy_jev_optimizer/providers.py": {
+      "bytes": 4276,
+      "sha256": "1c6712ce81a672cf5c1967201c3e7c874fa1597040cd1500c2050d35c4ad1c18"
+    },
+    "graph_synthesis/dspy_jev_optimizer/requirements-test.txt": {
+      "bytes": 33,
+      "sha256": "8032b742bcbbca4cf3277ddbc0b3266bcaf49c11b52274b106b2746e24244d40"
+    },
+    "graph_synthesis/dspy_jev_optimizer/requirements.txt": {
+      "bytes": 32,
+      "sha256": "07c77ba7dcd782dd0065f3ccdeb6c6b05bfdb281462cb1bda26abc0020637e75"
+    },
+    "graph_synthesis/dspy_jev_optimizer/sample-test.jsonl": {
+      "bytes": 517,
+      "sha256": "b25636be2a3c25ccdf1b0d6c0195994c0313e922ea21f075ddba904a8d94ba91"
+    },
+    "graph_synthesis/dspy_jev_optimizer/sample-train.jsonl": {
+      "bytes": 579,
+      "sha256": "611f87d5e6c093d05b44c37008a3f2c0a0685c6fbd0db5c36d8f437ffc1fa773"
+    },
+    "graph_synthesis/dspy_jev_optimizer/sample-validation.jsonl": {
+      "bytes": 559,
+      "sha256": "f17c96f92fad2c5bf716ec976dc41d70e64be12509f060d8388c4995a86195aa"
+    },
+    "graph_synthesis/dspy_jev_optimizer/tests/test_optimizer.py": {
+      "bytes": 13294,
+      "sha256": "1f359ec8eb300ba1e9a13a9895e8a29d39efe7f48f942226198991e1dee1a18a"
+    },
+    "graph_synthesis/dspy_jev_optimizer/tests/test_sdk_contracts.py": {
+      "bytes": 4431,
+      "sha256": "d06976a18e4ceef7ae9e6d123a9fd47fb52e65e2491de560fbf246e2bb8c0f68"
+    },
+    "graph_synthesis/dspy_jev_optimizer/verify.py": {
+      "bytes": 1371,
+      "sha256": "d6b432e1362bcf77cb65546e079188eebb4d5ea32a3725c637dd4f50c2fdb14d"
+    }
+  }
+}

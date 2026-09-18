@@ -1,0 +1,9 @@
+{
+  "task": "Classify the relationship between `claim` and `evidence` for graph-edge verification.",
+  "instructions": "Which relation does `evidence` have to `claim`?",
+  "criteria": {
+    "supports": "The evidence directly supports the claim.",
+    "refutes": "The evidence directly contradicts the claim.",
+    "insufficient": "The evidence is related or plausible but does not establish support or contradiction."
+  }
+}

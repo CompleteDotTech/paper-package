@@ -1,0 +1,6 @@
+hypothesis,title,primary_target_met,fresh_service_calls
+H1,Direct source-event shrinkage,False,0
+H2,Setup-cost-aware review,False,0
+H3,Frontier-bounded lineage,True,0
+H4,Certified bipartite conflict solving,True,0
+H5,Revision-checked evidence cache,True,0

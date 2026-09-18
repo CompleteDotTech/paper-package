@@ -1,0 +1,204 @@
+name: New graph-synthesis mechanisms
+on:
+  push:
+    branches: [main, research/novel-mechanisms-20260918]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: novel-mechanisms-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  execute-and-publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/novel-mechanisms-20260918'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Integrate main without discarding concurrent research
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          echo "INTEGRATED_MAIN=$(git rev-parse origin/main)" >> "$GITHUB_ENV"
+          if ! git merge-base --is-ancestor origin/main HEAD; then
+            set +e
+            git merge --no-commit --no-ff origin/main
+            status=$?
+            set -e
+            if [ "$status" -gt 1 ]; then exit "$status"; fi
+            while IFS= read -r path; do
+              case "$path" in
+                CURRENT_RESULTS.md|manuscript/paper-current.md|manuscript/paper-current.html|manuscript/paper-current.pdf|manuscript/paper-current.build.json|graph_synthesis/render_current_paper.py|.github/workflows/jev-multicall.yml|.github/workflows/structural-frontier.yml) ;;
+                '') ;;
+                *) echo "Unreviewed merge conflict: $path"; exit 1 ;;
+              esac
+            done < <(git diff --name-only --diff-filter=U)
+            # Preserve the newest manuscript and publication infrastructure as
+            # the foundation. Only reviewed additive transformations follow.
+            git checkout origin/main -- CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.html manuscript/paper-current.pdf manuscript/paper-current.build.json graph_synthesis/render_current_paper.py .github/workflows/jev-multicall.yml .github/workflows/structural-frontier.yml
+            test -z "$(git diff --name-only --diff-filter=U)"
+          fi
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Prepare narrow publication integration
+        run: python -B -m graph_synthesis.novel_mechanisms.publication
+      - run: python -m pip install -r graph_synthesis/novel_mechanisms/requirements.txt
+      - name: Execute frozen tests, oracles, full regression and exact replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor b2a5ccbda2f511cf76aad4e3348a7a67fb1aabad HEAD
+          git merge-base --is-ancestor 7a624f79c3f79b4c23a0879006bbe34412f126d9 HEAD
+          python -B -m graph_synthesis.novel_mechanisms.run --timings | tee graph_synthesis/novel_mechanisms/execution.log
+          python -B -m graph_synthesis.novel_mechanisms.regret | tee graph_synthesis/novel_mechanisms/regret-execution.log
+          python -B -m unittest discover -s graph_synthesis/novel_mechanisms/tests -v 2>&1 | tee graph_synthesis/novel_mechanisms/tests.log
+          python -B -m graph_synthesis.novel_mechanisms.run --check | tee graph_synthesis/novel_mechanisms/replay.log
+          python -B -m graph_synthesis.novel_mechanisms.regret --check | tee graph_synthesis/novel_mechanisms/regret-replay.log
+          for tests in graph_synthesis/tests graph_synthesis/*/tests; do
+            if [ -d "$tests" ] && [ "$tests" != graph_synthesis/novel_mechanisms/tests ]; then
+              python -B -m unittest discover -s "$tests" -v
+            fi
+          done 2>&1 | tee graph_synthesis/novel_mechanisms/regression.log
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/novel-original.json"
+          cp "$RUNNER_TEMP/novel-original.json" graph_synthesis/novel_mechanisms/original-inventory.json
+          python -B -m graph_synthesis.novel_mechanisms.report --figures --update-paper
+          python -B -m graph_synthesis.novel_mechanisms.regret --report
+          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+          python - <<'PY'
+          import hashlib,json,os,re,subprocess
+          from pathlib import Path
+          from graph_synthesis.novel_mechanisms.report import manifest
+          from graph_synthesis.novel_mechanisms.publication import RENDERER,WORKFLOW,FRONTIER_WORKFLOW,transformed
+          base=os.environ['INTEGRATED_MAIN']
+          paper={'CURRENT_RESULTS.md','manuscript/paper-current.md','manuscript/paper-current.html','manuscript/paper-current.pdf','manuscript/paper-current.build.json'}
+          entries=subprocess.check_output(['git','ls-tree','-rz','--full-tree',base]).split(b'\0')
+          count=0;reviewed=[]
+          for entry in entries:
+              if not entry: continue
+              metadata,path=entry.split(b'\t',1);name=path.decode()
+              if name in paper or name.startswith('graph_synthesis/novel_mechanisms/') or name=='.github/workflows/novel-mechanisms.yml': continue
+              mode,kind,want=metadata.decode().split()
+              assert kind=='blob',name
+              content=Path(name).read_bytes()
+              if name in (RENDERER,WORKFLOW,FRONTIER_WORKFLOW):
+                  original=subprocess.check_output(['git','show',base+':'+name]).decode()
+                  assert content.decode()==transformed(name,original),name
+                  reviewed.append(name);continue
+              got=hashlib.sha1(b'blob '+str(len(content)).encode()+b'\0'+content).hexdigest()
+              assert got==want,name
+              count+=1
+          paragraphs=0
+          for name in ('CURRENT_RESULTS.md','manuscript/paper-current.md'):
+              old=subprocess.check_output(['git','show',base+':'+name]).decode()
+              new=Path(name).read_text(encoding='utf-8')
+              position=0
+              for paragraph in old.split('\n\n'):
+                  paragraph=paragraph.strip()
+                  if not paragraph: continue
+                  found=new.find(paragraph,position)
+                  assert found>=0,('Missing or reordered previous paragraph',name,paragraph[:100])
+                  position=found+len(paragraph);paragraphs+=1
+          html=Path('manuscript/paper-current.html').read_text(encoding='utf-8')
+          assert not re.search(r'&lt;!-- [A-Z][A-Z0-9_]*_RESEARCH_(?:START|END) --&gt;',html)
+          audit={'integrated_main':base,'unchanged_prior_files':count,'reviewed_publication_changes':reviewed,'preserved_ordered_main_paragraphs':paragraphs,'fresh_service_calls':0}
+          Path('graph_synthesis/novel_mechanisms/integration-audit.json').write_text(json.dumps(audit,indent=2,sort_keys=True)+'\n',encoding='utf-8',newline='\n')
+          manifest()
+          print(json.dumps(audit))
+          PY
+      - name: Publish generated artifacts on the research branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add graph_synthesis/novel_mechanisms CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json graph_synthesis/render_current_paper.py .github/workflows/jev-multicall.yml .github/workflows/structural-frontier.yml
+          if ! git diff --cached --quiet; then
+            git commit -m 'research: integrate distinct experiments, reviewed publication fixes and full manuscript'
+            git push origin HEAD:research/novel-mechanisms-20260918
+          fi
+          mkdir -p "$RUNNER_TEMP/novel-review"
+          git archive HEAD -o "$RUNNER_TEMP/novel-review/repository.tar"
+          cp manuscript/paper-current.pdf "$RUNNER_TEMP/novel-review/paper-current.pdf"
+          cp graph_synthesis/novel_mechanisms/RESULTS.md "$RUNNER_TEMP/novel-review/RESULTS.md"
+          cp graph_synthesis/novel_mechanisms/REGRET_RESULTS.md "$RUNNER_TEMP/novel-review/REGRET_RESULTS.md"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: novel-mechanisms-review-package
+          path: ${{ runner.temp }}/novel-review/
+          retention-days: 14
+  replay:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/novel_mechanisms/requirements.txt
+      - name: Check code, certificates, results and preserved evidence
+        run: |
+          git merge-base --is-ancestor b2a5ccbda2f511cf76aad4e3348a7a67fb1aabad HEAD
+          git merge-base --is-ancestor 7a624f79c3f79b4c23a0879006bbe34412f126d9 HEAD
+          python -B -m unittest discover -s graph_synthesis/novel_mechanisms/tests -v
+          python -B -m graph_synthesis.novel_mechanisms.run --check
+          python -B -m graph_synthesis.novel_mechanisms.regret --check
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/novel-original.json"
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          manifest=json.loads(Path('graph_synthesis/novel_mechanisms/artifact-manifest.json').read_text(encoding='utf-8'))
+          for path,want in manifest['sha256'].items():
+              assert sha(path)==want,path
+          build=json.loads(Path('manuscript/paper-current.build.json').read_text(encoding='utf-8'))
+          assert sha('manuscript/paper-current.md')==build['source_sha256']
+          assert sha('graph_synthesis/render_current_paper.py')==build['renderer_sha256']
+          assert sha('manuscript/paper-current.pdf')==build['pdf_sha256']
+          print('Extension and complete paper provenance verified')
+          PY
+          git diff --exit-code
+  figures-and-paper:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/novel_mechanisms/requirements.txt
+      - name: Regenerate paper and figures without modifying prior studies
+        run: |
+          python -B -m graph_synthesis.novel_mechanisms.report --figures --update-paper
+          python -B -m graph_synthesis.novel_mechanisms.regret --report
+          git diff --exit-code -- graph_synthesis/novel_mechanisms manuscript/paper-current.md CURRENT_RESULTS.md
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/novel-paper.pdf"
+          git diff --exit-code -- manuscript/paper-current.html

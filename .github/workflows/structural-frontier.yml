@@ -1,0 +1,126 @@
+name: Structural frontier research
+on:
+  push:
+    branches: [main, research/structure-aware-next-five]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: frontier-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  execute-and-publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/structure-aware-next-five'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/assumption_aware/requirements.txt
+      - name: Execute frozen hypotheses, adversarial tests and full integrated regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m graph_synthesis.frontier.integrate_main
+          python -B -m graph_synthesis.frontier.audit_baseline
+          python -B -m graph_synthesis.frontier.run | tee graph_synthesis/frontier/execution.log
+          python -B -m unittest discover -s graph_synthesis/frontier/tests -v 2>&1 | tee graph_synthesis/frontier/tests.log
+          python -B -m graph_synthesis.frontier.run --check | tee graph_synthesis/frontier/replay.log
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/frontier-original-inventory.json"
+          cp "$RUNNER_TEMP/frontier-original-inventory.json" graph_synthesis/frontier/original-inventory.json
+          python -B -m graph_synthesis.frontier.report --figures --update-paper
+          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+          python -B -m graph_synthesis.frontier.regression 2>&1 | tee graph_synthesis/frontier/all-regressions.log
+          python -B -m graph_synthesis.frontier.report
+          python -B -m graph_synthesis.frontier.verify
+          git diff --exit-code 6530321dd0060c9c7f13bb69d6f1c88346a8e1e2 -- graph_synthesis/structural graph_synthesis/source_structural graph_synthesis/assumption_aware
+      - name: Publish generated research artifacts on this branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add graph_synthesis/frontier CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'research: record frontier replay, all integrated tests and complete additive paper'
+            git push origin HEAD:research/structure-aware-next-five
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: structural-frontier-review-package
+          path: |
+            graph_synthesis/frontier/
+            manuscript/paper-current.md
+            manuscript/paper-current.pdf
+            manuscript/paper-current.html
+            manuscript/paper-current.build.json
+            CURRENT_RESULTS.md
+          retention-days: 14
+      - name: Package complete integrated source
+        run: git archive --format=zip --output="$RUNNER_TEMP/frontier-integrated-source.zip" HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: structural-frontier-integrated-source
+          path: ${{ runner.temp }}/frontier-integrated-source.zip
+          retention-days: 14
+  replay:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r reproduction/requirements-jev.txt
+      - name: Regression, numerical replay and source/manuscript integrity
+        run: |
+          python -B -m unittest discover -s graph_synthesis/frontier/tests -v
+          python -B -m graph_synthesis.frontier.run --check
+          python -B -m graph_synthesis.frontier.verify
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/frontier-original.json"
+          git diff --exit-code
+  figures-and-paper:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/requirements-figures.txt
+      - name: Byte-identical figure and complete manuscript regeneration
+        run: |
+          python -B -m graph_synthesis.frontier.report --figures --update-paper
+          python -B -m graph_synthesis.novel_mechanisms.report --update-paper
+          python -B -m graph_synthesis.novel_mechanisms.regret --report
+          git diff --exit-code -- graph_synthesis/frontier manuscript/paper-current.md CURRENT_RESULTS.md
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/frontier-paper.pdf"
+          git diff --exit-code -- manuscript/paper-current.html

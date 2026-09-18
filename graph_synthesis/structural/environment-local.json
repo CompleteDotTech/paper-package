@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "markdown-it-py": "4.2.0",
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "weasyprint": "68.0"
+  },
+  "execution": "Local offline execution and byte comparison before CI",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "results_sha256": "4f847884a6543f77decbb1dc151b70c6d24554fdac207db88d8e7f78fe27f476"
+}

@@ -24,13 +24,13 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
-<!-- UNCERTAINTY_RESEARCH_START -->
+<!-- STRUCTURAL_RESEARCH_START -->
 
-## Five uncertainty and grounding improvements
+## Five structural refinements after PR #16
 
-[Executed report](graph_synthesis/uncertainty/RESULTS.md), [frozen protocol](graph_synthesis/uncertainty/PROTOCOL.md), [five figures](graph_synthesis/uncertainty/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 met its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. All five are controlled algorithmic/decision-theoretic tests, not new Jev accuracy observations. Dependence uncertainty, repair ambiguity, query-directed review, collateral-aware retraction and recursive grounding are tested with explicit failure controls. No fresh Jev calls, new scientific documents, globally unprecedented algorithm claim or production-policy changes.
+[Executed report](graph_synthesis/structural/RESULTS.md), [frozen protocol](graph_synthesis/structural/PROTOCOL.md), [five figures](graph_synthesis/structural/figures/) and [updated full paper](manuscript/paper-current.pdf). No fresh Jev calls. Reliability ranking reduces matched-volume wrong edges from 17 to 15 but misses its 20% target. Source diversification and dependence-robust review worsen primary quality outcomes. Exact shared-lineage inference recovers 16 controlled admissions; feedback-cutset optimization solves all 16 tested large cycles through 256 assertions. Controlled probability/priority gains are not semantic-accuracy gains. Negative results retained; no production-policy change.
 
-<!-- UNCERTAINTY_RESEARCH_END -->
+<!-- STRUCTURAL_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

@@ -1,0 +1,14 @@
+{
+  "decision_journal_decompressed_sha256": "706c1d52db5dc2fb041edc5051fb372243a90eae3e9462371a791c394da8f566",
+  "fitted_model_hash": "56c16e98423206fce368d95aa7e9e40198b8ca68f74c2d95b4ca6d522fa63be2",
+  "local_full_outputs_sha256": {
+    "decisions.csv.gz": "6b1f9a068661400db47ce1b618a3e29812e21d4b0266f51c1ecb84b24db949ff",
+    "expanded-decisions.jsonl": "08dc7acafa29736a84fb86cae144b8ee73cee7fc931da7b3aec931f862c83090",
+    "results.json": "9d58a6cdbb382e1785b0f2af029385553eb486ebe68324a4d718f9e55aeb891e",
+    "selection.json": "2e692945e1fa0a9e081d87fc499164da2bca0474cd6a9e198266090be13d9460"
+  },
+  "note": "Full-output byte hashes identify the local execution, not universal bitwise reproducibility. CI compares result JSON with a float tolerance and requires exact fitted-transform hash and decompressed decision journal hash.",
+  "reference_version": 1,
+  "results_gzip_sha256": "46077c7c8aa9ac71ffd1f0ac0ddb2f63af43940cdfba3f613430e4044f4543c2",
+  "selected_regularization": 0.01
+}

@@ -75,6 +75,6 @@ test_source_cap_stages (test_frontier.SourceTests.test_source_cap_stages) ... ok
 test_unknown_source (test_frontier.SourceTests.test_unknown_source) ... ok
 
 ----------------------------------------------------------------------
-Ran 75 tests in 0.281s
+Ran 75 tests in 0.239s
 
 OK

@@ -16,6 +16,11 @@
     "graph_synthesis/reliability/tests/test_rendering.py": "8ca9bc04944aafc2c3e4474b7f3afb1970280bb417e186e1969bf891c941ebaa",
     "graph_synthesis/risk_control/tests/test_methods.py": "d93e660327616cef310b1d3834167c1ff412eabca1dc868cf32cd54f5b3124fb",
     "graph_synthesis/risk_control/tests/test_reporting.py": "e3458a80b58fd428c48a405a9add2237f3a9d7bf716d1492a7aedd065c837229",
+    "graph_synthesis/source_structural/tests/test_integration.py": "587bff657e2f24b8e2406fc386a9e58972b41279676b3e4a001af64066b246a3",
+    "graph_synthesis/source_structural/tests/test_methods.py": "db99c4b81344a5eb0687fba1786fe40dee4dd85439fb44c29c7cbdb7d6bcab93",
+    "graph_synthesis/source_structural/tests/test_report.py": "84cdb0efd8e88c191f6ffd1be04a638b9b66ade2ef656f65bfddd4142efb876a",
+    "graph_synthesis/structural/tests/test_reporting_integration.py": "5ef3776dbcd6043d1a9d857826d9ff6b8bba8a985a4ec9d0d3c84711fa8beed0",
+    "graph_synthesis/structural/tests/test_structural.py": "1bc51919936fc3a4f6b13d2a2c498dc9f2f3d33d8dd1603a3964a06475203e71",
     "graph_synthesis/tests/test_core.py": "3808856aafbcff2105c48dd8ad931a8a125f01b9bcb7232d2cc1f61f03b8d19e",
     "graph_synthesis/tests/test_edge_fusion.py": "50e6cd01575ba2f8c4d46b8827a621748e6a3b834175dc1b5de17cff5ebe30be",
     "graph_synthesis/tests/test_falsification.py": "58e3ef25403894c3b1ef4842f6008a5a5bfd449d7b39cc9e346c49c71e57f4df",
@@ -28,5 +33,5 @@
     "graph_synthesis/tests/test_visualize_evidence.py": "dc6b39d826fbdc072e48570ec7ffdcf6c0c8f586eb4586ecfea625d0715ff76e",
     "graph_synthesis/theory_suite/tests/test_methods.py": "ee30c260f146ecffade7a476ddd56c9e449dfa8dddc8259d86060f672ea46e38"
   },
-  "tests_run": 604
+  "tests_run": 726
 }

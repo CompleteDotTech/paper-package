@@ -58,6 +58,8 @@ The [protocol](PROTOCOL.md) was committed as `{r['protocol_commit']}` before imp
 
 “Met” refers only to the predeclared conjunction on its specified fixture population. These rows must not be pooled into a semantic-success percentage. The [novelty audit](NOVELTY.md) distinguishes repository-new implementations from established source modeling, knowledge compilation, flow optimization and dynamic programming. It does not assert that no person has ever tried an equivalent idea.
 
+**Concurrent integration disclosure.** While this frozen extension was executing, main advanced to `a21314d17c33c639b75522ecce120586ef8dab35` with the [structural refinement](../structural/RESULTS.md) and [source-structural](../source_structural/RESULTS.md) studies. Both are preserved unchanged. The source-structural study also implements certified bipartite optimization: H4 here is therefore a parallel implementation and additional frozen test suite, not a mechanism unique to the reconciled main branch. Its frontier-width lineage evaluator overlaps H3's goal but differs from the reusable decision-diagram state budget tested here. Source-setup review differs from H2's heterogeneous per-edge effort/noise model; source-revision invalidation differs from H5's connected-path summary maintenance. Repository-new claims are limited to the protocol's original pinned baseline, not the later integration snapshot. No thresholds, fixtures or numerical results were retuned after examining the concurrent studies. Reused semantic captures must not be pooled as independent observations.
+
 ## 2. H1: Source-conditioned evidence probability
 
 Distinct evidence atoms can still depend on a common unreliable source. Instead of treating their marginal probabilities as independent, the proposed model supplies a binary quality state for each source, a prior for that state, and two conditional probabilities for each assigned atom. Source states are assumed mutually independent; primitive events are independent only conditional on those states. For a monotone proof formula F, compute P(F) = sum_z P(z) P(F given z). Each conditional formula uses the existing bounded exact lineage evaluator. This is exact marginalization within the supplied model, not discovery of the correct dependence structure.
@@ -228,9 +230,10 @@ def figures(r):
 
 def replace_block(text, body):
     text=re.sub(re.escape(START)+r'.*?'+re.escape(END)+r'\n*','',text,flags=re.S)
-    if text.count(ANCHOR)!=1:
-        raise ValueError('Exactly one preceding reliability-study anchor required')
-    return text.replace(ANCHOR,ANCHOR+'\n\n'+START+'\n\n'+body.strip()+'\n\n'+END,1)
+    anchor=next((x for x in ('<!-- SOURCE_STRUCTURAL_RESEARCH_END -->','<!-- STRUCTURAL_RESEARCH_END -->',ANCHOR) if x in text),ANCHOR)
+    if text.count(anchor)!=1:
+        raise ValueError('Exactly one preceding study anchor required')
+    return text.replace(anchor,anchor+'\n\n'+START+'\n\n'+body.strip()+'\n\n'+END,1)
 
 
 def update_paper(r, body):

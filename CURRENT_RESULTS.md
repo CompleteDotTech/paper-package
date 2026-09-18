@@ -32,6 +32,14 @@
 
 <!-- STRUCTURAL_RESEARCH_END -->
 
+<!-- CERTIFICATES_RESEARCH_START -->
+
+## Five dependence-aware certificate experiments after PR #17
+
+[Executed report](graph_synthesis/certificates/RESULTS.md), [frozen protocol](graph_synthesis/certificates/PROTOCOL.md), [five figures](graph_synthesis/certificates/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 not met; H2 met; H3 met; H4 met; H5 met. Source-random-effects forecasting is saved-response reuse; lineage bounds, flow certificates, repair queries and delta updates are controlled algorithms. No fresh Jev calls, worldwide novelty claim, new semantic-accuracy claim or production-policy change. Negative and assumption-breaking controls are retained.
+
+<!-- CERTIFICATES_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

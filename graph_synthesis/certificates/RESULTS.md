@@ -10,7 +10,7 @@ Five frozen exploratory tests extend the graph pipeline beyond independent-sourc
 
 The preceding [reliability study](../reliability/RESULTS.md) exposed three limitations: its calibration multiplier worsened Brier; exact lineage probabilities remained conditional on independent primitives; and incremental maintenance still scanned the global snapshot. Its conflict optimizer also returned one optimum and staged components outside its cutset/cap limits. The five extensions here test these specific gaps without changing candidate extraction, accepted Jev edges or production policy.
 
-The inspected repository inventory did not contain these five integrated experiments. This is a **repository-scoped new-experiment claim, not a worldwide first-attempt claim**. Beta-binomial random effects, extremal-probability linear programs, weighted bipartite covers, consistent query answering across repairs and incremental maintenance all have antecedents. A targeted primary-source search and its references are recorded in the [protocol](PROTOCOL.md). Established ingredients do not become novel algorithms merely through new names or integration.
+The inspected repository inventory did not contain these five integrated experiments. This is a **repository-scoped new-experiment claim, not a worldwide first-attempt claim**. Beta-binomial random effects, extremal-probability linear programs, weighted bipartite covers, consistent query answering across repairs and incremental maintenance all have antecedents. A targeted primary-source search and its references are recorded in the [protocol](PROTOCOL.md). The [concurrent-main reconciliation](RECONCILIATION.md) preserves PR #18 and distinguishes its related experiments. Established ingredients do not become novel algorithms merely through new names or integration.
 
 Protocol commit `bc70b76621daca198b3b97eb4f698b17d4c40a0b` precedes this suite's implementation/execution; the inspected baseline is `a62a3257645d8e35cd4e45be53bfa9511d27724b`. Hypotheses were informed by already public results, so this is exploratory follow-up rather than independent preregistration. H1 reuses 73 development candidates in 40 groups and 263 previously inspected evaluation candidates in 149 disjoint groups. Saved calls are reconstructed and hashes checked before use. **Fresh service calls: 0.** H2-H5 use controlled fixtures rather than additional Jev observations.
 
@@ -119,10 +119,10 @@ Three repetitions alternate policy order. Timings include cold construction and 
 
 | Components | Vertices | Delta-index median seconds | Full-rescan median seconds | Ratio |
 |---:|---:|---:|---:|---:|
-| 16 | 128 | 0.011026 | 0.125704 | 11.40x |
-| 64 | 512 | 0.017190 | 0.555562 | 32.32x |
-| 256 | 2048 | 0.042154 | 2.336416 | 55.43x |
-| 512 | 4096 | 0.075171 | 4.910725 | 65.33x |
+| 16 | 128 | 0.009904 | 0.115459 | 11.66x |
+| 64 | 512 | 0.015691 | 0.530766 | 33.83x |
+| 256 | 2048 | 0.039344 | 2.307374 | 58.65x |
+| 512 | 4096 | 0.070781 | 4.719908 | 66.68x |
 
 ![H5. Benefits depend on component locality; the connected control has no counted-work saving.](figures/05_delta_locality.png)
 

@@ -1,0 +1,41 @@
+{
+  "failures": 0,
+  "suites": [
+    {
+      "path": "graph_synthesis/tests",
+      "returncode": 0,
+      "tests": 200
+    },
+    {
+      "path": "graph_synthesis/followup/tests",
+      "returncode": 0,
+      "tests": 67
+    },
+    {
+      "path": "graph_synthesis/adaptive/tests",
+      "returncode": 0,
+      "tests": 64
+    },
+    {
+      "path": "graph_synthesis/risk_control/tests",
+      "returncode": 0,
+      "tests": 66
+    },
+    {
+      "path": "graph_synthesis/reliability/tests",
+      "returncode": 0,
+      "tests": 63
+    },
+    {
+      "path": "graph_synthesis/structural/tests",
+      "returncode": 0,
+      "tests": 36
+    },
+    {
+      "path": "graph_synthesis/certificates/tests",
+      "returncode": 0,
+      "tests": 43
+    }
+  ],
+  "total_tests": 539
+}

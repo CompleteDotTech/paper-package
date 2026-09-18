@@ -1,8 +1,11 @@
 {
   "sha256": {
     "graph_synthesis/certificates/PROTOCOL.md": "7b638984125e4861768a72f664ac447c174574026627d2fec33e8fbf8aa4cf0a",
-    "graph_synthesis/certificates/RESULTS.md": "fba7ae2dda5f85c0576111e73f2f2e2de4a37330dade057ccf041a84989c882a",
+    "graph_synthesis/certificates/RECONCILIATION.md": "3cee1ff6cff5f5d9d09a10a29e2bc4025883c95ed4115374a73aaaf6065b4a10",
+    "graph_synthesis/certificates/RESULTS.md": "e6e06878ca16582904875df4792c38d4ccb31f3dcfbd1eb172fba21cab74de63",
     "graph_synthesis/certificates/__init__.py": "5dfc4d3b8c5dfa3d035892e9882d9899c659485af81fa5931c1d0685e3cfb156",
+    "graph_synthesis/certificates/combined-tests.log": "45bd2d09a0a51c14b222e343fef9a77f4c050ac57fa54c61f70dc2ad727fb133",
+    "graph_synthesis/certificates/combined-validation.json": "3855e56734f7d1b518c733f1e01e17596110259b731f9043b98d478ff18dda3e",
     "graph_synthesis/certificates/execution.log": "6ebc40f34f2659a44e967585bfdc6ba2b59ae01d3dfde56248ac2ca13ce59bb2",
     "graph_synthesis/certificates/figures/01_source_risk.png": "69316e59a21e1b4b4289a6d0e0bea0dac7b99796c86a71c927c139fad257ecc7",
     "graph_synthesis/certificates/figures/01_source_risk.svg": "532e42dcb459e2b2d7367082e8c050444179f432d3b1755b43103d9b40f4acaa",
@@ -17,14 +20,14 @@
     "graph_synthesis/certificates/graphs.py": "eb0b52d370dbc5a301769784fbc92a467a6da9c5c2d8e0b052f5d33c34668458",
     "graph_synthesis/certificates/lineage.py": "e32d834f11a2fb9ac9b661fd816e378bf618a311eb4d9141490cee6487b3bcfc",
     "graph_synthesis/certificates/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
-    "graph_synthesis/certificates/report.py": "4349ffe7dd269833e8144401af3f0a487cf170e80a517d68e0f1eb642047176e",
+    "graph_synthesis/certificates/report.py": "bac82b68cf64073bc88460bbfec7a8ca50667a368383f623c843358fab519fef",
     "graph_synthesis/certificates/requirements.txt": "65dc02c36f5b601cb14c191d83442bc70ce93bd812b0b81fc5204d7925ae3105",
-    "graph_synthesis/certificates/results.json": "eabdfd8858e76bbe18172f58054369910c8dd63dfed21a023749e169f30f8e3e",
+    "graph_synthesis/certificates/results.json": "356c59c521714ec80be68f5b359daca28f3d4d1ca47643ec2790bc99eb5ae228",
     "graph_synthesis/certificates/risk.py": "98b07bc50ff482015003d13cb112ffadd9b4602655c933840464c951a20e4113",
     "graph_synthesis/certificates/run.py": "471cca0e1b3eb2fa579401371d1cedd0de2754582367ac5ca6d7186b3192c7dc",
     "graph_synthesis/certificates/summary.csv": "709f53e8a201baaf19457ca70d745a8547288d0580752e023ed58b2795013bc5",
-    "graph_synthesis/certificates/tests.log": "f40057579ac2ae10dc784525e047215daecb132c14ea59f13604fa1a41a3119a",
+    "graph_synthesis/certificates/tests.log": "8ad211474ae745f66e24580936c4c4407857e1acb842e5f22a16c32d2608db9e",
     "graph_synthesis/certificates/tests/test_certificates.py": "e2c8a78d23237285a88098a8c70b92894685e7bcd4eb011921517151d2434326",
-    "graph_synthesis/certificates/timings.json": "493d8b394e98a5750b39dd8e9f66bb0a1c48d0a0d23cf7e044106bddc37ab329"
+    "graph_synthesis/certificates/timings.json": "2a7403a505f50437c2ce5a028be82e7875f78bf6d3c4851fca0ed3b9d4cd3d11"
   }
 }

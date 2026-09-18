@@ -16,7 +16,10 @@ LAYOUT_ANCHOR = '<!-- UNCERTAINTY_RESEARCH_END -->'
 
 def renderer_text(text: str) -> str:
     """Keep the reviewed main helper unchanged, or adapt the previous inline form."""
-    tree = ast.parse(text)
+    try:
+        tree = ast.parse(text)
+    except SyntaxError as error:
+        raise ValueError('Unparseable publication source') from error
     helpers = [node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name=='strip_research_markers']
     if helpers:
         # Main 114450 introduced its own safe generic helper. Preserve that

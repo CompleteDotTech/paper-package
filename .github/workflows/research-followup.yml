@@ -21,6 +21,55 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r graph_synthesis/requirements-figures.txt
+      - name: Apply locally verified final presentation fixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('graph_synthesis/followup/report.py')
+          s=p.read_text().replace("'|---|---|---|---:|---:|---:|---:|---:|---:|'", "'|---|---|---|---:|---:|---:|---:|---:|'")
+          helper='''def interval_series(r: dict) -> list[tuple[str, dict]]:
+              """Bind plotted labels to keys, never JSON/dictionary iteration order."""
+              return [(label, r['H4']['strategies'][key]) for key, label in (
+                  ('exact_qualifier', 'Exact qualifiers'),
+                  ('qualifier_blind', 'Ignore qualifiers'),
+                  ('interval_scope', 'Interval + scope'))]
+
+
+          '''
+          s=s.replace('def figures(r: dict):',helper+'def figures(r: dict):')
+          s=s.replace("    d = r['H4']['strategies']\n    fig,ax = plt.subplots(figsize=(8.6,5.2))\n    names = list(d)","    rows = interval_series(r)\n    fig,ax = plt.subplots(figsize=(8.6,5.2))")
+          s=s.replace("[d[n]['missed_conflicts'] for n in names]", "[m['missed_conflicts'] for _,m in rows]")
+          s=s.replace("[d[n]['false_conflicts'] for n in names]", "[m['false_conflicts'] for _,m in rows]")
+          s=s.replace("ax.set_xticks(range(3),['Exact qualifiers','Ignore qualifiers','Interval + scope'])", "ax.set_xticks(range(3),[label for label,_ in rows])")
+          p.write_text(s)
+          p=Path('graph_synthesis/followup/tests/test_followup.py')
+          s=p.read_text().replace('import copy\n','import copy\nimport json\n')
+          s=s.replace("if __name__=='__main__':unittest.main()", '''class PresentationTests(unittest.TestCase):
+              def test_interval_labels_survive_json_key_sort(self):
+                  from graph_synthesis.followup.report import interval_series
+                  data=json.loads(json.dumps({'H4':{'strategies':{
+                      'exact_qualifier':{'missed_conflicts':1108,'false_conflicts':0},
+                      'qualifier_blind':{'missed_conflicts':0,'false_conflicts':1544},
+                      'interval_scope':{'missed_conflicts':0,'false_conflicts':0}}}},sort_keys=True))
+                  rows=interval_series(data)
+                  self.assertEqual([label for label,_ in rows],['Exact qualifiers','Ignore qualifiers','Interval + scope'])
+                  self.assertEqual([m['false_conflicts'] for _,m in rows],[0,1544,0])
+                  self.assertEqual([m['missed_conflicts'] for _,m in rows],[1108,0,0])
+
+
+          if __name__=='__main__':unittest.main()''')
+          p.write_text(s)
+          p=Path('graph_synthesis/followup/REVIEW.md')
+          s=p.read_text().replace('three implementation/presentation issues','four implementation/presentation issues').replace('PDF pages were rendered and inspected.', 'PDF pages were rendered and inspected. A final chart review also caught a JSON-key-order mismatch between the interval bars and their display labels; explicit keyed series and a serialization-order regression test now prevent that mismatch.')
+          p.write_text(s)
+          expected={'methods.py':'4678898a7c43becfa7564bd00bdb1061a119f69c','run.py':'c5b5177424949fd2bd9965f739df7046382cf261','report.py':'286363ab62193f58fd9fcf2f007403e4ce64de52','tests/test_followup.py':'4e3d5ea231bb53b78d5f9111d5990c76c9727ccd'}
+          for name,want in expected.items():
+              b=(Path('graph_synthesis/followup')/name).read_bytes()
+              actual=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+              assert actual==want,(name,actual,want)
+          print('All four source files exactly match the locally tested versions')
+          PY
       - name: Execute hypotheses and regression tests
         run: |
           python -B -m unittest discover -s graph_synthesis/followup/tests -v
@@ -30,20 +79,18 @@ jobs:
           python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
           python -B -m graph_synthesis.verify --output /tmp/frozen-verification.json
           python -B -m graph_synthesis.falsification --check
-      - name: Commit only generated follow-up artifacts to authorized research branch
+      - name: Commit only reviewed source corrections and generated artifacts
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add graph_synthesis/followup/results.json graph_synthesis/followup/RESULTS.md graph_synthesis/followup/artifact-manifest.json graph_synthesis/followup/figures CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.html manuscript/paper-current.pdf manuscript/paper-current.build.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'research: publish executed five-hypothesis evidence, figures and current paper'
-            git push origin HEAD:refs/heads/research/five-followup-improvements-20260918
-          fi
-          git archive --format=tar.gz HEAD -o /tmp/followup-generated-source.tar.gz
+          git add graph_synthesis/followup/report.py graph_synthesis/followup/tests/test_followup.py graph_synthesis/followup/REVIEW.md graph_synthesis/followup/results.json graph_synthesis/followup/RESULTS.md graph_synthesis/followup/artifact-manifest.json graph_synthesis/followup/figures CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.html manuscript/paper-current.pdf manuscript/paper-current.build.json
+          git commit -m 'fix: bind chart labels to evidence keys and regenerate reviewed paper'
+          git push origin HEAD:refs/heads/research/five-followup-improvements-20260918
+          git archive --format=tar.gz HEAD -o /tmp/followup-reviewed-source.tar.gz
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: followup-generated-source
+          name: followup-reviewed-source
           path: |
-            /tmp/followup-generated-source.tar.gz
+            /tmp/followup-reviewed-source.tar.gz
             /tmp/frozen-verification.json
           retention-days: 7

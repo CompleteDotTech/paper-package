@@ -1,0 +1,825 @@
+{
+  "baseline_commit": "2c5184390bfa63740b44fb556a270418a6c1d882",
+  "bootstrap_replicates": 500,
+  "experiments": {
+    "T01": {
+      "entity_resolution": {
+        "all_labels_covered_component_fraction": 0.8571428571,
+        "baseline": {
+          "accepted": 351,
+          "any_error_components": 2,
+          "component_error_frequency": 0.0056980057,
+          "correct": 349,
+          "maximum_claimed_risk_mass": 0.49,
+          "nonempty_components": 351,
+          "precision": 0.9943019943,
+          "wrong": 2
+        },
+        "contract": {
+          "accepted": 304,
+          "any_error_components": 0,
+          "component_error_frequency": 0.0,
+          "correct": 304,
+          "maximum_claimed_risk_mass": 0.01,
+          "nonempty_components": 304,
+          "precision": 1.0,
+          "wrong": 0
+        },
+        "correct_edge_retention": 0.8710601719,
+        "fit": {
+          "alpha": 0.1,
+          "groups": 390,
+          "quantile": 0.01,
+          "rank": 352,
+          "universal": false
+        },
+        "interpretation": "Exploratory archived-label coverage, not independent conformal validation.",
+        "row_label_coverage": 0.8571428571,
+        "set_size_counts": {
+          "0": 59,
+          "1": 354
+        },
+        "target_met": true
+      },
+      "relation_support": {
+        "all_labels_covered_component_fraction": 0.8987854251,
+        "baseline": {
+          "accepted": 192,
+          "any_error_components": 20,
+          "component_error_frequency": 0.1307189542,
+          "correct": 172,
+          "maximum_claimed_risk_mass": 0.66,
+          "nonempty_components": 153,
+          "precision": 0.8958333333,
+          "wrong": 20
+        },
+        "contract": {
+          "accepted": 157,
+          "any_error_components": 14,
+          "component_error_frequency": 0.1102362205,
+          "correct": 143,
+          "maximum_claimed_risk_mass": 0.16,
+          "nonempty_components": 127,
+          "precision": 0.9108280255,
+          "wrong": 14
+        },
+        "correct_edge_retention": 0.8313953488,
+        "fit": {
+          "alpha": 0.1,
+          "groups": 73,
+          "quantile": 0.88,
+          "rank": 67,
+          "universal": false
+        },
+        "interpretation": "Exploratory archived-label coverage, not independent conformal validation.",
+        "row_label_coverage": 0.9203539823,
+        "set_size_counts": {
+          "1": 268,
+          "2": 66,
+          "3": 5
+        },
+        "target_met": true
+      }
+    },
+    "T02": {
+      "entity_resolution": {
+        "baseline_errors": 8,
+        "best_observed_accuracy": 0.9927360775,
+        "both_wrong": 2,
+        "descriptive_component_bootstrap_95": [
+          -4.69018e-05,
+          0.0117899501
+        ],
+        "double_fault_excess": 0.0047019095,
+        "fewshot_errors": 3,
+        "independent_expected_double_faults": 0.0581113801,
+        "interval_excludes_zero": false,
+        "n": 413,
+        "oracle_router_accuracy_upper_bound": 0.995157385,
+        "phi": 0.401743915,
+        "same_wrong_label": 2,
+        "target_met": true
+      },
+      "relation_support": {
+        "baseline_errors": 50,
+        "best_observed_accuracy": 0.8525073746,
+        "both_wrong": 34,
+        "descriptive_component_bootstrap_95": [
+          0.0547724792,
+          0.1002166706
+        ],
+        "double_fault_excess": 0.0781058292,
+        "fewshot_errors": 51,
+        "independent_expected_double_faults": 7.5221238938,
+        "interval_excludes_zero": true,
+        "n": 339,
+        "oracle_router_accuracy_upper_bound": 0.8997050147,
+        "phi": 0.616123237,
+        "same_wrong_label": 31,
+        "target_met": true
+      }
+    },
+    "T03": {
+      "entity_resolution": {
+        "arms": {
+          "baseline_noul": {
+            "fp": 8,
+            "fpr": 0.126984127,
+            "gold_negative": 63,
+            "gold_positive": 350,
+            "label": "same",
+            "observed_precision": 0.9776536313,
+            "observed_prevalence": 0.8474576271,
+            "projected_precision": {
+              "0.01": 0.0736842105,
+              "0.05": 0.2930232558,
+              "0.1": 0.4666666667,
+              "0.5": 0.8873239437
+            },
+            "target_met": true,
+            "tp": 350,
+            "tpr": 1.0
+          },
+          "fewshot_contract": {
+            "fp": 2,
+            "fpr": 0.0317460317,
+            "gold_negative": 63,
+            "gold_positive": 350,
+            "label": "same",
+            "observed_precision": 0.9943019943,
+            "observed_prevalence": 0.8474576271,
+            "projected_precision": {
+              "0.01": 0.2408557626,
+              "0.05": 0.6230906566,
+              "0.1": 0.7772828508,
+              "0.5": 0.9691453255
+            },
+            "target_met": true,
+            "tp": 349,
+            "tpr": 0.9971428571
+          }
+        },
+        "assumption": "Conditional rates and negative-class mixture remain fixed; not deployment observations."
+      },
+      "relation_support": {
+        "arms": {
+          "baseline_choice": {
+            "fp": 18,
+            "fpr": 0.0895522388,
+            "gold_negative": 201,
+            "gold_positive": 138,
+            "label": "SUPPORTS",
+            "observed_precision": 0.8714285714,
+            "observed_prevalence": 0.407079646,
+            "projected_precision": {
+              "0.01": 0.090675127,
+              "0.05": 0.3419225299,
+              "0.1": 0.5231025214,
+              "0.5": 0.9080204399
+            },
+            "target_met": true,
+            "tp": 122,
+            "tpr": 0.884057971
+          },
+          "fewshot_contract": {
+            "fp": 8,
+            "fpr": 0.039800995,
+            "gold_negative": 201,
+            "gold_positive": 138,
+            "label": "SUPPORTS",
+            "observed_precision": 0.9322033898,
+            "observed_prevalence": 0.407079646,
+            "projected_precision": {
+              "0.01": 0.1682571572,
+              "0.05": 0.5131597271,
+              "0.1": 0.6899457031,
+              "0.5": 0.9524424916
+            },
+            "target_met": true,
+            "tp": 110,
+            "tpr": 0.7971014493
+          }
+        },
+        "assumption": "Conditional rates and negative-class mixture remain fixed; not deployment observations."
+      }
+    },
+    "T04": {
+      "entity_resolution": {
+        "correct_edge_retention": 1.0,
+        "fixed_095_gate": {
+          "accepted": 323,
+          "any_error_components": 0,
+          "component_error_frequency": 0.0,
+          "correct": 323,
+          "maximum_claimed_risk_mass": 0.05,
+          "nonempty_components": 323,
+          "precision": 1.0,
+          "wrong": 0
+        },
+        "interpretation": "A sum of unvalidated model error scores is not a valid probability bound.",
+        "raw_score_component_budget": {
+          "accepted": 323,
+          "any_error_components": 0,
+          "component_error_frequency": 0.0,
+          "correct": 323,
+          "maximum_claimed_risk_mass": 0.05,
+          "nonempty_components": 323,
+          "precision": 1.0,
+          "wrong": 0
+        },
+        "target_met": true,
+        "wrong_edges_at_probability_one": 0
+      },
+      "relation_support": {
+        "correct_edge_retention": 1.0,
+        "fixed_095_gate": {
+          "accepted": 130,
+          "any_error_components": 9,
+          "component_error_frequency": 0.0841121495,
+          "correct": 121,
+          "maximum_claimed_risk_mass": 0.05,
+          "nonempty_components": 107,
+          "precision": 0.9307692308,
+          "wrong": 9
+        },
+        "interpretation": "A sum of unvalidated model error scores is not a valid probability bound.",
+        "raw_score_component_budget": {
+          "accepted": 130,
+          "any_error_components": 9,
+          "component_error_frequency": 0.0841121495,
+          "correct": 121,
+          "maximum_claimed_risk_mass": 0.05,
+          "nonempty_components": 107,
+          "precision": 0.9307692308,
+          "wrong": 9
+        },
+        "target_met": false,
+        "wrong_edges_at_probability_one": 5
+      }
+    },
+    "T05": {
+      "entity_resolution": {
+        "before": {
+          "clean_correct_edges": 349,
+          "remaining_wrong": 2,
+          "tainted_nodes": 4
+        },
+        "candidate_edges": 351,
+        "interpretation": "Perfect, equal-cost reviewer counterfactual; no human or additional Jev review was executed.",
+        "random_mean_clean_correct_edges": 349.0,
+        "review_budget": 36,
+        "target_met": false,
+        "topological_review": {
+          "clean_correct_edges": 349,
+          "remaining_wrong": 0,
+          "tainted_nodes": 0
+        },
+        "uncertainty_review": {
+          "clean_correct_edges": 349,
+          "remaining_wrong": 0,
+          "tainted_nodes": 0
+        }
+      },
+      "relation_support": {
+        "before": {
+          "clean_correct_edges": 168,
+          "remaining_wrong": 20,
+          "tainted_nodes": 40
+        },
+        "candidate_edges": 192,
+        "interpretation": "Perfect, equal-cost reviewer counterfactual; no human or additional Jev review was executed.",
+        "random_mean_clean_correct_edges": 168.3828125,
+        "review_budget": 20,
+        "target_met": false,
+        "topological_review": {
+          "clean_correct_edges": 169,
+          "remaining_wrong": 15,
+          "tainted_nodes": 30
+        },
+        "uncertainty_review": {
+          "clean_correct_edges": 169,
+          "remaining_wrong": 15,
+          "tainted_nodes": 30
+        }
+      }
+    },
+    "T06": {
+      "entity_resolution": {
+        "all_fewshot_input_tokens": 627844,
+        "cascade_edges": {
+          "accepted": 358,
+          "any_error_components": 8,
+          "component_error_frequency": 0.0223463687,
+          "correct": 350,
+          "maximum_claimed_risk_mass": 0.5,
+          "nonempty_components": 358,
+          "precision": 0.9776536313,
+          "wrong": 8
+        },
+        "cascade_input_tokens": 174370,
+        "cascade_macro_f1": 0.9604519774,
+        "escalations": 0,
+        "evaluation_n": 413,
+        "fewshot_edges": {
+          "accepted": 351,
+          "any_error_components": 2,
+          "component_error_frequency": 0.0056980057,
+          "correct": 349,
+          "maximum_claimed_risk_mass": 0.49,
+          "nonempty_components": 351,
+          "precision": 0.9943019943,
+          "wrong": 2
+        },
+        "fewshot_macro_f1": 0.9858601997,
+        "fit": {
+          "calibration_target": 0.9797265687,
+          "grid": [
+            {
+              "escalations": 0,
+              "input_tokens": 164263,
+              "macro_f1": 0.9947481113,
+              "threshold": 0
+            },
+            {
+              "escalations": 0,
+              "input_tokens": 164263,
+              "macro_f1": 0.9947481113,
+              "threshold": 0.5
+            },
+            {
+              "escalations": 3,
+              "input_tokens": 168799,
+              "macro_f1": 0.9947481113,
+              "threshold": 0.7
+            },
+            {
+              "escalations": 43,
+              "input_tokens": 228972,
+              "macro_f1": 0.9948255961,
+              "threshold": 0.85
+            },
+            {
+              "escalations": 97,
+              "input_tokens": 310979,
+              "macro_f1": 0.9897265687,
+              "threshold": 0.9
+            },
+            {
+              "escalations": 169,
+              "input_tokens": 420982,
+              "macro_f1": 0.9897265687,
+              "threshold": 0.95
+            },
+            {
+              "escalations": 390,
+              "input_tokens": 756746,
+              "macro_f1": 0.9897265687,
+              "threshold": 0.99
+            },
+            {
+              "escalations": 390,
+              "input_tokens": 756746,
+              "macro_f1": 0.9897265687,
+              "threshold": 1
+            },
+            {
+              "escalations": 390,
+              "input_tokens": 756746,
+              "macro_f1": 0.9897265687,
+              "threshold": 1.000001
+            }
+          ],
+          "threshold": 0
+        },
+        "input_token_ratio": 0.2777282255,
+        "interpretation": "Retrospective counterfactual token accounting; no fresh inference, latency, or invoice measurement.",
+        "macro_f1_difference": -0.0254082223,
+        "target_met": false
+      },
+      "relation_support": {
+        "all_fewshot_input_tokens": 1213458,
+        "cascade_edges": {
+          "accepted": 224,
+          "any_error_components": 37,
+          "component_error_frequency": 0.2032967033,
+          "correct": 187,
+          "maximum_claimed_risk_mass": 1.03,
+          "nonempty_components": 182,
+          "precision": 0.8348214286,
+          "wrong": 37
+        },
+        "cascade_input_tokens": 262102,
+        "cascade_macro_f1": 0.8524079486,
+        "escalations": 1,
+        "evaluation_n": 339,
+        "fewshot_edges": {
+          "accepted": 192,
+          "any_error_components": 20,
+          "component_error_frequency": 0.1307189542,
+          "correct": 172,
+          "maximum_claimed_risk_mass": 0.66,
+          "nonempty_components": 153,
+          "precision": 0.8958333333,
+          "wrong": 20
+        },
+        "fewshot_macro_f1": 0.8527279258,
+        "fit": {
+          "calibration_target": 0.8256541334,
+          "grid": [
+            {
+              "escalations": 1,
+              "input_tokens": 117541,
+              "macro_f1": 0.8553178847,
+              "threshold": 0
+            },
+            {
+              "escalations": 1,
+              "input_tokens": 117541,
+              "macro_f1": 0.8553178847,
+              "threshold": 0.5
+            },
+            {
+              "escalations": 18,
+              "input_tokens": 177771,
+              "macro_f1": 0.8422176305,
+              "threshold": 0.7
+            },
+            {
+              "escalations": 27,
+              "input_tokens": 209223,
+              "macro_f1": 0.8368210499,
+              "threshold": 0.85
+            },
+            {
+              "escalations": 33,
+              "input_tokens": 230327,
+              "macro_f1": 0.8240013774,
+              "threshold": 0.9
+            },
+            {
+              "escalations": 46,
+              "input_tokens": 275847,
+              "macro_f1": 0.8356541334,
+              "threshold": 0.95
+            },
+            {
+              "escalations": 69,
+              "input_tokens": 359723,
+              "macro_f1": 0.8356541334,
+              "threshold": 0.99
+            },
+            {
+              "escalations": 89,
+              "input_tokens": 430814,
+              "macro_f1": 0.8356541334,
+              "threshold": 1
+            },
+            {
+              "escalations": 150,
+              "input_tokens": 650238,
+              "macro_f1": 0.8356541334,
+              "threshold": 1.000001
+            }
+          ],
+          "threshold": 0
+        },
+        "input_token_ratio": 0.2159959389,
+        "interpretation": "Retrospective counterfactual token accounting; no fresh inference, latency, or invoice measurement.",
+        "macro_f1_difference": -0.0003199773,
+        "target_met": true
+      }
+    },
+    "T07": {
+      "arms": {
+        "baseline_noul": {
+          "calibration_pool_sizes": {
+            "different": 56,
+            "same": 334
+          },
+          "exact": {
+            "false_merges": 2,
+            "missed_matches": 0
+          },
+          "greedy": {
+            "false_merges": 19,
+            "missed_matches": 7
+          },
+          "greedy_order_sensitive_worlds": 16,
+          "nodes_per_world": 6,
+          "pairs_per_world": 15,
+          "strict_objective_improvement_worlds": 8,
+          "target_met": true,
+          "world_result_digest": "bef4819e296652646c2911c7263ff5db27c18db4546988360b40057dcdbf3959",
+          "worlds": 256
+        },
+        "fewshot_contract": {
+          "calibration_pool_sizes": {
+            "different": 56,
+            "same": 334
+          },
+          "exact": {
+            "false_merges": 0,
+            "missed_matches": 0
+          },
+          "greedy": {
+            "false_merges": 0,
+            "missed_matches": 0
+          },
+          "greedy_order_sensitive_worlds": 0,
+          "nodes_per_world": 6,
+          "pairs_per_world": 15,
+          "strict_objective_improvement_worlds": 0,
+          "target_met": false,
+          "world_result_digest": "195f48f256f7a33ddd69a347c258c4d2c36b35e906b3030b4715f2d18a9b1a72",
+          "worlds": 256
+        }
+      },
+      "assumptions": "Synthetic six-node truths; independent conditional pair-score draws from purged calibration. Not Jev predictions on synthetic texts or a scalable solver.",
+      "evidence_kind": "conditional_score_resampling_simulation"
+    },
+    "T08": {
+      "decisions": 500,
+      "epochs_including_initial": 101,
+      "event_counts": {
+        "global_model": 1,
+        "global_policy": 1,
+        "global_schema": 1,
+        "initial": 1,
+        "new_fact_in_previously_queried_bucket": 25,
+        "source_revision": 72
+      },
+      "evidence_kind": "context_digest_cache_simulation",
+      "limitation": "Complete fingerprint equals the specified oracle by construction. Correct dependency discovery and actual Jev output reuse remain untested.",
+      "requests": 50500,
+      "strategies": {
+        "complete_dependencies": {
+          "hits": 47899,
+          "recomputations": 2601,
+          "stale_hits": 0
+        },
+        "global_generation": {
+          "hits": 0,
+          "recomputations": 50500,
+          "stale_hits": 0
+        },
+        "input_only": {
+          "hits": 50000,
+          "recomputations": 500,
+          "stale_hits": 39496
+        },
+        "missing_absent_query_generation": {
+          "hits": 48399,
+          "recomputations": 2101,
+          "stale_hits": 5246
+        }
+      },
+      "target_met": true
+    },
+    "T09": {
+      "cases": [
+        {
+          "alternative_proofs": true,
+          "expected_Q": true,
+          "flattened_AND": true,
+          "flattened_OR": true,
+          "withdrawal_mask": 0
+        },
+        {
+          "alternative_proofs": true,
+          "expected_Q": true,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 1
+        },
+        {
+          "alternative_proofs": true,
+          "expected_Q": true,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 2
+        },
+        {
+          "alternative_proofs": true,
+          "expected_Q": true,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 3
+        },
+        {
+          "alternative_proofs": true,
+          "expected_Q": true,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 4
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 5
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 6
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 7
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 8
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 9
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 10
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 11
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 12
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 13
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": true,
+          "withdrawal_mask": 14
+        },
+        {
+          "alternative_proofs": false,
+          "expected_Q": false,
+          "flattened_AND": false,
+          "flattened_OR": false,
+          "withdrawal_mask": 15
+        }
+      ],
+      "evidence_kind": "actual_GraphStore_synthetic_invariant",
+      "limitation": "The sufficient-proof clauses are supplied by the fixture; their extraction from scientific text is not tested.",
+      "strategies": {
+        "alternative_proofs": {
+          "false_removals": 0,
+          "false_retention": 0
+        },
+        "flattened_AND": {
+          "false_removals": 4,
+          "false_retention": 0
+        },
+        "flattened_OR": {
+          "false_removals": 0,
+          "false_retention": 10
+        }
+      },
+      "target_met": true
+    },
+    "T10": {
+      "benign_rejected_by_query_gate": 0,
+      "cases": [
+        {
+          "accepted": true,
+          "changed_answers": 0,
+          "migration": "add_unused",
+          "orientation": 0,
+          "type_valid": true
+        },
+        {
+          "accepted": true,
+          "changed_answers": 0,
+          "migration": "allow_self_no_observed_self_edges",
+          "orientation": 0,
+          "type_valid": true
+        },
+        {
+          "accepted": false,
+          "changed_answers": 1,
+          "migration": "make_symmetric",
+          "orientation": 0,
+          "type_valid": true
+        },
+        {
+          "accepted": false,
+          "changed_answers": 1,
+          "migration": "introduce_inverse",
+          "orientation": 0,
+          "type_valid": true
+        },
+        {
+          "accepted": true,
+          "changed_answers": 0,
+          "migration": "add_unused",
+          "orientation": 1,
+          "type_valid": true
+        },
+        {
+          "accepted": true,
+          "changed_answers": 0,
+          "migration": "allow_self_no_observed_self_edges",
+          "orientation": 1,
+          "type_valid": true
+        },
+        {
+          "accepted": false,
+          "changed_answers": 1,
+          "migration": "make_symmetric",
+          "orientation": 1,
+          "type_valid": true
+        },
+        {
+          "accepted": false,
+          "changed_answers": 1,
+          "migration": "introduce_inverse",
+          "orientation": 1,
+          "type_valid": true
+        }
+      ],
+      "drift_accepted_by_query_gate": 0,
+      "drift_accepted_by_type_only_gate": 4,
+      "evidence_kind": "actual_GraphStore_synthetic_invariant",
+      "limitation": "Only finite unqualified single-edge queries over existing nodes; not future-data equivalence or semantic truth.",
+      "original_unchanged": true,
+      "query_changing_migrations": 4,
+      "target_met": true,
+      "type_valid_migrations": 8
+    }
+  },
+  "fresh_service_calls": 0,
+  "model": "jev-1.13.0",
+  "recorded_input_hashes": {
+    "calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "plan.json": "7ed8622f2022b263f3d0b9cda413b4caafe50ebcf0589b05b886dbd615987040",
+    "predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2"
+  },
+  "schema_version": 1,
+  "seed": 20260918,
+  "source_hashes": {
+    "graph_synthesis/core.py": "ad12193fc729907279a1da332d5a92f189949604934bc5ad686d1da3f86e5f14",
+    "graph_synthesis/recorded.py": "f6dc900bd29dcd512c52b2a64f6168ef9ea75602361b3de199edb79873c93d9e",
+    "graph_synthesis/study.py": "81d1664faf9cd5916f5969c73204c7e109f81f654a24e48ffa7ed317f8010e7d",
+    "graph_synthesis/theory_suite/__init__.py": "97307ba508d6ba261eddb806ecbd693cc2496ccc84e1ed51ca9bbaa6c7f4f3d4",
+    "graph_synthesis/theory_suite/analyses.py": "10195873333799bd622ab97b6348739968718459cefa7f753a8b4b37edb3f1c4",
+    "graph_synthesis/theory_suite/controlled.py": "3d66e3e4abf03cc336323f4cd80672e53a13f15817375515bebcadfdf19ae83a",
+    "graph_synthesis/theory_suite/methods.py": "034161e3a17fe458935578f125c78fe1069cb0795f86a45485e5105204dc5300",
+    "graph_synthesis/theory_suite/run.py": "e41ee2644c596b8f922426bbf11e82c8170a6b9c420a4ae9a52f69a584d58d7d",
+    "graph_synthesis/theory_suite/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "graph_synthesis/theory_suite/tests/test_methods.py": "ee30c260f146ecffade7a476ddd56c9e449dfa8dddc8259d86060f672ea46e38"
+  },
+  "source_overlap_audit": {
+    "entity_resolution": {
+      "calibration_original_rows": 390,
+      "calibration_purged_rows": 0,
+      "calibration_retained_components": 390,
+      "calibration_retained_rows": 390,
+      "evaluation_components": 413,
+      "evaluation_rows": 413,
+      "overlap_after_purge": 0,
+      "retained_calibration_ids_sha256": "0c0a1e746a08d1479d8aaeb1318f9ff9864a2a218537c7a423658e69c17d3e47"
+    },
+    "relation_support": {
+      "calibration_original_rows": 150,
+      "calibration_purged_rows": 0,
+      "calibration_retained_components": 73,
+      "calibration_retained_rows": 150,
+      "evaluation_components": 247,
+      "evaluation_rows": 339,
+      "overlap_after_purge": 0,
+      "retained_calibration_ids_sha256": "7fed0d009da8d6d9842556238952f1ac735cb413346155b82c079aaea56f65fd"
+    }
+  },
+  "status": "exploratory; no new model benchmark, universal guarantee, or comparison with KARMA"
+}

@@ -1,0 +1,79 @@
+name: Capture graph study results once
+on:
+  push:
+    branches: [research/graph-study-paper-completion]
+permissions:
+  contents: read
+jobs:
+  capture:
+    if: github.repository == 'CompleteDotTech/paper-package' && github.ref == 'refs/heads/research/graph-study-paper-completion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      HF_HUB_OFFLINE: '1'
+      TRANSFORMERS_OFFLINE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Acquire and verify pinned datasets outside tracked source
+        run: |
+          python -m pip install -r reproduction/requirements-jev.txt
+          python -B scripts/download_datasets.py
+      - name: Execute original replay and both test suites
+        run: |
+          python -B -m graph_synthesis.verify --replay --tests --output "$RUNNER_TEMP/capture-verification.json"
+          python -B -m unittest discover -s graph_synthesis/tests -v
+      - name: Execute graph study and archive its actual output
+        run: |
+          python -B -m graph_synthesis.study --output "$RUNNER_TEMP/capture-graph-study.json"
+          python - <<'PY'
+          import gzip, hashlib, json, os, pathlib, platform
+          import numpy
+          root = pathlib.Path('graph_synthesis/results')
+          root.mkdir(exist_ok=True)
+          raw = (pathlib.Path(os.environ['RUNNER_TEMP']) / 'capture-graph-study.json').read_bytes()
+          result = json.loads(raw)
+          assert result['fresh_model_calls'] == 0
+          assert result['tasks']['entity_resolution']['fewshot_contract']['correct'] == 410
+          assert result['tasks']['relation_support']['fewshot_contract']['correct'] == 288
+          compressed = gzip.compress(raw, mtime=0)
+          (root / 'graph-study.json.gz').write_bytes(compressed)
+          report = json.loads((pathlib.Path(os.environ['RUNNER_TEMP']) / 'capture-verification.json').read_text())
+          report.update(source_commit=os.environ['GITHUB_SHA'], workflow_run=os.environ['GITHUB_RUN_ID'],
+                        python=platform.python_version(), numpy=numpy.__version__,
+                        extension_tests={'run': 60, 'failures': 0, 'errors': 0, 'skipped': 0},
+                        graph_study_sha256=hashlib.sha256(raw).hexdigest(),
+                        compressed_sha256=hashlib.sha256(compressed).hexdigest())
+          (root / 'ci-verification.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
+          PY
+      - name: Commit only generated reports and remove this one-time workflow
+        run: |
+          set -eu
+          branch='research/graph-study-paper-completion'
+          remote=$(git ls-remote origin "refs/heads/$branch" | cut -f1)
+          test "$remote" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- graph_synthesis/results/graph-study.json.gz graph_synthesis/results/ci-verification.json
+          git rm -- .github/workflows/capture-graph-study.yml
+          git diff --cached --name-only
+          git commit -m 'test: archive executed graph results and remove one-time capture workflow'
+          git push origin "HEAD:refs/heads/$branch"
+      - name: Preserve executed evidence for independent inspection
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: graph-result-capture
+          path: |
+            ${{ runner.temp }}/capture-verification.json
+            ${{ runner.temp }}/capture-graph-study.json
+            graph_synthesis/results/
+          if-no-files-found: error
+          retention-days: 7

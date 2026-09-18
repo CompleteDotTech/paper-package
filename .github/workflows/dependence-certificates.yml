@@ -103,7 +103,9 @@ jobs:
           (base/'combined-tests.log').write_text('\n'.join(logs),encoding='utf-8')
           (base/'combined-validation.json').write_text(json.dumps({'suites':records,'total_tests':sum(x['tests'] for x in records),'failures':0},sort_keys=True,indent=2)+'\n',encoding='utf-8')
           PY
-          python -B -m graph_synthesis.verify --replay --tests --output "$RUNNER_TEMP/certificates-original.json"
+          # Original replay uses its own pinned dependencies and dataset acquisition
+          # in graph-synthesis.yml; verify immutable archive bytes here as well.
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/certificates-original.json"
           cp "$RUNNER_TEMP/certificates-original.json" graph_synthesis/certificates/original-inventory.json
           python -B -m graph_synthesis.certificates.report --figures --update-paper
           python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
@@ -113,6 +115,7 @@ jobs:
           fi
           git push origin HEAD:research/dependence-aware-certificates
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
         with:
           name: certificates-source-and-evidence
           path: |

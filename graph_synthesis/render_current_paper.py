@@ -9,6 +9,12 @@ from urllib.request import url2pathname
 
 NUMERIC = re.compile(r'[+-]?(?:\d[\d,]*(?:\.\d*)?|\.\d+)%?')
 TABLE_CSS = '\nth { overflow-wrap: normal; }\ntd.numeric { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }\n'
+RESEARCH_MARKER = re.compile(r'<!--\s*[A-Z][A-Z0-9_]*_RESEARCH_(?:START|END)\s*-->')
+
+
+def strip_research_markers(markdown):
+    """Keep additive source anchors out of reader-facing HTML and PDF output."""
+    return RESEARCH_MARKER.sub('', markdown)
 
 
 def format_numeric_cells(body):
@@ -37,7 +43,7 @@ def render(output):
     from .render_paper import CSS
     root = Path(__file__).resolve().parents[1]
     source = root / "manuscript/paper-current.md"
-    markdown = re.sub(r"<!-- (?:FOLLOWUP|ADAPTIVE|RISK_CONTROL|STRUCTURAL|RELIABILITY)_RESEARCH_(?:START|END) -->", "", source.read_text(encoding="utf-8"))
+    markdown = strip_research_markers(source.read_text(encoding="utf-8"))
     validate_images(markdown, source, root)
     body = MarkdownIt("commonmark", {"html": False}).enable("table").render(markdown)
     body = re.sub(r"<p>(<img [^>]+>)</p>", r"<figure>\1</figure>", body)

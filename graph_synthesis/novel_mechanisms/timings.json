@@ -1,0 +1,62 @@
+{
+  "note": "Host-specific elapsed measurements, not service latency, invoices or a universal speedup. Not compared byte-for-byte during replay.",
+  "numpy": "2.5.3",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "results": [
+    {
+      "edges": 1920,
+      "median_seconds": {
+        "indexed": 0.008272332000004212,
+        "pairwise": 4.696145537000007
+      },
+      "n": 2048,
+      "scope": "Validation, grouping/sorting, candidate checks and edge-list construction included; input generation and I/O excluded.",
+      "seconds": {
+        "indexed": [
+          0.008417620000003012,
+          0.008272332000004212,
+          0.00823651399998937,
+          0.008161381999997275,
+          0.008399105999998824
+        ],
+        "pairwise": [
+          4.707410034000006,
+          4.674729587000002,
+          4.681121849000007,
+          4.707888170000004,
+          4.696145537000007
+        ]
+      },
+      "workload": "sparse_2048"
+    },
+    {
+      "edges": 32640,
+      "median_seconds": {
+        "indexed": 0.03263514100000009,
+        "pairwise": 0.11261659400000212
+      },
+      "n": 256,
+      "scope": "Validation, grouping/sorting, candidate checks and edge-list construction included; input generation and I/O excluded.",
+      "seconds": {
+        "indexed": [
+          0.0582651599999906,
+          0.033261581999994405,
+          0.030760638000003837,
+          0.03263514100000009,
+          0.031202791999987767
+        ],
+        "pairwise": [
+          0.11021737299999756,
+          0.11261659400000212,
+          0.1310019489999945,
+          0.14220465199998955,
+          0.10787884299999462
+        ]
+      },
+      "workload": "dense_256"
+    }
+  ],
+  "samples_per_method": 5,
+  "scipy": "1.18.0"
+}

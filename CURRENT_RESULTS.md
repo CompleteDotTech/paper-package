@@ -24,6 +24,14 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
+<!-- NOVEL_MECHANISMS_RESEARCH_START -->
+
+## Five previously untested mechanisms after PR #17
+
+[Executed report](graph_synthesis/novel_mechanisms/RESULTS.md), [frozen protocol](graph_synthesis/novel_mechanisms/PROTOCOL.md), [five figures](graph_synthesis/novel_mechanisms/figures/) and [updated full paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. Label-shift correction ties at 18 wrong edges per 150 accepted. Dependence-safe certificates, protected-fact repair, bipartite optimization and indexed conflict construction meet controlled targets. No fresh Jev calls, independent semantic accuracy or worldwide novelty claims; no production policy changes. Negative results and assumption-breaking controls are retained.
+
+<!-- NOVEL_MECHANISMS_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

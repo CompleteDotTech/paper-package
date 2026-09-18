@@ -248,9 +248,22 @@ def update_paper(r: dict):
     note = '\n## Five follow-up improvements (PR #13)\n\n[Executed results](graph_synthesis/followup/RESULTS.md), [frozen protocol](graph_synthesis/followup/PROTOCOL.md), '
     note += '[five figures](graph_synthesis/followup/figures/), and the updated full paper distinguish same-data response replay from controlled algorithm tests. '
     note += 'No new service calls; negative results retained; no production-policy change.\n'
-    if '\n## Five follow-up improvements (PR #13)' in text:
-        text = text.split('\n## Five follow-up improvements (PR #13)')[0]
-    entry.write_text(text.rstrip()+'\n'+note,encoding='utf-8')
+    heading = '\n## Five follow-up improvements (PR #13)'
+    if heading in text:
+        start = text.index(heading)
+        after = start + len(heading)
+        # This entry pre-dates marker-based additive studies and historically
+        # assumed it was last. Preserve any later research blocks/headings so
+        # older regeneration workflows cannot delete newly appended evidence.
+        candidates = [p for p in (
+            text.find('\n<!-- ', after),
+            text.find('\n## ', after),
+        ) if p != -1]
+        suffix = text[min(candidates):] if candidates else ''
+        text = text[:start].rstrip() + '\n' + note.rstrip() + '\n' + suffix.lstrip('\n')
+    else:
+        text = text.rstrip() + '\n' + note
+    entry.write_text(text,encoding='utf-8')
 
 
 def manifest():

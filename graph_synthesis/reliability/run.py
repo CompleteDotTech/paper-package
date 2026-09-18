@@ -26,6 +26,11 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def json_value(value):
+    """Use identical JSON container types for live and deserialized artifacts."""
+    return json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
+
+
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False)+'\n', encoding='utf-8', newline='\n')
@@ -386,7 +391,7 @@ def main():
     parser.add_argument('--check',action='store_true')
     args = parser.parse_args()
     with patch.object(socket.socket,'connect',side_effect=RuntimeError('Network forbidden in reliability replay')), patch.object(socket,'create_connection',side_effect=RuntimeError('Network forbidden in reliability replay')):
-        result = execute()
+        result = json_value(execute())
     if args.check:
         from ..verify import compare_json
         compare_json(json.loads((HERE/'results.json').read_text(encoding='utf-8')),result)

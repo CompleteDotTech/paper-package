@@ -806,6 +806,56 @@
       "path": "validation/package-validation.json",
       "bytes": 859,
       "sha256": "a5f7bdbdd79c1d022542f7735813a225a424ecd035546fbcd3ed4c90727f704e"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/architecture.md",
+      "bytes": 4799,
+      "sha256": "f79080de899be87d59f67986952f7f776efd98e7f830df42b58c0deca55ac974"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/architecture.mmd",
+      "bytes": 4721,
+      "sha256": "715d935fbee41f8a886bc0d3f51ca9edf8ff0a29719ef1da433c60e256334e1e"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/architecture.svg",
+      "bytes": 11752,
+      "sha256": "e572a3a26528007f034692c8bd6d677e17d951a083d535e2366c0ba7f7102882"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/baseline-config.json",
+      "bytes": 424,
+      "sha256": "8dc6cc0e070c48edc27963cc1683ca5f2311b223c935cf53e488bc3be018f62b"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/optimize.py",
+      "bytes": 13384,
+      "sha256": "36893a4379655b1d5b4b3e0326b82231a871401203452e6edfd15c429b3890aa"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/README.md",
+      "bytes": 4096,
+      "sha256": "63cfa30cd08fe085f587c5332af220c6d64eb3e4f6e035fbd69a83f02e343fe4"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/requirements.txt",
+      "bytes": 26,
+      "sha256": "64f7ce810445d7a889012d5a96ee260dea3c755c9b86941a31cc0d8fe0cb604b"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/sample-test.jsonl",
+      "bytes": 517,
+      "sha256": "b25636be2a3c25ccdf1b0d6c0195994c0313e922ea21f075ddba904a8d94ba91"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/sample-train.jsonl",
+      "bytes": 579,
+      "sha256": "611f87d5e6c093d05b44c37008a3f2c0a0685c6fbd0db5c36d8f437ffc1fa773"
+    },
+    {
+      "path": "graph_synthesis/dspy_jev_optimizer/sample-validation.jsonl",
+      "bytes": 559,
+      "sha256": "f17c96f92fad2c5bf716ec976dc41d70e64be12509f060d8388c4995a86195aa"
     }
   ]
 }

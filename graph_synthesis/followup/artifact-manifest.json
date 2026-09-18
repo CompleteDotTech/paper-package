@@ -1,0 +1,26 @@
+{
+  "note": "Generated artifacts and source; excludes this self-referential manifest.",
+  "sha256": {
+    "graph_synthesis/followup/CLAIM_EVIDENCE.md": "1d2c30ce39a9db28c58194eb27f61fccc72d937b5142d9051ae6c236c4f6a0d4",
+    "graph_synthesis/followup/PROTOCOL.md": "3be9f9b3d9e0febb6fe7a6320fc2d2eda32bbd2787154cf31acb2195ee97ba3d",
+    "graph_synthesis/followup/README.md": "0e106c6b5f259eeabe99fe284c54dbf57484dac6934cea3acfec244a33d168b3",
+    "graph_synthesis/followup/RESULTS.md": "3e37b657196db9c02fb5ceb8ddfdaf4b8ea8202ea6154342635e6bfb328503ed",
+    "graph_synthesis/followup/REVIEW.md": "017734d72e3548b0802a6670e093dc59482e03905df91affbadcd8eb85e96e98",
+    "graph_synthesis/followup/__init__.py": "dbd92423d43e8cca6ef5913dad79da41df7ba58ae8bf2f4a41bfd3578a095798",
+    "graph_synthesis/followup/figures/01_calibration.png": "5a86fef436a67695a2d08a6dd08615e197f48a07542c6558f96c14e0bace9b12",
+    "graph_synthesis/followup/figures/01_calibration.svg": "de2b98e02c4bbc478a334b08cfb32bfd0ceb702aab1f916df1a373aba731772c",
+    "graph_synthesis/followup/figures/02_routing.png": "bfb25e93c9b22385a8715824c96f2f1b829c83560cc55d61bae4b8cd225b7db6",
+    "graph_synthesis/followup/figures/02_routing.svg": "ef8a4ec80a6b4ffbc90930199cdb35b2bd1726ff2ea79901329e3963ec79ccaa",
+    "graph_synthesis/followup/figures/03_stability.png": "c984d1de0aa4cc871c9d4f0bb59e231a3441ecd58629e5409e1e1ae89d780d20",
+    "graph_synthesis/followup/figures/03_stability.svg": "5add9b39aa61c5ab001cb2cded7d156c1afc8cbe866c4f46c9b81b2b9341112e",
+    "graph_synthesis/followup/figures/04_intervals.png": "c58024ba5e97287ac7fc93f22fa23be9ad6aff701860f4d5f7417466fc26e883",
+    "graph_synthesis/followup/figures/04_intervals.svg": "4db7b075889a6919244182a41870ddfb22f1d4acdbc09a2c84a23aa3015cc899",
+    "graph_synthesis/followup/figures/05_lineage.png": "b9ca0b08042385d2cffd93f2f919b5e7a366995111e5f18dc9c5c7588e6957fc",
+    "graph_synthesis/followup/figures/05_lineage.svg": "80cd4b81336b0e48916574c8e62236d35d91bd9308663a36b79ff575cfba4f51",
+    "graph_synthesis/followup/methods.py": "5a0c1f47683bcb31990096e3a625fb0fd10e1fe85f6d36190025e0d40d0ff6b6",
+    "graph_synthesis/followup/report.py": "129835081e7fa1ec4235121d7c409b8a2d227ceedcfe88e09c7fe941e09b795e",
+    "graph_synthesis/followup/results.json": "2a3c57a2fefcd41dc7aca97ebc42e85d6e0c0ac7b75cf7b00c7f7c399ac7fdd7",
+    "graph_synthesis/followup/run.py": "1cac6922073e416c011c7fd8e14e697bd063fdbe46cbcce7deac3630c256c318",
+    "graph_synthesis/followup/tests/test_followup.py": "5ef57cdf6cd6ece8c509ee466837c9d4da556abc840931537d4baf712369981a"
+  }
+}

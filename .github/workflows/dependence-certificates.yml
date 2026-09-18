@@ -1,0 +1,65 @@
+name: Dependence-aware graph certificates
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: certificates-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Verify pre-execution protocol ancestry and unchanged protocol bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          protocol=bc70b76621daca198b3b97eb4f698b17d4c40a0b
+          git merge-base --is-ancestor "$protocol" HEAD
+          git show "$protocol:graph_synthesis/certificates/PROTOCOL.md" | cmp - graph_synthesis/certificates/PROTOCOL.md
+      - run: python -m pip install -r graph_synthesis/certificates/requirements.txt
+      - name: Verify results, manuscript and original evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m unittest discover -s graph_synthesis/certificates/tests -v
+          python -B -m graph_synthesis.certificates.run --check
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/certificates-original.json"
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          for path,want in json.loads(Path('graph_synthesis/certificates/artifact-manifest.json').read_text())['sha256'].items():
+              assert sha(path)==want,path
+          build=json.loads(Path('manuscript/paper-current.build.json').read_text())
+          assert sha('manuscript/paper-current.md')==build['source_sha256']
+          assert sha('graph_synthesis/render_current_paper.py')==build['renderer_sha256']
+          assert sha('manuscript/paper-current.pdf')==build['pdf_sha256']
+          print('Certificate artifacts and current PDF hashes verified')
+          PY
+          python -B -m graph_synthesis.certificates.report --figures --update-paper
+          git diff --exit-code -- graph_synthesis/certificates manuscript/paper-current.md CURRENT_RESULTS.md
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/certificates-paper.pdf"
+          git diff --exit-code -- manuscript/paper-current.html
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: certificates-replayed-paper
+          path: |
+            ${{ runner.temp }}/certificates-paper.pdf
+            ${{ runner.temp }}/certificates-paper.build.json
+            ${{ runner.temp }}/certificates-original.json
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,95 @@
+{
+  "cases": [
+    {
+      "components": 16,
+      "median_seconds": {
+        "full": 0.11545904399997653,
+        "local": 0.009904157000022451
+      },
+      "seconds": {
+        "full": [
+          0.11545904399997653,
+          0.11621841100000552,
+          0.1147045159999891
+        ],
+        "local": [
+          0.010609952000010026,
+          0.0098842369999943,
+          0.009904157000022451
+        ]
+      },
+      "updates": 64,
+      "vertices": 128
+    },
+    {
+      "components": 64,
+      "median_seconds": {
+        "full": 0.5307663140000045,
+        "local": 0.015691159999988713
+      },
+      "seconds": {
+        "full": [
+          0.5307663140000045,
+          0.5271013329999903,
+          0.5456758249999893
+        ],
+        "local": [
+          0.015859444000000167,
+          0.015353610999994771,
+          0.015691159999988713
+        ]
+      },
+      "updates": 64,
+      "vertices": 512
+    },
+    {
+      "components": 256,
+      "median_seconds": {
+        "full": 2.30737382800001,
+        "local": 0.03934409600000777
+      },
+      "seconds": {
+        "full": [
+          2.472633856999977,
+          2.30737382800001,
+          2.2939052190000098
+        ],
+        "local": [
+          0.03934409600000777,
+          0.03988829600001509,
+          0.03920421299997656
+        ]
+      },
+      "updates": 64,
+      "vertices": 2048
+    },
+    {
+      "components": 512,
+      "median_seconds": {
+        "full": 4.71990778899999,
+        "local": 0.07078076999999894
+      },
+      "seconds": {
+        "full": [
+          4.71990778899999,
+          4.720665878999995,
+          4.705755190000019
+        ],
+        "local": [
+          0.07016228300000193,
+          0.07078076999999894,
+          0.09747615499998119
+        ]
+      },
+      "updates": 64,
+      "vertices": 4096
+    }
+  ],
+  "clock": "perf_counter; cold construction plus updates; full snapshot comparison outside both timing boundaries",
+  "numpy": "2.5.3",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "qualification": "Single-host in-memory measurements; not a service or durable database benchmark.",
+  "repetitions": 3,
+  "scipy": "1.17.0"
+}

@@ -1,0 +1,48 @@
+test_manuscript_insertion_is_idempotent (test_certificates.ArtifactTests.test_manuscript_insertion_is_idempotent) ... ok
+test_result_invariants_when_present (test_certificates.ArtifactTests.test_result_invariants_when_present) ... ok
+test_bridge_merge_split_and_vertex_removal (test_certificates.DeltaTests.test_bridge_merge_split_and_vertex_removal) ... ok
+test_delta_outputs_reconstruct_selection (test_certificates.DeltaTests.test_delta_outputs_reconstruct_selection) ... ok
+test_full_comparator_same_output_more_local_work (test_certificates.DeltaTests.test_full_comparator_same_output_more_local_work) ... ok
+test_insert_delete_isolated_vertex (test_certificates.DeltaTests.test_insert_delete_isolated_vertex) ... ok
+test_invalid_commands_preserve_state (test_certificates.DeltaTests.test_invalid_commands_preserve_state) ... ok
+test_snapshot_is_not_mutable_internal_state (test_certificates.DeltaTests.test_snapshot_is_not_mutable_internal_state) ... ok
+test_solver_failure_preserves_state (test_certificates.DeltaTests.test_solver_failure_preserves_state) ... ok
+test_weight_update_and_unaffected_reuse (test_certificates.DeltaTests.test_weight_update_and_unaffected_reuse) ... ok
+test_dense_unsupported_is_staged (test_certificates.GraphTests.test_dense_unsupported_is_staged) ... ok
+test_empty_graph (test_certificates.GraphTests.test_empty_graph) ... ok
+test_false_priority_is_not_truth (test_certificates.GraphTests.test_false_priority_is_not_truth) ... ok
+test_invalid_graph_rejected (test_certificates.GraphTests.test_invalid_graph_rejected) ... ok
+test_odd_cycle_uses_existing_solver (test_certificates.GraphTests.test_odd_cycle_uses_existing_solver) ... ok
+test_order_duplicates_and_input_immutability (test_certificates.GraphTests.test_order_duplicates_and_input_immutability) ... ok
+test_tampered_flow_rejected (test_certificates.GraphTests.test_tampered_flow_rejected) ... ok
+test_weighted_complete_bipartite (test_certificates.GraphTests.test_weighted_complete_bipartite) ... ok
+test_zero_priorities_and_isolated_nodes (test_certificates.GraphTests.test_zero_priorities_and_isolated_nodes) ... ok
+test_capacity_stages (test_certificates.LineageTests.test_capacity_stages) ... ok
+test_dual_witness_bounds_primal (test_certificates.LineageTests.test_dual_witness_bounds_primal) ... ok
+test_duplicate_and_order_invariance (test_certificates.LineageTests.test_duplicate_and_order_invariance) ... ok
+test_empty_formula_and_tautology (test_certificates.LineageTests.test_empty_formula_and_tautology) ... ok
+test_impossible_constraints_stage (test_certificates.LineageTests.test_impossible_constraints_stage) ... ok
+test_independent_pair_information_recovers_admission (test_certificates.LineageTests.test_independent_pair_information_recovers_admission) ... ok
+test_nonfinite_invalid_and_missing_atoms (test_certificates.LineageTests.test_nonfinite_invalid_and_missing_atoms) ... ok
+test_shared_source_constraint (test_certificates.LineageTests.test_shared_source_constraint) ... ok
+test_solver_failure_never_admits (test_certificates.LineageTests.test_solver_failure_never_admits) ... ok
+test_unknown_dependence_prevents_false_admission (test_certificates.LineageTests.test_unknown_dependence_prevents_false_admission) ... ok
+test_conflicting_conjunction_is_impossible (test_certificates.QueryTests.test_conflicting_conjunction_is_impossible) ... ok
+test_empty_query_and_zero_weights (test_certificates.QueryTests.test_empty_query_and_zero_weights) ... ok
+test_invalid_query_and_unsupported_graph (test_certificates.QueryTests.test_invalid_query_and_unsupported_graph) ... ok
+test_tie_is_ambiguous_with_witness (test_certificates.QueryTests.test_tie_is_ambiguous_with_witness) ... ok
+test_tolerance_weakens_certainty (test_certificates.QueryTests.test_tolerance_weakens_certainty) ... ok
+test_unique_forced_assertion_is_certain (test_certificates.QueryTests.test_unique_forced_assertion_is_certain) ... ok
+test_beta_binomial_mass_normalizes (test_certificates.RiskTests.test_beta_binomial_mass_normalizes) ... ok
+test_development_only_fit (test_certificates.RiskTests.test_development_only_fit) ... ok
+test_fit_order_invariance_and_no_mutation (test_certificates.RiskTests.test_fit_order_invariance_and_no_mutation) ... ok
+test_gold_not_read_for_forecast (test_certificates.RiskTests.test_gold_not_read_for_forecast) ... ok
+test_invalid_parameters (test_certificates.RiskTests.test_invalid_parameters) ... ok
+test_positive_correlation_lowers_any_error_at_fixed_mean (test_certificates.RiskTests.test_positive_correlation_lowers_any_error_at_fixed_mean) ... ok
+test_probability_boundaries (test_certificates.RiskTests.test_probability_boundaries) ... ok
+test_singletons_do_not_identify_dependence (test_certificates.RiskTests.test_singletons_do_not_identify_dependence) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.152s
+
+OK

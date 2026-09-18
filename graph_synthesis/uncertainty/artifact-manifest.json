@@ -2,6 +2,7 @@
   "note": "Uncertainty extension only, excluding self. The mutable shared paper has its own build manifest.",
   "sha256": {
     "graph_synthesis/uncertainty/EXECUTION_NOTES.md": "54afbbe22c71539a34eb84385055be125770b704ae0af2aee5878a541436498e",
+    "graph_synthesis/uncertainty/NOVELTY_AUDIT.md": "1b0273c9384798b65ab86d85808e38efdce8329fcae8a46f98580a65a316dffc",
     "graph_synthesis/uncertainty/PROTOCOL.md": "b9bd66fbd73f66a46bdd9fb100d979f13ae9cc2978b2f0fd653ac038af6bea94",
     "graph_synthesis/uncertainty/RESULTS.md": "17f6cac5304d176378c119e1662f8ae91a03fe0a9fbdc91dd163df11700790ba",
     "graph_synthesis/uncertainty/__init__.py": "4322b008d3e95cb4b2abad603e7041fcc36575037933f6713ff6478af861e5fe",
@@ -23,7 +24,7 @@
     "graph_synthesis/uncertainty/results.json": "c27088ac535510698a0413ab61e7568252e8cb46fadce5d56bedfe029b0d8e33",
     "graph_synthesis/uncertainty/run.py": "fe6ce5ea12040c957e791472c7379dcb97d63e8c48f73097f911e5056646f281",
     "graph_synthesis/uncertainty/summary.csv": "4477b5f9b122c036c22c3dd2cc83f5cc6e66ffb4ae73c6ce0bdf38780c92f185",
-    "graph_synthesis/uncertainty/tests.log": "f55056da0d4c87459fecf72a21008e5d6401aebe7a7bebcc9c0507bef634b675",
+    "graph_synthesis/uncertainty/tests.log": "13be566bc1ac6fdb9044de181237f71aefd70894cb4615f72de28dd951bc86f0",
     "graph_synthesis/uncertainty/tests/test_render_markers.py": "f68bf36a2beda9e46bd526aa1dc8e89f70c427e57010aeb1fff45b65c5d134d5",
     "graph_synthesis/uncertainty/tests/test_uncertainty.py": "3981629f8be81d5b04c8c5654419f45b25eb46e7baf004f7479781ae972e6b04"
   }

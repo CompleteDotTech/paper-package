@@ -1,0 +1,55 @@
+name: Graph synthesis falsification
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: graph-falsification-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  falsification:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Verify original immutable evidence
+        run: python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/frozen-verification.json"
+      - name: Run additional regression and negative-control tests
+        run: |
+          set -o pipefail
+          python -B -m unittest graph_synthesis.tests.test_falsification graph_synthesis.tests.test_semantic_challenge -v 2>&1 | tee "$RUNNER_TEMP/falsification-tests.log"
+      - name: Reproduce all falsification panels without model calls
+        run: |
+          python -B -m graph_synthesis.falsification --check
+          python -B -m graph_synthesis.falsification --output "$RUNNER_TEMP/falsification/results.json"
+          python -B -m graph_synthesis.semantic_challenge --export "$RUNNER_TEMP/falsification/challenge-inputs.jsonl"
+          git archive --format=tar HEAD -o "$RUNNER_TEMP/falsification-source.tar"
+      - name: Archive exact source and reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: falsification-${{ matrix.os }}-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            ${{ runner.temp }}/frozen-verification.json
+            ${{ runner.temp }}/falsification-tests.log
+            ${{ runner.temp }}/falsification/
+            ${{ runner.temp }}/falsification-source.tar
+          if-no-files-found: error
+          retention-days: 14

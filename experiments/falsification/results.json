@@ -1,0 +1,841 @@
+{
+  "base_commit": "e11ca93be83e4f9c73401bcecd3275e18da21901",
+  "classification": "post_hoc_frozen_inference_diagnostics",
+  "fresh_model_calls": 0,
+  "mechanisms": {
+    "classification": "constructed_synthetic_mechanisms_not_Jev_calls",
+    "copied_sources": {
+      "active_after_explicit_origin_wide_withdrawal": 0,
+      "initial_derived_edges": 1,
+      "residual_assertions_after_one_copy_withdrawal": 9,
+      "source_records": 10,
+      "status": "source_records_are_not_independent_corroborations",
+      "unique_origins": 1
+    },
+    "identity_bridges": [
+      {
+        "false_cross_identity_pairs_after_repair": 0,
+        "false_cross_identity_pairs_before_repair": 4,
+        "identity_components_after_repair": 2,
+        "injected_wrong_edges": 1,
+        "records_per_true_cluster": 2
+      },
+      {
+        "false_cross_identity_pairs_after_repair": 0,
+        "false_cross_identity_pairs_before_repair": 100,
+        "identity_components_after_repair": 2,
+        "injected_wrong_edges": 1,
+        "records_per_true_cluster": 10
+      },
+      {
+        "false_cross_identity_pairs_after_repair": 0,
+        "false_cross_identity_pairs_before_repair": 10000,
+        "identity_components_after_repair": 2,
+        "injected_wrong_edges": 1,
+        "records_per_true_cluster": 100
+      }
+    ],
+    "repair": {
+      "all_oracles_matched": true,
+      "episode_digest": "1cefae59755a2953977717aaff560fc0da1843ffad5a23e619ceeb426922ec92",
+      "episodes": 20,
+      "total_assertions": 1600,
+      "total_retractions": 782
+    },
+    "semantics": {
+      "overlapping_temporal_opposites_accepted": 2,
+      "schema_invalid_assertion_rejected_atomically": true,
+      "status": "limitation_witnesses_not_semantic_model_results",
+      "temporal_scope": "Exact qualifier equality is enforced; interval overlap is not interpreted.",
+      "valid_but_false_assertions_accepted": 1
+    }
+  },
+  "planning": {
+    "0.001": 2995,
+    "0.01": 299
+  },
+  "planning_assumptions": "One preselected policy, independent representative accepted actions, zero errors, one-sided alpha=.05; not a deployment qualification.",
+  "schema_version": 1,
+  "source_hashes": {
+    "calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "plan.json": "7ed8622f2022b263f3d0b9cda413b4caafe50ebcf0589b05b886dbd615987040",
+    "predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2"
+  },
+  "tasks": {
+    "entity_resolution": {
+      "accept_none_control": {
+        "accepted": 0,
+        "interpretation": "Safety without useful construction; not a model baseline.",
+        "precision": null,
+        "recall": 0.0,
+        "wrong": 0
+      },
+      "candidate_loss": [
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.9971428571428571,
+              "p05": 0.9971428571428571,
+              "p95": 0.9971428571428571
+            },
+            "generic": {
+              "mean": 1.0,
+              "p05": 1.0,
+              "p95": 1.0
+            }
+          },
+          "loss_fraction": 0,
+          "mask_digest": "2d81c0719502a1992f5a483e23a20ef68fd82ce96c7445b4cec2e8d556fdbcf5",
+          "original_gold_positive": 350,
+          "retained_candidates": {
+            "mean": 413.0,
+            "p05": 413.0,
+            "p95": 413.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 1.0,
+            "p05": 1.0,
+            "p95": 1.0
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.8975142857142857,
+              "p05": 0.8885714285714286,
+              "p95": 0.9085714285714286
+            },
+            "generic": {
+              "mean": 0.9001428571428572,
+              "p05": 0.8914285714285715,
+              "p95": 0.9114285714285715
+            }
+          },
+          "loss_fraction": 0.1,
+          "mask_digest": "56521259c6d514aca290a834fe4cacb850fa4af27f73045570c9382ba067a5e4",
+          "original_gold_positive": 350,
+          "retained_candidates": {
+            "mean": 372.0,
+            "p05": 372.0,
+            "p95": 372.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.9001428571428572,
+            "p05": 0.8914285714285715,
+            "p95": 0.9114285714285715
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.7487714285714285,
+              "p05": 0.7371428571428571,
+              "p95": 0.7628571428571429
+            },
+            "generic": {
+              "mean": 0.7509142857142856,
+              "p05": 0.7371428571428571,
+              "p95": 0.7657142857142857
+            }
+          },
+          "loss_fraction": 0.25,
+          "mask_digest": "4c9b5211623191fc67ce28c2fe333250e1af5d76a96788cf227aa554cef602f2",
+          "original_gold_positive": 350,
+          "retained_candidates": {
+            "mean": 310.0,
+            "p05": 310.0,
+            "p95": 310.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.7509142857142856,
+            "p05": 0.7371428571428571,
+            "p95": 0.7657142857142857
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.4994571428571429,
+              "p05": 0.48557142857142854,
+              "p95": 0.5142857142857142
+            },
+            "generic": {
+              "mean": 0.5008571428571429,
+              "p05": 0.4857142857142857,
+              "p95": 0.5142857142857142
+            }
+          },
+          "loss_fraction": 0.5,
+          "mask_digest": "707ec95314738b4c095670740f864624badd5b85e0277f7ada0ef1171accbfa4",
+          "original_gold_positive": 350,
+          "retained_candidates": {
+            "mean": 207.0,
+            "p05": 207.0,
+            "p95": 207.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.5008571428571429,
+            "p05": 0.4857142857142857,
+            "p95": 0.5142857142857142
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.25094285714285713,
+              "p05": 0.23714285714285716,
+              "p95": 0.26285714285714284
+            },
+            "generic": {
+              "mean": 0.2516285714285714,
+              "p05": 0.23985714285714285,
+              "p95": 0.26285714285714284
+            }
+          },
+          "loss_fraction": 0.75,
+          "mask_digest": "62cdf1c5f767a8e3e54b6f2898e174f31f4b108911f3d90d6a8d16dc609325c9",
+          "original_gold_positive": 350,
+          "retained_candidates": {
+            "mean": 104.0,
+            "p05": 104.0,
+            "p95": 104.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.2516285714285714,
+            "p05": 0.23985714285714285,
+            "p95": 0.26285714285714284
+          }
+        }
+      ],
+      "candidate_loss_kind": "synthetic_candidate_availability_intervention_no_rescoring",
+      "joint_errors": {
+        "agree": 406,
+        "agree_wrong": 2,
+        "agreement_error_fraction": 0.0049261083743842365,
+        "both_wrong": 2,
+        "common_success": 413,
+        "excluded_operational_rows": 0,
+        "expected_joint_errors_under_independence": 0.05811138014527845,
+        "fewshot_errors": 3,
+        "generic_errors": 8,
+        "interpretation": "Descriptive dependence diagnostic, not a hypothesis test or independent corroboration.",
+        "observed_to_independent_joint_ratio": 34.416666666666664
+      },
+      "loss_unit": "left_record_id",
+      "paired_components": {
+        "assumption": "Observed endpoint components are independent sampling units; hidden dependence is unmeasured.",
+        "components": 413,
+        "direction": "fewshot_minus_generic",
+        "draws": 2000,
+        "kind": "exploratory_pointwise_paired_component_bootstrap",
+        "metrics": {
+          "complete_and_clean_fraction": {
+            "lower": -0.008746995038616914,
+            "upper": 0.0,
+            "valid_draws": 2000
+          },
+          "precision": {
+            "lower": 0.005448952973266691,
+            "upper": 0.03087551448495691,
+            "valid_draws": 2000
+          }
+        }
+      },
+      "recorded": {
+        "fewshot": {
+          "components": {
+            "active_components": 351,
+            "complete_and_clean_components": 349,
+            "complete_and_clean_fraction": 0.9971428571428571,
+            "component_accounting_hash": "a56847b239348104a7e38eab5cd47da464a505d30c64f689d515a2107c334056",
+            "components": 413,
+            "contaminated_components": 2,
+            "contamination_among_active": 0.005698005698005698,
+            "empty_components": 62,
+            "gold_positive_components": 350
+          },
+          "positive_actions": [
+            "same"
+          ],
+          "prevalence": [
+            {
+              "action": "same",
+              "false_positive": 2,
+              "false_positive_rate": 0.031746031746031744,
+              "kind": "analytical_label_shift_projection_with_fixed_empirical_rates",
+              "negative_n": 63,
+              "positive_n": 350,
+              "projections": [
+                {
+                  "prevalence": 0.01,
+                  "projected_precision": 0.24085576259489308
+                },
+                {
+                  "prevalence": 0.05,
+                  "projected_precision": 0.6230906566157509
+                },
+                {
+                  "prevalence": 0.1,
+                  "projected_precision": 0.7772828507795101
+                },
+                {
+                  "prevalence": 0.25,
+                  "projected_precision": 0.9128160418483
+                },
+                {
+                  "prevalence": 0.5,
+                  "projected_precision": 0.9691453255168156
+                },
+                {
+                  "prevalence": 0.75,
+                  "projected_precision": 0.989499107424131
+                },
+                {
+                  "prevalence": 0.9,
+                  "projected_precision": 0.9964750255560647
+                }
+              ],
+              "sensitivity": 0.9971428571428571,
+              "true_positive": 349,
+              "uncertainty": "No interval or extrapolation guarantee; zero observed FPs is not zero true risk."
+            }
+          ],
+          "quality": {
+            "accepted": 351,
+            "candidates": 413,
+            "correct": 349,
+            "gold_positive": 350,
+            "operational_errors": 0,
+            "precision": 0.9943019943019943,
+            "recall": 0.9971428571428571,
+            "wrong": 2
+          },
+          "score_one_actions": {
+            "accepted": 260,
+            "correct": 260,
+            "precision": 1.0,
+            "wrong": 0
+          },
+          "score_one_wrong_ids": []
+        },
+        "generic": {
+          "components": {
+            "active_components": 358,
+            "complete_and_clean_components": 350,
+            "complete_and_clean_fraction": 1.0,
+            "component_accounting_hash": "a2210f6b7e25de30d97ccc5aae3485f55f02594abbfcae51e957f1a25ef295aa",
+            "components": 413,
+            "contaminated_components": 8,
+            "contamination_among_active": 0.0223463687150838,
+            "empty_components": 55,
+            "gold_positive_components": 350
+          },
+          "positive_actions": [
+            "same"
+          ],
+          "prevalence": [
+            {
+              "action": "same",
+              "false_positive": 8,
+              "false_positive_rate": 0.12698412698412698,
+              "kind": "analytical_label_shift_projection_with_fixed_empirical_rates",
+              "negative_n": 63,
+              "positive_n": 350,
+              "projections": [
+                {
+                  "prevalence": 0.01,
+                  "projected_precision": 0.0736842105263158
+                },
+                {
+                  "prevalence": 0.05,
+                  "projected_precision": 0.2930232558139535
+                },
+                {
+                  "prevalence": 0.1,
+                  "projected_precision": 0.4666666666666667
+                },
+                {
+                  "prevalence": 0.25,
+                  "projected_precision": 0.7241379310344828
+                },
+                {
+                  "prevalence": 0.5,
+                  "projected_precision": 0.8873239436619719
+                },
+                {
+                  "prevalence": 0.75,
+                  "projected_precision": 0.9593908629441624
+                },
+                {
+                  "prevalence": 0.9,
+                  "projected_precision": 0.9860869565217392
+                }
+              ],
+              "sensitivity": 1.0,
+              "true_positive": 350,
+              "uncertainty": "No interval or extrapolation guarantee; zero observed FPs is not zero true risk."
+            }
+          ],
+          "quality": {
+            "accepted": 358,
+            "candidates": 413,
+            "correct": 350,
+            "gold_positive": 350,
+            "operational_errors": 0,
+            "precision": 0.9776536312849162,
+            "recall": 1.0,
+            "wrong": 8
+          },
+          "score_one_actions": {
+            "accepted": 0,
+            "correct": 0,
+            "precision": null,
+            "wrong": 0
+          },
+          "score_one_wrong_ids": []
+        }
+      }
+    },
+    "relation_support": {
+      "accept_none_control": {
+        "accepted": 0,
+        "interpretation": "Safety without useful construction; not a model baseline.",
+        "precision": null,
+        "recall": 0.0,
+        "wrong": 0
+      },
+      "candidate_loss": [
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.8229665071770335,
+              "p05": 0.8229665071770335,
+              "p95": 0.8229665071770335
+            },
+            "generic": {
+              "mean": 0.8947368421052632,
+              "p05": 0.8947368421052632,
+              "p95": 0.8947368421052632
+            }
+          },
+          "loss_fraction": 0,
+          "mask_digest": "26ff3277b3158b24aead2ff4ef65ed4a743cfe4c4ef1ee44d756487cee986af4",
+          "original_gold_positive": 209,
+          "retained_candidates": {
+            "mean": 339.0,
+            "p05": 339.0,
+            "p95": 339.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 1.0,
+            "p05": 1.0,
+            "p95": 1.0
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.7396650717703349,
+              "p05": 0.7129186602870813,
+              "p95": 0.7703349282296651
+            },
+            "generic": {
+              "mean": 0.8039712918660287,
+              "p05": 0.7751196172248804,
+              "p95": 0.8325358851674641
+            }
+          },
+          "loss_fraction": 0.1,
+          "mask_digest": "b2119e8ccb3cd6b92e2ae03ab9cb50730f49a0b009a1cb98d6417435c3852e20",
+          "original_gold_positive": 209,
+          "retained_candidates": {
+            "mean": 305.48,
+            "p05": 301.0,
+            "p95": 309.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.898133971291866,
+            "p05": 0.8708133971291866,
+            "p95": 0.9234449760765551
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.6191387559808612,
+              "p05": 0.5834928229665072,
+              "p95": 0.6555023923444976
+            },
+            "generic": {
+              "mean": 0.6729665071770334,
+              "p05": 0.6363636363636364,
+              "p95": 0.7129186602870813
+            }
+          },
+          "loss_fraction": 0.25,
+          "mask_digest": "eb3e87fde3e7e1b39788a4381c32ded2697b93e3b5425974d8e524b11b3be3f7",
+          "original_gold_positive": 209,
+          "retained_candidates": {
+            "mean": 255.42,
+            "p05": 249.0,
+            "p95": 262.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.7502392344497608,
+            "p05": 0.7129186602870813,
+            "p95": 0.7894736842105263
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.41578947368421054,
+              "p05": 0.377511961722488,
+              "p95": 0.4547846889952153
+            },
+            "generic": {
+              "mean": 0.4514354066985646,
+              "p05": 0.41148325358851673,
+              "p95": 0.4880382775119617
+            }
+          },
+          "loss_fraction": 0.5,
+          "mask_digest": "df24d07dafb123a0be87a240d8d831477af5ad269d574f6386c458f8829a1e0e",
+          "original_gold_positive": 209,
+          "retained_candidates": {
+            "mean": 170.48,
+            "p05": 163.95,
+            "p95": 176.0
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.5027272727272727,
+            "p05": 0.45454545454545453,
+            "p95": 0.5502392344497608
+          }
+        },
+        {
+          "arm_recall": {
+            "fewshot": {
+              "mean": 0.20827751196172248,
+              "p05": 0.17679425837320575,
+              "p95": 0.23923444976076555
+            },
+            "generic": {
+              "mean": 0.22574162679425835,
+              "p05": 0.18660287081339713,
+              "p95": 0.2535885167464115
+            }
+          },
+          "loss_fraction": 0.75,
+          "mask_digest": "53fed0e7521144f494fa4c5b45d26a4f01c5fdbc0e2feea329671b4b97002003",
+          "original_gold_positive": 209,
+          "retained_candidates": {
+            "mean": 85.29,
+            "p05": 79.95,
+            "p95": 90.05
+          },
+          "seeds": 100,
+          "surviving_gold_oracle_recall": {
+            "mean": 0.2507655502392344,
+            "p05": 0.21052631578947367,
+            "p95": 0.28708133971291866
+          }
+        }
+      ],
+      "candidate_loss_kind": "synthetic_candidate_availability_intervention_no_rescoring",
+      "joint_errors": {
+        "agree": 303,
+        "agree_wrong": 31,
+        "agreement_error_fraction": 0.10231023102310231,
+        "both_wrong": 34,
+        "common_success": 336,
+        "excluded_operational_rows": 3,
+        "expected_joint_errors_under_independence": 7.145833333333333,
+        "fewshot_errors": 49,
+        "generic_errors": 49,
+        "interpretation": "Descriptive dependence diagnostic, not a hypothesis test or independent corroboration.",
+        "observed_to_independent_joint_ratio": 4.75801749271137
+      },
+      "loss_unit": "document_id",
+      "paired_components": {
+        "assumption": "Observed endpoint components are independent sampling units; hidden dependence is unmeasured.",
+        "components": 247,
+        "direction": "fewshot_minus_generic",
+        "draws": 2000,
+        "kind": "exploratory_pointwise_paired_component_bootstrap",
+        "metrics": {
+          "complete_and_clean_fraction": {
+            "lower": -0.13295761078998072,
+            "upper": -0.03703703703703709,
+            "valid_draws": 2000
+          },
+          "precision": {
+            "lower": 0.027364640935289754,
+            "upper": 0.09688212207614987,
+            "valid_draws": 2000
+          }
+        }
+      },
+      "recorded": {
+        "fewshot": {
+          "components": {
+            "active_components": 153,
+            "complete_and_clean_components": 126,
+            "complete_and_clean_fraction": 0.7682926829268293,
+            "component_accounting_hash": "4d6e23925899dcf3c0a7927d20f3180f834d694534b83e641f09997958fe7cf0",
+            "components": 247,
+            "contaminated_components": 20,
+            "contamination_among_active": 0.13071895424836602,
+            "empty_components": 94,
+            "gold_positive_components": 164
+          },
+          "positive_actions": [
+            "SUPPORTS",
+            "REFUTES"
+          ],
+          "prevalence": [
+            {
+              "action": "SUPPORTS",
+              "false_positive": 8,
+              "false_positive_rate": 0.03980099502487562,
+              "kind": "analytical_label_shift_projection_with_fixed_empirical_rates",
+              "negative_n": 201,
+              "positive_n": 138,
+              "projections": [
+                {
+                  "prevalence": 0.01,
+                  "projected_precision": 0.16825715720743348
+                },
+                {
+                  "prevalence": 0.05,
+                  "projected_precision": 0.513159727057513
+                },
+                {
+                  "prevalence": 0.1,
+                  "projected_precision": 0.689945703051863
+                },
+                {
+                  "prevalence": 0.25,
+                  "projected_precision": 0.8697191409015813
+                },
+                {
+                  "prevalence": 0.5,
+                  "projected_precision": 0.9524424915998966
+                },
+                {
+                  "prevalence": 0.75,
+                  "projected_precision": 0.9836284366936561
+                },
+                {
+                  "prevalence": 0.9,
+                  "projected_precision": 0.9944825931812048
+                }
+              ],
+              "sensitivity": 0.7971014492753623,
+              "true_positive": 110,
+              "uncertainty": "No interval or extrapolation guarantee; zero observed FPs is not zero true risk."
+            },
+            {
+              "action": "REFUTES",
+              "false_positive": 12,
+              "false_positive_rate": 0.04477611940298507,
+              "kind": "analytical_label_shift_projection_with_fixed_empirical_rates",
+              "negative_n": 268,
+              "positive_n": 71,
+              "projections": [
+                {
+                  "prevalence": 0.01,
+                  "projected_precision": 0.16457351135058043
+                },
+                {
+                  "prevalence": 0.05,
+                  "projected_precision": 0.5065235946835752
+                },
+                {
+                  "prevalence": 0.1,
+                  "projected_precision": 0.6842365343436008
+                },
+                {
+                  "prevalence": 0.25,
+                  "projected_precision": 0.8666805758397663
+                },
+                {
+                  "prevalence": 0.5,
+                  "projected_precision": 0.9512250973208152
+                },
+                {
+                  "prevalence": 0.75,
+                  "projected_precision": 0.9831952662721893
+                },
+                {
+                  "prevalence": 0.9,
+                  "projected_precision": 0.9943349557169073
+                }
+              ],
+              "sensitivity": 0.8732394366197183,
+              "true_positive": 62,
+              "uncertainty": "No interval or extrapolation guarantee; zero observed FPs is not zero true risk."
+            }
+          ],
+          "quality": {
+            "accepted": 192,
+            "candidates": 339,
+            "correct": 172,
+            "gold_positive": 209,
+            "operational_errors": 2,
+            "precision": 0.8958333333333334,
+            "recall": 0.8229665071770335,
+            "wrong": 20
+          },
+          "score_one_actions": {
+            "accepted": 73,
+            "correct": 68,
+            "precision": 0.9315068493150684,
+            "wrong": 5
+          },
+          "score_one_wrong_ids": [
+            "scifact-1385-306006",
+            "scifact-354-8774475",
+            "scifact-385-9767444",
+            "scifact-593-19675911",
+            "scifact-808-36606083"
+          ]
+        },
+        "generic": {
+          "components": {
+            "active_components": 182,
+            "complete_and_clean_components": 140,
+            "complete_and_clean_fraction": 0.8536585365853658,
+            "component_accounting_hash": "3dde1f72e292f4c690c1d04d497695f47795ce828296dd5547f2507e660d7260",
+            "components": 247,
+            "contaminated_components": 37,
+            "contamination_among_active": 0.2032967032967033,
+            "empty_components": 65,
+            "gold_positive_components": 164
+          },
+          "positive_actions": [
+            "SUPPORTS",
+            "REFUTES"
+          ],
+          "prevalence": [
+            {
+              "action": "SUPPORTS",
+              "false_positive": 18,
+              "false_positive_rate": 0.08955223880597014,
+              "kind": "analytical_label_shift_projection_with_fixed_empirical_rates",
+              "negative_n": 201,
+              "positive_n": 138,
+              "projections": [
+                {
+                  "prevalence": 0.01,
+                  "projected_precision": 0.09067512701617378
+                },
+                {
+                  "prevalence": 0.05,
+                  "projected_precision": 0.34192252990880956
+                },
+                {
+                  "prevalence": 0.1,
+                  "projected_precision": 0.5231025214386279
+                },
+                {
+                  "prevalence": 0.25,
+                  "projected_precision": 0.766935635203603
+                },
+                {
+                  "prevalence": 0.5,
+                  "projected_precision": 0.9080204399022439
+                },
+                {
+                  "prevalence": 0.75,
+                  "projected_precision": 0.9673372781065089
+                },
+                {
+                  "prevalence": 0.9,
+                  "projected_precision": 0.988870070166949
+                }
+              ],
+              "sensitivity": 0.8840579710144928,
+              "true_positive": 122,
+              "uncertainty": "No interval or extrapolation guarantee; zero observed FPs is not zero true risk."
+            },
+            {
+              "action": "REFUTES",
+              "false_positive": 19,
+              "false_positive_rate": 0.0708955223880597,
+              "kind": "analytical_label_shift_projection_with_fixed_empirical_rates",
+              "negative_n": 268,
+              "positive_n": 71,
+              "projections": [
+                {
+                  "prevalence": 0.01,
+                  "projected_precision": 0.11538639871233547
+                },
+                {
+                  "prevalence": 0.05,
+                  "projected_precision": 0.4046363615247033
+                },
+                {
+                  "prevalence": 0.1,
+                  "projected_precision": 0.5892899428300802
+                },
+                {
+                  "prevalence": 0.25,
+                  "projected_precision": 0.8114780826384684
+                },
+                {
+                  "prevalence": 0.5,
+                  "projected_precision": 0.9281261654856412
+                },
+                {
+                  "prevalence": 0.75,
+                  "projected_precision": 0.9748363147978885
+                },
+                {
+                  "prevalence": 0.9,
+                  "projected_precision": 0.9914689905077501
+                }
+              ],
+              "sensitivity": 0.9154929577464789,
+              "true_positive": 65,
+              "uncertainty": "No interval or extrapolation guarantee; zero observed FPs is not zero true risk."
+            }
+          ],
+          "quality": {
+            "accepted": 224,
+            "candidates": 339,
+            "correct": 187,
+            "gold_positive": 209,
+            "operational_errors": 1,
+            "precision": 0.8348214285714286,
+            "recall": 0.8947368421052632,
+            "wrong": 37
+          },
+          "score_one_actions": {
+            "accepted": 125,
+            "correct": 119,
+            "precision": 0.952,
+            "wrong": 6
+          },
+          "score_one_wrong_ids": [
+            "scifact-1385-306006",
+            "scifact-385-9767444",
+            "scifact-593-19675911",
+            "scifact-693-24088502",
+            "scifact-72-6076903",
+            "scifact-879-8426046"
+          ]
+        }
+      }
+    }
+  }
+}

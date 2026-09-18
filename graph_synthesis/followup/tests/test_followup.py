@@ -1,5 +1,6 @@
 """Regression, property, provenance and anti-leakage tests for five hypotheses."""
 import copy
+import json
 import os
 import subprocess
 import sys
@@ -222,6 +223,19 @@ class EvidenceTests(unittest.TestCase):
         with patch('socket.socket',side_effect=AssertionError('network forbidden')):
             data,_=load_data()
         self.assertEqual(len(data),2)
+
+
+class PresentationTests(unittest.TestCase):
+    def test_interval_labels_survive_json_key_sort(self):
+        from graph_synthesis.followup.report import interval_series
+        data=json.loads(json.dumps({'H4':{'strategies':{
+            'exact_qualifier':{'missed_conflicts':1108,'false_conflicts':0},
+            'qualifier_blind':{'missed_conflicts':0,'false_conflicts':1544},
+            'interval_scope':{'missed_conflicts':0,'false_conflicts':0}}}},sort_keys=True))
+        rows=interval_series(data)
+        self.assertEqual([label for label,_ in rows],['Exact qualifiers','Ignore qualifiers','Interval + scope'])
+        self.assertEqual([m['false_conflicts'] for _,m in rows],[0,1544,0])
+        self.assertEqual([m['missed_conflicts'] for _,m in rows],[1108,0,0])
 
 
 if __name__=='__main__':unittest.main()

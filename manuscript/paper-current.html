@@ -340,24 +340,182 @@ Entity selected: 3 false merges and 2 missed matches. Service failures, if any, 
 <p>The earlier macro-F1/cost cascade could save tokens while admitting more wrong relationships. This follow-up explicitly constrains correct edges, wrong edges and precision during calibration-only selection. Positive and negative baseline labels have separate escalation thresholds; failed baseline calls escalate. Always-few-shot is an explicit fallback that avoids unnecessary baseline cost.</p>
 <p>Primary selected policy: <code>{&quot;direct&quot;: false, &quot;negative_threshold&quot;: 0, &quot;positive_threshold&quot;: 0.95}</code>.
 Earlier macro-F1 rule, refitted on the same original calibration: threshold 0.</p>
-<p>| Task | Run | Policy | Correct edges | Wrong edges | Precision | Input tokens | Macro-F1 |
-|---|---|---|---:|---:|---:|---:|---:|---:|
-| Entity | old | baseline | 350 | 8 | 97.77% | 174,370 | 0.9605 |
-| Entity | old | fewshot | 349 | 2 | 99.43% | 627,844 | 0.9859 |
-| Entity | old | macro cascade | 350 | 8 | 97.77% | 174,370 | 0.9605 |
-| Entity | old | edge cascade | 349 | 2 | 99.43% | 237,835 | 0.9859 |
-| Entity | new | baseline | 350 | 8 | 97.77% | 174,370 | 0.9605 |
-| Entity | new | fewshot | 348 | 3 | 99.15% | 627,844 | 0.9764 |
-| Entity | new | macro cascade | 350 | 8 | 97.77% | 174,370 | 0.9605 |
-| Entity | new | edge cascade | 348 | 3 | 99.15% | 242,280 | 0.9764 |
-| Relation | old | baseline | 187 | 37 | 83.48% | 258,495 | 0.8508 |
-| Relation | old | fewshot | 172 | 20 | 89.58% | 1,213,458 | 0.8527 |
-| Relation | old | macro cascade | 187 | 37 | 83.48% | 262,102 | 0.8524 |
-| Relation | old | edge cascade | 175 | 21 | 89.29% | 449,791 | 0.8581 |
-| Relation | new | baseline | 185 | 38 | 82.96% | 258,495 | 0.8432 |
-| Relation | new | fewshot | 173 | 19 | 90.10% | 1,213,458 | 0.8566 |
-| Relation | new | macro cascade | 185 | 38 | 82.96% | 262,342 | 0.8448 |
-| Relation | new | edge cascade | 173 | 19 | 90.10% | 442,640 | 0.8566 |</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Run</th>
+<th>Policy</th>
+<th style="text-align:right">Correct edges</th>
+<th style="text-align:right">Wrong edges</th>
+<th style="text-align:right">Precision</th>
+<th style="text-align:right">Input tokens</th>
+<th style="text-align:right">Macro-F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>baseline</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>fewshot</td>
+<td style="text-align:right">349</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">99.43%</td>
+<td style="text-align:right">627,844</td>
+<td style="text-align:right">0.9859</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>macro cascade</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>old</td>
+<td>edge cascade</td>
+<td style="text-align:right">349</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">99.43%</td>
+<td style="text-align:right">237,835</td>
+<td style="text-align:right">0.9859</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>baseline</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>fewshot</td>
+<td style="text-align:right">348</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">99.15%</td>
+<td style="text-align:right">627,844</td>
+<td style="text-align:right">0.9764</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>macro cascade</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">97.77%</td>
+<td style="text-align:right">174,370</td>
+<td style="text-align:right">0.9605</td>
+</tr>
+<tr>
+<td>Entity</td>
+<td>new</td>
+<td>edge cascade</td>
+<td style="text-align:right">348</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">99.15%</td>
+<td style="text-align:right">242,280</td>
+<td style="text-align:right">0.9764</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>baseline</td>
+<td style="text-align:right">187</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">83.48%</td>
+<td style="text-align:right">258,495</td>
+<td style="text-align:right">0.8508</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>fewshot</td>
+<td style="text-align:right">172</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">89.58%</td>
+<td style="text-align:right">1,213,458</td>
+<td style="text-align:right">0.8527</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>macro cascade</td>
+<td style="text-align:right">187</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">83.48%</td>
+<td style="text-align:right">262,102</td>
+<td style="text-align:right">0.8524</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>old</td>
+<td>edge cascade</td>
+<td style="text-align:right">175</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">89.29%</td>
+<td style="text-align:right">449,791</td>
+<td style="text-align:right">0.8581</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>baseline</td>
+<td style="text-align:right">185</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">82.96%</td>
+<td style="text-align:right">258,495</td>
+<td style="text-align:right">0.8432</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>fewshot</td>
+<td style="text-align:right">173</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">90.10%</td>
+<td style="text-align:right">1,213,458</td>
+<td style="text-align:right">0.8566</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>macro cascade</td>
+<td style="text-align:right">185</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">82.96%</td>
+<td style="text-align:right">262,342</td>
+<td style="text-align:right">0.8448</td>
+</tr>
+<tr>
+<td>Relation</td>
+<td>new</td>
+<td>edge cascade</td>
+<td style="text-align:right">173</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">90.10%</td>
+<td style="text-align:right">442,640</td>
+<td style="text-align:right">0.8566</td>
+</tr>
+</tbody>
+</table>
 <p>Primary target met: <strong>True</strong>. Input-token saving 63.52%; correct-edge retention 100.00%. The joint target requires at least 20% saving, 98% retention, and no extra wrong edges versus all-few-shot.</p>
 <p>The edge-aware and all-few-shot rerun policies differ on 2 labels. These are recorded input-token counterfactuals, not measured new API latency or billing. Baseline requests are charged even when a fallback is needed. Calibration feasibility does not guarantee evaluation safety. A macro-F1-only success is not substituted for the stated graph target.</p>
 <p>Descriptive paired 95% rate-difference intervals versus all-few-shot: correct edges [-0.008645533141, 0.008928571429]; wrong edges [0.0, 0.0]. This is not an equivalence test.</p>

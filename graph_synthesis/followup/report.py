@@ -71,7 +71,7 @@ def render(r: dict) -> str:
               f"Primary selected policy: `{json.dumps(b['fit']['policy'],sort_keys=True)}`. '",
               f"Earlier macro-F1 rule, refitted on the same original calibration: threshold {b['macro_fit']['threshold']}.", '',
               '| Task | Run | Policy | Correct edges | Wrong edges | Precision | Input tokens | Macro-F1 |',
-              '|---|---|---|---:|---:|---:|---:|---:|---:|']
+              '|---|---|---|---:|---:|---:|---:|---:|']
     for task,x in r['H2']['tasks'].items():
         for run,v in x['runs'].items():
             for policy in ('baseline','fewshot','macro_cascade','edge_cascade'):
@@ -165,6 +165,14 @@ def render(r: dict) -> str:
     return '\n'.join(lines).replace(". '",'.')
 
 
+def interval_series(r: dict) -> list[tuple[str, dict]]:
+    """Bind plotted labels to keys, never JSON/dictionary iteration order."""
+    return [(label, r['H4']['strategies'][key]) for key, label in (
+        ('exact_qualifier', 'Exact qualifiers'),
+        ('qualifier_blind', 'Ignore qualifiers'),
+        ('interval_scope', 'Interval + scope'))]
+
+
 def figures(r: dict):
     import matplotlib
     matplotlib.use('Agg')
@@ -204,12 +212,11 @@ def figures(r: dict):
     for i,x in enumerate(vals):ax.text(i,x+.2,f'{x:.2f}',ha='center')
     ax.set(ylabel='Wrong emitted edges (lower is better)',title=f"H3 | Matched volume: {c['stable']['accepted']} relationships\nSame-data rerun; random bar is an exact expectation",ylim=(0,max(vals)*1.2))
     save(fig,'03_stability')
-    d = r['H4']['strategies']
+    rows = interval_series(r)
     fig,ax = plt.subplots(figsize=(8.6,5.2))
-    names = list(d)
-    ax.bar([i-.18 for i in range(3)],[d[n]['missed_conflicts'] for n in names],width=.36,label='Missed conflicts')
-    ax.bar([i+.18 for i in range(3)],[d[n]['false_conflicts'] for n in names],width=.36,label='False conflict flags',hatch='//')
-    ax.set_xticks(range(3),['Exact qualifiers','Ignore qualifiers','Interval + scope'])
+    ax.bar([i-.18 for i in range(3)],[m['missed_conflicts'] for _,m in rows],width=.36,label='Missed conflicts')
+    ax.bar([i+.18 for i in range(3)],[m['false_conflicts'] for _,m in rows],width=.36,label='False conflict flags',hatch='//')
+    ax.set_xticks(range(3),[label for label,_ in rows])
     ax.set(ylabel='Errors versus finite oracle',title=f"H4 | Controlled interval validation\n{r['H4']['supported_cases']:,} supported pairs; not model accuracy")
     ax.legend(); save(fig,'04_intervals')
     grid = r['H5']['duplication_grid']

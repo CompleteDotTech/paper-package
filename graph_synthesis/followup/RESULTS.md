@@ -49,7 +49,7 @@ Primary selected policy: `{"direct": false, "negative_threshold": 0, "positive_t
 Earlier macro-F1 rule, refitted on the same original calibration: threshold 0.
 
 | Task | Run | Policy | Correct edges | Wrong edges | Precision | Input tokens | Macro-F1 |
-|---|---|---|---:|---:|---:|---:|---:|---:|
+|---|---|---|---:|---:|---:|---:|---:|
 | Relation | old | baseline | 187 | 37 | 83.48% | 258,495 | 0.8508 |
 | Relation | old | fewshot | 172 | 20 | 89.58% | 1,213,458 | 0.8527 |
 | Relation | old | macro cascade | 187 | 37 | 83.48% | 262,102 | 0.8524 |

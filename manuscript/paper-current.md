@@ -137,7 +137,7 @@ Primary selected policy: `{"direct": false, "negative_threshold": 0, "positive_t
 Earlier macro-F1 rule, refitted on the same original calibration: threshold 0.
 
 | Task | Run | Policy | Correct edges | Wrong edges | Precision | Input tokens | Macro-F1 |
-|---|---|---|---:|---:|---:|---:|---:|---:|
+|---|---|---|---:|---:|---:|---:|---:|
 | Entity | old | baseline | 350 | 8 | 97.77% | 174,370 | 0.9605 |
 | Entity | old | fewshot | 349 | 2 | 99.43% | 627,844 | 0.9859 |
 | Entity | old | macro cascade | 350 | 8 | 97.77% | 174,370 | 0.9605 |

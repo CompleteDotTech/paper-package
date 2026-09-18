@@ -14,7 +14,7 @@ def render(output):
     from .render_paper import CSS
     root = Path(__file__).resolve().parents[1]
     source = root / "manuscript/paper-current.md"
-    markdown = re.sub(r"<!-- (?:FOLLOWUP|ADAPTIVE|RISK_CONTROL)_RESEARCH_(?:START|END) -->", "", source.read_text(encoding="utf-8"))
+    markdown = re.sub(r"<!-- (?:FOLLOWUP|ADAPTIVE|RISK_CONTROL|STRUCTURAL)_RESEARCH_(?:START|END) -->", "", source.read_text(encoding="utf-8"))
     body = MarkdownIt("commonmark", {"html": False}).enable("table").render(markdown)
     body = re.sub(r"<p>(<img [^>]+>)</p>", r"<figure>\1</figure>", body)
     text = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Jev: fresh execution and graph synthesis</title><style>' + CSS + '</style></head><body>' + body + '</body></html>'

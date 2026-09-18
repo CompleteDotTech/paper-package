@@ -1,0 +1,31 @@
+{
+  "note": "Structural extension only; excludes this self-reference and changing full-paper builds.",
+  "sha256": {
+    "graph_synthesis/structural/CLAIM_EVIDENCE.md": "c95588c280f28ee8daea6c84f080b386018581d1bbdb822587bb0e51a71c5d44",
+    "graph_synthesis/structural/PROTOCOL.md": "bf441a3f674b194f8934891ec208ab58f56209bc443828941a048aa2d983b314",
+    "graph_synthesis/structural/README.md": "cb3cf8cd6997e1de0de4eff2bf252bdd5479acfb2d1c68cdcc413ad17d79bd99",
+    "graph_synthesis/structural/RESULTS.md": "6b0c6b9001b9b6bdd2e72e56331e7d51ac50fa8b0e5d7fe0adf50621a13f159e",
+    "graph_synthesis/structural/__init__.py": "4700b67ec0429b5a95f744138b18b0e1757ae9b0f7421ddbd8e1e05ce1649e61",
+    "graph_synthesis/structural/environment-ci.json": "db32d33dada0d111161bcac89f506f361d781872357d6b9b169df3dde7b3f13f",
+    "graph_synthesis/structural/environment-local.json": "1ea119551029e94b2a959c511a17291e4750242acb2aa85dfb9633c8f24e1ac0",
+    "graph_synthesis/structural/figures/01_reliability_ranking.png": "ab68e4377d917d4e09df2a107d5bafdf4f908977010b9c29854ebeb30da01925",
+    "graph_synthesis/structural/figures/01_reliability_ranking.svg": "7ce5a0251f0eb79e4bd2e1d4d9c1593f0aa7fc2884dac24dcf0437ede52ce5fe",
+    "graph_synthesis/structural/figures/02_source_coverage.png": "3c3cf119e079dc619de90da9cbbbb5470ba6b51027546bbeb453392f9c669974",
+    "graph_synthesis/structural/figures/02_source_coverage.svg": "629a3c3d1f546e7b041b57d5901e64d00d65bbe827f75cc9f30d0f947d812c07",
+    "graph_synthesis/structural/figures/03_review_allocation.png": "0ba4e7682833e7012fd9c4291272c3853c78855959b01c7e77248f77f409bad6",
+    "graph_synthesis/structural/figures/03_review_allocation.svg": "afd8146e079229bdef7dd783ff2a9267d6da4d0b4e460fe19e870f68edf367c1",
+    "graph_synthesis/structural/figures/04_exact_lineage.png": "8349d27c345f289909900c7c568bc29f5e9eca11c493541a32fe71cfad0295a2",
+    "graph_synthesis/structural/figures/04_exact_lineage.svg": "5a7e10e9ced0d9b68e0d5df2b596b1d979ce2deaceb53b4a9ef15186d070c265",
+    "graph_synthesis/structural/figures/05_cutset_capacity.png": "5ef209d8be16fa732e6962b05bbe4c1c1af2b0ca353114c558c3be1f438fe50b",
+    "graph_synthesis/structural/figures/05_cutset_capacity.svg": "a60d60bffadb675b7165f21ea800ceb707796db5ab218cb39ae3cbbf54a4f9f0",
+    "graph_synthesis/structural/methods.py": "ca537de71f7f6849fd1f3a734f0bd66f5cbb78fd6477e2e7bb027a6cc03511ad",
+    "graph_synthesis/structural/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
+    "graph_synthesis/structural/report.py": "d36d610d6c1701828823c5112548a8edb16bae71e6e5dbb70f35aadf7ef09f72",
+    "graph_synthesis/structural/results.json": "4f847884a6543f77decbb1dc151b70c6d24554fdac207db88d8e7f78fe27f476",
+    "graph_synthesis/structural/run.py": "eeafd40360b85233538d87787feb88aef399f34cb6d1590f5446431ceb5d7cf0",
+    "graph_synthesis/structural/summary.csv": "998bad22d69da917bd10dcb0cefab385c80f6c73b964050bebd5835a8d283797",
+    "graph_synthesis/structural/tests/test_structural.py": "1bc51919936fc3a4f6b13d2a2c498dc9f2f3d33d8dd1603a3964a06475203e71",
+    "graph_synthesis/structural/validation-ci.json": "306b3d39630fac71b5da0a9d92f6ff9514100feb1eb2b9a421db7033b32f770e",
+    "graph_synthesis/structural/validation-local.json": "c94c45790ba7964e2c5bf90b81a46c695f6f66886cee8af3df0b5fefc184d2d4"
+  }
+}

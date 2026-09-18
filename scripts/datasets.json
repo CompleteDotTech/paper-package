@@ -1,0 +1,32 @@
+[
+  {
+    "name": "dblp-acm-test.txt",
+    "bytes": 961602,
+    "sha256": "ded891e469b1d08e21269038c984dc761ae2fd5b142b00c46c30fce45adc6e68"
+  },
+  {
+    "name": "dblp-acm-train.txt",
+    "bytes": 2894612,
+    "sha256": "4f757d2d5dae4f7d7d118b796c683a232b4e11bf000e2012b64f8af95a981a4e"
+  },
+  {
+    "name": "dblp-acm-valid.txt",
+    "bytes": 966837,
+    "sha256": "b13444a2bf1a503ed558e782f42b247cf56e16e67be2e58d92d7435161299e2e"
+  },
+  {
+    "name": "entity_resolution-prepared.json",
+    "bytes": 5676931,
+    "sha256": "2b910a97ea4d8bef02a01bdf19d17c4c11bfd2dd741d00acf1c9e508e3587d30"
+  },
+  {
+    "name": "scifact-data.tar.gz",
+    "bytes": 3115079,
+    "sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be"
+  },
+  {
+    "name": "scifact-prepared.json",
+    "bytes": 2037779,
+    "sha256": "99e4783162284db4448068a5caccd462bbafb8306721f94916f75f1bc406317d"
+  }
+]

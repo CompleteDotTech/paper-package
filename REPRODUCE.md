@@ -1,6 +1,6 @@
 # Reproducing the paper package
 
-Use Python 3.12. The package is self-contained for offline Jev reproduction after installing NumPy. It includes the original raw datasets and prepared splits, so replay makes no dataset downloads. The verifier uses a temporary copy and leaves the evidence directory unchanged.
+Use Python 3.12. The package is self-contained for offline Jev reproduction after installing NumPy. First run `py -3.12 -B scripts/download_datasets.py` from this directory. This downloads the four public source files, regenerates both prepared splits, and verifies all six files against the archived SHA-256 hashes. Downloads require network access; subsequent replay is offline. The files are stored in the Git-ignored `reproduction/data/sources/` directory. Use `--check` to verify them again without network access. The verifier uses a temporary copy and leaves the evidence directory unchanged.
 
 From this directory on Windows, create the environment outside the package so its archival file inventory stays unchanged:
 
@@ -10,9 +10,9 @@ py -3.12 -m venv ../jev-paper-venv
 ..\jev-paper-venv\Scripts\python.exe -B scripts/verify_package.py --replay
 ```
 
-The manifest verifier intentionally rejects extra or missing files. On Linux or macOS, use `python3.12` and the environment's `bin/python` equivalent. Frozen manifests contain Windows path strings; the verifier normalizes them when resolving source paths.
+The manifest verifier rejects extra or missing package files, excluding Git metadata, interpreter caches, and local dataset/cache directories. Downloaded datasets are checked separately before replay or tests. On Linux or macOS, use `python3.12` and the environment's `bin/python` equivalent. Frozen manifests contain Windows path strings; the verifier normalizes them when resolving source paths.
 
-The repository's existing full research environment can also run:
+An existing full research environment can also run (after downloading the datasets):
 
 ```powershell
 ..\.venv\Scripts\python.exe -B scripts/verify_package.py --replay --tests

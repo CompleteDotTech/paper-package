@@ -13,6 +13,7 @@ import socket
 import subprocess
 import sys
 import tempfile
+from download_datasets import verify_datasets
 
 PACKAGE = Path(__file__).resolve().parents[1]
 
@@ -32,7 +33,10 @@ def main():
     manifest = json.loads((PACKAGE / "MANIFEST.json").read_text(encoding="utf-8"))
     expected = {row["path"]: row for row in manifest["files"]}
     actual = {p.relative_to(PACKAGE).as_posix() for p in PACKAGE.rglob("*")
-              if p.is_file() and p.name != "MANIFEST.json" and "__pycache__" not in p.parts}
+              if p.is_file() and p.name != "MANIFEST.json" and "__pycache__" not in p.parts
+              and ".git" not in p.relative_to(PACKAGE).parts
+              and not p.is_relative_to(PACKAGE / "reproduction/data/sources")
+              and not p.is_relative_to(PACKAGE / "reproduction/.cache")}
     if actual != set(expected):
         raise ValueError("Package inventory differs from its manifest")
     for name, row in expected.items():
@@ -42,6 +46,7 @@ def main():
     report = {"status": "passed", "verified_at_utc": datetime.now(timezone.utc).isoformat(),
               "package_files_verified": len(expected), "package_manifest_sha256": sha(PACKAGE / "MANIFEST.json")}
     if args.replay or args.tests:
+        verify_datasets(PACKAGE / "reproduction/data/sources")
         with tempfile.TemporaryDirectory(prefix="jev-paper-reproduction-") as temporary:
             work = Path(temporary) / "reproduction"
             shutil.copytree(PACKAGE / "reproduction", work)

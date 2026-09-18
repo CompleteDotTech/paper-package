@@ -1,11 +1,16 @@
 {
   "algorithm": "sha256",
-  "scope": "All package files except this manifest and interpreter caches",
+  "scope": "Package files excluding this manifest, Git metadata, interpreter caches, and downloaded datasets/runtime caches",
   "files": [
     {
       "path": ".gitattributes",
       "bytes": 102,
       "sha256": "397858736ccfc0643d4f019372bce86ca5358b39da3cbbb1ce5d4c973cde4373"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 69,
+      "sha256": "390c8ca2da3e4e978491b6c78aa08a0c51a622ca7a0071d246025fb9cddb27af"
     },
     {
       "path": "background/historical-documents/GITHUB_SETUP_GUIDE.md",
@@ -189,13 +194,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 4504,
-      "sha256": "44a6ce8b25a928cd94718a846dcfd1475fa28538f1c22f88218b5396991a0916"
+      "bytes": 5079,
+      "sha256": "a1dcab162c813797113f6a5477c7a178356ad2ef2770d7b3761ed246d9939dab"
     },
     {
       "path": "REPRODUCE.md",
-      "bytes": 4324,
-      "sha256": "c21ab43b787ec088192ef6d097305ec684a49272b16dea27ff7f27a92b617c24"
+      "bytes": 4865,
+      "sha256": "9b17eeb9768d8186bccfda17bd5a01e351269598e57d196346c4d46379127ab5"
     },
     {
       "path": "reproduction/benchmark_entity_resolution_100_results.json",
@@ -206,36 +211,6 @@
       "path": "reproduction/benchmark_relation_support_50_results.json",
       "bytes": 80508,
       "sha256": "605c4b162d3ed5e76bbece6ac8a68dfbad0726d6d88dec6e37d540ab6c0831a6"
-    },
-    {
-      "path": "reproduction/data/sources/dblp-acm-test.txt",
-      "bytes": 961602,
-      "sha256": "ded891e469b1d08e21269038c984dc761ae2fd5b142b00c46c30fce45adc6e68"
-    },
-    {
-      "path": "reproduction/data/sources/dblp-acm-train.txt",
-      "bytes": 2894612,
-      "sha256": "4f757d2d5dae4f7d7d118b796c683a232b4e11bf000e2012b64f8af95a981a4e"
-    },
-    {
-      "path": "reproduction/data/sources/dblp-acm-valid.txt",
-      "bytes": 966837,
-      "sha256": "b13444a2bf1a503ed558e782f42b247cf56e16e67be2e58d92d7435161299e2e"
-    },
-    {
-      "path": "reproduction/data/sources/entity_resolution-prepared.json",
-      "bytes": 5676931,
-      "sha256": "2b910a97ea4d8bef02a01bdf19d17c4c11bfd2dd741d00acf1c9e508e3587d30"
-    },
-    {
-      "path": "reproduction/data/sources/scifact-data.tar.gz",
-      "bytes": 3115079,
-      "sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be"
-    },
-    {
-      "path": "reproduction/data/sources/scifact-prepared.json",
-      "bytes": 2037779,
-      "sha256": "99e4783162284db4448068a5caccd462bbafb8306721f94916f75f1bc406317d"
     },
     {
       "path": "reproduction/pgc/__init__.py",
@@ -758,14 +733,24 @@
       "sha256": "14dba5fa66ca6fc00c672e5dd9c04053e3a21ee7dd6e69390a2156274793c6f7"
     },
     {
+      "path": "scripts/datasets.json",
+      "bytes": 925,
+      "sha256": "772dc367bbc013fa9523c7bf82eb10fd40e632401858749bf1827e478c78096f"
+    },
+    {
+      "path": "scripts/download_datasets.py",
+      "bytes": 2331,
+      "sha256": "f6f089b606a66923a1beb0a973ee0b8d7e0d311d0618e8c09fec338856aa6707"
+    },
+    {
       "path": "scripts/generate_tables.py",
       "bytes": 11004,
       "sha256": "abefb4a535a5a153f9f4f9320697a2538d4a8abbd9c3fa57b67bf7a89f4eca8f"
     },
     {
       "path": "scripts/verify_package.py",
-      "bytes": 4983,
-      "sha256": "0e971e1d8a7c4e6996c232656e35b28fee310c0498b992b9b31cce3f2c645048"
+      "bytes": 5303,
+      "sha256": "f47d46da1bf926a5f8cecee73cc0f89c86f8ae008d9ad8e89b63f18f8169b47f"
     },
     {
       "path": "supplementary/CLAIM_EVIDENCE.md",
@@ -794,8 +779,8 @@
     },
     {
       "path": "supplementary/REFERENCES_AND_DATA.md",
-      "bytes": 13607,
-      "sha256": "d9aa2f4b4898867e88d1fa70513d8d7421274e7934257ab735442bc9e7bb7374"
+      "bytes": 13776,
+      "sha256": "8c21a2bb070b8b38ea867bbdcc6d9d8e10e29b27bb0687edcce1ad54be6cfbe3"
     },
     {
       "path": "supplementary/source_review_metadata.json",

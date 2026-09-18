@@ -6,6 +6,8 @@ test_joint_truth_and_every_dual_certificate (test_artifacts.ArtifactTests.test_j
 test_repairs_really_preserve_protected_proofs (test_artifacts.ArtifactTests.test_repairs_really_preserve_protected_proofs) ... ok
 test_selected_sets_consistent_and_cover_flow_dual (test_artifacts.ArtifactTests.test_selected_sets_consistent_and_cover_flow_dual) ... ok
 test_source_and_implementation_hashes (test_artifacts.ArtifactTests.test_source_and_implementation_hashes) ... ok
+test_exactly_two_additive_steps_and_no_weakened_gate (test_frontier_publication.FrontierPublicationTests.test_exactly_two_additive_steps_and_no_weakened_gate) ... ok
+test_unknown_frontier_layout_fails_closed (test_frontier_publication.FrontierPublicationTests.test_unknown_frontier_layout_fails_closed) ... ok
 test_bad_dual_cannot_issue_bad_certificate (test_methods.DependenceTests.test_bad_dual_cannot_issue_bad_certificate) ... ok
 test_bounds_validation (test_methods.DependenceTests.test_bounds_validation) ... ok
 test_correlated_or_not_independent (test_methods.DependenceTests.test_correlated_or_not_independent) ... ok
@@ -90,6 +92,6 @@ test_zero_width_is_nominal_optimum (test_regret.RegretTests.test_zero_width_is_n
 test_added_correct_edges_do_not_mask_lost_correct_edges (test_retention.RetentionTests.test_added_correct_edges_do_not_mask_lost_correct_edges) ... ok
 
 ----------------------------------------------------------------------
-Ran 90 tests in 0.540s
+Ran 92 tests in 0.413s
 
 OK

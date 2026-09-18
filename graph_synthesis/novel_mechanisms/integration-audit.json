@@ -4,7 +4,8 @@
   "preserved_ordered_main_paragraphs": 749,
   "reviewed_publication_changes": [
     ".github/workflows/jev-multicall.yml",
+    ".github/workflows/structural-frontier.yml",
     "graph_synthesis/render_current_paper.py"
   ],
-  "unchanged_prior_files": 711
+  "unchanged_prior_files": 710
 }

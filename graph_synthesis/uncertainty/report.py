@@ -9,7 +9,7 @@ from .run import HERE, ROOT, sha, write
 
 START = '<!-- UNCERTAINTY_RESEARCH_START -->'
 END = '<!-- UNCERTAINTY_RESEARCH_END -->'
-ANCHOR = '<!-- STRUCTURAL_RESEARCH_END -->'
+ANCHOR = '<!-- SOURCE_STRUCTURAL_RESEARCH_END -->'
 TITLES = ['Dependence-agnostic lineage', 'Skeptical repair backbone', 'Query-loss-directed review',
           'Minimum-collateral retraction', 'Grounded recursive evidence']
 FIGURES = ['01_dependence', '02_repair_backbone', '03_query_review', '04_retraction', '05_grounding']

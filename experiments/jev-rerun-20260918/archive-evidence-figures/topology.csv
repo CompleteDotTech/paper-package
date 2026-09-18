@@ -1,0 +1,5 @@
+task,arm,name,nodes,edges,isolates,isolate_fraction,weak_components,largest_component,claims_with_opposing_source_labels,schema_eligible_pairs,schema_pair_density
+relation_support,baseline_choice,SciFact / Generic,583,224,180,0.30874785591766724,362,6,0,84900,0.0026383981154299175
+relation_support,fewshot_contract,SciFact / Few-shot,583,192,241,0.41337907375643224,394,6,0,84900,0.0022614840989399294
+entity_resolution,baseline_noul,Identity / Generic,826,413,0,0.0,413,2,0,,
+entity_resolution,fewshot_contract,Identity / Few-shot,826,413,0,0.0,413,2,0,,

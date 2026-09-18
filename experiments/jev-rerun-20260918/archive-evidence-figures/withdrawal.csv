@@ -1,0 +1,5 @@
+name,initial,active_after,retracted,history_preserved,reopen_equal
+SciFact / Generic,224,219,5,224,True
+SciFact / Few-shot,192,187,5,192,True
+Identity / Generic,413,412,1,413,True
+Identity / Few-shot,413,412,1,413,True

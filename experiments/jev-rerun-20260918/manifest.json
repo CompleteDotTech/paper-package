@@ -1,0 +1,190 @@
+{
+  "created_at": "2026-09-18T04:53:14.767805+00:00",
+  "model": "jev-1.13.0",
+  "seed": 20260917,
+  "plan_sha256": "009a5591488a93c709a6033c3414a4103e5d431d16871369b2c374ebac6c6942",
+  "protocol_sha256": "58739c60a5520b5d8c51e6d5005d249977d20052106e1ff43782a25dd449123a",
+  "unit_prices_usd_per_million_tokens": {
+    "input": 0.042,
+    "output": 0.0
+  },
+  "pricing_source": "https://docs.typesafe.ai/models",
+  "pricing_verified_on": "2026-09-17",
+  "limits": {
+    "max_http_attempts": 4000,
+    "max_input_tokens": 20000000,
+    "concurrency": 4
+  },
+  "selection": {
+    "entity_resolution": {
+      "baseline": "baseline_noul",
+      "selected": "fewshot_contract",
+      "selection_split": "development",
+      "ranking": [
+        {
+          "arm": "fewshot_contract",
+          "macro_f1": 1.0,
+          "brier_score": 0.008256666666666667,
+          "accuracy": 1.0,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        },
+        {
+          "arm": "identity_contract",
+          "macro_f1": 1.0,
+          "brier_score": 0.018653333333333334,
+          "accuracy": 1.0,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        },
+        {
+          "arm": "identity_noul",
+          "macro_f1": 1.0,
+          "brier_score": 0.036636666666666665,
+          "accuracy": 1.0,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        },
+        {
+          "arm": "baseline_noul",
+          "macro_f1": 0.9818785865297492,
+          "brier_score": 0.041280000000000004,
+          "accuracy": 0.9833333333333333,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        }
+      ],
+      "selected_beats_baseline_development_macro_f1": true,
+      "rule": "highest operational macro F1, then lowest full-sum Brier, then stable arm name; best alternative even if below baseline"
+    },
+    "relation_support": {
+      "baseline": "baseline_choice",
+      "selected": "fewshot_contract",
+      "selection_split": "development",
+      "ranking": [
+        {
+          "arm": "fewshot_contract",
+          "macro_f1": 0.86565992892297,
+          "brier_score": 0.2004766666666667,
+          "accuracy": 0.8666666666666667,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        },
+        {
+          "arm": "conditional_nouls",
+          "macro_f1": 0.864903414195867,
+          "brier_score": 0.2215540636666667,
+          "accuracy": 0.8666666666666667,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        },
+        {
+          "arm": "evidence_contract",
+          "macro_f1": 0.8494394494394495,
+          "brier_score": 0.23423000000000002,
+          "accuracy": 0.85,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        },
+        {
+          "arm": "baseline_choice",
+          "macro_f1": 0.8016936504331462,
+          "brier_score": 0.27675333333333335,
+          "accuracy": 0.8,
+          "n_errors": 0,
+          "n_examples": 60,
+          "probability_score_denominator": 60
+        }
+      ],
+      "selected_beats_baseline_development_macro_f1": true,
+      "rule": "highest operational macro F1, then lowest full-sum Brier, then stable arm name; best alternative even if below baseline"
+    }
+  },
+  "stages": [
+    {
+      "stage": "development",
+      "finished_at": "2026-09-18T04:53:40.749756+00:00",
+      "driver_wall_seconds": 25.950687200001994,
+      "new_logical_calls": 240,
+      "new_input_tokens": 424460,
+      "jobs": 240,
+      "live_enabled": true
+    },
+    {
+      "stage": "calibration",
+      "finished_at": "2026-09-18T04:55:32.338262+00:00",
+      "driver_wall_seconds": 111.535964900002,
+      "new_logical_calls": 1080,
+      "new_input_tokens": 1406984,
+      "jobs": 1080,
+      "live_enabled": true
+    },
+    {
+      "stage": "evaluation",
+      "finished_at": "2026-09-18T04:58:08.062086+00:00",
+      "driver_wall_seconds": 155.34856260000015,
+      "new_logical_calls": 1504,
+      "new_input_tokens": 2274167,
+      "jobs": 1504,
+      "live_enabled": true
+    },
+    {
+      "stage": "fresh_repeat_1",
+      "finished_at": "2026-09-18T04:58:15.997448+00:00",
+      "driver_wall_seconds": 7.930305800000497,
+      "new_logical_calls": 80,
+      "new_input_tokens": 126052,
+      "jobs": 80,
+      "live_enabled": true
+    },
+    {
+      "stage": "fresh_repeat_2",
+      "finished_at": "2026-09-18T04:58:23.958577+00:00",
+      "driver_wall_seconds": 7.954767499999434,
+      "new_logical_calls": 80,
+      "new_input_tokens": 126052,
+      "jobs": 80,
+      "live_enabled": true
+    },
+    {
+      "stage": "fixtures",
+      "finished_at": "2026-09-18T04:58:53.817269+00:00",
+      "driver_wall_seconds": 29.839962499998364,
+      "new_logical_calls": 300,
+      "new_input_tokens": 350750,
+      "jobs": 300,
+      "live_enabled": true
+    },
+    {
+      "stage": "batching",
+      "finished_at": "2026-09-18T04:59:05.823299+00:00",
+      "driver_wall_seconds": 12.002518600002077,
+      "new_logical_calls": 120,
+      "new_input_tokens": 83945,
+      "jobs": 120,
+      "live_enabled": true
+    }
+  ],
+  "limits_of_inference": [
+    "One pinned Jev revision; no vendor calibration claim assumed.",
+    "Existing specialist test data was seen in earlier research; new Jev arm choice uses training development only.",
+    "Fixtures have development history and unadjudicated labels; evaluate them separately.",
+    "Few-shot adds labeled training context, so evidence for the target is fixed but prompt budget increases."
+  ],
+  "source_sha256": {
+    "pgc\\experiments\\run_jev_research.py": "4c2f89458c0fc97bf67bfd79024296389bdc96783f2524e13828e247666a4c17",
+    "pgc\\decision\\jev_real.py": "baede67020bd7be26b482c8397a72de53531f871ed36ca60e7716d34595b83b3",
+    "pgc\\experiments\\analyze_jev_research.py": "ce8ff42437531bf9a9157a04eeaef9538f166c4ddc02667af3cdaa86d33f08ab",
+    "pgc\\experiments\\research_data.py": "d2482aa4db7a9f7a7e8a319f86d53ef053550c8b73a70d831e8ffb540616ba45",
+    "pgc\\evaluation.py": "b824f375c4e97116179163adf5d4808d4a6f744c7292b84ff4200f692af4b265"
+  },
+  "selection_frozen_at": "2026-09-18T04:53:40.763285+00:00",
+  "calibration_sha256": "f7b1a21607dc0a30608d4922ef75f57018426412f1d6576acd98ac96220ca010"
+}

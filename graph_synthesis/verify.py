@@ -53,7 +53,8 @@ def verify(repository: Path, *, replay: bool = False, tests: bool = False) -> di
         raise RuntimeError("Run portable verification in a fresh Python process")
     with tempfile.TemporaryDirectory(prefix="graph-study-verify-") as temporary:
         work = Path(temporary) / "reproduction"
-        shutil.copytree(repository / "reproduction", work)
+        shutil.copytree(repository / "reproduction", work,
+                        ignore=shutil.ignore_patterns(".cache", "__pycache__"))
         shutil.copytree(work / "data/sources", work / ".cache/research-data")
         run = work / "results/jev/run-20260918"
         original_manifest = (run / "manifest.json").read_bytes()

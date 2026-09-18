@@ -1,0 +1,128 @@
+name: New graph-synthesis mechanisms
+on:
+  push:
+    branches: [main, research/novel-mechanisms-20260918]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: novel-mechanisms-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  execute-and-publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/novel-mechanisms-20260918'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/novel_mechanisms/requirements.txt
+      - name: Execute frozen tests, oracles, full regression and exact replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor b2a5ccbda2f511cf76aad4e3348a7a67fb1aabad HEAD
+          python -B -m graph_synthesis.novel_mechanisms.run --timings | tee graph_synthesis/novel_mechanisms/execution.log
+          python -B -m unittest discover -s graph_synthesis/novel_mechanisms/tests -v 2>&1 | tee graph_synthesis/novel_mechanisms/tests.log
+          python -B -m graph_synthesis.novel_mechanisms.run --check | tee graph_synthesis/novel_mechanisms/replay.log
+          for tests in graph_synthesis/tests graph_synthesis/*/tests; do
+            if [ -d "$tests" ] && [ "$tests" != graph_synthesis/novel_mechanisms/tests ]; then
+              python -B -m unittest discover -s "$tests" -v
+            fi
+          done 2>&1 | tee graph_synthesis/novel_mechanisms/regression.log
+          python -B -m graph_synthesis.verify --output graph_synthesis/novel_mechanisms/original-inventory.json
+          python -B -m graph_synthesis.novel_mechanisms.report --figures --update-paper
+          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+      - name: Publish generated artifacts on the research branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add graph_synthesis/novel_mechanisms CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'research: record five new mechanism benchmarks, figures and full manuscript'
+            git push origin HEAD:research/novel-mechanisms-20260918
+          fi
+          mkdir -p "$RUNNER_TEMP/novel-review"
+          git archive HEAD -o "$RUNNER_TEMP/novel-review/repository.tar"
+          cp manuscript/paper-current.pdf "$RUNNER_TEMP/novel-review/paper-current.pdf"
+          cp graph_synthesis/novel_mechanisms/RESULTS.md "$RUNNER_TEMP/novel-review/RESULTS.md"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: novel-mechanisms-review-package
+          path: ${{ runner.temp }}/novel-review/
+          retention-days: 14
+  replay:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/novel_mechanisms/requirements.txt
+      - name: Check code, certificates, results and preserved evidence
+        run: |
+          git merge-base --is-ancestor b2a5ccbda2f511cf76aad4e3348a7a67fb1aabad HEAD
+          python -B -m unittest discover -s graph_synthesis/novel_mechanisms/tests -v
+          python -B -m graph_synthesis.novel_mechanisms.run --check
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/novel-original.json"
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          manifest=json.loads(Path('graph_synthesis/novel_mechanisms/artifact-manifest.json').read_text(encoding='utf-8'))
+          for path,want in manifest['sha256'].items():
+              assert sha(path)==want,path
+          build=json.loads(Path('manuscript/paper-current.build.json').read_text(encoding='utf-8'))
+          assert sha('manuscript/paper-current.md')==build['source_sha256']
+          assert sha('graph_synthesis/render_current_paper.py')==build['renderer_sha256']
+          assert sha('manuscript/paper-current.pdf')==build['pdf_sha256']
+          print('Extension and complete paper provenance verified')
+          PY
+          git diff --exit-code
+  figures-and-paper:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/novel_mechanisms/requirements.txt
+      - name: Regenerate paper and figures without modifying prior studies
+        run: |
+          python -B -m graph_synthesis.novel_mechanisms.report --figures --update-paper
+          git diff --exit-code -- graph_synthesis/novel_mechanisms manuscript/paper-current.md CURRENT_RESULTS.md
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/novel-paper.pdf"
+          git diff --exit-code -- manuscript/paper-current.html

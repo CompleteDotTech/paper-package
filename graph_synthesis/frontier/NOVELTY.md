@@ -1,0 +1,35 @@
+# Novelty boundary and prior-art audit
+
+**Claim:** these five bounded mechanisms and their specified experiments are new extensions relative to repository main `a62a3257645d8e35cd4e45be53bfa9511d27724b` (PR #17). **Not claimed:** that Bayesian marginalization, noisy cost-aware review, decision diagrams, bipartite min-cut or segment-tree dynamic programming were never attempted anywhere before. No public-source search can establish an absence of unpublished work. The research does not advertise established algorithms as inventions.
+
+## Repository comparison
+
+The full pinned source snapshot was inspected, with semantic review of the preceding follow-up, adaptive, risk-control and reliability protocols, reports and imported implementations. `novelty-audit.json` records the inspected baseline Python/Markdown file hashes and a reproducible term-search audit. The terms `latent`, `bipartite`, `decision diagram`, `segment tree` and `knapsack` had no matches in that scope. Review-cost and false-removal terms did have matches; those are explicitly **not** novel subject areas here. A term absence alone is not evidence that an equivalent algorithm is absent, so the mechanism distinctions below, not keywords alone, define the scoped claim.
+
+| Extension | Prior implementation | Difference actually tested |
+|---|---|---|
+| H1 | Independent primitive events with shared proof atoms; corrupted-lineage negative controls | Distinct atoms assigned to shared binary source-quality variables, conditional event models, explicit latent-state marginalization, independent joint-world oracle |
+| H2 | Development-fitted group review, unit edge budgets, exact/greedy review and homogeneous sensitivity analyses | Cost-heterogeneous budget packing, cost-dependent detection, correct-edge-loss penalty, per-group subset options and cross-group budget allocation; measured expected downstream gain fails |
+| H3 | Per-evaluation Shannon expansion capped at sixteen atoms per connected component | Probability-independent reduced decision diagram with an explicit residual-state budget, larger structured connected formulas and reusable evaluation after probability updates |
+| H4 | Forest and four-vertex cycle-cutset optimization with small subset fallback | Bipartite recognition, priority-weighted flow reduction, separate primal/dual certificate verification and exact large multicycle fixtures |
+| H5 | Whole-component snapshot cache; zero savings on connected update workloads | Fixed connected-path transfer-matrix segment tree; weight-only logarithmic summary updates, with separately linear witness decoding |
+
+These mechanisms were selected from documented limits in PR #17 rather than from an unobserved new corpus. The protocol preceded this extension's implementation and execution, but prior outcomes were already known. The work remains exploratory.
+
+## External primary-source checks (September 18, 2026)
+
+The search examined source-quality models, probabilistic provenance/knowledge compilation, annotation costs, bipartite independent-set optimization and dynamic programming. It was a targeted related-work check, not a systematic novelty certification or patent search.
+
+[Zhao, Rubinstein, Gemmell and Han (2012), A Bayesian Approach to Discovering Truth from Conflicting Sources for Data Integration](https://arxiv.org/abs/1203.0058) models source quality with probabilistic inference. H1 does not invent source-quality modeling, and unlike that system does not infer source reliabilities from real multi-source datasets.
+
+[Fink, Han and Olteanu (2012), Aggregation in Probabilistic Databases via Knowledge Compilation](https://arxiv.org/abs/1201.6569) establishes compilation-based probabilistic query evaluation. [Gaur, Dang, Bhattacharya and Bedathur (2021), Computing and Maintaining Provenance of Query Result Probabilities in Uncertain Knowledge Graphs](https://arxiv.org/abs/2108.07758) includes probabilistic provenance maintenance and adaptive use of compilation. H3 is a bounded implementation tested against this repository's old evaluator, not a new knowledge-compilation paradigm or a benchmark against those systems. [Beame and Liew (2015), New Limits for Knowledge Compilation and Applications to Exact Model Counting](https://arxiv.org/abs/1506.02639) reinforces why efficient tested cases do not imply universally small compiled representations.
+
+[Settles, Craven and Friedland (2008), Active Learning with Real Annotation Costs](https://burrsettles.com/pub/settles.nips08ws.pdf) studies heterogeneous annotation costs. H2 uses explicitly assumed proxy effort and reviewer error probabilities rather than measured annotation costs, and its frozen downstream target fails. Earlier repository reviewer-noise controls are retained and acknowledged.
+
+[Doron-Arad and Shachnai (2023), Tight Bounds for Budgeted Maximum Weight Independent Set in Bipartite and Perfect Graphs](https://arxiv.org/abs/2307.08592) distinguishes ordinary polynomial-time bipartite maximum-weight independent set from hard budget-constrained variants. H4 uses the ordinary problem; it does not solve the harder budgeted variant. Its min-cut correctness argument and checkable flow/cut certificate are included in the report rather than attributed as a novel reduction.
+
+[Gupta et al. (2023), Fast Dynamic Programming in Trees in the MPC Model](https://arxiv.org/abs/2305.03693) is additional evidence of an established literature on tree dynamic programming. It operates in a different parallel model, is not the origin claimed for H5's segment-tree construction, and is not an empirical baseline here. H5's tested combination is a deliberately narrow fixed-path incremental utility interface within this repository.
+
+## What would be needed for stronger claims
+
+A first-ever scientific-method claim would need much broader systematic literature review and a precise distinction from equivalent existing formulations; it is not made. A semantic-improvement claim would need newly collected source-disjoint adjudicated graph truth, prospective frozen policies, validated source/reviewer models, appropriate uncertainty analysis and matched-budget external-system baselines. This extension supplies executed, falsifiable engineering tests and transparent scope, not those unperformed studies.

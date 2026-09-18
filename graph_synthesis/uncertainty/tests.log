@@ -1,0 +1,39 @@
+test_conjunctive_body_needs_all_atoms (test_uncertainty.GroundingTests.test_conjunctive_body_needs_all_atoms) ... ok
+test_false_base_semantic_control (test_uncertainty.GroundingTests.test_false_base_semantic_control) ... ok
+test_finite_model_oracle (test_uncertainty.GroundingTests.test_finite_model_oracle) ... ok
+test_invalid_ground_rules (test_uncertainty.GroundingTests.test_invalid_ground_rules) ... ok
+test_no_unseeded_self_support (test_uncertainty.GroundingTests.test_no_unseeded_self_support) ... ok
+test_rule_duplicate_order_and_work_bound (test_uncertainty.GroundingTests.test_rule_duplicate_order_and_work_bound) ... ok
+test_withdrawn_cycle_and_backup (test_uncertainty.GroundingTests.test_withdrawn_cycle_and_backup) ... ok
+test_canonicalization (test_uncertainty.LineageTests.test_canonicalization) ... ok
+test_cap_and_unused_atoms (test_uncertainty.LineageTests.test_cap_and_unused_atoms) ... ok
+test_correlated_control (test_uncertainty.LineageTests.test_correlated_control) ... ok
+test_invalid_probabilities (test_uncertainty.LineageTests.test_invalid_probabilities) ... ok
+test_invalid_proofs (test_uncertainty.LineageTests.test_invalid_proofs) ... ok
+test_rational_extrema (test_uncertainty.LineageTests.test_rational_extrema) ... ok
+test_solver_exception_fallback (test_uncertainty.LineageTests.test_solver_exception_fallback) ... ok
+test_solver_status_fallback (test_uncertainty.LineageTests.test_solver_status_fallback) ... ok
+test_wrong_marginal_is_not_corrected (test_uncertainty.LineageTests.test_wrong_marginal_is_not_corrected) ... ok
+test_all_small_unweighted_graphs (test_uncertainty.RepairTests.test_all_small_unweighted_graphs) ... ok
+test_invalid_graph (test_uncertainty.RepairTests.test_invalid_graph) ... ok
+test_large_component_is_explicitly_partial (test_uncertainty.RepairTests.test_large_component_is_explicitly_partial) ... ok
+test_tie_and_isolated_backbone (test_uncertainty.RepairTests.test_tie_and_isolated_backbone) ... ok
+test_unique_false_priority_control (test_uncertainty.RepairTests.test_unique_false_priority_control) ... ok
+test_zero_priority_is_optional (test_uncertainty.RepairTests.test_zero_priority_is_optional) ... ok
+test_additive_update_is_idempotent (test_uncertainty.ReportTests.test_additive_update_is_idempotent) ... ok
+test_missing_or_malformed_anchor_is_rejected (test_uncertainty.ReportTests.test_missing_or_malformed_anchor_is_rejected) ... ok
+test_cap (test_uncertainty.RetractionTests.test_cap) ... ok
+test_exact_plan_and_no_mutation (test_uncertainty.RetractionTests.test_exact_plan_and_no_mutation) ... ok
+test_impossible_protection (test_uncertainty.RetractionTests.test_impossible_protection) ... ok
+test_invalid_retraction_inputs (test_uncertainty.RetractionTests.test_invalid_retraction_inputs) ... ok
+test_missing_proof_control (test_uncertainty.RetractionTests.test_missing_proof_control) ... ok
+test_degenerate_probabilities (test_uncertainty.ReviewTests.test_degenerate_probabilities) ... ok
+test_direct_brier_and_monotonicity (test_uncertainty.ReviewTests.test_direct_brier_and_monotonicity) ... ok
+test_invalid_budgets (test_uncertainty.ReviewTests.test_invalid_budgets) ... ok
+test_irrelevant_high_risk_atom (test_uncertainty.ReviewTests.test_irrelevant_high_risk_atom) ... ok
+test_misspecification_counterexample (test_uncertainty.ReviewTests.test_misspecification_counterexample) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.488s
+
+OK

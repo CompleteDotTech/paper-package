@@ -1,4 +1,5 @@
 """Regression, property, provenance and anti-leakage tests for five hypotheses."""
+import ast
 import copy
 import json
 import os
@@ -226,6 +227,13 @@ class EvidenceTests(unittest.TestCase):
 
 
 class PresentationTests(unittest.TestCase):
+    def test_readers_use_explicit_utf8(self):
+        from graph_synthesis.followup import run, report
+        for module in (run, report):
+            tree=ast.parse(Path(module.__file__).read_text(encoding='utf-8'))
+            for node in ast.walk(tree):
+                if isinstance(node,ast.Call) and isinstance(node.func,ast.Attribute) and node.func.attr=='read_text':
+                    self.assertTrue(any(k.arg=='encoding' and isinstance(k.value,ast.Constant) and k.value.value=='utf-8' for k in node.keywords), (module.__name__,node.lineno))
     def test_interval_labels_survive_json_key_sort(self):
         from graph_synthesis.followup.report import interval_series
         data=json.loads(json.dumps({'H4':{'strategies':{

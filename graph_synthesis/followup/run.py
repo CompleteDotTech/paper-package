@@ -44,9 +44,9 @@ def load_data(root: Path = ROOT) -> tuple[dict, dict]:
             raise ValueError('Changed pinned input: '+path)
     backend, old, audit = load_original(root)
     folder = root/'experiments/jev-rerun-20260918'
-    plan = json.loads((folder/'plan.json').read_text())
-    records = [json.loads(l) for l in (folder/'predictions.jsonl').read_text().splitlines() if l.strip()]
-    call_rows = [json.loads(l) for l in (folder/'calls.jsonl').read_text().splitlines() if l.strip()]
+    plan = json.loads((folder/'plan.json').read_text(encoding='utf-8'))
+    records = [json.loads(l) for l in (folder/'predictions.jsonl').read_text(encoding='utf-8').splitlines() if l.strip()]
+    call_rows = [json.loads(l) for l in (folder/'calls.jsonl').read_text(encoding='utf-8').splitlines() if l.strip()]
     calls = {r['call_id']: r for r in call_rows}
     if len(calls) != len(call_rows) or plan['model'] != backend.plan['model']:
         raise ValueError('Duplicate calls or model mismatch')
@@ -323,7 +323,7 @@ def main():
         if args.check:
             if path.suffix == '.json':
                 from graph_synthesis.verify import compare_json
-                compare_json(json.loads(path.read_text()),json.loads(text))
+                compare_json(json.loads(path.read_text(encoding='utf-8')),json.loads(text))
             elif path.read_text(encoding='utf-8') != text:
                 raise ValueError('Report drift: '+str(path))
         else:

@@ -264,7 +264,7 @@ def main():
     parser.add_argument('--figures',action='store_true')
     parser.add_argument('--update-paper',action='store_true')
     args = parser.parse_args()
-    r = json.loads((HERE/'results.json').read_text())
+    r = json.loads((HERE/'results.json').read_text(encoding='utf-8'))
     if args.figures:figures(r)
     if args.update_paper:update_paper(r)
     manifest()

@@ -1,0 +1,18 @@
+{
+  "phase": "First local execution before remote CI; no post-execution hypothesis/algorithm changes",
+  "protocol_commit": "82ee57229570bb9f7299e0418a5f9b959c25d59f",
+  "baseline_commit": "a62a3257645d8e35cd4e45be53bfa9511d27724b",
+  "python": "3.13.5",
+  "target_outcomes": {
+    "H1": false,
+    "H2": true,
+    "H3": false,
+    "H4": true,
+    "H5": true
+  },
+  "H1_primary_width_reduction": 0.049575601475,
+  "H3_exposure_before": 50.0,
+  "H3_exposure_after": 63.0,
+  "H4_balanced_dp_saving": 0.976256961929,
+  "H5_sparse_dependency_saving": 0.94275802255
+}

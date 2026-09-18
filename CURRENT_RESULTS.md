@@ -40,13 +40,15 @@
 
 <!-- SOURCE_STRUCTURAL_RESEARCH_END -->
 
-<!-- UNCERTAINTY_RESEARCH_START -->
+<!-- ASSUMPTION_AWARE_RESEARCH_START -->
 
-## Five uncertainty and grounding improvements
+## Five assumption-aware improvements after PR #17
 
-[Executed report](graph_synthesis/uncertainty/RESULTS.md), [frozen protocol](graph_synthesis/uncertainty/PROTOCOL.md), [five figures](graph_synthesis/uncertainty/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 met its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. All five are controlled algorithmic/decision-theoretic tests, not new Jev accuracy observations. Dependence uncertainty, repair ambiguity, query-directed review, collateral-aware retraction and recursive grounding are tested with explicit failure controls. No fresh Jev calls, new scientific documents, globally unprecedented algorithm claim or production-policy changes.
+[Executed results](graph_synthesis/assumption_aware/RESULTS.md), [frozen protocol](graph_synthesis/assumption_aware/PROTOCOL.md), [five figures](graph_synthesis/assumption_aware/figures/), [novelty boundary](graph_synthesis/assumption_aware/NOVELTY.md), and [complete updated paper](manuscript/paper-current.pdf).
 
-<!-- UNCERTAINTY_RESEARCH_END -->
+Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query-exposure review fails: weighted residual contamination rises 50 to 63 at 20 idealized reviews. Repair-invariant answers, connected-tree delta updates and grounded cyclic provenance meet their controlled targets. Balanced-tree DP visits fall 97.63%, but including eager reconstruction visits reduces the counted saving to 48.81%. Indexed grounding reduces dependency inspections 94.28%, with rule initialization reported separately. No new Jev calls, independent semantic validation, global novelty claim, external-system superiority or default production-policy change. Negative results and false-priority/source controls remain visible.
+
+<!-- ASSUMPTION_AWARE_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

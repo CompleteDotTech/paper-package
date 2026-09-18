@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r graph_synthesis/requirements-figures.txt -r graph_synthesis/uncertainty/requirements.txt
-      - name: Place the new section after all preceding current studies
+      - name: Integrate preceding studies and the audited novelty disclosure
         shell: bash
         run: |
           python - <<'PY'
@@ -41,12 +41,22 @@ jobs:
           p=Path('graph_synthesis/uncertainty/report.py')
           text,count=re.subn(r'^ANCHOR = .+$','ANCHOR = '+repr(anchor),p.read_text(encoding='utf-8'),flags=re.M)
           assert count==1
+          assert Path('graph_synthesis/uncertainty/NOVELTY_AUDIT.md').is_file()
+          if 'NOVELTY_AUDIT.md' not in text:
+              lines=text.splitlines(keepends=True)
+              positions=[i for i,line in enumerate(lines) if line.strip().startswith('return ') and '.join(out)' in line]
+              assert len(positions)==1
+              lines[positions[0]:positions[0]]=[
+                  "    audit = (HERE / 'NOVELTY_AUDIT.md').read_text(encoding='utf-8').strip()\n",
+                  "    position = out.index('| Hypothesis | Frozen primary target | Outcome | Evidence population |')\n",
+                  "    out[position:position] = [audit, '']\n"]
+              text=''.join(lines)
           p.write_text(text,encoding='utf-8',newline='\n')
           p=Path('graph_synthesis/uncertainty/EXECUTION_NOTES.md')
           text=p.read_text(encoding='utf-8')
           heading='## Integration after '+anchor
           if heading not in text:
-              text+='\n'+heading+'\n\nConcurrent PR #19 added source-aware and structural experiments after PR #18. Both are preserved in the combined manuscript. This extension is inserted after the final study in CURRENT_RESULTS.md. The original hypothesis baseline remains a62a3257645d8e35cd4e45be53bfa9511d27724b; no generator, algorithm, seed, endpoint or threshold changed. All five numerical result blocks are compared byte-for-value with the earlier authoritative run. Source/protocol/build hashes and the paper are regenerated. The full-manuscript CI pipeline now regenerates this extension as well as every prior section, rather than dropping it. Reader-facing research markers are hidden by the renderer, covered by two additional tests. These presentation/integration corrections do not alter scientific observations. Package-level novelty remains scoped to the reviewed frozen baseline; no worldwide or unreviewed concurrent-branch novelty claim is made.\n'
+              text+='\n'+heading+'\n\nConcurrent PR #19 added source-aware and structural experiments after PR #18. Both are preserved in the combined manuscript. This extension is inserted after the final study in CURRENT_RESULTS.md. The original hypothesis baseline remains a62a3257645d8e35cd4e45be53bfa9511d27724b; no generator, algorithm, seed, endpoint or threshold changed. All five numerical result blocks are compared byte-for-value with the earlier authoritative run. Source/protocol/build hashes and the paper are regenerated. The full-manuscript CI pipeline now regenerates this extension as well as every prior section, rather than dropping it. Reader-facing research markers are hidden by the renderer, covered by two additional tests. These presentation/integration corrections do not alter scientific observations. The separately documented post-execution novelty audit explicitly identifies overlap with concurrent PR #20; these are not five independently unprecedented algorithms.\n'
               p.write_text(text,encoding='utf-8',newline='\n')
           PY
       - name: Execute frozen benchmarks, unit tests and independent replay
@@ -77,7 +87,8 @@ jobs:
           after=json.loads(Path('graph_synthesis/uncertainty/results.json').read_text(encoding='utf-8'))
           for i in range(1,6):
               assert before[f'H{i}']==after[f'H{i}'],f'H{i} changed during manuscript integration'
-          print('All preceding study text and all five numerical result blocks preserved')
+          assert 'Do not describe this suite as five independently novel' in Path('manuscript/paper-current.md').read_text(encoding='utf-8')
+          print('All preceding study text and all five numerical result blocks preserved; novelty overlap disclosed')
           PY
       - name: Commit generated evidence only to this research branch
         shell: bash

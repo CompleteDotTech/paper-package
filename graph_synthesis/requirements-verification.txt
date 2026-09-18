@@ -1,0 +1,4 @@
+# Minimal dependencies for the original offline regression suite.
+-r ../reproduction/requirements-jev.txt
+# Same version as the archived requirements-research.lock.
+scipy==1.18.1

@@ -201,7 +201,7 @@ test_withdrawal_is_conservative (test_visualize_evidence.FigureTests.test_withdr
 test_wrong_polarity_and_unsupported_are_separate (test_visualize_evidence.FigureTests.test_wrong_polarity_and_unsupported_are_separate) ... ok
 
 ----------------------------------------------------------------------
-Ran 200 tests in 6.975s
+Ran 200 tests in 7.047s
 
 OK
 test_invalid_adjudication_keeps_base (test_adaptive.FailureIsolationTests.test_invalid_adjudication_keeps_base) ... ok
@@ -270,7 +270,7 @@ test_replacing_preserves_both_sides (test_reporting.ReportingTests.test_replacin
 test_update_is_idempotent (test_reporting.ReportingTests.test_update_is_idempotent) ... ok
 
 ----------------------------------------------------------------------
-Ran 64 tests in 0.006s
+Ran 64 tests in 0.009s
 
 OK
 test_caps_are_checked_after_group_expansion (test_plan.CorpusPlanningTests.test_caps_are_checked_after_group_expansion) ... ok
@@ -307,7 +307,7 @@ test_year_and_domain_validation (test_plan.CorpusPlanningTests.test_year_and_dom
 test_zero_candidate_plan_blocked (test_plan.CorpusPlanningTests.test_zero_candidate_plan_blocked) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 0.289s
+Ran 32 tests in 0.271s
 
 OK
 test_all_errors_identity (test_followup.CalibrationTests.test_all_errors_identity) ... ok
@@ -379,7 +379,7 @@ test_stability_is_not_truth (test_followup.RoutingTests.test_stability_is_not_tr
 test_stable_error_staged (test_followup.RoutingTests.test_stable_error_staged) ... ok
 
 ----------------------------------------------------------------------
-Ran 67 tests in 2.934s
+Ran 67 tests in 2.704s
 
 OK
 test_infinity_is_rejected (test_artifacts.ArtifactTests.test_infinity_is_rejected) ... ok
@@ -447,7 +447,7 @@ test_remote_image_is_rejected (test_rendering.RenderingTests.test_remote_image_i
 test_text_cell_is_not_forced_onto_one_line (test_rendering.RenderingTests.test_text_cell_is_not_forced_onto_one_line) ... ok
 
 ----------------------------------------------------------------------
-Ran 63 tests in 1.733s
+Ran 63 tests in 1.844s
 
 OK
 test_duplicate_rejected (test_methods.ForestTests.test_duplicate_rejected) ... ok
@@ -518,7 +518,7 @@ test_report_preserves_boundaries (test_reporting.ReportingTests.test_report_pres
 test_report_update_idempotent (test_reporting.ReportingTests.test_report_update_idempotent) ... ok
 
 ----------------------------------------------------------------------
-Ran 66 tests in 3.758s
+Ran 66 tests in 3.659s
 
 OK
 test_conformal_target_does_not_imply_nominal_coverage (test_methods.ArchiveTests.test_conformal_target_does_not_imply_nominal_coverage) ... ok
@@ -560,6 +560,6 @@ test_source_component_purge_transitive_and_label_free (test_methods.MethodTests.
 test_topological_review_uses_neighborhood_not_gold (test_methods.MethodTests.test_topological_review_uses_neighborhood_not_gold) ... ok
 
 ----------------------------------------------------------------------
-Ran 37 tests in 0.649s
+Ran 37 tests in 0.606s
 
 OK

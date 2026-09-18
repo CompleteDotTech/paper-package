@@ -505,6 +505,8 @@ A fact is a disjunction of conjunctive proofs. Instead of multiplying primitive 
 
 Across 128 seeded arbitrary joint-distribution fixtures, 0 certified intervals exclude supplied truth and 0 false lower-bound admissions occur. The 72 two-atom analytical AND/OR cases have 0 endpoint failures at tolerance 1e-8, with 0 duplicate/order failures. The controlled target is **met**. Mean interval width is 0.318428; this additional uncertainty is the price of removing independence, not a defect to hide.
 
+At the 0.95 gate, the independence-assuming evaluator admits 0/128 random fixtures and the dependence-robust method admits 0/128. Thus the random fixtures test interval validity, not useful acceptance coverage. The explicit correlated-source control below supplies the prevented-admission contrast. The zero random false-admission count must not be presented as evidence of high-coverage deployment safety.
+
 | Correlated-source control | Probability or interval | Admitted at 0.95? |
 |---|---:|---|
 | Independence-assuming evaluator | 0.96 | Yes, incorrectly |
@@ -520,6 +522,8 @@ The control contains two distinct primitive events that are perfectly correlated
 Instead of propagating a predetermined source withdrawal, the algorithm chooses a minimum-cost set intersecting every target proof while preserving at least one intact proof of each designated protected fact. It branches on an unhit target proof, prunes destroyed protections and dominated costs, and breaks ties by the sorted withdrawal tuple. A 16-atom and 65,536-state cap prevents an unfinished search from masquerading as an optimum: exhaustion stages the request. No sources are actually deleted.
 
 An independent exhaustive subset oracle evaluates 128 seeded eight-atom fixtures. There are 82 feasible cases and 46 infeasible cases; feasibility, protection and optimum checks have 0 mismatches. Compared with cost-normalized greedy coverage that respects the same protections, 13/82 feasible cases (15.85%) have strictly lower cost or recover from a greedy dead end, exceeding the frozen 5% target. There are 0 cost regressions where greedy completes. The controlled target is **met**.
+
+The improvements separate into 11 strictly cheaper completed repairs and 2 recoveries from greedy dead ends. These outcomes are not additional fixtures.
 
 The fixed greedy trap withdraws a,b,c at cost 6, whereas the exact solution withdraws b,c at cost 4. A protected fact identical to the target makes repair infeasible; the algorithm refuses to silently sacrifice the protection. Costs are supplied positive integer units, not dollars or observed reviewer effort. Protected facts are designated by the fixture, not independently proven true.
 
@@ -565,8 +569,8 @@ Five alternating-order elapsed-time repeats per method were run on `Linux-6.17.0
 
 | Workload | Pairwise median (s) | Indexed median (s) |
 |---|---:|---:|
-| sparse_2048 | 4.696146 | 0.008272 |
-| dense_256 | 0.112617 | 0.032635 |
+| sparse_2048 | 4.965550 | 0.008523 |
+| dense_256 | 0.113118 | 0.031356 |
 
 Dense-case timing differences include hoisted validation and reduced Python overhead, not fewer pairs or subquadratic behavior. These are not service latency, database I/O or universally transferable speedup estimates.
 

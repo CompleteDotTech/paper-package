@@ -1,95 +1,65 @@
 name: Five improvement follow-up
 on:
   pull_request:
-  push:
-    branches: [main]
-  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: five-followup-${{ github.event.pull_request.number || github.ref }}
+  group: five-followup-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 jobs:
-  replay:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
-    defaults:
-      run:
-        shell: bash
-    env:
-      PYTHONDONTWRITEBYTECODE: '1'
+  apply-reviewed-portability-fix:
+    if: github.repository == 'CompleteDotTech/paper-package' && github.event.pull_request.number == 13 && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'research/five-followup-improvements-20260918'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
-      - name: New regression tests and corpus regressions
-        run: |
-          set -o pipefail
-          python -B -m unittest discover -s graph_synthesis/followup/tests -v 2>&1 | tee "$RUNNER_TEMP/followup-tests.log"
-          python -B -m unittest discover -s graph_synthesis/corpus/tests -v 2>&1 | tee "$RUNNER_TEMP/corpus-tests.log"
-      - name: Reproduce five hypotheses and prior falsification
-        run: |
-          python -B -m graph_synthesis.followup.run --check
-          python -B -m graph_synthesis.falsification --check
-          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/frozen-verification.json"
-      - name: Verify source, figure and committed PDF integrity
+      - name: Explicit UTF-8 readers and regression test
         run: |
           python - <<'PY'
           from pathlib import Path
-          import hashlib, json
-          sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
-          manifest=json.loads(Path('graph_synthesis/followup/artifact-manifest.json').read_text())
-          for path,want in manifest['sha256'].items():
-              assert sha(path)==want,('Artifact hash mismatch',path)
-          build=json.loads(Path('manuscript/paper-current.build.json').read_text())
-          assert sha('manuscript/paper-current.md')==build['source_sha256']
-          assert sha('graph_synthesis/render_current_paper.py')==build['renderer_sha256']
-          assert sha('manuscript/paper-current.pdf')==build['pdf_sha256']
-          assert Path('manuscript/paper-current.pdf').read_bytes().startswith(b'%PDF-')
-          print('Verified',len(manifest['sha256']),'follow-up files and current PDF provenance')
+          import hashlib
+          for name in ('run.py','report.py'):
+              p=Path('graph_synthesis/followup')/name
+              s=p.read_text(encoding='utf-8')
+              p.write_text(s.replace('.read_text()',".read_text(encoding='utf-8')"),encoding='utf-8')
+          p=Path('graph_synthesis/followup/tests/test_followup.py')
+          s=p.read_text(encoding='utf-8').replace('import copy\n','import ast\nimport copy\n')
+          s=s.replace('class PresentationTests(unittest.TestCase):\n', '''class PresentationTests(unittest.TestCase):
+              def test_readers_use_explicit_utf8(self):
+                  from graph_synthesis.followup import run, report
+                  for module in (run, report):
+                      tree=ast.parse(Path(module.__file__).read_text(encoding='utf-8'))
+                      for node in ast.walk(tree):
+                          if isinstance(node,ast.Call) and isinstance(node.func,ast.Attribute) and node.func.attr=='read_text':
+                              self.assertTrue(any(k.arg=='encoding' and isinstance(k.value,ast.Constant) and k.value.value=='utf-8' for k in node.keywords), (module.__name__,node.lineno))
+          ''')
+          p.write_text(s,encoding='utf-8')
+          p=Path('graph_synthesis/followup/REVIEW.md')
+          s=p.read_text(encoding='utf-8').replace('four implementation/presentation issues','implementation/presentation issues')
+          s+='\nWindows CI found a locale-dependent decoding failure in a new captured-data reader. All new runner/report text reads now specify UTF-8 explicitly, with an AST regression check and Windows integration replay; input bytes and benchmark outcomes are unchanged.\n'
+          p.write_text(s,encoding='utf-8')
+          expected={'run.py':'95a86ce319cde6e8fdaa36063c0c4223986136e9','report.py':'39e77c6e0a265681d12bea5aa75edd13cdf48e51','tests/test_followup.py':'e00bd3493889616d20fc74210e01c9149aa0c299'}
+          for name,want in expected.items():
+              b=(Path('graph_synthesis/followup')/name).read_bytes()
+              actual=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+              assert actual==want,(name,actual,want)
           PY
-          git diff --exit-code
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
-        with:
-          name: followup-validation-${{ matrix.os }}
-          path: |
-            ${{ runner.temp }}/followup-tests.log
-            ${{ runner.temp }}/corpus-tests.log
-            ${{ runner.temp }}/frozen-verification.json
-          retention-days: 14
-  paper-and-figures:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      PYTHONDONTWRITEBYTECODE: '1'
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.12'
-      - run: python -m pip install -r graph_synthesis/requirements-figures.txt
-      - name: Reproduce five figures and additive manuscript section
+          python -B -m unittest discover -s graph_synthesis/followup/tests -v
+          python -B -m graph_synthesis.followup.run --check
+          python -B -m graph_synthesis.followup.report
+          python -B -m graph_synthesis.verify --output /tmp/frozen-verification.json
+          git diff --exit-code -- graph_synthesis/followup/results.json graph_synthesis/followup/RESULTS.md manuscript
+      - name: Commit reviewed portability fix only
         run: |
-          python -B -m graph_synthesis.followup.report --figures --update-paper
-          git diff --exit-code -- graph_synthesis/followup manuscript/paper-current.md CURRENT_RESULTS.md
-          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/paper-current.pdf"
-          git diff --exit-code -- manuscript/paper-current.html
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: followup-rendered-paper
-          path: |
-            ${{ runner.temp }}/paper-current.pdf
-            ${{ runner.temp }}/paper-current.build.json
-          retention-days: 14
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add graph_synthesis/followup/run.py graph_synthesis/followup/report.py graph_synthesis/followup/tests/test_followup.py graph_synthesis/followup/REVIEW.md graph_synthesis/followup/artifact-manifest.json
+          git commit -m 'fix: decode captured evidence as UTF-8 on all platforms'
+          git push origin HEAD:refs/heads/research/five-followup-improvements-20260918

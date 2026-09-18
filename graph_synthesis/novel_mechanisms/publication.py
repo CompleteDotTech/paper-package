@@ -7,6 +7,7 @@ import re
 ROOT = Path(__file__).resolve().parents[2]
 RENDERER = 'graph_synthesis/render_current_paper.py'
 WORKFLOW = '.github/workflows/jev-multicall.yml'
+FRONTIER_WORKFLOW = '.github/workflows/structural-frontier.yml'
 REPORT = 'graph_synthesis/novel_mechanisms/report.py'
 MARKERS = r'<!-- [A-Z][A-Z0-9_]*_RESEARCH_(?:START|END) -->'
 COMMANDS = ('          python -B -m graph_synthesis.novel_mechanisms.report --update-paper\n'
@@ -62,6 +63,16 @@ def workflow_text(text: str) -> str:
     return text.replace(anchor, COMMANDS+anchor,1)
 
 
+def frontier_workflow_text(text: str) -> str:
+    """Preserve the frontier check and reproduce both additive paper sections."""
+    for line in COMMANDS.splitlines(keepends=True):
+        text = text.replace(line, '')
+    anchor = '          git diff --exit-code -- graph_synthesis/frontier manuscript/paper-current.md CURRENT_RESULTS.md'
+    if text.count(anchor) != 1:
+        raise ValueError('Expected exactly one reviewed frontier paper regeneration gate')
+    return text.replace(anchor, COMMANDS+anchor, 1)
+
+
 def report_layout_text(text: str) -> str:
     """Append after previous studies, avoiding their individual insertion anchors.
 
@@ -86,13 +97,15 @@ def transformed(path: str, original: str) -> str:
         return renderer_text(original)
     if path == WORKFLOW:
         return workflow_text(original)
+    if path == FRONTIER_WORKFLOW:
+        return frontier_workflow_text(original)
     if path == REPORT:
         return report_layout_text(original)
     raise ValueError('Unreviewed publication mutation')
 
 
 def main():
-    for name in (RENDERER, WORKFLOW, REPORT):
+    for name in (RENDERER, WORKFLOW, FRONTIER_WORKFLOW, REPORT):
         path = ROOT/name
         path.write_text(transformed(name,path.read_text(encoding='utf-8')),encoding='utf-8',newline='\n')
     print('Preserved reviewed main renderer and prepared additive, collision-free publication')

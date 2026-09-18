@@ -119,6 +119,8 @@ jobs:
       - name: Byte-identical figure and complete manuscript regeneration
         run: |
           python -B -m graph_synthesis.frontier.report --figures --update-paper
+          python -B -m graph_synthesis.novel_mechanisms.report --update-paper
+          python -B -m graph_synthesis.novel_mechanisms.regret --report
           git diff --exit-code -- graph_synthesis/frontier manuscript/paper-current.md CURRENT_RESULTS.md
           python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/frontier-paper.pdf"
           git diff --exit-code -- manuscript/paper-current.html

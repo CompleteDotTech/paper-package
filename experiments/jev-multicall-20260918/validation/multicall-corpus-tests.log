@@ -1,0 +1,37 @@
+test_caps_are_checked_after_group_expansion (test_plan.CorpusPlanningTests.test_caps_are_checked_after_group_expansion) ... ok
+test_cli_and_idempotent_replay (test_plan.CorpusPlanningTests.test_cli_and_idempotent_replay) ... ok
+test_cli_rejects_invalid_input_without_receipt (test_plan.CorpusPlanningTests.test_cli_rejects_invalid_input_without_receipt) ... ok
+test_config_stages_and_names (test_plan.CorpusPlanningTests.test_config_stages_and_names) ... ok
+test_config_unknown_fields (test_plan.CorpusPlanningTests.test_config_unknown_fields) ... ok
+test_cost_includes_arms_repeats_attempts_overhead (test_plan.CorpusPlanningTests.test_cost_includes_arms_repeats_attempts_overhead) ... ok
+test_deterministic_under_reordering (test_plan.CorpusPlanningTests.test_deterministic_under_reordering) ... ok
+test_duplicate_identifiers_and_text_rejected (test_plan.CorpusPlanningTests.test_duplicate_identifiers_and_text_rejected) ... ok
+test_empty_corpus_rejected (test_plan.CorpusPlanningTests.test_empty_corpus_rejected) ... ok
+test_empty_splits_blocked (test_plan.CorpusPlanningTests.test_empty_splits_blocked) ... ok
+test_entire_groups_selected_across_domains (test_plan.CorpusPlanningTests.test_entire_groups_selected_across_domains) ... ok
+test_group_has_one_split_across_all_stages (test_plan.CorpusPlanningTests.test_group_has_one_split_across_all_stages) ... ok
+test_invalid_counts (test_plan.CorpusPlanningTests.test_invalid_counts) ... ok
+test_labels_or_unknown_fields_rejected (test_plan.CorpusPlanningTests.test_labels_or_unknown_fields_rejected) ... ok
+test_manifest_hash_tracks_metadata_changes (test_plan.CorpusPlanningTests.test_manifest_hash_tracks_metadata_changes) ... ok
+test_missing_fields_rejected (test_plan.CorpusPlanningTests.test_missing_fields_rejected) ... ok
+test_money_validation (test_plan.CorpusPlanningTests.test_money_validation) ... ok
+test_nested_stages_and_additional_counts (test_plan.CorpusPlanningTests.test_nested_stages_and_additional_counts) ... ok
+test_network_disabled (test_plan.CorpusPlanningTests.test_network_disabled) ... ok
+test_never_authorizes_execution_even_under_caps (test_plan.CorpusPlanningTests.test_never_authorizes_execution_even_under_caps) ... ok
+test_receipt_hash (test_plan.CorpusPlanningTests.test_receipt_hash) ... ok
+test_receipt_idempotent_and_non_overwriting (test_plan.CorpusPlanningTests.test_receipt_idempotent_and_non_overwriting) ... ok
+test_reviewed_rights_and_full_text_required (test_plan.CorpusPlanningTests.test_reviewed_rights_and_full_text_required) ... ok
+test_seed_changes_assignment_or_sample (test_plan.CorpusPlanningTests.test_seed_changes_assignment_or_sample) ... ok
+test_sha_format (test_plan.CorpusPlanningTests.test_sha_format) ... ok
+test_shortage_is_not_silently_replaced_by_other_domains (test_plan.CorpusPlanningTests.test_shortage_is_not_silently_replaced_by_other_domains) ... ok
+test_split_does_not_depend_on_corpus_order_or_size (test_plan.CorpusPlanningTests.test_split_does_not_depend_on_corpus_order_or_size) ... ok
+test_split_percent_validation (test_plan.CorpusPlanningTests.test_split_percent_validation) ... ok
+test_strict_json_rejects_duplicate_keys_and_nonfinite_numbers (test_plan.CorpusPlanningTests.test_strict_json_rejects_duplicate_keys_and_nonfinite_numbers) ... ok
+test_unpriced_plan_blocked (test_plan.CorpusPlanningTests.test_unpriced_plan_blocked) ... ok
+test_year_and_domain_validation (test_plan.CorpusPlanningTests.test_year_and_domain_validation) ... ok
+test_zero_candidate_plan_blocked (test_plan.CorpusPlanningTests.test_zero_candidate_plan_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.306s
+
+OK

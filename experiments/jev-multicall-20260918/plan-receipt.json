@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "development": 40,
+    "test": 149
+  },
+  "plan_sha256": "ea19a67662404c0dedcd5e88a2226720eeb03ea314a02abdff8406b4a80b058c",
+  "rows": {
+    "development": 73,
+    "test": 263
+  }
+}

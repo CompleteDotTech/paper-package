@@ -1,0 +1,10 @@
+{
+  "budget_charge": 6858163,
+  "failed_calls": 31,
+  "fresh_calls_not_independent_models": true,
+  "logical_calls": 3024,
+  "model": "jev-1.13.0",
+  "planned_calls": 3024,
+  "reported_input_tokens": 6858163,
+  "unknown_usage_calls": 0
+}

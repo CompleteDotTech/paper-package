@@ -19,7 +19,318 @@ tr { break-inside: avoid; }
 figure { margin: 16pt 0; break-inside: avoid; }
 figure img { width: 100%; max-height: 103mm; object-fit: contain; }
 figcaption { font: 8.7pt/1.35 "DejaVu Sans", sans-serif; margin-top: 6pt; }
-</style></head><body><h1>Fresh Jev execution and graph-synthesis falsification</h1>
+</style></head><body><h1>Do additional Jev calls improve graph edges?</h1>
+<p>Timothy Wayne Gregg — exploratory research addendum, September 18, 2026</p>
+<h2>Design and evidence boundary</h2>
+<p>This study uses 73 development candidates in 40 connected source groups and 263 test candidates in 149 other groups. These are previously unused within the archived Jev runs, taken from public SciFact training data. They are not a new domain, private benchmark, or guaranteed absent from vendor training. The frozen protocol, data split, prompt implementation and seed were committed before calls in <code>2eb44a1</code>. No development tuning or test-based prompt/threshold selection occurred. All seven policies were retained.</p>
+<p>The single arm uses the previous six-example relation contract. Repeated voting uses three identical-payload fresh calls. Blind voting combines the first answer with two different evidence-only reviewers that never see another answer. Targeted checks use a first judgment, six dimensional checks in one shared request, then adjudication against original evidence. Indexed evidence preserves every sentence and adds explicit IDs. Contrastive examples replace the six original demonstrations with six fixed synthetic boundary examples. Selective routing applies targeted checks only when the first maximum score is below 0.90 or the first call fails; it is reconstructed retrospectively because all branches were actually executed. Three targeted calls contain eight typed decisions, whereas three voting calls contain three. Neither agreement nor a mean score is treated as independent or calibrated evidence.</p>
+<h2>Test results</h2>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th style="text-align:right">Correct / wrong edges</th>
+<th style="text-align:right">Precision</th>
+<th style="text-align:right">Recall</th>
+<th style="text-align:right">Macro-F1</th>
+<th style="text-align:right">Errors / abstentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single call</td>
+<td style="text-align:right">132 / 18</td>
+<td style="text-align:right">88.00%</td>
+<td style="text-align:right">86.27%</td>
+<td style="text-align:right">0.8497</td>
+<td style="text-align:right">1 / 0</td>
+</tr>
+<tr>
+<td>Repeated vote</td>
+<td style="text-align:right">131 / 18</td>
+<td style="text-align:right">87.92%</td>
+<td style="text-align:right">85.62%</td>
+<td style="text-align:right">0.8480</td>
+<td style="text-align:right">2 / 0</td>
+</tr>
+<tr>
+<td>Blind vote</td>
+<td style="text-align:right">136 / 20</td>
+<td style="text-align:right">87.18%</td>
+<td style="text-align:right">88.89%</td>
+<td style="text-align:right">0.8503</td>
+<td style="text-align:right">3 / 0</td>
+</tr>
+<tr>
+<td>Targeted checks</td>
+<td style="text-align:right">126 / 19</td>
+<td style="text-align:right">86.90%</td>
+<td style="text-align:right">82.35%</td>
+<td style="text-align:right">0.8363</td>
+<td style="text-align:right">21 / 0</td>
+</tr>
+<tr>
+<td>Indexed evidence</td>
+<td style="text-align:right">132 / 19</td>
+<td style="text-align:right">87.42%</td>
+<td style="text-align:right">86.27%</td>
+<td style="text-align:right">0.8510</td>
+<td style="text-align:right">0 / 0</td>
+</tr>
+<tr>
+<td>Contrastive examples</td>
+<td style="text-align:right">129 / 17</td>
+<td style="text-align:right">88.36%</td>
+<td style="text-align:right">84.31%</td>
+<td style="text-align:right">0.8426</td>
+<td style="text-align:right">0 / 0</td>
+</tr>
+<tr>
+<td>Selective routing</td>
+<td style="text-align:right">133 / 20</td>
+<td style="text-align:right">86.93%</td>
+<td style="text-align:right">86.93%</td>
+<td style="text-align:right">0.8486</td>
+<td style="text-align:right">8 / 0</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../experiments/jev-multicall-20260918/figures/01_edge_outcomes.png" alt="Edge outcomes" /></figure>
+<figure><img src="../experiments/jev-multicall-20260918/figures/02_precision_recall.png" alt="Precision and recall" /></figure>
+<p>All 263 cases remain in classification denominators. Wrong polarity counts as an incorrect accepted edge and a missed gold edge. NOT_ENOUGH_INFO is a legitimate classification that creates no positive edge. Probability failures are not silently normalized or discarded.</p>
+<h2>Equal accepted-edge volume</h2>
+<p>Each policy is ranked by its declared score, with ID tie-breaking, and restricted to the same 145 accepted edges. Scores order proposals; they are not comparable calibrated probabilities. This is an evaluation diagnostic, not a deployed threshold.</p>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th style="text-align:right">Correct / wrong</th>
+<th style="text-align:right">Precision difference vs single</th>
+<th style="text-align:right">Paired 95% interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single call</td>
+<td style="text-align:right">128 / 17</td>
+<td style="text-align:right">+0.00 pp</td>
+<td style="text-align:right">reference</td>
+</tr>
+<tr>
+<td>Repeated vote</td>
+<td style="text-align:right">128 / 17</td>
+<td style="text-align:right">+0.00 pp</td>
+<td style="text-align:right">[-0.27, +0.27] pp</td>
+</tr>
+<tr>
+<td>Blind vote</td>
+<td style="text-align:right">127 / 18</td>
+<td style="text-align:right">-0.69 pp</td>
+<td style="text-align:right">[-2.21, +0.29] pp</td>
+</tr>
+<tr>
+<td>Targeted checks</td>
+<td style="text-align:right">126 / 19</td>
+<td style="text-align:right">-1.38 pp</td>
+<td style="text-align:right">[-4.37, +1.45] pp</td>
+</tr>
+<tr>
+<td>Indexed evidence</td>
+<td style="text-align:right">126 / 19</td>
+<td style="text-align:right">-1.38 pp</td>
+<td style="text-align:right">[-3.26, -0.06] pp</td>
+</tr>
+<tr>
+<td>Contrastive examples</td>
+<td style="text-align:right">128 / 17</td>
+<td style="text-align:right">+0.00 pp</td>
+<td style="text-align:right">[-0.40, +0.45] pp</td>
+</tr>
+<tr>
+<td>Selective routing</td>
+<td style="text-align:right">125 / 20</td>
+<td style="text-align:right">-2.07 pp</td>
+<td style="text-align:right">[-4.92, +0.40] pp</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../experiments/jev-multicall-20260918/figures/03_matched_errors.png" alt="Matched errors" /></figure>
+<figure><img src="../experiments/jev-multicall-20260918/figures/06_paired_effects.png" alt="Paired differences" /></figure>
+<p>Intervals use 2,000 paired source-group bootstrap draws. They are pointwise, unadjusted and exploratory across multiple methods/endpoints, conditional on the selected ID sets and observed groups. Selected sets are fixed before resampling; per-draw edge counts can differ. Hidden cross-group dependence is not ruled out. Equal volume does not imply equal token budget.</p>
+<h2>Calls, tokens and efficiency</h2>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th style="text-align:right">Test calls required</th>
+<th style="text-align:right">Test input tokens</th>
+<th style="text-align:right">Correct edges / million tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single call</td>
+<td style="text-align:right">263</td>
+<td style="text-align:right">941,809</td>
+<td style="text-align:right">140.2</td>
+</tr>
+<tr>
+<td>Repeated vote</td>
+<td style="text-align:right">789</td>
+<td style="text-align:right">2,825,427</td>
+<td style="text-align:right">46.4</td>
+</tr>
+<tr>
+<td>Blind vote</td>
+<td style="text-align:right">789</td>
+<td style="text-align:right">1,387,869</td>
+<td style="text-align:right">98.0</td>
+</tr>
+<tr>
+<td>Targeted checks</td>
+<td style="text-align:right">789</td>
+<td style="text-align:right">1,709,341</td>
+<td style="text-align:right">73.7</td>
+</tr>
+<tr>
+<td>Indexed evidence</td>
+<td style="text-align:right">263</td>
+<td style="text-align:right">973,369</td>
+<td style="text-align:right">135.6</td>
+</tr>
+<tr>
+<td>Contrastive examples</td>
+<td style="text-align:right">263</td>
+<td style="text-align:right">332,438</td>
+<td style="text-align:right">388.0</td>
+</tr>
+<tr>
+<td>Selective routing</td>
+<td style="text-align:right">401</td>
+<td style="text-align:right">1,139,381</td>
+<td style="text-align:right">116.7</td>
+</tr>
+</tbody>
+</table>
+<p>The entire executed study made 3,024 calls and used 6,858,163 reported input tokens, including development and every branch. There were 31 failed calls and 0 calls with unknown usage. The table attributes shared calls to each hypothetical policy; summing its rows would double-count them. Selective costs are retrospective required-call estimates, not separately observed routed-service latency. Single-call latency across actual requests was p50 370 ms, p95 483 ms and p99 764 ms; these are not end-to-end policy latencies.</p>
+<figure><img src="../experiments/jev-multicall-20260918/figures/04_cost.png" alt="Cost comparison" /></figure>
+<h2>Error dependence and graph consequences</h2>
+<figure><img src="../experiments/jev-multicall-20260918/figures/05_wrong_agreement.png" alt="Wrong-label agreement" /></figure>
+<p>This heatmap counts wrong-label agreement on common-valid cases, not independent corroboration. Diagonal entries are individual error counts. Different prompts and repeated calls still share the same model and evidence.</p>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th style="text-align:right">Complete and clean positive groups</th>
+<th style="text-align:right">Contaminated groups</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single call</td>
+<td style="text-align:right">76/97</td>
+<td style="text-align:right">15/149</td>
+</tr>
+<tr>
+<td>Repeated vote</td>
+<td style="text-align:right">75/97</td>
+<td style="text-align:right">15/149</td>
+</tr>
+<tr>
+<td>Blind vote</td>
+<td style="text-align:right">78/97</td>
+<td style="text-align:right">17/149</td>
+</tr>
+<tr>
+<td>Targeted checks</td>
+<td style="text-align:right">69/97</td>
+<td style="text-align:right">17/149</td>
+</tr>
+<tr>
+<td>Indexed evidence</td>
+<td style="text-align:right">76/97</td>
+<td style="text-align:right">16/149</td>
+</tr>
+<tr>
+<td>Contrastive examples</td>
+<td style="text-align:right">75/97</td>
+<td style="text-align:right">15/149</td>
+</tr>
+<tr>
+<td>Selective routing</td>
+<td style="text-align:right">75/97</td>
+<td style="text-align:right">17/149</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../experiments/jev-multicall-20260918/figures/07_evidence_graph.png" alt="Illustrative graph" /></figure>
+<p>The graph is the first multi-candidate test group in sorted group-ID order, without selecting for favorable outcomes. Whole-group correctness is different from average edge precision. A clean but incomplete or empty graph is not full synthesis.</p>
+<h2>Operational failures and secondary diagnostic</h2>
+<p>Across development and test, failures by call site were: {&quot;adjudicate&quot;: 2, &quot;base1&quot;: 1, &quot;base3&quot;: 1, &quot;blind1&quot;: 2, &quot;blind2&quot;: 1, &quot;checks&quot;: 24}. Error reasons were: {&quot;Probabilities must sum to one&quot;: 28, &quot;choice must be a highest-probability option&quot;: 3}. The six-question check request exposes multiple probability vectors to the strict validation rule. A single invalid prerequisite invalidates the targeted pipeline under the frozen policy; these failures are not repaired after observing test outcomes.</p>
+<p>After observing these failures, we added a secondary <strong>common-valid</strong> diagnostic on the 239 test cases where every policy returned a valid decision. This outcome-conditioned subset does not replace the operational comparison or demonstrate deployment quality.</p>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th style="text-align:right">Common-valid accuracy</th>
+<th style="text-align:right">Correct / wrong edges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single call</td>
+<td style="text-align:right">86.61%</td>
+<td style="text-align:right">118 / 16</td>
+</tr>
+<tr>
+<td>Repeated vote</td>
+<td style="text-align:right">86.61%</td>
+<td style="text-align:right">118 / 16</td>
+</tr>
+<tr>
+<td>Blind vote</td>
+<td style="text-align:right">87.87%</td>
+<td style="text-align:right">123 / 18</td>
+</tr>
+<tr>
+<td>Targeted checks</td>
+<td style="text-align:right">87.45%</td>
+<td style="text-align:right">123 / 19</td>
+</tr>
+<tr>
+<td>Indexed evidence</td>
+<td style="text-align:right">86.19%</td>
+<td style="text-align:right">118 / 17</td>
+</tr>
+<tr>
+<td>Contrastive examples</td>
+<td style="text-align:right">85.77%</td>
+<td style="text-align:right">116 / 15</td>
+</tr>
+<tr>
+<td>Selective routing</td>
+<td style="text-align:right">87.45%</td>
+<td style="text-align:right">123 / 19</td>
+</tr>
+</tbody>
+</table>
+<p>The first two repeated calls shared 36 wrong answers across 262 common-valid test cases; 36 had the same wrong label. This explains why an additional call need not supply new corrective evidence. The product of marginal error rates predicts 5.23 shared errors as a descriptive independence reference, not a hypothesis test.</p>
+<p>The strongest efficiency lead is the shorter contrastive-example prompt: 64.70% fewer test input tokens than the single-call original-demonstration prompt, with equal wrong-edge count at matched volume. At its natural operating point it also recovers fewer correct edges. This is not a noninferiority or statistical-equivalence finding, and different demonstration content plus length prevents attributing the outcome to contrast alone.</p>
+<h2>Interpretation</h2>
+<ul>
+<li><strong>Repeated vote:</strong> +0 correct edges versus single at equal volume; the interval includes zero; no resolved matched-volume advantage.</li>
+<li><strong>Blind vote:</strong> -1 correct edges versus single at equal volume; the interval includes zero; no resolved matched-volume advantage.</li>
+<li><strong>Targeted checks:</strong> -2 correct edges versus single at equal volume; the interval includes zero; no resolved matched-volume advantage.</li>
+<li><strong>Indexed evidence:</strong> -2 correct edges versus single at equal volume; the interval is negative; an exploratory matched-volume degradation.</li>
+<li><strong>Contrastive examples:</strong> +0 correct edges versus single at equal volume; the interval includes zero; no resolved matched-volume advantage.</li>
+<li><strong>Selective routing:</strong> -3 correct edges versus single at equal volume; the interval includes zero; no resolved matched-volume advantage.</li>
+</ul>
+<p>No policy is promoted automatically. A positive pointwise interval would still require independent confirmation and a matched-resource comparison before claiming general superiority. More calls can expose mistakes, reinforce the same error, or reject correct edges. These bounded claim–abstract decisions do not measure open-ended candidate discovery, database-scale synthesis, world-truth validation or safe unattended writes. Public training-data reuse, a single pinned service revision, synthetic contrast demonstrations, unequal prompt lengths, shared-context check dependence, and modest source-group counts limit generalization.</p>
+<h2>Reproduction</h2>
+<p>The directory includes the pre-call plan/protocol/source snapshots, raw responses, decoded predictions, costs, source-group intervals, CSV tables, seven SVG/PNG figures and a deterministic graph example. <code>python -B -m graph_synthesis.analyze_multicall --directory experiments/jev-multicall-20260918 --verify</code> validates raw inputs/responses, split isolation and distinct repeat call sites, prohibits network access during replay, and reproduces predictions and analyses. <code>python -B -m graph_synthesis.report_multicall --directory experiments/jev-multicall-20260918</code> rebuilds this report and charts. Prior results and the original immutable manuscript remain separately archived.</p>
+<hr />
+<h1>Prior same-data rerun and original study (historical evidence)</h1>
+<h1>Fresh Jev execution and graph-synthesis falsification</h1>
 <p>Timothy Wayne Gregg — updated research draft, September 18, 2026</p>
 <h2>Evidence scope</h2>
 <p>This update executes a fresh pinned Jev 1.13.0 service run of the original development, calibration, evaluation, fixture, repeatability and batching protocol. It uses the same data and development-only selection rule. It is a same-data service repeat, not independent validation, a new preregistration, or a new training run. No evaluation labels were used to retune the prompts. The separate 48-case public synthetic challenge uses its exact gold-free exported inputs and fixed question contract; its AI-assisted labels remain provisional pending human adjudication.</p>

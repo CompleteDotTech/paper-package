@@ -1,0 +1,72 @@
+name: Jev additional-call study
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  multicall:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r reproduction/requirements-jev.txt
+      - name: Verify committed research artifact bytes
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          root=pathlib.Path('experiments/jev-multicall-20260918')
+          manifest=json.loads((root/'artifact-manifest.json').read_text(encoding='utf-8'))
+          for name,want in manifest['files'].items():
+              assert hashlib.sha256((root/name).read_bytes()).hexdigest()==want,name
+          PY
+      - name: Test decision and metric failure accounting
+        run: python -B -m unittest graph_synthesis.tests.test_multicall graph_synthesis.tests.test_multicall_analysis -v
+      - name: Reconstruct every request and replay without networking
+        run: python -B -m graph_synthesis.analyze_multicall --directory experiments/jev-multicall-20260918 --verify
+      - name: Original immutable evidence
+        run: python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/original-inventory.json"
+      - name: Ensure verification did not alter evidence
+        run: git diff --exit-code -- experiments/jev-multicall-20260918
+  multicall-figures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/requirements-figures.txt
+      - name: Regenerate report, graphs and manuscript
+        run: |
+          python -B -m graph_synthesis.report_multicall --directory experiments/jev-multicall-20260918
+          git diff --exit-code -- experiments/jev-multicall-20260918/REPORT.md manuscript/paper-current.md
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/multicall-paper.pdf"
+          git diff --exit-code -- manuscript/paper-current.html
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: multicall-paper-and-figures
+          path: |
+            ${{ runner.temp }}/multicall-paper.pdf
+            ${{ runner.temp }}/multicall-paper.build.json
+            experiments/jev-multicall-20260918/figures/
+          retention-days: 14

@@ -1,0 +1,19 @@
+{"split": "development", "completed": 20, "rows": 73, "calls": 3024, "budget_charge": 6858163}
+{"split": "development", "completed": 40, "rows": 73, "calls": 3024, "budget_charge": 6858163}
+{"split": "development", "completed": 60, "rows": 73, "calls": 3024, "budget_charge": 6858163}
+{"split": "development", "completed": 73, "rows": 73, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 20, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 40, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 60, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 80, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 100, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 120, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 140, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 160, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 180, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 200, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 220, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 240, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 260, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"split": "test", "completed": 263, "rows": 263, "calls": 3024, "budget_charge": 6858163}
+{"status": "passed", "calls": 3024, "cases": 336, "gold_free_requests": true, "group_disjoint": true, "distinct_repeat_sites": true, "raw_response_validation": true, "network_disabled_replay": "identical predictions and execution after CRLF/LF normalization", "analysis_reproduced": true, "analysis_comparison": "exact counts/labels/structure; float atol 1e-14, rtol 1e-12 for cross-platform roundoff", "limitation": "Request/response journals are local provenance, not provider-signed attestations; failed responses remain failures."}

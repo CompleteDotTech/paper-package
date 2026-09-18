@@ -1,0 +1,42 @@
+test_conformal_target_does_not_imply_nominal_coverage (test_methods.ArchiveTests.test_conformal_target_does_not_imply_nominal_coverage) ... ok
+test_cost_calls_are_unique_within_each_comparison (test_methods.ArchiveTests.test_cost_calls_are_unique_within_each_comparison) ... ok
+test_error_rate_budget_counterexample_is_retained (test_methods.ArchiveTests.test_error_rate_budget_counterexample_is_retained) ... ok
+test_eval_gold_changes_do_not_change_calibration_choices (test_methods.ArchiveTests.test_eval_gold_changes_do_not_change_calibration_choices) ... ok
+test_original_recorded_inputs_and_no_post_purge_overlap (test_methods.ArchiveTests.test_original_recorded_inputs_and_no_post_purge_overlap) ... ok
+test_bell_partition_count_and_size_guard (test_methods.MethodTests.test_bell_partition_count_and_size_guard) ... ok
+test_budget_does_not_treat_probability_one_as_certification (test_methods.MethodTests.test_budget_does_not_treat_probability_one_as_certification) ... ok
+test_budget_duplicate_id_rejected (test_methods.MethodTests.test_budget_duplicate_id_rejected) ... ok
+test_budget_is_component_local_and_permutation_stable (test_methods.MethodTests.test_budget_is_component_local_and_permutation_stable) ... ok
+test_cascade_alignment_and_missing_tokens (test_methods.MethodTests.test_cascade_alignment_and_missing_tokens) ... ok
+test_cascade_calibration_only (test_methods.MethodTests.test_cascade_calibration_only) ... ok
+test_cascade_cost_includes_initial_call_and_error_fallback (test_methods.MethodTests.test_cascade_cost_includes_initial_call_and_error_fallback) ... ok
+test_cascade_fit_uses_cheapest_eligible_not_evaluation (test_methods.MethodTests.test_cascade_fit_uses_cheapest_eligible_not_evaluation) ... ok
+test_conformal_empty_or_tiny_calibration_universal (test_methods.MethodTests.test_conformal_empty_or_tiny_calibration_universal) ... ok
+test_conformal_refuses_evaluation_fit (test_methods.MethodTests.test_conformal_refuses_evaluation_fit) ... ok
+test_decoder_incomplete_pairs_and_bad_order (test_methods.MethodTests.test_decoder_incomplete_pairs_and_bad_order) ... ok
+test_exact_decoder_known_triangle (test_methods.MethodTests.test_exact_decoder_known_triangle) ... ok
+test_exact_decoder_permutation_equivariance_without_ties (test_methods.MethodTests.test_exact_decoder_permutation_equivariance_without_ties) ... ok
+test_exact_objective_not_worse_than_greedy (test_methods.MethodTests.test_exact_objective_not_worse_than_greedy) ... ok
+test_features_exclude_gold_and_unknown_annotations (test_methods.MethodTests.test_features_exclude_gold_and_unknown_annotations) ... ok
+test_group_conformal_uses_maximum_and_finite_rank (test_methods.MethodTests.test_group_conformal_uses_maximum_and_finite_rank) ... ok
+test_invalid_probability_rejected (test_methods.MethodTests.test_invalid_probability_rejected) ... ok
+test_lineage_all_withdrawal_subsets (test_methods.MethodTests.test_lineage_all_withdrawal_subsets) ... ok
+test_macro_f1_invalid_alignment (test_methods.MethodTests.test_macro_f1_invalid_alignment) ... ok
+test_macro_f1_known_confusion (test_methods.MethodTests.test_macro_f1_known_confusion) ... ok
+test_offline_socket_guard (test_methods.MethodTests.test_offline_socket_guard) ... ok
+test_prediction_set_ties_errors_and_empty (test_methods.MethodTests.test_prediction_set_ties_errors_and_empty) ... ok
+test_rare_prior_precision_known (test_methods.MethodTests.test_rare_prior_precision_known) ... ok
+test_review_gold_independence (test_methods.MethodTests.test_review_gold_independence) ... ok
+test_review_invalid_budget_and_duplicate (test_methods.MethodTests.test_review_invalid_budget_and_duplicate) ... ok
+test_run_restores_socket_after_input_failure (test_methods.MethodTests.test_run_restores_socket_after_input_failure) ... ok
+test_schema_preview_detects_symmetry_and_inverse_drift (test_methods.MethodTests.test_schema_preview_detects_symmetry_and_inverse_drift) ... ok
+test_schema_preview_invalid_migration_leaves_original (test_methods.MethodTests.test_schema_preview_invalid_migration_leaves_original) ... ok
+test_semantic_cache_key_versions_and_absence (test_methods.MethodTests.test_semantic_cache_key_versions_and_absence) ... ok
+test_semantic_cache_rejects_missing_versions_and_bad_generation (test_methods.MethodTests.test_semantic_cache_rejects_missing_versions_and_bad_generation) ... ok
+test_source_component_purge_transitive_and_label_free (test_methods.MethodTests.test_source_component_purge_transitive_and_label_free) ... ok
+test_topological_review_uses_neighborhood_not_gold (test_methods.MethodTests.test_topological_review_uses_neighborhood_not_gold) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.348s
+
+OK

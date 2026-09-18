@@ -1,8 +1,6 @@
 name: DSPy Jev live preflight
+# Manual only. Do not bypass an Actions approval or environment protection gate.
 on:
-  push:
-    branches: [research/dspy-jev-benchmark]
-    paths: ['.github/workflows/dspy-jev-preflight.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,13 +17,12 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r graph_synthesis/dspy_jev_optimizer/requirements.txt
-      - name: Bounded live connectivity and secret-name diagnostics
+      - name: Bounded live connectivity test
         env:
-          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY || secrets.JEV_API_KEY }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CI_SECRET_NAMES_INPUT: ${{ toJSON(secrets) }}
           DSPY_PROPOSER_MODEL: ${{ vars.DSPY_PROPOSER_MODEL }}
           LITELLM_LOCAL_MODEL_COST_MAP: 'True'
         run: |
@@ -34,36 +31,34 @@ jobs:
           from pathlib import Path
           from graph_synthesis.dspy_jev_optimizer.core import JevConfig
           from graph_synthesis.dspy_jev_optimizer.providers import TypeSafeBackend, DSPyProposer
-          # Discard values immediately. Never print, persist, or send secret values.
-          names = sorted(json.loads(os.environ.pop('CI_SECRET_NAMES_INPUT')).keys())
           presence = {k: bool(os.environ.get(k, '').strip()) for k in ('TYPESAFE_API_KEY','OPENROUTER_API_KEY','OPENAI_API_KEY','ANTHROPIC_API_KEY')}
-          result = {'configured_secret_names': names, 'credential_present': presence, 'status': 'started'}
+          result = {'credential_present': presence, 'status': 'started'}
           out = Path(os.environ['RUNNER_TEMP']) / 'preflight.json'
           cfg = JevConfig('Evidence classification', 'Does the evidence support the claim?', {'supports':'Evidence establishes the claim.', 'refutes':'Evidence contradicts the claim.', 'unknown':'Evidence is insufficient.'})
           try:
-              backend = TypeSafeBackend('jev-1.13.0', retries=0)
-              try:
-                  answer = backend.predict(cfg, {'claim':'A precedes B.', 'evidence':['A precedes B.']})
-              finally:
-                  backend.close()
-              result['jev'] = {'model':answer['model'], 'choice':answer['choice'], 'usage':answer['usage']}
               model = os.environ.get('DSPY_PROPOSER_MODEL','').strip()
               if not model:
                   model = ('openrouter/anthropic/claude-sonnet-4.5' if presence['OPENROUTER_API_KEY'] else 'anthropic/claude-sonnet-4-5-20250929' if presence['ANTHROPIC_API_KEY'] else 'openai/gpt-4.1' if presence['OPENAI_API_KEY'] else '')
-              if model:
+              if not presence['TYPESAFE_API_KEY'] or not model:
+                  result['status'] = 'credentials_missing'
+              else:
                   result['proposer_model'] = model
-                  proposal = DSPyProposer(model).propose(cfg, [{'state':{'claim':'A precedes B.', 'evidence':['A precedes B.']}, 'gold':'supports', 'choice':'unknown', 'probabilities':{'supports':0.3,'refutes':0.1,'unknown':0.6}}], 1, [])
+                  backend = TypeSafeBackend('jev-1.13.0', retries=0)
+                  try:
+                      answer = backend.predict(cfg, {'claim':'A precedes B.', 'evidence':['A precedes B.']})
+                  finally:
+                      backend.close()
+                  result['jev'] = {'model':answer['model'], 'choice':answer['choice'], 'usage':answer['usage']}
+                  proposal = DSPyProposer(model).propose(cfg, [], 1, [])
                   JevConfig.from_dict(proposal, cfg)
                   result['status'] = 'passed'
-              else:
-                  result['status'] = 'jev_passed_proposer_not_configured'
           except Exception as exc:
               result['status'] = 'failed'
               result['error_type'] = type(exc).__name__
           finally:
               out.write_text(json.dumps(result, indent=2)+'\n')
               print(json.dumps(result))
-          if result['status'] == 'failed':
+          if result['status'] != 'passed':
               raise SystemExit(1)
           PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

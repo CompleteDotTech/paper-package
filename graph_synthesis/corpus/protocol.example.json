@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "proposed_not_preregistered",
+  "seed": 20260918,
+  "domains": ["biomedicine", "computer_science", "materials_science"],
+  "stages": [100, 1200, 10000, 100000],
+  "split_percent": {"development": 20, "calibration": 20, "test": 60},
+  "arms": ["rules", "llm", "llm_validated", "jev_baseline", "jev_selected", "karma_if_reproduced"],
+  "repeats": 3,
+  "max_attempts": 2,
+  "max_decisions": 1000000,
+  "max_estimated_usd": "0.00",
+  "usd_per_decision": null,
+  "fixed_overhead_usd": null,
+  "publication_year_max": 2026
+}

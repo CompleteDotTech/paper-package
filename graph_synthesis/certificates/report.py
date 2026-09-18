@@ -9,7 +9,7 @@ from .run import ROOT, HERE, sha, write
 
 START = '<!-- CERTIFICATES_RESEARCH_START -->'
 END = '<!-- CERTIFICATES_RESEARCH_END -->'
-ANCHOR = '<!-- STRUCTURAL_RESEARCH_END -->'
+ANCHOR = '<!-- FRONTIER_RESEARCH_END -->'
 TITLES = ['Source random-effects forecasting', 'Dependence-aware lineage bounds', 'Bipartite flow certificates', 'Repair-invariant queries', 'Delta-indexed graph updates']
 CLASSES = ['Previously inspected saved-response forecasts', 'Supplied finite probability models', 'Supplied conflict graphs and integer priorities', 'Priority-relative graph-repair semantics', 'In-memory controlled graph mutations']
 
@@ -21,7 +21,7 @@ def outcome(h):
 def insert(text, body):
     text = re.sub(re.escape(START) + r'.*?' + re.escape(END) + r'\s*', '', text, flags=re.S)
     if text.count(ANCHOR) != 1:
-        raise ValueError('Expected exactly one structural-section anchor')
+        raise ValueError('Expected exactly one frontier-section anchor')
     before, after = text.split(ANCHOR, 1)
     return before + ANCHOR + '\n\n' + START + '\n\n' + body.strip() + '\n\n' + END + '\n\n' + after.lstrip()
 
@@ -36,7 +36,7 @@ def render(r):
            f"Five frozen exploratory tests extend the graph pipeline beyond independent-source assumptions and a single chosen repair. A development-fitted beta-binomial source model changes contamination Brier from {old['brier']:.6f} to {new['brier']:.6f}, a {a['brier_relative_improvement']:.2%} reduction; its primary target is {outcome(a).lower()}. Dependence-aware probability bounds prevent {b['false_admissions_prevented']}/20 independence-induced false admissions in supplied correlated-source controls. Integer flow certificates recover all seven analytic bipartite optima, including 2,048-vertex cycles previously staged. Query classification agrees with finite enumeration, and delta-indexed updates match full recomputation across {e['mutations']} random mutations. Declared boundary graph-element visits fall by {e['local_workload']['saving']:.2%} on the fixed local-update workload, but by {e['connected_control']['saving']:.2%} on its connected control. These are conditional algorithm and saved-response findings, not new Jev semantic-accuracy evidence or a comparison against KARMA.", '',
            '## 1. Motivation, novelty boundary and frozen methodology', '',
            'The preceding [reliability study](../reliability/RESULTS.md) exposed three limitations: its calibration multiplier worsened Brier; exact lineage probabilities remained conditional on independent primitives; and incremental maintenance still scanned the global snapshot. Its conflict optimizer also returned one optimum and staged components outside its cutset/cap limits. The five extensions here test these specific gaps without changing candidate extraction, accepted Jev edges or production policy.', '',
-           'The inspected repository inventory did not contain these five integrated experiments. This is a **repository-scoped new-experiment claim, not a worldwide first-attempt claim**. Beta-binomial random effects, extremal-probability linear programs, weighted bipartite covers, consistent query answering across repairs and incremental maintenance all have antecedents. A targeted primary-source search and its references are recorded in the [protocol](PROTOCOL.md). The [concurrent-main reconciliation](RECONCILIATION.md) preserves PR #18 and distinguishes its related experiments. Established ingredients do not become novel algorithms merely through new names or integration.', '',
+           'At the frozen PR #17 baseline, the inspected inventory did not contain these five integrated experiments. At merge time, several parallel studies overlap with H2-H4; those methods are concurrent extensions or replications, not five distinct new mechanisms relative to current main. See the [merge-time overlap audit](MERGE_AUDIT.md). This is a **new-experiment claim scoped to the frozen baseline, not to the current inventory or worldwide priority**. Beta-binomial random effects, extremal-probability linear programs, weighted bipartite covers, consistent query answering across repairs and incremental maintenance all have antecedents. A targeted primary-source search and its references are recorded in the [protocol](PROTOCOL.md). The [concurrent-main reconciliation](RECONCILIATION.md) preserves PR #18 and distinguishes its related experiments. Established ingredients do not become novel algorithms merely through new names or integration.', '',
            f"Protocol commit `{r['protocol_commit']}` precedes this suite's implementation/execution; the inspected baseline is `{r['baseline_commit']}`. Hypotheses were informed by already public results, so this is exploratory follow-up rather than independent preregistration. H1 reuses {r['development']['n']} development candidates in {r['development']['groups']} groups and {r['test']['n']} previously inspected evaluation candidates in {r['test']['groups']} disjoint groups. Saved calls are reconstructed and hashes checked before use. **Fresh service calls: {r['fresh_service_calls']}.** H2-H5 use controlled fixtures rather than additional Jev observations.", '',
            '| Hypothesis | Frozen primary requirement | Result | Evidence class |',
            '|---|---|---|---|']
@@ -208,7 +208,7 @@ def update_paper(r):
             '[Executed report](graph_synthesis/certificates/RESULTS.md), [frozen protocol](graph_synthesis/certificates/PROTOCOL.md), '
             '[five figures](graph_synthesis/certificates/figures/) and [complete updated paper](manuscript/paper-current.pdf). '
             + outcomes + '. Source-random-effects forecasting is saved-response reuse; lineage bounds, flow certificates, repair queries and delta updates are controlled algorithms. '
-            'No fresh Jev calls, worldwide novelty claim, new semantic-accuracy claim or production-policy change. Negative and assumption-breaking controls are retained.')
+            'Concurrent overlap with H2-H4 is documented in the merge-time audit. No fresh Jev calls, worldwide novelty claim, new semantic-accuracy claim or production-policy change. Negative and assumption-breaking controls are retained.')
     path = ROOT / 'CURRENT_RESULTS.md'
     path.write_text(insert(path.read_text(encoding='utf-8'), note), encoding='utf-8', newline='\n')
 

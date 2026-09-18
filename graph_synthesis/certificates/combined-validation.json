@@ -1,41 +1,79 @@
 {
   "failures": 0,
+  "skipped": 0,
   "suites": [
     {
       "path": "graph_synthesis/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 200
     },
     {
       "path": "graph_synthesis/followup/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 67
     },
     {
       "path": "graph_synthesis/adaptive/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 64
     },
     {
       "path": "graph_synthesis/risk_control/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 66
     },
     {
       "path": "graph_synthesis/reliability/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 63
     },
     {
       "path": "graph_synthesis/structural/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 36
+    },
+    {
+      "path": "graph_synthesis/source_structural/tests",
+      "returncode": 0,
+      "skipped": 0,
+      "tests": 86
+    },
+    {
+      "path": "graph_synthesis/assumption_aware/tests",
+      "returncode": 0,
+      "skipped": 0,
+      "tests": 47
+    },
+    {
+      "path": "graph_synthesis/uncertainty/tests",
+      "returncode": 0,
+      "skipped": 0,
+      "tests": 36
+    },
+    {
+      "path": "graph_synthesis/novel_mechanisms/tests",
+      "returncode": 0,
+      "skipped": 0,
+      "tests": 92
+    },
+    {
+      "path": "graph_synthesis/frontier/tests",
+      "returncode": 0,
+      "skipped": 0,
+      "tests": 75
     },
     {
       "path": "graph_synthesis/certificates/tests",
       "returncode": 0,
+      "skipped": 0,
       "tests": 43
     }
   ],
-  "total_tests": 539
+  "total_tests": 875
 }

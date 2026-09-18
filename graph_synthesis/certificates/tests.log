@@ -43,6 +43,6 @@ test_probability_boundaries (test_certificates.RiskTests.test_probability_bounda
 test_singletons_do_not_identify_dependence (test_certificates.RiskTests.test_singletons_do_not_identify_dependence) ... ok
 
 ----------------------------------------------------------------------
-Ran 43 tests in 0.195s
+Ran 43 tests in 0.152s
 
 OK

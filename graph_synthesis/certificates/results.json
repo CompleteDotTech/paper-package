@@ -24661,7 +24661,7 @@
             "dual_lower": 0.4841463394634146,
             "padding": 2e-09,
             "residual": 5.551115123125783e-17,
-            "signed_primal": 0.4841463414634147,
+            "signed_primal": 0.4841463414634146,
             "support": [
               [
                 0,
@@ -294004,7 +294004,7 @@
     "graph_synthesis/certificates/__init__.py": "5dfc4d3b8c5dfa3d035892e9882d9899c659485af81fa5931c1d0685e3cfb156",
     "graph_synthesis/certificates/graphs.py": "eb0b52d370dbc5a301769784fbc92a467a6da9c5c2d8e0b052f5d33c34668458",
     "graph_synthesis/certificates/lineage.py": "e32d834f11a2fb9ac9b661fd816e378bf618a311eb4d9141490cee6487b3bcfc",
-    "graph_synthesis/certificates/report.py": "bac82b68cf64073bc88460bbfec7a8ca50667a368383f623c843358fab519fef",
+    "graph_synthesis/certificates/report.py": "44f0a0bcba7abd635c0366d2b4690a240cd51ea48c491273583b4669832a871e",
     "graph_synthesis/certificates/requirements.txt": "65dc02c36f5b601cb14c191d83442bc70ce93bd812b0b81fc5204d7925ae3105",
     "graph_synthesis/certificates/risk.py": "98b07bc50ff482015003d13cb112ffadd9b4602655c933840464c951a20e4113",
     "graph_synthesis/certificates/run.py": "471cca0e1b3eb2fa579401371d1cedd0de2754582367ac5ca6d7186b3192c7dc",

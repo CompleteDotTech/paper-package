@@ -1,0 +1,90 @@
+name: Live DSPy calibration benchmarks
+on:
+  pull_request:
+    paths:
+      - 'graph_synthesis/dspy_benchmark/**'
+      - 'experiments/dspy-calibration-20260918/PROTOCOL.md'
+      - '.github/workflows/dspy-benchmark.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dspy-live-benchmark-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt
+      - run: python -B -m graph_synthesis.dspy_jev_optimizer.verify
+      - run: python -B -m unittest graph_synthesis.dspy_benchmark.test_study -v
+  live:
+    needs: verify
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        include:
+          - {task: relation_support, arm: baseline_choice}
+          - {task: relation_support, arm: evidence_contract}
+          - {task: relation_support, arm: conditional_nouls}
+          - {task: relation_support, arm: fewshot_contract}
+          - {task: entity_resolution, arm: baseline_noul}
+          - {task: entity_resolution, arm: identity_contract}
+          - {task: entity_resolution, arm: identity_noul}
+          - {task: entity_resolution, arm: fewshot_contract}
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    env:
+      LITELLM_LOCAL_MODEL_COST_MAP: 'True'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Install pinned experiment dependencies
+        run: |
+          python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt
+          python -m pip freeze > "$RUNNER_TEMP/benchmark-environment.txt"
+      - name: Start checksum-pinned local proposal model without credentials
+        run: bash graph_synthesis/dspy_benchmark/start_proposer.sh
+      - name: Verify real DSPy proposal generation before Jev calls
+        run: |
+          python - <<'PY'
+          from graph_synthesis.dspy_benchmark.study import proposer, canonical
+          dspy,lm,predictor=proposer(17)
+          with dspy.context(lm=lm,adapter=dspy.JSONAdapter()):
+              p=predictor(task='entity_resolution',questions_json=canonical([{'type':'noul','instructions':'Do both records identify the same entity?'}]),training_feedback_json='[]',iteration=0)
+          assert len(p.instructions)==1 and len(p.criteria)==1
+          print('Real local DSPy proposal contract passed.')
+          PY
+      - name: Run five fresh searches and raw/calibrated comparisons
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: >-
+          python -B -m graph_synthesis.dspy_benchmark.study
+          --task '${{ matrix.task }}'
+          --arm '${{ matrix.arm }}'
+          --output "${{ runner.temp }}/benchmark/${{ matrix.task }}--${{ matrix.arm }}"
+      - name: Preserve live evidence, including partial failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-live-${{ matrix.task }}--${{ matrix.arm }}
+          path: |
+            ${{ runner.temp }}/benchmark/
+            ${{ runner.temp }}/benchmark-environment.txt
+            ${{ runner.temp }}/dspy-proposer/server.log
+          retention-days: 14
+          if-no-files-found: warn

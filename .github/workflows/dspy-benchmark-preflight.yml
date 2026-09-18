@@ -1,37 +1,19 @@
 name: DSPy benchmark execution preflight
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/dspy-benchmark-preflight.yml'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   credentials:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: List configured inference credential names, never values
+      - name: Check only the named Jev credential
         env:
-          REPO_SECRETS_JSON: ${{ toJSON(secrets) }}
-          REPO_VARS_JSON: ${{ toJSON(vars) }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
           python - <<'PY'
-          import json, os, pathlib
-          values = json.loads(os.environ.pop('REPO_SECRETS_JSON'))
-          variables = json.loads(os.environ.pop('REPO_VARS_JSON'))
-          names = sorted(name for name, value in values.items() if value and name != 'GITHUB_TOKEN')
-          result = {'configured_secret_names_only': names,
-                    'configured_variable_names_only': sorted(variables),
-                    'live_inference_executed': False,
-                    'note': 'No credential values are printed, exported or archived.'}
-          values.clear(); variables.clear()
-          pathlib.Path('execution-preflight.json').write_text(json.dumps(result, indent=2)+'\n')
-          print(json.dumps(result, indent=2))
+          import os
+          print('TYPESAFE_API_KEY configured:', bool(os.environ.get('TYPESAFE_API_KEY')))
+          print('The benchmark uses a local DSPy proposal model; no other secret is read.')
           PY
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: dspy-execution-preflight
-          path: execution-preflight.json
-          retention-days: 7

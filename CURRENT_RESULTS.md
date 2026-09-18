@@ -32,13 +32,13 @@
 
 <!-- STRUCTURAL_RESEARCH_END -->
 
-<!-- UNCERTAINTY_RESEARCH_START -->
+<!-- SOURCE_STRUCTURAL_RESEARCH_START -->
 
-## Five uncertainty and grounding improvements
+## Five source-aware and structural improvements after PR #17
 
-[Executed report](graph_synthesis/uncertainty/RESULTS.md), [frozen protocol](graph_synthesis/uncertainty/PROTOCOL.md), [five figures](graph_synthesis/uncertainty/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 met its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. All five are controlled algorithmic/decision-theoretic tests, not new Jev accuracy observations. Dependence uncertainty, repair ambiguity, query-directed review, collateral-aware retraction and recursive grounding are tested with explicit failure controls. No fresh Jev calls, new scientific documents, globally unprecedented algorithm claim or production-policy changes.
+[Executed report](graph_synthesis/source_structural/RESULTS.md), [frozen protocol](graph_synthesis/source_structural/PROTOCOL.md), [five figures](graph_synthesis/source_structural/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 did not meet its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. Direct group-risk modeling and setup-cost-aware review fail their targets. Frontier lineage, certified bipartite optimization and revision-checked evidence invalidation meet controlled algorithmic targets. No fresh Jev calls, independent semantic validation, real reviewer cost measurements or production-policy changes. Negative results, correlated-detection and global-source controls are retained.
 
-<!-- UNCERTAINTY_RESEARCH_END -->
+<!-- SOURCE_STRUCTURAL_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

@@ -19,6 +19,18 @@ class IntervalMarginalTests(unittest.TestCase):
         self.assertLessEqual(result["min"]["dual_lower"], result["min"]["signed_primal"] + 1e-9)
         self.assertLessEqual(result["max"]["dual_lower"], result["max"]["signed_primal"] + 1e-9)
 
+    def test_zero_atom_constant_formulas_are_certified(self):
+        false_result = methods.interval_lineage_bounds([], {})
+        true_result = methods.interval_lineage_bounds([[]], {})
+        self.assertTrue(false_result["certified"])
+        self.assertLessEqual(false_result["lower"], 0.0)
+        self.assertGreaterEqual(false_result["upper"], 0.0)
+        self.assertLess(false_result["upper"] - false_result["lower"], 1e-5)
+        self.assertTrue(true_result["certified"])
+        self.assertLessEqual(true_result["lower"], 1.0)
+        self.assertGreaterEqual(true_result["upper"], 1.0)
+        self.assertLess(true_result["upper"] - true_result["lower"], 1e-5)
+
     def test_interval_singleton_tracks_uncertainty(self):
         result = methods.interval_lineage_bounds([["a"]], {"a": [.7, .9]})
         self.assertTrue(result["certified"])

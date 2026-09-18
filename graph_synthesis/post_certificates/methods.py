@@ -89,13 +89,19 @@ def interval_lineage_bounds(proofs, intervals, *, atom_cap=10):
                 return _staged("residual_staged", len(atoms))
             c = sign * objective
             y_eq = np.asarray(result.eqlin.marginals, dtype=float)
-            y_ub = np.minimum(np.asarray(result.ineqlin.marginals, dtype=float), 0.0)
+            if aub is None:
+                y_ub = np.empty(0, dtype=float)
+                reduced = c - eq.T @ y_eq
+                dual_objective = float(eq_target @ y_eq)
+            else:
+                y_ub = np.minimum(np.asarray(result.ineqlin.marginals, dtype=float), 0.0)
+                reduced = c - eq.T @ y_eq - aub.T @ y_ub
+                dual_objective = float(eq_target @ y_eq + bub @ y_ub)
             if not np.isfinite(y_eq).all() or not np.isfinite(y_ub).all():
                 return _staged("nonfinite_dual_staged", len(atoms))
-            reduced = c - eq.T @ y_eq - aub.T @ y_ub
             correction = float(min(0.0, np.min(reduced)))
             padding = PAD * (1.0 + float(np.abs(y_eq).sum()) + float(np.abs(y_ub).sum()))
-            dual_lower = float(eq_target @ y_eq + bub @ y_ub) + correction - padding
+            dual_lower = dual_objective + correction - padding
             signed_primal = float(c @ x)
             if dual_lower > signed_primal + 1e-6:
                 return _staged("dual_verification_staged", len(atoms))

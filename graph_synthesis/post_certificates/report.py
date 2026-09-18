@@ -9,6 +9,7 @@ import re
 
 import matplotlib
 matplotlib.use("Agg")
+matplotlib.rcParams["svg.hashsalt"] = "post-certificates-20260923"
 import matplotlib.pyplot as plt
 
 from .run import ROOT, HERE
@@ -38,7 +39,7 @@ def save(fig, stem):
     folder = HERE / "figures"
     folder.mkdir(parents=True, exist_ok=True)
     fig.tight_layout()
-    fig.savefig(folder / f"{stem}.svg", bbox_inches="tight")
+    fig.savefig(folder / f"{stem}.svg", bbox_inches="tight", metadata={"Date": None})
     fig.savefig(folder / f"{stem}.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
 

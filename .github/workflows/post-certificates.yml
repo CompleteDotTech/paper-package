@@ -48,13 +48,13 @@ jobs:
       - name: Rebuild report, figures and complete manuscript
         run: |
           python -B -m graph_synthesis.post_certificates.report --figures --update-paper
-          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/post-certificates-paper.pdf"
       - name: Require generated-artifact stability
         shell: bash
         run: |
           set -euo pipefail
-          # SVG object IDs and PDF bytes are renderer-dependent; verify the
-          # machine-readable evidence, narrative sources, HTML, and PNG plots.
+          # Verify stable research sources and raster plots. The committed PDF
+          # is not overwritten; the SVG generator is deterministic for future replays.
           git diff --exit-code -- \
             CURRENT_RESULTS.md \
             graph_synthesis/post_certificates/PROTOCOL.md \

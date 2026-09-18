@@ -1,0 +1,16 @@
+{
+  "status": "blocked",
+  "completed_live_dspy_runs": 0,
+  "new_jev_calls": 0,
+  "preflight_run": 35355158096,
+  "credential_present": {
+    "TYPESAFE_API_KEY": true,
+    "OPENROUTER_API_KEY": false,
+    "OPENAI_API_KEY": false,
+    "ANTHROPIC_API_KEY": false
+  },
+  "approval_run": 35355491970,
+  "approval_conclusion": "action_required",
+  "approval_jobs": 0,
+  "scope": "The four explicit mappings were checked; other names or environment-scoped keys were not inspected. TypeSafe key validity was not tested."
+}

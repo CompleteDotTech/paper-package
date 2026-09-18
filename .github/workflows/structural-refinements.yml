@@ -47,7 +47,7 @@ jobs:
           python -B -m graph_synthesis.structural.run
           python - <<'PY'
           from pathlib import Path
-          import hashlib,importlib.metadata,json,os,platform,re,subprocess,sys
+          import hashlib,importlib.metadata,json,os,platform,re,shutil,subprocess,sys
           from graph_synthesis.structural.run import HERE,write
           logs=Path(os.environ['RUNNER_TEMP'])/'structural-logs';logs.mkdir()
           counts={}
@@ -59,7 +59,9 @@ jobs:
               assert result.returncode==0,directory
               counts[directory]=int(re.search(r'Ran (\d+) tests',text).group(1))
           subprocess.run([sys.executable,'-B','-m','graph_synthesis.structural.run','--check'],check=True)
-          subprocess.run([sys.executable,'-B','-m','graph_synthesis.verify','--output',str(HERE/'original-inventory.json')],check=True)
+          inventory=Path(os.environ['RUNNER_TEMP'])/'structural-original-inventory.json'
+          subprocess.run([sys.executable,'-B','-m','graph_synthesis.verify','--output',str(inventory)],check=True)
+          shutil.copyfile(inventory,HERE/'original-inventory.json')
           actual=hashlib.sha256((HERE/'results.json').read_bytes()).hexdigest()
           local=json.loads((HERE/'environment-local.json').read_text())
           write(HERE/'environment-ci.json',{'python':platform.python_version(),'platform':platform.platform(),'dependencies':{p:importlib.metadata.version(p) for p in ('numpy','matplotlib','markdown-it-py','weasyprint')},'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID']})

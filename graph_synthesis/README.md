@@ -59,3 +59,13 @@ python -B -m graph_synthesis.render_paper --output ../graph-synthesis-assessment
 PDF generation uses local repository assets only and requires the platform libraries used by WeasyPrint (including Pango). The PDF build receipt records source, figure-manifest and renderer hashes. Exact PDF/font bytes may vary across platforms; no cross-platform byte-determinism claim is made. PNGs and PDFs are build artifacts, while scalable SVGs, chart data and their manifest are reviewed in Git. The read-only Visual assessment workflow regenerates the outputs and publishes a PDF/figure artifact.
 
 To intentionally update the committed figures after a reviewed analysis change, run `python -B -m graph_synthesis.visualize --formats svg` and include the changed SVGs, JSON/CSV and figure manifest together. `--check` never rewrites evidence. Statistical test units and denominators are documented beside each plot; the illustrative 1% target remains unqualified.
+
+## Additional falsification tests
+
+The [falsification extension](../experiments/falsification/README.md) adds
+component completeness, correlated-error analysis, candidate omissions, prevalence
+sensitivity, synthetic temporal/identity/source-copy counterexamples, and seeded
+repair-oracle tests. Read its [executed results](../experiments/falsification/RESULTS.md)
+and [paper addendum](../experiments/falsification/PAPER_ADDENDUM.md). It includes
+a 48-case fresh-input semantic challenge, explicitly **not yet evaluated by Jev**.
+No original observations or production policies are changed.

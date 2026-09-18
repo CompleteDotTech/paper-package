@@ -15,8 +15,8 @@ from typing import Any, Mapping
 
 from .core import digest, distribution
 
-BASE_COMMIT = "d4e61e642976e933e1650284cfa13de20cec756a"
-INVENTORY_BLOB = "3837504455f0bac580496858f3f0ba99f795fe6c"
+BASE_COMMIT = "5b511c88c011524ad6adb71f1d5fa22f3dc941e0"
+INVENTORY_BLOB = "a8d9f447c266fbedf8837003ceb9639e00778b0e"
 RUN_PATH = "reproduction/results/jev/run-20260918"
 LABELS = {"relation_support": ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO"),
           "entity_resolution": ("same", "different")}

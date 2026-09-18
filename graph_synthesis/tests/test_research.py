@@ -30,7 +30,10 @@ class RecordedTests(unittest.TestCase):
 
     def test_frozen_inventory_is_unchanged(self):
         entries = inventory(ROOT)
-        self.assertEqual(len(entries), 164)
+        self.assertEqual(len(entries), 161)
+        self.assertFalse(any(name.startswith("reproduction/data/sources/") for name in entries))
+        self.assertIn("scripts/download_datasets.py", entries)
+        self.assertIn("scripts/datasets.json", entries)
         for relative in entries:
             checked_file(ROOT, relative, entries)
 

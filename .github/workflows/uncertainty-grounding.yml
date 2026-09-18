@@ -1,0 +1,144 @@
+name: Uncertainty and grounding experiments
+on:
+  push:
+    branches: [main, research/uncertainty-grounding-20260918]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: uncertainty-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  execute-and-publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/research/uncertainty-grounding-20260918'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/requirements-figures.txt -r graph_synthesis/uncertainty/requirements.txt
+      - name: Execute frozen benchmarks, unit tests and independent replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m graph_synthesis.uncertainty.run | tee graph_synthesis/uncertainty/execution.log
+          python -B -m unittest discover -s graph_synthesis/uncertainty/tests -v 2>&1 | tee graph_synthesis/uncertainty/tests.log
+          python -B -m graph_synthesis.uncertainty.run --check
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/uncertainty-original-inventory.json"
+          cp "$RUNNER_TEMP/uncertainty-original-inventory.json" graph_synthesis/uncertainty/original-inventory.json
+          python -B -m graph_synthesis.uncertainty.report --figures --update-paper
+          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+      - name: Confirm the earlier current-paper text is preserved
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, subprocess
+          from graph_synthesis.uncertainty.report import START, END
+          base='a62a3257645d8e35cd4e45be53bfa9511d27724b'
+          for path in ('CURRENT_RESULTS.md','manuscript/paper-current.md'):
+              before=subprocess.check_output(['git','show',base+':'+path]).decode('utf-8')
+              after=Path(path).read_text(encoding='utf-8')
+              stripped=re.sub(re.escape(START)+r'.*?'+re.escape(END)+r'\s*','',after,flags=re.S)
+              assert before==stripped, 'Earlier text changed: '+path
+          print('Previous study text preserved byte-for-byte after removing the new section')
+          PY
+      - name: Commit generated evidence only to this research branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add graph_synthesis/uncertainty CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'research: record executed uncertainty benchmarks, five figures and full updated manuscript'
+            git push origin HEAD:research/uncertainty-grounding-20260918
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: uncertainty-review-package
+          path: |
+            graph_synthesis/uncertainty/
+            graph_synthesis/render_current_paper.py
+            manuscript/paper-current.pdf
+            manuscript/paper-current.md
+            manuscript/paper-current.html
+            manuscript/paper-current.build.json
+            CURRENT_RESULTS.md
+          retention-days: 14
+  replay:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r reproduction/requirements-jev.txt -r graph_synthesis/uncertainty/requirements.txt
+      - name: Replay all results and verify source, protocol, archive and PDF provenance
+        run: |
+          python -B -m unittest discover -s graph_synthesis/uncertainty/tests -v
+          python -B -m graph_synthesis.uncertainty.run --check
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/uncertainty-original.json"
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          manifest=json.loads(Path('graph_synthesis/uncertainty/artifact-manifest.json').read_text(encoding='utf-8'))
+          for path,want in manifest['sha256'].items():
+              assert sha(path)==want,path
+          r=json.loads(Path('graph_synthesis/uncertainty/results.json').read_text(encoding='utf-8'))
+          assert r['protocol_sha256']==sha('graph_synthesis/uncertainty/PROTOCOL.md')
+          assert r['fresh_service_calls']==0 and r['new_scientific_documents']==0
+          for name,want in r['source_sha256'].items():
+              assert sha('graph_synthesis/uncertainty/'+name)==want,name
+          build=json.loads(Path('manuscript/paper-current.build.json').read_text(encoding='utf-8'))
+          assert sha('manuscript/paper-current.md')==build['source_sha256']
+          assert sha('graph_synthesis/render_current_paper.py')==build['renderer_sha256']
+          assert sha('manuscript/paper-current.pdf')==build['pdf_sha256']
+          print('Source, protocol, result, archive and full-paper provenance verified')
+          PY
+          git diff --exit-code
+  figures-and-paper:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/requirements-figures.txt -r graph_synthesis/uncertainty/requirements.txt
+      - name: Regenerate charts and manuscript without artifact drift
+        run: |
+          python -B -m graph_synthesis.uncertainty.report --figures --update-paper
+          git diff --exit-code -- graph_synthesis/uncertainty manuscript/paper-current.md CURRENT_RESULTS.md
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/uncertainty-paper.pdf"
+          git diff --exit-code -- manuscript/paper-current.html

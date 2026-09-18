@@ -1,0 +1,30 @@
+name: Structural refinement experiments
+on:
+  push:
+    branches: [research/structural-refinements-20260918]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Package public research baseline without Git credentials
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          with ZipFile('/tmp/research-source.zip', 'w', ZIP_DEFLATED) as z:
+              for p in sorted(Path('.').rglob('*')):
+                  if p.is_file() and '.git' not in p.parts:
+                      z.write(p, p.as_posix())
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: structural-research-source
+          path: /tmp/research-source.zip
+          retention-days: 7

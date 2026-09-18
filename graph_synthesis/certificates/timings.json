@@ -1,0 +1,95 @@
+{
+  "cases": [
+    {
+      "components": 16,
+      "median_seconds": {
+        "full": 0.12570409500000324,
+        "local": 0.011025625000002037
+      },
+      "seconds": {
+        "full": [
+          0.12570409500000324,
+          0.12562665099999037,
+          0.12962008000000935
+        ],
+        "local": [
+          0.011402658999998039,
+          0.010957887999992977,
+          0.011025625000002037
+        ]
+      },
+      "updates": 64,
+      "vertices": 128
+    },
+    {
+      "components": 64,
+      "median_seconds": {
+        "full": 0.5555617600000033,
+        "local": 0.017190087999992443
+      },
+      "seconds": {
+        "full": [
+          0.5506035490000016,
+          0.5564781019999998,
+          0.5555617600000033
+        ],
+        "local": [
+          0.017680665000000317,
+          0.016802734999998847,
+          0.017190087999992443
+        ]
+      },
+      "updates": 64,
+      "vertices": 512
+    },
+    {
+      "components": 256,
+      "median_seconds": {
+        "full": 2.3364158739999965,
+        "local": 0.04215446400000644
+      },
+      "seconds": {
+        "full": [
+          2.3364158739999965,
+          2.3347134500000095,
+          2.369167206
+        ],
+        "local": [
+          0.0417307269999867,
+          0.04215446400000644,
+          0.04237294200000008
+        ]
+      },
+      "updates": 64,
+      "vertices": 2048
+    },
+    {
+      "components": 512,
+      "median_seconds": {
+        "full": 4.910724754,
+        "local": 0.07517117300000109
+      },
+      "seconds": {
+        "full": [
+          4.930171537999996,
+          4.910724754,
+          4.910309710000007
+        ],
+        "local": [
+          0.07517117300000109,
+          0.07501426499999297,
+          0.10281746100000078
+        ]
+      },
+      "updates": 64,
+      "vertices": 4096
+    }
+  ],
+  "clock": "perf_counter; cold construction plus updates; full snapshot comparison outside both timing boundaries",
+  "numpy": "2.5.3",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "qualification": "Single-host in-memory measurements; not a service or durable database benchmark.",
+  "repetitions": 3,
+  "scipy": "1.17.0"
+}

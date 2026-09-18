@@ -1,0 +1,132 @@
+name: Post-certificate structural improvements
+
+on:
+  pull_request:
+  push:
+    branches:
+      - research/post-certificate-improvements-20260918
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post-certificate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  replay-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+
+      - name: Verify frozen protocol ancestry and bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          protocol=1d5ceee35bada50392be92b7f73194a4d6e41949
+          git merge-base --is-ancestor "$protocol" HEAD
+          git show "$protocol:graph_synthesis/post_certificate/PROTOCOL.md" | cmp - graph_synthesis/post_certificate/PROTOCOL.md
+
+      - name: Run focused regressions
+        run: python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v
+
+      - name: Replay frozen benchmarks byte-for-byte
+        run: python -B -m graph_synthesis.post_certificate.run --check
+
+      - name: Generate report, figures and additive paper source
+        if: github.event_name == 'push'
+        run: python -B -m graph_synthesis.post_certificate.report --update-paper
+
+      - name: Verify committed generated report, figures and additive paper source
+        if: github.event_name == 'pull_request'
+        run: python -B -m graph_synthesis.post_certificate.report --check --update-paper
+
+      - name: Install paper rendering dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r graph_synthesis/requirements-figures.txt
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Rebuild current HTML/PDF
+        if: github.event_name == 'push'
+        run: python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+
+      - name: Verify committed current paper hashes and render independently
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          b=json.loads(Path('manuscript/paper-current.build.json').read_text())
+          assert sha('manuscript/paper-current.md')==b['source_sha256']
+          assert sha('graph_synthesis/render_current_paper.py')==b['renderer_sha256']
+          assert sha('manuscript/paper-current.pdf')==b['pdf_sha256']
+          print('Committed current-paper hashes verified')
+          PY
+          python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/post-certificate-paper.pdf"
+
+      - name: PDF structural and raster smoke check
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdf="${RUNNER_TEMP}/post-certificate-paper.pdf"
+          if [ "${{ github.event_name }}" = "push" ]; then pdf=manuscript/paper-current.pdf; fi
+          pdfinfo "$pdf" | tee "$RUNNER_TEMP/pdfinfo.txt"
+          pages=$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')
+          test "${pages:-0}" -gt 0
+          pdftoppm -f 1 -singlefile -png -r 120 "$pdf" "$RUNNER_TEMP/paper-first"
+          pdftoppm -f "$pages" -singlefile -png -r 120 "$pdf" "$RUNNER_TEMP/paper-last"
+          test -s "$RUNNER_TEMP/paper-first.png"
+          test -s "$RUNNER_TEMP/paper-last.png"
+
+      - name: Check generated source for whitespace errors
+        run: git diff --check
+
+      - name: Publish generated research artifacts
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add graph_synthesis/post_certificate/RESULTS.md \
+                  graph_synthesis/post_certificate/PAPER_SECTION.md \
+                  graph_synthesis/post_certificate/CURRENT_SNIPPET.md \
+                  graph_synthesis/post_certificate/summary.csv \
+                  graph_synthesis/post_certificate/figures \
+                  CURRENT_RESULTS.md \
+                  manuscript/paper-current.md \
+                  manuscript/paper-current.html \
+                  manuscript/paper-current.pdf \
+                  manuscript/paper-current.build.json
+          if git diff --cached --quiet; then
+            echo "Publication artifacts already current"
+          else
+            git commit -m "research: publish post-certificate benchmarks and paper"
+            git push origin HEAD:research/post-certificate-improvements-20260918
+          fi
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: post-certificate-pdf-review-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/pdfinfo.txt
+            ${{ runner.temp }}/paper-first.png
+            ${{ runner.temp }}/paper-last.png
+          if-no-files-found: error
+          retention-days: 14

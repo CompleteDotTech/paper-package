@@ -1,6 +1,10 @@
 {
   "fresh_service_calls": 0,
-  "integrated_main": "a21314d17c33c639b75522ecce120586ef8dab35",
-  "preserved_ordered_main_paragraphs": 562,
-  "unchanged_prior_files": 618
+  "integrated_main": "6530321dd0060c9c7f13bb69d6f1c88346a8e1e2",
+  "preserved_ordered_main_paragraphs": 625,
+  "reviewed_publication_changes": [
+    ".github/workflows/jev-multicall.yml",
+    "graph_synthesis/render_current_paper.py"
+  ],
+  "unchanged_prior_files": 649
 }

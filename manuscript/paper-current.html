@@ -1030,7 +1030,6 @@ python -B -m graph_synthesis.reliability.report --figures --update-paper
 python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
 </code></pre>
 <p>The machine-readable results preserve development fold exclusions, all calibration candidates, group predictions, review IDs, sensitivity assumptions, random fixtures, mutation events, oracle outputs and source hashes. Five SVG/PNG figure pairs and summary.csv are regenerated from results.json. The extension manifest binds source, results, figures and validation records. Original raw calls and the archived original manuscript are untouched. The complete current manuscript retains all preceding studies and their limitations.</p>
-<p>&lt;!-- NOVEL_MECHANISMS_RESEARCH_START --&gt;</p>
 <h1>Five initial hypotheses: distinct additions and concurrent replication</h1>
 <p><strong>Concurrent novelty reconciliation.</strong> A main-branch study added the same broad bipartite flow mechanism while this branch was running. Original H4 is retained as concurrent replication, not counted as a fifth distinct addition. The five distinct mechanisms are H1, H2, H3, H5 and <a href="../graph_synthesis/novel_mechanisms/REGRET_RESULTS.md">H6: interval-priority minimax regret</a>. Both pre-execution protocols and all six outcomes are preserved; no worldwide novelty claim is made.</p>
 <p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026</p>
@@ -1332,13 +1331,13 @@ python -B -m graph_synthesis.render_current_paper --output manuscript/paper-curr
 <tbody>
 <tr>
 <td>sparse_2048</td>
-<td style="text-align:right" class="numeric">4.812669</td>
-<td style="text-align:right" class="numeric">0.008373</td>
+<td style="text-align:right" class="numeric">3.606588</td>
+<td style="text-align:right" class="numeric">0.006496</td>
 </tr>
 <tr>
 <td>dense_256</td>
-<td style="text-align:right" class="numeric">0.110786</td>
-<td style="text-align:right" class="numeric">0.030381</td>
+<td style="text-align:right" class="numeric">0.087719</td>
+<td style="text-align:right" class="numeric">0.024262</td>
 </tr>
 </tbody>
 </table>
@@ -1356,8 +1355,6 @@ python -B -m graph_synthesis.novel_mechanisms.report --figures --update-paper
 python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
 </code></pre>
 <p>The results preserve per-candidate predictions and selections, fitted priors, arbitrary joint tables, rational dual certificates, proof/repair fixtures, solver certificates, interval assertions, finite oracles and SHA-256 inputs. Replay disables network connections and uses the existing disclosed narrow numeric comparison tolerance; exact rational certificate strings are retained. Timings are not replay-equality claims. Five SVG/PNG pairs and summary.csv are generated from recorded results. The extension manifest binds its files; the shared manuscript uses its own build manifest. Current-paper insertion is additive and idempotent, retaining all earlier studies and limitations.</p>
-<p>&lt;!-- NOVEL_MECHANISMS_RESEARCH_END --&gt;</p>
-<p>&lt;!-- INTERVAL_REGRET_RESEARCH_START --&gt;</p>
 <h1>Interval-priority regret: fifth distinct addition after concurrent overlap</h1>
 <p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026</p>
 <h2>Novelty reconciliation</h2>
@@ -1408,7 +1405,6 @@ python -B -m graph_synthesis.novel_mechanisms.regret --check
 python -B -m graph_synthesis.novel_mechanisms.regret --report
 </code></pre>
 <p>The first command executes the experiment and writes per-case intervals, baseline/proposed selections, regret, independent oracle results, witnesses and input hashes. The second disables network access and checks exact replay. The third publishes the extra figure, standalone report and additive combined manuscript section. This is a deterministic bounded application of established minimax-regret ideas, not a reproduction of randomized or double-oracle algorithms: <a href="https://arxiv.org/abs/1401.7043">Mastin, Jaillet and Chin</a>; <a href="https://arxiv.org/abs/1602.01764">Gilbert and Spanjaard</a>.</p>
-<p>&lt;!-- INTERVAL_REGRET_RESEARCH_END --&gt;</p>
 <h1>Reliability ranking, source diversity and bounded exact inference for Jev graph synthesis</h1>
 <p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026</p>
 <h2>Abstract</h2>
@@ -2114,6 +2110,225 @@ python -B -m graph_synthesis.render_current_paper --output manuscript/paper-curr
 </code></pre>
 <p>The <a href="../graph_synthesis/source_structural/results.json">machine-readable results</a> contain folds, fitted cell counts, individual group probabilities, review selections, all sensitivity settings, finite/analytic oracles, flow certificates, mutation traces and source hashes. The <a href="../graph_synthesis/source_structural/summary.csv">summary table</a>, five SVG/PNG figure pairs and this report are generated from those results. The extension manifest binds code, evidence, figures and captured validation logs; the current paper has a separate build manifest. The original frozen study and all previous executed sections are preserved.</p>
 <p>Primary-source context: <a href="https://docs.typesafe.ai/introduction">TypeSafe documentation</a> describes typed decisions and probability outputs; <a href="https://arxiv.org/abs/1811.02944">Amarilli et al., Connecting Knowledge Compilation Classes and Width Parameters</a> provides bounded-width knowledge-compilation context; the <a href="https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.flow.minimum_cut.html">NetworkX minimum-cut documentation</a> states the max-flow/min-cut relation. These sources motivate established techniques, not the numerical results reported here. Our finite and analytic checks are included in the repository; no claim of mathematical novelty is made.</p>
+<h1>Assumption-aware graph synthesis: five falsifiable follow-up experiments</h1>
+<p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026</p>
+<h2>Abstract</h2>
+<p>The expanded Jev research distinguishes better typed decisions from stronger graph infrastructure. This follow-up tests five responses to unresolved limitations in PR #17: dependence-robust probability envelopes, answers invariant across optimal repairs, query-exposure-weighted review, connected-tree delta updates, and grounded cyclic provenance. Marginal-only probability envelopes reduce mean uncertainty width by 4.96%, missing the frozen 10% target. Query-weighted review also fails: at 20 idealized reviews, weighted residual contamination rises from 50 to 63, while contaminated source groups rise from 8 to 11. The three other controlled targets are met. Connected balanced-tree DP visits fall by 97.63%; agenda-indexed grounding reduces counted dependency inspections by 94.28%. These are bounded supplied-input engineering results, not new semantic accuracy, independent validation, external-system superiority, or production readiness. <strong>Fresh Jev calls: 0.</strong></p>
+<h2>1. Motivation, scope and novelty boundary</h2>
+<p>The <a href="../graph_synthesis/reliability/RESULTS.md">preceding reliability study</a> tightened lineage under assumed independence, but its deliberately false independence input still inflated 0.8 to 0.96. Its exact conflict optimizer could select a false high-priority assertion. Its component cache saved no solver work on the connected stress graph. Its single-view review economy did not establish effectiveness on an observed query workload. These limitations motivate changing the admissible assumptions and query semantics rather than simply asking the same model more times.</p>
+<p>The <a href="../graph_synthesis/assumption_aware/PROTOCOL.md">frozen protocol</a> was committed as <code>82ee57229570bb9f7299e0418a5f9b959c25d59f</code> against baseline <code>a62a3257645d8e35cd4e45be53bfa9511d27724b</code> before implementation and execution. Prior findings informed hypothesis choice. This is exploratory follow-up, not independent preregistration. H3 reuses 73 development cases in 40 groups and 263 evaluation cases in 149 groups; no new holdout is claimed. Raw-response reconstruction, unique identities, source-group separation and input hashes are checked before scoring. The policy receives no evaluation gold. Algorithm fixtures in H1/H2/H4/H5 are generated from the committed seeds, and all successful, unsuccessful and assumption-breaking cases remain in <a href="../graph_synthesis/assumption_aware/results.json">results.json</a>.</p>
+<p>These five combinations were not found as executed suites in the audited baseline implementation. They are <strong>not claims that the underlying ideas have never been attempted anywhere</strong>. Probability envelopes already use linear programming in probabilistic satisfiability (<a href="https://doi.org/10.1016/j.ijar.2007.03.001">Hansen and Perron</a>); all-repair semantics are established (<a href="https://arxiv.org/abs/0908.0464">Staworko et al.</a>); utility-oriented KG auditing has prior empirical work (<a href="https://doi.org/10.1609/hcomp.v12i1.31605">Marchesin et al.</a>); tree dynamic programming is established (<a href="https://arxiv.org/abs/2305.03693">Gupta et al.</a>); and recursive materialisation maintenance is established (<a href="https://doi.org/10.1609/aaai.v32i1.11554">Hu et al.</a>). The <a href="../graph_synthesis/assumption_aware/NOVELTY.md">novelty audit</a> states the narrower integration differences and search limitations. No external implementation is benchmarked here.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Proposed improvement</th>
+<th>Frozen target</th>
+<th>Evidence class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>Dependence-robust lineage envelopes</td>
+<td>not met</td>
+<td>Controlled supplied-input algorithm</td>
+</tr>
+<tr>
+<td>H2</td>
+<td>Ambiguity-preserving repair answers</td>
+<td>met</td>
+<td>Controlled supplied-input algorithm</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>Query-exposure-weighted review</td>
+<td>not met</td>
+<td>Captured decisions + synthetic exposure + simulated review</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>Connected-tree delta messages</td>
+<td>met</td>
+<td>Controlled supplied-input algorithm</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>Grounded cyclic provenance</td>
+<td>met</td>
+<td>Controlled supplied-input algorithm</td>
+</tr>
+</tbody>
+</table>
+<p>A target pass establishes only its stated conjunction on its stated population. The pass count is not a semantic success rate. Failed targets are not rescued by changing thresholds or promoting a favorable sensitivity panel.</p>
+<h2>2. H1: Dependence-robust lineage envelopes</h2>
+<p><strong>Theory.</strong> Let each world assign truth values to primitive source events. A nonnegative world-mass vector must normalize to one and match supplied marginals; optional pairwise intersections add constraints. For a fact supported by a disjunction of conjunctive proofs, minimize and maximize the sum of masses in satisfying worlds. Every supplied-compatible joint distribution lies between these extrema. Unlike an independent-events point estimate, the feasible family permits perfect source dependence. Primitive probabilities and any intersections are supplied assumptions, not measured Jev truth probabilities.</p>
+<p>The comparator canonicalizes duplicate and subsumed proofs, applies marginal Frechet conjunction bounds and then union bounds. The bounded LP uses at most eight atoms (256 worlds), capped iterations, primal feasibility checks, dual-inequality residual correction and outward numerical allowance. Endpoint witnesses are saved and independently checked against constraints. Above the atom cap it returns conservative marginal bounds and explicit non-optimized status. Infeasible constraints, failed solves or failed verification stage with [0,1]. Floating-point residual checks are <strong>not formal exact-arithmetic certificates</strong>. Broader probability-envelope optimization is not generally cheap; <a href="https://arxiv.org/abs/2605.03556">Kaski et al.</a> discuss the hardness of optimal union intervals.</p>
+<p><strong>Frozen test.</strong> Seed 20260922 generates 128 arbitrary joint distributions over two to six atoms and one to eight proofs. The joint masses are generated separately from both bounding algorithms. Require zero truth-containment errors beyond 1e-7, zero false lower-bound admissions at 0.95, zero order/duplicate errors, and at least 10% lower mean width than the Frechet baseline. The pairwise-constrained panel is a sensitivity analysis, not the primary target.</p>
+<table>
+<thead>
+<tr>
+<th>Envelope</th>
+<th style="text-align:right">Mean width</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canonical Frechet</td>
+<td style="text-align:right" class="numeric">0.359405</td>
+<td>Primary comparator</td>
+</tr>
+<tr>
+<td>Marginal-only LP</td>
+<td style="text-align:right" class="numeric">0.341587</td>
+<td>Primary proposal</td>
+</tr>
+<tr>
+<td>Pairwise-constrained LP</td>
+<td style="text-align:right" class="numeric">0.088167</td>
+<td>Additional-information sensitivity</td>
+</tr>
+</tbody>
+</table>
+<p>Across 256 containment checks there are 0 failures, 0 false admissions and 0 saved-witness feasibility failures. There are 0 errors in 512 invariance checks. The primary width reduction is 4.96%, so the target is <strong>not met</strong> despite those correctness checks passing.</p>
+<p><strong>Falsification controls.</strong> Two names for one actual 0.8-probability source produce 0.96 under independent OR aggregation. The marginal envelope is [0.8,1] and does not admit at 0.95. Correct shared identity yields 0.8. Supplying mutually exclusive 0.5 events yields an OR probability approximately one; incoherent intersections stage rather than returning a confident value. Empty, tautological, zero/one and over-cap inputs are retained. Unknown dependence is representable, but false marginals or missing primitive events still defeat semantic validity.</p>
+<figure><img src="../graph_synthesis/assumption_aware/figures/01_dependence_envelopes.png" alt="H1. Primary marginal envelopes and explicitly separate pairwise sensitivity." /></figure>
+<h2>3. H2: Ambiguity-preserving answers over optimal repairs</h2>
+<p><strong>Theory.</strong> A deterministic tie-break gives one repair, not a fact valid in every repair. Let V be maximum supplied priority. An assertion selected in one optimum is forced precisely when forbidding it lowers V. An OR query is entailed by every optimum precisely when forbidding every queried assertion lowers V. An AND query requires each member to be forced. This tests entailment relative to a supplied optimization model, not truth of the assertions. A false query result means 'not entailed by all optima', not 'false in all worlds'.</p>
+<p>The method reuses PR #17's bounded optimizer as a value oracle, with at most 1,024 vertices across components and 1,024 oracle calls. Its existing component/cutset caps remain in force. Any unresolved relevant solve yields unknown or partial status, never an unsupported certificate. Zero priorities, empty queries, repeated edges and deterministic order are handled explicitly.</p>
+<p><strong>Frozen test.</strong> On 128 random graphs with four to ten vertices, seed 20260923, integer priorities zero through five and edge probability 0.3, an independent combinations enumerator retains every maximum-priority consistent subset. It checks optimum utility, forced assertions and OR/AND answers. Require no mismatches, full retention on unique optima, and on 32 equal-priority conflicting pairs require every pair disjunction but no individual assertion.</p>
+<p>The test records 0 oracle disagreements and 0 order failures. All 66 unique-optimum cases retain their selected assertions. Across random fixtures, a single repair contains 444 assertions; 388 are forced, retaining 87.39%. This lower assertion coverage is an intentional refusal to invent certainty, not a recall improvement. The random fixtures require 1,084 solver calls in total. The target is <strong>met</strong>.</p>
+<p>The 32-pair control has 2^32 optima. The method certifies all 32 disjunctions without enumerating those optima and certifies no individual member. The 17-clique control stages. A false assertion with priority nine against a true assertion with priority eight remains forced: repair invariance cannot repair a misleading priority function. No better Jev edge accuracy follows.</p>
+<figure><img src="../graph_synthesis/assumption_aware/figures/02_repair_ambiguity.png" alt="H2. Assertions selected in one repair versus assertions invariant across all optima." /></figure>
+<h2>4. H3: Query-exposure-weighted review</h2>
+<p><strong>Theory.</strong> The preceding single-view risk estimator offers a cheap review signal, but review utility could depend on downstream exposure. The proposal multiplies each expected source-contamination reduction by a fixed exposure weight. The product-based contamination model and tie-by-ID rule otherwise match the PR #17 single-view group-aware comparator. This adds a workload model, not model calls or evidence.</p>
+<p>Exposures are deliberately synthetic: one plus the SHA-256 integer of <code>query-exposure-v1:</code> concatenated with the source-group ID, modulo ten. They are fixed without evaluation gold. Uniform and reversed weights are sensitivity panels. They are not observed queries, independently sampled deployments or new datasets. All policies use the same development-only risk fit, accepted pool and 941,809 recorded input tokens. The primary reviewer perfectly removes a reviewed wrong edge and never removes a correct edge; detection rates 0.5, 0.75 and 1 are scenario analyses, not human observations.</p>
+<p><strong>Frozen test.</strong> At 20 edge reviews require at least 10% lower weighted residual contaminated-source exposure with no increase in unweighted contaminated groups. An exposure unit is one synthetic weight attached to a contaminated source group. Outcomes at four budgets are shown below; correct retained edges remain 132 at the primary budget for both methods.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Review budget</th>
+<th style="text-align:right">Baseline exposure</th>
+<th style="text-align:right">Proposed exposure</th>
+<th style="text-align:right">Baseline contaminated groups</th>
+<th style="text-align:right">Proposed contaminated groups</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right" class="numeric">10</td>
+<td style="text-align:right" class="numeric">73</td>
+<td style="text-align:right" class="numeric">73</td>
+<td style="text-align:right" class="numeric">12</td>
+<td style="text-align:right" class="numeric">12</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">20</td>
+<td style="text-align:right" class="numeric">50</td>
+<td style="text-align:right" class="numeric">63</td>
+<td style="text-align:right" class="numeric">8</td>
+<td style="text-align:right" class="numeric">11</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">30</td>
+<td style="text-align:right" class="numeric">24</td>
+<td style="text-align:right" class="numeric">54</td>
+<td style="text-align:right" class="numeric">4</td>
+<td style="text-align:right" class="numeric">10</td>
+</tr>
+<tr>
+<td style="text-align:right" class="numeric">40</td>
+<td style="text-align:right" class="numeric">24</td>
+<td style="text-align:right" class="numeric">37</td>
+<td style="text-align:right" class="numeric">4</td>
+<td style="text-align:right" class="numeric">8</td>
+</tr>
+</tbody>
+</table>
+<p>At budget 20, the weighted outcome changes from 50 to 63, a relative reduction of -26.00%; the negative reduction means deterioration. Contaminated groups change from 8 to 11. The target is <strong>not met</strong>. Uniform exposure reproduces the baseline order: True. The hypothesis's apparent objective alignment is insufficient when estimated risks, group interactions and imposed exposure weights do not rank realized errors well.</p>
+<p>The paired source-group bootstrap uses 4,000 draws with seed 20260924, fixed fit and review sets, and recomputed exposure denominators in each draw. Proposed-minus-baseline weighted contamination rate has a 95% interval [-2.0768, +4.9289] percentage points and a 99% interval [-3.1182, +6.3003] percentage points. These descriptive, non-simultaneous intervals omit fitting and workload uncertainty, and include zero. No statistically resolved harm or benefit on a new population is asserted. The frozen point-target failure remains a failure.</p>
+<figure><img src="../graph_synthesis/assumption_aware/figures/03_query_review.png" alt="H3. Weighted residual contaminated-source exposure under equal idealized review budgets." /></figure>
+<h2>5. H4: Delta messages inside a connected tree</h2>
+<p><strong>Theory.</strong> Component-level caching discards all work when any weight changes inside a connected component. On a fixed rooted tree, an include value is its vertex priority plus children's exclude values; an exclude value sums the larger child value. Cache these aggregates. A changed weight can affect only its ancestor path. Propagate child-value deltas, stopping when a message is unchanged. Validation and initial rooting occur once; structural edits are explicitly unsupported and rejected without mutation.</p>
+<p><strong>Frozen test.</strong> The primary connected binary tree has 255 vertices and 256 seeded weight updates, seed 20260925. Cold-build work is included for both methods. Compare utility to independent full-tree DP after every update, and check a reconstructed selected set for consistency and summed utility. Additionally, 128 small random trees with eight updates each are checked against exhaustive subset enumeration. Require zero disagreements and at least 75% fewer DP vertex visits on the balanced workload.</p>
+<table>
+<thead>
+<tr>
+<th>Topology</th>
+<th style="text-align:right">Full DP visits</th>
+<th style="text-align:right">Delta DP visits</th>
+<th style="text-align:right">DP reduction</th>
+<th style="text-align:right">Reconstruction visits per policy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Balanced, primary</td>
+<td style="text-align:right" class="numeric">65,535</td>
+<td style="text-align:right" class="numeric">1,556</td>
+<td style="text-align:right" class="numeric">97.63%</td>
+<td style="text-align:right" class="numeric">65,535</td>
+</tr>
+<tr>
+<td>Path, control</td>
+<td style="text-align:right" class="numeric">65,535</td>
+<td style="text-align:right" class="numeric">17,474</td>
+<td style="text-align:right" class="numeric">73.34%</td>
+<td style="text-align:right" class="numeric">65,535</td>
+</tr>
+</tbody>
+</table>
+<p>There are 0 small-tree failures across 1,024 updates, and 0 failures on the two large workloads. The primary target is <strong>met</strong>. Invalid weight/structural updates preserve state; repeated identical weights visit zero DP nodes.</p>
+<p><strong>Cost boundary.</strong> Reconstruction traverses the whole tree on demand. The cold reference computes the optimum value; the accounting charges it the same full-tree reconstruction traversal measured for the delta implementation. Counting both DP visits and these eager reconstruction visits reduces the balanced improvement to 48.81% and the path improvement to 36.67%. These sums are transparent operation accounting, not uniform CPU-cost models or measured latency. Tall paths, changing topology and consumers demanding a complete repair after every update limit the gain. No corresponding reduction in service cost, database I/O or arbitrary-graph maintenance is established.</p>
+<figure><img src="../graph_synthesis/assumption_aware/figures/04_connected_tree_work.png" alt="H4. DP savings with the separately charged full-repair reconstruction work visible." /></figure>
+<h2>6. H5: Grounded cyclic provenance after retraction</h2>
+<p><strong>Theory.</strong> Old derived facts must not become their own external justification. Start a positive Horn closure only from supplied external facts and empty-body axioms. Index each body occurrence by its prerequisite fact, initialize remaining-body counters, and activate a rule once all body members are grounded. Each newly grounded fact enters an agenda once. After a source change, recompute closure from current external facts, not from the previous derived closure.</p>
+<p>This differs from the repository's earlier cascading prerequisite invalidation by preserving alternative positive supports while preventing unsupported cycles from surviving. It is nevertheless an implementation of established least-fixed-point grounding, not a new Datalog deletion algorithm. The strong comparator is a cold, repeated full-scan closure. A deliberately unsafe warm-start comparator is used only to expose circular self-support, not as the sole correctness or efficiency baseline. The prototype is in-memory, with caps of 4,096 facts, 8,192 distinct rules and 65,536 body occurrences.</p>
+<p><strong>Frozen test.</strong> Seed 20260926 generates 128 rule systems with four to twelve facts and eight source toggles each. Every closure is checked against independent cold scanning. The primary work test has 64 eight-rule chains in adversarial order and 128 source toggles, including cold setup. Require zero closure mismatches, no unsupported survivors in withdrawn-cycle controls, and at least 75% fewer dependency inspections.</p>
+<table>
+<thead>
+<tr>
+<th>Workload</th>
+<th style="text-align:right">Full-scan inspections</th>
+<th style="text-align:right">Indexed inspections including index build</th>
+<th style="text-align:right">Reduction</th>
+<th style="text-align:right">Separate rule-counter initializations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sparse chains, primary</td>
+<td style="text-align:right" class="numeric">590,336</td>
+<td style="text-align:right" class="numeric">33,792</td>
+<td style="text-align:right" class="numeric">94.28%</td>
+<td style="text-align:right" class="numeric">66,048</td>
+</tr>
+<tr>
+<td>Dense dependency control</td>
+<td style="text-align:right" class="numeric">6,240</td>
+<td style="text-align:right" class="numeric">2,400</td>
+<td style="text-align:right" class="numeric">61.54%</td>
+<td style="text-align:right" class="numeric">4,080</td>
+</tr>
+</tbody>
+</table>
+<p>The random systems have 0 closure mismatches in 1,024 updates. The work panels also have 0 mismatches. Removing the only external seed clears a two-fact cycle; providing an independent alternate seed preserves its consequences. Pure unseeded cycles derive nothing. Empty-body axioms, self-loops and duplicate rules have explicit regression tests. Unknown external facts are rejected atomically. The target is <strong>met</strong>.</p>
+<p>The indexed engine still initializes every rule counter after each update. It is a faster bounded cold recomputation under the stated work metric, <strong>not</strong> dependency-local incremental deletion, distributed transaction support or a measured DRed comparison. False external facts still ground false consequences. Correct grounding means derivable from supplied facts and rules, not verified real-world truth.</p>
+<figure><img src="../graph_synthesis/assumption_aware/figures/05_grounded_provenance.png" alt="H5. Dependency-inspection work; counter initialization remains a separately reported cost." /></figure>
+<h2>7. Research implications and limitations</h2>
+<p>The most defensible new knowledge is about failure boundaries. Marginal-only dependence reasoning can prevent unjustified point confidence, but did not deliver the frozen width improvement. Adding workload importance to a weakly calibrated review signal made the primary observed replay outcome worse. Neither failed proposal is promoted to a default policy. Repair-invariant answers distinguish ambiguity from arbitrary tie-breaking, but still inherit misleading priorities. Connected-tree messages remove avoidable recomputation for value-only consumers under fixed topology. Grounded positive closure makes cyclic support behavior explicit while preserving genuine alternatives.</p>
+<p>The successful tests are controlled algorithmic checks, not scientific proof of correctness on every input. Bounded exhaustive/analytic oracles and malformed-input regression tests provide stronger evidence than agreement between two copies of the same algorithm. Supplied priorities, marginals, constraints, rule heads/bodies and external facts are not automatically discovered or verified. H3 adds synthetic exposure and idealized review to already inspected data. No new paper corpus, independently adjudicated semantic labels, live workload trace, measured reviewer outcome, external baseline implementation or prospective Jev latency panel was collected. No confidence interval from H3 should be assigned to H1/H2/H4/H5 operation counts.</p>
+<p>An independent semantic experiment would need the entire policy frozen before a new source-disjoint corpus, verified provenance/qualifiers, actual query utility, calibrated primitive events, and matched evidence/resource budgets against systems such as KARMA. Those experiments remain unexecuted here. The present changes add research modules and evidence only; the default graph compiler and archived original study remain unchanged.</p>
+<h2>8. Reproducibility and evidence links</h2>
+<p>The <a href="../graph_synthesis/assumption_aware/PROTOCOL.md">protocol</a>, <a href="../graph_synthesis/assumption_aware/methods.py">methods</a>, <a href="../graph_synthesis/assumption_aware/run.py">runner</a>, <a href="../graph_synthesis/assumption_aware/tests/test_methods.py">regression tests</a>, <a href="../graph_synthesis/assumption_aware/results.json">results</a>, <a href="../graph_synthesis/assumption_aware/summary.csv">summary table</a>, <a href="../graph_synthesis/assumption_aware/CLAIM_EVIDENCE.md">claim map</a>, <a href="../graph_synthesis/assumption_aware/references.bib">bibliography</a> and <a href="../graph_synthesis/assumption_aware/artifact-manifest.json">artifact manifest</a> form the extension package. The original evidence verifier checks all 161 archived files. The generated complete manuscript retains every preceding study and its limitations.</p>
+<pre><code class="language-bash">python -m pip install -r graph_synthesis/assumption_aware/requirements.txt
+python -B -m unittest discover -s graph_synthesis/assumption_aware/tests -v
+python -B -m graph_synthesis.assumption_aware.run --check
+python -B -m graph_synthesis.assumption_aware.report --figures --update-paper
+python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+</code></pre>
+<p>Running without <code>--check</code> intentionally regenerates results. Network connection methods are blocked during benchmark execution; saved API failures remain charged in source evidence. Fixtures, updates, endpoint witnesses, fits, exposure weights, selected review IDs, bootstrap intervals, resource boundaries and source hashes are retained. Result replay checks exact structure/counts and narrowly bounded floating-point differences; the PDF build manifest binds the mutable full-paper source, renderer and PDF. The extension manifest excludes its own hash and does not rewrite earlier study manifests.</p>
 <h1>Do additional Jev calls improve graph edges?</h1>
 <p>Timothy Wayne Gregg — exploratory research addendum, September 18, 2026</p>
 <h2>Design and evidence boundary</h2>

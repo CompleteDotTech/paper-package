@@ -119,8 +119,8 @@ Five alternating-order elapsed-time repeats per method were run on `Linux-6.17.0
 
 | Workload | Pairwise median (s) | Indexed median (s) |
 |---|---:|---:|
-| sparse_2048 | 4.812669 | 0.008373 |
-| dense_256 | 0.110786 | 0.030381 |
+| sparse_2048 | 3.606588 | 0.006496 |
+| dense_256 | 0.087719 | 0.024262 |
 
 Dense-case timing differences include hoisted validation and reduced Python overhead, not fewer pairs or subquadratic behavior. These are not service latency, database I/O or universally transferable speedup estimates.
 

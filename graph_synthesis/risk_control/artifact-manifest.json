@@ -25,13 +25,15 @@
     "graph_synthesis/risk_control/run.py": "1f0fc29c80fb78c849dbd982ad6f8fb27bf90b08f03f34b4322970c20709d142",
     "graph_synthesis/risk_control/summary.csv": "0a68398c9859d4741677e4370448a1a6b216ea1fda5461c9aa5c0576f91c3cc9",
     "graph_synthesis/risk_control/tests/test_methods.py": "d93e660327616cef310b1d3834167c1ff412eabca1dc868cf32cd54f5b3124fb",
-    "graph_synthesis/risk_control/tests/test_reporting.py": "dc3aef433c9e08bb9fa105fd1c8d1bad7206371030e620ac66e35e1eb92bc4b0",
+    "graph_synthesis/risk_control/tests/test_reporting.py": "e3458a80b58fd428c48a405a9add2237f3a9d7bf716d1492a7aedd065c837229",
+    "graph_synthesis/risk_control/validation/PORTABILITY.md": "1693aa3884a52bf835ba0147b76c0b23be0159ece73fab812ee69d4d15c4b19e",
     "graph_synthesis/risk_control/validation/ci-execution.log": "339974222adeec0df9317dbcdeecc594916782c0a4af5666f087ab0ff6d68ab5",
     "graph_synthesis/risk_control/validation/ci-replay.log": "4a3561e7dddb215b9e3b6c3fef9e6399dd6cd18e0de3994a8751b98bfbafd766",
     "graph_synthesis/risk_control/validation/ci-unit-tests.log": "2de65d54e5f5b0b5610fe1b6081e4327c8968300b12d5454395c31aba74cf4fc",
     "graph_synthesis/risk_control/validation/execution.log": "339974222adeec0df9317dbcdeecc594916782c0a4af5666f087ab0ff6d68ab5",
     "graph_synthesis/risk_control/validation/local-replay.log": "4a3561e7dddb215b9e3b6c3fef9e6399dd6cd18e0de3994a8751b98bfbafd766",
     "graph_synthesis/risk_control/validation/local-unit-tests.log": "9d9ebc38b32f55bdbf91d8ba7893b0f292a213ab89a66b7c5ad54f48ca8e935d",
-    "graph_synthesis/risk_control/validation/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba"
+    "graph_synthesis/risk_control/validation/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
+    "graph_synthesis/risk_control/validation/portability-unit-tests.log": "0d63e71a5b49aa0d7e7b1c94e6632b3152a2db0d210a8c29d5f1b4398acffec8"
   }
 }

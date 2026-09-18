@@ -45,14 +45,27 @@ class ReportingTests(unittest.TestCase):
         for ext in ('svg','png'):self.assertEqual(len(list((HERE/'figures').glob('*.'+ext))),5)
     def test_report_update_idempotent(self):
         files=[ROOT/'manuscript/paper-current.md',ROOT/'CURRENT_RESULTS.md'];before=[p.read_bytes() for p in files]
-        report.update_paper(self.r);self.assertEqual(before,[p.read_bytes() for p in files])
+        try:
+            report.update_paper(self.r)
+            for path,expected in zip(files,before):
+                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),hashlib.sha256(expected).hexdigest(),str(path))
+        finally:
+            for path,expected in zip(files,before):path.write_bytes(expected)
     def test_prior_generators_preserved(self):
         from graph_synthesis.adaptive.report import update_paper as adaptive_update
         from graph_synthesis.followup.report import update_paper as followup_update
         files=[ROOT/'manuscript/paper-current.md',ROOT/'CURRENT_RESULTS.md'];before=[p.read_bytes() for p in files]
-        adaptive_update(read(ROOT/'graph_synthesis/adaptive/results.json'))
-        followup_update(read(ROOT/'graph_synthesis/followup/results.json'))
-        self.assertEqual(before,[p.read_bytes() for p in files])
+        try:
+            adaptive_update(read(ROOT/'graph_synthesis/adaptive/results.json'))
+            followup_update(read(ROOT/'graph_synthesis/followup/results.json'))
+            for path,expected in zip(files,before):
+                # Legacy writers use platform newlines. Check content exactly after
+                # universal-newline decoding; new-writer byte checks remain strict.
+                canonical=expected.decode('utf-8').replace('\r\n','\n').replace('\r','\n')
+                self.assertEqual(hashlib.sha256(path.read_text(encoding='utf-8').encode()).hexdigest(),hashlib.sha256(canonical.encode()).hexdigest(),str(path))
+        finally:
+            # A compatibility test must not rewrite the checkout or affect siblings.
+            for path,expected in zip(files,before):path.write_bytes(expected)
     def test_current_source_has_new_section(self):
         text=(ROOT/'manuscript/paper-current.md').read_text(encoding='utf-8')
         self.assertEqual(text.count(report.START),1);self.assertIn('../graph_synthesis/risk_control/figures/05_forest_capacity.png',text)

@@ -39,7 +39,8 @@ jobs:
               python -B -m unittest discover -s "$tests" -v
             fi
           done 2>&1 | tee graph_synthesis/novel_mechanisms/regression.log
-          python -B -m graph_synthesis.verify --output graph_synthesis/novel_mechanisms/original-inventory.json
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/novel-original.json"
+          cp "$RUNNER_TEMP/novel-original.json" graph_synthesis/novel_mechanisms/original-inventory.json
           python -B -m graph_synthesis.novel_mechanisms.report --figures --update-paper
           python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
       - name: Publish generated artifacts on the research branch only

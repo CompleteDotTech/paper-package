@@ -89,9 +89,15 @@ def shift_benchmark(development,test):
         controls.append({'kind':name,'development_confusion':c.tolist(),'target_confusion':matrix.tolist(),
                          'true_target_prior':truth.tolist(),'estimated_prior':estimate,
                          'l1_prior_error':float(np.abs(np.array(estimate)-truth).sum())})
-    retention=natural['proposed']['correct']/natural['baseline']['correct'] if natural['baseline']['correct'] else None
+    gold = {r['id']:r['gold'] for r in test}
+    correct_ids = {name:{p['id'] for p in preds if p['label'] in POSITIVE and p['label'] == gold[p['id']]}
+                   for name,preds in [('baseline',baseline),('proposed',proposed)]}
+    retained_ids = sorted(correct_ids['baseline'] & correct_ids['proposed'])
+    lost_ids = sorted(correct_ids['baseline'] - correct_ids['proposed'])
+    retention = len(retained_ids)/len(correct_ids['baseline']) if correct_ids['baseline'] else None
     return {'primary_target_met':retention is not None and retention>=.98 and matched['proposed']['wrong'] <= .8*matched['baseline']['wrong'] and matched['proposed']['wrong']<matched['baseline']['wrong'],
             'fit':fit,'natural':natural,'matched':matched,'matched_k':k,'correct_retention':retention,
+            'retained_baseline_correct_ids':retained_ids,'lost_baseline_correct_ids':lost_ids,
             'selected_ids':selections,'predictions':{'baseline':baseline,'proposed':proposed},
             'observed_test_prior':[sum(r['gold']==k for r in test)/len(test) for k in LABELS],
             'observed_valid_test_prior':[sum(r['gold']==k and r['views']['base1']['status']=='ok' for r in test)/fit['valid_target'] for k in LABELS],

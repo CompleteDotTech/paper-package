@@ -260,7 +260,10 @@ def update_paper(r: dict):
             text.find('\n## ', after),
         ) if p != -1]
         suffix = text[min(candidates):] if candidates else ''
-        text = text[:start].rstrip() + '\n' + note.rstrip() + '\n' + suffix.lstrip('\n')
+        # Replace exactly the legacy entry, including its leading newline.
+        # note already carries that leading newline and suffix carries the
+        # separator before the next additive section, preserving bytes.
+        text = text[:start] + note + suffix
     else:
         text = text.rstrip() + '\n' + note
     entry.write_text(text,encoding='utf-8')

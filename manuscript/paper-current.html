@@ -1364,7 +1364,6 @@ python -B -m graph_synthesis.render_current_paper --output manuscript/paper-curr
 <h2>9. Reproduction and claim audit</h2>
 <p>Run <code>python -B -m graph_synthesis.structural.run --check</code> to reconstruct inputs and reproduce all five outcomes without service access. Run <code>python -B -m unittest discover -s graph_synthesis/structural/tests -v</code> for implementation regressions. Run <code>python -B -m graph_synthesis.structural.report --figures --update-paper</code> to regenerate this report, five PNG/SVG figures and the additive current-paper section. The shared renderer then builds the full HTML/PDF, and its build record binds manuscript, renderer and PDF SHA-256 hashes.</p>
 <p><code>results.json</code> retains fitted parameters, selected IDs, all finite fixtures, oracle outputs, control failures, descriptive intervals and reviewer sensitivities. <code>summary.csv</code> records all equal-volume policy comparisons. <code>artifact-manifest.json</code> binds extension files without rewriting archived evidence. <a href="../graph_synthesis/structural/CLAIM_EVIDENCE.md">CLAIM_EVIDENCE.md</a> maps each conclusion to its evidence and forbidden extrapolation. Environment files distinguish local execution from CI. The original 161-file study and earlier extension outputs remain intact. The full manuscript remains an author-review draft.</p>
-<p>&lt;!-- UNCERTAINTY_RESEARCH_START --&gt;</p>
 <h1>Uncertainty, repair ambiguity and grounded evidence in Jev graph synthesis</h1>
 <p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026</p>
 <h2>Abstract</h2>
@@ -1591,7 +1590,6 @@ python -B -m graph_synthesis.uncertainty.report --figures --update-paper
 python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
 </code></pre>
 <p>The <a href="../graph_synthesis/uncertainty/results.json">machine-readable results</a> preserve fixture inputs, oracle values, all review-subset scores, repair witnesses, retraction feasibility, snapshot outcomes, controls and source/protocol hashes. The <a href="../graph_synthesis/uncertainty/EXECUTION_NOTES.md">execution notes</a> distinguish implementation/test corrections from endpoint changes. The extension manifest binds code, protocol, results, tests, logs, report, CSV and five SVG/PNG pairs. The mutable complete manuscript is bound by its separate build manifest. Earlier study blocks and archived raw evidence are preserved; no original manuscript is overwritten.</p>
-<p>&lt;!-- UNCERTAINTY_RESEARCH_END --&gt;</p>
 <h1>Do additional Jev calls improve graph edges?</h1>
 <p>Timothy Wayne Gregg — exploratory research addendum, September 18, 2026</p>
 <h2>Design and evidence boundary</h2>

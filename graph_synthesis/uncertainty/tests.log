@@ -1,3 +1,5 @@
+test_all_study_markers_are_hidden (test_render_markers.RenderMarkerTests.test_all_study_markers_are_hidden) ... ok
+test_reader_text_and_other_comments_are_preserved (test_render_markers.RenderMarkerTests.test_reader_text_and_other_comments_are_preserved) ... ok
 test_conjunctive_body_needs_all_atoms (test_uncertainty.GroundingTests.test_conjunctive_body_needs_all_atoms) ... ok
 test_false_base_semantic_control (test_uncertainty.GroundingTests.test_false_base_semantic_control) ... ok
 test_finite_model_oracle (test_uncertainty.GroundingTests.test_finite_model_oracle) ... ok
@@ -34,6 +36,6 @@ test_irrelevant_high_risk_atom (test_uncertainty.ReviewTests.test_irrelevant_hig
 test_misspecification_counterexample (test_uncertainty.ReviewTests.test_misspecification_counterexample) ... ok
 
 ----------------------------------------------------------------------
-Ran 34 tests in 0.456s
+Ran 36 tests in 0.503s
 
 OK

@@ -23,7 +23,8 @@
     "graph_synthesis/uncertainty/results.json": "ae333576c1cbf75898200aa5d430b863e66c35903add7b8899e23c907d57e0b3",
     "graph_synthesis/uncertainty/run.py": "fe6ce5ea12040c957e791472c7379dcb97d63e8c48f73097f911e5056646f281",
     "graph_synthesis/uncertainty/summary.csv": "4477b5f9b122c036c22c3dd2cc83f5cc6e66ffb4ae73c6ce0bdf38780c92f185",
-    "graph_synthesis/uncertainty/tests.log": "d085f168acbf5913ff961b0819fd0d80b514345b7fb1d5e19bfaf7080c521aff",
+    "graph_synthesis/uncertainty/tests.log": "16758d73717abc4f7ad241ec33ae0673039df101f868526d538dab7516e0578d",
+    "graph_synthesis/uncertainty/tests/test_render_markers.py": "f68bf36a2beda9e46bd526aa1dc8e89f70c427e57010aeb1fff45b65c5d134d5",
     "graph_synthesis/uncertainty/tests/test_uncertainty.py": "3981629f8be81d5b04c8c5654419f45b25eb46e7baf004f7479781ae972e6b04"
   }
 }

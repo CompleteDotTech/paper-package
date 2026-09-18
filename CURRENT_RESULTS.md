@@ -24,22 +24,6 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
-<!-- NOVEL_MECHANISMS_RESEARCH_START -->
-
-## Five previously untested mechanisms after PR #17
-
-[Executed report](graph_synthesis/novel_mechanisms/RESULTS.md), [frozen protocol](graph_synthesis/novel_mechanisms/PROTOCOL.md), [five figures](graph_synthesis/novel_mechanisms/figures/) and [updated full paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. Label-shift correction ties at 18 wrong edges per 150 accepted. Dependence-safe certificates, protected-fact repair, bipartite optimization and indexed conflict construction meet controlled targets. No fresh Jev calls, independent semantic accuracy or worldwide novelty claims; no production policy changes. Negative results and assumption-breaking controls are retained.
-
-<!-- NOVEL_MECHANISMS_RESEARCH_END -->
-
-<!-- INTERVAL_REGRET_RESEARCH_START -->
-
-## Distinct replacement after concurrent novelty overlap
-
-Original H4 is concurrent replication of the separately merged bipartite study, not counted twice. The five distinct additions are H1, H2, H3, H5 and H6. [H6 results](graph_synthesis/novel_mechanisms/REGRET_RESULTS.md): 62/128 lower worst-case priority-regret cases, with 0 regressions; primary target met. This is controlled interval-priority optimization, not semantic validation. All six executed outcomes and both frozen protocols remain available.
-
-<!-- INTERVAL_REGRET_RESEARCH_END -->
-
 <!-- STRUCTURAL_RESEARCH_START -->
 
 ## Five structural refinements after PR #16
@@ -65,6 +49,22 @@ Original H4 is concurrent replication of the separately merged bipartite study, 
 Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query-exposure review fails: weighted residual contamination rises 50 to 63 at 20 idealized reviews. Repair-invariant answers, connected-tree delta updates and grounded cyclic provenance meet their controlled targets. Balanced-tree DP visits fall 97.63%, but including eager reconstruction visits reduces the counted saving to 48.81%. Indexed grounding reduces dependency inspections 94.28%, with rule initialization reported separately. No new Jev calls, independent semantic validation, global novelty claim, external-system superiority or default production-policy change. Negative results and false-priority/source controls remain visible.
 
 <!-- ASSUMPTION_AWARE_RESEARCH_END -->
+
+<!-- UNCERTAINTY_RESEARCH_START -->
+
+## Five uncertainty and grounding improvements
+
+[Executed report](graph_synthesis/uncertainty/RESULTS.md), [frozen protocol](graph_synthesis/uncertainty/PROTOCOL.md), [five figures](graph_synthesis/uncertainty/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 met its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. All five are controlled algorithmic/decision-theoretic tests, not new Jev accuracy observations. Dependence uncertainty, repair ambiguity, query-directed review, collateral-aware retraction and recursive grounding are tested with explicit failure controls. No fresh Jev calls, new scientific documents, globally unprecedented algorithm claim or production-policy changes.
+
+<!-- UNCERTAINTY_RESEARCH_END -->
+
+<!-- FRONTIER_RESEARCH_START -->
+
+## Five structural-frontier extensions after PR #17
+
+[Executed report](graph_synthesis/frontier/RESULTS.md), [pre-execution protocol](graph_synthesis/frontier/PROTOCOL.md), [novelty audit](graph_synthesis/frontier/NOVELTY.md), [five figure pairs](graph_synthesis/frontier/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1/H3/H4/H5 meet controlled supplied-input targets; H2 fails its frozen review-quality target. Source-conditioned probabilities prevent nine independent-marginal false admissions on 96 controlled fixtures; all three review selectors tie at 13.043478 expected contaminated groups. Ten large lineage formulas and nine bipartite conflict fixtures are exact. Connected-path summary transitions fall by 96.47%, excluding linear witness decoding. No new Jev calls, independent semantic-accuracy finding, worldwide novelty claim or production-policy change. All earlier studies and negative results remain intact.
+
+<!-- FRONTIER_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

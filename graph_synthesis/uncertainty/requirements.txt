@@ -1,0 +1,2 @@
+# Bounded world-mass linear programs. No inference service dependency.
+scipy==1.17.0

@@ -14,7 +14,7 @@ The protocol was committed as `f923e8d41ca5953d9793fadcc3730cfe9fc70b3a` against
 
 | Hypothesis | Frozen primary requirement | Result | Evidence class |
 |---|---|---|---|
-| H1: exposure-stratified source-risk stacking | Beat random-effects Brier by >=3%, do not regress feature-risk Brier, |bias| <=0.03 | Not met | Previously inspected saved-response source forecasts |
+| H1: exposure-stratified source-risk stacking | Beat random-effects Brier by >=3%, do not regress feature-risk Brier, absolute bias <=0.03 | Not met | Previously inspected saved-response source forecasts |
 | H2: active dependence constraints | Zero containment/widening failures; mean width <=75% marginal-only and <=90% lexicographic same-budget | Met | Supplied finite joint distributions |
 | H3: near-bipartite separator solver | Exact small oracles; solve all 512/1024/2048 residual cases; safe controls | Met | Supplied weighted conflict graphs |
 | H4: repair-margin query index | Zero query/witness mismatches and >=70% fewer frozen-count optimization invocations | Met | Repeated controlled singleton queries |
@@ -68,7 +68,7 @@ This index is deliberately limited to singleton queries and in-memory top-level 
 
 ## 6. H5 — Interval-marginal dependence certificates
 
-Previous dependence-safe methods remain conditional on exact atom marginals. H5 instead supplies each atom with a lower and upper probability and optimizes over all Boolean-world distributions whose marginals lie inside those intervals. Exact point marginals are a special case. Invalid, infeasible or over-cap inputs return a non-certifying [0,1] stage.
+Previous dependence-safe methods remain conditional on exact atom marginals. H5 instead supplies each atom with a lower and upper probability and optimizes over all Boolean-world distributions whose marginals lie inside those intervals. Reported endpoints use independently checked, outward-padded dual bounds rather than treating numerical primal optima as certificates. Exact point marginals are a special case. Invalid, infeasible or over-cap inputs return a non-certifying [0,1] stage.
 
 Across 128 arbitrary-joint fixtures, truth-containment failures are **0**. Mean point-bound width is **0.361057** and mean interval-marginal width is **0.467497**, exposing the cost of premise uncertainty rather than hiding it. On 20 deliberately biased singleton point estimates, the interval policy prevents **20/20** designed false admissions. Malformed inputs returning a certifying interval: **0**. The frozen target is **met**.
 

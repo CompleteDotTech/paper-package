@@ -1,0 +1,19 @@
+{
+  "figures": {
+    "01_edge_outcomes.png": "3b9c763e57ffde11d33b74d893188f23e26b1be63970e8b9758ba8c3476d8391",
+    "01_edge_outcomes.svg": "6300e2dcc53b14df96bf06dce4613f4516c7aa4c3993b58e369cdf01860fdade",
+    "02_precision_recall.png": "b11fd46f0eb9101e90718533bce6180a75e5e203adabf0d985c8bda3fccce79e",
+    "02_precision_recall.svg": "4fc2559258bd2ac71b5d83ed78ae29c0c11fb4a1e45acecd65a49a9d15179f4e",
+    "03_matched_errors.png": "637696b6ad9910bddf30a4e7bcdc3af0106a3480e12aab71cfea286cd7675864",
+    "03_matched_errors.svg": "91c92653c84753590e8c6fdc823556fdf42d25e1592eb770f5c46d6c7dccd1e4",
+    "04_cost.png": "062ebc664fb58a227e7eed69f202ebae475a92242628889c05e9e114851a62ee",
+    "04_cost.svg": "54ef69f6e5f6c408ddbdd1f605c5c9b662e2b86b4a0d6baeae010df3b6c3825f",
+    "05_wrong_agreement.png": "0a29f56c7c87c097ffee7ed409b85cd834609e34c31236e35547ae99d86a9da2",
+    "05_wrong_agreement.svg": "f75502e8a689fb74b9d890074c162f28031768b1f4f029ed782b7fa07cf2a872",
+    "06_paired_effects.png": "5c5af6dc30c9fc1394861f963f0fb22fb38e0cb18601ece9cb4a881941ee7745",
+    "06_paired_effects.svg": "4ad18ec69ddf4c1e3b2edd1d0402718ce75a991d4c09306d3744b8f02fe5820e",
+    "07_evidence_graph.png": "48fa9ca6b6f5d827f70ea0a54980f89b1acec9b6b2d03aad2b2fcb4ba9950148",
+    "07_evidence_graph.svg": "fbb00fad75b01891a4f2516328b1c2888f6ed17e4b9877dc57e773cf4e0139a6"
+  },
+  "source_results_sha256": "bebe29d34bd0a77ba06e88e5f99b4328e76a96b9f884d69ca56f065b1cf29d5a"
+}

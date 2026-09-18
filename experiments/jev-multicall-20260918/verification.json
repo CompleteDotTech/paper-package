@@ -1,0 +1,13 @@
+{
+  "analysis_comparison": "exact counts/labels/structure; float atol 1e-14, rtol 1e-12 for cross-platform roundoff",
+  "analysis_reproduced": true,
+  "calls": 3024,
+  "cases": 336,
+  "distinct_repeat_sites": true,
+  "gold_free_requests": true,
+  "group_disjoint": true,
+  "limitation": "Request/response journals are local provenance, not provider-signed attestations; failed responses remain failures.",
+  "network_disabled_replay": "identical predictions and execution after CRLF/LF normalization",
+  "raw_response_validation": true,
+  "status": "passed"
+}

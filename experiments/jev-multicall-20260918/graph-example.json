@@ -1,0 +1,653 @@
+{
+  "group": "claim:10",
+  "predictions": [
+    {
+      "arms": {
+        "blind_vote": {
+          "input_tokens": 4950,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "blind1",
+            "blind2"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "contrastive": {
+          "input_tokens": 1155,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "contrastive"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "repeat_vote": {
+          "input_tokens": 10416,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "base2",
+            "base3"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "selective": {
+          "input_tokens": 3472,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "single": {
+          "input_tokens": 3472,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "structured": {
+          "input_tokens": 3563,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "structured"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "targeted": {
+          "input_tokens": 6173,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "checks",
+            "adjudicate"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        }
+      },
+      "gold": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-10-32587939",
+      "split": "test"
+    },
+    {
+      "arms": {
+        "blind_vote": {
+          "input_tokens": 4950,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 0.9700000000000001,
+          "sites": [
+            "base1",
+            "blind1",
+            "blind2"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "contrastive": {
+          "input_tokens": 1155,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "contrastive"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "repeat_vote": {
+          "input_tokens": 10416,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "base2",
+            "base3"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "selective": {
+          "input_tokens": 3472,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "single": {
+          "input_tokens": 3472,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "structured": {
+          "input_tokens": 3563,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "structured"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "targeted": {
+          "input_tokens": 6176,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 0.95,
+            "REFUTES": 0.05,
+            "SUPPORTS": 0.0
+          },
+          "score": 0.95,
+          "sites": [
+            "base1",
+            "checks",
+            "adjudicate"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        }
+      },
+      "gold": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-11-32587939",
+      "split": "test"
+    },
+    {
+      "arms": {
+        "blind_vote": {
+          "input_tokens": 4914,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "blind1",
+            "blind2"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "contrastive": {
+          "input_tokens": 1143,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "contrastive"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "repeat_vote": {
+          "input_tokens": 10380,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "base2",
+            "base3"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "selective": {
+          "input_tokens": 3460,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "single": {
+          "input_tokens": 3460,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "structured": {
+          "input_tokens": 3551,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "structured"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "targeted": {
+          "input_tokens": 6148,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 0.99,
+            "REFUTES": 0.01,
+            "SUPPORTS": 0.0
+          },
+          "score": 0.99,
+          "sites": [
+            "base1",
+            "checks",
+            "adjudicate"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        }
+      },
+      "gold": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-176-32587939",
+      "split": "test"
+    },
+    {
+      "arms": {
+        "blind_vote": {
+          "input_tokens": 4914,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 0.9966666666666667,
+          "sites": [
+            "base1",
+            "blind1",
+            "blind2"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "contrastive": {
+          "input_tokens": 1143,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "contrastive"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "repeat_vote": {
+          "input_tokens": 10380,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "base2",
+            "base3"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "selective": {
+          "input_tokens": 3460,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "single": {
+          "input_tokens": 3460,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "structured": {
+          "input_tokens": 3551,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "structured"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "targeted": {
+          "input_tokens": 6142,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 0.98,
+            "REFUTES": 0.02,
+            "SUPPORTS": 0.0
+          },
+          "score": 0.98,
+          "sites": [
+            "base1",
+            "checks",
+            "adjudicate"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        }
+      },
+      "gold": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-209-32587939",
+      "split": "test"
+    },
+    {
+      "arms": {
+        "blind_vote": {
+          "input_tokens": 4917,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "blind1",
+            "blind2"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "contrastive": {
+          "input_tokens": 1144,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "contrastive"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "repeat_vote": {
+          "input_tokens": 10383,
+          "label": "NOT_ENOUGH_INFO",
+          "score": 1.0,
+          "sites": [
+            "base1",
+            "base2",
+            "base3"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "selective": {
+          "input_tokens": 3461,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "single": {
+          "input_tokens": 3461,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "base1"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "structured": {
+          "input_tokens": 3552,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 1.0,
+            "REFUTES": 0.0,
+            "SUPPORTS": 0.0
+          },
+          "score": 1.0,
+          "sites": [
+            "structured"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        },
+        "targeted": {
+          "input_tokens": 6145,
+          "label": "NOT_ENOUGH_INFO",
+          "probabilities": {
+            "NOT_ENOUGH_INFO": 0.99,
+            "REFUTES": 0.01,
+            "SUPPORTS": 0.0
+          },
+          "score": 0.99,
+          "sites": [
+            "base1",
+            "checks",
+            "adjudicate"
+          ],
+          "status": "ok",
+          "unknown_usage_calls": 0
+        }
+      },
+      "gold": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-62-32587939",
+      "split": "test"
+    }
+  ],
+  "rows": [
+    {
+      "claim": "4-PBA treatment decreases endoplasmic reticulum stress in response to general endoplasmic reticulum stress markers.",
+      "claim_id": "10",
+      "document_id": "32587939",
+      "evidence": [
+        "Endoplasmic reticulum (ER) stress causes pancreatic \u03b2-cell dysfunction and contributes to \u03b2-cell loss and the progression of type 2 diabetes.",
+        "Wolfram syndrome 1 (WFS1) has been shown to be an important regulator of the ER stress signalling pathway; however, its role in \u03b2-cell function remains unclear.",
+        "Here we provide evidence that WFS1 is essential for glucose- and glucagon-like peptide 1 (GLP-1)-stimulated cyclic AMP production and regulation of insulin biosynthesis and secretion.",
+        "Stimulation with glucose causes WFS1 translocation from the ER to the plasma membrane, where it forms a complex with adenylyl cyclase 8 (AC8), an essential cAMP-generating enzyme in the \u03b2-cell that integrates glucose and GLP-1 signalling.",
+        "ER stress and mutant WFS1 inhibit complex formation and activation of AC8, reducing cAMP synthesis and insulin secretion.",
+        "These findings reveal that an ER-stress-related protein has a distinct role outside the ER regulating both insulin biosynthesis and secretion.",
+        "The reduction of WFS1 protein on the plasma membrane during ER stress is a contributing factor for \u03b2-cell dysfunction and progression of type 2 diabetes."
+      ],
+      "gold_label": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-10-32587939",
+      "rationale_sentence_ids": [],
+      "split": "test",
+      "title": "Wolfram syndrome 1 and adenylyl cyclase 8 interact at the plasma membrane to regulate insulin production and secretion"
+    },
+    {
+      "claim": "4-PBA treatment raises endoplasmic reticulum stress in response to general endoplasmic reticulum stress markers.",
+      "claim_id": "11",
+      "document_id": "32587939",
+      "evidence": [
+        "Endoplasmic reticulum (ER) stress causes pancreatic \u03b2-cell dysfunction and contributes to \u03b2-cell loss and the progression of type 2 diabetes.",
+        "Wolfram syndrome 1 (WFS1) has been shown to be an important regulator of the ER stress signalling pathway; however, its role in \u03b2-cell function remains unclear.",
+        "Here we provide evidence that WFS1 is essential for glucose- and glucagon-like peptide 1 (GLP-1)-stimulated cyclic AMP production and regulation of insulin biosynthesis and secretion.",
+        "Stimulation with glucose causes WFS1 translocation from the ER to the plasma membrane, where it forms a complex with adenylyl cyclase 8 (AC8), an essential cAMP-generating enzyme in the \u03b2-cell that integrates glucose and GLP-1 signalling.",
+        "ER stress and mutant WFS1 inhibit complex formation and activation of AC8, reducing cAMP synthesis and insulin secretion.",
+        "These findings reveal that an ER-stress-related protein has a distinct role outside the ER regulating both insulin biosynthesis and secretion.",
+        "The reduction of WFS1 protein on the plasma membrane during ER stress is a contributing factor for \u03b2-cell dysfunction and progression of type 2 diabetes."
+      ],
+      "gold_label": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-11-32587939",
+      "rationale_sentence_ids": [],
+      "split": "test",
+      "title": "Wolfram syndrome 1 and adenylyl cyclase 8 interact at the plasma membrane to regulate insulin production and secretion"
+    },
+    {
+      "claim": "BiP is a general endoplasmic reticulum stress marker.",
+      "claim_id": "176",
+      "document_id": "32587939",
+      "evidence": [
+        "Endoplasmic reticulum (ER) stress causes pancreatic \u03b2-cell dysfunction and contributes to \u03b2-cell loss and the progression of type 2 diabetes.",
+        "Wolfram syndrome 1 (WFS1) has been shown to be an important regulator of the ER stress signalling pathway; however, its role in \u03b2-cell function remains unclear.",
+        "Here we provide evidence that WFS1 is essential for glucose- and glucagon-like peptide 1 (GLP-1)-stimulated cyclic AMP production and regulation of insulin biosynthesis and secretion.",
+        "Stimulation with glucose causes WFS1 translocation from the ER to the plasma membrane, where it forms a complex with adenylyl cyclase 8 (AC8), an essential cAMP-generating enzyme in the \u03b2-cell that integrates glucose and GLP-1 signalling.",
+        "ER stress and mutant WFS1 inhibit complex formation and activation of AC8, reducing cAMP synthesis and insulin secretion.",
+        "These findings reveal that an ER-stress-related protein has a distinct role outside the ER regulating both insulin biosynthesis and secretion.",
+        "The reduction of WFS1 protein on the plasma membrane during ER stress is a contributing factor for \u03b2-cell dysfunction and progression of type 2 diabetes."
+      ],
+      "gold_label": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-176-32587939",
+      "rationale_sentence_ids": [],
+      "split": "test",
+      "title": "Wolfram syndrome 1 and adenylyl cyclase 8 interact at the plasma membrane to regulate insulin production and secretion"
+    },
+    {
+      "claim": "CHOP is a general endoplasmic reticulum stress marker.",
+      "claim_id": "209",
+      "document_id": "32587939",
+      "evidence": [
+        "Endoplasmic reticulum (ER) stress causes pancreatic \u03b2-cell dysfunction and contributes to \u03b2-cell loss and the progression of type 2 diabetes.",
+        "Wolfram syndrome 1 (WFS1) has been shown to be an important regulator of the ER stress signalling pathway; however, its role in \u03b2-cell function remains unclear.",
+        "Here we provide evidence that WFS1 is essential for glucose- and glucagon-like peptide 1 (GLP-1)-stimulated cyclic AMP production and regulation of insulin biosynthesis and secretion.",
+        "Stimulation with glucose causes WFS1 translocation from the ER to the plasma membrane, where it forms a complex with adenylyl cyclase 8 (AC8), an essential cAMP-generating enzyme in the \u03b2-cell that integrates glucose and GLP-1 signalling.",
+        "ER stress and mutant WFS1 inhibit complex formation and activation of AC8, reducing cAMP synthesis and insulin secretion.",
+        "These findings reveal that an ER-stress-related protein has a distinct role outside the ER regulating both insulin biosynthesis and secretion.",
+        "The reduction of WFS1 protein on the plasma membrane during ER stress is a contributing factor for \u03b2-cell dysfunction and progression of type 2 diabetes."
+      ],
+      "gold_label": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-209-32587939",
+      "rationale_sentence_ids": [],
+      "split": "test",
+      "title": "Wolfram syndrome 1 and adenylyl cyclase 8 interact at the plasma membrane to regulate insulin production and secretion"
+    },
+    {
+      "claim": "ATF4 is a general endoplasmic reticulum stress marker.",
+      "claim_id": "62",
+      "document_id": "32587939",
+      "evidence": [
+        "Endoplasmic reticulum (ER) stress causes pancreatic \u03b2-cell dysfunction and contributes to \u03b2-cell loss and the progression of type 2 diabetes.",
+        "Wolfram syndrome 1 (WFS1) has been shown to be an important regulator of the ER stress signalling pathway; however, its role in \u03b2-cell function remains unclear.",
+        "Here we provide evidence that WFS1 is essential for glucose- and glucagon-like peptide 1 (GLP-1)-stimulated cyclic AMP production and regulation of insulin biosynthesis and secretion.",
+        "Stimulation with glucose causes WFS1 translocation from the ER to the plasma membrane, where it forms a complex with adenylyl cyclase 8 (AC8), an essential cAMP-generating enzyme in the \u03b2-cell that integrates glucose and GLP-1 signalling.",
+        "ER stress and mutant WFS1 inhibit complex formation and activation of AC8, reducing cAMP synthesis and insulin secretion.",
+        "These findings reveal that an ER-stress-related protein has a distinct role outside the ER regulating both insulin biosynthesis and secretion.",
+        "The reduction of WFS1 protein on the plasma membrane during ER stress is a contributing factor for \u03b2-cell dysfunction and progression of type 2 diabetes."
+      ],
+      "gold_label": "NOT_ENOUGH_INFO",
+      "group": "claim:10",
+      "id": "scifact-62-32587939",
+      "rationale_sentence_ids": [],
+      "split": "test",
+      "title": "Wolfram syndrome 1 and adenylyl cyclase 8 interact at the plasma membrane to regulate insulin production and secretion"
+    }
+  ],
+  "selection": "first multi-candidate test group by sorted group ID; no outcome filtering"
+}

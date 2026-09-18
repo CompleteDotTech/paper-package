@@ -1,0 +1,51 @@
+name: Jev theory suite
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: jev-theory-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  theory:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Test calibration separation, algorithms and graph invariants
+        run: |
+          set -o pipefail
+          python -B -m unittest discover -s graph_synthesis/theory_suite/tests -v 2>&1 | tee "$RUNNER_TEMP/theory-tests.log"
+      - name: Reproduce ten experiments offline and compare committed outputs
+        run: python -B -m graph_synthesis.theory_suite.run --check
+      - name: Archive the exact checked sources and evidence
+        if: always()
+        run: git archive --format=tar HEAD -o "$RUNNER_TEMP/theory-source.tar"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: jev-theory-${{ matrix.os }}-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            ${{ runner.temp }}/theory-tests.log
+            ${{ runner.temp }}/theory-source.tar
+            graph_synthesis/theory_suite/results.json
+            graph_synthesis/theory_suite/RESULTS.md
+          if-no-files-found: error
+          retention-days: 14

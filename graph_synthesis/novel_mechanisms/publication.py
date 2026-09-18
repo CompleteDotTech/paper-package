@@ -7,9 +7,11 @@ import re
 ROOT = Path(__file__).resolve().parents[2]
 RENDERER = 'graph_synthesis/render_current_paper.py'
 WORKFLOW = '.github/workflows/jev-multicall.yml'
+REPORT = 'graph_synthesis/novel_mechanisms/report.py'
 MARKERS = r'<!-- [A-Z][A-Z0-9_]*_RESEARCH_(?:START|END) -->'
 COMMANDS = ('          python -B -m graph_synthesis.novel_mechanisms.report --update-paper\n'
             '          python -B -m graph_synthesis.novel_mechanisms.regret --report\n')
+LAYOUT_ANCHOR = '<!-- ASSUMPTION_AWARE_RESEARCH_END -->'
 
 
 def renderer_text(text: str) -> str:
@@ -40,19 +42,43 @@ def workflow_text(text: str) -> str:
     return text.replace(anchor, COMMANDS+anchor,1)
 
 
+def report_layout_text(text: str) -> str:
+    """Place this extension after earlier studies, not at their insertion anchor.
+
+    An earlier structural report independently inserts immediately after the
+    reliability section. Sharing that position made the individual legacy
+    regeneration job reorder, rather than alter, otherwise identical text.
+    Appending after the integrated assumption-aware study makes both individual
+    legacy regeneration and the complete reconstruction chain idempotent.
+    Only the publication anchor changes; hypotheses and outcomes do not.
+    """
+    lines = text.splitlines(keepends=True)
+    matches = [i for i,line in enumerate(lines) if line.startswith('ANCHOR = ')]
+    if len(matches) != 1:
+        raise ValueError('Expected exactly one new-report publication anchor')
+    i = matches[0]
+    old = ast.literal_eval(lines[i].split('=',1)[1].strip())
+    if old not in ('<!-- RELIABILITY_RESEARCH_END -->', LAYOUT_ANCHOR):
+        raise ValueError('Unreviewed report anchor')
+    lines[i] = 'ANCHOR = '+repr(LAYOUT_ANCHOR)+'\n'
+    return ''.join(lines)
+
+
 def transformed(path: str, original: str) -> str:
     if path == RENDERER:
         return renderer_text(original)
     if path == WORKFLOW:
         return workflow_text(original)
+    if path == REPORT:
+        return report_layout_text(original)
     raise ValueError('Unreviewed publication mutation')
 
 
 def main():
-    for name in (RENDERER, WORKFLOW):
+    for name in (RENDERER, WORKFLOW, REPORT):
         path = ROOT/name
         path.write_text(transformed(name,path.read_text(encoding='utf-8')),encoding='utf-8',newline='\n')
-    print('Prepared marker-only renderer and additive full-rebuild workflow updates')
+    print('Prepared marker-only renderer, additive rebuild workflow and collision-free report anchor')
 
 
 if __name__=='__main__':main()

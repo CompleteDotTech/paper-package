@@ -1,0 +1,3 @@
+{"id":"tr-1","state":{"claim":"The trial reported a statistically significant reduction in systolic blood pressure.","evidence":"Mean systolic blood pressure fell 8.2 mmHg versus 1.1 mmHg in control; p=0.004."},"label":"supports"}
+{"id":"tr-2","state":{"claim":"The method improved recall over the baseline.","evidence":"Recall was 0.71 for the method and 0.76 for the baseline."},"label":"refutes"}
+{"id":"tr-3","state":{"claim":"The compound causes liver toxicity in humans.","evidence":"The compound produced elevated liver enzymes in a mouse study."},"label":"insufficient"}

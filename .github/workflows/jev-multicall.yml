@@ -70,7 +70,8 @@ jobs:
           python -B -m graph_synthesis.novel_mechanisms.report --update-paper
           python -B -m graph_synthesis.novel_mechanisms.regret --report
           python -B -m graph_synthesis.certificates.report --update-paper
-          git diff --exit-code -- experiments/jev-multicall-20260918/REPORT.md manuscript/paper-current.md CURRENT_RESULTS.md graph_synthesis/risk_control graph_synthesis/reliability graph_synthesis/structural graph_synthesis/source_structural graph_synthesis/assumption_aware graph_synthesis/uncertainty graph_synthesis/frontier graph_synthesis/certificates
+          python -B -m graph_synthesis.post_certificate.report --update-paper
+          git diff --exit-code -- experiments/jev-multicall-20260918/REPORT.md manuscript/paper-current.md CURRENT_RESULTS.md graph_synthesis/risk_control graph_synthesis/reliability graph_synthesis/structural graph_synthesis/source_structural graph_synthesis/assumption_aware graph_synthesis/uncertainty graph_synthesis/frontier graph_synthesis/certificates graph_synthesis/post_certificate
           python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/multicall-paper.pdf"
           git diff --exit-code -- manuscript/paper-current.html
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

@@ -1,5 +1,7 @@
-# Graph synthesis follow-up
+# Graph synthesis: revised paper and visual evidence
 
-The original paper package is frozen. The additive implementation, relationship analysis, executed tests/results, and new author-review manuscript are in **[graph_synthesis/README.md](graph_synthesis/README.md)**.
+Read **[the revised research manuscript](graph_synthesis/paper.md)** and its **[ten-figure visual guide](graph_synthesis/VISUAL_ANALYSIS.md)**. The paper now integrates complete candidate/error accounting, precision–recall and matched-volume comparisons, confidence reliability, predicate-specific risk–coverage, component structure, a real claim/document neighborhood, historical token usage, and controlled graph repair.
 
-Read **[the research paper](graph_synthesis/paper.md)** and **[executed graph results](graph_synthesis/RESULTS.md)**. This is a post-hoc graph replay and lifecycle study, not an independent Jev accuracy replication or a KARMA benchmark comparison. Use the new portable verifier for an expanded checkout; the original closed-inventory verifier and all archived source/results remain unchanged.
+The original Jev manuscript and evidence package remain frozen. This additive revision combines the executed [graph study](graph_synthesis/RESULTS.md) and [relationship experiments](experiments/relationships/README.md), preserving their null findings and explicit limitations. It makes **no new model calls** and does not claim a KARMA benchmark win, independent accuracy replication, or qualified deployment threshold.
+
+[SVG/PNG figures and exact plot data](graph_synthesis/figures/) include source/output hashes and CSV tables. See the [reproduction guide](graph_synthesis/README.md) for full offline replay and the visual guide for figure regeneration and integrity checks.

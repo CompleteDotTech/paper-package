@@ -1,0 +1,67 @@
+name: Visual assessment
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: visual-assessment-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  figures-and-paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Install pinned analysis and rendering dependencies
+        run: python -m pip install -r graph_synthesis/requirements-verification.txt -r graph_synthesis/requirements-figures.txt
+      - name: Verify unchanged original inventory and reviewed figure sources
+        run: |
+          python -B -m graph_synthesis.verify
+          python -B -m graph_synthesis.visualize --check
+      - name: Run graph, relationship, and visual accounting tests
+        run: |
+          set -o pipefail
+          python -B -m unittest discover -s graph_synthesis/tests -v 2>&1 | tee "$RUNNER_TEMP/visual-tests.log"
+      - name: Regenerate publication figures and compare chart inputs
+        run: |
+          python -B -m graph_synthesis.visualize --output "$RUNNER_TEMP/visual-figures" --formats svg,png
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from graph_synthesis.verify import compare_json
+          expected = json.loads(Path('graph_synthesis/figures/data.json').read_text(encoding='utf-8'))
+          actual = json.loads((Path(os.environ['RUNNER_TEMP'])/'visual-figures/data.json').read_text(encoding='utf-8'))
+          print('Chart-input roundoff:', compare_json(expected, actual))
+          PY
+      - name: Build local-assets-only illustrated paper and receipt
+        run: python -B -m graph_synthesis.render_paper --output "$RUNNER_TEMP/Graph_Synthesis_Assessment.pdf"
+      - name: Preserve reviewed manuscript and source snapshot
+        run: |
+          cp graph_synthesis/paper.md "$RUNNER_TEMP/illustrated-paper.md"
+          git archive --format=tar HEAD -o "$RUNNER_TEMP/visual-source.tar"
+          git diff --exit-code
+      - name: Archive paper, plots, numeric data, source and execution log
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: visual-assessment-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            ${{ runner.temp }}/Graph_Synthesis_Assessment.pdf
+            ${{ runner.temp }}/Graph_Synthesis_Assessment.build.json
+            ${{ runner.temp }}/illustrated-paper.md
+            ${{ runner.temp }}/visual-figures/
+            ${{ runner.temp }}/visual-tests.log
+            ${{ runner.temp }}/visual-source.tar
+          if-no-files-found: error
+          retention-days: 90

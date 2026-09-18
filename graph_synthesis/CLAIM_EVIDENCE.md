@@ -24,3 +24,21 @@ The paper reports a post-hoc transformation of original observations, not indepe
 ## Review and unperformed extensions
 
 Human reviewers should check the model/input interpretation, numerical conclusions, evidence redistribution permissions, and final authorship statements before publication. The automated review consists of explicit negative tests, invariant checks, source/hash auditing, and matched-coverage reanalysis; it is not independent scholarly peer review. Untouched-corpus extraction, independently adjudicated labels, large-cluster inference, fresh temporal replication, production latency/load, and a matched-input KARMA execution remain future experiments, not completed claims.
+
+
+## Visual-revision claims
+
+| Claim | Source and reconstruction |
+|---|---|
+| Five-arm correct/incorrect/no-edge comparison | `experiments/relationships/reference/results.json.gz`, `arms.*.operational`; Fig. 1 and `figures/edge_summary.csv` |
+| Typed-edge precision and recall are distinct | Same source, `edges`; all 339 candidate rows and 209 gold typed edges retained; Fig. 2 |
+| Equal-count intervals include zero | `results/graph-study.json.gz`, per-task `matched_primary_action_count`; Fig. 3 |
+| Returned score 1.0 can retain wrong edges | Original response reconstruction through `RecordedJev`; `figures/data.json`, `tasks.relation_support.arms.*.risk_curve[0]`; Fig. 4 |
+| More isolated SciFact nodes in selected graph | Graph result `graph.metrics.weak_component_size_histogram`; node-mass recomputation; Fig. 5 |
+| Displayed network is real but illustrative | `component_example` selection by disagreement, size and IDs, never gold; Fig. 6 |
+| Fusion contrasts are unresolved | Existing fusion `comparisons.*.macro_f1_bootstrap`, sign normalized to arm minus selected; Fig. 7 |
+| Input-token plot is historical, not replay cost | Existing fusion `arms.*.recorded_usage`; no invented dollar cost, no live calls; Fig. 8 |
+| Classwise reliability preserves other-class predictions | All valid original vectors; fixed-bin counts in `figures/data.json`; Figs. A4–A6 |
+| Retraction preserves history but is not a truth test | Graph result `graph.lifecycle`; Fig. A7 |
+
+Every displayed value is derived from the input files listed in `figures/MANIFEST.json`. The visualization script and generated SVGs have independent hashes. New visual claims are descriptive post-hoc analyses, not additions to the frozen study's original confirmatory claims.

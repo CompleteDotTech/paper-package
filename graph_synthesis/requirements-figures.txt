@@ -1,0 +1,4 @@
+# Rendering only; the numerical experiment dependencies remain independently pinned.
+matplotlib==3.10.8
+markdown-it-py==4.2.0
+weasyprint==68.0

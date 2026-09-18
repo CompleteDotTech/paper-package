@@ -1,0 +1,3950 @@
+{
+  "component_example": {
+    "changed_decisions": 2,
+    "edges": [
+      {
+        "baseline": "NOT_ENOUGH_INFO",
+        "gold": "NOT_ENOUGH_INFO",
+        "id": "scifact-1274-12428814",
+        "object": "claim:1274",
+        "selected": "ERROR",
+        "subject": "document:12428814"
+      },
+      {
+        "baseline": "NOT_ENOUGH_INFO",
+        "gold": "NOT_ENOUGH_INFO",
+        "id": "scifact-1274-27731651",
+        "object": "claim:1274",
+        "selected": "NOT_ENOUGH_INFO",
+        "subject": "document:27731651"
+      },
+      {
+        "baseline": "SUPPORTS",
+        "gold": "SUPPORTS",
+        "id": "scifact-1274-4406819",
+        "object": "claim:1274",
+        "selected": "NOT_ENOUGH_INFO",
+        "subject": "document:4406819"
+      }
+    ],
+    "nodes": [
+      "claim:1274",
+      "document:12428814",
+      "document:27731651",
+      "document:4406819"
+    ],
+    "selection": "All candidate components, ranked by changed decisions descending, node count descending, then sorted node IDs. Gold is not used."
+  },
+  "fresh_model_calls": 0,
+  "fusion": {
+    "arms": {
+      "agreement_gate": {
+        "budget_curve": [
+          {
+            "accepted": 25,
+            "boundary_ties": 70,
+            "correct": 24,
+            "incorrect": 1,
+            "precision": 0.96
+          },
+          {
+            "accepted": 50,
+            "boundary_ties": 70,
+            "correct": 48,
+            "incorrect": 2,
+            "precision": 0.96
+          },
+          {
+            "accepted": 75,
+            "boundary_ties": 25,
+            "correct": 72,
+            "incorrect": 3,
+            "precision": 0.96
+          },
+          {
+            "accepted": 100,
+            "boundary_ties": 16,
+            "correct": 94,
+            "incorrect": 6,
+            "precision": 0.94
+          },
+          {
+            "accepted": 125,
+            "boundary_ties": 6,
+            "correct": 116,
+            "incorrect": 9,
+            "precision": 0.928
+          },
+          {
+            "accepted": 150,
+            "boundary_ties": 3,
+            "correct": 138,
+            "incorrect": 12,
+            "precision": 0.92
+          },
+          {
+            "accepted": 175,
+            "boundary_ties": 2,
+            "correct": 160,
+            "incorrect": 15,
+            "precision": 0.9142857142857143
+          }
+        ],
+        "operational": {
+          "abstentions": 33,
+          "accuracy": 0.8023598820058997,
+          "confusion": {
+            "NOT_ENOUGH_INFO": {
+              "ABSTAIN": 14,
+              "ERROR": 2,
+              "NOT_ENOUGH_INFO": 101,
+              "REFUTES": 7,
+              "SUPPORTS": 6
+            },
+            "REFUTES": {
+              "ABSTAIN": 7,
+              "ERROR": 0,
+              "NOT_ENOUGH_INFO": 2,
+              "REFUTES": 61,
+              "SUPPORTS": 1
+            },
+            "SUPPORTS": {
+              "ABSTAIN": 12,
+              "ERROR": 1,
+              "NOT_ENOUGH_INFO": 10,
+              "REFUTES": 5,
+              "SUPPORTS": 110
+            }
+          },
+          "edges": {
+            "accepted": 190,
+            "correct": 171,
+            "coverage": 0.56047197640118,
+            "incorrect": 19,
+            "precision": 0.9,
+            "recall": 0.8181818181818182
+          },
+          "errors": 3,
+          "macro_f1": 0.847081013475349,
+          "n": 339,
+          "relations": {
+            "REFUTES": {
+              "accepted": 73,
+              "correct": 61,
+              "incorrect": 12,
+              "precision": 0.8356164383561644,
+              "recall": 0.8591549295774648
+            },
+            "SUPPORTS": {
+              "accepted": 117,
+              "correct": 110,
+              "incorrect": 7,
+              "precision": 0.9401709401709402,
+              "recall": 0.7971014492753623
+            }
+          }
+        },
+        "recorded_usage": {
+          "calls": 678,
+          "input_tokens": 1471953,
+          "output_tokens": 34942
+        }
+      },
+      "baseline_choice": {
+        "budget_curve": [
+          {
+            "accepted": 25,
+            "boundary_ties": 125,
+            "correct": 25,
+            "incorrect": 0,
+            "precision": 1.0
+          },
+          {
+            "accepted": 50,
+            "boundary_ties": 125,
+            "correct": 49,
+            "incorrect": 1,
+            "precision": 0.98
+          },
+          {
+            "accepted": 75,
+            "boundary_ties": 125,
+            "correct": 73,
+            "incorrect": 2,
+            "precision": 0.9733333333333334
+          },
+          {
+            "accepted": 100,
+            "boundary_ties": 125,
+            "correct": 95,
+            "incorrect": 5,
+            "precision": 0.95
+          },
+          {
+            "accepted": 125,
+            "boundary_ties": 125,
+            "correct": 119,
+            "incorrect": 6,
+            "precision": 0.952
+          },
+          {
+            "accepted": 150,
+            "boundary_ties": 13,
+            "correct": 140,
+            "incorrect": 10,
+            "precision": 0.9333333333333333
+          },
+          {
+            "accepted": 175,
+            "boundary_ties": 2,
+            "correct": 158,
+            "incorrect": 17,
+            "precision": 0.9028571428571428
+          },
+          {
+            "accepted": 200,
+            "boundary_ties": 2,
+            "correct": 177,
+            "incorrect": 23,
+            "precision": 0.885
+          }
+        ],
+        "operational": {
+          "abstentions": 0,
+          "accuracy": 0.8525073746312685,
+          "confusion": {
+            "NOT_ENOUGH_INFO": {
+              "ABSTAIN": 0,
+              "ERROR": 1,
+              "NOT_ENOUGH_INFO": 102,
+              "REFUTES": 13,
+              "SUPPORTS": 14
+            },
+            "REFUTES": {
+              "ABSTAIN": 0,
+              "ERROR": 0,
+              "NOT_ENOUGH_INFO": 2,
+              "REFUTES": 65,
+              "SUPPORTS": 4
+            },
+            "SUPPORTS": {
+              "ABSTAIN": 0,
+              "ERROR": 0,
+              "NOT_ENOUGH_INFO": 10,
+              "REFUTES": 6,
+              "SUPPORTS": 122
+            }
+          },
+          "edges": {
+            "accepted": 224,
+            "correct": 187,
+            "coverage": 0.6607669616519174,
+            "incorrect": 37,
+            "precision": 0.8348214285714286,
+            "recall": 0.8947368421052632
+          },
+          "errors": 1,
+          "macro_f1": 0.8508243643054886,
+          "n": 339,
+          "relations": {
+            "REFUTES": {
+              "accepted": 84,
+              "correct": 65,
+              "incorrect": 19,
+              "precision": 0.7738095238095238,
+              "recall": 0.9154929577464789
+            },
+            "SUPPORTS": {
+              "accepted": 140,
+              "correct": 122,
+              "incorrect": 18,
+              "precision": 0.8714285714285714,
+              "recall": 0.8840579710144928
+            }
+          }
+        },
+        "recorded_usage": {
+          "calls": 339,
+          "input_tokens": 258495,
+          "output_tokens": 17096
+        }
+      },
+      "fewshot_contract": {
+        "budget_curve": [
+          {
+            "accepted": 25,
+            "boundary_ties": 73,
+            "correct": 24,
+            "incorrect": 1,
+            "precision": 0.96
+          },
+          {
+            "accepted": 50,
+            "boundary_ties": 73,
+            "correct": 47,
+            "incorrect": 3,
+            "precision": 0.94
+          },
+          {
+            "accepted": 75,
+            "boundary_ties": 28,
+            "correct": 70,
+            "incorrect": 5,
+            "precision": 0.9333333333333333
+          },
+          {
+            "accepted": 100,
+            "boundary_ties": 28,
+            "correct": 91,
+            "incorrect": 9,
+            "precision": 0.91
+          },
+          {
+            "accepted": 125,
+            "boundary_ties": 7,
+            "correct": 116,
+            "incorrect": 9,
+            "precision": 0.928
+          },
+          {
+            "accepted": 150,
+            "boundary_ties": 3,
+            "correct": 138,
+            "incorrect": 12,
+            "precision": 0.92
+          },
+          {
+            "accepted": 175,
+            "boundary_ties": 2,
+            "correct": 160,
+            "incorrect": 15,
+            "precision": 0.9142857142857143
+          }
+        ],
+        "operational": {
+          "abstentions": 0,
+          "accuracy": 0.8495575221238938,
+          "confusion": {
+            "NOT_ENOUGH_INFO": {
+              "ABSTAIN": 0,
+              "ERROR": 1,
+              "NOT_ENOUGH_INFO": 116,
+              "REFUTES": 7,
+              "SUPPORTS": 6
+            },
+            "REFUTES": {
+              "ABSTAIN": 0,
+              "ERROR": 0,
+              "NOT_ENOUGH_INFO": 7,
+              "REFUTES": 62,
+              "SUPPORTS": 2
+            },
+            "SUPPORTS": {
+              "ABSTAIN": 0,
+              "ERROR": 1,
+              "NOT_ENOUGH_INFO": 22,
+              "REFUTES": 5,
+              "SUPPORTS": 110
+            }
+          },
+          "edges": {
+            "accepted": 192,
+            "correct": 172,
+            "coverage": 0.5663716814159292,
+            "incorrect": 20,
+            "precision": 0.8958333333333334,
+            "recall": 0.8229665071770335
+          },
+          "errors": 2,
+          "macro_f1": 0.8527279258098224,
+          "n": 339,
+          "relations": {
+            "REFUTES": {
+              "accepted": 74,
+              "correct": 62,
+              "incorrect": 12,
+              "precision": 0.8378378378378378,
+              "recall": 0.8732394366197183
+            },
+            "SUPPORTS": {
+              "accepted": 118,
+              "correct": 110,
+              "incorrect": 8,
+              "precision": 0.9322033898305084,
+              "recall": 0.7971014492753623
+            }
+          }
+        },
+        "recorded_usage": {
+          "calls": 339,
+          "input_tokens": 1213458,
+          "output_tokens": 17846
+        }
+      },
+      "mean_pool": {
+        "budget_curve": [
+          {
+            "accepted": 25,
+            "boundary_ties": 70,
+            "correct": 24,
+            "incorrect": 1,
+            "precision": 0.96
+          },
+          {
+            "accepted": 50,
+            "boundary_ties": 70,
+            "correct": 48,
+            "incorrect": 2,
+            "precision": 0.96
+          },
+          {
+            "accepted": 75,
+            "boundary_ties": 25,
+            "correct": 72,
+            "incorrect": 3,
+            "precision": 0.96
+          },
+          {
+            "accepted": 100,
+            "boundary_ties": 16,
+            "correct": 94,
+            "incorrect": 6,
+            "precision": 0.94
+          },
+          {
+            "accepted": 125,
+            "boundary_ties": 6,
+            "correct": 116,
+            "incorrect": 9,
+            "precision": 0.928
+          },
+          {
+            "accepted": 150,
+            "boundary_ties": 3,
+            "correct": 138,
+            "incorrect": 12,
+            "precision": 0.92
+          },
+          {
+            "accepted": 175,
+            "boundary_ties": 2,
+            "correct": 160,
+            "incorrect": 15,
+            "precision": 0.9142857142857143
+          },
+          {
+            "accepted": 200,
+            "boundary_ties": 1,
+            "correct": 175,
+            "incorrect": 25,
+            "precision": 0.875
+          }
+        ],
+        "operational": {
+          "abstentions": 0,
+          "accuracy": 0.8495575221238938,
+          "confusion": {
+            "NOT_ENOUGH_INFO": {
+              "ABSTAIN": 0,
+              "ERROR": 2,
+              "NOT_ENOUGH_INFO": 109,
+              "REFUTES": 8,
+              "SUPPORTS": 11
+            },
+            "REFUTES": {
+              "ABSTAIN": 0,
+              "ERROR": 0,
+              "NOT_ENOUGH_INFO": 5,
+              "REFUTES": 63,
+              "SUPPORTS": 3
+            },
+            "SUPPORTS": {
+              "ABSTAIN": 0,
+              "ERROR": 1,
+              "NOT_ENOUGH_INFO": 16,
+              "REFUTES": 5,
+              "SUPPORTS": 116
+            }
+          },
+          "edges": {
+            "accepted": 206,
+            "correct": 179,
+            "coverage": 0.6076696165191741,
+            "incorrect": 27,
+            "precision": 0.8689320388349514,
+            "recall": 0.8564593301435407
+          },
+          "errors": 3,
+          "macro_f1": 0.8537586791318135,
+          "n": 339,
+          "relations": {
+            "REFUTES": {
+              "accepted": 76,
+              "correct": 63,
+              "incorrect": 13,
+              "precision": 0.8289473684210527,
+              "recall": 0.8873239436619719
+            },
+            "SUPPORTS": {
+              "accepted": 130,
+              "correct": 116,
+              "incorrect": 14,
+              "precision": 0.8923076923076924,
+              "recall": 0.8405797101449275
+            }
+          }
+        },
+        "recorded_usage": {
+          "calls": 678,
+          "input_tokens": 1471953,
+          "output_tokens": 34942
+        }
+      },
+      "stacked": {
+        "budget_curve": [
+          {
+            "accepted": 25,
+            "boundary_ties": 41,
+            "correct": 24,
+            "incorrect": 1,
+            "precision": 0.96
+          },
+          {
+            "accepted": 50,
+            "boundary_ties": 29,
+            "correct": 48,
+            "incorrect": 2,
+            "precision": 0.96
+          },
+          {
+            "accepted": 75,
+            "boundary_ties": 16,
+            "correct": 72,
+            "incorrect": 3,
+            "precision": 0.96
+          },
+          {
+            "accepted": 100,
+            "boundary_ties": 8,
+            "correct": 96,
+            "incorrect": 4,
+            "precision": 0.96
+          },
+          {
+            "accepted": 125,
+            "boundary_ties": 7,
+            "correct": 116,
+            "incorrect": 9,
+            "precision": 0.928
+          },
+          {
+            "accepted": 150,
+            "boundary_ties": 1,
+            "correct": 139,
+            "incorrect": 11,
+            "precision": 0.9266666666666666
+          },
+          {
+            "accepted": 175,
+            "boundary_ties": 1,
+            "correct": 158,
+            "incorrect": 17,
+            "precision": 0.9028571428571428
+          },
+          {
+            "accepted": 200,
+            "boundary_ties": 1,
+            "correct": 173,
+            "incorrect": 27,
+            "precision": 0.865
+          }
+        ],
+        "operational": {
+          "abstentions": 0,
+          "accuracy": 0.8377581120943953,
+          "confusion": {
+            "NOT_ENOUGH_INFO": {
+              "ABSTAIN": 0,
+              "ERROR": 2,
+              "NOT_ENOUGH_INFO": 107,
+              "REFUTES": 5,
+              "SUPPORTS": 16
+            },
+            "REFUTES": {
+              "ABSTAIN": 0,
+              "ERROR": 0,
+              "NOT_ENOUGH_INFO": 8,
+              "REFUTES": 54,
+              "SUPPORTS": 9
+            },
+            "SUPPORTS": {
+              "ABSTAIN": 0,
+              "ERROR": 1,
+              "NOT_ENOUGH_INFO": 9,
+              "REFUTES": 5,
+              "SUPPORTS": 123
+            }
+          },
+          "edges": {
+            "accepted": 212,
+            "correct": 177,
+            "coverage": 0.6253687315634219,
+            "incorrect": 35,
+            "precision": 0.8349056603773585,
+            "recall": 0.84688995215311
+          },
+          "errors": 3,
+          "macro_f1": 0.8342198483930767,
+          "n": 339,
+          "relations": {
+            "REFUTES": {
+              "accepted": 64,
+              "correct": 54,
+              "incorrect": 10,
+              "precision": 0.84375,
+              "recall": 0.7605633802816901
+            },
+            "SUPPORTS": {
+              "accepted": 148,
+              "correct": 123,
+              "incorrect": 25,
+              "precision": 0.831081081081081,
+              "recall": 0.8913043478260869
+            }
+          }
+        },
+        "recorded_usage": {
+          "calls": 678,
+          "input_tokens": 1471953,
+          "output_tokens": 34942
+        }
+      }
+    },
+    "effects_vs_selected": [
+      {
+        "arm": "mean_pool",
+        "delta": 0.0010307533219910958,
+        "draws": 2000,
+        "interval": [
+          -0.019901266202795365,
+          0.023212634068751254
+        ]
+      },
+      {
+        "arm": "agreement_gate",
+        "delta": -0.005646912334473342,
+        "draws": 2000,
+        "interval": [
+          -0.021847605136250885,
+          0.009934362263013707
+        ]
+      },
+      {
+        "arm": "stacked",
+        "delta": -0.01850807741674565,
+        "draws": 2000,
+        "interval": [
+          -0.051785339280464276,
+          0.012961025272752258
+        ]
+      }
+    ]
+  },
+  "inputs_sha256": {
+    "experiments/relationships/reference/results.json.gz": "46077c7c8aa9ac71ffd1f0ac0ddb2f63af43940cdfba3f613430e4044f4543c2",
+    "graph_synthesis/results/graph-study.json.gz": "c0a1684930623c238aa45051ebfef170c2e8d25f2460c82a6f2323e18a3b1939",
+    "reproduction/results/jev/run-20260918/calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "reproduction/results/jev/run-20260918/plan.json": "7ed8622f2022b263f3d0b9cda413b4caafe50ebcf0589b05b886dbd615987040",
+    "reproduction/results/jev/run-20260918/predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2"
+  },
+  "schema_version": 1,
+  "status": "Post-hoc descriptive visualization; no new inference, model fit, threshold selection, or KARMA run.",
+  "tasks": {
+    "entity_resolution": {
+      "arms": {
+        "baseline_noul": {
+          "actions": {
+            "different": {
+              "accepted": 55,
+              "coverage": 0.13317191283292978,
+              "false": 0,
+              "false_positive_rate": 0.0,
+              "negative_n": 350,
+              "precision": 1.0,
+              "recall": 0.873015873015873,
+              "true": 55
+            },
+            "same": {
+              "accepted": 358,
+              "coverage": 0.8668280871670703,
+              "false": 8,
+              "false_positive_rate": 0.12698412698412698,
+              "negative_n": 63,
+              "precision": 0.9776536312849162,
+              "recall": 1.0,
+              "true": 350
+            }
+          },
+          "confusion": {
+            "different -> different": 55,
+            "different -> same": 8,
+            "same -> same": 350
+          },
+          "errors": 0,
+          "gold_counts": {
+            "different": 63,
+            "same": 350
+          },
+          "graph": {
+            "accepted_assertion_ids": [
+              "dblp-acm-test-1015",
+              "dblp-acm-test-1044",
+              "dblp-acm-test-1052",
+              "dblp-acm-test-106",
+              "dblp-acm-test-1084",
+              "dblp-acm-test-1178",
+              "dblp-acm-test-1199",
+              "dblp-acm-test-1270",
+              "dblp-acm-test-1284",
+              "dblp-acm-test-1318",
+              "dblp-acm-test-1327",
+              "dblp-acm-test-1332",
+              "dblp-acm-test-134",
+              "dblp-acm-test-1423",
+              "dblp-acm-test-146",
+              "dblp-acm-test-147",
+              "dblp-acm-test-1482",
+              "dblp-acm-test-1518",
+              "dblp-acm-test-1529",
+              "dblp-acm-test-1535",
+              "dblp-acm-test-1539",
+              "dblp-acm-test-1547",
+              "dblp-acm-test-1571",
+              "dblp-acm-test-1634",
+              "dblp-acm-test-164",
+              "dblp-acm-test-1670",
+              "dblp-acm-test-1747",
+              "dblp-acm-test-178",
+              "dblp-acm-test-1816",
+              "dblp-acm-test-1817",
+              "dblp-acm-test-1820",
+              "dblp-acm-test-1828",
+              "dblp-acm-test-183",
+              "dblp-acm-test-1846",
+              "dblp-acm-test-1891",
+              "dblp-acm-test-1911",
+              "dblp-acm-test-1928",
+              "dblp-acm-test-1945",
+              "dblp-acm-test-1960",
+              "dblp-acm-test-2023",
+              "dblp-acm-test-2031",
+              "dblp-acm-test-2070",
+              "dblp-acm-test-2087",
+              "dblp-acm-test-210",
+              "dblp-acm-test-2110",
+              "dblp-acm-test-2116",
+              "dblp-acm-test-2129",
+              "dblp-acm-test-216",
+              "dblp-acm-test-2235",
+              "dblp-acm-test-2259",
+              "dblp-acm-test-2304",
+              "dblp-acm-test-2313",
+              "dblp-acm-test-2320",
+              "dblp-acm-test-2332",
+              "dblp-acm-test-2333",
+              "dblp-acm-test-2377",
+              "dblp-acm-test-2404",
+              "dblp-acm-test-282",
+              "dblp-acm-test-285",
+              "dblp-acm-test-292",
+              "dblp-acm-test-354",
+              "dblp-acm-test-393",
+              "dblp-acm-test-396",
+              "dblp-acm-test-412",
+              "dblp-acm-test-428",
+              "dblp-acm-test-439",
+              "dblp-acm-test-477",
+              "dblp-acm-test-499",
+              "dblp-acm-test-507",
+              "dblp-acm-test-516",
+              "dblp-acm-test-526",
+              "dblp-acm-test-579",
+              "dblp-acm-test-582",
+              "dblp-acm-test-60",
+              "dblp-acm-test-602",
+              "dblp-acm-test-614",
+              "dblp-acm-test-645",
+              "dblp-acm-test-696",
+              "dblp-acm-test-699",
+              "dblp-acm-test-736",
+              "dblp-acm-test-784",
+              "dblp-acm-test-86",
+              "dblp-acm-test-882",
+              "dblp-acm-test-966",
+              "dblp-acm-test-999",
+              "dblp-acm-train-1002",
+              "dblp-acm-train-1043",
+              "dblp-acm-train-1056",
+              "dblp-acm-train-1066",
+              "dblp-acm-train-1071",
+              "dblp-acm-train-109",
+              "dblp-acm-train-1107",
+              "dblp-acm-train-1126",
+              "dblp-acm-train-1132",
+              "dblp-acm-train-1135",
+              "dblp-acm-train-1138",
+              "dblp-acm-train-1155",
+              "dblp-acm-train-1173",
+              "dblp-acm-train-1174",
+              "dblp-acm-train-1177",
+              "dblp-acm-train-1178",
+              "dblp-acm-train-119",
+              "dblp-acm-train-1195",
+              "dblp-acm-train-12",
+              "dblp-acm-train-1225",
+              "dblp-acm-train-1254",
+              "dblp-acm-train-1362",
+              "dblp-acm-train-1369",
+              "dblp-acm-train-1441",
+              "dblp-acm-train-1489",
+              "dblp-acm-train-1497",
+              "dblp-acm-train-1506",
+              "dblp-acm-train-1532",
+              "dblp-acm-train-154",
+              "dblp-acm-train-1553",
+              "dblp-acm-train-1598",
+              "dblp-acm-train-1631",
+              "dblp-acm-train-1661",
+              "dblp-acm-train-1704",
+              "dblp-acm-train-1754",
+              "dblp-acm-train-1829",
+              "dblp-acm-train-1888",
+              "dblp-acm-train-1899",
+              "dblp-acm-train-1908",
+              "dblp-acm-train-1928",
+              "dblp-acm-train-1935",
+              "dblp-acm-train-1938",
+              "dblp-acm-train-1945",
+              "dblp-acm-train-1948",
+              "dblp-acm-train-1953",
+              "dblp-acm-train-1962",
+              "dblp-acm-train-199",
+              "dblp-acm-train-203",
+              "dblp-acm-train-2070",
+              "dblp-acm-train-2075",
+              "dblp-acm-train-2096",
+              "dblp-acm-train-2187",
+              "dblp-acm-train-220",
+              "dblp-acm-train-2222",
+              "dblp-acm-train-2223",
+              "dblp-acm-train-2231",
+              "dblp-acm-train-2257",
+              "dblp-acm-train-227",
+              "dblp-acm-train-2278",
+              "dblp-acm-train-2281",
+              "dblp-acm-train-2304",
+              "dblp-acm-train-2346",
+              "dblp-acm-train-2355",
+              "dblp-acm-train-2358",
+              "dblp-acm-train-243",
+              "dblp-acm-train-2458",
+              "dblp-acm-train-2470",
+              "dblp-acm-train-2476",
+              "dblp-acm-train-2498",
+              "dblp-acm-train-25",
+              "dblp-acm-train-2544",
+              "dblp-acm-train-2667",
+              "dblp-acm-train-2768",
+              "dblp-acm-train-2771",
+              "dblp-acm-train-2818",
+              "dblp-acm-train-2836",
+              "dblp-acm-train-2882",
+              "dblp-acm-train-289",
+              "dblp-acm-train-2924",
+              "dblp-acm-train-2928",
+              "dblp-acm-train-2943",
+              "dblp-acm-train-2973",
+              "dblp-acm-train-298",
+              "dblp-acm-train-2981",
+              "dblp-acm-train-2988",
+              "dblp-acm-train-3018",
+              "dblp-acm-train-3040",
+              "dblp-acm-train-3048",
+              "dblp-acm-train-3075",
+              "dblp-acm-train-3093",
+              "dblp-acm-train-3098",
+              "dblp-acm-train-3115",
+              "dblp-acm-train-3117",
+              "dblp-acm-train-3123",
+              "dblp-acm-train-3152",
+              "dblp-acm-train-3164",
+              "dblp-acm-train-3180",
+              "dblp-acm-train-3182",
+              "dblp-acm-train-320",
+              "dblp-acm-train-3200",
+              "dblp-acm-train-322",
+              "dblp-acm-train-325",
+              "dblp-acm-train-3335",
+              "dblp-acm-train-3404",
+              "dblp-acm-train-3410",
+              "dblp-acm-train-3445",
+              "dblp-acm-train-3533",
+              "dblp-acm-train-3610",
+              "dblp-acm-train-368",
+              "dblp-acm-train-3752",
+              "dblp-acm-train-3780",
+              "dblp-acm-train-3832",
+              "dblp-acm-train-3906",
+              "dblp-acm-train-40",
+              "dblp-acm-train-4011",
+              "dblp-acm-train-4020",
+              "dblp-acm-train-4068",
+              "dblp-acm-train-4082",
+              "dblp-acm-train-4096",
+              "dblp-acm-train-4135",
+              "dblp-acm-train-4186",
+              "dblp-acm-train-4219",
+              "dblp-acm-train-422",
+              "dblp-acm-train-4229",
+              "dblp-acm-train-4266",
+              "dblp-acm-train-4293",
+              "dblp-acm-train-433",
+              "dblp-acm-train-4346",
+              "dblp-acm-train-4368",
+              "dblp-acm-train-4386",
+              "dblp-acm-train-44",
+              "dblp-acm-train-4438",
+              "dblp-acm-train-4446",
+              "dblp-acm-train-4492",
+              "dblp-acm-train-4514",
+              "dblp-acm-train-4614",
+              "dblp-acm-train-4621",
+              "dblp-acm-train-4625",
+              "dblp-acm-train-4648",
+              "dblp-acm-train-4655",
+              "dblp-acm-train-4661",
+              "dblp-acm-train-4667",
+              "dblp-acm-train-4728",
+              "dblp-acm-train-4786",
+              "dblp-acm-train-4829",
+              "dblp-acm-train-4849",
+              "dblp-acm-train-4857",
+              "dblp-acm-train-486",
+              "dblp-acm-train-4868",
+              "dblp-acm-train-4876",
+              "dblp-acm-train-4892",
+              "dblp-acm-train-4896",
+              "dblp-acm-train-4902",
+              "dblp-acm-train-4905",
+              "dblp-acm-train-4937",
+              "dblp-acm-train-4990",
+              "dblp-acm-train-4998",
+              "dblp-acm-train-5042",
+              "dblp-acm-train-5045",
+              "dblp-acm-train-5051",
+              "dblp-acm-train-5056",
+              "dblp-acm-train-5073",
+              "dblp-acm-train-5154",
+              "dblp-acm-train-5196",
+              "dblp-acm-train-5205",
+              "dblp-acm-train-5260",
+              "dblp-acm-train-5370",
+              "dblp-acm-train-5416",
+              "dblp-acm-train-5435",
+              "dblp-acm-train-5447",
+              "dblp-acm-train-5457",
+              "dblp-acm-train-5475",
+              "dblp-acm-train-5567",
+              "dblp-acm-train-5568",
+              "dblp-acm-train-5574",
+              "dblp-acm-train-563",
+              "dblp-acm-train-5639",
+              "dblp-acm-train-5665",
+              "dblp-acm-train-5682",
+              "dblp-acm-train-5690",
+              "dblp-acm-train-5701",
+              "dblp-acm-train-5767",
+              "dblp-acm-train-5826",
+              "dblp-acm-train-5862",
+              "dblp-acm-train-5867",
+              "dblp-acm-train-5897",
+              "dblp-acm-train-5913",
+              "dblp-acm-train-5976",
+              "dblp-acm-train-5990",
+              "dblp-acm-train-60",
+              "dblp-acm-train-6011",
+              "dblp-acm-train-6028",
+              "dblp-acm-train-604",
+              "dblp-acm-train-605",
+              "dblp-acm-train-6064",
+              "dblp-acm-train-6070",
+              "dblp-acm-train-6080",
+              "dblp-acm-train-6088",
+              "dblp-acm-train-6120",
+              "dblp-acm-train-6128",
+              "dblp-acm-train-6135",
+              "dblp-acm-train-6188",
+              "dblp-acm-train-62",
+              "dblp-acm-train-6202",
+              "dblp-acm-train-6271",
+              "dblp-acm-train-6304",
+              "dblp-acm-train-6316",
+              "dblp-acm-train-6329",
+              "dblp-acm-train-633",
+              "dblp-acm-train-6345",
+              "dblp-acm-train-6357",
+              "dblp-acm-train-6374",
+              "dblp-acm-train-6412",
+              "dblp-acm-train-6436",
+              "dblp-acm-train-6439",
+              "dblp-acm-train-644",
+              "dblp-acm-train-6453",
+              "dblp-acm-train-6484",
+              "dblp-acm-train-6517",
+              "dblp-acm-train-6612",
+              "dblp-acm-train-6614",
+              "dblp-acm-train-6625",
+              "dblp-acm-train-6643",
+              "dblp-acm-train-6744",
+              "dblp-acm-train-6746",
+              "dblp-acm-train-6767",
+              "dblp-acm-train-6824",
+              "dblp-acm-train-6831",
+              "dblp-acm-train-6876",
+              "dblp-acm-train-6885",
+              "dblp-acm-train-691",
+              "dblp-acm-train-6912",
+              "dblp-acm-train-6920",
+              "dblp-acm-train-6960",
+              "dblp-acm-train-6972",
+              "dblp-acm-train-7024",
+              "dblp-acm-train-7106",
+              "dblp-acm-train-7182",
+              "dblp-acm-train-721",
+              "dblp-acm-train-7243",
+              "dblp-acm-train-7290",
+              "dblp-acm-train-7301",
+              "dblp-acm-train-7311",
+              "dblp-acm-train-755",
+              "dblp-acm-train-803",
+              "dblp-acm-train-829",
+              "dblp-acm-train-832",
+              "dblp-acm-train-877",
+              "dblp-acm-train-879",
+              "dblp-acm-train-881",
+              "dblp-acm-train-939",
+              "dblp-acm-train-944",
+              "dblp-acm-train-956",
+              "dblp-acm-train-981",
+              "dblp-acm-valid-1008",
+              "dblp-acm-valid-1013",
+              "dblp-acm-valid-1018",
+              "dblp-acm-valid-1054",
+              "dblp-acm-valid-1099",
+              "dblp-acm-valid-1130",
+              "dblp-acm-valid-1135",
+              "dblp-acm-valid-118",
+              "dblp-acm-valid-1191",
+              "dblp-acm-valid-1200",
+              "dblp-acm-valid-1228",
+              "dblp-acm-valid-1263",
+              "dblp-acm-valid-1291",
+              "dblp-acm-valid-1306",
+              "dblp-acm-valid-1319",
+              "dblp-acm-valid-1334",
+              "dblp-acm-valid-1343",
+              "dblp-acm-valid-1344",
+              "dblp-acm-valid-1359",
+              "dblp-acm-valid-1375",
+              "dblp-acm-valid-1417",
+              "dblp-acm-valid-1451",
+              "dblp-acm-valid-1517",
+              "dblp-acm-valid-1539",
+              "dblp-acm-valid-1586",
+              "dblp-acm-valid-1592",
+              "dblp-acm-valid-1608",
+              "dblp-acm-valid-161",
+              "dblp-acm-valid-1700",
+              "dblp-acm-valid-1701",
+              "dblp-acm-valid-1742",
+              "dblp-acm-valid-1756",
+              "dblp-acm-valid-1764",
+              "dblp-acm-valid-1781",
+              "dblp-acm-valid-1795",
+              "dblp-acm-valid-1840",
+              "dblp-acm-valid-1845",
+              "dblp-acm-valid-1923",
+              "dblp-acm-valid-1952",
+              "dblp-acm-valid-1969",
+              "dblp-acm-valid-1971",
+              "dblp-acm-valid-2003",
+              "dblp-acm-valid-2026",
+              "dblp-acm-valid-2050",
+              "dblp-acm-valid-2091",
+              "dblp-acm-valid-2149",
+              "dblp-acm-valid-2192",
+              "dblp-acm-valid-2200",
+              "dblp-acm-valid-2218",
+              "dblp-acm-valid-2297",
+              "dblp-acm-valid-234",
+              "dblp-acm-valid-2365",
+              "dblp-acm-valid-2387",
+              "dblp-acm-valid-246",
+              "dblp-acm-valid-254",
+              "dblp-acm-valid-265",
+              "dblp-acm-valid-288",
+              "dblp-acm-valid-322",
+              "dblp-acm-valid-327",
+              "dblp-acm-valid-440",
+              "dblp-acm-valid-442",
+              "dblp-acm-valid-48",
+              "dblp-acm-valid-558",
+              "dblp-acm-valid-563",
+              "dblp-acm-valid-58",
+              "dblp-acm-valid-628",
+              "dblp-acm-valid-659",
+              "dblp-acm-valid-688",
+              "dblp-acm-valid-72",
+              "dblp-acm-valid-798",
+              "dblp-acm-valid-843",
+              "dblp-acm-valid-897",
+              "dblp-acm-valid-940",
+              "dblp-acm-valid-975"
+            ],
+            "audit": {
+              "events": 1,
+              "head_hash": "860745310519366021a4e6c8916850a9f7c292244f9d9553a7ef7ca34b9c4404",
+              "state_hash": "853b13799f4c6b45dd16feab5188857ac560b50693b2cb007062496230b57991"
+            },
+            "committed_label_correct": 405,
+            "committed_label_incorrect": 8,
+            "lifecycle": {
+              "active_after_withdrawal": 412,
+              "actual_retractions": 1,
+              "audit_after_withdrawal": {
+                "events": 2,
+                "head_hash": "a4d7022cd974dce549baeaf327af8e421aa2dcd883db42d7c5fd7338627d98f8",
+                "state_hash": "8bddf33907930934bd70a635e137f07e7622114ab6143067869dc0c89a476142"
+              },
+              "durable_reopen_equal": true,
+              "expected_retractions": 1,
+              "original_assertions_preserved": 413,
+              "withdrawn_evidence": "00107efb65dd4890218204e68cff42b8af6e3e1c1bd7dba3fa4897306ee2582b"
+            },
+            "metrics": {
+              "assertions": 413,
+              "claims_with_opposing_source_labels": 0,
+              "directed_pair_density": 0.0006060606060606061,
+              "distinct_directed_pairs": 413,
+              "distinct_source_content_origins": 826,
+              "identity_components": 468,
+              "isolates": 0,
+              "largest_component": 2,
+              "max_in_degree": 1,
+              "max_out_degree": 1,
+              "multi_label_directed_pairs": 0,
+              "node_type_counts": {
+                "Record": 826
+              },
+              "nodes": 826,
+              "reciprocal_pair_sets": 0,
+              "relation_counts": {
+                "different_from": 55,
+                "same_as": 358
+              },
+              "relation_endpoint_type_counts": {
+                "Record -> different_from -> Record": 55,
+                "Record -> same_as -> Record": 358
+              },
+              "self_relationship_pairs": 0,
+              "typed_edges": 413,
+              "weak_component_size_histogram": {
+                "2": 413
+              },
+              "weak_components": 413
+            },
+            "not_measured": "open-corpus candidate retrieval, biomedical entity/predicate extraction, or independently observed updates",
+            "semantics": "pairwise identity/cannot-link evidence graph",
+            "threshold": 0.0
+          },
+          "groups": 413,
+          "n": 413,
+          "recorded_usage": {
+            "calls": 413,
+            "input_tokens": 174370,
+            "missing_usage": 0,
+            "note": "Historical service measurements; replay has zero new provider usage. Extraction/retrieval/storage/review costs excluded.",
+            "output_tokens": 9912,
+            "sum_original_call_latency_ms": 169395.4141000322
+          },
+          "reliability": {
+            "same": [
+              {
+                "bin": 0,
+                "lower": 0.0,
+                "mean_probability": 0.05666666666666667,
+                "n": 33,
+                "observed_fraction": 0.0,
+                "upper": 0.1
+              },
+              {
+                "bin": 1,
+                "lower": 0.1,
+                "mean_probability": 0.13636363636363635,
+                "n": 11,
+                "observed_fraction": 0.0,
+                "upper": 0.2
+              },
+              {
+                "bin": 2,
+                "lower": 0.2,
+                "mean_probability": 0.2425,
+                "n": 4,
+                "observed_fraction": 0.0,
+                "upper": 0.3
+              },
+              {
+                "bin": 3,
+                "lower": 0.3,
+                "mean_probability": 0.3333333333333333,
+                "n": 3,
+                "observed_fraction": 0.0,
+                "upper": 0.4
+              },
+              {
+                "bin": 4,
+                "lower": 0.4,
+                "mean_probability": 0.42,
+                "n": 4,
+                "observed_fraction": 0.0,
+                "upper": 0.5
+              },
+              {
+                "bin": 5,
+                "lower": 0.5,
+                "mean_probability": 0.5549999999999999,
+                "n": 4,
+                "observed_fraction": 0.25,
+                "upper": 0.6
+              },
+              {
+                "bin": 6,
+                "lower": 0.6,
+                "mean_probability": null,
+                "n": 0,
+                "observed_fraction": null,
+                "upper": 0.7
+              },
+              {
+                "bin": 7,
+                "lower": 0.7,
+                "mean_probability": 0.7666666666666667,
+                "n": 18,
+                "observed_fraction": 0.8333333333333334,
+                "upper": 0.8
+              },
+              {
+                "bin": 8,
+                "lower": 0.8,
+                "mean_probability": 0.8584375,
+                "n": 64,
+                "observed_fraction": 0.96875,
+                "upper": 0.9
+              },
+              {
+                "bin": 9,
+                "lower": 0.9,
+                "mean_probability": 0.9567279411764706,
+                "n": 272,
+                "observed_fraction": 1.0,
+                "upper": 1.0
+              }
+            ]
+          },
+          "risk_curve": [
+            {
+              "accepted": 35,
+              "coverage": 0.0847457627118644,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.98,
+              "tie_block": 35
+            },
+            {
+              "accepted": 153,
+              "coverage": 0.3704600484261501,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.97,
+              "tie_block": 118
+            },
+            {
+              "accepted": 194,
+              "coverage": 0.46973365617433416,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.96,
+              "tie_block": 41
+            },
+            {
+              "accepted": 213,
+              "coverage": 0.5157384987893463,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.95,
+              "tie_block": 19
+            },
+            {
+              "accepted": 221,
+              "coverage": 0.5351089588377724,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.94,
+              "tie_block": 8
+            },
+            {
+              "accepted": 228,
+              "coverage": 0.5520581113801453,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.93,
+              "tie_block": 7
+            },
+            {
+              "accepted": 241,
+              "coverage": 0.5835351089588378,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.92,
+              "tie_block": 13
+            },
+            {
+              "accepted": 258,
+              "coverage": 0.6246973365617433,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.91,
+              "tie_block": 17
+            },
+            {
+              "accepted": 272,
+              "coverage": 0.6585956416464891,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.9,
+              "tie_block": 14
+            },
+            {
+              "accepted": 280,
+              "coverage": 0.6779661016949152,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.89,
+              "tie_block": 8
+            },
+            {
+              "accepted": 292,
+              "coverage": 0.7070217917675545,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.88,
+              "tie_block": 12
+            },
+            {
+              "accepted": 298,
+              "coverage": 0.7215496368038741,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.87,
+              "tie_block": 6
+            },
+            {
+              "accepted": 310,
+              "coverage": 0.7506053268765133,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.86,
+              "tie_block": 12
+            },
+            {
+              "accepted": 316,
+              "coverage": 0.7651331719128329,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.85,
+              "tie_block": 6
+            },
+            {
+              "accepted": 325,
+              "coverage": 0.7869249394673123,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.84,
+              "tie_block": 9
+            },
+            {
+              "accepted": 330,
+              "coverage": 0.7990314769975787,
+              "incorrect": 2,
+              "risk": 0.006060606060606061,
+              "threshold": 0.83,
+              "tie_block": 5
+            },
+            {
+              "accepted": 335,
+              "coverage": 0.8111380145278451,
+              "incorrect": 2,
+              "risk": 0.005970149253731343,
+              "threshold": 0.82,
+              "tie_block": 5
+            },
+            {
+              "accepted": 336,
+              "coverage": 0.8135593220338984,
+              "incorrect": 2,
+              "risk": 0.005952380952380952,
+              "threshold": 0.81,
+              "tie_block": 1
+            },
+            {
+              "accepted": 341,
+              "coverage": 0.8256658595641646,
+              "incorrect": 2,
+              "risk": 0.005865102639296188,
+              "threshold": 0.79,
+              "tie_block": 5
+            },
+            {
+              "accepted": 345,
+              "coverage": 0.8353510895883777,
+              "incorrect": 2,
+              "risk": 0.005797101449275362,
+              "threshold": 0.78,
+              "tie_block": 4
+            },
+            {
+              "accepted": 346,
+              "coverage": 0.837772397094431,
+              "incorrect": 2,
+              "risk": 0.005780346820809248,
+              "threshold": 0.77,
+              "tie_block": 1
+            },
+            {
+              "accepted": 351,
+              "coverage": 0.8498789346246973,
+              "incorrect": 4,
+              "risk": 0.011396011396011397,
+              "threshold": 0.76,
+              "tie_block": 5
+            },
+            {
+              "accepted": 352,
+              "coverage": 0.8523002421307506,
+              "incorrect": 4,
+              "risk": 0.011363636363636364,
+              "threshold": 0.75,
+              "tie_block": 1
+            },
+            {
+              "accepted": 353,
+              "coverage": 0.8547215496368039,
+              "incorrect": 5,
+              "risk": 0.014164305949008499,
+              "threshold": 0.71,
+              "tie_block": 1
+            },
+            {
+              "accepted": 354,
+              "coverage": 0.8571428571428571,
+              "incorrect": 5,
+              "risk": 0.014124293785310734,
+              "threshold": 0.7,
+              "tie_block": 1
+            },
+            {
+              "accepted": 355,
+              "coverage": 0.8595641646489104,
+              "incorrect": 6,
+              "risk": 0.016901408450704224,
+              "threshold": 0.59,
+              "tie_block": 1
+            },
+            {
+              "accepted": 356,
+              "coverage": 0.8619854721549637,
+              "incorrect": 6,
+              "risk": 0.016853932584269662,
+              "threshold": 0.58,
+              "tie_block": 1
+            },
+            {
+              "accepted": 357,
+              "coverage": 0.864406779661017,
+              "incorrect": 7,
+              "risk": 0.0196078431372549,
+              "threshold": 0.55,
+              "tie_block": 1
+            },
+            {
+              "accepted": 358,
+              "coverage": 0.8668280871670703,
+              "incorrect": 8,
+              "risk": 0.0223463687150838,
+              "threshold": 0.5,
+              "tie_block": 1
+            }
+          ]
+        },
+        "fewshot_contract": {
+          "actions": {
+            "different": {
+              "accepted": 62,
+              "coverage": 0.15012106537530268,
+              "false": 1,
+              "false_positive_rate": 0.002857142857142857,
+              "negative_n": 350,
+              "precision": 0.9838709677419355,
+              "recall": 0.9682539682539683,
+              "true": 61
+            },
+            "same": {
+              "accepted": 351,
+              "coverage": 0.8498789346246973,
+              "false": 2,
+              "false_positive_rate": 0.031746031746031744,
+              "negative_n": 63,
+              "precision": 0.9943019943019943,
+              "recall": 0.9971428571428571,
+              "true": 349
+            }
+          },
+          "confusion": {
+            "different -> different": 61,
+            "different -> same": 2,
+            "same -> different": 1,
+            "same -> same": 349
+          },
+          "errors": 0,
+          "gold_counts": {
+            "different": 63,
+            "same": 350
+          },
+          "graph": {
+            "accepted_assertion_ids": [
+              "dblp-acm-test-1015",
+              "dblp-acm-test-1044",
+              "dblp-acm-test-1052",
+              "dblp-acm-test-106",
+              "dblp-acm-test-1084",
+              "dblp-acm-test-1178",
+              "dblp-acm-test-1199",
+              "dblp-acm-test-1270",
+              "dblp-acm-test-1284",
+              "dblp-acm-test-1318",
+              "dblp-acm-test-1327",
+              "dblp-acm-test-1332",
+              "dblp-acm-test-134",
+              "dblp-acm-test-1423",
+              "dblp-acm-test-146",
+              "dblp-acm-test-147",
+              "dblp-acm-test-1482",
+              "dblp-acm-test-1518",
+              "dblp-acm-test-1529",
+              "dblp-acm-test-1535",
+              "dblp-acm-test-1539",
+              "dblp-acm-test-1547",
+              "dblp-acm-test-1571",
+              "dblp-acm-test-1634",
+              "dblp-acm-test-164",
+              "dblp-acm-test-1670",
+              "dblp-acm-test-1747",
+              "dblp-acm-test-178",
+              "dblp-acm-test-1816",
+              "dblp-acm-test-1817",
+              "dblp-acm-test-1820",
+              "dblp-acm-test-1828",
+              "dblp-acm-test-183",
+              "dblp-acm-test-1846",
+              "dblp-acm-test-1891",
+              "dblp-acm-test-1911",
+              "dblp-acm-test-1928",
+              "dblp-acm-test-1945",
+              "dblp-acm-test-1960",
+              "dblp-acm-test-2023",
+              "dblp-acm-test-2031",
+              "dblp-acm-test-2070",
+              "dblp-acm-test-2087",
+              "dblp-acm-test-210",
+              "dblp-acm-test-2110",
+              "dblp-acm-test-2116",
+              "dblp-acm-test-2129",
+              "dblp-acm-test-216",
+              "dblp-acm-test-2235",
+              "dblp-acm-test-2259",
+              "dblp-acm-test-2304",
+              "dblp-acm-test-2313",
+              "dblp-acm-test-2320",
+              "dblp-acm-test-2332",
+              "dblp-acm-test-2333",
+              "dblp-acm-test-2377",
+              "dblp-acm-test-2404",
+              "dblp-acm-test-282",
+              "dblp-acm-test-285",
+              "dblp-acm-test-292",
+              "dblp-acm-test-354",
+              "dblp-acm-test-393",
+              "dblp-acm-test-396",
+              "dblp-acm-test-412",
+              "dblp-acm-test-428",
+              "dblp-acm-test-439",
+              "dblp-acm-test-477",
+              "dblp-acm-test-499",
+              "dblp-acm-test-507",
+              "dblp-acm-test-516",
+              "dblp-acm-test-526",
+              "dblp-acm-test-579",
+              "dblp-acm-test-582",
+              "dblp-acm-test-60",
+              "dblp-acm-test-602",
+              "dblp-acm-test-614",
+              "dblp-acm-test-645",
+              "dblp-acm-test-696",
+              "dblp-acm-test-699",
+              "dblp-acm-test-736",
+              "dblp-acm-test-784",
+              "dblp-acm-test-86",
+              "dblp-acm-test-882",
+              "dblp-acm-test-966",
+              "dblp-acm-test-999",
+              "dblp-acm-train-1002",
+              "dblp-acm-train-1043",
+              "dblp-acm-train-1056",
+              "dblp-acm-train-1066",
+              "dblp-acm-train-1071",
+              "dblp-acm-train-109",
+              "dblp-acm-train-1107",
+              "dblp-acm-train-1126",
+              "dblp-acm-train-1132",
+              "dblp-acm-train-1135",
+              "dblp-acm-train-1138",
+              "dblp-acm-train-1155",
+              "dblp-acm-train-1173",
+              "dblp-acm-train-1174",
+              "dblp-acm-train-1177",
+              "dblp-acm-train-1178",
+              "dblp-acm-train-119",
+              "dblp-acm-train-1195",
+              "dblp-acm-train-12",
+              "dblp-acm-train-1225",
+              "dblp-acm-train-1254",
+              "dblp-acm-train-1362",
+              "dblp-acm-train-1369",
+              "dblp-acm-train-1441",
+              "dblp-acm-train-1489",
+              "dblp-acm-train-1497",
+              "dblp-acm-train-1506",
+              "dblp-acm-train-1532",
+              "dblp-acm-train-154",
+              "dblp-acm-train-1553",
+              "dblp-acm-train-1598",
+              "dblp-acm-train-1631",
+              "dblp-acm-train-1661",
+              "dblp-acm-train-1704",
+              "dblp-acm-train-1754",
+              "dblp-acm-train-1829",
+              "dblp-acm-train-1888",
+              "dblp-acm-train-1899",
+              "dblp-acm-train-1908",
+              "dblp-acm-train-1928",
+              "dblp-acm-train-1935",
+              "dblp-acm-train-1938",
+              "dblp-acm-train-1945",
+              "dblp-acm-train-1948",
+              "dblp-acm-train-1953",
+              "dblp-acm-train-1962",
+              "dblp-acm-train-199",
+              "dblp-acm-train-203",
+              "dblp-acm-train-2070",
+              "dblp-acm-train-2075",
+              "dblp-acm-train-2096",
+              "dblp-acm-train-2187",
+              "dblp-acm-train-220",
+              "dblp-acm-train-2222",
+              "dblp-acm-train-2223",
+              "dblp-acm-train-2231",
+              "dblp-acm-train-2257",
+              "dblp-acm-train-227",
+              "dblp-acm-train-2278",
+              "dblp-acm-train-2281",
+              "dblp-acm-train-2304",
+              "dblp-acm-train-2346",
+              "dblp-acm-train-2355",
+              "dblp-acm-train-2358",
+              "dblp-acm-train-243",
+              "dblp-acm-train-2458",
+              "dblp-acm-train-2470",
+              "dblp-acm-train-2476",
+              "dblp-acm-train-2498",
+              "dblp-acm-train-25",
+              "dblp-acm-train-2544",
+              "dblp-acm-train-2667",
+              "dblp-acm-train-2768",
+              "dblp-acm-train-2771",
+              "dblp-acm-train-2818",
+              "dblp-acm-train-2836",
+              "dblp-acm-train-2882",
+              "dblp-acm-train-289",
+              "dblp-acm-train-2924",
+              "dblp-acm-train-2928",
+              "dblp-acm-train-2943",
+              "dblp-acm-train-2973",
+              "dblp-acm-train-298",
+              "dblp-acm-train-2981",
+              "dblp-acm-train-2988",
+              "dblp-acm-train-3018",
+              "dblp-acm-train-3040",
+              "dblp-acm-train-3048",
+              "dblp-acm-train-3075",
+              "dblp-acm-train-3093",
+              "dblp-acm-train-3098",
+              "dblp-acm-train-3115",
+              "dblp-acm-train-3117",
+              "dblp-acm-train-3123",
+              "dblp-acm-train-3152",
+              "dblp-acm-train-3164",
+              "dblp-acm-train-3180",
+              "dblp-acm-train-3182",
+              "dblp-acm-train-320",
+              "dblp-acm-train-3200",
+              "dblp-acm-train-322",
+              "dblp-acm-train-325",
+              "dblp-acm-train-3335",
+              "dblp-acm-train-3404",
+              "dblp-acm-train-3410",
+              "dblp-acm-train-3445",
+              "dblp-acm-train-3533",
+              "dblp-acm-train-3610",
+              "dblp-acm-train-368",
+              "dblp-acm-train-3752",
+              "dblp-acm-train-3780",
+              "dblp-acm-train-3832",
+              "dblp-acm-train-3906",
+              "dblp-acm-train-40",
+              "dblp-acm-train-4011",
+              "dblp-acm-train-4020",
+              "dblp-acm-train-4068",
+              "dblp-acm-train-4082",
+              "dblp-acm-train-4096",
+              "dblp-acm-train-4135",
+              "dblp-acm-train-4186",
+              "dblp-acm-train-4219",
+              "dblp-acm-train-422",
+              "dblp-acm-train-4229",
+              "dblp-acm-train-4266",
+              "dblp-acm-train-4293",
+              "dblp-acm-train-433",
+              "dblp-acm-train-4346",
+              "dblp-acm-train-4368",
+              "dblp-acm-train-4386",
+              "dblp-acm-train-44",
+              "dblp-acm-train-4438",
+              "dblp-acm-train-4446",
+              "dblp-acm-train-4492",
+              "dblp-acm-train-4514",
+              "dblp-acm-train-4614",
+              "dblp-acm-train-4621",
+              "dblp-acm-train-4625",
+              "dblp-acm-train-4648",
+              "dblp-acm-train-4655",
+              "dblp-acm-train-4661",
+              "dblp-acm-train-4667",
+              "dblp-acm-train-4728",
+              "dblp-acm-train-4786",
+              "dblp-acm-train-4829",
+              "dblp-acm-train-4849",
+              "dblp-acm-train-4857",
+              "dblp-acm-train-486",
+              "dblp-acm-train-4868",
+              "dblp-acm-train-4876",
+              "dblp-acm-train-4892",
+              "dblp-acm-train-4896",
+              "dblp-acm-train-4902",
+              "dblp-acm-train-4905",
+              "dblp-acm-train-4937",
+              "dblp-acm-train-4990",
+              "dblp-acm-train-4998",
+              "dblp-acm-train-5042",
+              "dblp-acm-train-5045",
+              "dblp-acm-train-5051",
+              "dblp-acm-train-5056",
+              "dblp-acm-train-5073",
+              "dblp-acm-train-5154",
+              "dblp-acm-train-5196",
+              "dblp-acm-train-5205",
+              "dblp-acm-train-5260",
+              "dblp-acm-train-5370",
+              "dblp-acm-train-5416",
+              "dblp-acm-train-5435",
+              "dblp-acm-train-5447",
+              "dblp-acm-train-5457",
+              "dblp-acm-train-5475",
+              "dblp-acm-train-5567",
+              "dblp-acm-train-5568",
+              "dblp-acm-train-5574",
+              "dblp-acm-train-563",
+              "dblp-acm-train-5639",
+              "dblp-acm-train-5665",
+              "dblp-acm-train-5682",
+              "dblp-acm-train-5690",
+              "dblp-acm-train-5701",
+              "dblp-acm-train-5767",
+              "dblp-acm-train-5826",
+              "dblp-acm-train-5862",
+              "dblp-acm-train-5867",
+              "dblp-acm-train-5897",
+              "dblp-acm-train-5913",
+              "dblp-acm-train-5976",
+              "dblp-acm-train-5990",
+              "dblp-acm-train-60",
+              "dblp-acm-train-6011",
+              "dblp-acm-train-6028",
+              "dblp-acm-train-604",
+              "dblp-acm-train-605",
+              "dblp-acm-train-6064",
+              "dblp-acm-train-6070",
+              "dblp-acm-train-6080",
+              "dblp-acm-train-6088",
+              "dblp-acm-train-6120",
+              "dblp-acm-train-6128",
+              "dblp-acm-train-6135",
+              "dblp-acm-train-6188",
+              "dblp-acm-train-62",
+              "dblp-acm-train-6202",
+              "dblp-acm-train-6271",
+              "dblp-acm-train-6304",
+              "dblp-acm-train-6316",
+              "dblp-acm-train-6329",
+              "dblp-acm-train-633",
+              "dblp-acm-train-6345",
+              "dblp-acm-train-6357",
+              "dblp-acm-train-6374",
+              "dblp-acm-train-6412",
+              "dblp-acm-train-6436",
+              "dblp-acm-train-6439",
+              "dblp-acm-train-644",
+              "dblp-acm-train-6453",
+              "dblp-acm-train-6484",
+              "dblp-acm-train-6517",
+              "dblp-acm-train-6612",
+              "dblp-acm-train-6614",
+              "dblp-acm-train-6625",
+              "dblp-acm-train-6643",
+              "dblp-acm-train-6744",
+              "dblp-acm-train-6746",
+              "dblp-acm-train-6767",
+              "dblp-acm-train-6824",
+              "dblp-acm-train-6831",
+              "dblp-acm-train-6876",
+              "dblp-acm-train-6885",
+              "dblp-acm-train-691",
+              "dblp-acm-train-6912",
+              "dblp-acm-train-6920",
+              "dblp-acm-train-6960",
+              "dblp-acm-train-6972",
+              "dblp-acm-train-7024",
+              "dblp-acm-train-7106",
+              "dblp-acm-train-7182",
+              "dblp-acm-train-721",
+              "dblp-acm-train-7243",
+              "dblp-acm-train-7290",
+              "dblp-acm-train-7301",
+              "dblp-acm-train-7311",
+              "dblp-acm-train-755",
+              "dblp-acm-train-803",
+              "dblp-acm-train-829",
+              "dblp-acm-train-832",
+              "dblp-acm-train-877",
+              "dblp-acm-train-879",
+              "dblp-acm-train-881",
+              "dblp-acm-train-939",
+              "dblp-acm-train-944",
+              "dblp-acm-train-956",
+              "dblp-acm-train-981",
+              "dblp-acm-valid-1008",
+              "dblp-acm-valid-1013",
+              "dblp-acm-valid-1018",
+              "dblp-acm-valid-1054",
+              "dblp-acm-valid-1099",
+              "dblp-acm-valid-1130",
+              "dblp-acm-valid-1135",
+              "dblp-acm-valid-118",
+              "dblp-acm-valid-1191",
+              "dblp-acm-valid-1200",
+              "dblp-acm-valid-1228",
+              "dblp-acm-valid-1263",
+              "dblp-acm-valid-1291",
+              "dblp-acm-valid-1306",
+              "dblp-acm-valid-1319",
+              "dblp-acm-valid-1334",
+              "dblp-acm-valid-1343",
+              "dblp-acm-valid-1344",
+              "dblp-acm-valid-1359",
+              "dblp-acm-valid-1375",
+              "dblp-acm-valid-1417",
+              "dblp-acm-valid-1451",
+              "dblp-acm-valid-1517",
+              "dblp-acm-valid-1539",
+              "dblp-acm-valid-1586",
+              "dblp-acm-valid-1592",
+              "dblp-acm-valid-1608",
+              "dblp-acm-valid-161",
+              "dblp-acm-valid-1700",
+              "dblp-acm-valid-1701",
+              "dblp-acm-valid-1742",
+              "dblp-acm-valid-1756",
+              "dblp-acm-valid-1764",
+              "dblp-acm-valid-1781",
+              "dblp-acm-valid-1795",
+              "dblp-acm-valid-1840",
+              "dblp-acm-valid-1845",
+              "dblp-acm-valid-1923",
+              "dblp-acm-valid-1952",
+              "dblp-acm-valid-1969",
+              "dblp-acm-valid-1971",
+              "dblp-acm-valid-2003",
+              "dblp-acm-valid-2026",
+              "dblp-acm-valid-2050",
+              "dblp-acm-valid-2091",
+              "dblp-acm-valid-2149",
+              "dblp-acm-valid-2192",
+              "dblp-acm-valid-2200",
+              "dblp-acm-valid-2218",
+              "dblp-acm-valid-2297",
+              "dblp-acm-valid-234",
+              "dblp-acm-valid-2365",
+              "dblp-acm-valid-2387",
+              "dblp-acm-valid-246",
+              "dblp-acm-valid-254",
+              "dblp-acm-valid-265",
+              "dblp-acm-valid-288",
+              "dblp-acm-valid-322",
+              "dblp-acm-valid-327",
+              "dblp-acm-valid-440",
+              "dblp-acm-valid-442",
+              "dblp-acm-valid-48",
+              "dblp-acm-valid-558",
+              "dblp-acm-valid-563",
+              "dblp-acm-valid-58",
+              "dblp-acm-valid-628",
+              "dblp-acm-valid-659",
+              "dblp-acm-valid-688",
+              "dblp-acm-valid-72",
+              "dblp-acm-valid-798",
+              "dblp-acm-valid-843",
+              "dblp-acm-valid-897",
+              "dblp-acm-valid-940",
+              "dblp-acm-valid-975"
+            ],
+            "audit": {
+              "events": 1,
+              "head_hash": "1080080c9eee484ad378f6e8a6634ff98dcfc95481c2778fd9146a9bbc7f593f",
+              "state_hash": "4274c7370c43339f02ea9ad27e835f7f02204e00c65bd9f4f8eb80247ca85d3c"
+            },
+            "committed_label_correct": 410,
+            "committed_label_incorrect": 3,
+            "lifecycle": {
+              "active_after_withdrawal": 412,
+              "actual_retractions": 1,
+              "audit_after_withdrawal": {
+                "events": 2,
+                "head_hash": "a62aa96d71ce66f654319b2bcafc1ce57b4b8c70aa7a2ad69952eb5c31b65466",
+                "state_hash": "ac799a30815ff3b9616012f178ab57585410d711e37dccf521c288fe7db6299c"
+              },
+              "durable_reopen_equal": true,
+              "expected_retractions": 1,
+              "original_assertions_preserved": 413,
+              "withdrawn_evidence": "00107efb65dd4890218204e68cff42b8af6e3e1c1bd7dba3fa4897306ee2582b"
+            },
+            "metrics": {
+              "assertions": 413,
+              "claims_with_opposing_source_labels": 0,
+              "directed_pair_density": 0.0006060606060606061,
+              "distinct_directed_pairs": 413,
+              "distinct_source_content_origins": 826,
+              "identity_components": 475,
+              "isolates": 0,
+              "largest_component": 2,
+              "max_in_degree": 1,
+              "max_out_degree": 1,
+              "multi_label_directed_pairs": 0,
+              "node_type_counts": {
+                "Record": 826
+              },
+              "nodes": 826,
+              "reciprocal_pair_sets": 0,
+              "relation_counts": {
+                "different_from": 62,
+                "same_as": 351
+              },
+              "relation_endpoint_type_counts": {
+                "Record -> different_from -> Record": 62,
+                "Record -> same_as -> Record": 351
+              },
+              "self_relationship_pairs": 0,
+              "typed_edges": 413,
+              "weak_component_size_histogram": {
+                "2": 413
+              },
+              "weak_components": 413
+            },
+            "not_measured": "open-corpus candidate retrieval, biomedical entity/predicate extraction, or independently observed updates",
+            "semantics": "pairwise identity/cannot-link evidence graph",
+            "threshold": 0.0
+          },
+          "groups": 413,
+          "n": 413,
+          "recorded_usage": {
+            "calls": 413,
+            "input_tokens": 627844,
+            "missing_usage": 0,
+            "note": "Historical service measurements; replay has zero new provider usage. Extraction/retrieval/storage/review costs excluded.",
+            "output_tokens": 14868,
+            "sum_original_call_latency_ms": 167786.96770003624
+          },
+          "reliability": {
+            "same": [
+              {
+                "bin": 0,
+                "lower": 0.0,
+                "mean_probability": 0.0032727272727272726,
+                "n": 55,
+                "observed_fraction": 0.0,
+                "upper": 0.1
+              },
+              {
+                "bin": 1,
+                "lower": 0.1,
+                "mean_probability": 0.17,
+                "n": 1,
+                "observed_fraction": 0.0,
+                "upper": 0.2
+              },
+              {
+                "bin": 2,
+                "lower": 0.2,
+                "mean_probability": 0.2,
+                "n": 1,
+                "observed_fraction": 0.0,
+                "upper": 0.3
+              },
+              {
+                "bin": 3,
+                "lower": 0.3,
+                "mean_probability": 0.3833333333333333,
+                "n": 3,
+                "observed_fraction": 0.0,
+                "upper": 0.4
+              },
+              {
+                "bin": 4,
+                "lower": 0.4,
+                "mean_probability": 0.44499999999999995,
+                "n": 2,
+                "observed_fraction": 0.5,
+                "upper": 0.5
+              },
+              {
+                "bin": 5,
+                "lower": 0.5,
+                "mean_probability": 0.525,
+                "n": 2,
+                "observed_fraction": 1.0,
+                "upper": 0.6
+              },
+              {
+                "bin": 6,
+                "lower": 0.6,
+                "mean_probability": 0.6485714285714286,
+                "n": 7,
+                "observed_fraction": 0.8571428571428571,
+                "upper": 0.7
+              },
+              {
+                "bin": 7,
+                "lower": 0.7,
+                "mean_probability": 0.75,
+                "n": 7,
+                "observed_fraction": 0.8571428571428571,
+                "upper": 0.8
+              },
+              {
+                "bin": 8,
+                "lower": 0.8,
+                "mean_probability": 0.85,
+                "n": 4,
+                "observed_fraction": 1.0,
+                "upper": 0.9
+              },
+              {
+                "bin": 9,
+                "lower": 0.9,
+                "mean_probability": 0.9953172205438066,
+                "n": 331,
+                "observed_fraction": 1.0,
+                "upper": 1.0
+              }
+            ]
+          },
+          "risk_curve": [
+            {
+              "accepted": 260,
+              "coverage": 0.6295399515738499,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 1.0,
+              "tie_block": 260
+            },
+            {
+              "accepted": 304,
+              "coverage": 0.7360774818401937,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.99,
+              "tie_block": 44
+            },
+            {
+              "accepted": 316,
+              "coverage": 0.7651331719128329,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.98,
+              "tie_block": 12
+            },
+            {
+              "accepted": 319,
+              "coverage": 0.7723970944309927,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.97,
+              "tie_block": 3
+            },
+            {
+              "accepted": 321,
+              "coverage": 0.7772397094430993,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.96,
+              "tie_block": 2
+            },
+            {
+              "accepted": 323,
+              "coverage": 0.7820823244552058,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.95,
+              "tie_block": 2
+            },
+            {
+              "accepted": 326,
+              "coverage": 0.7893462469733656,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.94,
+              "tie_block": 3
+            },
+            {
+              "accepted": 327,
+              "coverage": 0.7917675544794189,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.93,
+              "tie_block": 1
+            },
+            {
+              "accepted": 329,
+              "coverage": 0.7966101694915254,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.92,
+              "tie_block": 2
+            },
+            {
+              "accepted": 330,
+              "coverage": 0.7990314769975787,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.91,
+              "tie_block": 1
+            },
+            {
+              "accepted": 331,
+              "coverage": 0.801452784503632,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.9,
+              "tie_block": 1
+            },
+            {
+              "accepted": 332,
+              "coverage": 0.8038740920096852,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.89,
+              "tie_block": 1
+            },
+            {
+              "accepted": 334,
+              "coverage": 0.8087167070217918,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.85,
+              "tie_block": 2
+            },
+            {
+              "accepted": 335,
+              "coverage": 0.8111380145278451,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.81,
+              "tie_block": 1
+            },
+            {
+              "accepted": 336,
+              "coverage": 0.8135593220338984,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.78,
+              "tie_block": 1
+            },
+            {
+              "accepted": 337,
+              "coverage": 0.8159806295399515,
+              "incorrect": 0,
+              "risk": 0.0,
+              "threshold": 0.77,
+              "tie_block": 1
+            },
+            {
+              "accepted": 339,
+              "coverage": 0.8208232445520581,
+              "incorrect": 1,
+              "risk": 0.0029498525073746312,
+              "threshold": 0.75,
+              "tie_block": 2
+            },
+            {
+              "accepted": 340,
+              "coverage": 0.8232445520581114,
+              "incorrect": 1,
+              "risk": 0.0029411764705882353,
+              "threshold": 0.74,
+              "tie_block": 1
+            },
+            {
+              "accepted": 342,
+              "coverage": 0.8280871670702179,
+              "incorrect": 1,
+              "risk": 0.0029239766081871343,
+              "threshold": 0.73,
+              "tie_block": 2
+            },
+            {
+              "accepted": 343,
+              "coverage": 0.8305084745762712,
+              "incorrect": 1,
+              "risk": 0.0029154518950437317,
+              "threshold": 0.69,
+              "tie_block": 1
+            },
+            {
+              "accepted": 344,
+              "coverage": 0.8329297820823245,
+              "incorrect": 1,
+              "risk": 0.0029069767441860465,
+              "threshold": 0.68,
+              "tie_block": 1
+            },
+            {
+              "accepted": 345,
+              "coverage": 0.8353510895883777,
+              "incorrect": 1,
+              "risk": 0.002898550724637681,
+              "threshold": 0.66,
+              "tie_block": 1
+            },
+            {
+              "accepted": 346,
+              "coverage": 0.837772397094431,
+              "incorrect": 2,
+              "risk": 0.005780346820809248,
+              "threshold": 0.64,
+              "tie_block": 1
+            },
+            {
+              "accepted": 347,
+              "coverage": 0.8401937046004843,
+              "incorrect": 2,
+              "risk": 0.005763688760806916,
+              "threshold": 0.63,
+              "tie_block": 1
+            },
+            {
+              "accepted": 349,
+              "coverage": 0.8450363196125908,
+              "incorrect": 2,
+              "risk": 0.0057306590257879654,
+              "threshold": 0.62,
+              "tie_block": 2
+            },
+            {
+              "accepted": 350,
+              "coverage": 0.847457627118644,
+              "incorrect": 2,
+              "risk": 0.005714285714285714,
+              "threshold": 0.54,
+              "tie_block": 1
+            },
+            {
+              "accepted": 351,
+              "coverage": 0.8498789346246973,
+              "incorrect": 2,
+              "risk": 0.005698005698005698,
+              "threshold": 0.51,
+              "tie_block": 1
+            }
+          ]
+        }
+      },
+      "matched": {
+        "accepted_per_arm": 351,
+        "baseline": {
+          "accepted": 351,
+          "coverage": 0.8498789346246973,
+          "false": 4,
+          "false_positive_rate": 0.06349206349206349,
+          "negative_n": 63,
+          "precision": 0.9886039886039886,
+          "recall": 0.9914285714285714,
+          "true": 347
+        },
+        "label": "same",
+        "paired_precision_difference": {
+          "draws": 1000,
+          "interval": [
+            0.0,
+            0.01464615192169372
+          ],
+          "note": "Exploratory paired component bootstrap, conditional on frozen decisions and score-only selected sets; no multiplicity correction.",
+          "units": 413,
+          "valid_draws": 1000
+        },
+        "selected": {
+          "accepted": 351,
+          "coverage": 0.8498789346246973,
+          "false": 2,
+          "false_positive_rate": 0.031746031746031744,
+          "negative_n": 63,
+          "precision": 0.9943019943019943,
+          "recall": 0.9971428571428571,
+          "true": 349
+        },
+        "selection_rule": "Sort predicted-primary actions by score descending then row ID; common count is the smaller available set. Gold is not used to select actions."
+      }
+    },
+    "relation_support": {
+      "arms": {
+        "baseline_choice": {
+          "actions": {
+            "REFUTES": {
+              "accepted": 84,
+              "coverage": 0.24778761061946902,
+              "false": 19,
+              "false_positive_rate": 0.0708955223880597,
+              "negative_n": 268,
+              "precision": 0.7738095238095238,
+              "recall": 0.9154929577464789,
+              "true": 65
+            },
+            "SUPPORTS": {
+              "accepted": 140,
+              "coverage": 0.41297935103244837,
+              "false": 18,
+              "false_positive_rate": 0.08955223880597014,
+              "negative_n": 201,
+              "precision": 0.8714285714285714,
+              "recall": 0.8840579710144928,
+              "true": 122
+            }
+          },
+          "confusion": {
+            "NOT_ENOUGH_INFO -> ERROR": 1,
+            "NOT_ENOUGH_INFO -> NOT_ENOUGH_INFO": 102,
+            "NOT_ENOUGH_INFO -> REFUTES": 13,
+            "NOT_ENOUGH_INFO -> SUPPORTS": 14,
+            "REFUTES -> NOT_ENOUGH_INFO": 2,
+            "REFUTES -> REFUTES": 65,
+            "REFUTES -> SUPPORTS": 4,
+            "SUPPORTS -> NOT_ENOUGH_INFO": 10,
+            "SUPPORTS -> REFUTES": 6,
+            "SUPPORTS -> SUPPORTS": 122
+          },
+          "errors": 1,
+          "gold_counts": {
+            "NOT_ENOUGH_INFO": 130,
+            "REFUTES": 71,
+            "SUPPORTS": 138
+          },
+          "graph": {
+            "accepted_assertion_ids": [
+              "scifact-100-4381486",
+              "scifact-1012-9745001",
+              "scifact-1019-11603066",
+              "scifact-1024-5373138",
+              "scifact-1029-11899391",
+              "scifact-1029-13923140",
+              "scifact-1029-13940200",
+              "scifact-1041-16626264",
+              "scifact-1049-12486491",
+              "scifact-1062-20381484",
+              "scifact-1086-39281140",
+              "scifact-1088-37549932",
+              "scifact-1089-17628888",
+              "scifact-1100-7662206",
+              "scifact-1104-3898784",
+              "scifact-1107-20532591",
+              "scifact-1110-13770184",
+              "scifact-1121-4456756",
+              "scifact-113-6157837",
+              "scifact-1130-17997584",
+              "scifact-1137-33370",
+              "scifact-1140-12009265",
+              "scifact-1144-10071552",
+              "scifact-1146-13906581",
+              "scifact-115-33872649",
+              "scifact-1150-11369420",
+              "scifact-1163-15305881",
+              "scifact-118-6372244",
+              "scifact-1180-31272411",
+              "scifact-1185-16737210",
+              "scifact-1187-52873726",
+              "scifact-1194-11419230",
+              "scifact-1202-3475317",
+              "scifact-1207-18909530",
+              "scifact-1216-24142891",
+              "scifact-1221-19736671",
+              "scifact-1225-9650982",
+              "scifact-1232-13905670",
+              "scifact-124-4883040",
+              "scifact-1241-4427392",
+              "scifact-1259-24341590",
+              "scifact-1262-44172171",
+              "scifact-1266-37480103",
+              "scifact-1270-13900610",
+              "scifact-1271-13768432",
+              "scifact-1272-17081238",
+              "scifact-1273-11041152",
+              "scifact-1274-4406819",
+              "scifact-1278-11335781",
+              "scifact-129-27768226",
+              "scifact-1290-4687948",
+              "scifact-1292-56893404",
+              "scifact-1298-11718220",
+              "scifact-130-27768226",
+              "scifact-1303-12631697",
+              "scifact-1319-16284655",
+              "scifact-1320-16284655",
+              "scifact-133-16280642",
+              "scifact-1335-27910499",
+              "scifact-1336-27910499",
+              "scifact-1339-15482274",
+              "scifact-1344-9559146",
+              "scifact-1352-12885341",
+              "scifact-1359-11614737",
+              "scifact-137-26016929",
+              "scifact-1370-2425364",
+              "scifact-1379-16322674",
+              "scifact-1379-17450673",
+              "scifact-1379-23557241",
+              "scifact-1379-27123743",
+              "scifact-1382-17755060",
+              "scifact-1385-306006",
+              "scifact-1389-23895668",
+              "scifact-141-14437255",
+              "scifact-142-10582939",
+              "scifact-143-10582939",
+              "scifact-146-10582939",
+              "scifact-148-1084345",
+              "scifact-163-18872233",
+              "scifact-171-12670680",
+              "scifact-179-16322674",
+              "scifact-179-17450673",
+              "scifact-179-23557241",
+              "scifact-179-27123743",
+              "scifact-180-16966326",
+              "scifact-183-12827098",
+              "scifact-185-18340282",
+              "scifact-198-2177022",
+              "scifact-208-13519661",
+              "scifact-212-22038539",
+              "scifact-216-21366394",
+              "scifact-217-21366394",
+              "scifact-218-21366394",
+              "scifact-219-21366394",
+              "scifact-230-3067015",
+              "scifact-233-4388470",
+              "scifact-239-14079881",
+              "scifact-248-1568684",
+              "scifact-249-1568684",
+              "scifact-261-10697096",
+              "scifact-261-1122279",
+              "scifact-274-11614737",
+              "scifact-275-4961038",
+              "scifact-279-14376683",
+              "scifact-295-20310709",
+              "scifact-298-39381118",
+              "scifact-314-4347374",
+              "scifact-327-17997584",
+              "scifact-338-23349986",
+              "scifact-350-16927286",
+              "scifact-354-8774475",
+              "scifact-362-38587347",
+              "scifact-380-19005293",
+              "scifact-385-9767444",
+              "scifact-385-9955779",
+              "scifact-386-16495649",
+              "scifact-399-791050",
+              "scifact-410-14924526",
+              "scifact-415-6309659",
+              "scifact-42-18174210",
+              "scifact-431-28937856",
+              "scifact-443-10165258",
+              "scifact-452-12804937",
+              "scifact-452-464511",
+              "scifact-475-18678095",
+              "scifact-478-14767844",
+              "scifact-48-13734012",
+              "scifact-49-5953485",
+              "scifact-5-13734012",
+              "scifact-50-12580014",
+              "scifact-501-17930286",
+              "scifact-51-45638119",
+              "scifact-513-13230773",
+              "scifact-514-16256507",
+              "scifact-516-29564505",
+              "scifact-521-34873974",
+              "scifact-525-13639330",
+              "scifact-527-3863543",
+              "scifact-528-5476778",
+              "scifact-53-45638119",
+              "scifact-532-12991445",
+              "scifact-533-12991445",
+              "scifact-536-16056514",
+              "scifact-539-13282296",
+              "scifact-54-49556906",
+              "scifact-540-11886686",
+              "scifact-540-25007443",
+              "scifact-549-9433958",
+              "scifact-552-1471041",
+              "scifact-56-4709641",
+              "scifact-569-23460562",
+              "scifact-57-4709641",
+              "scifact-577-5289038",
+              "scifact-578-8764879",
+              "scifact-589-10984005",
+              "scifact-593-19675911",
+              "scifact-597-25742130",
+              "scifact-597-36355784",
+              "scifact-598-25742130",
+              "scifact-613-9638032",
+              "scifact-619-20888849",
+              "scifact-619-2565138",
+              "scifact-623-17000834",
+              "scifact-636-24294572",
+              "scifact-641-5912283",
+              "scifact-649-12789595",
+              "scifact-674-2095573",
+              "scifact-692-24088502",
+              "scifact-693-24088502",
+              "scifact-70-4414547",
+              "scifact-70-5956380",
+              "scifact-718-17587795",
+              "scifact-72-6076903",
+              "scifact-721-1834762",
+              "scifact-723-5531479",
+              "scifact-728-36444198",
+              "scifact-729-26851674",
+              "scifact-742-32159283",
+              "scifact-743-32159283",
+              "scifact-744-8460275",
+              "scifact-756-2831620",
+              "scifact-759-1805641",
+              "scifact-770-15476777",
+              "scifact-781-24338780",
+              "scifact-783-40632104",
+              "scifact-784-2356950",
+              "scifact-793-8551160",
+              "scifact-805-22180793",
+              "scifact-808-36606083",
+              "scifact-811-19799455",
+              "scifact-823-15319019",
+              "scifact-832-30303335",
+              "scifact-837-15928989",
+              "scifact-839-1469751",
+              "scifact-845-17741440",
+              "scifact-847-16787954",
+              "scifact-852-13843341",
+              "scifact-859-1982286",
+              "scifact-873-1180972",
+              "scifact-873-19307912",
+              "scifact-873-27393799",
+              "scifact-873-29025270",
+              "scifact-873-3315558",
+              "scifact-879-8426046",
+              "scifact-880-8426046",
+              "scifact-882-14803797",
+              "scifact-903-10648422",
+              "scifact-904-7370282",
+              "scifact-907-6923961",
+              "scifact-911-11254556",
+              "scifact-921-1642727",
+              "scifact-922-17077004",
+              "scifact-936-5483793",
+              "scifact-956-12956194",
+              "scifact-957-123859",
+              "scifact-960-8780599",
+              "scifact-967-8997410",
+              "scifact-971-27873158",
+              "scifact-971-28617573",
+              "scifact-971-46695481",
+              "scifact-971-9764256",
+              "scifact-982-2988714",
+              "scifact-985-6828370",
+              "scifact-993-16472469"
+            ],
+            "audit": {
+              "events": 1,
+              "head_hash": "fb1bcaab66d18ae498a8d9106a035758971e6b38f2b2d2fdc6fe78fcc75efcf7",
+              "state_hash": "e4183b754e14bc7c9d88a9d027628a63fc9265b937dceca499c11709443aea8c"
+            },
+            "committed_label_correct": 187,
+            "committed_label_incorrect": 37,
+            "lifecycle": {
+              "active_after_withdrawal": 219,
+              "actual_retractions": 5,
+              "audit_after_withdrawal": {
+                "events": 2,
+                "head_hash": "ac88878461c22ca1afcb1afc60900114a8c86452eee7c5a61eb3cdea21526972",
+                "state_hash": "0656f83b806d8a4fd6c8c65ccf3bd98ff24d55c797147a2989a26246ab787eb5"
+              },
+              "durable_reopen_equal": true,
+              "expected_retractions": 5,
+              "original_assertions_preserved": 224,
+              "withdrawn_evidence": "538f62db1e1b1c283c58e293fd4a2d7ebda11efdceb3ec8115bbe3557f80a303"
+            },
+            "metrics": {
+              "assertions": 224,
+              "claims_with_opposing_source_labels": 0,
+              "directed_pair_density": 0.0006601710550358673,
+              "distinct_directed_pairs": 224,
+              "distinct_source_content_origins": 583,
+              "identity_components": 583,
+              "isolates": 180,
+              "largest_component": 6,
+              "max_in_degree": 5,
+              "max_out_degree": 4,
+              "multi_label_directed_pairs": 0,
+              "node_type_counts": {
+                "Claim": 300,
+                "Document": 283
+              },
+              "nodes": 583,
+              "reciprocal_pair_sets": 0,
+              "relation_counts": {
+                "refutes": 84,
+                "supports": 140
+              },
+              "relation_endpoint_type_counts": {
+                "Document -> refutes -> Claim": 84,
+                "Document -> supports -> Claim": 140
+              },
+              "self_relationship_pairs": 0,
+              "typed_edges": 224,
+              "weak_component_size_histogram": {
+                "1": 180,
+                "2": 156,
+                "3": 19,
+                "4": 3,
+                "5": 2,
+                "6": 2
+              },
+              "weak_components": 362
+            },
+            "not_measured": "open-corpus candidate retrieval, biomedical entity/predicate extraction, or independently observed updates",
+            "semantics": "claim-source evidence graph",
+            "threshold": 0.0
+          },
+          "groups": 247,
+          "n": 339,
+          "recorded_usage": {
+            "calls": 339,
+            "input_tokens": 258495,
+            "missing_usage": 0,
+            "note": "Historical service measurements; replay has zero new provider usage. Extraction/retrieval/storage/review costs excluded.",
+            "output_tokens": 17096,
+            "sum_original_call_latency_ms": 135452.78640001197
+          },
+          "reliability": {
+            "REFUTES": [
+              {
+                "bin": 0,
+                "lower": 0.0,
+                "mean_probability": 0.007982456140350877,
+                "n": 228,
+                "observed_fraction": 0.0043859649122807015,
+                "upper": 0.1
+              },
+              {
+                "bin": 1,
+                "lower": 0.1,
+                "mean_probability": 0.138125,
+                "n": 16,
+                "observed_fraction": 0.1875,
+                "upper": 0.2
+              },
+              {
+                "bin": 2,
+                "lower": 0.2,
+                "mean_probability": 0.25,
+                "n": 4,
+                "observed_fraction": 0.25,
+                "upper": 0.3
+              },
+              {
+                "bin": 3,
+                "lower": 0.3,
+                "mean_probability": 0.3666666666666667,
+                "n": 3,
+                "observed_fraction": 0.3333333333333333,
+                "upper": 0.4
+              },
+              {
+                "bin": 4,
+                "lower": 0.4,
+                "mean_probability": 0.4266666666666667,
+                "n": 3,
+                "observed_fraction": 0.0,
+                "upper": 0.5
+              },
+              {
+                "bin": 5,
+                "lower": 0.5,
+                "mean_probability": 0.5333333333333333,
+                "n": 3,
+                "observed_fraction": 0.0,
+                "upper": 0.6
+              },
+              {
+                "bin": 6,
+                "lower": 0.6,
+                "mean_probability": 0.63,
+                "n": 2,
+                "observed_fraction": 0.5,
+                "upper": 0.7
+              },
+              {
+                "bin": 7,
+                "lower": 0.7,
+                "mean_probability": 0.7666666666666666,
+                "n": 6,
+                "observed_fraction": 0.5,
+                "upper": 0.8
+              },
+              {
+                "bin": 8,
+                "lower": 0.8,
+                "mean_probability": 0.8280000000000001,
+                "n": 5,
+                "observed_fraction": 0.8,
+                "upper": 0.9
+              },
+              {
+                "bin": 9,
+                "lower": 0.9,
+                "mean_probability": 0.9895588235294118,
+                "n": 68,
+                "observed_fraction": 0.8382352941176471,
+                "upper": 1.0
+              }
+            ],
+            "SUPPORTS": [
+              {
+                "bin": 0,
+                "lower": 0.0,
+                "mean_probability": 0.010783132530120481,
+                "n": 166,
+                "observed_fraction": 0.04819277108433735,
+                "upper": 0.1
+              },
+              {
+                "bin": 1,
+                "lower": 0.1,
+                "mean_probability": 0.14,
+                "n": 13,
+                "observed_fraction": 0.0,
+                "upper": 0.2
+              },
+              {
+                "bin": 2,
+                "lower": 0.2,
+                "mean_probability": 0.23666666666666666,
+                "n": 12,
+                "observed_fraction": 0.3333333333333333,
+                "upper": 0.3
+              },
+              {
+                "bin": 3,
+                "lower": 0.3,
+                "mean_probability": 0.35,
+                "n": 5,
+                "observed_fraction": 0.8,
+                "upper": 0.4
+              },
+              {
+                "bin": 4,
+                "lower": 0.4,
+                "mean_probability": 0.45,
+                "n": 4,
+                "observed_fraction": 0.25,
+                "upper": 0.5
+              },
+              {
+                "bin": 5,
+                "lower": 0.5,
+                "mean_probability": 0.5314285714285715,
+                "n": 7,
+                "observed_fraction": 0.7142857142857143,
+                "upper": 0.6
+              },
+              {
+                "bin": 6,
+                "lower": 0.6,
+                "mean_probability": 0.654,
+                "n": 5,
+                "observed_fraction": 0.2,
+                "upper": 0.7
+              },
+              {
+                "bin": 7,
+                "lower": 0.7,
+                "mean_probability": 0.765,
+                "n": 4,
+                "observed_fraction": 0.5,
+                "upper": 0.8
+              },
+              {
+                "bin": 8,
+                "lower": 0.8,
+                "mean_probability": 0.85,
+                "n": 7,
+                "observed_fraction": 0.8571428571428571,
+                "upper": 0.9
+              },
+              {
+                "bin": 9,
+                "lower": 0.9,
+                "mean_probability": 0.9900869565217392,
+                "n": 115,
+                "observed_fraction": 0.9304347826086956,
+                "upper": 1.0
+              }
+            ]
+          },
+          "risk_curve": [
+            {
+              "accepted": 125,
+              "coverage": 0.3687315634218289,
+              "incorrect": 6,
+              "risk": 0.048,
+              "threshold": 1.0,
+              "tie_block": 125
+            },
+            {
+              "accepted": 147,
+              "coverage": 0.4336283185840708,
+              "incorrect": 10,
+              "risk": 0.06802721088435375,
+              "threshold": 0.99,
+              "tie_block": 22
+            },
+            {
+              "accepted": 160,
+              "coverage": 0.471976401179941,
+              "incorrect": 14,
+              "risk": 0.0875,
+              "threshold": 0.98,
+              "tie_block": 13
+            },
+            {
+              "accepted": 165,
+              "coverage": 0.48672566371681414,
+              "incorrect": 15,
+              "risk": 0.09090909090909091,
+              "threshold": 0.97,
+              "tie_block": 5
+            },
+            {
+              "accepted": 168,
+              "coverage": 0.49557522123893805,
+              "incorrect": 16,
+              "risk": 0.09523809523809523,
+              "threshold": 0.96,
+              "tie_block": 3
+            },
+            {
+              "accepted": 171,
+              "coverage": 0.504424778761062,
+              "incorrect": 17,
+              "risk": 0.09941520467836257,
+              "threshold": 0.95,
+              "tie_block": 3
+            },
+            {
+              "accepted": 173,
+              "coverage": 0.5103244837758112,
+              "incorrect": 17,
+              "risk": 0.09826589595375723,
+              "threshold": 0.94,
+              "tie_block": 2
+            },
+            {
+              "accepted": 175,
+              "coverage": 0.5162241887905604,
+              "incorrect": 17,
+              "risk": 0.09714285714285714,
+              "threshold": 0.93,
+              "tie_block": 2
+            },
+            {
+              "accepted": 179,
+              "coverage": 0.528023598820059,
+              "incorrect": 18,
+              "risk": 0.1005586592178771,
+              "threshold": 0.92,
+              "tie_block": 4
+            },
+            {
+              "accepted": 182,
+              "coverage": 0.5368731563421829,
+              "incorrect": 19,
+              "risk": 0.1043956043956044,
+              "threshold": 0.91,
+              "tie_block": 3
+            },
+            {
+              "accepted": 183,
+              "coverage": 0.5398230088495575,
+              "incorrect": 19,
+              "risk": 0.10382513661202186,
+              "threshold": 0.9,
+              "tie_block": 1
+            },
+            {
+              "accepted": 186,
+              "coverage": 0.5486725663716814,
+              "incorrect": 20,
+              "risk": 0.10752688172043011,
+              "threshold": 0.89,
+              "tie_block": 3
+            },
+            {
+              "accepted": 187,
+              "coverage": 0.551622418879056,
+              "incorrect": 21,
+              "risk": 0.11229946524064172,
+              "threshold": 0.85,
+              "tie_block": 1
+            },
+            {
+              "accepted": 190,
+              "coverage": 0.56047197640118,
+              "incorrect": 21,
+              "risk": 0.11052631578947368,
+              "threshold": 0.84,
+              "tie_block": 3
+            },
+            {
+              "accepted": 191,
+              "coverage": 0.5634218289085545,
+              "incorrect": 21,
+              "risk": 0.1099476439790576,
+              "threshold": 0.83,
+              "tie_block": 1
+            },
+            {
+              "accepted": 193,
+              "coverage": 0.5693215339233039,
+              "incorrect": 21,
+              "risk": 0.10880829015544041,
+              "threshold": 0.81,
+              "tie_block": 2
+            },
+            {
+              "accepted": 195,
+              "coverage": 0.5752212389380531,
+              "incorrect": 21,
+              "risk": 0.1076923076923077,
+              "threshold": 0.8,
+              "tie_block": 2
+            },
+            {
+              "accepted": 197,
+              "coverage": 0.5811209439528023,
+              "incorrect": 22,
+              "risk": 0.1116751269035533,
+              "threshold": 0.79,
+              "tie_block": 2
+            },
+            {
+              "accepted": 199,
+              "coverage": 0.5870206489675516,
+              "incorrect": 22,
+              "risk": 0.11055276381909548,
+              "threshold": 0.78,
+              "tie_block": 2
+            },
+            {
+              "accepted": 201,
+              "coverage": 0.5929203539823009,
+              "incorrect": 23,
+              "risk": 0.11442786069651742,
+              "threshold": 0.76,
+              "tie_block": 2
+            },
+            {
+              "accepted": 205,
+              "coverage": 0.6047197640117994,
+              "incorrect": 26,
+              "risk": 0.12682926829268293,
+              "threshold": 0.75,
+              "tie_block": 4
+            },
+            {
+              "accepted": 206,
+              "coverage": 0.6076696165191741,
+              "incorrect": 27,
+              "risk": 0.13106796116504854,
+              "threshold": 0.69,
+              "tie_block": 1
+            },
+            {
+              "accepted": 208,
+              "coverage": 0.6135693215339233,
+              "incorrect": 28,
+              "risk": 0.1346153846153846,
+              "threshold": 0.67,
+              "tie_block": 2
+            },
+            {
+              "accepted": 210,
+              "coverage": 0.6194690265486725,
+              "incorrect": 30,
+              "risk": 0.14285714285714285,
+              "threshold": 0.64,
+              "tie_block": 2
+            },
+            {
+              "accepted": 211,
+              "coverage": 0.6224188790560472,
+              "incorrect": 30,
+              "risk": 0.14218009478672985,
+              "threshold": 0.62,
+              "tie_block": 1
+            },
+            {
+              "accepted": 212,
+              "coverage": 0.6253687315634219,
+              "incorrect": 31,
+              "risk": 0.14622641509433962,
+              "threshold": 0.6,
+              "tie_block": 1
+            },
+            {
+              "accepted": 213,
+              "coverage": 0.6283185840707964,
+              "incorrect": 32,
+              "risk": 0.15023474178403756,
+              "threshold": 0.57,
+              "tie_block": 1
+            },
+            {
+              "accepted": 215,
+              "coverage": 0.6342182890855457,
+              "incorrect": 33,
+              "risk": 0.15348837209302327,
+              "threshold": 0.56,
+              "tie_block": 2
+            },
+            {
+              "accepted": 217,
+              "coverage": 0.640117994100295,
+              "incorrect": 33,
+              "risk": 0.15207373271889402,
+              "threshold": 0.54,
+              "tie_block": 2
+            },
+            {
+              "accepted": 218,
+              "coverage": 0.6430678466076696,
+              "incorrect": 34,
+              "risk": 0.1559633027522936,
+              "threshold": 0.53,
+              "tie_block": 1
+            },
+            {
+              "accepted": 220,
+              "coverage": 0.6489675516224189,
+              "incorrect": 35,
+              "risk": 0.1590909090909091,
+              "threshold": 0.51,
+              "tie_block": 2
+            },
+            {
+              "accepted": 222,
+              "coverage": 0.6548672566371682,
+              "incorrect": 36,
+              "risk": 0.16216216216216217,
+              "threshold": 0.5,
+              "tie_block": 2
+            },
+            {
+              "accepted": 223,
+              "coverage": 0.6578171091445427,
+              "incorrect": 36,
+              "risk": 0.16143497757847533,
+              "threshold": 0.46,
+              "tie_block": 1
+            },
+            {
+              "accepted": 224,
+              "coverage": 0.6607669616519174,
+              "incorrect": 37,
+              "risk": 0.16517857142857142,
+              "threshold": 0.43,
+              "tie_block": 1
+            }
+          ]
+        },
+        "fewshot_contract": {
+          "actions": {
+            "REFUTES": {
+              "accepted": 74,
+              "coverage": 0.2182890855457227,
+              "false": 12,
+              "false_positive_rate": 0.04477611940298507,
+              "negative_n": 268,
+              "precision": 0.8378378378378378,
+              "recall": 0.8732394366197183,
+              "true": 62
+            },
+            "SUPPORTS": {
+              "accepted": 118,
+              "coverage": 0.3480825958702065,
+              "false": 8,
+              "false_positive_rate": 0.03980099502487562,
+              "negative_n": 201,
+              "precision": 0.9322033898305084,
+              "recall": 0.7971014492753623,
+              "true": 110
+            }
+          },
+          "confusion": {
+            "NOT_ENOUGH_INFO -> ERROR": 1,
+            "NOT_ENOUGH_INFO -> NOT_ENOUGH_INFO": 116,
+            "NOT_ENOUGH_INFO -> REFUTES": 7,
+            "NOT_ENOUGH_INFO -> SUPPORTS": 6,
+            "REFUTES -> NOT_ENOUGH_INFO": 7,
+            "REFUTES -> REFUTES": 62,
+            "REFUTES -> SUPPORTS": 2,
+            "SUPPORTS -> ERROR": 1,
+            "SUPPORTS -> NOT_ENOUGH_INFO": 22,
+            "SUPPORTS -> REFUTES": 5,
+            "SUPPORTS -> SUPPORTS": 110
+          },
+          "errors": 2,
+          "gold_counts": {
+            "NOT_ENOUGH_INFO": 130,
+            "REFUTES": 71,
+            "SUPPORTS": 138
+          },
+          "graph": {
+            "accepted_assertion_ids": [
+              "scifact-100-4381486",
+              "scifact-1012-9745001",
+              "scifact-1029-11899391",
+              "scifact-1029-13923140",
+              "scifact-1029-13940200",
+              "scifact-1041-16626264",
+              "scifact-1049-12486491",
+              "scifact-1062-20381484",
+              "scifact-1086-39281140",
+              "scifact-1088-37549932",
+              "scifact-1089-17628888",
+              "scifact-1104-3898784",
+              "scifact-1107-20532591",
+              "scifact-1110-13770184",
+              "scifact-1121-4456756",
+              "scifact-113-6157837",
+              "scifact-1130-17997584",
+              "scifact-1137-33370",
+              "scifact-1140-12009265",
+              "scifact-1144-10071552",
+              "scifact-1146-13906581",
+              "scifact-1150-11369420",
+              "scifact-118-6372244",
+              "scifact-1180-31272411",
+              "scifact-1185-16737210",
+              "scifact-1187-52873726",
+              "scifact-1202-3475317",
+              "scifact-1207-18909530",
+              "scifact-1216-24142891",
+              "scifact-1225-9650982",
+              "scifact-1232-13905670",
+              "scifact-124-4883040",
+              "scifact-1241-4427392",
+              "scifact-1259-24341590",
+              "scifact-1262-44172171",
+              "scifact-1270-13900610",
+              "scifact-1271-13768432",
+              "scifact-1273-11041152",
+              "scifact-1278-11335781",
+              "scifact-129-27768226",
+              "scifact-1290-4687948",
+              "scifact-1292-56893404",
+              "scifact-1298-11718220",
+              "scifact-130-27768226",
+              "scifact-1303-12631697",
+              "scifact-1319-16284655",
+              "scifact-133-16280642",
+              "scifact-1335-27910499",
+              "scifact-1336-27910499",
+              "scifact-1339-15482274",
+              "scifact-1352-12885341",
+              "scifact-1359-11614737",
+              "scifact-137-26016929",
+              "scifact-1370-2425364",
+              "scifact-1379-16322674",
+              "scifact-1379-17450673",
+              "scifact-1379-23557241",
+              "scifact-1379-27123743",
+              "scifact-1382-17755060",
+              "scifact-1385-306006",
+              "scifact-1389-23895668",
+              "scifact-141-14437255",
+              "scifact-142-10582939",
+              "scifact-143-10582939",
+              "scifact-146-10582939",
+              "scifact-148-1084345",
+              "scifact-163-18872233",
+              "scifact-171-12670680",
+              "scifact-179-16322674",
+              "scifact-179-17450673",
+              "scifact-179-23557241",
+              "scifact-179-27123743",
+              "scifact-180-16966326",
+              "scifact-183-12827098",
+              "scifact-185-18340282",
+              "scifact-208-13519661",
+              "scifact-212-22038539",
+              "scifact-216-21366394",
+              "scifact-217-21366394",
+              "scifact-218-21366394",
+              "scifact-219-21366394",
+              "scifact-230-3067015",
+              "scifact-233-4388470",
+              "scifact-248-1568684",
+              "scifact-249-1568684",
+              "scifact-261-10697096",
+              "scifact-261-1122279",
+              "scifact-274-11614737",
+              "scifact-275-4961038",
+              "scifact-279-14376683",
+              "scifact-295-20310709",
+              "scifact-298-39381118",
+              "scifact-314-4347374",
+              "scifact-327-17997584",
+              "scifact-338-23349986",
+              "scifact-354-8774475",
+              "scifact-380-19005293",
+              "scifact-385-9767444",
+              "scifact-385-9955779",
+              "scifact-386-16495649",
+              "scifact-399-791050",
+              "scifact-410-14924526",
+              "scifact-42-18174210",
+              "scifact-443-10165258",
+              "scifact-452-12804937",
+              "scifact-452-464511",
+              "scifact-49-5953485",
+              "scifact-5-13734012",
+              "scifact-50-12580014",
+              "scifact-501-17930286",
+              "scifact-51-45638119",
+              "scifact-513-13230773",
+              "scifact-514-16256507",
+              "scifact-516-29564505",
+              "scifact-521-34873974",
+              "scifact-525-13639330",
+              "scifact-528-5476778",
+              "scifact-53-45638119",
+              "scifact-532-12991445",
+              "scifact-533-12991445",
+              "scifact-536-16056514",
+              "scifact-539-13282296",
+              "scifact-54-49556906",
+              "scifact-540-11886686",
+              "scifact-549-9433958",
+              "scifact-56-4709641",
+              "scifact-569-23460562",
+              "scifact-57-4709641",
+              "scifact-577-5289038",
+              "scifact-578-8764879",
+              "scifact-589-10984005",
+              "scifact-593-19675911",
+              "scifact-597-25742130",
+              "scifact-597-36355784",
+              "scifact-598-25742130",
+              "scifact-613-9638032",
+              "scifact-619-20888849",
+              "scifact-619-2565138",
+              "scifact-636-24294572",
+              "scifact-641-5912283",
+              "scifact-674-2095573",
+              "scifact-692-24088502",
+              "scifact-693-24088502",
+              "scifact-70-4414547",
+              "scifact-70-5956380",
+              "scifact-718-17587795",
+              "scifact-72-6076903",
+              "scifact-721-1834762",
+              "scifact-723-5531479",
+              "scifact-729-26851674",
+              "scifact-742-32159283",
+              "scifact-743-32159283",
+              "scifact-744-8460275",
+              "scifact-759-1805641",
+              "scifact-781-24338780",
+              "scifact-783-40632104",
+              "scifact-784-2356950",
+              "scifact-793-8551160",
+              "scifact-805-22180793",
+              "scifact-808-36606083",
+              "scifact-811-19799455",
+              "scifact-823-15319019",
+              "scifact-832-30303335",
+              "scifact-837-15928989",
+              "scifact-839-1469751",
+              "scifact-845-17741440",
+              "scifact-847-16787954",
+              "scifact-852-13843341",
+              "scifact-859-1982286",
+              "scifact-873-1180972",
+              "scifact-873-19307912",
+              "scifact-873-27393799",
+              "scifact-873-29025270",
+              "scifact-873-3315558",
+              "scifact-879-8426046",
+              "scifact-880-8426046",
+              "scifact-882-14803797",
+              "scifact-903-10648422",
+              "scifact-904-7370282",
+              "scifact-907-6923961",
+              "scifact-921-1642727",
+              "scifact-922-17077004",
+              "scifact-936-5483793",
+              "scifact-957-123859",
+              "scifact-967-8997410",
+              "scifact-971-27873158",
+              "scifact-971-28617573",
+              "scifact-971-46695481",
+              "scifact-971-9764256",
+              "scifact-982-2988714",
+              "scifact-985-6828370",
+              "scifact-993-16472469"
+            ],
+            "audit": {
+              "events": 1,
+              "head_hash": "8a9583e901971ca844f1ed810ffd1519d85d8c0559ff34e799b64f95135991c1",
+              "state_hash": "d4c06582888cf54048df8c6bb5799a98e5e8e15fb5e66ceb5784d16bb10d8d7b"
+            },
+            "committed_label_correct": 172,
+            "committed_label_incorrect": 20,
+            "lifecycle": {
+              "active_after_withdrawal": 187,
+              "actual_retractions": 5,
+              "audit_after_withdrawal": {
+                "events": 2,
+                "head_hash": "e32c63d2d1b14866a357f571ca40e184a7efe6123060529500627650c4394ae0",
+                "state_hash": "bcd16aa483bd090e43d35c8d336a73400e99d4893b58984dfcd7f5f31dcdf4d4"
+              },
+              "durable_reopen_equal": true,
+              "expected_retractions": 5,
+              "original_assertions_preserved": 192,
+              "withdrawn_evidence": "538f62db1e1b1c283c58e293fd4a2d7ebda11efdceb3ec8115bbe3557f80a303"
+            },
+            "metrics": {
+              "assertions": 192,
+              "claims_with_opposing_source_labels": 0,
+              "directed_pair_density": 0.0005658609043164577,
+              "distinct_directed_pairs": 192,
+              "distinct_source_content_origins": 583,
+              "identity_components": 583,
+              "isolates": 241,
+              "largest_component": 6,
+              "max_in_degree": 5,
+              "max_out_degree": 4,
+              "multi_label_directed_pairs": 0,
+              "node_type_counts": {
+                "Claim": 300,
+                "Document": 283
+              },
+              "nodes": 583,
+              "reciprocal_pair_sets": 0,
+              "relation_counts": {
+                "refutes": 74,
+                "supports": 118
+              },
+              "relation_endpoint_type_counts": {
+                "Document -> refutes -> Claim": 74,
+                "Document -> supports -> Claim": 118
+              },
+              "self_relationship_pairs": 0,
+              "typed_edges": 192,
+              "weak_component_size_histogram": {
+                "1": 241,
+                "2": 130,
+                "3": 16,
+                "4": 3,
+                "5": 2,
+                "6": 2
+              },
+              "weak_components": 394
+            },
+            "not_measured": "open-corpus candidate retrieval, biomedical entity/predicate extraction, or independently observed updates",
+            "semantics": "claim-source evidence graph",
+            "threshold": 0.0
+          },
+          "groups": 247,
+          "n": 339,
+          "recorded_usage": {
+            "calls": 339,
+            "input_tokens": 1213458,
+            "missing_usage": 0,
+            "note": "Historical service measurements; replay has zero new provider usage. Extraction/retrieval/storage/review costs excluded.",
+            "output_tokens": 17846,
+            "sum_original_call_latency_ms": 142005.45580000652
+          },
+          "reliability": {
+            "REFUTES": [
+              {
+                "bin": 0,
+                "lower": 0.0,
+                "mean_probability": 0.005725806451612903,
+                "n": 248,
+                "observed_fraction": 0.020161290322580645,
+                "upper": 0.1
+              },
+              {
+                "bin": 1,
+                "lower": 0.1,
+                "mean_probability": 0.12625,
+                "n": 8,
+                "observed_fraction": 0.0,
+                "upper": 0.2
+              },
+              {
+                "bin": 2,
+                "lower": 0.2,
+                "mean_probability": 0.22333333333333336,
+                "n": 3,
+                "observed_fraction": 1.0,
+                "upper": 0.3
+              },
+              {
+                "bin": 3,
+                "lower": 0.3,
+                "mean_probability": 0.31,
+                "n": 1,
+                "observed_fraction": 0.0,
+                "upper": 0.4
+              },
+              {
+                "bin": 4,
+                "lower": 0.4,
+                "mean_probability": 0.47,
+                "n": 4,
+                "observed_fraction": 0.5,
+                "upper": 0.5
+              },
+              {
+                "bin": 5,
+                "lower": 0.5,
+                "mean_probability": 0.54,
+                "n": 1,
+                "observed_fraction": 0.0,
+                "upper": 0.6
+              },
+              {
+                "bin": 6,
+                "lower": 0.6,
+                "mean_probability": 0.6366666666666666,
+                "n": 3,
+                "observed_fraction": 0.3333333333333333,
+                "upper": 0.7
+              },
+              {
+                "bin": 7,
+                "lower": 0.7,
+                "mean_probability": 0.75,
+                "n": 5,
+                "observed_fraction": 1.0,
+                "upper": 0.8
+              },
+              {
+                "bin": 8,
+                "lower": 0.8,
+                "mean_probability": 0.8699999999999999,
+                "n": 5,
+                "observed_fraction": 0.8,
+                "upper": 0.9
+              },
+              {
+                "bin": 9,
+                "lower": 0.9,
+                "mean_probability": 0.9813559322033898,
+                "n": 59,
+                "observed_fraction": 0.864406779661017,
+                "upper": 1.0
+              }
+            ],
+            "SUPPORTS": [
+              {
+                "bin": 0,
+                "lower": 0.0,
+                "mean_probability": 0.006243386243386243,
+                "n": 189,
+                "observed_fraction": 0.0582010582010582,
+                "upper": 0.1
+              },
+              {
+                "bin": 1,
+                "lower": 0.1,
+                "mean_probability": 0.14166666666666666,
+                "n": 12,
+                "observed_fraction": 0.4166666666666667,
+                "upper": 0.2
+              },
+              {
+                "bin": 2,
+                "lower": 0.2,
+                "mean_probability": 0.26399999999999996,
+                "n": 5,
+                "observed_fraction": 0.6,
+                "upper": 0.3
+              },
+              {
+                "bin": 3,
+                "lower": 0.3,
+                "mean_probability": 0.34199999999999997,
+                "n": 5,
+                "observed_fraction": 0.6,
+                "upper": 0.4
+              },
+              {
+                "bin": 4,
+                "lower": 0.4,
+                "mean_probability": 0.4375,
+                "n": 8,
+                "observed_fraction": 0.625,
+                "upper": 0.5
+              },
+              {
+                "bin": 5,
+                "lower": 0.5,
+                "mean_probability": 0.545,
+                "n": 4,
+                "observed_fraction": 0.5,
+                "upper": 0.6
+              },
+              {
+                "bin": 6,
+                "lower": 0.6,
+                "mean_probability": 0.65,
+                "n": 4,
+                "observed_fraction": 1.0,
+                "upper": 0.7
+              },
+              {
+                "bin": 7,
+                "lower": 0.7,
+                "mean_probability": 0.75,
+                "n": 8,
+                "observed_fraction": 0.875,
+                "upper": 0.8
+              },
+              {
+                "bin": 8,
+                "lower": 0.8,
+                "mean_probability": 0.8619999999999999,
+                "n": 10,
+                "observed_fraction": 0.9,
+                "upper": 0.9
+              },
+              {
+                "bin": 9,
+                "lower": 0.9,
+                "mean_probability": 0.9827173913043478,
+                "n": 92,
+                "observed_fraction": 0.9565217391304348,
+                "upper": 1.0
+              }
+            ]
+          },
+          "risk_curve": [
+            {
+              "accepted": 73,
+              "coverage": 0.2153392330383481,
+              "incorrect": 5,
+              "risk": 0.0684931506849315,
+              "threshold": 1.0,
+              "tie_block": 73
+            },
+            {
+              "accepted": 101,
+              "coverage": 0.29793510324483774,
+              "incorrect": 9,
+              "risk": 0.0891089108910891,
+              "threshold": 0.99,
+              "tie_block": 28
+            },
+            {
+              "accepted": 116,
+              "coverage": 0.3421828908554572,
+              "incorrect": 9,
+              "risk": 0.07758620689655173,
+              "threshold": 0.98,
+              "tie_block": 15
+            },
+            {
+              "accepted": 121,
+              "coverage": 0.35693215339233036,
+              "incorrect": 9,
+              "risk": 0.0743801652892562,
+              "threshold": 0.97,
+              "tie_block": 5
+            },
+            {
+              "accepted": 128,
+              "coverage": 0.3775811209439528,
+              "incorrect": 9,
+              "risk": 0.0703125,
+              "threshold": 0.96,
+              "tie_block": 7
+            },
+            {
+              "accepted": 130,
+              "coverage": 0.3834808259587021,
+              "incorrect": 9,
+              "risk": 0.06923076923076923,
+              "threshold": 0.95,
+              "tie_block": 2
+            },
+            {
+              "accepted": 134,
+              "coverage": 0.3952802359882006,
+              "incorrect": 10,
+              "risk": 0.07462686567164178,
+              "threshold": 0.9400000000000001,
+              "tie_block": 4
+            },
+            {
+              "accepted": 137,
+              "coverage": 0.40412979351032446,
+              "incorrect": 12,
+              "risk": 0.08759124087591241,
+              "threshold": 0.94,
+              "tie_block": 3
+            },
+            {
+              "accepted": 141,
+              "coverage": 0.415929203539823,
+              "incorrect": 12,
+              "risk": 0.0851063829787234,
+              "threshold": 0.93,
+              "tie_block": 4
+            },
+            {
+              "accepted": 142,
+              "coverage": 0.41887905604719766,
+              "incorrect": 12,
+              "risk": 0.08450704225352113,
+              "threshold": 0.9299999999999999,
+              "tie_block": 1
+            },
+            {
+              "accepted": 145,
+              "coverage": 0.4277286135693215,
+              "incorrect": 12,
+              "risk": 0.08275862068965517,
+              "threshold": 0.92,
+              "tie_block": 3
+            },
+            {
+              "accepted": 148,
+              "coverage": 0.4365781710914454,
+              "incorrect": 12,
+              "risk": 0.08108108108108109,
+              "threshold": 0.91,
+              "tie_block": 3
+            },
+            {
+              "accepted": 151,
+              "coverage": 0.44542772861356933,
+              "incorrect": 12,
+              "risk": 0.07947019867549669,
+              "threshold": 0.9,
+              "tie_block": 3
+            },
+            {
+              "accepted": 156,
+              "coverage": 0.46017699115044247,
+              "incorrect": 14,
+              "risk": 0.08974358974358974,
+              "threshold": 0.89,
+              "tie_block": 5
+            },
+            {
+              "accepted": 159,
+              "coverage": 0.4690265486725664,
+              "incorrect": 14,
+              "risk": 0.0880503144654088,
+              "threshold": 0.88,
+              "tie_block": 3
+            },
+            {
+              "accepted": 162,
+              "coverage": 0.4778761061946903,
+              "incorrect": 14,
+              "risk": 0.08641975308641975,
+              "threshold": 0.86,
+              "tie_block": 3
+            },
+            {
+              "accepted": 164,
+              "coverage": 0.4837758112094395,
+              "incorrect": 14,
+              "risk": 0.08536585365853659,
+              "threshold": 0.84,
+              "tie_block": 2
+            },
+            {
+              "accepted": 165,
+              "coverage": 0.48672566371681414,
+              "incorrect": 14,
+              "risk": 0.08484848484848485,
+              "threshold": 0.82,
+              "tie_block": 1
+            },
+            {
+              "accepted": 166,
+              "coverage": 0.4896755162241888,
+              "incorrect": 14,
+              "risk": 0.08433734939759036,
+              "threshold": 0.8,
+              "tie_block": 1
+            },
+            {
+              "accepted": 167,
+              "coverage": 0.49262536873156343,
+              "incorrect": 14,
+              "risk": 0.08383233532934131,
+              "threshold": 0.79,
+              "tie_block": 1
+            },
+            {
+              "accepted": 169,
+              "coverage": 0.49852507374631266,
+              "incorrect": 15,
+              "risk": 0.08875739644970414,
+              "threshold": 0.78,
+              "tie_block": 2
+            },
+            {
+              "accepted": 170,
+              "coverage": 0.5014749262536873,
+              "incorrect": 15,
+              "risk": 0.08823529411764706,
+              "threshold": 0.77,
+              "tie_block": 1
+            },
+            {
+              "accepted": 172,
+              "coverage": 0.5073746312684366,
+              "incorrect": 15,
+              "risk": 0.0872093023255814,
+              "threshold": 0.76,
+              "tie_block": 2
+            },
+            {
+              "accepted": 174,
+              "coverage": 0.5132743362831859,
+              "incorrect": 15,
+              "risk": 0.08620689655172414,
+              "threshold": 0.75,
+              "tie_block": 2
+            },
+            {
+              "accepted": 176,
+              "coverage": 0.5191740412979351,
+              "incorrect": 15,
+              "risk": 0.08522727272727272,
+              "threshold": 0.74,
+              "tie_block": 2
+            },
+            {
+              "accepted": 177,
+              "coverage": 0.5221238938053098,
+              "incorrect": 15,
+              "risk": 0.0847457627118644,
+              "threshold": 0.72,
+              "tie_block": 1
+            },
+            {
+              "accepted": 178,
+              "coverage": 0.5250737463126843,
+              "incorrect": 15,
+              "risk": 0.08426966292134831,
+              "threshold": 0.71,
+              "tie_block": 1
+            },
+            {
+              "accepted": 179,
+              "coverage": 0.528023598820059,
+              "incorrect": 15,
+              "risk": 0.08379888268156424,
+              "threshold": 0.7,
+              "tie_block": 1
+            },
+            {
+              "accepted": 181,
+              "coverage": 0.5339233038348082,
+              "incorrect": 16,
+              "risk": 0.08839779005524862,
+              "threshold": 0.69,
+              "tie_block": 2
+            },
+            {
+              "accepted": 182,
+              "coverage": 0.5368731563421829,
+              "incorrect": 16,
+              "risk": 0.08791208791208792,
+              "threshold": 0.67,
+              "tie_block": 1
+            },
+            {
+              "accepted": 185,
+              "coverage": 0.5457227138643068,
+              "incorrect": 17,
+              "risk": 0.0918918918918919,
+              "threshold": 0.62,
+              "tie_block": 3
+            },
+            {
+              "accepted": 186,
+              "coverage": 0.5486725663716814,
+              "incorrect": 17,
+              "risk": 0.0913978494623656,
+              "threshold": 0.6,
+              "tie_block": 1
+            },
+            {
+              "accepted": 187,
+              "coverage": 0.551622418879056,
+              "incorrect": 18,
+              "risk": 0.0962566844919786,
+              "threshold": 0.59,
+              "tie_block": 1
+            },
+            {
+              "accepted": 189,
+              "coverage": 0.5575221238938053,
+              "incorrect": 19,
+              "risk": 0.10052910052910052,
+              "threshold": 0.54,
+              "tie_block": 2
+            },
+            {
+              "accepted": 190,
+              "coverage": 0.56047197640118,
+              "incorrect": 19,
+              "risk": 0.1,
+              "threshold": 0.53,
+              "tie_block": 1
+            },
+            {
+              "accepted": 191,
+              "coverage": 0.5634218289085545,
+              "incorrect": 20,
+              "risk": 0.10471204188481675,
+              "threshold": 0.52,
+              "tie_block": 1
+            },
+            {
+              "accepted": 192,
+              "coverage": 0.5663716814159292,
+              "incorrect": 20,
+              "risk": 0.10416666666666667,
+              "threshold": 0.49,
+              "tie_block": 1
+            }
+          ]
+        }
+      },
+      "matched": {
+        "accepted_per_arm": 118,
+        "baseline": {
+          "accepted": 118,
+          "coverage": 0.3480825958702065,
+          "false": 9,
+          "false_positive_rate": 0.04477611940298507,
+          "negative_n": 201,
+          "precision": 0.923728813559322,
+          "recall": 0.7898550724637681,
+          "true": 109
+        },
+        "label": "SUPPORTS",
+        "paired_precision_difference": {
+          "draws": 1000,
+          "interval": [
+            -0.027080858202213228,
+            0.04824722357275675
+          ],
+          "note": "Exploratory paired component bootstrap, conditional on frozen decisions and score-only selected sets; no multiplicity correction.",
+          "units": 247,
+          "valid_draws": 1000
+        },
+        "selected": {
+          "accepted": 118,
+          "coverage": 0.3480825958702065,
+          "false": 8,
+          "false_positive_rate": 0.03980099502487562,
+          "negative_n": 201,
+          "precision": 0.9322033898305084,
+          "recall": 0.7971014492753623,
+          "true": 110
+        },
+        "selection_rule": "Sort predicted-primary actions by score descending then row ID; common count is the smaller available set. Gold is not used to select actions."
+      }
+    }
+  }
+}

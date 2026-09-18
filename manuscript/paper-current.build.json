@@ -1,6 +1,6 @@
 {
-  "source_sha256": "e827a0d64a77e279a3d96c6692a1b9c62a29297b3bce1331f3ce61e7afa90357",
+  "source_sha256": "153e6e2ff64f3d4b56e5f322a1602ee0152776a55b46bf90b056fa05fb5e321c",
   "renderer_sha256": "b1ecb302903b01907b9c4dbd931862ef0f62c50804ca92077fd9ac26eb1354a4",
-  "pdf_sha256": "f2d5e99e224f74316bd11da163c6f69c9746e84d6efa47d37f5e49f6ee7365f2",
+  "pdf_sha256": "9c005711192f227eb008b4e122c4f73e1e32eb641398d6399d023add7f13486a",
   "note": "Local-only assets; PDF bytes may vary with renderer and fonts."
 }

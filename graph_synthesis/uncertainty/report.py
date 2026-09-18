@@ -110,6 +110,9 @@ def render(r):
             'python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf',
             '```', '',
             'The [machine-readable results](results.json) preserve fixture inputs, oracle values, all review-subset scores, repair witnesses, retraction feasibility, snapshot outcomes, controls and source/protocol hashes. The [execution notes](EXECUTION_NOTES.md) distinguish implementation/test corrections from endpoint changes. The extension manifest binds code, protocol, results, tests, logs, report, CSV and five SVG/PNG pairs. The mutable complete manuscript is bound by its separate build manifest. Earlier study blocks and archived raw evidence are preserved; no original manuscript is overwritten.', '']
+    audit = (HERE / 'NOVELTY_AUDIT.md').read_text(encoding='utf-8').strip()
+    position = out.index('| Hypothesis | Frozen primary target | Outcome | Evidence population |')
+    out[position:position] = [audit, '']
     return '\n'.join(out)
 
 

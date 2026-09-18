@@ -24,6 +24,14 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
+<!-- FRONTIER_RESEARCH_START -->
+
+## Five structural-frontier extensions after PR #17
+
+[Executed report](graph_synthesis/frontier/RESULTS.md), [pre-execution protocol](graph_synthesis/frontier/PROTOCOL.md), [novelty audit](graph_synthesis/frontier/NOVELTY.md), [five figure pairs](graph_synthesis/frontier/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1/H3/H4/H5 meet controlled supplied-input targets; H2 fails its frozen review-quality target. Source-conditioned probabilities prevent nine independent-marginal false admissions on 96 controlled fixtures; all three review selectors tie at 13.043478 expected contaminated groups. Ten large lineage formulas and nine bipartite conflict fixtures are exact. Connected-path summary transitions fall by 96.47%, excluding linear witness decoding. No new Jev calls, independent semantic-accuracy finding, worldwide novelty claim or production-policy change. All earlier studies and negative results remain intact.
+
+<!-- FRONTIER_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

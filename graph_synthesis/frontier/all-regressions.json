@@ -1,0 +1,32 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "python": "3.12.14",
+  "skipped": 0,
+  "successful": true,
+  "test_files": {
+    "graph_synthesis/adaptive/tests/test_adaptive.py": "33d3e4ba211b3f1a9a0e9c5565d9114b723b0b8ff24d8d48682f403f56e0f86b",
+    "graph_synthesis/adaptive/tests/test_paths.py": "1d6a739f2f47e9bfe5992fe9a5ffff4caf5a6d50f2385f0f07d1d99be279d40e",
+    "graph_synthesis/adaptive/tests/test_reporting.py": "3987ac1ce369d421a1cee912dd90100bb4f07abdb80d565db959d8ab0c8625c1",
+    "graph_synthesis/corpus/tests/test_plan.py": "098842e6be66864184eaa9c4fc706aee8dc0f1b0d4c15abc425309c7841bb62b",
+    "graph_synthesis/followup/tests/test_followup.py": "86466d1356fee23205e4446c7aa1339cbfffe5544a4fda172bd2ed6a7cbdab8d",
+    "graph_synthesis/frontier/tests/test_frontier.py": "a85a4be15f7094eb9f567c0636613c17874a9819821b6d824661cd611851aa1d",
+    "graph_synthesis/reliability/tests/test_artifacts.py": "a8048c6a33a52046603a1de6a9227ecfe6993ac4b833ce4acc7f6a3bd234116d",
+    "graph_synthesis/reliability/tests/test_methods.py": "89e5e1d4070e4c5fb1e2572a0b6b9bf1e76feb9e41d4e6baecb18c08027b5db3",
+    "graph_synthesis/reliability/tests/test_rendering.py": "8ca9bc04944aafc2c3e4474b7f3afb1970280bb417e186e1969bf891c941ebaa",
+    "graph_synthesis/risk_control/tests/test_methods.py": "d93e660327616cef310b1d3834167c1ff412eabca1dc868cf32cd54f5b3124fb",
+    "graph_synthesis/risk_control/tests/test_reporting.py": "e3458a80b58fd428c48a405a9add2237f3a9d7bf716d1492a7aedd065c837229",
+    "graph_synthesis/tests/test_core.py": "3808856aafbcff2105c48dd8ad931a8a125f01b9bcb7232d2cc1f61f03b8d19e",
+    "graph_synthesis/tests/test_edge_fusion.py": "50e6cd01575ba2f8c4d46b8827a621748e6a3b834175dc1b5de17cff5ebe30be",
+    "graph_synthesis/tests/test_falsification.py": "58e3ef25403894c3b1ef4842f6008a5a5bfd449d7b39cc9e346c49c71e57f4df",
+    "graph_synthesis/tests/test_live_challenge.py": "5f3f2ab065d0cea15fff08dd1c6143776c9e72ddb5f1c3f87bb7023b1eaba8b7",
+    "graph_synthesis/tests/test_multicall.py": "44bb07f0dc40fb9edfe7c33aa3ec977ff506ed3190f448fd39740cb775ad5463",
+    "graph_synthesis/tests/test_multicall_analysis.py": "9891f05f73b0ca4cfbd19c8582e7aaf9492ebb9eb7ef278f72ca271280be1c08",
+    "graph_synthesis/tests/test_research.py": "adf67daa0d88d7ec099cb3da78346012afe9a79ecd6b263ebdb275eaf68c199f",
+    "graph_synthesis/tests/test_semantic_challenge.py": "adf3af99b600b11ca90890d08488b74da04a4990dcb7f1559e128cef8f2e1e05",
+    "graph_synthesis/tests/test_visualize.py": "d86ff2747599aaa8f596fe0223682f4eea9e7611f6445ee94c5597bad6e22a7f",
+    "graph_synthesis/tests/test_visualize_evidence.py": "dc6b39d826fbdc072e48570ec7ffdcf6c0c8f586eb4586ecfea625d0715ff76e",
+    "graph_synthesis/theory_suite/tests/test_methods.py": "ee30c260f146ecffade7a476ddd56c9e449dfa8dddc8259d86060f672ea46e38"
+  },
+  "tests_run": 604
+}

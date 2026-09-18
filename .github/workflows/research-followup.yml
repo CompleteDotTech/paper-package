@@ -1,0 +1,22 @@
+name: Five improvement follow-up
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Archive exact source snapshot
+        run: git archive --format=tar.gz HEAD -o /tmp/followup-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: followup-source
+          path: /tmp/followup-source.tar.gz
+          retention-days: 7

@@ -1,0 +1,219 @@
+name: Complete live DSPy calibration comparison v2
+on:
+  pull_request:
+    paths:
+      - 'graph_synthesis/dspy_benchmark_v2/**'
+      - '.github/workflows/dspy-benchmark-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: dspy-v2-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      LITELLM_LOCAL_MODEL_COST_MAP: 'True'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt typesafe-sdk==0.7.0
+      - run: python -B -m graph_synthesis.dspy_jev_optimizer.verify
+      - name: Test original optimizer plus amended adapter and statistics
+        env:
+          REQUIRE_SDK_TESTS: '1'
+        run: |
+          python -B -m unittest discover -s graph_synthesis/dspy_jev_optimizer/tests -v
+          python -B -m unittest graph_synthesis.dspy_benchmark.test_study graph_synthesis.dspy_benchmark.test_audit graph_synthesis.dspy_benchmark_v2.test_adapter graph_synthesis.dspy_multicall.test_run graph_synthesis.dspy_benchmark_analysis.test_report graph_synthesis.dspy_benchmark_analysis.test_multicall_report -v
+  primary:
+    needs: verify
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        include:
+          - {task: relation_support, arm: baseline_choice}
+          - {task: relation_support, arm: evidence_contract}
+          - {task: relation_support, arm: conditional_nouls}
+          - {task: relation_support, arm: fewshot_contract}
+          - {task: entity_resolution, arm: baseline_noul}
+          - {task: entity_resolution, arm: identity_contract}
+          - {task: entity_resolution, arm: identity_noul}
+          - {task: entity_resolution, arm: fewshot_contract}
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    env:
+      LITELLM_LOCAL_MODEL_COST_MAP: 'True'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt
+          python -m pip freeze > "$RUNNER_TEMP/environment.txt"
+      - name: Start checksum-pinned local proposal model without credentials
+        run: bash graph_synthesis/dspy_benchmark/start_proposer.sh
+      - name: Validate real flat-field generation before Jev inference
+        run: |
+          python - <<'PY'
+          import json
+          from graph_synthesis.dspy_benchmark_v2.adapter import proposer
+          dspy,lm,predictor=proposer(17)
+          q={'type':'choice','instructions':'Do these records refer to the same item?','criteria':{'same':'same underlying item','different':'different items'}}
+          with dspy.context(lm=lm,adapter=dspy.JSONAdapter()):
+              p=predictor(task='entity_resolution',questions_json=json.dumps([q]),training_feedback_json='[]',iteration=0)
+          assert len(p.improved_instructions)==1 and isinstance(p.improved_instructions[0],str)
+          assert len(p.improved_criteria)==1 and set(p.improved_criteria[0])=={'same','different'}
+          print('Actual local DSPy generation respects fixed question and criterion shape.')
+          PY
+      - name: Execute five fresh searches and complete calibrated evaluation grid
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: >-
+          python -B -m graph_synthesis.dspy_benchmark_v2.execution
+          --task '${{ matrix.task }}' --arm '${{ matrix.arm }}'
+          --output "${{ runner.temp }}/primary/${{ matrix.task }}--${{ matrix.arm }}"
+      - name: Preserve complete or failed primary capture
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-v2-primary-${{ matrix.task }}--${{ matrix.arm }}
+          path: |
+            ${{ runner.temp }}/primary/
+            ${{ runner.temp }}/environment.txt
+            ${{ runner.temp }}/dspy-proposer/server.log
+          retention-days: 30
+          if-no-files-found: warn
+  transfer:
+    needs: primary
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0,1,2,3,4,5,6,7]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0
+      - name: Retrieve all five frozen few-shot searches from this run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh run download '${{ github.run_id }}' --repo CompleteDotTech/paper-package
+          --name dspy-v2-primary-relation_support--fewshot_contract --dir "$RUNNER_TEMP/upstream"
+      - name: Compare all seven original workflows with baseline and five DSPy prompts
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          CAPTURE="$(find "$RUNNER_TEMP/upstream" -name freeze.json -printf '%h\n' | head -1)"
+          test -n "$CAPTURE"
+          python -B -m graph_synthesis.dspy_benchmark_v2.multicall --capture "$CAPTURE" --shard '${{ matrix.shard }}' --output "$RUNNER_TEMP/transfer/shard-${{ matrix.shard }}"
+      - name: Preserve complete or failed workflow capture
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-v2-transfer-${{ matrix.shard }}
+          path: ${{ runner.temp }}/transfer/
+          retention-days: 30
+          if-no-files-found: warn
+  analyze:
+    needs: [primary, transfer]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 matplotlib==3.10.8
+      - name: Retrieve complete captures and all prior pilot evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download '${{ github.run_id }}' --repo CompleteDotTech/paper-package --pattern 'dspy-v2-primary-*' --dir "$RUNNER_TEMP/primary-input"
+          gh run download '${{ github.run_id }}' --repo CompleteDotTech/paper-package --pattern 'dspy-v2-transfer-*' --dir "$RUNNER_TEMP/transfer-input"
+          for RUN in 35339699653 35340617823; do
+            gh run download "$RUN" --repo CompleteDotTech/paper-package --pattern 'dspy-live-*' --dir "$RUNNER_TEMP/pilots/$RUN"
+          done
+      - name: Verify raw evidence, recompute calibration and paired statistics, replay graph compiler
+        run: |
+          python -B - <<'PY'
+          import os,pathlib
+          from graph_synthesis.dspy_benchmark_v2.adapter import probabilities
+          from graph_synthesis.dspy_benchmark import study
+          study.probabilities=probabilities
+          from graph_synthesis.dspy_benchmark_analysis.report import load_capture,analyze
+          temp=pathlib.Path(os.environ['RUNNER_TEMP'])
+          paths=sorted(p.parent for p in (temp/'primary-input').rglob('execution.json') if (p.parent/'protocol.json').exists())
+          captures=[load_capture(p) for p in paths]
+          assert {(c.task,c.arm) for c in captures}=={(t,a) for t,arms in study.ARMS.items() for a in arms}
+          assert len(captures)==8 and all(c.protocol['revision']==2 for c in captures)
+          analyze(captures,temp/'evidence'/'primary',graphs=True)
+          from graph_synthesis.dspy_benchmark_v2.multicall import install
+          install()
+          from graph_synthesis.dspy_benchmark_analysis.multicall_report import report
+          capture=next(c.directory for c in captures if c.task=='relation_support' and c.arm=='fewshot_contract')
+          report(temp/'transfer-input',capture,temp/'evidence'/'multicall')
+          PY
+      - name: Package source, environments, raw observations and pilot overhead
+        run: |
+          python - <<'PY'
+          import gzip,json,os,pathlib,shutil
+          temp=pathlib.Path(os.environ['RUNNER_TEMP']);out=temp/'evidence'
+          for kind,source in [('primary','primary-input'),('transfer','transfer-input')]:
+              for p in (temp/source).rglob('execution.json'):
+                  if (p.parent/'protocol.json').exists():
+                      destination=out/'captures'/kind/p.parent.name
+                      shutil.copytree(p.parent,destination)
+              environments=list((temp/source).rglob('environment.txt'))
+              for i,p in enumerate(environments):
+                  destination=out/'environments'/f'{kind}-{i}.txt';destination.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,destination)
+          pilots=[]
+          for path in (temp/'pilots').rglob('calls.jsonl.gz'):
+              run=next(part for part in path.parts if part in ('35339699653','35340617823'))
+              target=out/'pilots'/run/path.parent.name;shutil.copytree(path.parent,target)
+              calls=[json.loads(line) for line in gzip.open(path,'rt')]
+              pilots.append({'run':run,'formulation':path.parent.name,'http_attempts':len(calls),'successful_responses':sum(r['error'] is None for r in calls),'reported_input_tokens':sum((r.get('response') or {}).get('usage',{}).get('input_tokens',0) for r in calls),'test_calls':sum(r['site'].startswith('test/') for r in calls),'completed':(path.parent/'execution.json').exists(),'note':'Original nested-output pilot; not pooled with v2 seeds.'})
+          (out/'pilot-summary.json').write_text(json.dumps(pilots,indent=2)+'\n')
+          PY
+          git archive --format=tar HEAD > "$RUNNER_TEMP/evidence/repository-source.tar"
+          python -m pip freeze > "$RUNNER_TEMP/evidence/analysis-environment.txt"
+          python - <<'PY'
+          import hashlib,json,os,pathlib
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])/'evidence'
+          files={p.relative_to(out).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
+          (out/'package-manifest.json').write_text(json.dumps({'sha256':files},indent=2)+'\n')
+          PY
+      - name: Preserve audited reports and underlying observations
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-v2-complete-evidence
+          path: ${{ runner.temp }}/evidence/
+          retention-days: 30
+          if-no-files-found: warn

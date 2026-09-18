@@ -1,0 +1,149 @@
+name: Live DSPy repeatability and batching diagnostics
+on:
+  pull_request:
+    paths:
+      - 'graph_synthesis/dspy_diagnostics/**'
+      - '.github/workflows/dspy-diagnostics.yml'
+      - 'experiments/dspy-calibration-20260918/REPEATABILITY_PROTOCOL.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: dspy-repeatability-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+jobs:
+  prerequisite:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0
+      - name: Validate request reconstruction and full synthetic replay
+        run: python -B -m unittest graph_synthesis.dspy_diagnostics.test_run graph_synthesis.dspy_diagnostics.test_roundtrip -v
+      - name: Require all eight successful frozen v2 primary captures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,time,urllib.request
+          base='https://api.github.com/repos/CompleteDotTech/paper-package/actions/'
+          def get(path):
+              request=urllib.request.Request(base+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              with urllib.request.urlopen(request,timeout=30) as response:return json.load(response)
+          run=get('runs/35342763186')
+          assert run['head_sha']=='1f081b6be42bb454f241fb8765d597f4674da13f','Wrong upstream source'
+          for attempt in range(160):
+              jobs=[j for j in get('runs/35342763186/jobs?per_page=100')['jobs'] if j['name'].startswith('primary (')]
+              if len(jobs)==8:
+                  failures=[j for j in jobs if j['status']=='completed' and j['conclusion']!='success']
+                  assert not failures, 'An upstream formulation failed; no diagnostics from incomplete captures'
+                  if all(j['status']=='completed' for j in jobs):
+                      print('All eight frozen v2 primary captures completed successfully.')
+                      break
+              time.sleep(30)
+          else:raise RuntimeError('Bounded upstream dependency window expired')
+          PY
+  live:
+    needs: prerequisite
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [relation_support, entity_resolution]
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install numpy==2.3.5 scipy==1.17.0
+          python -m pip freeze > "$RUNNER_TEMP/environment.txt"
+      - name: Retrieve the fixed v2 prompts and fitted calibrators
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh run download 35342763186 --repo CompleteDotTech/paper-package
+          --pattern 'dspy-v2-primary-*' --dir "$RUNNER_TEMP/primary"
+      - name: Execute three fresh repeats and matched batched/isolated requests
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: >-
+          python -B -m graph_synthesis.dspy_diagnostics.run
+          --task '${{ matrix.task }}' --input "$RUNNER_TEMP/primary"
+          --output "$RUNNER_TEMP/diagnostic/${{ matrix.task }}"
+      - name: Preserve raw diagnostic observations
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-repeatbatch-${{ matrix.task }}
+          path: |
+            ${{ runner.temp }}/diagnostic/
+            ${{ runner.temp }}/environment.txt
+          retention-days: 30
+          if-no-files-found: warn
+  analyze:
+    needs: live
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 matplotlib==3.10.8
+      - name: Retrieve completed diagnostic and primary captures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download '${{ github.run_id }}' --repo CompleteDotTech/paper-package --pattern 'dspy-repeatbatch-*' --dir "$RUNNER_TEMP/diagnostic-input"
+          gh run download 35342763186 --repo CompleteDotTech/paper-package --pattern 'dspy-v2-primary-*' --dir "$RUNNER_TEMP/primary-input"
+      - name: Reconstruct every diagnostic request and quantify calibration, service variation and packing
+        run: |
+          python -B -m graph_synthesis.dspy_diagnostics.report --input "$RUNNER_TEMP/diagnostic-input" --primary "$RUNNER_TEMP/primary-input" --output "$RUNNER_TEMP/evidence/repeatability"
+          python -B -m graph_synthesis.dspy_diagnostics.quality --input "$RUNNER_TEMP/primary-input" --output "$RUNNER_TEMP/evidence/quality"
+      - name: Bind source, environments and raw observations to verified reports
+        run: |
+          python - <<'PY'
+          import os,pathlib,shutil
+          temp=pathlib.Path(os.environ['RUNNER_TEMP']);out=temp/'evidence'
+          for path in (temp/'diagnostic-input').rglob('execution.json'):
+              if (path.parent/'protocol.json').exists():shutil.copytree(path.parent,out/'captures'/path.parent.name)
+          for i,path in enumerate((temp/'diagnostic-input').rglob('environment.txt')):
+              target=out/'environments'/f'capture-{i}.txt';target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
+          PY
+          git archive --format=tar HEAD > "$RUNNER_TEMP/evidence/repository-source.tar"
+          python -m pip freeze > "$RUNNER_TEMP/evidence/analysis-environment.txt"
+          python - <<'PY'
+          import hashlib,json,os,pathlib
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'evidence'
+          files={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*')) if p.is_file()}
+          (root/'package-manifest.json').write_text(json.dumps({'sha256':files},indent=2)+'\n')
+          PY
+      - name: Preserve independently audited diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-repeatbatch-complete-evidence
+          path: ${{ runner.temp }}/evidence/
+          retention-days: 30
+          if-no-files-found: warn

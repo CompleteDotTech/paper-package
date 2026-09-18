@@ -10,7 +10,11 @@ concurrency:
   cancel-in-progress: true
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    # Frozen runner paths and exact output bytes were recorded on Windows.
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 25
     env:
       PYTHONDONTWRITEBYTECODE: '1'

@@ -27,9 +27,11 @@ The corrected baseline and selected formulation use the same requested Jev model
 
 All 3,644 predictions can be reconstructed from saved responses. The package verifier copies its runtime to a temporary directory, disables networking, checks the independent artifact audit, replays every phase and compares the original calls, predictions, calibration and results byte for byte. Fresh service repeat panels are separate measurements and do not establish bitwise determinism.
 
-The requested source/data/code are included. Virtual environments, model weights, API credentials and session logs are excluded. The Jev replay needs no model weights or credentials. Earlier specialist results are included for historical context, but their locally trained checkpoints are not included and exact specialist retraining is not part of the verified Jev replay.
+The source code and experiment evidence are included. Public datasets and prepared dataset files are downloaded and regenerated with `python -B scripts/download_datasets.py`; they are excluded from Git. Virtual environments, model weights, API credentials and session logs are excluded. The Jev replay needs no model weights or credentials. Earlier specialist results are included for historical context, but their locally trained checkpoints are not included and exact specialist retraining is not part of the verified Jev replay.
 
 ## Scope and attribution
+
+Standalone public datasets are fetched on demand. Saved experiment plans and API requests still contain the selected examples required to audit the reported results. `PROVENANCE.json` and the archived validation report describe the original assembly; `MANIFEST.json` describes the current repository files and `scripts/datasets.json` records the expected downloaded dataset bytes.
 
 The original research material proposed a much broader graph compiler. This package's primary manuscript reports the actually executed Jev decision study; the broader system remains background. Old publication drafts are archived with their supersession notices and must not be used as current measured claims.
 

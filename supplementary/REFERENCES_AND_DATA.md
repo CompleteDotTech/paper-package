@@ -37,7 +37,7 @@ The Ditto PDF's reference-format block says 2021, while publisher-deposited [Cro
 | Loaded members | `corpus.jsonl`, `claims_train.jsonl`, `claims_dev.jsonl`; cross-validation copies excluded |
 | Prepared split digest | `cd48ed975a8b02d57be219eef6eec92e384905d4b4d9580afc9026d79504a381` |
 
-The URL contains `latest`, so reproducibility depends on the checked content digest, not that URL alone. The archive is retained in the package's reproduction data sources.
+The URL contains `latest`, so reproducibility depends on the checked content digest, not that URL alone. The archive is fetched by `scripts/download_datasets.py` into the ignored reproduction data directory and checked against this digest; it is not bundled in Git.
 
 **Changes from upstream:** claims are paired only with their supplied cited abstracts. Labels map `SUPPORT` to `SUPPORTS` and `CONTRADICT` to `REFUTES`; absent evidence labels for a supplied cited document map to `NOT_ENOUGH_INFO`. Complete abstracts are retained. Rationale indices remain audit metadata and are not used to choose model evidence. The official development claims supply the evaluation set. Training claims sharing an evaluation document or duplicate abstract are purged (272 claims); remaining connected claim/document/duplicate-abstract components divide training and calibration. This yields 459 training, 150 calibration, and 339 evaluation rows, with 247 evaluation components. Only six training demonstrations and 60 additional training development examples are used by the Jev selection procedure.
 

@@ -117,7 +117,7 @@ The paired source-group bootstrap uses 4,000 draws with seed 20260924, fixed fit
 
 There are {d['small_failures']} small-tree failures across {d['small_updates']:,} updates, and {bal['failures']+path['failures']} failures on the two large workloads. The primary target is **{status(d)}**. Invalid weight/structural updates preserve state; repeated identical weights visit zero DP nodes.
 
-**Cost boundary.** Reconstruction traverses the whole tree on demand. Counting both DP visits and eager reconstruction visits reduces the balanced improvement to {bal['dp_plus_reconstruction_saving']:.2%} and the path improvement to {path['dp_plus_reconstruction_saving']:.2%}. These sums are transparent operation accounting, not uniform CPU-cost models or measured latency. Tall paths, changing topology and consumers demanding a complete repair after every update limit the gain. No corresponding reduction in service cost, database I/O or arbitrary-graph maintenance is established.
+**Cost boundary.** Reconstruction traverses the whole tree on demand. The cold reference computes the optimum value; the accounting charges it the same full-tree reconstruction traversal measured for the delta implementation. Counting both DP visits and these eager reconstruction visits reduces the balanced improvement to {bal['dp_plus_reconstruction_saving']:.2%} and the path improvement to {path['dp_plus_reconstruction_saving']:.2%}. These sums are transparent operation accounting, not uniform CPU-cost models or measured latency. Tall paths, changing topology and consumers demanding a complete repair after every update limit the gain. No corresponding reduction in service cost, database I/O or arbitrary-graph maintenance is established.
 
 ![H4. DP savings with the separately charged full-repair reconstruction work visible.](figures/04_connected_tree_work.png)
 
@@ -220,9 +220,10 @@ def figures(r):
 
 def replace(text,body):
     text=re.sub(re.escape(START)+r'.*?'+re.escape(END)+r'\s*','',text,flags=re.S)
-    if text.count(ANCHOR)!=1:raise ValueError('Expected exactly one preceding reliability section')
-    before,after=text.split(ANCHOR)
-    return before+ANCHOR+'\n\n'+START+'\n\n'+body.strip()+'\n\n'+END+'\n\n'+after.lstrip()
+    anchor=next((marker for marker in ('<!-- SOURCE_STRUCTURAL_RESEARCH_END -->', '<!-- STRUCTURAL_RESEARCH_END -->', ANCHOR) if marker in text), ANCHOR)
+    if text.count(anchor)!=1:raise ValueError('Expected exactly one preceding research section')
+    before,after=text.split(anchor)
+    return before+anchor+'\n\n'+START+'\n\n'+body.strip()+'\n\n'+END+'\n\n'+after.lstrip()
 
 
 def update_paper(r):

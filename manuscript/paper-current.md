@@ -448,148 +448,316 @@ The machine-readable results preserve development fold exclusions, all calibrati
 
 <!-- RELIABILITY_RESEARCH_END -->
 
-<!-- ASSUMPTION_AWARE_RESEARCH_START -->
+<!-- STRUCTURAL_RESEARCH_START -->
 
-# Assumption-aware graph synthesis: five falsifiable follow-up experiments
+# Reliability ranking, source diversity and bounded exact inference for Jev graph synthesis
 
 Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026
 
 ## Abstract
 
-The expanded Jev research distinguishes better typed decisions from stronger graph infrastructure. This follow-up tests five responses to unresolved limitations in PR #17: dependence-robust probability envelopes, answers invariant across optimal repairs, query-exposure-weighted review, connected-tree delta updates, and grounded cyclic provenance. Marginal-only probability envelopes reduce mean uncertainty width by 4.96%, missing the frozen 10% target. Query-weighted review also fails: at 20 idealized reviews, weighted residual contamination rises from 50 to 63, while contaminated source groups rise from 8 to 11. The three other controlled targets are met. Connected balanced-tree DP visits fall by 97.63%; agenda-indexed grounding reduces counted dependency inspections by 94.28%. These are bounded supplied-input engineering results, not new semantic accuracy, independent validation, external-system superiority, or production readiness. **Fresh Jev calls: 0.**
+Five refinements follow the latest risk-controlled experiments. Source-balanced reliability ranking reduces wrong accepted edges from 17 to 15 at an equal volume of 145 edges, but the 11.76% reduction misses the frozen 20% target. Source diversification covers more source groups but retains fewer correct edges and contaminates more groups. Dependence-robust review allocation meets its mathematical objective yet worsens the observed-label reviewer simulation at the primary budget. Bounded exact lineage inference recovers 16 controlled high-probability admissions lost by conservative bounds, without an oracle error. Feedback-cutset conditioning extends exact conflict optimization to the tested cyclic components of up to 256 assertions. These last two successes concern supplied probability and priority models, not improved scientific extraction or factual truth. No fresh Jev calls, independent semantic validation or production-policy change is claimed.
 
-## 1. Motivation, scope and novelty boundary
+## 1. Research motivation and evidence boundary
 
-The [preceding reliability study](../graph_synthesis/reliability/RESULTS.md) tightened lineage under assumed independence, but its deliberately false independence input still inflated 0.8 to 0.96. Its exact conflict optimizer could select a false high-priority assertion. Its component cache saved no solver work on the connected stress graph. Its single-view review economy did not establish effectiveness on an observed query workload. These limitations motivate changing the admissible assumptions and query semantics rather than simply asking the same model more times.
+The [preceding risk-control study](../graph_synthesis/risk_control/RESULTS.md) exposed a useful distinction: reliable execution, estimated risk, structural consistency and factual correctness are different properties. Its economical routing guard rejected every learned candidate, source-risk gating lost substantial correct-edge coverage, qualifier checks supplied no valid veto, and review risk estimates were optimistic. The controlled forest solver succeeded but staged large cyclic components. The [earlier follow-up](../graph_synthesis/followup/RESULTS.md) supplied conservative probability bounds for shared proof lineage. These findings motivate different acceptance rankings and exact downstream inference instead of another correlated vote.
 
-The [frozen protocol](../graph_synthesis/assumption_aware/PROTOCOL.md) was committed as `82ee57229570bb9f7299e0418a5f9b959c25d59f` against baseline `a62a3257645d8e35cd4e45be53bfa9511d27724b` before implementation and execution. Prior findings informed hypothesis choice. This is exploratory follow-up, not independent preregistration. H3 reuses 73 development cases in 40 groups and 263 evaluation cases in 149 groups; no new holdout is claimed. Raw-response reconstruction, unique identities, source-group separation and input hashes are checked before scoring. The policy receives no evaluation gold. Algorithm fixtures in H1/H2/H4/H5 are generated from the committed seeds, and all successful, unsuccessful and assumption-breaking cases remain in [results.json](../graph_synthesis/assumption_aware/results.json).
+The [protocol](../graph_synthesis/structural/PROTOCOL.md) was committed as `466c3dadffee223d67eb06e2ad1032155fc84430` before these new policies were executed, against baseline `338981392c77f4771cdbb58a9f8c90fd723da64a`. Earlier aggregate results and test cases had already been inspected. This is a frozen exploratory follow-up, not an independent preregistration. H1-H3 reuse authentic captured requests and responses: 73 development candidates in 40 source groups and 263 evaluation candidates in 149 groups. Fitting uses development labels only; selection interfaces receive no gold labels. Raw-response reconstruction, hashes and source-group separation pass before analysis.
 
-These five combinations were not found as executed suites in the audited baseline implementation. They are **not claims that the underlying ideas have never been attempted anywhere**. Probability envelopes already use linear programming in probabilistic satisfiability ([Hansen and Perron](https://doi.org/10.1016/j.ijar.2007.03.001)); all-repair semantics are established ([Staworko et al.](https://arxiv.org/abs/0908.0464)); utility-oriented KG auditing has prior empirical work ([Marchesin et al.](https://doi.org/10.1609/hcomp.v12i1.31605)); tree dynamic programming is established ([Gupta et al.](https://arxiv.org/abs/2305.03693)); and recursive materialisation maintenance is established ([Hu et al.](https://doi.org/10.1609/aaai.v32i1.11554)). The [novelty audit](../graph_synthesis/assumption_aware/NOVELTY.md) states the narrower integration differences and search limitations. No external implementation is benchmarked here.
+**Fresh service calls: 0.** The historical 3,024 calls are not counted again. H1-H2 are counterfactual selection over the single-rich capture. H3 is an analytic simulation using assumed reviewer sensitivity and false-removal rates. H4-H5 compare controlled algorithms with independent finite or analytic oracles. No benchmark here evaluates candidate discovery, source extraction, a live human reviewer, an external system such as KARMA, or unattended database writes.
 
-| ID | Proposed improvement | Frozen target | Evidence class |
+An accepted edge is a valid SUPPORTS or REFUTES prediction. It is correct only when its polarity equals the gold label. A wrong polarity is both a wrong accepted edge and a missed gold edge. NOT_ENOUGH_INFO and operational errors are not accepted edges. Source groups are dependence units derived from source identifiers, not measured graph-connected components. A represented group contains an accepted edge; a contaminated group contains at least one wrong accepted edge.
+
+## 2. Frozen primary criteria
+
+| Hypothesis | Required conjunction | Executed outcome |
+|---|---|---|
+| H1: Reliability ranking | At K=145: at least 20% fewer wrong edges, at least 95% natural correct-edge retention, no fewer source groups | Not met |
+| H2: Source-diverse acceptance | At K=100: at least 10% more source groups, at least 98% correct-edge retention, no extra contaminated groups | Not met |
+| H3: Dependence-robust review | At budget 20: strictly fewer expected contaminated observed groups, no fewer expected correct edges, no worse union-bound objective | Not met |
+| H4: Exact shared lineage | All finite/analytic oracles and invariance checks pass; recover at least one valid 0.95 admission without false admissions | Met, controlled algorithms only |
+| H5: Feedback-cutset conflicts | All finite/analytic oracles and order checks pass; no prior utility regression; all 16 large cycles exact and unstaged | Met, controlled algorithms only |
+
+Each target is a conjunction, not an invitation to substitute a favorable secondary metric. Target indicators are engineering criteria, not statistical discoveries. The two evidence types must not be pooled into a semantic success percentage.
+
+## 3. H1: Source-balanced empirical reliability ranking
+
+The policy changes acceptance order rather than requesting another answer. Six bins combine predicted polarity with score intervals [0,0.90), [0.90,0.99) and [0.99,1]. Every development source group with positive predictions contributes total edge weight one. A Beta(1,1)-smoothed global correctness mean supplies four pseudo-observations per bin. Unseen bins use the global mean. Selection orders estimated bin reliability, raw score and finally ID. The unweighted-fit ablation uses the same bins and smoothing without source balancing. No evaluation outcome chooses a parameter.
+
+This exploits label-conditional reliability differences without assuming that raw confidence is calibrated. The fitted global mean is 0.90; bin estimates range from about 0.683 to 0.968. These small-sample estimates are ranking features, not deployment-certified probabilities. Calibration and decision ranking are distinct: a score transformation can alter acceptance order without improving all proper scoring rules. See [Guo et al., On Calibration of Modern Neural Networks](https://proceedings.mlr.press/v70/guo17a.html) for the general calibration distinction, not evidence validating this specific ranking.
+
+| Accepted budget | Policy | Correct / wrong edges | Represented / contaminated groups |
+|---:|---|---:|---:|
+| 100 | raw | 92 / 8 | 69 / 6 |
+| 100 | balanced | 89 / 11 | 74 / 11 |
+| 100 | unweighted | 93 / 7 | 74 / 7 |
+| 125 | raw | 114 / 11 | 83 / 9 |
+| 125 | balanced | 111 / 14 | 84 / 12 |
+| 125 | unweighted | 111 / 14 | 84 / 12 |
+| 145 | raw | 128 / 17 | 95 / 15 |
+| 145 | balanced | 130 / 15 | 95 / 13 |
+| 145 | unweighted | 130 / 15 | 95 / 13 |
+
+At the primary budget, the balanced and unweighted variants both retain 130 correct edges, versus 128 for confidence ranking. Balanced retention is 98.48% of the natural single-rich baseline's 132 correct edges. Represented groups remain 95. However, reducing 17 mistakes to 15 is only 11.76%, below 20%, so H1 fails. At K=100 the balanced fit is worse than both raw confidence and the unweighted ablation. Source balancing therefore cannot be credited with a general improvement.
+
+The fixed-selection balanced-minus-raw precision difference at K=145 has descriptive 95% interval [+0.00, +3.48] percentage points and 99% interval [-0.09, +4.32] points. The former touches zero and the latter crosses it. These intervals do not establish a resolved independent accuracy effect. All variants require the same 263 captured single-rich calls and 941,809 recorded input tokens; this is not a token-saving method.
+
+![H1. Wrong edges at equal accepted volume; the frozen 20% reduction remains unmet.](../graph_synthesis/structural/figures/01_reliability_ranking.png)
+
+## 4. H2: Diminishing-return source diversification
+
+The separate diversity policy repeatedly selects the positive prediction maximizing raw_score / (1 + already_selected_in_source), with raw-score and ID tie-breaking. It does not train on labels or change predictions. The premise is that spreading a limited acceptance budget across sources might improve useful coverage without sacrificing correctness.
+
+| Accepted budget | Confidence: correct / wrong; groups / contaminated | Diverse: correct / wrong; groups / contaminated |
+|---:|---:|---:|
+| 100 | 92 / 8; 69 / 6 | 85 / 15; 98 / 15 |
+| 125 | 114 / 11; 83 / 9 | 108 / 17; 98 / 15 |
+| 145 | 128 / 17; 95 / 15 | 127 / 18; 98 / 15 |
+
+At K=100, coverage rises from 69 to 98 represented groups (42.03%), but correct edges fall from 92 to 85. Retention is only 92.39%, below 98%. Contaminated groups increase from 6 to 15. H2 fails despite the favorable coverage count. At larger budgets the correctness penalty narrows, but no diagnostic budget replaces the primary test.
+
+The mechanism is visible in the policy: a high-confidence second edge in one source can be displaced by a less reliable first edge in another. Coverage is a design preference, not a free accuracy gain. Source-group coverage is not graph-node recall, relationship diversity or recovered scientific knowledge. The ranking still consumes the same full single-rich acquisition budget.
+
+![H2. Budget labels show the tradeoff between represented sources and correct edges.](../graph_synthesis/structural/figures/02_source_coverage.png)
+
+## 5. H3: Review allocation robust to dependence, conditional on valid marginals
+
+For residual edge-error marginals q_i, the probability of any error in a group lies between max(q_i) and min(1, sum(q_i)). The prior independent estimate 1 - product(1-q_i) lies between those bounds. A review multiplies its edge marginal by 1-s, where assumed sensitivity s=0.75. Group-budget dynamic programming minimizes the sum of the upper envelopes. For a fixed review count within a group, reviewing its highest-risk edges minimizes the residual sum; enumerating all group counts then yields the exact global allocation for this supplied objective. This establishes optimality of the modeled allocation, not correctness of the supplied risks.
+
+The development-only risk features and acquisition charges are unchanged from the previous independent-risk optimizer. False removal of a correct reviewed edge is assumed to be 0.05 and measured in the outcome simulation, not included in the allocation objective. Exact subset enumeration on 64 eight-edge fixtures finds zero objective failures. Enumeration of 64 four-edge joint distributions, including dependent errors, finds zero containment failures. These checks validate arithmetic under supplied marginals. A miscalibration control supplies four marginals of 0.01 although the actual union event has probability one: the computed upper envelope 0.04 is then invalid for truth. Removing an independence assumption cannot repair inaccurate marginal estimates.
+
+| Reviews | Independent allocation: expected contaminated / correct | Robust allocation: expected contaminated / correct | Fitted upper envelope (both) |
+|---:|---:|---:|---:|
+| 10 | 12.7500 / 131.70 | 12.7500 / 131.70 | 4.5364 |
+| 20 | 10.6875 / 131.35 | 12.1875 / 131.25 | 4.0978 |
+| 30 | 9.1875 / 130.95 | 10.6875 / 130.85 | 3.8786 |
+| 40 | 9.1875 / 130.45 | 9.1875 / 130.45 | 3.6593 |
+
+At the primary budget 20, the robust allocation leaves 12.1875 expected contaminated groups, versus 10.6875, and retains 131.25 rather than 131.35 expected correct edges. H3 fails. Both allocations tie the fitted upper-envelope objective, so a different optimum can still be worse under the observed-label simulation. The fitted upper envelope near 4.10 is far below either simulation outcome; it is not a calibrated empirical upper confidence bound.
+
+Risk-feature acquisition requires 1,274,247 recorded input tokens before reviewer cost. The stored sensitivity analysis crosses s in {0.5,0.75,1} with false-removal rates {0,0.01,0.05}, keeping selected IDs fixed. These are expectations under assumed independent reviewer detections, not measured human trials or guarantees about correlated reviewer mistakes.
+
+![H3. Observed-label reviewer simulations diverge despite equal modeled robust objectives.](../graph_synthesis/structural/figures/03_review_allocation.png)
+
+## 6. H4: Bounded exact inference over shared proof lineage
+
+A sufficient proof is a conjunction of explicitly supplied primitive Bernoulli events. The accepted assertion is the disjunction of its sufficient proofs. The previous component bounds deduplicate and account conservatively for shared atoms, but can be too loose for admission. The refinement canonicalizes proof clauses, absorbs supersets, and applies Shannon decomposition: P(F) = p_a P(F | a=true) + (1-p_a) P(F | a=false). The most frequent atom is conditioned first, with lexical tie-breaking; canonical residual formulas are memoized. Shared proofs are never treated as independent witnesses.
+
+The exactness follows by the law of total probability and independence of the supplied primitive atoms, not independence of clauses. This is an application of established Boolean/probabilistic inference rather than a newly invented theorem. [Darwiche and Marquis, A Knowledge Compilation Map](https://arxiv.org/abs/1106.1819) situates representation/tractability tradeoffs; [Fink, Han and Olteanu, Aggregation in Probabilistic Databases via Knowledge Compilation](https://arxiv.org/abs/1201.6569) provides related probabilistic-database context. Neither reference validates Jev scores as source reliabilities.
+
+All 128 seeded eight-atom fixtures match full possible-world enumeration within 1e-10. All 512 duplicate/order checks pass. Eight larger shared-hub fixtures also match the analytic probability 0.99 * (1 - 0.5^(n-1)). Their atoms are the independent hub and leaves; proofs share the hub. The old lower bound stays 0.495 while exact probabilities exceed the 0.95 admission threshold.
+
+| Primitive atoms | Old lower bound | Exact / analytic probability | Memoized states |
+|---:|---:|---:|---:|
+| 8 | 0.495000 | 0.982265625 | 10 |
+| 16 | 0.495000 | 0.989969788 | 18 |
+| 32 | 0.495000 | 0.990000000 | 34 |
+| 64 | 0.495000 | 0.990000000 | 66 |
+| 96 | 0.495000 | 0.990000000 | 98 |
+| 128 | 0.495000 | 0.990000000 | 130 |
+| 192 | 0.495000 | 0.990000000 | 194 |
+| 256 | 0.495000 | 0.990000000 | 258 |
+
+Across the 128 finite fixtures and eight analytic fixtures, exact inference recovers 16 oracle-valid admissions that the old lower bound would withhold, with 0 false admissions. H4 meets its controlled target. The endpoint counts fixtures, not newly discovered scientific graph edges. Values rounded to 0.99 in the table retain normal floating-point limitations; no symbolic exact-arithmetic claim is made.
+
+The implementation caps supplied atoms at 256, input proofs at 512 and memoized residual states at 4,096. On input/state exhaustion it returns the prior valid bounds with nonexact status and no point probability. The one-state control returns [0.25,0.50], containing the exact probability 0.375. This finite cap is a safety boundary, not a polynomial-time guarantee for arbitrary Boolean formulas. A corrupted-lineage control declares two aliases of the same 0.9 event independent and obtains 0.99 instead of 0.9. Incorrect primitive identity or uncalibrated reliability can therefore invalidate apparently precise answers. Raw Jev confidence is not promoted to primitive reliability.
+
+![H4. Eight controlled shared-hub families resolve the old lower-bound abstention.](../graph_synthesis/structural/figures/04_exact_lineage.png)
+
+## 7. H5: Feedback-cutset conditioning for cyclic conflicts
+
+The prior solver handled forest components by exact dynamic programming, cyclic components of at most 16 vertices by enumeration, and staged larger cycles. The refinement finds a bounded feedback set by repeatedly removing a deterministic maximum-degree vertex from the current cycle-containing 2-core. If at most four removals leave a forest, every independent assignment of the cutset is enumerated. For each assignment, selected cutset vertices exclude their neighbors and the residual forest is solved exactly. Maximizing across these assignments is exact for the supplied weighted independent-set problem because every feasible solution has one enumerated cutset assignment.
+
+Cutset discovery is a heuristic: failing its four-removal cap does not prove that the graph lacks a smaller feedback vertex set. Such failures retain the prior solver behavior, including exact small-component fallback and explicit staging. Components over 256 vertices remain staged. No asymptotic improvement is claimed for conflict construction, and the generic graph backend does not establish that these cyclic topologies arise in a particular scientific corpus.
+
+All 128 seeded ten-vertex graphs agree with exhaustive subset enumeration, have consistent selected sets, and never regress below prior utility. All 256 input-order checks pass. Sixteen large uniform/weighted cycles agree with an independently implemented two-path recurrence; the prior solver stages every one of them.
+
+| Cycle vertices | Uniform: new / oracle | Weighted: new / oracle | Prior utility (both) |
+|---:|---:|---:|---:|
+| 17 | 8 / 8 | 60 / 60 | 0 |
+| 24 | 12 / 12 | 84 / 84 | 0 |
+| 32 | 16 / 16 | 114 / 114 | 0 |
+| 48 | 24 / 24 | 171 / 171 | 0 |
+| 64 | 32 / 32 | 221 / 221 | 0 |
+| 96 | 48 / 48 | 333 / 333 | 0 |
+| 128 | 64 / 64 | 447 / 447 | 0 |
+| 256 | 128 / 128 | 882 / 882 | 0 |
+
+H5 meets its controlled target. The 17-clique cap control stages all 17 vertices, and the 257-cycle control stages all 257. A semantic control offers two conflicting assertions with priorities nine and eight and marks the higher-priority assertion false. The exact solver still chooses the false assertion. Optimal priority retention and consistency are not factual validation. This extension changes research-only solvers, not the default graph compiler.
+
+![H5. Weighted cycle utility equals the independent oracle beyond the prior cyclic cap.](../graph_synthesis/structural/figures/05_cutset_capacity.png)
+
+## 8. Uncertainty, limitations and next discriminating evidence
+
+H1-H2 use 4,000 paired source-group bootstrap draws, seed 20260921. Fitted rankings and accepted IDs are fixed in each resample. Reported 95% and 99% percentile intervals are descriptive, not simultaneous; they omit fitting uncertainty and cannot undo prior test exposure. No result is an independent confirmatory p-value. Repeated model responses are not new independent labels, and source groups do not remove every possible dependency or public-corpus training overlap.
+
+The strongest semantic lead is a small equal-volume ranking improvement, not a validated deployment policy. The strongest controlled improvements exploit structure already supplied to the algorithm. They require independently credible primitive reliabilities, correct provenance and well-specified conflict priorities. Larger candidate sets, diverse real graph topologies, externally adjudicated edge truth and fresh source-disjoint evaluations remain necessary before translating those gains into claims about Jev-assisted graph synthesis. A matched-evidence comparison with [KARMA](https://arxiv.org/abs/2502.06472) has not been run here.
+
+A discriminating next semantic experiment should freeze the ranking before obtaining new independently adjudicated source groups, compare it with raw-confidence ranking at matched accepted volume and acquisition cost, and report source coverage alongside correct and wrong edges. A next systems experiment should preserve a real extracted provenance/conflict graph, blind its truth labels during policy selection, and measure cap/staging frequency and wall-clock cost. Those are future evidence requirements, not unexecuted results represented as complete.
+
+### Concurrent study and overlap
+
+PR #17 merged while this extension was executing. Both studies began from PR #16 and froze protocols independently before their own runs. Its small-lineage Shannon evaluator and four-vertex cycle-cutset solver overlap with H4/H5 here; those mechanisms are not claimed as new relative to PR #17. H4 here additionally tests exact shared-hub formulas through 256 atoms, whereas that implementation caps each exact component at 16 atoms. H5 supplies a separate implementation and a different sixteen-cycle fixture grid, not a new optimization mechanism. The two studies reuse the same semantic capture and their sample counts or outcomes must not be pooled as independent evidence. Both reports and all original artifacts are preserved in the integrated manuscript.
+
+## 9. Reproduction and claim audit
+
+Run `python -B -m graph_synthesis.structural.run --check` to reconstruct inputs and reproduce all five outcomes without service access. Run `python -B -m unittest discover -s graph_synthesis/structural/tests -v` for implementation regressions. Run `python -B -m graph_synthesis.structural.report --figures --update-paper` to regenerate this report, five PNG/SVG figures and the additive current-paper section. The shared renderer then builds the full HTML/PDF, and its build record binds manuscript, renderer and PDF SHA-256 hashes.
+
+`results.json` retains fitted parameters, selected IDs, all finite fixtures, oracle outputs, control failures, descriptive intervals and reviewer sensitivities. `summary.csv` records all equal-volume policy comparisons. `artifact-manifest.json` binds extension files without rewriting archived evidence. [CLAIM_EVIDENCE.md](../graph_synthesis/structural/CLAIM_EVIDENCE.md) maps each conclusion to its evidence and forbidden extrapolation. Environment files distinguish local execution from CI. The original 161-file study and earlier extension outputs remain intact. The full manuscript remains an author-review draft.
+
+<!-- STRUCTURAL_RESEARCH_END -->
+
+<!-- SOURCE_STRUCTURAL_RESEARCH_START -->
+
+# Source risk, review budgets and structural certificates for Jev graph synthesis
+
+Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026
+
+## Abstract
+
+Five follow-up hypotheses test whether the limitations exposed by PR #17 can be reduced. Direct source-event shrinkage increases evaluation Brier from 0.128923 to 0.138249; the calibration target is not met. Setup-cost-aware review leaves 12.1875 expected contaminated groups versus 11.4375 for greedy review at the same hypothetical budget; its target is not met. Frontier lineage evaluation, certified bipartite conflict optimization and revision-checked source invalidation meet their controlled algorithmic targets. The cache reduces fact reevaluations by 98.83% on local updates, but by 0.00% when a shared source affects every fact. These are replay, simulation and algorithm results, not new Jev calls, human-review measurements or independent semantic validation.
+
+## 1. Research questions and frozen evaluation
+
+The [preceding reliability study](../graph_synthesis/reliability/RESULTS.md) found that a group-risk multiplier improved mean bias but worsened Brier, and that single-view review features could save acquisition tokens. Its structural experiments also exposed a 16-atom lineage boundary, a four-vertex conflict-cutset boundary, and update-locality limits. This extension changes the risk model, explicitly prices review setup, and broadens the tractable structural cases. It applies established shrinkage, dynamic programming, max-flow/min-cut and dependency indexing rather than claiming a new mathematical algorithm.
+
+The [protocol](../graph_synthesis/source_structural/PROTOCOL.md) was committed before execution as `b92009c6c36d87d9f3cbf0c92c2dad9f9615d726`, against baseline `a62a3257645d8e35cd4e45be53bfa9511d27724b`. Previous evaluation outcomes informed the hypotheses: this is an exploratory, pre-execution commitment, not an independent preregistration. H1/H2 reuse 73 development candidates in 40 connected source groups and 263 evaluation candidates in 149 groups. The original claim/document/duplicate-abstract grouping is preserved. A source group is not necessarily one document. In H2, setup is therefore charged per connected group, not per physical document opened. These hypothetical units cannot establish actual reviewer costs.
+
+Raw responses and input hashes are verified before reconstruction. Development and evaluation groups are disjoint; policy inference receives no evaluation gold. **Fresh service calls: 0.** Earlier public test-set inspection still prevents independent confirmation. No production graph policy is changed.
+
+Concurrent integration: [PR #18](https://github.com/CompleteDotTech/paper-package/pull/18) merged during this extension. Its [structural refinement study](../graph_synthesis/structural/RESULTS.md), frozen protocol and executed evidence are preserved unchanged. Its source-balanced ranking, source-diverse acceptance, dependence-robust review, shared-hub lineage and feedback-cutset tests are separate from the direct source-event, setup-budget, frontier, bipartite-flow and source-cache hypotheses here. Both studies reuse the same semantic capture and must not be pooled as independent observations. No hypothesis, threshold or numerical result here was retuned after viewing PR #18.
+
+| Hypothesis | Frozen primary criterion | Outcome | Evidence class |
 |---|---|---|---|
-| H1 | Dependence-robust lineage envelopes | not met | Controlled supplied-input algorithm |
-| H2 | Ambiguity-preserving repair answers | met | Controlled supplied-input algorithm |
-| H3 | Query-exposure-weighted review | not met | Captured decisions + synthetic exposure + simulated review |
-| H4 | Connected-tree delta messages | met | Controlled supplied-input algorithm |
-| H5 | Grounded cyclic provenance | met | Controlled supplied-input algorithm |
+| H1: Direct source-event shrinkage | 10% lower Brier than both prior models; absolute bias <=0.03 | Not met | Archived prediction scoring |
+| H2: Setup-cost-aware review | At least 0.5 fewer expected contaminated groups; <=0.1 extra correct removals; budget respected | Not met | Label-evaluated review simulation |
+| H3: Frontier-bounded lineage | No finite-oracle or invariance errors; ten large analytic cases exact; one interval tightened | Met | Supplied independent-event model |
+| H4: Certified bipartite conflict solving | No small-case regression; ten certified large optima; at least four utility gains | Met | Supplied conflict graphs and priorities |
+| H5: Revision-checked evidence cache | No stale values or atomicity failures; at least 90% fewer local fact reevaluations | Met | Sequential in-memory mutations |
 
-A target pass establishes only its stated conjunction on its stated population. The pass count is not a semantic success rate. Failed targets are not rescued by changing thresholds or promoting a favorable sensitivity panel.
+Passing three algorithmic targets does not amount to a three-out-of-five semantic success rate. The two unsuccessful predictive/review hypotheses and all assumption-breaking controls remain part of the results.
 
-## 2. H1: Dependence-robust lineage envelopes
+## 2. H1: Direct source-event shrinkage
 
-**Theory.** Let each world assign truth values to primitive source events. A nonnegative world-mass vector must normalize to one and match supplied marginals; optional pairwise intersections add constraints. For a fact supported by a disjunction of conjunctive proofs, minimize and maximize the sum of masses in satisfying worlds. Every supplied-compatible joint distribution lies between these extrema. Unlike an independent-events point estimate, the feasible family permits perfect source dependence. Primitive probabilities and any intersections are supplied assumptions, not measured Jev truth probabilities.
+The response variable is whether a connected group contains any incorrect base1-accepted SUPPORTS or REFUTES edge. Empty accepted groups are excluded. The proposed estimator uses two binary features: at least two accepted edges, and any accepted score below 0.90 (a missing score is treated conservatively as low). For cell c, the estimate is (errors_c + alpha * prior)/(n_c + alpha), with a Beta(1,1)-smoothed global group-error prior. Alpha is chosen from {1,4,16} by leave-one-development-group-out Brier; exact ties favor stronger shrinkage. This targets the group event directly instead of multiplying estimated edge-correctness probabilities.
 
-The comparator canonicalizes duplicate and subsumed proofs, applies marginal Frechet conjunction bounds and then union bounds. The bounded LP uses at most eight atoms (256 worlds), capped iterations, primal feasibility checks, dual-inequality residual correction and outward numerical allowance. Endpoint witnesses are saved and independently checked against constraints. Above the atom cap it returns conservative marginal bounds and explicit non-optimized status. Infeasible constraints, failed solves or failed verification stage with [0,1]. Floating-point residual checks are **not formal exact-arithmetic certificates**. Broader probability-envelope optimization is not generally cheap; [Kaski et al.](https://arxiv.org/abs/2605.03556) discuss the hardness of optimal union intervals.
+| Model | Brier | Log loss | Predicted risk | Observed risk | Bias |
+|---|---:|---:|---:|---:|---:|
+| Prior product | 0.128923 | 0.467074 | 8.04% | 15.31% | -7.26% |
+| Prior scaled product | 0.134900 | 0.441344 | 13.64% | 15.31% | -1.67% |
+| Direct source event | 0.138249 | 0.484622 | 8.49% | 15.31% | -6.81% |
 
-**Frozen test.** Seed 20260922 generates 128 arbitrary joint distributions over two to six atoms and one to eight proofs. The joint masses are generated separately from both bounding algorithms. Require zero truth-containment errors beyond 1e-7, zero false lower-bound admissions at 0.95, zero order/duplicate errors, and at least 10% lower mean width than the Frechet baseline. The pairwise-constrained panel is a sensitivity analysis, not the primary target.
+There are 23 nonempty development groups and 98 nonempty evaluation groups. The chosen alpha is 4; the preceding development-selected multiplier is 2. Direct-minus-product Brier has descriptive 95% interval [-0.0140, +0.0363] and 99% interval [-0.0199, +0.0447]. Against the scaled product, the intervals are [-0.0326, +0.0432] and [-0.0429, +0.0574]. Neither a lower Brier nor the required bias is achieved: **not met**.
 
-| Envelope | Mean width | Role |
-|---|---:|---|
-| Canonical Frechet | 0.359405 | Primary comparator |
-| Marginal-only LP | 0.341587 | Primary proposal |
-| Pairwise-constrained LP | 0.088167 | Additional-information sensitivity |
+The small number of contaminated development groups makes cell estimation difficult. Directly predicting the desired event is a plausible modeling choice, but it is not a guarantee of better calibration. This experiment does not justify deploying the new estimator.
 
-Across 256 containment checks there are 0 failures, 0 false admissions and 0 saved-witness feasibility failures. There are 0 errors in 512 invariance checks. The primary width reduction is 4.96%, so the target is **not met** despite those correctness checks passing.
+![H1. Source-event Brier on identical accepted evaluation groups; lower is better.](../graph_synthesis/source_structural/figures/01_source_risk.png)
 
-**Falsification controls.** Two names for one actual 0.8-probability source produce 0.96 under independent OR aggregation. The marginal envelope is [0.8,1] and does not admit at 0.95. Correct shared identity yields 0.8. Supplying mutually exclusive 0.5 events yields an OR probability approximately one; incoherent intersections stage rather than returning a confident value. Empty, tautological, zero/one and over-cap inputs are retained. Unknown dependence is representable, but false marginals or missing primitive events still defeat semantic validity.
+## 3. H2: Review allocation with group setup costs
 
-![H1. Primary marginal envelopes and explicitly separate pairwise sensitivity.](../graph_synthesis/assumption_aware/figures/01_dependence_envelopes.png)
+Both policies use the preceding single-view edge-risk fit. The comparator follows its group-aware greedy edge order and admits each edge only if the remaining budget covers the edge plus any newly required group setup. The proposed multiple-choice knapsack offers each group either no review or its top-k risk-ranked edges. It maximizes the increase in predicted group-clean probability under independent edge errors and independent reviewer detection. Gold labels enter only the subsequent outcome calculation. The optimizer is exact over these prefix options, not over every possible human review action.
 
-## 3. H2: Ambiguity-preserving answers over optimal repairs
+The primary budget is 40 units: opening a connected group costs 2 and reviewing one edge costs 1. Detection is 0.75 and false removal of a correct reviewed edge is 0.01. These parameters are supplied assumptions, not observed reviewer behavior. Expected contamination counts a group if at least one incorrect accepted edge remains; a reviewer cannot add an omitted correct edge.
 
-**Theory.** A deterministic tie-break gives one repair, not a fact valid in every repair. Let V be maximum supplied priority. An assertion selected in one optimum is forced precisely when forbidding it lowers V. An OR query is entailed by every optimum precisely when forbidding every queried assertion lowers V. An AND query requires each member to be forced. This tests entailment relative to a supplied optimization model, not truth of the assertions. A false query result means 'not entailed by all optima', not 'false in all worlds'.
+| Policy | Spent | Reviewed | Wrong reviewed | Expected contaminated groups | Expected correct removals |
+|---|---:|---:|---:|---:|---:|
+| Group-greedy | 40 | 14 | 6 | 11.4375 | 0.08 |
+| Source-batched knapsack | 40 | 18 | 5 | 12.1875 | 0.13 |
 
-The method reuses PR #17's bounded optimizer as a value oracle, with at most 1,024 vertices across components and 1,024 oracle calls. Its existing component/cutset caps remain in force. Any unresolved relevant solve yields unknown or partial status, never an unsupported certificate. Zero priorities, empty queries, repeated edges and deterministic order are handled explicitly.
+The proposed policy reviews more edges but leaves 0.75 more expected contaminated groups, not at least 0.5 fewer. Its primary target is **not met**. The proposed-minus-greedy expected contamination-rate difference has descriptive 95% interval [+0.0000, +1.5101] pp and 99% interval [+0.0000, +2.0134] pp across all 149 evaluation groups.
 
-**Frozen test.** On 128 random graphs with four to ten vertices, seed 20260923, integer priorities zero through five and edge probability 0.3, an independent combinations enumerator retains every maximum-priority consistent subset. It checks optimum utility, forced assertions and OR/AND answers. Require no mismatches, full retention on unique optima, and on 32 equal-priority conflicting pairs require every pair disjunction but no individual assertion.
+There are 0 failures in 64 independently enumerated small knapsack tests and 0 budget violations in 108 fixed sensitivity scenarios. The full grid crosses budgets {20,40,80}, setup costs {0,1,2,5}, detection {0.5,0.75,1} and false removal {0,0.01,0.05}. A perfectly correlated within-group detection control gives 12.00 versus 11.25 expected contaminated groups at the primary setting. It also fails to reverse the unfavorable ordering.
 
-The test records 0 oracle disagreements and 0 order failures. All 66 unique-optimum cases retain their selected assertions. Across random fixtures, a single repair contains 444 assertions; 388 are forced, retaining 87.39%. This lower assertion coverage is an intentional refusal to invent certainty, not a recall improvement. The random fixtures require 1,084 solver calls in total. The target is **met**.
+Both policies use the same 941,809 recorded single-view input tokens, charged separately from hypothetical review units. Correct optimization of a misspecified risk objective need not improve label-evaluated outcomes. No human-time, dollar-cost, reviewer-quality or semantic noninferiority claim follows.
 
-The 32-pair control has 2^32 optima. The method certifies all 32 disjunctions without enumerating those optima and certifies no individual member. The 17-clique control stages. A false assertion with priority nine against a true assertion with priority eight remains forced: repair invariance cannot repair a misleading priority function. No better Jev edge accuracy follows.
+![H2. Simulated contamination at equal total budgets, with fixed setup and reviewer assumptions.](../graph_synthesis/source_structural/figures/02_review_budget.png)
 
-![H2. Assertions selected in one repair versus assertions invariant across all optima.](../graph_synthesis/assumption_aware/figures/02_repair_ambiguity.png)
+## 4. H3: Frontier-bounded exact lineage
 
-## 4. H3: Query-exposure-weighted review
+A fact is a disjunction of proof conjunctions over supplied independent Bernoulli primitives. After removing duplicate and subsumed proofs, the proposed iterative dynamic program processes sorted primitive IDs. It remembers only processed atoms used in unfinished proofs. Once a proof succeeds, its probability mass is absorbed into the success total, preventing double-counting of shared evidence. Constants, impossible primitives and certain primitives are explicit cases. This is a bounded-width inference strategy, not an assertion that document sources are independent.
 
-**Theory.** The preceding single-view risk estimator offers a cheap review signal, but review utility could depend on downstream exposure. The proposal multiplies each expected source-contamination reduction by a fixed exposure weight. The product-based contamination model and tie-by-ID rule otherwise match the PR #17 single-view group-aware comparator. This adds a workload model, not model calls or evidence.
+The new path caps used atoms at 256, canonical proofs at 1,024, frontier width at 12 and state transitions at 65,536. Exceeding a cap delegates to the previous small-component exact/bounded routine. Partially evaluated mass is never reported as an exact answer. These caps bound the new frontier evaluation, not all validation, canonicalization or fallback work.
 
-Exposures are deliberately synthetic: one plus the SHA-256 integer of `query-exposure-v1:` concatenated with the source-group ID, modulo ten. They are fixed without evaluation gold. Uniform and reversed weights are sensitivity panels. They are not observed queries, independently sampled deployments or new datasets. All policies use the same development-only risk fit, accepted pool and 941,809 recorded input tokens. The primary reviewer perfectly removes a reviewed wrong edge and never removes a correct edge; detection rates 0.5, 0.75 and 1 are scenario analyses, not human observations.
+Independent assignment enumeration finds 0 errors beyond 1e-12 on 192 random fixtures with 2-10 atoms. There are 0 failures in 768 order/duplicate checks and 0 false lower-bound admissions at threshold 0.95. All 10 large path/cycle cases match an independent no-adjacent-success recurrence; 10 tighten the previous interval. The primary controlled target is **met**.
 
-**Frozen test.** At 20 edge reviews require at least 10% lower weighted residual contaminated-source exposure with no increase in unweighted contaminated groups. An exposure unit is one synthetic weight attached to a contaminated source group. Outcomes at four budgets are shown below; correct retained edges remain 132 at the primary budget for both methods.
+| Lineage | Atoms | Prior interval | Exact probability | Frontier width | Transitions |
+|---|---:|---|---:|---:|---:|
+| path | 17 | [0.0100, 0.1600] | 0.137675 | 1 | 66 |
+| path | 32 | [0.0100, 0.3100] | 0.248938 | 1 | 126 |
+| path | 64 | [0.0100, 0.6300] | 0.440647 | 1 | 254 |
+| path | 128 | [0.0100, 1.0000] | 0.689753 | 1 | 510 |
+| path | 256 | [0.0100, 1.0000] | 0.904556 | 1 | 1022 |
+| cycle | 17 | [0.0100, 0.1700] | 0.144922 | 2 | 124 |
+| cycle | 32 | [0.0100, 0.3200] | 0.255250 | 2 | 244 |
+| cycle | 64 | [0.0100, 0.6400] | 0.445348 | 2 | 500 |
+| cycle | 128 | [0.0100, 1.0000] | 0.692361 | 2 | 1012 |
+| cycle | 256 | [0.0100, 1.0000] | 0.905358 | 2 | 2036 |
 
-| Review budget | Baseline exposure | Proposed exposure | Baseline contaminated groups | Proposed contaminated groups |
-|---:|---:|---:|---:|---:|
-| 10 | 73 | 73 | 12 | 12 |
-| 20 | 50 | 63 | 8 | 11 |
-| 30 | 24 | 54 | 4 | 10 |
-| 40 | 24 | 37 | 4 | 8 |
+Each large fixture uses primitive probability 0.1 and adjacent-pair proofs. Dense 17-atom lineage triggers the width fallback; a 257-atom input and a deliberately tiny state budget exercise other guards. The shared-source control still yields 0.96 instead of the actual 0.8 when one source is incorrectly encoded as two independent primitives. Better exact inference cannot repair false provenance, and the supplied probabilities are not calibrated Jev truth probabilities.
 
-At budget 20, the weighted outcome changes from 50 to 63, a relative reduction of -26.00%; the negative reduction means deterioration. Contaminated groups change from 8 to 11. The target is **not met**. Uniform exposure reproduces the baseline order: True. The hypothesis's apparent objective alignment is insufficient when estimated risks, group interactions and imposed exposure weights do not rank realized errors well.
+![H3. Prior conservative intervals and exact frontier probabilities on large connected lineages.](../graph_synthesis/source_structural/figures/03_frontier_lineage.png)
 
-The paired source-group bootstrap uses 4,000 draws with seed 20260924, fixed fit and review sets, and recomputed exposure denominators in each draw. Proposed-minus-baseline weighted contamination rate has a 95% interval [-2.0768, +4.9289] percentage points and a 99% interval [-3.1182, +6.3003] percentage points. These descriptive, non-simultaneous intervals omit fitting and workload uncertainty, and include zero. No statistically resolved harm or benefit on a new population is asserted. The frozen point-target failure remains a failure.
+## 5. H4: Certified bipartite conflict optimization
 
-![H3. Weighted residual contaminated-source exposure under equal idealized review budgets.](../graph_synthesis/assumption_aware/figures/03_query_review.png)
+The input is an explicit undirected conflict graph with nonnegative integer priorities. On a bipartite component, maximum-weight independent set is reduced to minimum-weight vertex cover and solved by an integer max-flow/min-cut routine. The result includes a feasible flow and a vertex cover of equal weight. A separate verifier checks endpoints, capacities, conservation, cover feasibility, selection consistency and objective equality. This certificate proves the supplied combinatorial objective, not the truth of selected assertions.
 
-## 5. H4: Delta messages inside a connected tree
+Components remain capped at 256 vertices. Nonbipartite components delegate to the preceding cycle-cutset policy. A 2,000,000 residual-edge-inspection budget bounds the new flow solver; exhaustion delegates rather than certifying an unfinished answer. No external graph-system benchmark or extracted real-world conflict graph is substituted for these controlled cases.
 
-**Theory.** Component-level caching discards all work when any weight changes inside a connected component. On a fixed rooted tree, an include value is its vertex priority plus children's exclude values; an exclude value sums the larger child value. Cache these aggregates. A changed weight can affect only its ancestor path. Propagate child-value deltas, stopping when a message is unchanged. Validation and initial rooting occur once; structural edits are explicitly unsupported and rejected without mutation.
+There are 0 finite-oracle/consistency/regression failures among 192 random small graphs and 0 failures in 768 input-order checks. All 10 large cases attain independently known optima with valid certificates; 10 improve supplied utility over the prior staging policy. The primary controlled target is **met**.
 
-**Frozen test.** The primary connected binary tree has 255 vertices and 256 seeded weight updates, seed 20260925. Cold-build work is included for both methods. Compare utility to independent full-tree DP after every update, and check a reconstructed selected set for consistency and summed utility. Additionally, 128 small random trees with eight updates each are checked against exhaustive subset enumeration. Require zero disagreements and at least 75% fewer DP vertex visits on the balanced workload.
-
-| Topology | Full DP visits | Delta DP visits | DP reduction | Reconstruction visits per policy |
+| Conflict family | Vertices | Prior utility | Certified utility | Analytic optimum |
 |---|---:|---:|---:|---:|
-| Balanced, primary | 65,535 | 1,556 | 97.63% | 65,535 |
-| Path, control | 65,535 | 17,474 | 73.34% | 65,535 |
+| grid | 25 | 0 | 13 | 13 |
+| grid | 36 | 0 | 18 | 18 |
+| grid | 64 | 0 | 32 | 32 |
+| grid | 144 | 0 | 72 | 72 |
+| grid | 256 | 0 | 128 | 128 |
+| complete_bipartite | 18 | 0 | 45 | 45 |
+| complete_bipartite | 32 | 0 | 80 | 80 |
+| complete_bipartite | 64 | 0 | 160 | 160 |
+| complete_bipartite | 128 | 0 | 320 | 320 |
+| complete_bipartite | 256 | 0 | 640 | 640 |
 
-There are 0 small-tree failures across 1,024 updates, and 0 failures on the two large workloads. The primary target is **met**. Invalid weight/structural updates preserve state; repeated identical weights visit zero DP nodes.
+Square grids use unit priorities and have optimum ceil(vertices/2). Complete balanced bipartite fixtures use priority 5 on one side and 3 on the other, with optimum five times the side size. These are specifically tractable families that exceeded the preceding four-cutset allowance, not representative samples of arbitrary graph-synthesis conflicts. Dense nonbipartite 17-clique staging, zero priorities, invalid inputs, work-budget exhaustion and damaged flow certificates are retained as controls. A false assertion of priority 9 still defeats a conflicting true assertion of priority 8; structural optimality is not factual accuracy.
 
-**Cost boundary.** Reconstruction traverses the whole tree on demand. Counting both DP visits and eager reconstruction visits reduces the balanced improvement to 48.81% and the path improvement to 36.67%. These sums are transparent operation accounting, not uniform CPU-cost models or measured latency. Tall paths, changing topology and consumers demanding a complete repair after every update limit the gain. No corresponding reduction in service cost, database I/O or arbitrary-graph maintenance is established.
+![H4. Certified optimization reaches analytic objectives where the previous bounded policy staged.](../graph_synthesis/source_structural/figures/04_bipartite_certificate.png)
 
-![H4. DP savings with the separately charged full-repair reconstruction work visible.](../graph_synthesis/assumption_aware/figures/04_connected_tree_work.png)
+## 6. H5: Revision-checked evidence invalidation
 
-## 6. H5: Grounded cyclic provenance after retraction
+The prototype indexes each primitive to the facts whose canonical proofs depend on it. Probability changes reevaluate only those facts; proof replacement, insertion and deletion maintain the reverse index. Revocation is an explicit probability-zero update. Optimistic revision checks, input validation and all potentially failing evaluations run before state mutation. Stale revisions, invalid changes and injected evaluation failures are rejected without changing the prior snapshot. This is sequential in-memory behavior, not concurrent database isolation, crash recovery or durability.
 
-**Theory.** Old derived facts must not become their own external justification. Start a positive Horn closure only from supplied external facts and empty-body axioms. Index each body occurrence by its prerequisite fact, initialize remaining-body counters, and activate a rule once all body members are grounded. Each newly grounded fact enters an agenda once. After a source change, recompute closure from current external facts, not from the previous derived closure.
+Across 640 seeded source/proof/fact mutations, explicit retraction and restoration controls, and both work-count workloads, there are 0 cache/full-recomputation mismatches. All 7 atomic rejection controls pass. The primary controlled target is **met**.
 
-This differs from the repository's earlier cascading prerequisite invalidation by preserving alternative positive supports while preventing unsupported cycles from surviving. It is nevertheless an implementation of established least-fixed-point grounding, not a new Datalog deletion algorithm. The strong comparator is a cold, repeated full-scan closure. A deliberately unsafe warm-start comparator is used only to expose circular self-support, not as the sole correctness or efficiency baseline. The prototype is in-memory, with caps of 4,096 facts, 8,192 distinct rules and 65,536 body occurrences.
+| Workload | Facts | Updates | Full evaluations | Incremental evaluations | Reduction | Index touches |
+|---|---:|---:|---:|---:|---:|---:|
+| Local source updates | 128 | 256 | 32,896 | 384 | 98.83% | 896 |
+| Global shared source | 128 | 16 | 2,176 | 2,176 | 0.00% | 2,448 |
 
-**Frozen test.** Seed 20260926 generates 128 rule systems with four to twelve facts and eight source toggles each. Every closure is checked against independent cold scanning. The primary work test has 64 eight-rule chains in adversarial order and 128 source toggles, including cold setup. Require zero closure mismatches, no unsupported survivors in withdrawn-cycle controls, and at least 75% fewer dependency inspections.
+Both counts include the cold build. Each local fact has two proofs over three private primitives; the global control makes every fact depend on one shared source. Dependency-index touches count index construction/maintenance separately. These metrics omit general interpreter, allocation, validation and snapshot-comparison work; no matching percentage reduction in total CPU time, database I/O or service latency is claimed. A fact reevaluation can itself have variable lineage complexity.
 
-| Workload | Full-scan inspections | Indexed inspections including index build | Reduction | Separate rule-counter initializations |
-|---|---:|---:|---:|---:|
-| Sparse chains, primary | 590,336 | 33,792 | 94.28% | 66,048 |
-| Dense dependency control | 6,240 | 2,400 | 61.54% | 4,080 |
+![H5. Fact reevaluation work falls for local evidence updates, not global dependencies.](../graph_synthesis/source_structural/figures/05_source_cache.png)
 
-The random systems have 0 closure mismatches in 1,024 updates. The work panels also have 0 mismatches. Removing the only external seed clears a two-fact cycle; providing an independent alternate seed preserves its consequences. Pure unseeded cycles derive nothing. Empty-body axioms, self-loops and duplicate rules have explicit regression tests. Unknown external facts are rejected atomically. The target is **met**.
+## 7. Interpretation and limits
 
-The indexed engine still initializes every rule counter after each update. It is a faster bounded cold recomputation under the stated work metric, **not** dependency-local incremental deletion, distributed transaction support or a measured DRed comparison. False external facts still ground false consequences. Correct grounding means derivable from supplied facts and rules, not verified real-world truth.
+H1/H2 use 4,000 paired source-group bootstrap draws, seed 20260922, with fixed fitted models, chosen hyperparameters and review selections. The 95% and 99% percentile intervals are descriptive, non-simultaneous and omit fitting uncertainty. H1 uses the 98 identical nonempty accepted evaluation groups; H2 uses all 149 groups. Earlier reuse of these evaluation labels means the intervals are not prospective validation of hypotheses selected from previous results.
 
-![H5. Dependency-inspection work; counter initialization remains a separately reported cost.](../graph_synthesis/assumption_aware/figures/05_grounded_provenance.png)
+The central finding is a separation: broader exact structural inference and safe local invalidation are achievable under supplied assumptions, while better source-risk estimates and useful cost-aware review are not established by these data. The structural methods remain opt-in research infrastructure. They do not remedy missing candidate edges, wrong relation qualifiers, correlated Jev errors, false provenance or untrustworthy priorities. A future semantic study should freeze policy before seeing an independently adjudicated, source-disjoint corpus, use matched information/resource budgets, and measure actual reviewer behavior and end-to-end latency. No advantage over KARMA or another external system is established here.
 
-## 7. Research implications and limitations
-
-The most defensible new knowledge is about failure boundaries. Marginal-only dependence reasoning can prevent unjustified point confidence, but did not deliver the frozen width improvement. Adding workload importance to a weakly calibrated review signal made the primary observed replay outcome worse. Neither failed proposal is promoted to a default policy. Repair-invariant answers distinguish ambiguity from arbitrary tie-breaking, but still inherit misleading priorities. Connected-tree messages remove avoidable recomputation for value-only consumers under fixed topology. Grounded positive closure makes cyclic support behavior explicit while preserving genuine alternatives.
-
-The successful tests are controlled algorithmic checks, not scientific proof of correctness on every input. Bounded exhaustive/analytic oracles and malformed-input regression tests provide stronger evidence than agreement between two copies of the same algorithm. Supplied priorities, marginals, constraints, rule heads/bodies and external facts are not automatically discovered or verified. H3 adds synthetic exposure and idealized review to already inspected data. No new paper corpus, independently adjudicated semantic labels, live workload trace, measured reviewer outcome, external baseline implementation or prospective Jev latency panel was collected. No confidence interval from H3 should be assigned to H1/H2/H4/H5 operation counts.
-
-An independent semantic experiment would need the entire policy frozen before a new source-disjoint corpus, verified provenance/qualifiers, actual query utility, calibrated primitive events, and matched evidence/resource budgets against systems such as KARMA. Those experiments remain unexecuted here. The present changes add research modules and evidence only; the default graph compiler and archived original study remain unchanged.
-
-## 8. Reproducibility and evidence links
-
-The [protocol](../graph_synthesis/assumption_aware/PROTOCOL.md), [methods](../graph_synthesis/assumption_aware/methods.py), [runner](../graph_synthesis/assumption_aware/run.py), [regression tests](../graph_synthesis/assumption_aware/tests/test_methods.py), [results](../graph_synthesis/assumption_aware/results.json), [summary table](../graph_synthesis/assumption_aware/summary.csv), [claim map](../graph_synthesis/assumption_aware/CLAIM_EVIDENCE.md), [bibliography](../graph_synthesis/assumption_aware/references.bib) and [artifact manifest](../graph_synthesis/assumption_aware/artifact-manifest.json) form the extension package. The original evidence verifier checks all 161 archived files. The generated complete manuscript retains every preceding study and its limitations.
+## 8. Reproduction and attribution
 
 ```bash
-python -m pip install -r graph_synthesis/assumption_aware/requirements.txt
-python -B -m unittest discover -s graph_synthesis/assumption_aware/tests -v
-python -B -m graph_synthesis.assumption_aware.run --check
-python -B -m graph_synthesis.assumption_aware.report --figures --update-paper
+python -B -m graph_synthesis.source_structural.run
+python -B -m unittest discover -s graph_synthesis/source_structural/tests -v
+python -B -m graph_synthesis.source_structural.run --check
+python -B -m graph_synthesis.source_structural.report --figures --update-paper
 python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
 ```
 
-Running without `--check` intentionally regenerates results. Network connection methods are blocked during benchmark execution; saved API failures remain charged in source evidence. Fixtures, updates, endpoint witnesses, fits, exposure weights, selected review IDs, bootstrap intervals, resource boundaries and source hashes are retained. Result replay checks exact structure/counts and narrowly bounded floating-point differences; the PDF build manifest binds the mutable full-paper source, renderer and PDF. The extension manifest excludes its own hash and does not rewrite earlier study manifests.
+The [machine-readable results](../graph_synthesis/source_structural/results.json) contain folds, fitted cell counts, individual group probabilities, review selections, all sensitivity settings, finite/analytic oracles, flow certificates, mutation traces and source hashes. The [summary table](../graph_synthesis/source_structural/summary.csv), five SVG/PNG figure pairs and this report are generated from those results. The extension manifest binds code, evidence, figures and captured validation logs; the current paper has a separate build manifest. The original frozen study and all previous executed sections are preserved.
 
-<!-- ASSUMPTION_AWARE_RESEARCH_END -->
+Primary-source context: [TypeSafe documentation](https://docs.typesafe.ai/introduction) describes typed decisions and probability outputs; [Amarilli et al., Connecting Knowledge Compilation Classes and Width Parameters](https://arxiv.org/abs/1811.02944) provides bounded-width knowledge-compilation context; the [NetworkX minimum-cut documentation](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.flow.minimum_cut.html) states the max-flow/min-cut relation. These sources motivate established techniques, not the numerical results reported here. Our finite and analytic checks are included in the repository; no claim of mathematical novelty is made.
+
+<!-- SOURCE_STRUCTURAL_RESEARCH_END -->
 
 # Do additional Jev calls improve graph edges?
 

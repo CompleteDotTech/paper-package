@@ -221,6 +221,9 @@ def render(data: dict, output: Path, png: bool = True) -> None:
     def save(fig, name, note):
         fig.supxlabel(note, fontsize=9)
         fig.savefig(output / (name + ".svg"), metadata={"Date": None, "Creator": "graph_synthesis.visualize_evidence"})
+        # SVG is generated text: use LF on every OS for byte-exact regeneration.
+        svg = output / (name + ".svg")
+        svg.write_text(svg.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
         if png:
             fig.savefig(output / (name + ".png"), dpi=240, metadata={"Software": "graph_synthesis.visualize_evidence"})
         plt.close(fig)

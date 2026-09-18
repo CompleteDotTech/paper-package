@@ -62,6 +62,7 @@ jobs:
           python -B -m graph_synthesis.adaptive.report --update-paper
           python -B -m graph_synthesis.risk_control.report --update-paper
           python -B -m graph_synthesis.reliability.report --update-paper
+          python -B -m graph_synthesis.structural.report --update-paper
           git diff --exit-code -- experiments/jev-multicall-20260918/REPORT.md manuscript/paper-current.md CURRENT_RESULTS.md graph_synthesis/risk_control graph_synthesis/reliability
           python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/multicall-paper.pdf"
           git diff --exit-code -- manuscript/paper-current.html

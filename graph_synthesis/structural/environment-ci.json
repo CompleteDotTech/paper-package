@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "markdown-it-py": "4.2.0",
+    "matplotlib": "3.10.8",
+    "numpy": "2.5.3",
+    "weasyprint": "68.0"
+  },
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "run_id": "35325401142",
+  "source_commit": "589310e5476482f65603583dcda214c1a160b355"
+}

@@ -30,6 +30,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python -B -m graph_synthesis.frontier.integrate_main
           python -B -m graph_synthesis.frontier.audit_baseline
           python -B -m graph_synthesis.frontier.run | tee graph_synthesis/frontier/execution.log
           python -B -m unittest discover -s graph_synthesis/frontier/tests -v 2>&1 | tee graph_synthesis/frontier/tests.log
@@ -41,6 +42,7 @@ jobs:
           python -B -m graph_synthesis.frontier.regression 2>&1 | tee graph_synthesis/frontier/all-regressions.log
           python -B -m graph_synthesis.frontier.report
           python -B -m graph_synthesis.frontier.verify
+          git diff --exit-code a21314d17c33c639b75522ecce120586ef8dab35 -- graph_synthesis/structural graph_synthesis/source_structural
       - name: Publish generated research files on this research branch only
         shell: bash
         run: |
@@ -49,7 +51,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add graph_synthesis/frontier graph_synthesis/render_current_paper.py .github/workflows/jev-multicall.yml .github/workflows/structural-frontier.yml CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json
           if ! git diff --cached --quiet; then
-            git commit -m 'research: record executed structural-frontier tests, null review outcome and updated complete paper'
+            git commit -m 'research: reconcile concurrent studies and record executed frontier results and complete paper'
             git push origin HEAD:research/structure-aware-next-five
           fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -62,6 +64,13 @@ jobs:
             manuscript/paper-current.html
             manuscript/paper-current.build.json
             CURRENT_RESULTS.md
+          retention-days: 14
+      - name: Package complete integrated source for reproducibility review
+        run: git archive --format=zip --output="$RUNNER_TEMP/frontier-integrated-source.zip" HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: structural-frontier-integrated-source
+          path: ${{ runner.temp }}/frontier-integrated-source.zip
           retention-days: 14
   replay:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'

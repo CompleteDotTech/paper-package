@@ -37,7 +37,7 @@ jobs:
           target.mkdir()
           raw = (root / 'MANIFEST.json').read_bytes()
           blob = hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
-          if blob != '3837504455f0bac580496858f3f0ba99f795fe6c':
+          if blob != 'a8d9f447c266fbedf8837003ceb9639e00778b0e':
               raise ValueError('The frozen inventory was changed')
           shutil.copy2(root / 'MANIFEST.json', target / 'MANIFEST.json')
           for row in json.loads(raw)['files']:
@@ -48,6 +48,7 @@ jobs:
               dest = target / relative
               dest.parent.mkdir(parents=True, exist_ok=True)
               shutil.copy2(source, dest)
+          subprocess.run([sys.executable, '-B', str(target / 'scripts/download_datasets.py')], check=True)
           subprocess.run([sys.executable, '-B', str(target / 'scripts/verify_package.py'), '--replay',
                           '--output', str(pathlib.Path(os.environ['RUNNER_TEMP']) / 'frozen-verification.json')], check=True)
           PY

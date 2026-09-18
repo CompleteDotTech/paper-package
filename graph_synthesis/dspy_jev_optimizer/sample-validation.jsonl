@@ -1,3 +1,0 @@
-{"id":"va-1","state":{"claim":"The proposed index reduced query latency.","evidence":"Median latency dropped from 43 ms to 18 ms with the proposed index on the held-out workload."},"label":"supports"}
-{"id":"va-2","state":{"claim":"The model was more accurate than the comparator.","evidence":"Accuracy was 87.1% for the model and 89.4% for the comparator."},"label":"refutes"}
-{"id":"va-3","state":{"claim":"The intervention reduces mortality.","evidence":"The study measured symptom severity but did not report mortality outcomes."},"label":"insufficient"}

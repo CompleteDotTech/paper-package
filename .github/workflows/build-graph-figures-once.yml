@@ -32,11 +32,25 @@ jobs:
           import base64, gzip, hashlib, pathlib, subprocess
           parts = sorted(pathlib.Path('.github/figure-revision').glob('part-*.b64'))
           assert len(parts) == 5, 'Expected exactly five transfer parts'
-          encoded = ''.join(p.read_text().strip() for p in parts)
-          data = gzip.decompress(base64.b64decode(encoded, validate=True))
+          chunks = [p.read_text().strip() for p in parts]
+          # Repair two identified transport transcription errors, before the
+          # mandatory end-to-end digest verification; never bypass that check.
+          assert chunks[0][3379:3380] == '6'
+          chunks[0] = chunks[0][:3379] + '8f' + chunks[0][3380:]
+          assert chunks[1][458:460] == '6J'
+          chunks[1] = chunks[1][:458] + chunks[1][460:]
+          data = gzip.decompress(base64.b64decode(''.join(chunks), validate=True))
           assert hashlib.sha256(data).hexdigest() == 'd05978ba535222b1584260ec9b31913549606ac04ba0c494056496a616403e57', 'Revision integrity failure'
           subprocess.run(['git', 'apply', '--check', '-'], input=data, check=True)
           subprocess.run(['git', 'apply', '-'], input=data, check=True)
+          # Final local visual review: separate neighborhood labels from arrows.
+          path = pathlib.Path('graph_synthesis/visualize.py')
+          text = path.read_text()
+          for old, new in [('xytext=(.075, i),', 'xytext=(.52, i),'), ('ax.text(.22, i + (.28 if i >= cy else -.28),', 'ax.text(.13, i,')]:
+              assert text.count(old) == 1
+              text = text.replace(old, new)
+          path.write_text(text)
+          assert hashlib.sha256(path.read_bytes()).hexdigest() == 'c90ae592edb32a5d108fdf0357f184e2988ed98f38f9c3639e88c292832843b4'
           PY
       - name: Install pinned renderer
         run: python -m pip install -r graph_synthesis/requirements-figures.txt

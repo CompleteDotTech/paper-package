@@ -1,0 +1,118 @@
+name: Audit DSPy benchmark evidence
+on:
+  pull_request:
+    paths:
+      - 'graph_synthesis/dspy_benchmark_analysis/**'
+      - '.github/workflows/dspy-benchmark-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: dspy-benchmark-audit-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LITELLM_LOCAL_MODEL_COST_MAP: 'True'
+      REQUIRE_SDK_TESTS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt typesafe-sdk==0.7.0
+      - run: python -B -m graph_synthesis.dspy_jev_optimizer.verify
+      - name: Original optimizer, actual SDK contracts and new numerical/audit regressions
+        run: |
+          python -B -m unittest discover -s graph_synthesis/dspy_jev_optimizer/tests -v
+          python -B -m unittest graph_synthesis.dspy_benchmark.test_study graph_synthesis.dspy_benchmark.test_sdk_signature graph_synthesis.dspy_benchmark.test_audit graph_synthesis.dspy_multicall.test_run graph_synthesis.dspy_benchmark_analysis.test_report graph_synthesis.dspy_benchmark_analysis.test_multicall_report -v
+  analyze:
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 matplotlib==3.10.8
+      - name: Require all pinned live captures; no inference in this workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,time,urllib.request,pathlib
+          targets={35340617823:'9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db',35340817025:'2726700a1dd874069865994dc6ef426b883add5f'}
+          output=pathlib.Path(os.environ['RUNNER_TEMP'])/'audit-metadata';output.mkdir()
+          for attempt in range(180):
+              done=True
+              for run,commit in targets.items():
+                  req=urllib.request.Request(f'https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/{run}',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+                  with urllib.request.urlopen(req,timeout=30) as response:status=json.load(response)
+                  assert status['head_sha']==commit,'Unexpected capture source'
+                  (output/f'run-{run}.json').write_text(json.dumps(status,indent=2)+'\n')
+                  if status['status']=='completed':
+                      assert status['conclusion']=='success',f'Capture {run} failed; no complete-results claim permitted'
+                  else:done=False
+              if done:break
+              time.sleep(30)
+          else:raise RuntimeError('Bounded dependency window expired')
+          print('Both pinned live matrices completed successfully.')
+          PY
+      - name: Retrieve actual model observations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 35340617823 --repo CompleteDotTech/paper-package --pattern 'dspy-live-*' --dir "$RUNNER_TEMP/primary-input"
+          gh run download 35340817025 --repo CompleteDotTech/paper-package --pattern 'dspy-multicall-shard-*' --dir "$RUNNER_TEMP/multicall-input"
+          gh run download 35339699653 --repo CompleteDotTech/paper-package --pattern 'dspy-live-*' --dir "$RUNNER_TEMP/failed-attempt-input"
+      - name: Audit all distributions, refit calibration and compute paired comparisons
+        run: |
+          python -B -m graph_synthesis.dspy_benchmark_analysis.report --input "$RUNNER_TEMP/primary-input" --output "$RUNNER_TEMP/evidence/primary" --graphs
+          CAPTURE="$(find "$RUNNER_TEMP/primary-input" -path '*relation_support--fewshot_contract/freeze.json' -printf '%h\n' | head -1)"
+          test -n "$CAPTURE"
+          python -B -m graph_synthesis.dspy_benchmark_analysis.multicall_report --input "$RUNNER_TEMP/multicall-input" --capture "$CAPTURE" --output "$RUNNER_TEMP/evidence/multicall"
+      - name: Package raw observations and executed reports without models or credentials
+        run: |
+          mkdir -p "$RUNNER_TEMP/evidence/captures/primary" "$RUNNER_TEMP/evidence/captures/multicall" "$RUNNER_TEMP/evidence/failed-attempts"
+          python - <<'PY'
+          import gzip,json,os,pathlib,shutil,hashlib
+          temp=pathlib.Path(os.environ['RUNNER_TEMP']);out=temp/'evidence'
+          for kind,source in [('primary','primary-input'),('multicall','multicall-input')]:
+              for path in (temp/source).rglob('execution.json'):
+                  if (path.parent/'protocol.json').exists():shutil.copytree(path.parent,out/'captures'/kind/path.parent.name)
+          failures=[]
+          for path in (temp/'failed-attempt-input').rglob('calls.jsonl.gz'):
+              destination=out/'failed-attempts'/path.parent.name;shutil.copytree(path.parent,destination)
+              rows=[json.loads(line) for line in gzip.open(path,'rt')]
+              failures.append({'formulation':path.parent.name,'workflow_run':35339699653,'http_attempts':len(rows),'successful_responses':sum(r['error'] is None for r in rows),'reported_input_tokens':sum((r.get('response') or {}).get('usage',{}).get('input_tokens',0) for r in rows),'test_calls':sum(r['site'].startswith('test/') for r in rows),'reason':'DSPy token metadata was not JSON serializable; not a completed benchmark'})
+          (out/'failed-attempts'/'summary.json').write_text(json.dumps(failures,indent=2)+'\n')
+          shutil.copytree(temp/'audit-metadata',out/'workflow-metadata')
+          manifest={p.relative_to(out).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
+          (out/'package-manifest.json').write_text(json.dumps({'sha256':manifest},indent=2)+'\n')
+          PY
+          git archive --format=tar HEAD graph_synthesis/dspy_benchmark graph_synthesis/dspy_multicall graph_synthesis/dspy_benchmark_analysis experiments/dspy-calibration-20260918 .github/workflows/dspy-benchmark.yml .github/workflows/dspy-multicall.yml .github/workflows/dspy-benchmark-audit.yml > "$RUNNER_TEMP/evidence/analysis-source.tar"
+          python -m pip freeze > "$RUNNER_TEMP/evidence/analysis-environment.txt"
+      - name: Preserve verified evidence and failure diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dspy-exhaustive-audit
+          path: |
+            ${{ runner.temp }}/evidence/
+            ${{ runner.temp }}/audit-metadata/
+          retention-days: 30
+          if-no-files-found: warn

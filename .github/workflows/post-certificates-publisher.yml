@@ -3,7 +3,7 @@ name: Post-certificate benchmark publisher
 on:
   push:
     branches:
-      - research/post-certificate-improvements-20260918
+      - research/post-certificate-improvements-final-20260918
 
 permissions:
   contents: write

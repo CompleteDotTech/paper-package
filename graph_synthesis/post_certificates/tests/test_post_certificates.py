@@ -14,6 +14,10 @@ class IntervalMarginalTests(unittest.TestCase):
         self.assertLessEqual(result["lower"], .8)
         self.assertGreaterEqual(result["upper"], .8)
         self.assertLess(result["upper"] - result["lower"], 1e-5)
+        self.assertIn("dual_lower", result["min"])
+        self.assertIn("dual_lower", result["max"])
+        self.assertLessEqual(result["min"]["dual_lower"], result["min"]["signed_primal"] + 1e-9)
+        self.assertLessEqual(result["max"]["dual_lower"], result["max"]["signed_primal"] + 1e-9)
 
     def test_interval_singleton_tracks_uncertainty(self):
         result = methods.interval_lineage_bounds([["a"]], {"a": [.7, .9]})

@@ -32,7 +32,8 @@ jobs:
           python -B -m graph_synthesis.reliability.run | tee graph_synthesis/reliability/execution.log
           python -B -m unittest discover -s graph_synthesis/reliability/tests -v 2>&1 | tee graph_synthesis/reliability/tests.log
           python -B -m graph_synthesis.reliability.run --check
-          python -B -m graph_synthesis.verify --output graph_synthesis/reliability/original-inventory.json
+          python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/reliability-original-inventory.json"
+          cp "$RUNNER_TEMP/reliability-original-inventory.json" graph_synthesis/reliability/original-inventory.json
           python -B -m graph_synthesis.reliability.report --figures --update-paper
           python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
       - name: Commit generated research artifacts on this research branch only

@@ -28,6 +28,11 @@ DRAWS = 4000
 PROTOCOL_COMMIT = '8c404bc997dad7a2b01b453429f566e47dfd3b2f'
 
 
+def repository_key(path, root):
+    """Serialize repository-relative provenance identically on all platforms."""
+    return path.relative_to(root).as_posix()
+
+
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -217,7 +222,7 @@ def execute():
     result = {'schema_version': 1, 'baseline_commit': 'a1555ade897a570be811039f4760ef17e55b793a',
               'protocol_commit': PROTOCOL_COMMIT, 'fresh_service_calls': 0,
               'evidence': 'Exploratory saved-response replay, counterfactual token accounting, simulated review and finite graph oracles; not new inference',
-              'source_hashes': {str((INPUT/name).relative_to(ROOT)): sha(INPUT/name) for name in ('plan.json','calls.jsonl','predictions.json','results.json')},
+              'source_hashes': {repository_key(INPUT/name, ROOT): sha(INPUT/name) for name in ('plan.json','calls.jsonl','predictions.json','results.json')},
               'protocol_sha256': sha(HERE/'PROTOCOL.md'), 'input_verification': audit,
               'development': {'n':len(development),'groups':len({r['group'] for r in development})},
               'test': {'n':len(test),'groups':len({r['group'] for r in test})},

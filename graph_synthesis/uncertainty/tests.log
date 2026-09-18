@@ -34,6 +34,6 @@ test_irrelevant_high_risk_atom (test_uncertainty.ReviewTests.test_irrelevant_hig
 test_misspecification_counterexample (test_uncertainty.ReviewTests.test_misspecification_counterexample) ... ok
 
 ----------------------------------------------------------------------
-Ran 34 tests in 0.488s
+Ran 34 tests in 0.456s
 
 OK

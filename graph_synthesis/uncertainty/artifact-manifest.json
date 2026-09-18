@@ -1,7 +1,7 @@
 {
   "note": "Uncertainty extension only, excluding self. The mutable shared paper has its own build manifest.",
   "sha256": {
-    "graph_synthesis/uncertainty/EXECUTION_NOTES.md": "bfcbf36ab215e269e0e0c27b44bb4648d07f8435eefe93cfa6f722bfc885d645",
+    "graph_synthesis/uncertainty/EXECUTION_NOTES.md": "a467f56b77d2f205f28868dae8d03e617358e5e08a7521716c1d78d7a4fa0e18",
     "graph_synthesis/uncertainty/PROTOCOL.md": "b9bd66fbd73f66a46bdd9fb100d979f13ae9cc2978b2f0fd653ac038af6bea94",
     "graph_synthesis/uncertainty/RESULTS.md": "17f6cac5304d176378c119e1662f8ae91a03fe0a9fbdc91dd163df11700790ba",
     "graph_synthesis/uncertainty/__init__.py": "4322b008d3e95cb4b2abad603e7041fcc36575037933f6713ff6478af861e5fe",
@@ -18,12 +18,12 @@
     "graph_synthesis/uncertainty/figures/05_grounding.svg": "2ed499d9183f468745a192271b2d103142b341be6e4cb1622ddda52c2bbfcf9c",
     "graph_synthesis/uncertainty/methods.py": "52e4a65d79bec2b1049c1c17069f961a40c07537301a0009557bd1bde8d5214a",
     "graph_synthesis/uncertainty/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
-    "graph_synthesis/uncertainty/report.py": "7eb6aa4432c3f7193e9e3113c3b22876f0ea7500580bbabd243cdada6be714a4",
+    "graph_synthesis/uncertainty/report.py": "f1f81608a77f24501f60aa27803f4c32b6f829c45e99166732c5dc651208506d",
     "graph_synthesis/uncertainty/requirements.txt": "5d57998e3c4ee5d37b727e9e952796d29c2ff6c641d7f46458384e3bfba4dcda",
-    "graph_synthesis/uncertainty/results.json": "d39078159378c3990e37ed61d82642b2b73ee88b4f1313ebe880b7e18e0d3989",
+    "graph_synthesis/uncertainty/results.json": "ae333576c1cbf75898200aa5d430b863e66c35903add7b8899e23c907d57e0b3",
     "graph_synthesis/uncertainty/run.py": "fe6ce5ea12040c957e791472c7379dcb97d63e8c48f73097f911e5056646f281",
     "graph_synthesis/uncertainty/summary.csv": "4477b5f9b122c036c22c3dd2cc83f5cc6e66ffb4ae73c6ce0bdf38780c92f185",
-    "graph_synthesis/uncertainty/tests.log": "a71639354b955be8c1eee4c2c1e2830b9e07ce843335ffcaf3fbf8c169bf3775",
+    "graph_synthesis/uncertainty/tests.log": "d085f168acbf5913ff961b0819fd0d80b514345b7fb1d5e19bfaf7080c521aff",
     "graph_synthesis/uncertainty/tests/test_uncertainty.py": "3981629f8be81d5b04c8c5654419f45b25eb46e7baf004f7479781ae972e6b04"
   }
 }

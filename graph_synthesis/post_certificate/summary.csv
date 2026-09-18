@@ -1,0 +1,6 @@
+hypothesis,result,primary_measure,value,boundary
+H1,met,factor-state reduction,0.992620409149,counted DP states, not wall-clock
+H2,met,local evaluation reduction,0.901092529297,connected control saves 0%
+H3,met,small/large oracle failures,0,supplied lineage and costs only
+H4,met,strict minimax improvements,45,independent marginals with interval uncertainty
+H5,met,large exact hypergraph fixtures,8,supplied n-ary constraints and utility

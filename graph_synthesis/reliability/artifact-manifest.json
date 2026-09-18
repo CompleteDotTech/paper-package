@@ -1,0 +1,28 @@
+{
+  "note": "Reliability extension only, excluding self-reference. Mutable shared paper uses its build manifest.",
+  "sha256": {
+    "graph_synthesis/reliability/PROTOCOL.md": "af875a252117ed507488bab3bb7901ed5e7644f68de03e5100961de965157288",
+    "graph_synthesis/reliability/RESULTS.md": "b567ee987524c43f8643168d9b337ec1a167e64f81f3606b0ebbfe505ca706ac",
+    "graph_synthesis/reliability/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "graph_synthesis/reliability/execution.log": "c084bf3845d48b0ea1ef7109ecc9afd6f59a46f921e3a89315f1b8f56a91261e",
+    "graph_synthesis/reliability/figures/01_group_calibration.png": "3509a3f21caa1ac9aa62ec7b1d4c3524e1dec8e1656d2d444fc1880162356ed5",
+    "graph_synthesis/reliability/figures/01_group_calibration.svg": "9858a09d55dc2f895dedd35b721022fc9c82d80284a2f8adafd3430de84adb9c",
+    "graph_synthesis/reliability/figures/02_review_economy.png": "b84756938822ceb0de00f849c6a8a1658f3a6bb1523bd60a33dcbe8cced66c2c",
+    "graph_synthesis/reliability/figures/02_review_economy.svg": "2da7137a7a653b70be782e252c11f0f24d9ea1d31899f27be7218c98492ce450",
+    "graph_synthesis/reliability/figures/03_lineage.png": "fe6919404137f86466f2c4425bf604f632c5e247798e19f74555a97df122f0f6",
+    "graph_synthesis/reliability/figures/03_lineage.svg": "677f2423b17c7e8f054bfc184673d7663dd1df62dd67fb4144d2ac0a08864328",
+    "graph_synthesis/reliability/figures/04_cycle_capacity.png": "ff723ebd1694e376a9189fe9d48ce1f38dcb9ee29ef91ede6c4f4d190f58e592",
+    "graph_synthesis/reliability/figures/04_cycle_capacity.svg": "f97e1b4296510094d9fa7c4f9286d7b45936406bb1812d9313d391c21fdf3405",
+    "graph_synthesis/reliability/figures/05_incremental_work.png": "b0c6913f7d3cc735e008e5c5327898a4d29da43f340e171e5de28d81eff60064",
+    "graph_synthesis/reliability/figures/05_incremental_work.svg": "5faa6da95b1bcbab111b5703354c3e7018971c01a9f730dec98a973d5907359f",
+    "graph_synthesis/reliability/methods.py": "c0552448f2daf44609949486b0f765039fe3b7c85f50d517d736cb07d551be98",
+    "graph_synthesis/reliability/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
+    "graph_synthesis/reliability/report.py": "5290126d0d4765503710dfebc2a36dd775d763ad76df98f7cfcf5d0a4e6b4acc",
+    "graph_synthesis/reliability/results.json": "c34f0d71856121ddd383b4499db621d137c2331f514aaaf5256f4c86bde0e9f5",
+    "graph_synthesis/reliability/run.py": "627905f35276e31bab49c2e3402dc529d9a0a2bbd64070bf9e559a8ce4bb0fba",
+    "graph_synthesis/reliability/summary.csv": "ee147f504fd5586b4fa4eace43d8f8eea94860c77a51a4438a2093a8ab4ff78d",
+    "graph_synthesis/reliability/tests.log": "92624b2ab1d1ee397a88efff09f3ffe14b63743f15a86c7f859cebfdbc5d54b9",
+    "graph_synthesis/reliability/tests/test_artifacts.py": "a8048c6a33a52046603a1de6a9227ecfe6993ac4b833ce4acc7f6a3bd234116d",
+    "graph_synthesis/reliability/tests/test_methods.py": "89e5e1d4070e4c5fb1e2572a0b6b9bf1e76feb9e41d4e6baecb18c08027b5db3"
+  }
+}

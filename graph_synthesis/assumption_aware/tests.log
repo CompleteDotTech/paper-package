@@ -42,8 +42,11 @@ test_reconstruction_charged (test_methods.TreeTests.test_reconstruction_charged)
 test_same_value_no_visits (test_methods.TreeTests.test_same_value_no_visits) ... ok
 test_single_vertex (test_methods.TreeTests.test_single_vertex) ... ok
 test_small_path_all_weights_and_updates (test_methods.TreeTests.test_small_path_all_weights_and_updates) ... ok
+test_append_after_latest_predecessor_and_preserve_content (test_reporting_integration.ReportingIntegrationTests.test_append_after_latest_predecessor_and_preserve_content) ... ok
+test_missing_or_duplicated_predecessor_rejected (test_reporting_integration.ReportingIntegrationTests.test_missing_or_duplicated_predecessor_rejected) ... ok
+test_replace_only_own_section (test_reporting_integration.ReportingIntegrationTests.test_replace_only_own_section) ... ok
 
 ----------------------------------------------------------------------
-Ran 44 tests in 0.722s
+Ran 47 tests in 0.566s
 
 OK

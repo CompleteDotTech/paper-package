@@ -92,7 +92,7 @@ The paired source-group bootstrap uses 4,000 draws with seed 20260924, fixed fit
 
 There are 0 small-tree failures across 1,024 updates, and 0 failures on the two large workloads. The primary target is **met**. Invalid weight/structural updates preserve state; repeated identical weights visit zero DP nodes.
 
-**Cost boundary.** Reconstruction traverses the whole tree on demand. Counting both DP visits and eager reconstruction visits reduces the balanced improvement to 48.81% and the path improvement to 36.67%. These sums are transparent operation accounting, not uniform CPU-cost models or measured latency. Tall paths, changing topology and consumers demanding a complete repair after every update limit the gain. No corresponding reduction in service cost, database I/O or arbitrary-graph maintenance is established.
+**Cost boundary.** Reconstruction traverses the whole tree on demand. The cold reference computes the optimum value; the accounting charges it the same full-tree reconstruction traversal measured for the delta implementation. Counting both DP visits and these eager reconstruction visits reduces the balanced improvement to 48.81% and the path improvement to 36.67%. These sums are transparent operation accounting, not uniform CPU-cost models or measured latency. Tall paths, changing topology and consumers demanding a complete repair after every update limit the gain. No corresponding reduction in service cost, database I/O or arbitrary-graph maintenance is established.
 
 ![H4. DP savings with the separately charged full-repair reconstruction work visible.](figures/04_connected_tree_work.png)
 

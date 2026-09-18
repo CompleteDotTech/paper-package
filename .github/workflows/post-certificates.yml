@@ -53,4 +53,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git diff --exit-code -- CURRENT_RESULTS.md graph_synthesis/post_certificates manuscript
+          # SVG object IDs and PDF bytes are renderer-dependent; verify the
+          # machine-readable evidence, narrative sources, HTML, and PNG plots.
+          git diff --exit-code -- \
+            CURRENT_RESULTS.md \
+            graph_synthesis/post_certificates/PROTOCOL.md \
+            graph_synthesis/post_certificates/RESULTS.md \
+            graph_synthesis/post_certificates/results.json \
+            graph_synthesis/post_certificates/summary.csv \
+            graph_synthesis/post_certificates/figures/*.png \
+            manuscript/paper-current.md \
+            manuscript/paper-current.html

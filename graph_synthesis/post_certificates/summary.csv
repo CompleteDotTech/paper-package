@@ -1,0 +1,6 @@
+hypothesis,mechanism,outcome,primary_metric,value
+H1,Exposure-stratified source-risk stacking,Not met,stacked_brier,0.12892258111773036
+H2,Greedy dependence-constraint acquisition,Met,mean_final_width,0.09668671758032904
+H3,Separator-conditioned near-bipartite solver,Met,small_failures,0
+H4,Reusable repair-margin query index,Met,solve_call_saving,0.7720819198391757
+H5,Interval-marginal dependence certificates,Met,false_admissions_prevented,20

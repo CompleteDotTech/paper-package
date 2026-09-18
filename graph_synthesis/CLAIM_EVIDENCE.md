@@ -42,3 +42,7 @@ Human reviewers should check the model/input interpretation, numerical conclusio
 | Retraction preserves history but is not a truth test | Graph result `graph.lifecycle`; Fig. A7 |
 
 Every displayed value is derived from the input files listed in `figures/MANIFEST.json`. The visualization script and generated SVGs have independent hashes. New visual claims are descriptive post-hoc analyses, not additions to the frozen study's original confirmatory claims.
+
+## Complementary evidence analysis
+
+The [ten-figure evidence paper](EVIDENCE_PAPER.md), [visual analysis](VISUAL_ANALYSIS.md), and [claim-to-evidence mapping](EVIDENCE_CLAIM_EVIDENCE.md) preserve the independently developed analysis from main. Its figures and exact source data reside in `evidence_figures/`, with a separate generator and verification workflow.

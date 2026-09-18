@@ -2,6 +2,18 @@
 
 This additive extension turns exact saved Jev observations into durable, source-bound graph assertions, analyzes relationships and topology, and exercises correction/retraction. It preserves all 161 files in the current baseline MANIFEST inventory. Standalone datasets remain ignored and are acquired through the existing pinned downloader. Read [the illustrated research paper](paper.md), [15-figure gallery](figures/README.md), [visual review and limitations](VISUAL_REVIEW.md), [results](RESULTS.md), [protocol](PROTOCOL.md), and [relationship design notes](RELATIONSHIPS.md).
 
+## Complementary ten-figure analysis
+
+The separately preserved [ten-figure evidence paper](EVIDENCE_PAPER.md) and [visual guide](VISUAL_ANALYSIS.md) retain the analysis from main. Its generator, tests, data and manifest live separately from the fifteen-figure assessment, preventing filename and manifest collisions on Windows.
+
+```sh
+python -m pip install -r graph_synthesis/requirements-figures.txt
+python -B -m graph_synthesis.visualize_evidence
+python -B -m graph_synthesis.visualize_evidence --check
+```
+
+Both figure suites use the same frozen observations and preserve their distinct diagnostics. They introduce no model calls.
+
 ## Run
 
 From the repository root, use Python 3.12 and the original NumPy pin for closest replay compatibility:

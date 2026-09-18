@@ -1,0 +1,38 @@
+{
+  "notes": "SVG has fixed IDs and no date metadata. PNG is a high-resolution convenience rendering. Frozen source files are never modified.",
+  "outputs": {
+    "01_edge_outcomes.png": "92490b485cebd32e1571a93bb9fa869ff26128acab1ba5b60a7420c2b40fa1c3",
+    "01_edge_outcomes.svg": "58f4b8e76784fd1469197e5dca0ef5a5e7517f3b3f47b512e8f88536c749b467",
+    "02_precision_recall.png": "c697c1503fe43cdaa7eba4cd29ec72c2130559419fb0ab202f76b43b5fcb517b",
+    "02_precision_recall.svg": "ca588e77584fbc3c6238084cab216a0562f50176e7702e62a4deb47fc36849a0",
+    "03_matched_precision.png": "7b825040a86abe3106a57d897f6d0ab596efcde72a151208fa6b4d76873fff5f",
+    "03_matched_precision.svg": "d167e19127255f485ccd721aef1d71158480a1fb323ddc0f6e972e708a7f7e31",
+    "04_budget_precision.png": "76029e0052b456a2059ad344f968a73f4a68b75aa6bfa79929404cf0bd2bf324",
+    "04_budget_precision.svg": "4ae558f6b700babd04d4d18586a8c2aa1347306933c59a57793bd3aec02d7584",
+    "05_component_sizes.png": "338bb8a765e5ef82419b4b37434e83b7264d9f3b898943fc19498556dc42536f",
+    "05_component_sizes.svg": "d5435f3b19218cd1c8d64018b4a8d41f0ee203d09d85c2ad329ff76b99eea1bc",
+    "06_edge_reliability.png": "3b3989bbc02d6e02036f512144a8ac03369ce8f875a491384cbe62301a426f82",
+    "06_edge_reliability.svg": "811384c8724622c432bae2debaca140ffb7e1981b1e826bc87e53861531d6437",
+    "07_recorded_input_cost.png": "9884b028b2683d8cd640eb3647ba20fcbacfa9fadc3eae152f998308fdb66780",
+    "07_recorded_input_cost.svg": "24731216a3f38659a6d951f42dcf13bce3979cdefc60bf647c9133f5a27ce037",
+    "08_withdrawal.png": "c3b6dd62e19e33193bf5d9c57760a2d0dabdb511150d63b33cb7db37bf08cd71",
+    "08_withdrawal.svg": "e53a7bf7bde9e82cf385adaa927f64f00beb39d328ceb90f73774c3cbf9fd306",
+    "09_observed_neighborhood.png": "ef0244434ebea83ad787b76237cc8a6b343a5f238dfb8a4fb34324b48fe76f0d",
+    "09_observed_neighborhood.svg": "741313caffd6a2c698797bcba9d45991d096a73646ff5000e470b6231539d2db",
+    "10_predicate_risk_coverage.png": "35690d71edb09bb11a1121c00d8214e5fbdd978ff26cc6e89cbdfb212dc89d15",
+    "10_predicate_risk_coverage.svg": "d1c65312f11982c22873a1bd5a9cd4ecf416f8c6627eb494af85442694fb610e",
+    "data.json": "1b7a37fdf01fd5ca0197799e9b2c410c751f3db9ecca63b21642a4ebb059001a",
+    "edge_outcomes.csv": "f7df1533b507c7605a91314bc65a6736514b09cbeac7bea73ac02b835be706de",
+    "matched_precision.csv": "523bfbcc02424fe994c9f7f1ea52dbd9904b245fb807012f4e7d1bd72c9ff769",
+    "topology.csv": "8dfdc9b0ec6f7484b39a08d5d5857233baad0b4f37729d5fa25b95cb08852016",
+    "withdrawal.csv": "8d970df3cea813d1b2c9cc1f7fbf03cf18fe147bda872e347db3521b8a47fa4a"
+  },
+  "source_sha256": {
+    "calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "experiments/relationships/reference/results.json.gz": "46077c7c8aa9ac71ffd1f0ac0ddb2f63af43940cdfba3f613430e4044f4543c2",
+    "graph_synthesis/results/graph-study.json.gz": "c0a1684930623c238aa45051ebfef170c2e8d25f2460c82a6f2323e18a3b1939",
+    "graph_synthesis/visualize_evidence.py": "da4057e9fc2672a5d35558afbb9382aedc7787c024cd12be6a54a0c6228f4461",
+    "plan.json": "7ed8622f2022b263f3d0b9cda413b4caafe50ebcf0589b05b886dbd615987040",
+    "predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2"
+  }
+}

@@ -62,53 +62,6 @@ test_missing_end_fails (graph_synthesis.adaptive.tests.test_reporting.ReportingT
 test_missing_start_fails (graph_synthesis.adaptive.tests.test_reporting.ReportingTests.test_missing_start_fails) ... ok
 test_replacing_preserves_both_sides (graph_synthesis.adaptive.tests.test_reporting.ReportingTests.test_replacing_preserves_both_sides) ... ok
 test_update_is_idempotent (graph_synthesis.adaptive.tests.test_reporting.ReportingTests.test_update_is_idempotent) ... ok
-test_all_external_subsets_against_cold_scan (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_all_external_subsets_against_cold_scan) ... ok
-test_alternate_grounding_survives (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_alternate_grounding_survives) ... ok
-test_bad_rules (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_bad_rules) ... ok
-test_bad_update_atomic (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_bad_update_atomic) ... ok
-test_duplicate_body_and_rules (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_duplicate_body_and_rules) ... ok
-test_empty_body_axiom (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_empty_body_axiom) ... ok
-test_initialization_cost_explicit (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_initialization_cost_explicit) ... ok
-test_pure_cycle_never_self_grounds (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_pure_cycle_never_self_grounds) ... ok
-test_self_loop_needs_external (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_self_loop_needs_external) ... ok
-test_withdrawing_only_seed_clears_cycle (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_withdrawing_only_seed_clears_cycle) ... ok
-test_wrong_external_can_ground_wrong_conclusion (graph_synthesis.assumption_aware.tests.test_methods.GroundingTests.test_wrong_external_can_ground_wrong_conclusion) ... ok
-test_atom_cap_explicit (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_atom_cap_explicit) ... ok
-test_duplicate_subsumed_invariance (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_duplicate_subsumed_invariance) ... ok
-test_empty_and_tautology (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_empty_and_tautology) ... ok
-test_false_independence_not_admitted (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_false_independence_not_admitted) ... ok
-test_inconsistent_constraints_stage (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_inconsistent_constraints_stage) ... ok
-test_invalid_marginals (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_invalid_marginals) ... ok
-test_invalid_proof_pair_and_caps (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_invalid_proof_pair_and_caps) ... ok
-test_known_intersection (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_known_intersection) ... ok
-test_solver_failure_never_admits (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_solver_failure_never_admits) ... ok
-test_two_event_analytic_bounds (graph_synthesis.assumption_aware.tests.test_methods.ProbabilityTests.test_two_event_analytic_bounds) ... ok
-test_all_graphs_three_vertices_all_binary_weights (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_all_graphs_three_vertices_all_binary_weights) ... ok
-test_call_cap_partial_not_false_certainty (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_call_cap_partial_not_false_certainty) ... ok
-test_dense_unsupported_is_unknown (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_dense_unsupported_is_unknown) ... ok
-test_empty_graph (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_empty_graph) ... ok
-test_equal_pair_disjunction_not_member (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_equal_pair_disjunction_not_member) ... ok
-test_false_priority_remains_false (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_false_priority_remains_false) ... ok
-test_input_order_and_duplicate_edges (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_input_order_and_duplicate_edges) ... ok
-test_query_validation (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_query_validation) ... ok
-test_unique_optimum (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_unique_optimum) ... ok
-test_vertex_cap (graph_synthesis.assumption_aware.tests.test_methods.RepairTests.test_vertex_cap) ... ok
-test_empty_review_pool (graph_synthesis.assumption_aware.tests.test_methods.ReviewTests.test_empty_review_pool) ... ok
-test_id_tie_deterministic (graph_synthesis.assumption_aware.tests.test_methods.ReviewTests.test_id_tie_deterministic) ... ok
-test_invalid_risk_exposure_and_duplicate (graph_synthesis.assumption_aware.tests.test_methods.ReviewTests.test_invalid_risk_exposure_and_duplicate) ... ok
-test_no_gold_access_and_no_mutation (graph_synthesis.assumption_aware.tests.test_methods.ReviewTests.test_no_gold_access_and_no_mutation) ... ok
-test_uniform_matches_existing_strong_baseline (graph_synthesis.assumption_aware.tests.test_methods.ReviewTests.test_uniform_matches_existing_strong_baseline) ... ok
-test_weights_can_change_priority (graph_synthesis.assumption_aware.tests.test_methods.ReviewTests.test_weights_can_change_priority) ... ok
-test_bad_updates_atomic (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_bad_updates_atomic) ... ok
-test_copies_input_weights (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_copies_input_weights) ... ok
-test_malformed_graphs (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_malformed_graphs) ... ok
-test_reconstruction_charged (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_reconstruction_charged) ... ok
-test_same_value_no_visits (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_same_value_no_visits) ... ok
-test_single_vertex (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_single_vertex) ... ok
-test_small_path_all_weights_and_updates (graph_synthesis.assumption_aware.tests.test_methods.TreeTests.test_small_path_all_weights_and_updates) ... ok
-test_append_after_latest_predecessor_and_preserve_content (graph_synthesis.assumption_aware.tests.test_reporting_integration.ReportingIntegrationTests.test_append_after_latest_predecessor_and_preserve_content) ... ok
-test_missing_or_duplicated_predecessor_rejected (graph_synthesis.assumption_aware.tests.test_reporting_integration.ReportingIntegrationTests.test_missing_or_duplicated_predecessor_rejected) ... ok
-test_replace_only_own_section (graph_synthesis.assumption_aware.tests.test_reporting_integration.ReportingIntegrationTests.test_replace_only_own_section) ... ok
 test_caps_are_checked_after_group_expansion (graph_synthesis.corpus.tests.test_plan.CorpusPlanningTests.test_caps_are_checked_after_group_expansion) ... ok
 test_cli_and_idempotent_replay (graph_synthesis.corpus.tests.test_plan.CorpusPlanningTests.test_cli_and_idempotent_replay) ... ok
 test_cli_rejects_invalid_input_without_receipt (graph_synthesis.corpus.tests.test_plan.CorpusPlanningTests.test_cli_rejects_invalid_input_without_receipt) ... ok
@@ -774,6 +727,6 @@ test_source_component_purge_transitive_and_label_free (graph_synthesis.theory_su
 test_topological_review_uses_neighborhood_not_gold (graph_synthesis.theory_suite.tests.test_methods.MethodTests.test_topological_review_uses_neighborhood_not_gold) ... ok
 
 ----------------------------------------------------------------------
-Ran 773 tests in 18.059s
+Ran 726 tests in 13.371s
 
 OK

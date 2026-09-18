@@ -50,13 +50,13 @@ Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query
 
 <!-- ASSUMPTION_AWARE_RESEARCH_END -->
 
-<!-- FRONTIER_RESEARCH_START -->
+<!-- UNCERTAINTY_RESEARCH_START -->
 
-## Five structural-frontier extensions after PR #17
+## Five uncertainty and grounding improvements
 
-[Executed report](graph_synthesis/frontier/RESULTS.md), [pre-execution protocol](graph_synthesis/frontier/PROTOCOL.md), [novelty audit](graph_synthesis/frontier/NOVELTY.md), [five figure pairs](graph_synthesis/frontier/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1/H3/H4/H5 meet controlled supplied-input targets; H2 fails its frozen review-quality target. Source-conditioned probabilities prevent nine independent-marginal false admissions on 96 controlled fixtures; all three review selectors tie at 13.043478 expected contaminated groups. Ten large lineage formulas and nine bipartite conflict fixtures are exact. Connected-path summary transitions fall by 96.47%, excluding linear witness decoding. No new Jev calls, independent semantic-accuracy finding, worldwide novelty claim or production-policy change. All earlier studies and negative results remain intact.
+[Executed report](graph_synthesis/uncertainty/RESULTS.md), [frozen protocol](graph_synthesis/uncertainty/PROTOCOL.md), [five figures](graph_synthesis/uncertainty/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 met its frozen target; H2 met its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. All five are controlled algorithmic/decision-theoretic tests, not new Jev accuracy observations. Dependence uncertainty, repair ambiguity, query-directed review, collateral-aware retraction and recursive grounding are tested with explicit failure controls. No fresh Jev calls, new scientific documents, globally unprecedented algorithm claim or production-policy changes.
 
-<!-- FRONTIER_RESEARCH_END -->
+<!-- UNCERTAINTY_RESEARCH_END -->
 
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 

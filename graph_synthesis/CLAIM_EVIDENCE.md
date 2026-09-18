@@ -25,18 +25,24 @@ The paper reports a post-hoc transformation of original observations, not indepe
 
 Human reviewers should check the model/input interpretation, numerical conclusions, evidence redistribution permissions, and final authorship statements before publication. The automated review consists of explicit negative tests, invariant checks, source/hash auditing, and matched-coverage reanalysis; it is not independent scholarly peer review. Untouched-corpus extraction, independently adjudicated labels, large-cluster inference, fresh temporal replication, production latency/load, and a matched-input KARMA execution remain future experiments, not completed claims.
 
-## Visual-analysis revision
 
-The earlier 60-test count refers to the original graph study. The merged relationship experiment raised the extension count to 85; fifteen new visual regression tests raise the current extension suite to 100. The original 136-test suite remains separate.
+## Visual-revision claims
 
-| New reporting claim | Exact evidence | Boundary |
-|---|---|---|
-| Six mutually exclusive outcomes for each of 339 rows | `figures/data.json:arms`; `figures/edge_outcomes.csv`; confusion matrices in relationship reference | No-info, abstention, and error remain separate |
-| Unsupported versus wrong-polarity edges: 27/10 generic, 13/7 few-shot | `figures/edge_outcomes.csv:unsupported_edge,wrong_polarity` | Gold no-information means not supported by supplied evidence, not false in the world |
-| Six matched precision intervals include/touch zero | `figures/data.json:matched`; `figures/matched_precision.csv` | Exploratory conditional bootstrap, not equivalence or multiplicity-corrected inference |
-| Isolates increase 180 to 241 of 583 nodes | `figures/topology.csv` | Connectivity is not factual accuracy |
-| Schema-eligible pair densities 224/84900 and 192/84900 | `figures/topology.csv:schema_eligible_pairs,schema_pair_density` | Unevaluated Cartesian pairs do not measure retrieval recall |
-| Confidence bins conserve 224/192 accepted edges and 187/172 correct | `figures/data.json:reliability`; `tests/test_visualize.py` | Evaluation-set descriptive diagnostic; dependent rows |
-| Real claim 133 neighborhood, five candidate documents | `figures/data.json:neighborhood`; frozen plan via `RecordedJev` | Gold-independent selection, not representative sampling |
-| Combined arms require 678 recorded calls / 1471953 input tokens | `figures/edge_outcomes.csv`; relationship reference `recorded_usage` | No fresh usage; input-only historical ratio, not complete deployment cost |
-| Artifact regeneration and lineage | `visualize.py`; `figures/manifest.json`; figures CI | SVG/data reproducibility, not independent inference replication |
+| Claim | Source and reconstruction |
+|---|---|
+| Five-arm correct/incorrect/no-edge comparison | `experiments/relationships/reference/results.json.gz`, `arms.*.operational`; Fig. 1 and `figures/edge_summary.csv` |
+| Typed-edge precision and recall are distinct | Same source, `edges`; all 339 candidate rows and 209 gold typed edges retained; Fig. 2 |
+| Equal-count intervals include zero | `results/graph-study.json.gz`, per-task `matched_primary_action_count`; Fig. 3 |
+| Returned score 1.0 can retain wrong edges | Original response reconstruction through `RecordedJev`; `figures/data.json`, `tasks.relation_support.arms.*.risk_curve[0]`; Fig. 4 |
+| More isolated SciFact nodes in selected graph | Graph result `graph.metrics.weak_component_size_histogram`; node-mass recomputation; Fig. 5 |
+| Displayed network is real but illustrative | `component_example` selection by disagreement, size and IDs, never gold; Fig. 6 |
+| Fusion contrasts are unresolved | Existing fusion `comparisons.*.macro_f1_bootstrap`, sign normalized to arm minus selected; Fig. 7 |
+| Input-token plot is historical, not replay cost | Existing fusion `arms.*.recorded_usage`; no invented dollar cost, no live calls; Fig. 8 |
+| Classwise reliability preserves other-class predictions | All valid original vectors; fixed-bin counts in `figures/data.json`; Figs. A4–A6 |
+| Retraction preserves history but is not a truth test | Graph result `graph.lifecycle`; Fig. A7 |
+
+Every displayed value is derived from the input files listed in `figures/MANIFEST.json`. The visualization script and generated SVGs have independent hashes. New visual claims are descriptive post-hoc analyses, not additions to the frozen study's original confirmatory claims.
+
+## Complementary evidence analysis
+
+The [ten-figure evidence paper](EVIDENCE_PAPER.md), [visual analysis](VISUAL_ANALYSIS.md), and [claim-to-evidence mapping](EVIDENCE_CLAIM_EVIDENCE.md) preserve the independently developed analysis from main. Its figures and exact source data reside in `evidence_figures/`, with a separate generator and verification workflow.

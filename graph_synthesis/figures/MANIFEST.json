@@ -1,0 +1,30 @@
+{
+  "files_sha256": {
+    "01_edge_yield.svg": "f44751a2f5e704dea15cac7902df96b8fbfb536c10017faccaafacac69eb1c6d",
+    "02_precision_recall.svg": "46e5217350a60b4a5f5ccfa8ed11d5edfa6eef5fbd213f1062801e6dd5857a2e",
+    "03_identity_risk_coverage.svg": "a3bec5ba00153fb73aa7b8c6fb7ce4e94753e378c7fc1e818cc3e588d33ecd7d",
+    "04_relation_risk_coverage.svg": "f3c9417ac5bf99fe1cb1ce28f49f864e97de9192de04b39aafc25cc0c38b444c",
+    "05_confusion_baseline.svg": "4db0188ba1138cba49b7dd799334affc34705bfdd0d1839c8d3b1cc59937d895",
+    "06_confusion_selected.svg": "76d7ffeda18d2e9d25604911d5722b63163ae13a2d4a50c52d434dae3daa76b1",
+    "07_matched_precision.svg": "b35f3568c7a7898caa7f80c04a4a382ed936df5d896ef83f2c6e3f8c779a9c76",
+    "08_component_coverage.svg": "fc94407ce0f929accd16ec9c52bd6bce5ccd6288d572612b951503155af07f3a",
+    "09_identity_reliability.svg": "037425e765a0e85c561a573ae0f847082beb52bd21c96c8e9116021617b16547",
+    "10_support_reliability.svg": "fd0e389b1b655885483d9142ddc87218e6048524f6abc3b0ed6ea43931b0ec7d",
+    "11_refute_reliability.svg": "e91d86ab1670946e686ededc36b450ce3c098b989bc0d0adc3fef4010c8d4f2c",
+    "12_changed_component.svg": "18f562b8aaee418dd7356b7c2bb51e47e45503a937891d89768b70292bb1e001",
+    "13_source_withdrawal.svg": "4336b0f23e2d5dffb60d5ec3000a4a173f566a35e2b139bcf5ba737e537fed9f",
+    "14_fusion_effects.svg": "07fe6c63ad548c0b58858506b9459ef01aee889332d414b0ca08193ec1abf153",
+    "15_recorded_input_cost.svg": "a0613c99754c162c8dfa3dc098aa0893902407c8dcf1282a92c4808baa18f557",
+    "README.md": "f99d78622ced3d375d9fcdf6babc7ce80e45c5129a73b375800b5b5f77e6e244",
+    "data.json": "2592b49b84ff4427ce2fe5d9865e68ba4c49f9db49237e8c8fdf7716300920b9",
+    "edge_summary.csv": "3910e5753dd64f2ac8b33fd24e7fda0355d549475cc8fca28c9ebe971262ba71"
+  },
+  "generator_sha256": "2e9fdd6bf94e936120e4ab85960b614959ee178081035331a162489a0055a9cc",
+  "inputs_sha256": {
+    "experiments/relationships/reference/results.json.gz": "46077c7c8aa9ac71ffd1f0ac0ddb2f63af43940cdfba3f613430e4044f4543c2",
+    "graph_synthesis/results/graph-study.json.gz": "c0a1684930623c238aa45051ebfef170c2e8d25f2460c82a6f2323e18a3b1939",
+    "reproduction/results/jev/run-20260918/calls.jsonl": "4833a5919647b483f67668357e36ba5df334acdee2a628a64c5d7d7ce412ad83",
+    "reproduction/results/jev/run-20260918/plan.json": "7ed8622f2022b263f3d0b9cda413b4caafe50ebcf0589b05b886dbd615987040",
+    "reproduction/results/jev/run-20260918/predictions.jsonl": "2a5778db45583a7fca3f7a385846fb712f395e6b2b2510d914377c5862e959f2"
+  }
+}

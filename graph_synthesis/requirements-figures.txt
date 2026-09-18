@@ -1,3 +1,5 @@
-# Reuse the archive's numerical dependency and pin the SVG renderer.
+# Pinned dependencies for both preserved figure suites and PDF rendering.
 -r ../reproduction/requirements-jev.txt
 matplotlib==3.10.8
+markdown-it-py==4.2.0
+weasyprint==68.0

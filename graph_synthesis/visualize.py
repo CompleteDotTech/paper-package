@@ -1,409 +1,413 @@
-"""Reproducible, offline graph-study figures; never changes frozen evidence.
+"""Reproducible visual assessment of frozen graph decisions; no model/network calls.
 
-Numerical transformations use the standard library. Matplotlib is imported only
-when rendering. All views are post-hoc diagnostics, not new model experiments.
+Figures are descriptive reanalyses, not new semantic experiments or fitted policies.
+Original observations are hash-checked by RecordedJev. Summary sources and every
+committed SVG are bound in a separate manifest; the frozen inventory is untouched.
 """
 from __future__ import annotations
 
 import argparse
-from collections import Counter
+from collections import Counter, defaultdict
 import csv
 import gzip
 import hashlib
-import io
 import json
 import math
 from pathlib import Path
-import tempfile
+from typing import Any
 
-from .recorded import RecordedJev
-from .study import read_scores
+from .recorded import BASELINES, LABELS, RecordedJev
+from .study import action_metrics, accepted_ids, read_scores
+from .verify import compare_json
 
-INPUTS = {
-    "graph_synthesis/results/graph-study.json.gz": "c0a1684930623c238aa45051ebfef170c2e8d25f2460c82a6f2323e18a3b1939",
-    "experiments/relationships/reference/results.json.gz": "46077c7c8aa9ac71ffd1f0ac0ddb2f63af43940cdfba3f613430e4044f4543c2",
-}
+ROOT = Path(__file__).resolve().parents[1]
+GRAPH = "graph_synthesis/results/graph-study.json.gz"
+FUSION = "experiments/relationships/reference/results.json.gz"
 ARMS = ("baseline_choice", "fewshot_contract", "mean_pool", "agreement_gate", "stacked")
-NAMES = dict(zip(ARMS, ("Generic Choice", "Few-shot contract", "Probability average", "Agreement gate", "Calibration stacker")))
-FIGURES = (
-    "01_edge_outcomes", "02_precision_recall", "03_matched_precision",
-    "04_budget_precision", "05_component_sizes", "06_edge_reliability",
-    "07_recorded_input_cost", "08_withdrawal", "09_observed_neighborhood",
-    "10_predicate_risk_coverage",
-)
+NAMES = dict(zip(ARMS, ("Generic Choice", "Selected formulation", "Probability average", "Agreement gate", "Calibration stacker")))
+NAMES["baseline_noul"] = "Noul baseline"
+EDGE_LABELS = {"SUPPORTS", "REFUTES"}
 
 
-def digest(raw: bytes) -> str:
-    return hashlib.sha256(raw).hexdigest()
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def encoded(value) -> bytes:
-    return (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8")
+def load_gzip(path: Path) -> dict:
+    return json.loads(gzip.decompress(path.read_bytes()))
 
 
-def load_reference(root: Path, relative: str) -> dict:
-    raw = (root / relative).read_bytes()
-    if digest(raw) != INPUTS[relative]:
-        raise ValueError("Reference hash mismatch: " + relative)
-    return json.loads(gzip.decompress(raw))
+def risk_curve(rows: list[dict], labels: set[str]) -> list[dict]:
+    """Threshold the ORIGINAL predicted action score, admitting whole tie blocks.
 
-
-def dispositions(op: dict) -> dict:
-    """Partition every evaluation row; wrong polarity is not a correct edge."""
-    c = op["confusion"]
-    labels = ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO")
-    row = {
-        "correct_edge": c["SUPPORTS"]["SUPPORTS"] + c["REFUTES"]["REFUTES"],
-        "unsupported_edge": c["NOT_ENOUGH_INFO"]["SUPPORTS"] + c["NOT_ENOUGH_INFO"]["REFUTES"],
-        "wrong_polarity": c["SUPPORTS"]["REFUTES"] + c["REFUTES"]["SUPPORTS"],
-        "no_information": sum(c[g]["NOT_ENOUGH_INFO"] for g in labels),
-        "abstain": sum(c[g]["ABSTAIN"] for g in labels),
-        "error": sum(c[g]["ERROR"] for g in labels),
-    }
-    e = op["edges"]
-    if sum(row.values()) != op["n"] or row["correct_edge"] != e["correct"]:
-        raise ValueError("Disposition counts do not conserve evaluation rows")
-    if row["unsupported_edge"] + row["wrong_polarity"] != e["incorrect"]:
-        raise ValueError("Typed edge errors disagree with confusion matrix")
-    if e["accepted"] != e["correct"] + e["incorrect"]:
-        raise ValueError("Accepted edge counts do not conserve")
-    return row
-
-
-def reliability(rows: list[dict], bins: int = 10) -> list[dict]:
-    """Fixed equal-width bins of accepted-edge winning-label confidence.
-
-    The rightmost bin includes 1. Empty bins are omitted, not set to zero.
-    Operational failures and NOT_ENOUGH_INFO are not accepted edges.
+    Candidate coverage includes operational failures and non-edge predictions in
+    its denominator. An empty accepted set has undefined risk, not zero risk.
     """
-    if bins < 1:
-        raise ValueError("bins must be positive")
-    buckets = [[] for _ in range(bins)]
+    groups: dict[float, list[dict]] = defaultdict(list)
     for row in rows:
-        if row["label"] not in ("SUPPORTS", "REFUTES"):
+        if row["label"] in labels:
+            score = row["score"]
+            if not math.isfinite(score) or not 0 <= score <= 1:
+                raise ValueError("Invalid action score")
+            groups[score].append(row)
+    accepted = wrong = 0
+    curve = []
+    for threshold in sorted(groups, reverse=True):
+        block = groups[threshold]
+        accepted += len(block)
+        wrong += sum(row["gold"] != row["label"] for row in block)
+        curve.append({"threshold": threshold, "tie_block": len(block), "accepted": accepted,
+                      "incorrect": wrong, "coverage": accepted / len(rows), "risk": wrong / accepted})
+    return curve
+
+
+def reliability(rows: list[dict], label: str, bins: int = 10) -> list[dict]:
+    """Classwise raw-probability bins; use every valid row, not argmax-only rows."""
+    if bins < 1:
+        raise ValueError("At least one bin is required")
+    groups: dict[int, list[tuple[float, int]]] = defaultdict(list)
+    for row in rows:
+        if row["decision"].error:
             continue
-        score = row["score"]
-        if not math.isfinite(score) or not 0 <= score <= 1:
-            raise ValueError("Invalid confidence")
-        buckets[min(int(score * bins), bins - 1)].append(row)
-    return [{"bin": i, "lower": i/bins, "upper": (i+1)/bins, "n": len(bucket),
-             "correct": sum(x["label"] == x["gold"] for x in bucket),
-             "mean_confidence": math.fsum(x["score"] for x in bucket)/len(bucket),
-             "accuracy": sum(x["label"] == x["gold"] for x in bucket)/len(bucket)}
-            for i, bucket in enumerate(buckets) if bucket]
+        p = row["decision"].probabilities[label]
+        if not math.isfinite(p) or not 0 <= p <= 1:
+            raise ValueError("Invalid class probability")
+        groups[min(int(p * bins), bins - 1)].append((p, int(row["gold"] == label)))
+    return [{"bin": b, "lower": b / bins, "upper": (b + 1) / bins, "n": len(groups[b]),
+             "mean_probability": sum(p for p, _ in groups[b]) / len(groups[b]) if groups[b] else None,
+             "observed_fraction": sum(y for _, y in groups[b]) / len(groups[b]) if groups[b] else None}
+            for b in range(bins)]
 
 
-def collect(root: Path) -> dict:
-    graph = load_reference(root, list(INPUTS)[0])
-    fusion = load_reference(root, list(INPUTS)[1])
+def component_example(left: list[dict], right: list[dict]) -> dict:
+    """Select by disagreement count, then size, then IDs; never by gold correctness."""
+    by_right = {row["id"]: row for row in right}
+    adjacency: dict[str, set[str]] = defaultdict(set)
+    edges = []
+    for row in left:
+        other = by_right[row["id"]]
+        s, o = "document:" + row["row"]["document_id"], "claim:" + row["row"]["claim_id"]
+        adjacency[s].add(o); adjacency[o].add(s)
+        # Gold attached for audit AFTER the selection rule; it never ranks components.
+        edges.append({"id": row["id"], "subject": s, "object": o, "baseline": row["label"],
+                      "selected": other["label"], "gold": row["gold"]})
+    seen: set[str] = set()
+    components = []
+    for start in sorted(adjacency):
+        if start in seen:
+            continue
+        stack, nodes = [start], set()
+        while stack:
+            node = stack.pop()
+            if node in nodes:
+                continue
+            nodes.add(node); stack.extend(adjacency[node] - nodes)
+        seen |= nodes
+        selected = [edge for edge in edges if edge["subject"] in nodes]
+        differences = sum(e["baseline"] != e["selected"] for e in selected)
+        components.append((differences, len(nodes), sorted(nodes), selected))
+    if not components:
+        return {"nodes": [], "edges": [], "changed_decisions": 0}
+    changes, _, nodes, selected = sorted(components, key=lambda c: (-c[0], -c[1], c[2]))[0]
+    return {"nodes": nodes, "edges": sorted(selected, key=lambda e: e["id"]), "changed_decisions": changes,
+            "selection": "All candidate components, ranked by changed decisions descending, node count descending, then sorted node IDs. Gold is not used."}
+
+
+def effect_vs_selected(comparisons: dict, arm: str) -> dict:
+    for key, sign in (("fewshot_contract__vs__" + arm, 1), (arm + "__vs__fewshot_contract", -1)):
+        if key in comparisons:
+            row = comparisons[key]
+            lo, hi = row["macro_f1_bootstrap"]["interval"]
+            return {"arm": arm, "delta": sign * row["macro_f1_delta"],
+                    "interval": [lo, hi] if sign == 1 else [-hi, -lo],
+                    "draws": row["macro_f1_bootstrap"]["draws"]}
+    raise ValueError("Missing paired contrast for " + arm)
+
+
+def build_data(root: Path = ROOT) -> dict:
     backend = RecordedJev(root)
-    if graph["input_sha256"] != backend.hashes or fusion["source_hashes"] != backend.hashes:
-        raise ValueError("Studies do not share the verified frozen inputs")
-    if fusion["evaluation_rows"] != 339 or fusion["fresh_http_calls"] != 0 or graph["fresh_model_calls"] != 0:
-        raise ValueError("Unexpected experiment population or live inference")
-    data = {"schema_version": 1, "source_sha256": {**INPUTS, **backend.hashes},
-            "evaluation_rows": fusion["evaluation_rows"], "gold_typed_edges": 209,
-            "interpretation": "Post-hoc fixed-candidate diagnostics; no new inference or deployment qualification.",
-            "arms": [], "matched": [], "topology": [], "reliability": [],
-            "withdrawals": [], "predicate_frontiers": [], "neighborhood": {}}
+    graph, fusion = load_gzip(root / GRAPH), load_gzip(root / FUSION)
+    if graph["input_sha256"] != backend.hashes:
+        raise ValueError("Graph summary does not bind the original observations")
+    data: dict[str, Any] = {
+        "schema_version": 1, "fresh_model_calls": 0,
+        "status": "Post-hoc descriptive visualization; no new inference, model fit, threshold selection, or KARMA run.",
+        "inputs_sha256": {GRAPH: sha256(root / GRAPH), FUSION: sha256(root / FUSION),
+                           **{f"reproduction/results/jev/run-20260918/{k}": v for k, v in backend.hashes.items()}},
+        "tasks": {}, "fusion": {"arms": {}, "effects_vs_selected": []},
+    }
+    all_rows = {}
+    for task in LABELS:
+        task_data = {"arms": {}, "matched": graph["tasks"][task]["matched_primary_action_count"]}
+        all_rows[task] = {}
+        for arm in (BASELINES[task], "fewshot_contract"):
+            rows = read_scores(backend, task, arm, "evaluation")
+            all_rows[task][arm] = rows
+            saved = graph["tasks"][task][arm]
+            if len(rows) != saved["eligible"] or sum(r["label"] == "ERROR" for r in rows) != saved["errors"]:
+                raise ValueError("Changed eligibility/error accounting")
+            actions = {}
+            for label in LABELS[task]:
+                if label == "NOT_ENOUGH_INFO":
+                    continue
+                m = action_metrics(rows, accepted_ids(rows, label, 0), label)
+                compare_json(saved["actions"][label]["argmax"], m)
+                actions[label] = m
+            confusion = dict(sorted(Counter(r["gold"] + " -> " + r["label"] for r in rows).items()))
+            if confusion != saved["confusion"]:
+                raise ValueError("Confusion counts differ from graph study")
+            labels = EDGE_LABELS if task == "relation_support" else {"same"}
+            task_data["arms"][arm] = {
+                "n": len(rows), "groups": len({r["group"] for r in rows}), "errors": saved["errors"],
+                "gold_counts": dict(sorted(Counter(r["gold"] for r in rows).items())),
+                "confusion": confusion, "actions": actions, "risk_curve": risk_curve(rows, labels),
+                "reliability": {label: reliability(rows, label) for label in labels},
+                "graph": saved["graph"], "recorded_usage": saved["recorded_evaluation_usage"],
+            }
+        data["tasks"][task] = task_data
+    relation = all_rows["relation_support"]
+    data["component_example"] = component_example(relation["baseline_choice"], relation["fewshot_contract"])
     for arm in ARMS:
-        item = fusion["arms"][arm]
-        op, usage = item["operational"], item["recorded_usage"]
-        e = op["edges"]
-        partition = dispositions(op)
-        gold_edges = sum(sum(op["confusion"][g].values()) for g in ("SUPPORTS", "REFUTES"))
-        if gold_edges != data["gold_typed_edges"] or op["n"] != data["evaluation_rows"]:
-            raise ValueError("Inconsistent evaluation denominators")
-        if not math.isclose(e["precision"], e["correct"]/e["accepted"], abs_tol=1e-12):
-            raise ValueError("Precision denominator mismatch")
-        if not math.isclose(e["recall"], e["correct"]/gold_edges, abs_tol=1e-12):
-            raise ValueError("Recall denominator mismatch")
-        if item["graph"]["committed_label_correct"] != e["correct"] or item["graph"]["committed_label_incorrect"] != e["incorrect"]:
-            raise ValueError("Graph and independently counted edge outcomes disagree")
-        data["arms"].append({"arm": arm, "name": NAMES[arm], **e, **partition,
-                             "recorded_calls": usage["calls"], "recorded_input_tokens": usage["input_tokens"],
-                             "input_tokens_per_correct_edge": usage["input_tokens"]/e["correct"],
-                             "budget_curve": item["budget_curve"]})
-    for task, title in (("entity_resolution", "Same identity"), ("relation_support", "Support link")):
-        m = graph["tasks"][task]["matched_primary_action_count"]
-        b = m["paired_precision_difference"]
-        data["matched"].append({"name": title + ": selected - generic", "k": m["accepted_per_arm"],
-                                "delta": m["selected"]["precision"] - m["baseline"]["precision"],
-                                "interval": b["interval"], "draws": b["draws"], "units": b["units"],
-                                "left_correct": m["baseline"]["true"], "right_correct": m["selected"]["true"]})
-    for left, right in (("baseline_choice", "fewshot_contract"), ("fewshot_contract", "mean_pool"),
-                        ("fewshot_contract", "agreement_gate"), ("fewshot_contract", "stacked")):
-        m = fusion["comparisons"][left + "__vs__" + right]["matched_edges"]
-        data["matched"].append({"name": NAMES[right] + " - " + NAMES[left], "k": m["k"],
-                                "delta": m["precision_delta"], "interval": m["bootstrap"]["interval"],
-                                "draws": m["bootstrap"]["draws"], "units": fusion["evaluation_components"],
-                                "left_correct": m["left"]["correct"], "right_correct": m["right"]["correct"]})
-    for task, task_name, baseline in (("relation_support", "SciFact", "baseline_choice"),
-                                       ("entity_resolution", "Identity", "baseline_noul")):
-        for arm, short in ((baseline, "Generic"), ("fewshot_contract", "Few-shot")):
-            g = graph["tasks"][task][arm]["graph"]
-            m, life = g["metrics"], g["lifecycle"]
-            hist = m["weak_component_size_histogram"]
-            if sum(int(size)*n for size, n in hist.items()) != m["nodes"] or sum(hist.values()) != m["weak_components"]:
-                raise ValueError("Topology histogram does not conserve nodes/components")
-            row = {"task": task, "arm": arm, "name": task_name + " / " + short,
-                   "nodes": m["nodes"], "edges": m["typed_edges"], "isolates": m["isolates"],
-                   "isolate_fraction": m["isolates"]/m["nodes"], "weak_components": m["weak_components"],
-                   "largest_component": m["largest_component"], "histogram": hist,
-                   "claims_with_opposing_source_labels": m["claims_with_opposing_source_labels"]}
-            if task == "relation_support":
-                # A directed Document -> Claim graph has D*C possible endpoint pairs,
-                # not V*(V-1). This still does not measure candidate retrieval recall.
-                possible = m["node_type_counts"]["Document"] * m["node_type_counts"]["Claim"]
-                row.update(schema_eligible_pairs=possible, schema_pair_density=m["distinct_directed_pairs"]/possible)
-                for label in ("SUPPORTS", "REFUTES"):
-                    data["predicate_frontiers"].append({"arm": arm, "label": label,
-                        "points": graph["tasks"][task][arm]["actions"][label]["frontier"]})
-            data["topology"].append(row)
-            if life["active_after_withdrawal"] + life["actual_retractions"] != life["original_assertions_preserved"]:
-                raise ValueError("Withdrawal loses assertion history")
-            data["withdrawals"].append({"name": row["name"], "initial": m["assertions"],
-                "active_after": life["active_after_withdrawal"], "retracted": life["actual_retractions"],
-                "history_preserved": life["original_assertions_preserved"], "reopen_equal": life["durable_reopen_equal"]})
-    scored = {arm: read_scores(backend, "relation_support", arm, "evaluation") for arm in ARMS[:2]}
-    for arm, rows in scored.items():
-        bins = reliability(rows)
-        n = sum(x["n"] for x in bins)
-        correct = sum(x["correct"] for x in bins)
-        expected = fusion["arms"][arm]["operational"]["edges"]
-        if n != expected["accepted"] or correct != expected["correct"]:
-            raise ValueError("Reliability observations disagree with archived edge counts")
-        data["reliability"].append({"arm": arm, "accepted": n, "bins": bins})
-    # Select a real neighborhood by candidate incidence, never by correctness.
-    counts = Counter(x["row"]["claim_id"] for x in scored[ARMS[0]])
-    claim = min(counts, key=lambda key: (-counts[key], key))
-    right = {x["id"]: x for x in scored[ARMS[1]]}
-    selected = sorted((x for x in scored[ARMS[0]] if x["row"]["claim_id"] == claim),
-                      key=lambda x: x["row"]["document_id"])
-    data["neighborhood"] = {"claim_id": claim,
-        "selection": "Highest candidate document incidence; ties by claim ID lexicographically; gold not consulted.",
-        "candidates": [{"id": x["id"], "document_id": x["row"]["document_id"],
-                        "generic": x["label"], "fewshot": right[x["id"]]["label"], "gold": x["gold"]} for x in selected]}
+        saved = fusion["arms"][arm]
+        op = saved["operational"]
+        if op["n"] != 339 or op["edges"]["accepted"] != op["edges"]["correct"] + op["edges"]["incorrect"]:
+            raise ValueError("Invalid fusion denominator or edge partition")
+        if arm in relation:
+            g = data["tasks"]["relation_support"]["arms"][arm]["graph"]
+            if (g["committed_label_correct"], g["committed_label_incorrect"]) != (op["edges"]["correct"], op["edges"]["incorrect"]):
+                raise ValueError("Fusion and graph summaries disagree")
+        data["fusion"]["arms"][arm] = {"operational": op, "recorded_usage": saved["recorded_usage"],
+                                               "budget_curve": saved["budget_curve"]}
+    for arm in ("mean_pool", "agreement_gate", "stacked"):
+        data["fusion"]["effects_vs_selected"].append(effect_vs_selected(fusion["comparisons"], arm))
     return data
 
 
-def write_tables(data: dict, output: Path) -> None:
-    output.mkdir(parents=True, exist_ok=True)
-    (output / "data.json").write_bytes(encoded(data))
-    for name, rows in (("edge_outcomes", data["arms"]), ("matched_precision", data["matched"]),
-                       ("topology", data["topology"]), ("withdrawal", data["withdrawals"])):
-        keys = list(dict.fromkeys(k for row in rows for k in row if not isinstance(row[k], (list, dict))))
-        if name == "matched_precision":
-            rows = [dict(row, interval_low=row["interval"][0], interval_high=row["interval"][1]) for row in rows]
-            keys += ["interval_low", "interval_high"]
-        text = io.StringIO(newline="")
-        writer = csv.DictWriter(text, keys, extrasaction="ignore", lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(rows)
-        (output / (name + ".csv")).write_bytes(text.getvalue().encode("utf-8"))
+CAPTIONS = {
+    "01_edge_yield": "All 339 SciFact candidates remain in each bar. Correct and incorrect SUPPORTS/REFUTES edges are separated from no-edge outcomes. No edge includes NOT_ENOUGH_INFO, operational failure, and (for the agreement arm) abstention; it does not mean correct rejection. Source: fusion.arms.*.operational. Existing experiment, not fresh inference.",
+    "02_precision_recall": "Typed-edge precision versus recall for the five frozen experimental arms. Recall uses all 209 gold SUPPORTS/REFUTES rows, not accepted predictions. Wrong polarity is both an incorrect edge and a missed gold edge. Axes run from 0 to 100%; the arrows only locate labels. No confidence region or superiority claim is implied.",
+    "03_identity_risk_coverage": "Identity same-action risk (incorrect accepted same labels / accepted same labels) versus accepted candidates / all 413 candidates. Each point admits a complete equal-score tie block. The curve is descriptive evaluation-set evidence, not a calibrated policy; different_from constraints are outside this curve.",
+    "04_relation_risk_coverage": "Pooled SUPPORTS/REFUTES wrong-edge risk versus accepted candidates / all 339 candidates. Whole score ties are admitted; no exact-K splitting or synthetic origin point is used. NEI and errors remain in the coverage denominator. Risk is not false-positive rate among negatives. No threshold is selected from this curve.",
+    "05_confusion_baseline": "Generic Choice operational confusion on 339 SciFact candidates. Cells show counts and within-gold-row percentages. ERROR is a separate output column and remains in the denominator. All gold counts are printed; color intensity is normalized within each gold row.",
+    "06_confusion_selected": "Selected formulation operational confusion, using exactly the baseline plot's gold order, columns and normalization. A predicted NEI is not the same as abstention or an operational error. In particular, true support can be omitted without becoming a wrong committed edge.",
+    "07_matched_precision": "Selected-minus-baseline precision at equal accepted PRIMARY-action counts: 351 same-identity actions and 118 SUPPORTS actions. Points and intervals come from the existing 1,000-draw paired percentile bootstrap (seed 20260918). SciFact resamples components; identity resamples disjoint pair units. Both intervals include zero. This is not the pooled-edge fusion comparison.",
+    "08_component_coverage": "SciFact nodes grouped by the size of their accepted-edge weak component. Each bar equals component size times component count. Both arms retain all 583 candidate nodes, including isolates (size 1); totals therefore have the same denominator. More connected nodes do not establish more correct facts.",
+    "09_identity_reliability": "Classwise raw P(same) reliability on every valid identity response. Fixed ten equal-width bins, [lower, upper), with 1 included in the last bin; empty bins are omitted, not zero-filled. Marker area is proportional to bin count. The diagonal denotes equality of binned means, not certification of low graph risk.",
+    "10_support_reliability": "Raw P(SUPPORTS) against gold support frequency on every valid SciFact response, including rows predicted as other labels. Same bins and marker sizing as the identity reliability plot. Failures are excluded ONLY from probability diagnostics, not operational metrics. Repeated components make this descriptive, not an independent-binomial confidence assessment.",
+    "11_refute_reliability": "Raw P(REFUTES) classwise reliability with fixed bins and sample-size-proportional marker area. The plot describes source-to-claim classification, not factual probabilities of biomedical relations. It is not a new temperature-scaling experiment.",
+    "12_changed_component": "An actual supplied-candidate SciFact component, selected deterministically by the largest number of changed predictions, then node count, then IDs, without gold-based selection. Nodes are original document/claim identifiers. Each arrow lists baseline / selected / gold. Dashed arrows mark changed predictions; a no-edge prediction does not delete its nodes. This deliberately selected disagreement example is not representative evidence of average quality.",
+    "13_source_withdrawal": "Controlled withdrawal of the most incident source snapshot in each existing graph. Bars show active and deactivated assertions after withdrawal; their totals equal preserved historical assertions. Identity includes same_as AND different_from assertions. Reopen/audit checks are software outcomes, not independently observed scientific retractions.",
+    "14_fusion_effects": "Existing component-paired macro-F1 differences relative to the selected formulation, with 2,000-draw 95% percentile intervals from the relationship experiment. Intervals are unadjusted, conditional on frozen selection, and include zero. No fresh model fit or experiment is performed by the figure generator.",
+    "15_recorded_input_cost": "Historical evaluation input tokens needed by each formulation versus correctly retained SciFact edges. Two-formulation arms require both sets of requests. Counts exclude retrieval, extraction, storage, review, current prices and fresh measurements; they are not an end-to-end cost or latency benchmark. Three ensemble points share an input-token coordinate.",
+}
 
 
-def render(data: dict, output: Path, png: bool = True) -> None:
+def render(data: dict, output: Path, formats: tuple[str, ...] = ("svg", "png")) -> None:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from matplotlib.ticker import PercentFormatter
-    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 11, "axes.titlesize": 15,
-                         "axes.labelsize": 12, "svg.fonttype": "none", "svg.hashsalt": "jev-graph-figures-v1"})
+    import numpy as np
+
+    if not formats or set(formats) - {"svg", "png", "pdf"}:
+        raise ValueError("Formats must be svg, png, or pdf")
     output.mkdir(parents=True, exist_ok=True)
 
-    def start(title, xlabel, ylabel, height=5.8):
-        fig, ax = plt.subplots(figsize=(10.8, height), layout="constrained")
-        ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
+    def canvas(title, xlabel="", ylabel="", size=(9.0, 5.1)):
+        fig, ax = plt.subplots(figsize=size, layout="constrained")
+        ax.set_title(title, loc="left", fontsize=14, pad=16)
+        ax.set_xlabel(xlabel, fontsize=11); ax.set_ylabel(ylabel, fontsize=11)
         ax.spines[["top", "right"]].set_visible(False)
+        ax.tick_params(labelsize=10)
         return fig, ax
 
-    def save(fig, name, note):
-        fig.supxlabel(note, fontsize=9)
-        fig.savefig(output / (name + ".svg"), metadata={"Date": None, "Creator": "graph_synthesis.visualize"})
-        if png:
-            fig.savefig(output / (name + ".png"), dpi=240, metadata={"Software": "graph_synthesis.visualize"})
+    def save(fig, name):
+        # Stable SVG IDs and no timestamp; preserve real text instead of glyph paths.
+        with matplotlib.rc_context({"svg.fonttype": "none", "svg.hashsalt": name}):
+            for extension in formats:
+                metadata = {"Date": None} if extension == "svg" else ({"CreationDate": None, "ModDate": None} if extension == "pdf" else None)
+                fig.savefig(output / f"{name}.{extension}", dpi=240, metadata=metadata)
         plt.close(fig)
 
-    names = [x["name"] for x in data["arms"]]
-    fig, ax = start("What happens to all 339 SciFact candidates?", "Evaluation rows (one outcome per row)", "")
-    bottoms = [0]*len(names)
-    for key, label, hatch in (("correct_edge", "Correct typed edge", ""), ("unsupported_edge", "Edge / gold no-info", "///"),
-                              ("wrong_polarity", "Wrong support/refute label", "xx"), ("no_information", "Predicted no-info", ".."),
-                              ("abstain", "Explicit abstention", "++"), ("error", "Operational error", "oo")):
-        values = [x[key] for x in data["arms"]]
-        bars = ax.barh(names, values, left=bottoms, label=label, hatch=hatch)
-        ax.bar_label(bars, labels=[str(x) if x >= 6 else "" for x in values], label_type="center", fontsize=10)
-        bottoms = [a+b for a, b in zip(bottoms, values)]
-    ax.set_xlim(0, data["evaluation_rows"])
-    ax.invert_yaxis()
-    ax.legend(ncols=2, loc="upper center", bbox_to_anchor=(.5, -.15), fontsize=10)
-    save(fig, FIGURES[0], "Counts, not percentages. No-info is a model outcome, not necessarily correct or an abstention. Exact small counts: CSV.")
+    rel = data["tasks"]["relation_support"]["arms"]
+    fusion = data["fusion"]["arms"]
+    fig, ax = canvas("What enters the evidence graph?", "SciFact candidate rows (n = 339)")
+    y = np.arange(len(ARMS))
+    correct = np.array([fusion[a]["operational"]["edges"]["correct"] for a in ARMS])
+    wrong = np.array([fusion[a]["operational"]["edges"]["incorrect"] for a in ARMS])
+    noedge = 339 - correct - wrong
+    for values, start, label, hatch in ((correct, 0, "Correct edge", None), (wrong, correct, "Incorrect edge", "///"), (noedge, correct + wrong, "No edge", "..")):
+        bars = ax.barh(y, values, left=start, label=label, hatch=hatch, alpha=.62)
+        ax.bar_label(bars, labels=[str(v) for v in values], label_type="center", fontsize=10)
+    ax.set_yticks(y, [NAMES[a] for a in ARMS]); ax.invert_yaxis(); ax.set_xlim(0, 339)
+    ax.legend(loc="lower center", bbox_to_anchor=(.5, 1.01), ncols=3, fontsize=9)
+    ax.set_title(ax.get_title(loc="left"), loc="left", fontsize=14, pad=44)
+    save(fig, "01_edge_yield")
 
-    fig, ax = start("Typed-edge precision must be read with recall", "Correct typed edges / 209 gold typed edges", "Correct typed edges / accepted edges")
-    positions = [(.91, .84), (.80, .875), (.86, .915), (.765, .945), (.825, .795)]
-    for row, position, marker in zip(data["arms"], positions, ("o", "s", "^", "D", "P")):
-        ax.scatter(row["recall"], row["precision"], s=95, marker=marker)
-        ax.annotate(f'{row["name"]}\n{row["correct"]}/{row["accepted"]} accepted correct',
-                    (row["recall"], row["precision"]), xytext=position, textcoords="data", fontsize=10,
-                    arrowprops={"arrowstyle": "-", "linewidth": .7})
-    ax.set_xlim(.75, 1.02)
-    ax.set_ylim(.76, .98)
-    ax.xaxis.set_major_formatter(PercentFormatter(1))
-    ax.yaxis.set_major_formatter(PercentFormatter(1))
-    save(fig, FIGURES[1], "Post-hoc fixed-candidate comparisons. Axes are zoomed; points have different accepted counts. No KARMA score is plotted.")
+    fig, ax = canvas("Better precision can mean fewer correct edges", "Typed-edge recall: correct / 209 gold edges", "Typed-edge precision: correct / accepted")
+    offsets = {"baseline_choice": (-180, -65), "fewshot_contract": (-230, 5), "mean_pool": (-225, -30), "agreement_gate": (-215, 37), "stacked": (-150, -100)}
+    for arm in ARMS:
+        m = fusion[arm]["operational"]["edges"]
+        ax.plot(m["recall"], m["precision"], marker="o", markersize=7, linestyle="none")
+        ax.annotate(NAMES[arm], (m["recall"], m["precision"]), xytext=offsets[arm], textcoords="offset points", fontsize=10, arrowprops={"arrowstyle": "-", "lw": .8})
+    ax.set(xlim=(0, 1.02), ylim=(0, 1.03)); ax.xaxis.set_major_formatter(PercentFormatter(1)); ax.yaxis.set_major_formatter(PercentFormatter(1))
+    save(fig, "02_precision_recall")
 
-    fig, ax = start("Equal-volume precision differences remain uncertain", "Precision difference (percentage points; right arm minus left)", "", 6.4)
-    for i, row in enumerate(data["matched"]):
-        lo, hi = [100*x for x in row["interval"]]
-        delta = 100*row["delta"]
-        ax.errorbar(delta, i, xerr=[[delta-lo], [hi-delta]], fmt="o", capsize=5)
-        ax.text(1.01, i, f'K={row["k"]}', transform=ax.get_yaxis_transform(), va="center", fontsize=10)
-    ax.set_yticks(range(len(data["matched"])), [x["name"] for x in data["matched"]], fontsize=10)
-    ax.invert_yaxis()
-    ax.axvline(0, linestyle="--", linewidth=1)
-    save(fig, FIGURES[2], "Exploratory paired 95% component-bootstrap intervals: 1,000 draws (first two), 2,000 (others). No multiplicity correction.")
+    for task, name, title in (("entity_resolution", "03_identity_risk_coverage", "Identity links: error risk versus accepted coverage"), ("relation_support", "04_relation_risk_coverage", "Evidence edges: error risk versus accepted coverage")):
+        fig, ax = canvas(title, "Accepted actions / all supplied candidate rows", "Incorrect accepted actions / accepted actions")
+        for arm, values in data["tasks"][task]["arms"].items():
+            curve = values["risk_curve"]
+            if curve:
+                ax.plot([r["coverage"] for r in curve], [r["risk"] for r in curve], ".-", linewidth=1.4, markersize=3, label=NAMES[arm])
+                end = curve[-1]
+                ax.annotate(f'{end["incorrect"]}/{end["accepted"]}', (end["coverage"], end["risk"]), xytext=(6, 6), textcoords="offset points", fontsize=9)
+        ax.set(xlim=(0, 1), ylim=(0, max(.03, max((r["risk"] for v in data["tasks"][task]["arms"].values() for r in v["risk_curve"]), default=0) * 1.25)))
+        ax.xaxis.set_major_formatter(PercentFormatter(1)); ax.yaxis.set_major_formatter(PercentFormatter(1)); ax.legend(fontsize=9)
+        save(fig, name)
 
-    fig, ax = start("Precision at the same accepted-edge budget", "Accepted typed edges K (score-ranked, label-independent tie break)", "Correct typed edges / K")
-    for row, marker in zip(data["arms"], ("o", "s", "^", "D", "P")):
-        points = row["budget_curve"]
-        ax.plot([p["accepted"] for p in points], [p["precision"] for p in points], marker=marker, label=row["name"])
-    ax.set_ylim(0, 1.04)
-    ax.set_xlim(0, 225)
-    ax.yaxis.set_major_formatter(PercentFormatter(1))
-    ax.legend(loc="lower left", fontsize=10)
-    save(fig, FIGURES[3], "Only archived budgets are shown; no extrapolation. Exact-K sets can split confidence ties. This is not a deployable threshold policy.")
+    for arm, name in (("baseline_choice", "05_confusion_baseline"), ("fewshot_contract", "06_confusion_selected")):
+        golds, predictions = ["SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO"], ["SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO", "ERROR"]
+        values = rel[arm]
+        counts = np.array([[values["confusion"].get(g + " -> " + p, 0) for p in predictions] for g in golds])
+        rates = counts / counts.sum(axis=1, keepdims=True)
+        fig, ax = canvas(NAMES[arm] + ": operational confusion", "Recorded prediction", "Gold label", size=(9, 4.6))
+        ax.imshow(rates, vmin=0, vmax=1, alpha=.3, aspect="auto")
+        for i in range(3):
+            for j in range(4):
+                ax.text(j, i, f"{counts[i,j]}\n({rates[i,j]:.1%})", ha="center", va="center", fontsize=11)
+        ax.set_xticks(range(4), ["Supports", "Refutes", "NEI", "Error"])
+        ax.set_yticks(range(3), [f"{g.replace('NOT_ENOUGH_INFO','NEI')} (n={counts[i].sum()})" for i, g in enumerate(golds)])
+        save(fig, name)
 
-    fig, ax = start("Accepted evidence graphs are small and fragmented", "Weak component size (nodes)", "Number of weak components")
-    for i, row in enumerate(data["topology"][:2]):
-        xs = list(range(1, 7))
-        bars = ax.bar([x + (i-.5)*.36 for x in xs], [row["histogram"].get(str(x), 0) for x in xs], .36,
-                      label=f'{row["name"]}: {row["isolates"]}/{row["nodes"]} isolates', hatch="//" if i else "")
-        ax.bar_label(bars, padding=3, fontsize=10)
-    ax.set_xticks(range(1, 7))
-    ax.set_ylim(0, 285)
-    ax.legend(loc="upper right", fontsize=10)
-    save(fig, FIGURES[4], "All 583 candidate nodes are retained. Identity graphs separately have 413 two-record components each; not large-cluster evidence.")
+    fig, ax = canvas("Matched action counts narrow the apparent gain", "Selected minus baseline precision (percentage points)", size=(9, 3.9))
+    for i, (task, label) in enumerate((("entity_resolution", "Same identity (351 each)"), ("relation_support", "Supports claim (118 each)"))):
+        m = data["tasks"][task]["matched"]
+        point = 100 * (m["selected"]["precision"] - m["baseline"]["precision"])
+        lo, hi = [100 * v for v in m["paired_precision_difference"]["interval"]]
+        ax.errorbar(point, i, xerr=[[point-lo], [hi-point]], fmt="o", capsize=5, label=label)
+        ax.text(hi + .15, i, f"{point:+.3f} [{lo:.3f}, {hi:.3f}]", va="center", fontsize=9)
+    ax.axvline(0, linestyle="--", linewidth=1); ax.set_yticks([0, 1], ["Same identity", "Supports claim"]); ax.set(xlim=(-3.5, 9), ylim=(-.6, 1.6)); ax.invert_yaxis()
+    save(fig, "07_matched_precision")
 
-    fig, ax = start("Accepted-edge confidence is not a safety certificate", "Mean winning-label probability in fixed-width bin", "Observed typed-edge correctness in bin")
-    for i, row in enumerate(data["reliability"]):
-        points = row["bins"]
-        ax.plot([p["mean_confidence"] for p in points], [p["accuracy"] for p in points],
-                marker="o" if i == 0 else "s", label=f'{NAMES[row["arm"]]} (n={row["accepted"]})')
-        for p in points:
-            ax.annotate(f'n={p["n"]}', (p["mean_confidence"], p["accuracy"]),
-                        xytext=(0, 10 if i == 0 else -17), textcoords="offset points", ha="center", fontsize=9)
-    ax.plot([0, 1], [0, 1], linestyle="--", linewidth=1, label="Equality reference")
-    ax.set_xlim(0, 1.06)
-    ax.set_ylim(0, 1.09)
-    ax.legend(loc="lower right", fontsize=10)
-    save(fig, FIGURES[5], "Evaluation-set diagnostic only. Ten fixed bins; empty bins omitted; p=1 retained. Dependent rows: no independent-binomial intervals.")
+    fig, ax = canvas("Selectivity leaves more candidate nodes isolated", "Accepted-edge weak-component size", "Candidate nodes in components of this size")
+    sizes = np.arange(1, 7)
+    for i, arm in enumerate(("baseline_choice", "fewshot_contract")):
+        histogram = rel[arm]["graph"]["metrics"]["weak_component_size_histogram"]
+        mass = [int(s) * histogram.get(str(s), 0) for s in sizes]
+        bars = ax.bar(sizes + (i - .5) * .36, mass, width=.36, label=NAMES[arm], hatch=None if i == 0 else "//", alpha=.7)
+        ax.bar_label(bars, padding=3, fontsize=9)
+    ax.set_xticks(sizes, ["1\n(isolates)", "2", "3", "4", "5", "6"]); ax.set_ylim(0, 370); ax.legend(fontsize=9)
+    save(fig, "08_component_coverage")
 
-    fig, ax = start("Historical input usage per correct retained edge", "Recorded input tokens / correct typed edge", "")
-    values = [x["input_tokens_per_correct_edge"] for x in data["arms"]]
-    bars = ax.barh(names, values)
-    ax.bar_label(bars, labels=[f'{v:,.0f}  ({r["recorded_calls"]} calls)' for v, r in zip(values, data["arms"])], padding=5)
-    ax.set_xlim(0, max(values)*1.35)
-    ax.invert_yaxis()
-    save(fig, FIGURES[6], "Original evaluation input tokens only; excludes output tokens, retrieval, review, storage, calibration and fitting. Zero fresh calls.")
+    for task, label, name in (("entity_resolution", "same", "09_identity_reliability"), ("relation_support", "SUPPORTS", "10_support_reliability"), ("relation_support", "REFUTES", "11_refute_reliability")):
+        fig, ax = canvas(f"Does raw P({label}) track observed frequency?", "Mean raw probability within bin", "Gold-positive fraction within bin", size=(7.2, 5.1))
+        ax.plot([0, 1], [0, 1], linestyle="--", linewidth=1, label="Reference equality")
+        for arm, values in data["tasks"][task]["arms"].items():
+            bins = [b for b in values["reliability"][label] if b["n"]]
+            ax.scatter([b["mean_probability"] for b in bins], [b["observed_fraction"] for b in bins], s=[2*b["n"] for b in bins], alpha=.5, label=f'{NAMES[arm]} (valid n={sum(b["n"] for b in bins)})')
+        ax.set(xlim=(-.03, 1.03), ylim=(-.03, 1.03)); ax.xaxis.set_major_formatter(PercentFormatter(1)); ax.yaxis.set_major_formatter(PercentFormatter(1)); ax.legend(loc="lower right", fontsize=8, markerscale=.55)
+        save(fig, name)
 
-    fig, ax = start("Controlled withdrawal preserves assertion history", "Stored assertion count", "")
-    rows = data["withdrawals"]
-    names2 = [x["name"] for x in rows]
-    active = [x["active_after"] for x in rows]
-    bars = ax.barh(names2, active, label="Active after withdrawal")
-    ax.bar_label(bars, label_type="center")
-    bars = ax.barh(names2, [x["retracted"] for x in rows], left=active, hatch="///", label="Inactive, history retained")
-    ax.bar_label(bars, labels=[f'-{x["retracted"]}; history={x["history_preserved"]}' for x in rows], padding=5, fontsize=10)
-    ax.set_xlim(0, 540)
-    ax.invert_yaxis()
-    ax.legend(loc="lower center", bbox_to_anchor=(.5, -.25), ncols=2, fontsize=10)
-    save(fig, FIGURES[7], "One constructed withdrawal per graph, not observed scientific retractions. Reopen and audit pass; no semantic accuracy claim.")
+    example = data["component_example"]
+    fig, ax = canvas("A real disagreement component, not a hypothetical graph", size=(10, max(5, len(example["edges"]) * .68)))
+    docs = [n for n in example["nodes"] if n.startswith("document:")]
+    claims = [n for n in example["nodes"] if n.startswith("claim:")]
+    pos = {n: (x, float(y)) for x, nodes in ((0, docs), (1, claims)) for n, y in zip(nodes, ([.5] if len(nodes) == 1 else np.linspace(.1, .9, len(nodes))))}
+    abbreviate = lambda s: {"SUPPORTS": "S", "REFUTES": "R", "NOT_ENOUGH_INFO": "NEI", "ERROR": "ERR"}[s]
+    for x, nodes, marker in ((0, docs, "s"), (1, claims, "o")):
+        ax.scatter([pos[n][0] for n in nodes], [pos[n][1] for n in nodes], marker=marker, s=110)
+        for n in nodes:
+            ax.annotate(n.replace("document:", "Doc ").replace("claim:", "Claim "), pos[n], xytext=(-8 if x == 0 else 8, 0), textcoords="offset points", ha="right" if x == 0 else "left", va="center", fontsize=9)
+    for i, edge in enumerate(example["edges"]):
+        a, b = pos[edge["subject"]], pos[edge["object"]]
+        ax.annotate("", b, a, arrowprops={"arrowstyle": "->", "linestyle": "--" if edge["baseline"] != edge["selected"] else "-", "alpha": .5, "shrinkA": 8, "shrinkB": 8})
+        t = .38 + .18 * (i % 2)
+        ax.text(t, a[1]*(1-t)+b[1]*t+.025, " / ".join(abbreviate(edge[k]) for k in ("baseline", "selected", "gold")), ha="center", fontsize=10)
+    ax.text(.5, -.07, "Arrow labels: baseline / selected / gold     S: supports   R: refutes   NEI: no edge", ha="center", fontsize=9)
+    ax.set(xlim=(-.36, 1.3), ylim=(-.13, 1.04)); ax.axis("off")
+    save(fig, "12_changed_component")
 
-    fig, ax = start("A real supplied claim-document neighborhood", "", "", 6.5)
-    hood = data["neighborhood"]
-    rows = hood["candidates"]
-    ax.set_xlim(-.2, 1.15)
-    ax.set_ylim(-.9, len(rows)-.3)
-    ax.axis("off")
-    cy = (len(rows)-1)/2
-    ax.scatter([1], [cy], s=2400, marker="s")
-    ax.text(1, cy, 'Claim\n'+hood["claim_id"], ha="center", va="center", fontsize=11)
-    for i, row in enumerate(rows):
-        ax.scatter([0], [i], s=1600, marker="o")
-        ax.text(0, i, row["document_id"], ha="center", va="center", fontsize=9)
-        labels = [row["generic"], row["fewshot"], row["gold"]]
-        actual = any(x in ("SUPPORTS", "REFUTES") for x in labels[:2])
-        ax.annotate("", xy=(.93, cy), xytext=(.52, i),
-                    arrowprops={"arrowstyle": "->", "linestyle": "-" if actual else ":", "alpha": .7})
-        short = {"SUPPORTS": "S", "REFUTES": "R", "NOT_ENOUGH_INFO": "NEI", "ERROR": "ERR"}
-        ax.text(.13, i, "G: " + short.get(labels[0], labels[0]) + " / F: " + short.get(labels[1], labels[1])
-                + " / gold: " + short.get(labels[2], labels[2]), fontsize=10)
-    save(fig, FIGURES[8], "Real IDs; largest candidate incidence, ties by claim ID. Dotted = candidate only. G=generic; F=few-shot; S=support; NEI=no-info.")
+    fig, ax = canvas("Withdrawal changes the active view, not its history", "Preserved assertions after controlled source withdrawal")
+    labels, active, inactive = [], [], []
+    for task in ("entity_resolution", "relation_support"):
+        for arm, values in data["tasks"][task]["arms"].items():
+            lifecycle = values["graph"]["lifecycle"]
+            labels.append(("Identity: " if task == "entity_resolution" else "Evidence: ") + ("baseline" if arm.startswith("baseline") else "selected"))
+            active.append(lifecycle["active_after_withdrawal"]); inactive.append(lifecycle["actual_retractions"])
+    y = np.arange(len(labels))
+    bars = ax.barh(y, active, label="Active", alpha=.65); ax.bar_label(bars, padding=-35, fontsize=10)
+    bars = ax.barh(y, inactive, left=active, label="Deactivated; retained in history", hatch="///", alpha=.65); ax.bar_label(bars, labels=[f"-{n}" for n in inactive], padding=4, fontsize=10)
+    ax.set_yticks(y, labels); ax.invert_yaxis(); ax.set_xlim(0, 445); ax.legend(loc="lower center", bbox_to_anchor=(.5, 1.01), ncols=2, fontsize=9)
+    ax.set_title(ax.get_title(loc="left"), loc="left", fontsize=14, pad=44)
+    save(fig, "13_source_withdrawal")
 
-    fig, ax = start("Support and refutation have different risk-coverage trade-offs", "Accepted action count / all 339 evaluation candidates", "Incorrect accepted actions / accepted action count")
-    for row, marker in zip(data["predicate_frontiers"], ("o", "s", "^", "D")):
-        points = [p for p in row["points"] if p["accepted"]]
-        ax.plot([p["coverage"] for p in points], [p["false"]/p["accepted"] for p in points],
-                marker=marker, label=NAMES[row["arm"]] + " / " + row["label"])
-    ax.set_xlim(0, .46)
-    ax.set_ylim(0, .31)
-    ax.xaxis.set_major_formatter(PercentFormatter(1))
-    ax.yaxis.set_major_formatter(PercentFormatter(1))
-    ax.legend(loc="upper left", fontsize=10)
-    save(fig, FIGURES[9], "Fixed thresholds: 0.50, 0.85, 0.90, 0.95, 0.99, 1.00. Empty acceptance omitted, not zero risk. Not false-positive rate among negatives.")
+    fig, ax = canvas("Combining formulations has no resolved macro-F1 gain", "Macro-F1 difference versus selected formulation (percentage points)", size=(9, 4.1))
+    effects = data["fusion"]["effects_vs_selected"]
+    for i, e in enumerate(effects):
+        point, lo, hi = 100*e["delta"], 100*e["interval"][0], 100*e["interval"][1]
+        ax.errorbar(point, i, xerr=[[point-lo], [hi-point]], fmt="o", capsize=5)
+        ax.text(hi+.15, i, f"{point:+.3f}", va="center", fontsize=10)
+    ax.axvline(0, linestyle="--", linewidth=1); ax.set_yticks(range(len(effects)), [NAMES[e["arm"]] for e in effects]); ax.set(xlim=(-6, 4), ylim=(-.6, len(effects)-.4)); ax.invert_yaxis()
+    save(fig, "14_fusion_effects")
 
-
-def build(root: Path, output: Path, png: bool = True) -> dict:
-    data = collect(root)
-    write_tables(data, output)
-    render(data, output, png)
-    sources = {**data["source_sha256"], "graph_synthesis/visualize.py": digest(Path(__file__).read_bytes())}
-    names = ["data.json", "edge_outcomes.csv", "matched_precision.csv", "topology.csv", "withdrawal.csv"]
-    names += [x + ".svg" for x in FIGURES]
-    if png:
-        names += [x + ".png" for x in FIGURES]
-    manifest = {"source_sha256": sources, "outputs": {n: digest((output/n).read_bytes()) for n in names},
-                "notes": "SVG has fixed IDs and no date metadata. PNG is a high-resolution convenience rendering. Frozen source files are never modified."}
-    (output / "manifest.json").write_bytes(encoded(manifest))
-    return manifest
+    fig, ax = canvas("Historical inference inputs are not free in deployment", "Recorded input tokens (millions)", "Correctly retained evidence edges")
+    for i, arm in enumerate(ARMS):
+        usage = fusion[arm]["recorded_usage"]
+        x = usage["input_tokens"] / 1e6
+        y = fusion[arm]["operational"]["edges"]["correct"]
+        ax.plot(x, y, "o")
+        ax.annotate(NAMES[arm], (x, y), xytext=((12, 15) if i == 0 else (-120, -25) if i == 1 else (12, [15, 10, 25, -22, 0][i])), textcoords="offset points", fontsize=9, arrowprops={"arrowstyle": "-", "lw": .6})
+    ax.set(xlim=(0, 2.25), ylim=(0, 210))
+    save(fig, "15_recorded_input_cost")
 
 
-def check(root: Path, output: Path) -> None:
-    """Check source/data drift and every tracked rendering's integrity.
+def write_outputs(data: dict, output: Path, formats: tuple[str, ...] = ("svg", "png")) -> None:
+    render(data, output, formats)
+    (output / "data.json").write_text(json.dumps(data, indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8")
+    rows = []
+    for arm in ARMS:
+        op = data["fusion"]["arms"][arm]["operational"]
+        rows.append({"arm": arm, "candidates": op["n"], **op["edges"], "macro_f1": op["macro_f1"], "errors": op["errors"], "abstentions": op["abstentions"]})
+    with (output / "edge_summary.csv").open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0])); writer.writeheader(); writer.writerows(rows)
+    lines = ["# Graph-synthesis visual assessment", "", "Generated from frozen observations and executed summaries by `python -B -m graph_synthesis.visualize`. No fresh inference or threshold selection. Read the [revised manuscript](../paper.md).", "", "SVG is the committed, scalable source; optional PNG (240 dpi) and PDF exports use the same figure data. `data.json` contains complete chart inputs and source SHA-256 hashes; `edge_summary.csv` exposes the main denominators. Each figure has its own plot and can be read independently.", ""]
+    for i, (name, caption) in enumerate(CAPTIONS.items(), 1):
+        lines += [f"## {name.replace('_', ' ')}", "", f"![Figure {i}: {name.replace('_', ' ')}]({name}.svg)", "", caption, ""]
+    (output / "README.md").write_text("\n".join(lines), encoding="utf-8")
+    paths = ["data.json", "edge_summary.csv", "README.md"] + [n + ".svg" for n in CAPTIONS if "svg" in formats]
+    manifest = {"generator_sha256": sha256(Path(__file__)), "inputs_sha256": data["inputs_sha256"],
+                "files_sha256": {name: sha256(output / name) for name in paths}}
+    (output / "MANIFEST.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
-    Numerical data and SVG are regenerated and compared byte-for-byte. PNG
-    integrity is checked against the manifest; PNG regeneration is not required.
-    Use the pinned renderer for SVG comparison rather than tolerant image claims.
-    """
-    manifest = json.loads((output / "manifest.json").read_bytes())
-    with tempfile.TemporaryDirectory(prefix="graph-figures-") as tmp:
-        regenerated = Path(tmp)
-        fresh = build(root, regenerated, png=False)
-        if fresh["source_sha256"] != manifest["source_sha256"]:
-            raise ValueError("Figure source lineage changed; regenerate figures")
-        for name, expected in manifest["outputs"].items():
-            if Path(name).name != name or digest((output/name).read_bytes()) != expected:
-                raise ValueError("Changed or unsafe figure artifact: " + name)
-        for name in fresh["outputs"]:
-            if (output/name).read_bytes() != (regenerated/name).read_bytes():
-                raise ValueError("Stale generated artifact (use pinned renderer): " + name)
+
+def check_outputs(root: Path, output: Path) -> dict:
+    fresh = build_data(root)
+    saved = json.loads((output / "data.json").read_text(encoding="utf-8"))
+    differences = compare_json(saved, fresh)
+    manifest = json.loads((output / "MANIFEST.json").read_text(encoding="utf-8"))
+    if manifest["generator_sha256"] != sha256(Path(__file__)) or manifest["inputs_sha256"] != fresh["inputs_sha256"]:
+        raise ValueError("Stale generator/input provenance; regenerate figures")
+    for name, expected in manifest["files_sha256"].items():
+        path = output / name
+        if not path.resolve().is_relative_to(output.resolve()) or path.is_symlink() or sha256(path) != expected:
+            raise ValueError("Changed or unsafe generated figure artifact: " + name)
+    if set(manifest["files_sha256"]) != {"data.json", "edge_summary.csv", "README.md", *(n + ".svg" for n in CAPTIONS)}:
+        raise ValueError("Incomplete figure inventory")
+    return {"figures_verified": len(CAPTIONS), "new_model_calls": 0, "roundoff": differences}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path)
+    parser.add_argument("--repository", type=Path, default=ROOT)
+    parser.add_argument("--output", type=Path, default=ROOT / "graph_synthesis/figures")
+    parser.add_argument("--formats", default="svg,png")
     parser.add_argument("--check", action="store_true")
-    parser.add_argument("--no-png", action="store_true")
     args = parser.parse_args()
-    root = Path(__file__).resolve().parents[1]
-    output = args.output or root / "graph_synthesis/figures"
     if args.check:
-        check(root, output)
-        print("Figure data, SVG regeneration, source lineage and artifact integrity passed.")
+        print(json.dumps(check_outputs(args.repository, args.output), indent=2))
     else:
-        build(root, output, png=not args.no_png)
-        print("Wrote 10 evidence-backed figures and source tables to", output)
+        write_outputs(build_data(args.repository), args.output, tuple(args.formats.split(",")))
+        print(json.dumps({"figures": len(CAPTIONS), "output": str(args.output), "new_model_calls": 0}))
 
 
 if __name__ == "__main__":

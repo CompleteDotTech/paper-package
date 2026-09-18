@@ -1,124 +1,152 @@
-"""Conservation, lineage, boundary, and frozen-observation figure tests."""
+"""Independent accounting/selection controls for the visual reanalysis."""
 from copy import deepcopy
-import gzip
 import json
-import math
 from pathlib import Path
 import socket
-import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
-from graph_synthesis.visualize import (INPUTS, FIGURES, collect, dispositions,
-    encoded, load_reference, reliability, write_tables)
-
-ROOT = Path(__file__).resolve().parents[2]
+from graph_synthesis.visualize import (ARMS, CAPTIONS, FUSION, GRAPH, ROOT, build_data,
+    check_outputs, component_example, effect_vs_selected, load_gzip, reliability, risk_curve)
 
 
-class FigureTests(unittest.TestCase):
+def row(id_, label, gold, score=.9, probability=None, error=None):
+    return {"id": id_, "label": label, "gold": gold, "score": score,
+            "decision": SimpleNamespace(error=error, probabilities={"same": score if probability is None else probability})}
+
+
+class VisualMathTests(unittest.TestCase):
+    def test_ties_are_never_split(self):
+        rows = [row("a", "same", "same", 1), row("b", "same", "different", 1), row("c", "same", "same", .8)]
+        curve = risk_curve(rows, {"same"})
+        self.assertEqual([x["accepted"] for x in curve], [2, 3])
+        self.assertEqual(curve[0]["risk"], .5)
+
+    def test_coverage_retains_errors_and_no_edge(self):
+        rows = [row("a", "SUPPORTS", "SUPPORTS"), row("b", "ERROR", "SUPPORTS"), row("c", "NOT_ENOUGH_INFO", "NOT_ENOUGH_INFO")]
+        self.assertEqual(risk_curve(rows, {"SUPPORTS"})[0]["coverage"], 1/3)
+
+    def test_empty_curve_does_not_claim_zero_risk(self):
+        self.assertEqual(risk_curve([], {"same"}), [])
+        self.assertEqual(risk_curve([row("a", "different", "different")], {"same"}), [])
+
+    def test_polarity_error_is_wrong_edge(self):
+        curve = risk_curve([row("a", "REFUTES", "SUPPORTS")], {"SUPPORTS", "REFUTES"})
+        self.assertEqual(curve[0]["incorrect"], 1)
+
+    def test_invalid_score_rejected(self):
+        for value in (float("nan"), float("inf"), -.1, 1.1):
+            with self.assertRaises(ValueError):
+                risk_curve([row("a", "same", "same", value)], {"same"})
+
+    def test_ranking_does_not_use_gold(self):
+        a = [row("a", "same", "same", .9), row("b", "same", "different", .8)]
+        b = deepcopy(a)
+        for r in b: r["gold"] = "different"
+        self.assertEqual([(r["threshold"], r["accepted"]) for r in risk_curve(a, {"same"})],
+                         [(r["threshold"], r["accepted"]) for r in risk_curve(b, {"same"})])
+
+    def test_reliability_includes_other_predictions(self):
+        bins = reliability([row("a", "different", "same", probability=.2)], "same")
+        self.assertEqual(bins[2]["observed_fraction"], 1)
+
+    def test_probability_endpoints_and_boundaries(self):
+        bins = reliability([row("a", "same", "same", probability=0), row("b", "same", "same", probability=.1), row("c", "same", "same", probability=1)], "same")
+        self.assertEqual([bins[i]["n"] for i in (0, 1, 9)], [1, 1, 1])
+        self.assertIsNone(bins[2]["observed_fraction"])
+
+    def test_reliability_excludes_failed_response_only(self):
+        bins = reliability([row("a", "ERROR", "same", error="failure"), row("b", "same", "same")], "same")
+        self.assertEqual(sum(b["n"] for b in bins), 1)
+
+    def test_invalid_reliability_probability(self):
+        with self.assertRaises(ValueError):
+            reliability([row("a", "same", "same", probability=float("nan"))], "same")
+
+    def test_reversed_contrast_changes_interval_sign(self):
+        saved = {"agreement_gate__vs__fewshot_contract": {"macro_f1_delta": .02, "macro_f1_bootstrap": {"interval": [-.01, .04], "draws": 2000}}}
+        e = effect_vs_selected(saved, "agreement_gate")
+        self.assertEqual(e["delta"], -.02); self.assertEqual(e["interval"], [-.04, .01])
+
+    def test_component_selection_does_not_use_gold(self):
+        left = [dict(row("a", "SUPPORTS", "SUPPORTS"), row={"document_id": "1", "claim_id": "1"}),
+                dict(row("b", "SUPPORTS", "SUPPORTS"), row={"document_id": "2", "claim_id": "2"})]
+        right = deepcopy(left); right[1]["label"] = "NOT_ENOUGH_INFO"
+        first = component_example(left, right)
+        for r in left: r["gold"] = "REFUTES"
+        second = component_example(left, right)
+        self.assertEqual(first["nodes"], second["nodes"])
+        self.assertEqual(first["changed_decisions"], second["changed_decisions"])
+
+
+class FrozenFigureTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with patch.object(socket.socket, "connect", side_effect=AssertionError("Figures must be offline")):
-            cls.data = collect(ROOT)
-        cls.fusion = load_reference(ROOT, list(INPUTS)[1])
+        with patch.object(socket, "create_connection", side_effect=AssertionError("network forbidden")):
+            cls.data = build_data(ROOT)
 
-    def test_all_rows_partition_once(self):
-        for row in self.data["arms"]:
-            keys = ("correct_edge", "unsupported_edge", "wrong_polarity", "no_information", "abstain", "error")
-            self.assertEqual(sum(row[x] for x in keys), 339)
-            self.assertEqual(row["correct_edge"] + row["unsupported_edge"] + row["wrong_polarity"], row["accepted"])
+    def test_no_new_inference(self):
+        self.assertEqual(self.data["fresh_model_calls"], 0)
 
-    def test_distinct_operational_failure_and_abstention(self):
-        row = next(x for x in self.data["arms"] if x["arm"] == "agreement_gate")
-        self.assertEqual((row["abstain"], row["error"], row["no_information"]), (33, 3, 113))
+    def test_all_candidate_denominators_preserved(self):
+        for arm in ARMS:
+            op = self.data["fusion"]["arms"][arm]["operational"]
+            self.assertEqual(op["n"], 339)
+            self.assertEqual(op["edges"]["accepted"], op["edges"]["correct"] + op["edges"]["incorrect"])
+            self.assertAlmostEqual(op["edges"]["recall"], op["edges"]["correct"] / 209)
 
-    def test_wrong_polarity_and_unsupported_are_separate(self):
-        self.assertEqual([(x["unsupported_edge"], x["wrong_polarity"]) for x in self.data["arms"]],
-                         [(27, 10), (13, 7), (19, 8), (13, 6), (21, 14)])
+    def test_topology_preserves_every_candidate_node(self):
+        for task in self.data["tasks"].values():
+            for arm in task["arms"].values():
+                m = arm["graph"]["metrics"]
+                self.assertEqual(sum(int(size)*n for size,n in m["weak_component_size_histogram"].items()), m["nodes"])
 
-    def test_partition_rejects_inconsistent_count(self):
-        op = deepcopy(self.fusion["arms"]["baseline_choice"]["operational"])
-        op["confusion"]["SUPPORTS"]["SUPPORTS"] += 1
-        with self.assertRaises(ValueError):
-            dispositions(op)
+    def test_confusion_retains_every_row(self):
+        for task in self.data["tasks"].values():
+            for arm in task["arms"].values():
+                self.assertEqual(sum(arm["confusion"].values()), arm["n"])
 
-    def test_reference_tampering_fails_closed(self):
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            relative = next(iter(INPUTS))
-            (root / relative).parent.mkdir(parents=True)
-            (root / relative).write_bytes(gzip.compress(b'{}', mtime=0))
-            with self.assertRaises(ValueError):
-                load_reference(root, relative)
+    def test_probability_denominator_matches_valid_rows(self):
+        for task in self.data["tasks"].values():
+            for arm in task["arms"].values():
+                for bins in arm["reliability"].values():
+                    self.assertEqual(sum(b["n"] for b in bins), arm["n"]-arm["errors"])
 
-    def test_reliability_includes_one_and_omits_empty_bins(self):
-        rows = [{"label": "SUPPORTS", "gold": "SUPPORTS", "score": 1.0},
-                {"label": "REFUTES", "gold": "SUPPORTS", "score": .95},
-                {"label": "ERROR", "gold": "SUPPORTS", "score": 0.0},
-                {"label": "NOT_ENOUGH_INFO", "gold": "SUPPORTS", "score": 1.0}]
-        result = reliability(rows)
-        self.assertEqual(len(result), 1)
-        self.assertEqual((result[0]["bin"], result[0]["n"], result[0]["accuracy"]), (9, 2, .5))
-        self.assertAlmostEqual(result[0]["mean_confidence"], .975)
+    def test_highest_score_is_not_assumed_perfect(self):
+        curve = self.data["tasks"]["relation_support"]["arms"]["fewshot_contract"]["risk_curve"]
+        self.assertEqual((curve[0]["threshold"], curve[0]["accepted"], curve[0]["incorrect"]), (1.0, 73, 5))
 
-    def test_reliability_invalid_scores_rejected(self):
-        for value in (-.1, 1.1, float('nan'), float('inf')):
-            with self.assertRaises(ValueError):
-                reliability([{"label": "SUPPORTS", "gold": "SUPPORTS", "score": value}])
+    def test_chart_inventory_and_data_are_current(self):
+        report = check_outputs(ROOT, ROOT / "graph_synthesis/figures")
+        self.assertEqual(report["figures_verified"], len(CAPTIONS))
 
-    def test_reliability_counts_match_archived_edges(self):
-        self.assertEqual([sum(b["n"] for b in a["bins"]) for a in self.data["reliability"]], [224, 192])
-        self.assertEqual([sum(b["correct"] for b in a["bins"]) for a in self.data["reliability"]], [187, 172])
+    def test_every_svg_is_parseable_without_scripts(self):
+        for name in CAPTIONS:
+            root = ET.parse(ROOT / f"graph_synthesis/figures/{name}.svg").getroot()
+            self.assertTrue(root.tag.endswith("svg"))
+            self.assertFalse(any(node.tag.endswith("script") for node in root.iter()))
 
-    def test_matched_null_findings_not_rewritten(self):
-        gate = next(x for x in self.data["matched"] if x["name"] == "Agreement gate - Few-shot contract")
-        self.assertEqual((gate["k"], gate["left_correct"], gate["right_correct"], gate["delta"]), (190, 171, 171, 0))
-        for row in self.data["matched"]:
-            self.assertLessEqual(row["interval"][0], 0)
-            self.assertGreaterEqual(row["interval"][1], 0)
+    def test_changed_summary_counts_fail_closed(self):
+        graph, fusion = load_gzip(ROOT/GRAPH), load_gzip(ROOT/FUSION)
+        fusion["arms"]["baseline_choice"]["operational"]["edges"]["correct"] += 1
+        with patch("graph_synthesis.visualize.load_gzip", side_effect=[graph, fusion]):
+            with self.assertRaises(ValueError): build_data(ROOT)
 
-    def test_topology_retains_isolates_and_schema_denominator(self):
-        generic, selected = self.data["topology"][:2]
-        self.assertEqual((generic["nodes"], generic["isolates"], selected["isolates"]), (583, 180, 241))
-        self.assertEqual(generic["schema_eligible_pairs"], 283*300)
-        self.assertAlmostEqual(generic["schema_pair_density"], 224/(283*300))
+    def test_paper_includes_each_reviewed_figure_once(self):
+        import re
+        text = (ROOT / "graph_synthesis/paper.md").read_text(encoding="utf-8")
+        images = re.findall(r'!\[[^\]]*\]\(figures/([^)]+)\)', text)
+        self.assertEqual(len(images), len(CAPTIONS))
+        self.assertEqual(set(images), {n + ".svg" for n in CAPTIONS})
 
-    def test_withdrawal_is_conservative(self):
-        for row in self.data["withdrawals"]:
-            self.assertEqual(row["active_after"] + row["retracted"], row["initial"])
-            self.assertEqual(row["initial"], row["history_preserved"])
-            self.assertTrue(row["reopen_equal"])
-
-    def test_fusion_usage_is_not_free_inference(self):
-        for row in self.data["arms"][2:]:
-            self.assertEqual((row["recorded_calls"], row["recorded_input_tokens"]), (678, 1471953))
-            self.assertAlmostEqual(row["input_tokens_per_correct_edge"], 1471953/row["correct"])
-
-    def test_neighborhood_is_real_and_candidate_selected(self):
-        hood = self.data["neighborhood"]
-        self.assertEqual(hood["claim_id"], "133")
-        self.assertEqual(len(hood["candidates"]), 5)
-        self.assertEqual(sum(x["generic"] == "SUPPORTS" for x in hood["candidates"]), 1)
-        self.assertEqual(len({x["document_id"] for x in hood["candidates"]}), 5)
-
-    def test_canonical_tables_and_committed_data(self):
-        with tempfile.TemporaryDirectory() as temp:
-            output = Path(temp)
-            write_tables(self.data, output)
-            self.assertEqual((output / 'data.json').read_bytes(), encoded(self.data))
-            for path in output.iterdir():
-                self.assertEqual(path.read_bytes(), (ROOT / 'graph_synthesis/figures' / path.name).read_bytes())
-
-    def test_svg_files_are_static_valid_and_accessible_text(self):
-        for name in FIGURES:
-            raw = (ROOT / 'graph_synthesis/figures' / (name + '.svg')).read_text(encoding='utf-8')
-            tree = ET.fromstring(raw)
-            self.assertTrue(tree.tag.endswith('svg'))
-            self.assertIn('<text', raw)
-            self.assertNotIn('<script', raw.lower())
-            self.assertNotIn('<foreignObject', raw)
+    def test_lifecycle_retains_history(self):
+        for task in self.data["tasks"].values():
+            for arm in task["arms"].values():
+                x = arm["graph"]["lifecycle"]
+                self.assertEqual(x["original_assertions_preserved"], x["active_after_withdrawal"] + x["actual_retractions"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

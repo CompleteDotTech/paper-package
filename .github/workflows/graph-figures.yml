@@ -26,13 +26,13 @@ jobs:
       - name: Install pinned rendering and numerical dependencies
         run: python -m pip install -r graph_synthesis/requirements-figures.txt
       - name: Verify regenerated data, SVG, lineage and PNG integrity
-        run: python -B -m graph_synthesis.visualize --check
+        run: python -B -m graph_synthesis.visualize_evidence --check
       - name: Test figure accounting and preserved graph semantics
         run: python -B -m unittest discover -s graph_synthesis/tests -v
       - name: Archive figures and exact source data
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: graph-figures-${{ github.event.pull_request.head.sha || github.sha }}
-          path: graph_synthesis/figures/
+          path: graph_synthesis/evidence_figures/
           if-no-files-found: error
           retention-days: 90

@@ -19,30 +19,99 @@ jobs:
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
-      - name: Execute frozen research when implementation is present
+      - name: Reconcile the inspected concurrent main commit without dropping either study
         shell: bash
         run: |
           set -euo pipefail
-          if [ -f graph_synthesis/certificates/run.py ]; then
-            python -m pip install -r graph_synthesis/certificates/requirements.txt
-            python -B -m graph_synthesis.certificates.run --timings | tee graph_synthesis/certificates/execution.log
-            python -B -m unittest discover -s graph_synthesis/certificates/tests -v 2>&1 | tee graph_synthesis/certificates/tests.log
-            python -B -m graph_synthesis.certificates.run --check
-            python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/certificates-original.json"
-            cp "$RUNNER_TEMP/certificates-original.json" graph_synthesis/certificates/original-inventory.json
-            python -B -m graph_synthesis.certificates.report --figures --update-paper
-            python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add graph_synthesis/certificates CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json
-            if ! git diff --cached --quiet; then
-              git commit -m 'research: record executed certificate benchmarks and updated manuscript'
-              git push origin HEAD:research/dependence-aware-certificates
-            fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          reviewed_main=7e2ce2fce28f29ebc6a2b462d063ea558b656cc1
+          git fetch --no-tags origin "$reviewed_main"
+          if ! git merge-base --is-ancestor "$reviewed_main" HEAD; then
+            git merge --no-commit --no-ff "$reviewed_main" || test -f .git/MERGE_HEAD
+            python - <<'PY'
+          import subprocess
+          from pathlib import Path
+          main='7e2ce2fce28f29ebc6a2b462d063ea558b656cc1'
+          approved={'CURRENT_RESULTS.md','manuscript/paper-current.md','manuscript/paper-current.html','manuscript/paper-current.pdf','manuscript/paper-current.build.json','.github/workflows/jev-multicall.yml','graph_synthesis/render_current_paper.py'}
+          conflicts=set(subprocess.check_output(['git','diff','--name-only','--diff-filter=U'],text=True).splitlines())
+          assert conflicts <= approved, sorted(conflicts-approved)
+          for name in approved:
+              Path(name).write_bytes(subprocess.check_output(['git','show',f'{main}:{name}']))
+          p=Path('graph_synthesis/certificates/report.py')
+          text=p.read_text()
+          assert "ANCHOR = '<!-- RELIABILITY_RESEARCH_END -->'" in text
+          text=text.replace("ANCHOR = '<!-- RELIABILITY_RESEARCH_END -->'", "ANCHOR = '<!-- STRUCTURAL_RESEARCH_END -->'")
+          text=text.replace('Expected exactly one reliability-section anchor','Expected exactly one structural-section anchor')
+          text=text.replace('A targeted primary-source search and its references are recorded in the [protocol](PROTOCOL.md).', 'A targeted primary-source search and its references are recorded in the [protocol](PROTOCOL.md). The [concurrent-main reconciliation](RECONCILIATION.md) preserves PR #18 and distinguishes its related experiments.')
+          p.write_text(text,encoding='utf-8',newline='\n')
+          p=Path('graph_synthesis/render_current_paper.py')
+          text=p.read_text()
+          assert 'STRUCTURAL|RELIABILITY)' in text
+          p.write_text(text.replace('STRUCTURAL|RELIABILITY)','STRUCTURAL|RELIABILITY|CERTIFICATES)'),encoding='utf-8',newline='\n')
+          p=Path('.github/workflows/jev-multicall.yml')
+          text=p.read_text()
+          line='          python -B -m graph_synthesis.structural.report --update-paper\n'
+          assert text.count(line)==1
+          text=text.replace(line,line+'          python -B -m graph_synthesis.certificates.report --update-paper\n')
+          text=text.replace('-r graph_synthesis/requirements-figures.txt','-r graph_synthesis/certificates/requirements.txt')
+          text=text.replace('CURRENT_RESULTS.md graph_synthesis/risk_control graph_synthesis/reliability\n','CURRENT_RESULTS.md graph_synthesis/risk_control graph_synthesis/reliability graph_synthesis/structural graph_synthesis/certificates\n')
+          p.write_text(text,encoding='utf-8',newline='\n')
+          note='''# Concurrent-main reconciliation
+
+          PR #18 merged as `7e2ce2fce28f29ebc6a2b462d063ea558b656cc1` while the certificate suite was executing. Its protocol and current-results summary were inspected before this merge. All structural-study source, evidence, figures and manuscript text are retained. The certificate section now follows the structural section; complete regeneration applies both. No frozen certificate endpoint or decision policy was retuned after outcomes.
+
+          PR #18 tests source-balanced reliability ranking, source-diverse acceptance, dependence-robust review allocation, independent-primitive shared-lineage Shannon inference and bounded feedback-cutset optimization. The certificate suite instead forecasts source contamination with random effects; solves arbitrary-dependence DNF probability bounds; certifies bipartite optimization by integer flow; classifies queries across admissible repairs; and maintains an explicit delta/component index. Broad themes overlap and the underlying mathematical ideas have antecedents. The novelty claim remains scoped to the inspected experiments, not worldwide priority.
+
+          The protocol baseline remains PR #17. Integrating later work changes manuscript organization and CI coverage, not the already frozen experimental comparators. This reconciliation is an author-side engineering review, not independent external peer review.
+          '''
+          Path('graph_synthesis/certificates/RECONCILIATION.md').write_text('\n'.join(x[10:] if x.startswith('          ') else x for x in note.splitlines())+'\n',encoding='utf-8')
+          subprocess.run(['git','add',*sorted(approved),'graph_synthesis/certificates/report.py','graph_synthesis/certificates/RECONCILIATION.md'],check=True)
+          assert not subprocess.check_output(['git','diff','--name-only','--diff-filter=U'],text=True).strip()
+          PY
+            git commit -m 'merge: preserve concurrent PR 18 and append certificate study after structural results'
           fi
+      - name: Execute frozen research and combined validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r graph_synthesis/certificates/requirements.txt
+          python -B -m graph_synthesis.certificates.run --timings | tee graph_synthesis/certificates/execution.log
+          python -B -m unittest discover -s graph_synthesis/certificates/tests -v 2>&1 | tee graph_synthesis/certificates/tests.log
+          python -B -m graph_synthesis.certificates.run --check
+          python - <<'PY'
+          import json,re,subprocess,sys
+          from pathlib import Path
+          records=[]
+          logs=[]
+          for name in ('tests','followup/tests','adaptive/tests','risk_control/tests','reliability/tests','structural/tests','certificates/tests'):
+              path='graph_synthesis/'+name
+              done=subprocess.run([sys.executable,'-B','-m','unittest','discover','-s',path,'-v'],capture_output=True,text=True)
+              text=done.stdout+done.stderr
+              logs.append(path+'\n'+text)
+              print(path,done.returncode)
+              assert done.returncode==0,text
+              match=re.search(r'Ran (\d+) tests?',text)
+              assert match,text
+              records.append({'path':path,'tests':int(match.group(1)),'returncode':done.returncode})
+          base=Path('graph_synthesis/certificates')
+          (base/'combined-tests.log').write_text('\n'.join(logs),encoding='utf-8')
+          (base/'combined-validation.json').write_text(json.dumps({'suites':records,'total_tests':sum(x['tests'] for x in records),'failures':0},sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          PY
+          python -B -m graph_synthesis.verify --replay --tests --output "$RUNNER_TEMP/certificates-original.json"
+          cp "$RUNNER_TEMP/certificates-original.json" graph_synthesis/certificates/original-inventory.json
+          python -B -m graph_synthesis.certificates.report --figures --update-paper
+          python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+          git add graph_synthesis/certificates CURRENT_RESULTS.md manuscript/paper-current.md manuscript/paper-current.pdf manuscript/paper-current.html manuscript/paper-current.build.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'research: revalidate combined studies and publish integrated certificate benchmarks'
+          fi
+          git push origin HEAD:research/dependence-aware-certificates
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: certificates-source-and-evidence

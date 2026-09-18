@@ -1,0 +1,30 @@
+{
+  "note": "Source-structure extension; excludes self-reference. Mutable shared manuscript uses its build manifest.",
+  "sha256": {
+    "graph_synthesis/source_structural/IMPLEMENTATION_NOTES.md": "b433ef7578be7f466a828ae7c3642ab9b19a2753d435790c18606529e5eb6920",
+    "graph_synthesis/source_structural/PROTOCOL.md": "d925d71b4412c96124a6b77fd546db7901f92848868dcbc6ff70c0bffcd73513",
+    "graph_synthesis/source_structural/RESULTS.md": "378e04ae1ee07fd7350d8e62bd962a1e021c8619a6bb14b0866d63c2a429fa82",
+    "graph_synthesis/source_structural/__init__.py": "589a89c9db3255a8ba3a0827bc6ff453a4616a63629594e9b56f23592e2e1055",
+    "graph_synthesis/source_structural/execution.log": "3c844f0bc6bd95e2ed5581ee121b992c7baed0410a5044e74e9712bd603be15a",
+    "graph_synthesis/source_structural/figures/01_source_risk.png": "9367d4f995d0877476be54f25be51d662f6564c1257e43dd9bf05e8927fa18d5",
+    "graph_synthesis/source_structural/figures/01_source_risk.svg": "499c2603dd96449276ab8636aa80cde6b945d6ff970f4173c6c99e5ac0dabd67",
+    "graph_synthesis/source_structural/figures/02_review_budget.png": "d7037732ed0310670ace9a9e1e29ada2e004879bd6f9555ce4368c9e6919e9f6",
+    "graph_synthesis/source_structural/figures/02_review_budget.svg": "04728066445fdf4312297ae721cc348a6fc4bf8c1d227956814c6a53428eba7e",
+    "graph_synthesis/source_structural/figures/03_frontier_lineage.png": "c3b67d3a629b3c2d05cb56f194f1b873fd48054574129f2af6e9e8548141c53d",
+    "graph_synthesis/source_structural/figures/03_frontier_lineage.svg": "d4bf1d7b9aef1799a9e488456acabbd7836a6462c72d021a5596e593173fa65b",
+    "graph_synthesis/source_structural/figures/04_bipartite_certificate.png": "e46531086c9f1937f5de944005c74f6d32803a4520fb1dc3027bbf2994fab8b9",
+    "graph_synthesis/source_structural/figures/04_bipartite_certificate.svg": "1e1db4b9e21be9f6122ba4126d0f6f4c998a536d3a3ac32dc31c07f842e3e0cb",
+    "graph_synthesis/source_structural/figures/05_source_cache.png": "a423fe24133fa3288172cda4b51ad5ebb67e6345dd5114d2279311f35a8a15e3",
+    "graph_synthesis/source_structural/figures/05_source_cache.svg": "495b6895edb4ddc03ed7d925c22bed81880e4c0c6599741a98ee004905ec26f9",
+    "graph_synthesis/source_structural/methods.py": "6ae61f5d306a0cf37a6f6346217d6c61981d6de53aee7e71e12e92af9ecb0dc2",
+    "graph_synthesis/source_structural/original-inventory.json": "0b409e2df9d4ae06e2348f3a714eccf82dbed7b6c404b756791bb500c64252ba",
+    "graph_synthesis/source_structural/report.py": "c4bf68eddd4ed000f1791c38891941e5a12a3a2f9cb64a129feb4c880b5954a2",
+    "graph_synthesis/source_structural/results.json": "073c7b1f43a1b8f843cd4a936b2bf1ec440e1b9d2db64180b3a127d054d1fb13",
+    "graph_synthesis/source_structural/run.py": "cd500290a3cad8e7be7f62b2a02b1793a929f5115cf849e59d1ca6cbb16e8a4c",
+    "graph_synthesis/source_structural/summary.csv": "b18e9cd6bcc212cad79f55f2c286f45bd64dd38d1e467bc0bd140edbbb8eb1be",
+    "graph_synthesis/source_structural/tests.log": "611dde4f078b90a0d7ba8f0dd8aa4cacb8a609f9a43ca118c6c3032162cff2f7",
+    "graph_synthesis/source_structural/tests/__init__.py": "2633de2ab82923172fd250471b7759e2ad5c0aec6938d14176683c53ab2bf01c",
+    "graph_synthesis/source_structural/tests/test_methods.py": "db99c4b81344a5eb0687fba1786fe40dee4dd85439fb44c29c7cbdb7d6bcab93",
+    "graph_synthesis/source_structural/tests/test_report.py": "84cdb0efd8e88c191f6ffd1be04a638b9b66ade2ef656f65bfddd4142efb876a"
+  }
+}

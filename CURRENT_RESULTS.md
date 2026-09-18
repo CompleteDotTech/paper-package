@@ -24,6 +24,14 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
+<!-- SOURCE_STRUCTURAL_RESEARCH_START -->
+
+## Five source-aware and structural improvements after PR #17
+
+[Executed report](graph_synthesis/source_structural/RESULTS.md), [frozen protocol](graph_synthesis/source_structural/PROTOCOL.md), [five figures](graph_synthesis/source_structural/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 did not meet its frozen target; H2 did not meet its frozen target; H3 met its frozen target; H4 met its frozen target; H5 met its frozen target. Direct group-risk modeling and setup-cost-aware review fail their targets. Frontier lineage, certified bipartite optimization and revision-checked evidence invalidation meet controlled algorithmic targets. No fresh Jev calls, independent semantic validation, real reviewer cost measurements or production-policy changes. Negative results, correlated-detection and global-source controls are retained.
+
+<!-- SOURCE_STRUCTURAL_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

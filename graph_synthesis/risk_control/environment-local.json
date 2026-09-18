@@ -1,0 +1,8 @@
+{
+  "execution": "actual offline local benchmark, followed by independent CI reproduction",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "weasyprint": "68.0"
+}

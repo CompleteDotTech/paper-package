@@ -1,0 +1,8 @@
+{
+  "execution": "Actual GitHub Actions offline execution and replay after local execution",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "platform": "Linux",
+  "numpy": "2.5.3",
+  "matplotlib": "3.10.8",
+  "weasyprint": "68.0"
+}

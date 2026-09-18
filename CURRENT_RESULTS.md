@@ -8,6 +8,14 @@
 
 <!-- ADAPTIVE_RESEARCH_END -->
 
+<!-- RISK_CONTROL_RESEARCH_START -->
+
+## Five risk-controlled improvements after PR #15
+
+[Executed report](graph_synthesis/risk_control/RESULTS.md), [frozen protocol](graph_synthesis/risk_control/PROTOCOL.md), [five figures](graph_synthesis/risk_control/figures/) and [updated full paper](manuscript/paper-current.pdf). No new Jev calls. Learned routing falls back to single-rich; group-risk gating loses too much correct-edge coverage; direct qualifier vetoes yield no valid semantic filtering; optimal review ties observed outcomes. The forest-aware solver meets its controlled target on components up to 256 assertions. Negative results, explicit risk assumptions and the false-priority semantic control are retained. No production-policy changes.
+
+<!-- RISK_CONTROL_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

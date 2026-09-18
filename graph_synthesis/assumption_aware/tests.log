@@ -1,0 +1,49 @@
+test_all_external_subsets_against_cold_scan (test_methods.GroundingTests.test_all_external_subsets_against_cold_scan) ... ok
+test_alternate_grounding_survives (test_methods.GroundingTests.test_alternate_grounding_survives) ... ok
+test_bad_rules (test_methods.GroundingTests.test_bad_rules) ... ok
+test_bad_update_atomic (test_methods.GroundingTests.test_bad_update_atomic) ... ok
+test_duplicate_body_and_rules (test_methods.GroundingTests.test_duplicate_body_and_rules) ... ok
+test_empty_body_axiom (test_methods.GroundingTests.test_empty_body_axiom) ... ok
+test_initialization_cost_explicit (test_methods.GroundingTests.test_initialization_cost_explicit) ... ok
+test_pure_cycle_never_self_grounds (test_methods.GroundingTests.test_pure_cycle_never_self_grounds) ... ok
+test_self_loop_needs_external (test_methods.GroundingTests.test_self_loop_needs_external) ... ok
+test_withdrawing_only_seed_clears_cycle (test_methods.GroundingTests.test_withdrawing_only_seed_clears_cycle) ... ok
+test_wrong_external_can_ground_wrong_conclusion (test_methods.GroundingTests.test_wrong_external_can_ground_wrong_conclusion) ... ok
+test_atom_cap_explicit (test_methods.ProbabilityTests.test_atom_cap_explicit) ... ok
+test_duplicate_subsumed_invariance (test_methods.ProbabilityTests.test_duplicate_subsumed_invariance) ... ok
+test_empty_and_tautology (test_methods.ProbabilityTests.test_empty_and_tautology) ... ok
+test_false_independence_not_admitted (test_methods.ProbabilityTests.test_false_independence_not_admitted) ... ok
+test_inconsistent_constraints_stage (test_methods.ProbabilityTests.test_inconsistent_constraints_stage) ... ok
+test_invalid_marginals (test_methods.ProbabilityTests.test_invalid_marginals) ... ok
+test_invalid_proof_pair_and_caps (test_methods.ProbabilityTests.test_invalid_proof_pair_and_caps) ... ok
+test_known_intersection (test_methods.ProbabilityTests.test_known_intersection) ... ok
+test_solver_failure_never_admits (test_methods.ProbabilityTests.test_solver_failure_never_admits) ... ok
+test_two_event_analytic_bounds (test_methods.ProbabilityTests.test_two_event_analytic_bounds) ... ok
+test_all_graphs_three_vertices_all_binary_weights (test_methods.RepairTests.test_all_graphs_three_vertices_all_binary_weights) ... ok
+test_call_cap_partial_not_false_certainty (test_methods.RepairTests.test_call_cap_partial_not_false_certainty) ... ok
+test_dense_unsupported_is_unknown (test_methods.RepairTests.test_dense_unsupported_is_unknown) ... ok
+test_empty_graph (test_methods.RepairTests.test_empty_graph) ... ok
+test_equal_pair_disjunction_not_member (test_methods.RepairTests.test_equal_pair_disjunction_not_member) ... ok
+test_false_priority_remains_false (test_methods.RepairTests.test_false_priority_remains_false) ... ok
+test_input_order_and_duplicate_edges (test_methods.RepairTests.test_input_order_and_duplicate_edges) ... ok
+test_query_validation (test_methods.RepairTests.test_query_validation) ... ok
+test_unique_optimum (test_methods.RepairTests.test_unique_optimum) ... ok
+test_vertex_cap (test_methods.RepairTests.test_vertex_cap) ... ok
+test_empty_review_pool (test_methods.ReviewTests.test_empty_review_pool) ... ok
+test_id_tie_deterministic (test_methods.ReviewTests.test_id_tie_deterministic) ... ok
+test_invalid_risk_exposure_and_duplicate (test_methods.ReviewTests.test_invalid_risk_exposure_and_duplicate) ... ok
+test_no_gold_access_and_no_mutation (test_methods.ReviewTests.test_no_gold_access_and_no_mutation) ... ok
+test_uniform_matches_existing_strong_baseline (test_methods.ReviewTests.test_uniform_matches_existing_strong_baseline) ... ok
+test_weights_can_change_priority (test_methods.ReviewTests.test_weights_can_change_priority) ... ok
+test_bad_updates_atomic (test_methods.TreeTests.test_bad_updates_atomic) ... ok
+test_copies_input_weights (test_methods.TreeTests.test_copies_input_weights) ... ok
+test_malformed_graphs (test_methods.TreeTests.test_malformed_graphs) ... ok
+test_reconstruction_charged (test_methods.TreeTests.test_reconstruction_charged) ... ok
+test_same_value_no_visits (test_methods.TreeTests.test_same_value_no_visits) ... ok
+test_single_vertex (test_methods.TreeTests.test_single_vertex) ... ok
+test_small_path_all_weights_and_updates (test_methods.TreeTests.test_small_path_all_weights_and_updates) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.722s
+
+OK

@@ -24,6 +24,16 @@
 
 <!-- RELIABILITY_RESEARCH_END -->
 
+<!-- ASSUMPTION_AWARE_RESEARCH_START -->
+
+## Five assumption-aware improvements after PR #17
+
+[Executed results](graph_synthesis/assumption_aware/RESULTS.md), [frozen protocol](graph_synthesis/assumption_aware/PROTOCOL.md), [five figures](graph_synthesis/assumption_aware/figures/), [novelty boundary](graph_synthesis/assumption_aware/NOVELTY.md), and [complete updated paper](manuscript/paper-current.pdf).
+
+Marginal-only lineage bounds tighten 4.96%, missing the frozen 10% target. Query-exposure review fails: weighted residual contamination rises 50 to 63 at 20 idealized reviews. Repair-invariant answers, connected-tree delta updates and grounded cyclic provenance meet their controlled targets. Balanced-tree DP visits fall 97.63%, but including eager reconstruction visits reduces the counted saving to 48.81%. Indexed grounding reduces dependency inspections 94.28%, with rule initialization reported separately. No new Jev calls, independent semantic validation, global novelty claim, external-system superiority or default production-policy change. Negative results and false-priority/source controls remain visible.
+
+<!-- ASSUMPTION_AWARE_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.

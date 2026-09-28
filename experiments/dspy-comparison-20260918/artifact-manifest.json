@@ -8,7 +8,7 @@
     ".github/workflows/dspy-comparison.yml": "057025a27d6a6e27acdb0eab708de3f1ce120022c50ac44dd099019e2d1127a8",
     ".github/workflows/dspy-jev-preflight.yml": "11d74371173b42c4ee71972d0a5b8a2f9fba3e9bc3ac85bc2bd44471007736dc",
     "DSPY_BENCHMARKS.md": "3846accfc911b784ba44545d4910807b69eb45bb4b16fa5f6ed43878d86870f8",
-    "experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md": "7bc269c06fd00dc4d0561d43acabfaab1f1ba692ef565aaf698742189308aa68",
+    "experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md": "b693e4d8add732b53e936536e8b87e7704eacaf582055f353a672673d9053a08",
     "experiments/dspy-comparison-20260918/STATUS.md": "9a13cd41100553ad13916e025f92ef8221fba4e1492c7c7e2ecc0ede9555bf4c",
     "experiments/dspy-comparison-20260918/archive-calibration/RESULTS.md": "129ff8e48148e6de19c931760488d8e26c1af7816786cd89f961ec2aa7eda9de",
     "experiments/dspy-comparison-20260918/archive-calibration/summary.json": "c18e3b3c7d40dab043193d0fe4e6601d69fea511b77e3f2fca54ab1fa0a23bdb",
@@ -22,7 +22,7 @@
     "graph_synthesis/dspy_benchmark/data.py": "1933b9d51e2901f4f78bea6ca4cca38d8b2099b27dccc88975c5a8f1ce3bc001",
     "graph_synthesis/dspy_benchmark/report.py": "6605e1ec530b28d50c438821968d4bd8013daf5d02197fbb61d69a996deb55f0",
     "graph_synthesis/dspy_benchmark/requirements.txt": "5c5e403c544ae9a73e776197a53a21939ab6b8779f1f7c413730331c1fdfbed6",
-    "graph_synthesis/dspy_benchmark/run.py": "b378d41487cdaff0f026ced673bdcdc17eddb10079a790dba0e5e9682496c3b7",
-    "graph_synthesis/dspy_benchmark/tests/test_benchmark.py": "108a245594843425061d1466fc3fa686f024990426a1ee6cde43af3d14b2cd84"
+    "graph_synthesis/dspy_benchmark/run.py": "c579b6dfa65af552fe7d8dbb68002121468591af05c9d3e4c2d5ec5b8596b328",
+    "graph_synthesis/dspy_benchmark/tests/test_benchmark.py": "fc7b336fa450dae9ce671a1d3c5b51884680479bb01ff4cdb2ec7a6e4c80278c"
   }
 }

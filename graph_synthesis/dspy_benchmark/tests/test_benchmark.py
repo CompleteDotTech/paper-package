@@ -62,6 +62,14 @@ class Tests(unittest.TestCase):
         with self.assertRaises(BudgetExhausted):
             CostBudget().reserve_proposal(120_001)
 
+    def test_proposal_usage_audit_ignores_litellm_nested_wrappers(self):
+        from graph_synthesis.dspy_benchmark.run import scalar_proposal_usage
+        class Wrapper: pass
+        raw = {'prompt_tokens':6410,'completion_tokens':6442,'total_tokens':12852,
+               'prompt_tokens_details':Wrapper()}
+        self.assertEqual(scalar_proposal_usage(raw),
+                         {'prompt_tokens':6410,'completion_tokens':6442,'total_tokens':12852})
+
     def test_inventory_all_registered_panels(self):
         v=inventory()
         self.assertEqual(v['relation_support']['splits']['test']['n'],339)

@@ -63,3 +63,11 @@ is preserved as a failed run and is excluded from study results. For the next
 attempt, the same method uses a 16,384-token proposal output ceiling and a
 $0.07 reserve per call. This changes only the execution ceiling and accounting;
 the frozen data, feedback, search iterations, and acceptance rule stay fixed.
+
+The next retry, [run 36479509726](https://github.com/CompleteDotTech/paper-package/actions/runs/36479509726),
+obtained a complete proposal (6,410 input and 6,442 output tokens) but failed
+while writing its audit row: LiteLLM's usage object contained a nested wrapper
+that `json.dumps` could not serialize. It again completed 60 Jev calls and is
+excluded from results. Its guarded estimate was $0.072313654. The audit writer
+now records only scalar token counts and a numeric cost. This changes no model
+request or study rule.

@@ -215,13 +215,26 @@ class LoggedProposer:
         last = records[-1] if records else {}
         if self.budget is not None:
             self.budget.proposal_usage(last.get('usage'))
+        # LiteLLM usage may contain nested wrapper objects; record only scalar counts.
+        usage = last.get('usage')
+        usage_record = scalar_proposal_usage(usage)
+        cost = last.get('cost')
+        cost = float(cost) if type(cost) in (int, float) else None
         # Whitelist metadata; never serialize provider arguments or authentication headers.
         row = {'iteration':iteration,'input_config':asdict(config),'training_feedback':feedback,
-               'candidate':proposal,'usage':last.get('usage'), 'cost_usd':last.get('cost')}
+               'candidate':proposal,'usage':usage_record, 'cost_usd':cost}
         self.output.parent.mkdir(parents=True,exist_ok=True)
         with self.output.open('a',encoding='utf-8') as f:
             f.write(canonical(row)+'\n')
         return proposal
+
+
+def scalar_proposal_usage(usage):
+    """Reduce LiteLLM's nested usage wrappers to auditable integer counts."""
+    if not isinstance(usage, dict):
+        return {}
+    return {key: usage[key] for key in ('prompt_tokens','completion_tokens','total_tokens')
+            if type(usage.get(key)) is int and usage[key] >= 0}
 
 
 def provider_model():

@@ -1,6 +1,6 @@
 # Evidence-preserving graph synthesis extension
 
-This additive extension turns exact saved Jev observations into durable, source-bound graph assertions, analyzes relationships and topology, and exercises correction/retraction. It preserves all 161 files in the current baseline MANIFEST inventory. Standalone datasets remain ignored and are acquired through the existing pinned downloader. Read [the illustrated research paper](paper.md), [15-figure gallery](figures/README.md), [visual review and limitations](VISUAL_REVIEW.md), [results](RESULTS.md), [protocol](PROTOCOL.md), and [relationship design notes](RELATIONSHIPS.md).
+This additive extension turns exact saved Jev observations into durable, source-bound graph assertions, analyzes relationships and topology, and exercises correction/retraction. It preserves all 161 files in the current baseline MANIFEST inventory. Standalone datasets remain ignored and use [verified source acquisition](DATASETS.md) with the original frozen preparation code. Read [the illustrated research paper](paper.md), [15-figure gallery](figures/README.md), [visual review and limitations](VISUAL_REVIEW.md), [results](RESULTS.md), [protocol](PROTOCOL.md), and [relationship design notes](RELATIONSHIPS.md).
 
 ## Complementary ten-figure analysis
 
@@ -20,7 +20,7 @@ From the repository root, use Python 3.12 and the original NumPy pin for closest
 
 ```sh
 python -m pip install -r graph_synthesis/requirements-verification.txt
-python -B scripts/download_datasets.py
+python -B -m graph_synthesis.datasets
 python -B -m graph_synthesis.verify --replay --tests --output ../original-verification.json
 python -B -m unittest discover -s graph_synthesis/tests -v
 python -B -m graph_synthesis.study --output ../graph-study.json --export-graphs ../graphs

@@ -10,13 +10,13 @@ instructions describe a closed historical package; expanded checkouts use
 
 ```sh
 python -B -m graph_synthesis.verify
-python -B scripts/download_datasets.py --check
+python -B -m graph_synthesis.datasets --check
 python -B -m graph_synthesis.verify --replay --tests --output ../original-verification.json
 python -B -m unittest discover -s graph_synthesis/tests -v
 ```
 
-Acquire missing datasets using the current reproduction guide before the second
-and third commands. The portable replay blocks network access and reads recorded
+Acquire missing datasets with `python -B -m graph_synthesis.datasets` before the
+second and third commands. The portable replay blocks network access and reads recorded
 responses. Keep output reports outside the repository and retain the command,
 environment, commit SHA, and resulting verification report.
 
@@ -71,4 +71,3 @@ manual dispatch. No write permission or model-call capability is newly enabled.
 For example, an authorized manual graph verification can be started with
 `gh workflow run graph-synthesis.yml --ref main`. This is optional; all local
 verification commands above remain available.
-

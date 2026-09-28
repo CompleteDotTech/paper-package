@@ -6,7 +6,7 @@
 
 ![Research: Empirical_study](https://img.shields.io/badge/Research-Empirical_study-0f766e?style=flat-square) ![Evidence: Frozen_archive](https://img.shields.io/badge/Evidence-Frozen_archive-475569?style=flat-square)
 
-[Manuscript](../manuscript/paper.md) · [Claim map](../supplementary/CLAIM_EVIDENCE.md) · [Graph research](../graph_synthesis/README.md) · [Reproduction](#reproduce-and-verify)
+[Manuscript](../manuscript/paper.md) · [Claim map](../supplementary/CLAIM_EVIDENCE.md) · [Graph research](../graph_synthesis/README.md) · [Reproduction](../CURRENT_REPRODUCTION.md)
 
 </div>
 
@@ -37,15 +37,7 @@ The intervention combines question formulation and demonstrations. These finding
 
 ## Reproduce and verify
 
-From the repository root, use Python 3.12 and an isolated environment:
-
-```sh
-python -m pip install -r graph_synthesis/requirements-verification.txt
-python -B scripts/download_datasets.py
-python -B -m graph_synthesis.verify --replay --tests
-```
-
-Dependency installation and the pinned dataset download need network access. The subsequent replay and original tests use a temporary runtime with network connections blocked and make no live model calls. The [extension guide](../graph_synthesis/README.md) explains cross-platform numerical tolerances and further experiments.
+Follow the [current-repository reproduction guide](../CURRENT_REPRODUCTION.md) for Windows and Unix commands, pinned dependencies, dataset hash checks, offline replay, original tests, and an external verification report. The [extension guide](../graph_synthesis/README.md) explains further experiments.
 
 Use the extension verifier for this expanded repository. The original `scripts/verify_package.py` expects the original closed inventory and rejects the additional extension files.
 

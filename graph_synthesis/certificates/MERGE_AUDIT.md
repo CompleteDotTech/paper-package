@@ -1,0 +1,19 @@
+# PR #20 merge-time overlap and preservation audit
+
+Reviewed main: `c726b66c3a07a115eb928b3f2629de972c728083`. Original experiment baseline and protocol remain `a62a3257645d8e35cd4e45be53bfa9511d27724b` and `bc70b76621daca198b3b97eb4f698b17d4c40a0b`. No primary endpoint, decision rule or comparator was retuned on resumption. The five original executed outcomes are retained, including H1 failure.
+
+The repository's [current-results inventory](../../CURRENT_RESULTS.md) now includes several parallel studies completed while PR #20 remained open. Therefore this merge does **not** establish five distinct never-before-attempted mechanisms relative to current main, nor worldwide priority. It preserves five baseline-scoped experiments and additional controlled replication evidence.
+
+| Certificate experiment | Relationship to intervening work | Merge-time interpretation |
+|---|---|---|
+| H1 source beta-binomial random effects | The [source-structural study](../source_structural/RESULTS.md) also studies direct source risk, but this experiment freezes an exchangeable count model and same-marginal comparator. | Different fitted forecast; H1 target still fails. |
+| H2 arbitrary-dependence DNF LP | The [assumption-aware](../assumption_aware/RESULTS.md), [uncertainty](../uncertainty/RESULTS.md) and [novel-mechanisms](../novel_mechanisms/RESULTS.md) studies also investigate marginal/dependence-safe probabilities. | Overlapping probability-bound research with explicit conjunction constraints and saved LP witnesses; not an independent new mathematical idea. |
+| H3 bipartite min-cut certificates | [Source-structural](../source_structural/RESULTS.md), [novel-mechanisms](../novel_mechanisms/RESULTS.md) and [frontier](../frontier/RESULTS.md) studies also execute bipartite optimization. | Concurrent replication/implementation extension; do not count repeatedly as distinct novelty. |
+| H4 repair-invariant queries | [Assumption-aware](../assumption_aware/RESULTS.md) and [uncertainty](../uncertainty/RESULTS.md) studies also expose alternative repairs. | Overlapping repair semantics; this suite additionally records exact and 5%-tolerant conjunctive witnesses. |
+| H5 component-local delta index | The connected-tree/path updates in [assumption-aware](../assumption_aware/RESULTS.md) and [frontier](../frontier/RESULTS.md) target different locality regimes. | Explicit mutable component index with insert/delete/split operations; connected control still has zero counted saving. |
+
+Main's generic research-marker renderer, all intervening study source/results, the original 161-file inventory, and the DSPy optimizer are preserved. Only the certificate subtree, its CI integration and additive current manuscript/index are changed. The complete paper appends the certificate section after the frontier section. Preservation is checked by removing only the new certificate block and requiring byte-identical pre-existing Markdown.
+
+Primary-source metadata was checked on September 18, 2026: [Kaski, Mannila and Mohapatra](https://arxiv.org/abs/2605.03556); [Faour, Fuchs and Kuhn](https://arxiv.org/abs/2111.10577); [Pardal et al.](https://arxiv.org/abs/2402.09265); [Staworko and Chomicki](https://arxiv.org/abs/0809.1551); [SciPy HiGHS documentation](https://docs.scipy.org/doc/scipy-1.17.0/reference/optimize.linprog-highs.html). Bibliographic correction: the frozen protocol's shortened Faour/Kuhn author attribution omits Marc Fuchs; the complete author list is recorded here without rewriting the frozen protocol. These sources document antecedents, not validation of this implementation.
+
+No new Jev calls, independent source-disjoint semantic test, matched KARMA run, real reviewer experiment or production-policy change is claimed. This is an author-side engineering integration audit, not independent external scientific peer review.

@@ -1,0 +1,6 @@
+hypothesis,title,primary_target,evidence_class
+H1,Source random-effects forecasting,Not met,Previously inspected saved-response forecasts
+H2,Dependence-aware lineage bounds,Met,Supplied finite probability models
+H3,Bipartite flow certificates,Met,Supplied conflict graphs and integer priorities
+H4,Repair-invariant queries,Met,Priority-relative graph-repair semantics
+H5,Delta-indexed graph updates,Met,In-memory controlled graph mutations

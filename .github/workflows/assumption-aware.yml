@@ -1,8 +1,6 @@
 name: Assumption-aware graph synthesis
 on:
-  push:
-    branches: [main, research/assumption-aware-graph-synthesis]
-  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -68,7 +66,7 @@ jobs:
             CURRENT_RESULTS.md
           retention-days: 14
   replay:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch'
     strategy:
       fail-fast: false
       matrix:
@@ -97,7 +95,7 @@ jobs:
           python -B -m graph_synthesis.verify --output "$RUNNER_TEMP/assumption-original.json"
           git diff --exit-code
   figures-and-paper:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:

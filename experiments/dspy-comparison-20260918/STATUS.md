@@ -57,3 +57,16 @@ The machine-readable [validation record](offline-validation-summary.json) includ
 [Protocol and commands](../../graph_synthesis/dspy_benchmark/README.md) cover five repeats, two DSPy search objectives, eight original native formulations, seven calibration settings and seven task/panel combinations. The code was tested with controlled doubles, not substituted for live inference.
 
 To execute live, map an authorized generative-provider credential and model into the workflow, resolve the repository Actions approval requirement, and manually run the live workflow. Original manuscripts, predictions and the immutable root manifest remain unchanged.
+
+## Offline integration correction
+
+The comparison workflow is now manual-only and has its own filename so it can
+coexist with the separate DSPy optimizer study. A full comparison requires at
+least one proposal iteration and verifies the configured proposer's matching
+credential before constructing a Jev target backend. Each completed seed writes
+a hash inventory of its run files; the downstream report verifies those files,
+retains missing/invalid seed statuses, and marks the five-seed matrix incomplete
+until all five completed artifacts validate. Baseline-only observations have a
+separate summary and cannot fill the primary DSPy table. These corrections were
+checked with offline tests and test doubles. The live comparison remains blocked
+and no new provider calls or DSPy results were produced by this correction.

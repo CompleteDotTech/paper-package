@@ -1,0 +1,16 @@
+{
+  "scientific_outcomes_unchanged": true,
+  "roundoff": {
+    "H1": [],
+    "H2": [
+      {
+        "path": "result.random_cases[64].with_joint.min.signed_primal",
+        "absolute_difference": 5.551115123125783e-17
+      }
+    ],
+    "H3": [],
+    "H4": [],
+    "H5": []
+  },
+  "fresh_service_calls": 0
+}

@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import gzip
+import hashlib
 import json
 import os
 import random
@@ -148,22 +149,51 @@ def provider_model():
     return None
 
 
+def proposer_credential(model):
+    """Resolve only the proposal providers explicitly exposed by the workflow."""
+    for prefix, key in (('openrouter/', 'OPENROUTER_API_KEY'),
+                        ('anthropic/', 'ANTHROPIC_API_KEY'),
+                        ('openai/', 'OPENAI_API_KEY')):
+        if model.startswith(prefix):
+            return key
+    return None
+
+
 def save_predictions(path, rows):
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_bytes(gzip.compress(canonical(rows).encode(),mtime=0))
 
 
+def write_artifact_inventory(output: Path):
+    files = {}
+    for path in sorted(output.rglob('*')):
+        if path.is_file() and path.name != 'artifact-inventory.json':
+            digest_file = hashlib.sha256()
+            with path.open('rb') as stream:
+                for chunk in iter(lambda: stream.read(1024 * 1024), b''):
+                    digest_file.update(chunk)
+            files[path.relative_to(output).as_posix()] = digest_file.hexdigest()
+    write_json(output/'artifact-inventory.json', {'schema_version':1,'sha256':files})
+
+
 def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model='jev-1.13.0', workers=4):
-    if seed not in SEEDS or not 0 <= iterations <= 12:
+    if seed not in SEEDS or not 0 <= iterations <= 12 or (iterations == 0 and not baseline_only):
         raise ValueError('Unregistered seed or iteration budget')
     if output.exists():
         raise FileExistsError('Use a new run directory; do not overwrite an experiment')
-    proposer_model = provider_model()
+    proposer_model = provider_model() if not baseline_only else None
+    if baseline_only:
+        iterations = 0
+    proposer_key = proposer_credential(proposer_model) if proposer_model else None
+    target_ready = bool(os.environ.get('TYPESAFE_API_KEY', '').strip())
+    proposal_ready = baseline_only or bool(proposer_key and os.environ.get(proposer_key, '').strip())
     output.mkdir(parents=True)
-    if not os.environ.get('TYPESAFE_API_KEY') or (not proposer_model and not baseline_only):
+    if not target_ready or not proposal_ready:
         write_json(output/'status.json', {'status':'blocked_missing_credentials',
-            'typesafe_key_present':bool(os.environ.get('TYPESAFE_API_KEY')),
-            'proposer_model_configured':bool(proposer_model),'live_calls':0})
+            'typesafe_key_present':target_ready,
+            'proposer_model_configured':bool(proposer_model),
+            'proposer_credential_present':bool(proposer_key and os.environ.get(proposer_key, '').strip()),
+            'live_calls':0})
         raise RuntimeError('Live benchmark requires TypeSafe and a generative proposal provider')
     random.seed(seed)
     np.random.seed(seed)
@@ -247,6 +277,7 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
             write_json(output/'usage.json',usage)
         write_json(output/'status.json',{'status':'completed_baseline_only' if baseline_only else 'completed',
             'live_logical_calls':sum(r['logical_calls'] for r in usage), 'protocol_sha256':digest(protocol)})
+        write_artifact_inventory(output)
         return all_metrics
     except Exception as exc:
         write_json(output/'usage.json',usage)

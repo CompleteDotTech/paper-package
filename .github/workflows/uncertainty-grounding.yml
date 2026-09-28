@@ -1,8 +1,6 @@
 name: Uncertainty and grounding experiments
 on:
-  push:
-    branches: [main, research/uncertainty-grounding-20260918]
-  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -114,7 +112,7 @@ jobs:
             CURRENT_RESULTS.md
           retention-days: 14
   replay:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch'
     strategy:
       fail-fast: false
       matrix:
@@ -160,7 +158,7 @@ jobs:
           PY
           git diff --exit-code
   figures-and-paper:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:

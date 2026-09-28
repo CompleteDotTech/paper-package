@@ -39,7 +39,11 @@ jobs:
               model = os.environ.get('DSPY_PROPOSER_MODEL','').strip()
               if not model:
                   model = ('openrouter/anthropic/claude-sonnet-4.5' if presence['OPENROUTER_API_KEY'] else 'anthropic/claude-sonnet-4-5-20250929' if presence['ANTHROPIC_API_KEY'] else 'openai/gpt-4.1' if presence['OPENAI_API_KEY'] else '')
-              if not presence['TYPESAFE_API_KEY'] or not model:
+              proposer_key = next((key for prefix, key in (
+                  ('openrouter/', 'OPENROUTER_API_KEY'),
+                  ('anthropic/', 'ANTHROPIC_API_KEY'),
+                  ('openai/', 'OPENAI_API_KEY')) if model.startswith(prefix)), None)
+              if not presence['TYPESAFE_API_KEY'] or not proposer_key or not presence[proposer_key]:
                   result['status'] = 'credentials_missing'
               else:
                   result['proposer_model'] = model

@@ -76,11 +76,18 @@ python -B -m graph_synthesis.dspy_benchmark.report \
 
 Set `TYPESAFE_API_KEY`, `DSPY_PROPOSER_MODEL`, and the provider credential required
 by that DSPy model. Keys must stay in the CI secret store; do not commit or paste
-them into reports. The manual [workflow](../../.github/workflows/dspy-benchmark.yml)
+them into reports. The manual [comparison workflow](../../.github/workflows/dspy-comparison.yml)
 has a five-seed matrix with at most two simultaneous jobs. It never injects keys
 into pull-request tests. Select the desired branch when manually dispatching.
 Approval/environment protections remain applicable. `--baseline-only` is an
-explicit partial-run mode and never counts as a completed DSPy comparison.
+explicit partial-run mode and never counts as a completed DSPy comparison. Full
+comparison runs require at least one proposal iteration and the credential for
+the configured OpenRouter, Anthropic or OpenAI proposer model before any Jev
+target inference. The workflow downloads all available seed artifacts into one
+directory, generates a five-seed aggregate report, and publishes that report as
+`dspy-jev-aggregate`; missing or failed seeds remain visible in its status table.
+Baseline-only measurements appear in a separate summary and cannot populate
+the primary DSPy comparison table.
 
 The registered eight-iteration matrix has an upper bound of 65,000 logical Jev
 requests across five seeds before cache savings, with at most two SDK retries per

@@ -5,10 +5,10 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 import numpy as np
-from graph_synthesis.dspy_jev_optimizer.core import Example,JevConfig,Cache,BudgetExhausted,metrics,read_json
+from graph_synthesis.dspy_jev_optimizer.core import Example,JevConfig,Cache,BudgetExhausted,metrics,read_json,write_json,digest
 from graph_synthesis.dspy_benchmark.data import inventory,load_task,panels,SEEDS
 from graph_synthesis.dspy_benchmark.calibration import fit,apply,evaluation,paired_interval
-from graph_synthesis.dspy_benchmark.run import ParallelEvaluator,provider_model,execute
+from graph_synthesis.dspy_benchmark.run import ParallelEvaluator,provider_model,execute,write_artifact_inventory
 from graph_synthesis.dspy_benchmark.report import summarize
 
 LABELS={'a':'first','b':'second'}
@@ -17,6 +17,28 @@ CFG=JevConfig('task','classify',LABELS)
 def sample(n=20):
     return [{'id':str(i),'group_id':str(i//2),'gold':'a' if i%4 else 'b',
              'choice':'a','probabilities':{'a':.98,'b':.02}} for i in range(n)]
+
+
+def completed_fixture(root, seed, *, baseline_only=False):
+    run_dir=root/f'seed-{seed}'
+    run_dir.mkdir()
+    arm='without_dspy_baseline_choice' if baseline_only else 'dspy_accuracy'
+    protocol={'seed':seed,'iterations':0 if baseline_only else 1,'baseline_only':baseline_only}
+    write_json(run_dir/'protocol.json',protocol)
+    write_json(run_dir/'status.json',{'status':'completed_baseline_only' if baseline_only else 'completed',
+                                      'protocol_sha256':digest(protocol)})
+    write_json(run_dir/'usage.json',[])
+    rows=[]
+    for task in ('relation_support','entity_resolution'):
+        task_dir=run_dir/task;task_dir.mkdir()
+        write_json(task_dir/'frozen-targets.json',{'targets':{arm:{}}})
+        write_json(task_dir/'calibration-freeze.json',{})
+        rows.append({'task':task,'panel':'test','arm':arm,'calibration':'raw_1.0',
+                     'n':2,'accuracy':.5,'macro_f1':.5,'mcc':0.,'brier':.25,
+                     'log_loss':.69,'ece':.1})
+    write_json(run_dir/'metrics.json',rows)
+    write_artifact_inventory(run_dir)
+    return run_dir
 
 class FakeBackend:
     def __init__(self,seed=1,bad=False):
@@ -109,10 +131,66 @@ class Tests(unittest.TestCase):
             p=Path(d)/'run'
             with self.assertRaises(RuntimeError):execute(p,11)
             self.assertEqual(read_json(p/'status.json')['live_calls'],0)
+    def test_missing_matching_proposer_key_blocks_before_target_inference(self):
+        from graph_synthesis.dspy_benchmark import run
+        with tempfile.TemporaryDirectory() as d, patch.dict(os.environ,{
+            'TYPESAFE_API_KEY':'test-only', 'DSPY_PROPOSER_MODEL':'openai/test-only'},clear=True), \
+            patch.object(run,'TypeSafeBackend',side_effect=AssertionError('target backend constructed')):
+            output=Path(d)/'seed-11'
+            with self.assertRaises(RuntimeError): execute(output,11)
+            status=read_json(output/'status.json')
+            self.assertEqual(status['status'],'blocked_missing_credentials')
+            self.assertEqual(status['live_calls'],0)
+            self.assertFalse((output/'protocol.json').exists())
+    def test_zero_proposal_iterations_cannot_complete_comparison(self):
+        with tempfile.TemporaryDirectory() as d, patch.dict(os.environ,{
+            'TYPESAFE_API_KEY':'test-only', 'DSPY_PROPOSER_MODEL':'openai/test-only',
+            'OPENAI_API_KEY':'test-only'},clear=True):
+            output=Path(d)/'seed-11'
+            with self.assertRaises(ValueError): execute(output,11,iterations=0)
+            self.assertFalse(output.exists())
     def test_missing_results_are_not_zero_accuracy(self):
         with tempfile.TemporaryDirectory() as d:
             self.assertEqual(summarize(Path(d)),[])
             self.assertEqual(read_json(Path(d)/'run-status.json')[0]['status'],'not_run')
+    def test_baseline_only_results_cannot_fill_primary_comparison(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);completed_fixture(root,11,baseline_only=True)
+            self.assertEqual(summarize(root),[])
+            self.assertEqual(read_json(root/'summary.json'),[])
+            self.assertEqual(read_json(root/'baseline-only-summary.json')[0]['runs'],1)
+            report=(root/'RESULTS.md').read_text(encoding='utf-8')
+            self.assertIn('No completed live DSPy comparison is available',report)
+            self.assertIn('Baseline-only results',report)
+    def test_aggregate_keeps_all_completed_seeds_and_missing_status(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            for seed in (11,23):
+                completed_fixture(root,seed)
+            summary=summarize(root)
+            self.assertEqual(summary[0]['runs'],2)
+            self.assertEqual(read_json(root/'run-status.json')[2]['status'],'not_run')
+            self.assertIn('2/5',(root/'RESULTS.md').read_text(encoding='utf-8'))
+            self.assertIn('matrix: **incomplete**',(root/'RESULTS.md').read_text(encoding='utf-8'))
+    def test_modified_artifact_is_rejected_from_completed_count(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d); run_dir=completed_fixture(root,11)
+            summarize(root)
+            self.assertTrue((root/'summary.csv').exists())
+            (run_dir/'metrics.json').write_text('[]\n',encoding='utf-8')
+            self.assertEqual(summarize(root),[])
+            status=read_json(root/'run-status.json')[0]
+            self.assertEqual(status['status'],'invalid_artifact')
+            self.assertIn('hash mismatch',status['artifact_error'])
+            self.assertFalse((root/'summary.csv').exists())
+    def test_unreadable_seed_does_not_hide_other_completed_runs(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);completed_fixture(root,11)
+            bad=root/'seed-23';bad.mkdir()
+            (bad/'status.json').write_text('{broken',encoding='utf-8')
+            summary=summarize(root)
+            self.assertEqual(summary[0]['runs'],1)
+            self.assertEqual(read_json(root/'run-status.json')[1]['status'],'invalid_artifact')
     def test_provider_is_explicit_not_magic_fallback(self):
         with patch.dict(os.environ,{},clear=True):self.assertIsNone(provider_model())
     def test_existing_output_refused(self):
@@ -135,7 +213,7 @@ class Tests(unittest.TestCase):
             return [Example(phase+str(i),{'phase':phase,'i':i},'a' if i%2 else 'b',phase+str(i)) for i in range(n)]
         splits={s:rows(s,6) for s in ('train','validation','calibration')}
         from graph_synthesis.dspy_benchmark import run
-        with tempfile.TemporaryDirectory() as d, patch.dict(os.environ,{'TYPESAFE_API_KEY':'test-only','DSPY_PROPOSER_MODEL':'test-only'},clear=True), patch.object(run,'load_task',return_value=(CFG,splits,{'baseline_choice':{}},{'demonstrations':[]})), patch.object(run,'panels',return_value={'test':rows('test',6)}), patch.object(run,'TypeSafeBackend',Backend), patch.object(run,'LegacyBackend',Backend), patch.object(run,'LoggedProposer',Proposer):
+        with tempfile.TemporaryDirectory() as d, patch.dict(os.environ,{'TYPESAFE_API_KEY':'test-only','DSPY_PROPOSER_MODEL':'openai/test-only','OPENAI_API_KEY':'test-only'},clear=True), patch.object(run,'load_task',return_value=(CFG,splits,{'baseline_choice':{}},{'demonstrations':[]})), patch.object(run,'panels',return_value={'test':rows('test',6)}), patch.object(run,'TypeSafeBackend',Backend), patch.object(run,'LegacyBackend',Backend), patch.object(run,'LoggedProposer',Proposer):
             output=Path(d)/'seed-11'
             result=execute(output,11,iterations=1,workers=2)
             self.assertEqual(read_json(output/'status.json')['status'],'completed')

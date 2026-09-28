@@ -1,1 +1,1 @@
-"""Repeated DSPy/Jev comparison; historical evidence is read-only."""
+"""Distinct DSPy/Jev benchmark protocols; importing this package performs no inference."""

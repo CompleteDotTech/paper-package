@@ -1,0 +1,19 @@
+name: DSPy benchmark execution preflight
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  credentials:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check only the named Jev credential
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          print('TYPESAFE_API_KEY configured:', bool(os.environ.get('TYPESAFE_API_KEY')))
+          print('The benchmark uses a local DSPy proposal model; no other secret is read.')
+          PY

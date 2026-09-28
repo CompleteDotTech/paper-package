@@ -1,5 +1,20 @@
 # DSPy / Jev comparison: actual execution status
 
+## Current live execution (2026-09-28)
+
+Seed 11 completed in [run 36484331133](https://github.com/CompleteDotTech/paper-package/actions/runs/36484331133)
+with 294 metric rows, all 32 accepted proposals, and a verified artifact ZIP.
+It is retained as standalone evidence. Independent review found a budget
+dispatch flaw and an insufficient aggregate provenance check; the runner and
+report have been corrected. [Seed 23 run 36487767662](https://github.com/CompleteDotTech/paper-package/actions/runs/36487767662)
+was canceled with its partial artifact preserved so the final five seeds can
+be executed on one source/data/dependency snapshot. The comparable five-seed
+matrix remains incomplete. See the [run plan](LIVE_RUN_PLAN.md) for exact costs,
+failed attempts, and execution amendments. No aggregate gain is claimed.
+
+The sections below preserve the preauthorization and offline audit history;
+their earlier “blocked” status describes that historical phase.
+
 ## Authorized follow-up preparation (2026-09-28)
 
 The user authorized a new live comparison with a $50 total cap and the existing

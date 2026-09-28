@@ -4,9 +4,11 @@
 [Actual execution status](experiments/dspy-comparison-20260918/STATUS.md) ·
 [Archived-output calibration check](experiments/dspy-comparison-20260918/archive-calibration/RESULTS.md)
 
-The live comparison has not completed: CI identified a missing mapped generative
-proposal-provider key, then marked the next diagnostic `action_required` before
-starting jobs. No approval restriction was bypassed and no DSPy gain is claimed.
+The five-seed live comparison has not completed. The initial preflight identified
+a missing mapped proposal credential, which was later supplied through the
+restricted OmniRoute route. One complete seed is archived as standalone evidence;
+the comparable five-seed cohort is being rerun after independent budget and
+provenance review. No aggregate DSPy gain is claimed.
 
 The comparison code registers five isolated repeats, two search objectives, eight
 native legacy formulations and seven calibration settings per frozen arm. New

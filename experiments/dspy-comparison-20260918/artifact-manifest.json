@@ -7,22 +7,22 @@
   "sha256": {
     ".github/workflows/dspy-comparison.yml": "057025a27d6a6e27acdb0eab708de3f1ce120022c50ac44dd099019e2d1127a8",
     ".github/workflows/dspy-jev-preflight.yml": "11d74371173b42c4ee71972d0a5b8a2f9fba3e9bc3ac85bc2bd44471007736dc",
-    "DSPY_BENCHMARKS.md": "3846accfc911b784ba44545d4910807b69eb45bb4b16fa5f6ed43878d86870f8",
-    "experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md": "d6ef80cb026981ce602b2672fcb65b3a1052275c9f0abdd8f2384afba8e62699",
-    "experiments/dspy-comparison-20260918/STATUS.md": "9a13cd41100553ad13916e025f92ef8221fba4e1492c7c7e2ecc0ede9555bf4c",
+    "DSPY_BENCHMARKS.md": "9250ab3c83bab650d4eb0ee44429fbd7a73ac45484fcfeebf281ce034b9920c1",
+    "experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md": "12d8a195db588f1921ca897ff766d7bf116d37c3557d7d523efbf61b14bb8361",
+    "experiments/dspy-comparison-20260918/STATUS.md": "4d8cfa356b13d42c24a8dabbb9375e22a86c4f357d5095d3eb59c37d913f0549",
     "experiments/dspy-comparison-20260918/archive-calibration/RESULTS.md": "129ff8e48148e6de19c931760488d8e26c1af7816786cd89f961ec2aa7eda9de",
     "experiments/dspy-comparison-20260918/archive-calibration/summary.json": "c18e3b3c7d40dab043193d0fe4e6601d69fea511b77e3f2fca54ab1fa0a23bdb",
     "experiments/dspy-comparison-20260918/live-status.json": "d5d085d71219fea23bd08882de0df72e26588e78dfb0007566d22915c39c9aa7",
     "experiments/dspy-comparison-20260918/offline-validation-summary.json": "ba061c00f7fc44b08bb02a26ed705f6e38badc756d03eb6754defec2d67bbfbd",
     "graph_synthesis/dspy_benchmark/.gitignore": "130b65c1033d6acb35e41f551f2aac6601947e5bc14f954a65b5154fa40716a1",
-    "graph_synthesis/dspy_benchmark/README.md": "96e34fd96b195047465f51ddf0e24ed9daec073ffd4e486b96c3f9999d4f2589",
+    "graph_synthesis/dspy_benchmark/README.md": "d2604628c35ddee33bf0aba1daee8deeed3d1544149e5e9fb2b2b31049f3246b",
     "graph_synthesis/dspy_benchmark/__init__.py": "9193475ac3b4d0f95157047fc6ae4468c5814617fd14221f54ddbcc4f11a80ae",
     "graph_synthesis/dspy_benchmark/archive_calibration.py": "7154a8a2818c65fb94291f4201106b6287e20b74e86e38ea6d629bc32af556a4",
     "graph_synthesis/dspy_benchmark/calibration.py": "8c256a74fbd3a0820a7c64d42ac04c75150f9c9b2bab8c680264ea7dae18b96d",
-    "graph_synthesis/dspy_benchmark/data.py": "1933b9d51e2901f4f78bea6ca4cca38d8b2099b27dccc88975c5a8f1ce3bc001",
-    "graph_synthesis/dspy_benchmark/report.py": "6605e1ec530b28d50c438821968d4bd8013daf5d02197fbb61d69a996deb55f0",
+    "graph_synthesis/dspy_benchmark/data.py": "527c3854c1ad5f636ababba270578a2649810147f4419cdf09b22756776faf86",
+    "graph_synthesis/dspy_benchmark/report.py": "aca2d0ba3a47065eaffca214256112955c291960fc1941da50e9f11e9f4b1423",
     "graph_synthesis/dspy_benchmark/requirements.txt": "5c5e403c544ae9a73e776197a53a21939ab6b8779f1f7c413730331c1fdfbed6",
-    "graph_synthesis/dspy_benchmark/run.py": "553ab88d4f3c3079a5b622e1363c44e9731ac262f6ec7ccfa6dd8d24e48f0349",
-    "graph_synthesis/dspy_benchmark/tests/test_benchmark.py": "2ffe2b7d63b9c2cb490e258cf05a4bf828aa577725508dee8d4e301f6e96b2c9"
+    "graph_synthesis/dspy_benchmark/run.py": "b593afbbf2f499edaf6dd49165eb2f88641e00fe665a1c82605a94b47cf37450",
+    "graph_synthesis/dspy_benchmark/tests/test_benchmark.py": "7e121e3b0a158480c80af87fe9ed39e9b5df1f7b535053502b94fd818fb6163e"
   }
 }

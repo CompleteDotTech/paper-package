@@ -1,6 +1,6 @@
 # Authorized five-seed comparison run plan
 
-Status: **first live attempt failed; no five-seed results yet**. The user approved the existing
+Status: **one standalone seed completed; the comparable five-seed cohort is pending**. The user approved the existing
 OmniRoute DeepSeek route and a **$50 total spending cap** on 2026-09-28.
 The earlier instruction to use captures only applied to the prior PR remediation;
 this is a new authorized live run. It remains distinct from the published v2
@@ -110,3 +110,31 @@ permits up to two retries of a timed-out request and 20 extra timeout calls per
 seed. Every timeout and retry has an event, and each timed-out call reserves
 $0.05 for usage that the provider did not return. A non-timeout provider error
 still stops the run. The logical example and scoring remain unchanged.
+
+## Cohort restart after independent review
+
+[Run 36484331133](https://github.com/CompleteDotTech/paper-package/actions/runs/36484331133)
+completed seed 11 under source commit `f0fcb78`. Its inventory verifies, with
+294 metric rows and 32 accepted proposals; its guarded estimate was
+$2.888279926. The artifact ZIP digest is
+`ddb51ffb12999165ca55f6aed4459b1c66d636bf0142c9ef0c7768db890c3c16`.
+It remains valid standalone evidence, but does not enter the final five-seed
+cohort because the dispatcher and provenance checks changed afterward.
+
+[Run 36487767662](https://github.com/CompleteDotTech/paper-package/actions/runs/36487767662)
+was canceled when the independent review found the eager dispatch budget flaw.
+Its partial artifact and a local snapshot are preserved. It recorded nine
+accepted proposals and 368 Jev responses; a conservative upper estimate from
+their usage, proposal reserves, and one possible in-flight proposal is
+$0.719464858. It is excluded from results. The five earlier failed seed-11
+attempts plus the successful standalone seed and this cancellation total about
+$5.89 in guarded estimates. Five fresh $8 seed limits add at most $40, leaving
+about $4.11 under the authorized $50 cap, subject to review after every seed.
+
+The final cohort reruns all five seeds on one source/data/dependency snapshot.
+Target requests are now dispatched in batches of at most four after a $0.05
+reserve per request. The actual serialized state, question, and any few-shot
+demonstrations must fit 120,000 bytes. Each returned usage settles its reserve;
+an unknown usage retains the reserve. The aggregate validator requires the
+exact 294-row arm/panel/calibration matrix per seed and rejects mixed protocol,
+source, dependency, or data inventories.

@@ -1,6 +1,6 @@
 # Repeated DSPy versus Jev benchmark comparison
 
-**Live comparison status: pending authorized execution, not completed.** The first CI preflight found
+**Live comparison status: one standalone seed completed; the five-seed cohort is pending.** The first CI preflight found
 `TYPESAFE_API_KEY` populated, but none of the three explicitly mapped generative
 provider keys (`OPENROUTER_API_KEY`, `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`). It stopped
 before inference. The next diagnostic was marked `action_required` before any job
@@ -85,22 +85,26 @@ Approval/environment protections remain applicable. `--baseline-only` is an
 explicit partial-run mode and never counts as a completed DSPy comparison. Full
 comparison runs require at least one proposal iteration and the credential for
 the configured OpenRouter, Anthropic or OpenAI proposer model before any Jev
-target inference. The workflow downloads all available seed artifacts into one
-directory, generates a five-seed aggregate report, and publishes that report as
-`dspy-jev-aggregate`; missing or failed seeds remain visible in its status table.
+target inference. Each workflow dispatch publishes one seed artifact. Download
+the five verified seed artifacts into one directory, then run the report command
+above locally; missing, failed, or noncomparable seeds remain visible in its
+status table.
 Baseline-only measurements appear in a separate summary and cannot populate
 the primary DSPy comparison table.
 
 The registered eight-iteration matrix has an upper bound of 65,000 logical Jev
-requests across five seeds before cache savings and 160 DSPy proposal invocations.
+requests across five seeds before cache savings and 160 accepted DSPy proposals.
 For this authorized execution, automatic SDK retries are disabled. A conservative
-$0.05 is reserved before every DeepSeek proposal; reported Jev input tokens are
-charged at $0.042 per million. A seed stops if this estimate exceeds $8. Five
+$0.07 is reserved before every DeepSeek proposal attempt. The runner dispatches
+at most four Jev calls at once and reserves $0.05 per in-flight call before
+sending it; returned usage replaces that reserve and unknown usage keeps it.
+Reported Jev input tokens are charged at $0.042 per million. A seed stops if
+this guarded estimate would exceed $8. Five
 seeds therefore have $40 in planned per-seed limits beneath the approved $50
 total cap. An in-flight request may be billed before its usage is observed, so
 the $10 gap is retained as a buffer. The estimate is not an invoice. See the
 [cost and execution plan](../../experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md).
-Each CI seed job has a 120-minute timeout.
+Each CI seed job has a 180-minute timeout.
 
 Every run writes protocol/config/source hashes, proposals, raw requests and
 responses, probability files, calibration parameters, metrics and usage. HTTP

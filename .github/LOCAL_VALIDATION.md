@@ -49,6 +49,7 @@ comparison, and artifact commands for every study.
 | Uncertainty and grounding experiments | `python -B -m graph_synthesis.uncertainty.run --check` |
 | Dependence-aware graph certificates | `python -B -m graph_synthesis.certificates.run --check` |
 | Post-certificate research | `python -B -m graph_synthesis.post_certificates.run --check` |
+| Post-certificate structural extensions | `python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v`; `python -B -m graph_synthesis.post_certificate.run --check`; `python -B -m graph_synthesis.post_certificate.report --check --update-paper` |
 | Corpus methodology | `python -B -m unittest discover -s graph_synthesis/corpus/tests -v` |
 | DSPy Jev optimizer | `python -B -m graph_synthesis.dspy_jev_optimizer.verify`; `python -B -m unittest discover -s graph_synthesis/dspy_jev_optimizer/tests -v` |
 
@@ -61,7 +62,7 @@ authorize new paid model calls.
 
 ## Automation status
 
-All 21 research workflows run only through explicit `workflow_dispatch` requests.
+All research workflows run only through explicit `workflow_dispatch` requests.
 Pull requests and pushes do not start research Actions jobs. In the Actions tab,
 select a study and choose **Run workflow** on the revision to verify. Existing
 replay and report checks run on the selected revision; the six historical

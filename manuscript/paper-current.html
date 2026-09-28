@@ -112,6 +112,12 @@ body > table:first-of-type tr { break-inside: avoid; }
 <td>2026-09-18</td>
 </tr>
 <tr>
+<td><a href="#post-certificate-structural-extensions-for-jev-graph-synthesis">Post-certificate structural extensions for Jev graph synthesis</a>; <a href="#1-frozen-protocol-and-evidence-boundary">Protocol and scope</a></td>
+<td>Controlled algorithms; finite endpoint scenarios</td>
+<td>H2 misses an injected-failure control; H4 passes only its endpoint-scenario target, not continuous interval minimax.</td>
+<td>2026-09-28</td>
+</tr>
+<tr>
 <td><a href="#do-additional-jev-calls-improve-graph-edges">Do additional Jev calls improve graph edges?</a>; <a href="#design-and-evidence-boundary">Protocol and scope</a></td>
 <td>3,024 fresh Jev calls</td>
 <td>No added-call policy establishes a matched-volume advantage.</td>
@@ -3506,6 +3512,77 @@ python -B -m graph_synthesis.post_certificates.report --figures --update-paper
 python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
 </code></pre>
 <p>The machine-readable results retain the controlled fixtures, selected pair constraints, optimization witnesses, development-only weights, uncertainty intervals and falsifying controls. The five PNG/SVG pairs and summary table are generated from those recorded results. Earlier study artifacts are not rewritten.</p>
+<h1 id="post-certificate-structural-extensions-for-jev-graph-synthesis">Post-certificate structural extensions for Jev graph synthesis</h1>
+<p>Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026; corrected September 28, 2026</p>
+<h2 id="abstract-11">Abstract</h2>
+<p>Five precommitted controlled extensions were executed after the dependence-aware certificate study. Recorded frozen-target outcomes: <strong>H1: met; H2: not met; H3: met; H4: met; H5: met.</strong> These are separate algorithmic conjunctions, not a pooled success percentage. The experiments address induced-width repair, transactional delta maintenance, query resilience, finite endpoint-scenario review and n-ary conflict constraints. <strong>H4 tests endpoint scenarios only; it does not establish minimax review over continuous probability intervals.</strong> An interior counterexample below rejects that broader interpretation. No new semantic-accuracy observations, deployment guarantees or external-system superiority are established.</p>
+<h2 id="1-frozen-protocol-and-evidence-boundary">1. Frozen protocol and evidence boundary</h2>
+<p>The protocol was committed as <code>8187cc4e4b98e40f3146ce787b71f262b62b3abd</code> against baseline <code>9d2e4a60a6c79e616ab1d352cd5da9fe414e6c98</code> before implementation and execution. Its bytes, fixture definitions, caps, seed <code>20260923</code> and thresholds remain unchanged. <strong>Fresh Jev calls: 0. New scientific documents: 0.</strong> This is exploratory follow-up, not independent preregistration.</p>
+<p><a href="../graph_synthesis/post_certificate/CORRECTIONS.md">The correction record</a> distinguishes repaired implementation/control defects from the preserved protocol. H4's frozen Method explicitly specifies interval endpoint vectors; its former broader interval-minimax description is withdrawn. The supplemental negative control is outside the frozen 128-fixture population. Treewidth-aware dynamic programming, incremental view maintenance, query resilience, finite-scenario minimax decisions and hypergraph optimization have prior art; these are repository experiments, not worldwide novelty claims.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Frozen target</th>
+<th>Recorded outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1: induced-width repair</td>
+<td>zero oracle/permutation failures; solve 8 large chains; stage controls; &gt;=90% fewer counted states</td>
+<td><strong>met</strong></td>
+</tr>
+<tr>
+<td>H2: transactional delta</td>
+<td>zero snapshot/atomicity failures; &gt;=80% fewer local evaluations</td>
+<td><strong>not met</strong></td>
+</tr>
+<tr>
+<td>H3: query resilience</td>
+<td>zero oracle/witness failures; solve 8 analytic families; stage 6 controls</td>
+<td><strong>met</strong></td>
+</tr>
+<tr>
+<td>H4: endpoint-scenario review</td>
+<td>zero endpoint-oracle discrepancies; never worse than midpoint on endpoint scenarios; strict gain on &gt;=20%</td>
+<td><strong>met</strong>, endpoint scenarios only</td>
+</tr>
+<tr>
+<td>H5: n-ary conflicts</td>
+<td>zero oracle/permutation failures; solve 8 chains; strict gain vs pairwise projection; stage controls</td>
+<td><strong>met</strong></td>
+</tr>
+</tbody>
+</table>
+<p>A failed conjunction remains not met regardless of individual favorable endpoints.</p>
+<h2 id="2-h1---induced-width-exact-conflict-optimization">2. H1 - induced-width exact conflict optimization</h2>
+<p>The solver computes deterministic min-fill order from the actual graph, checking width and allocation limits before constructing exponential tables. The shortcut based on numeric identifier distance has been removed. Of 160 small fixtures, 160 match the exhaustive objective; recorded failures: <strong>0</strong>; permutation failures: <strong>0</strong>. Width distribution: {'1': 33, '2': 45, '3': 53, '4': 29}.</p>
+<p>For the frozen 12-16 vertex subset, counted elimination evaluations are <strong>14,660</strong>, versus <strong>1,986,560</strong> full assignments: <strong>99.26% reduction</strong>. This original work counter is not total memory allocation or CPU time; a separate cumulative table-allocation guard enforces the frozen cap. Large triangle chains use an independent prefix dynamic-programming oracle. Per-fixture objectives, widths and staged controls remain in <code>results.json</code>.</p>
+<figure><img src="../graph_synthesis/post_certificate/figures/01_induced_width.svg" alt="H1. Counted exact-DP work versus full enumeration." /></figure>
+<h2 id="3-h2---transactional-batch-delta-maintenance">3. H2 - transactional batch delta maintenance</h2>
+<p>Transactions validate revisions and updates, evaluate an overlay in computed topological order, and return it only after successful evaluation. Unknown dependencies and cycles are rejected. Across <strong>640</strong> accepted transactions, independent full recomputation finds <strong>0 snapshot mismatches</strong>. A control passes only when the expected exception is raised and original values/revision remain unchanged: injected evaluation <strong>63/64</strong>, stale revision <strong>64/64</strong>, malformed update <strong>64/64</strong>. Returned revision mismatches: <strong>0</strong>. The frozen injected-failure conjunction is not met: one selected primitive has no affected derived node, so no failure was injected. That case remains in the denominator; the exact control record is retained in <code>results.json</code>.</p>
+<p>Local evaluations: 16,205, versus 163,840 for full recomputation: <strong>90.11% reduction</strong>. Connected controls separately show <strong>0.00% mean saving</strong>. These are in-memory atomic batches, not crash durability or concurrent database isolation.</p>
+<figure><img src="../graph_synthesis/post_certificate/figures/02_transactional_delta.svg" alt="H2. Local work and connected-control boundary." /></figure>
+<h2 id="4-h3---exact-query-resilience-certificates">4. H3 - exact query-resilience certificates</h2>
+<p>For supplied monotone DNF lineage and removal costs, incidence decomposition and bounded branch-and-bound find a minimum-cost deletion set hitting each active proof clause. <strong>160/160</strong> small fixtures match the exhaustive oracle. Recorded oracle, witness or control failures: <strong>0</strong>. All 8 analytic-family results and 6 over-cap controls are retained. This is conditional structural resilience, not factual truth or calibrated review effort.</p>
+<figure><img src="../graph_synthesis/post_certificate/figures/03_resilience.svg" alt="H3. Recorded resilience cost in decomposable families." /></figure>
+<h2 id="5-h4---endpoint-scenario-query-review">5. H4 - endpoint-scenario query review</h2>
+<p>The selector minimizes worst-case expected residual Bernoulli variance <strong>over the finite Cartesian product of interval endpoints</strong>, with two reviews. Production uses Shannon recursion; the independent checker enumerates Boolean worlds over the same endpoint scenarios. Neither searches interval interiors.</p>
+<p>Across 128 frozen fixtures, endpoint-oracle discrepancies: <strong>0</strong>; cases worse than midpoint on endpoint scenarios: <strong>0</strong>. Strict endpoint gains: <strong>45/128 (35.16%)</strong>, comprising 13 random and 32 engineered fixtures. Point-interval controls pass <strong>16/16</strong>.</p>
+<p><strong>Continuous-interval claim: unsupported.</strong> For singleton queries with intervals <code>0=[0.1,0.9]</code>, <code>1=[0.3,0.4]</code>, <code>2=[0.5,0.5]</code>, the supplemental control selects reviews [1, 2] and reports endpoint worst loss 0.09. The allowed interior witness <code>p0=0.5</code> yields <strong>0.25</strong>. Reviewing [0, 2] has analytic continuous worst loss <strong>0.24</strong>. The endpoint choice is therefore not continuous-interval minimax. This negative evidence is separate from the preserved endpoint target. Independent primitives are assumed; no dependence or semantic-calibration guarantee follows.</p>
+<figure><img src="../graph_synthesis/post_certificate/figures/04_interval_review.svg" alt="H4. Endpoint-scenario outcomes only; continuous interval claim unsupported." /></figure>
+<h2 id="6-h5---n-ary-conflict-constraints">6. H5 - n-ary conflict constraints</h2>
+<p>A forbidden hyperedge rejects only its all-selected assignment; pairwise conflict is the arity-two case. <strong>160/160</strong> small fixtures match exhaustive optimization; recorded failures: <strong>0</strong>; permutation failures: <strong>0</strong>. Eight chains compare against <code>n - floor(n/3)</code>, with objectives and staging controls retained. At the largest chain, retained n-ary utility is <strong>1366</strong>, versus <strong>683</strong> under deliberately over-conservative pairwise projection.</p>
+<figure><img src="../graph_synthesis/post_certificate/figures/05_hypergraph.svg" alt="H5. N-ary repair versus pairwise projection." /></figure>
+<h2 id="7-interpretation">7. Interpretation</h2>
+<p>Every result is conditional on supplied graphs, lineage, costs, constraints or finite probability scenarios. Work counters do not measure wall-clock/API latency or cloud cost. The H4 interior counterexample rejects the broader interval-minimax interpretation. None establishes correct extracted entities, relations, qualifiers or probabilities. No production graph policy changes here.</p>
+<h2 id="8-reproducibility-1">8. Reproducibility</h2>
+<pre><code class="language-bash">python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v
+python -B -m graph_synthesis.post_certificate.run --check
+python -B -m graph_synthesis.post_certificate.report --check --update-paper
+</code></pre>
+<p><code>results.json</code> retains outcomes and controls; <code>summary.csv</code> and five SVGs derive from those measurements. Manual validation also checks protocol ancestry/bytes, archive integrity, deterministic HTML and current-paper build hashes. The correction record documents implementation and interpretation changes; the frozen protocol is unchanged.</p>
 <h1 id="do-additional-jev-calls-improve-graph-edges">Do additional Jev calls improve graph edges?</h1>
 <p>Timothy Wayne Gregg — exploratory research addendum, September 18, 2026</p>
 <h2 id="design-and-evidence-boundary">Design and evidence boundary</h2>
@@ -4455,7 +4532,7 @@ bibliography: &quot;references.bib&quot;</h2>
 <h1 id="manuscript-status">Manuscript status</h1>
 <p>This is a detailed empirical manuscript draft grounded in the completed <code>run-20260918</code> artifacts. It is suitable for author review and development into a paper, not a claim of submission readiness. Author names, affiliations, contributions, funding, conflicts of interest, venue format, and final data-distribution permissions require the authors' confirmation. No independent replication, new adjudicated dataset, or additional experiment is implied by packaging the study.</p>
 <p>The <a href="../reproduction/results/jev/PROTOCOL.md">frozen protocol</a>, <a href="../reproduction/results/jev/run-20260918/RESULTS.md">complete results</a>, <a href="../supplementary/METHODS_AND_REPRODUCIBILITY.md">methods supplement</a>, and <a href="../supplementary/SUBMISSION_READINESS.md">submission-readiness assessment</a> are companion documents. Citation keys refer to the package bibliography. Tables below are rounded presentations; machine-readable artifacts retain full precision.</p>
-<h1 id="abstract-11">Abstract</h1>
+<h1 id="abstract-12">Abstract</h1>
 <p>Typed semantic decision services offer bounded outputs, but the quality and repeatability of those outputs must be measured on the intended task. We investigate whether changes to request formulation improve a fixed Jev model without replacing or fine-tuning it. A locally frozen protocol compares four formulations per task, selects one alternative using 60 training-derived development examples, fits scalar temperature calibration on a separate split, and evaluates the retained alternative against a corrected baseline. On 413 identity-disjoint DBLP–ACM bibliographic pairs, a bundled intervention comprising explicit identity instructions, a typed Choice contract, and six training demonstrations raises operational macro-F1 from 0.9605 to 0.9859. The paired 95% percentile bootstrap interval for the difference is [0.0010, 0.0540]. Predictions of identity on different-entity pairs fall from 8/63 to 2/63, while missed matches increase from 0/350 to 1/350. On 339 SciFact claim–cited-abstract examples, selected-formulation macro-F1 changes from 0.8508 to 0.8527, with an interval spanning zero. Calibration has task- and metric-dependent effects. Cached replay reconstructs all 3,644 predictions exactly; three fresh calls on 20 fixed examples per task preserve selected-formulation labels while probabilities vary. The study uses 3,405 HTTP calls and 4.79 million input tokens, with approximately $0.20 estimated provider charges. These results support further independent evaluation of the entity-matching formulation, not general Jev superiority, a causal claim about demonstrations alone, or a guarantee of safe graph mutation.</p>
 <p><strong>Keywords:</strong> entity resolution; typed decisions; Jev; scientific claim verification; calibration; reproducibility; probabilistic interfaces.</p>
 <h1 id="1-introduction">1. Introduction</h1>

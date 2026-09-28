@@ -25,10 +25,11 @@ JEV_INPUT_USD_PER_MILLION = 0.042
 DEEPSEEK_INPUT_USD_PER_MILLION = 0.30
 DEEPSEEK_OUTPUT_USD_PER_MILLION = 1.20
 PROPOSAL_RESERVE_USD = 0.07
-PER_SEED_BUDGET_USD = 8.0  # Five manually dispatched seeds reserve at most $40 of the $50 cap.
+PER_SEED_BUDGET_USD = 7.0  # Five new seeds reserve at most $35 after the recorded failed attempts.
 MAX_INVALID_ANSWER_RETRIES_PER_SEED = 20
 MAX_PROPOSAL_PARSE_RETRIES_PER_SEED = 20
 MAX_TIMEOUT_RETRIES_PER_SEED = 20
+MAX_RECOVERABLE_JEV_RETRIES_PER_SEED = 20
 UNKNOWN_JEV_TIMEOUT_RESERVE_USD = 0.05
 JEV_INFLIGHT_RESERVE_USD = 0.05
 MAX_JEV_REQUEST_BYTES = 120_000
@@ -48,6 +49,8 @@ class CostBudget:
         self.proposal_parse_retries = 0
         self.timeout_retries = 0
         self.timeout_failures = 0
+        self.internal_error_retries = 0
+        self.internal_error_failures = 0
         self.target_inflight = 0
         self.target_unknown_failures = 0
 
@@ -67,7 +70,7 @@ class CostBudget:
                 raise BudgetExhausted('Insufficient reserved budget for target batch')
             self.target_inflight += count
 
-    def settle_target_call(self, usage=None, *, timeout=False):
+    def settle_target_call(self, usage=None, *, timeout=False, internal_error=False):
         tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
         with self.lock:
             if self.target_inflight < 1:
@@ -79,6 +82,8 @@ class CostBudget:
                 self.target_unknown_failures += 1
             if timeout:
                 self.timeout_failures += 1
+            if internal_error:
+                self.internal_error_failures += 1
             self._check()
         if type(tokens) is not int or tokens < 0:
             if usage is not None:
@@ -125,13 +130,25 @@ class CostBudget:
     def record_jev_timeout(self):
         self.settle_target_call(None,timeout=True)
 
+    def record_jev_internal_error(self):
+        self.settle_target_call(None,internal_error=True)
+
     def retry_jev_timeout(self):
         with self.lock:
-            if self.timeout_retries >= MAX_TIMEOUT_RETRIES_PER_SEED:
-                raise BudgetExhausted('Jev timeout retry allowance exhausted')
+            if self.timeout_retries + self.internal_error_retries >= MAX_RECOVERABLE_JEV_RETRIES_PER_SEED:
+                raise BudgetExhausted('Jev recoverable-error retry allowance exhausted')
             if self.estimated_usd() + JEV_INFLIGHT_RESERVE_USD > self.limit:
                 raise BudgetExhausted('Insufficient reserved budget for timeout retry')
             self.timeout_retries += 1
+            self.target_inflight += 1
+
+    def retry_jev_internal_error(self):
+        with self.lock:
+            if self.timeout_retries + self.internal_error_retries >= MAX_RECOVERABLE_JEV_RETRIES_PER_SEED:
+                raise BudgetExhausted('Jev recoverable-error retry allowance exhausted')
+            if self.estimated_usd() + JEV_INFLIGHT_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for internal-error retry')
+            self.internal_error_retries += 1
             self.target_inflight += 1
 
     def _check(self):
@@ -158,6 +175,8 @@ class CostBudget:
                 'proposal_attempts': self.proposals + self.proposal_parse_retries,
                 'jev_timeout_failures': self.timeout_failures,
                 'jev_timeout_retries': self.timeout_retries,
+                'jev_internal_error_failures': self.internal_error_failures,
+                'jev_internal_error_retries': self.internal_error_retries,
                 'jev_unknown_usage_calls': self.target_unknown_failures,
                 'jev_inflight_calls': self.target_inflight,
                 'unknown_jev_usage_reserve_usd': self.target_unknown_failures * JEV_INFLIGHT_RESERVE_USD,
@@ -177,7 +196,7 @@ class ParallelEvaluator(Evaluator):
         self.budget = budget
 
     def evaluate(self, config, rows, phase):
-        from typesafe_sdk import TypeSafeAPITimeoutError
+        from typesafe_sdk import TypeSafeAPITimeoutError, TypeSafeInternalServerError
         keys = [digest({'schema':1, 'backend':self.backend.identity,
                         'config':config.fingerprint(), 'state':r.state}) for r in rows]
         responses, missing = {}, {}
@@ -201,7 +220,7 @@ class ParallelEvaluator(Evaluator):
                                       'questions':question_payload,'state':state_payload}).encode('utf-8'))
                 if size > MAX_JEV_REQUEST_BYTES:
                     raise BudgetExhausted('Target request exceeds pre-priced byte bound')
-        def fetch_with_timeout_retries(key, first_job=None):
+        def fetch_with_recoverable_retries(key, first_job=None):
             for attempt in range(3):
                 try:
                     if attempt == 0 and first_job is not None:
@@ -217,6 +236,15 @@ class ParallelEvaluator(Evaluator):
                         raise
                     self.budget.retry_jev_timeout()
                     self.event({'event':'retry_timeout_request','key':key,'phase':phase})
+                except TypeSafeInternalServerError:
+                    self.event({'event':'jev_internal_error','key':key,'phase':phase,'attempt':attempt+1,
+                                'unknown_usage_reserve_usd':JEV_INFLIGHT_RESERVE_USD})
+                    if self.budget is not None:
+                        self.budget.record_jev_internal_error()
+                    if attempt == 2 or self.budget is None:
+                        raise
+                    self.budget.retry_jev_internal_error()
+                    self.event({'event':'retry_internal_error_request','key':key,'phase':phase})
                 except Exception:
                     if self.budget is not None:
                         self.budget.settle_target_call()
@@ -241,7 +269,7 @@ class ParallelEvaluator(Evaluator):
                                                   parse_json(canonical(row.state)))))
                 for key, job in jobs:
                     try:
-                        response = fetch_with_timeout_retries(key,job)
+                        response = fetch_with_recoverable_retries(key,job)
                         while True:
                             for token in self.usage:
                                 count = response.get('usage',{}).get(token,0)
@@ -260,7 +288,7 @@ class ParallelEvaluator(Evaluator):
                                     raise
                                 self.budget.retry_invalid_answer()
                                 self.event({'event':'retry_request','key':key,'phase':phase})
-                                response = fetch_with_timeout_retries(key)
+                                response = fetch_with_recoverable_retries(key)
                         self.cache.put(key,response)
                         responses[key] = response
                         self.event({'event':'response','key':key,'phase':phase,'response':response})
@@ -461,7 +489,8 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                                 'proposal_reserve_usd':PROPOSAL_RESERVE_USD,
                                 'max_invalid_answer_retries':MAX_INVALID_ANSWER_RETRIES_PER_SEED,
                                 'max_proposal_parse_retries':MAX_PROPOSAL_PARSE_RETRIES_PER_SEED,
-                                'max_timeout_retries':MAX_TIMEOUT_RETRIES_PER_SEED},
+                                'max_timeout_retries':MAX_TIMEOUT_RETRIES_PER_SEED,
+                                'max_recoverable_jev_retries':MAX_RECOVERABLE_JEV_RETRIES_PER_SEED},
                 'execution':'live_provider_calls',
                 'note':'Historically examined public test sets; held out only from the current optimization.'}
     write_json(output/'protocol.json',protocol)

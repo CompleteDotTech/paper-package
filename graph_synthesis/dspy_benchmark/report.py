@@ -30,6 +30,7 @@ CALIBRATIONS = {'raw_1.0'} | {method+'_'+fraction for method in
 def audit_live_receipts(directory, budget, status, registered):
     """Recompute usage and retry counts from the hashed raw event journals."""
     requests = tokens = invalid_retries = timeout_retries = timeouts = 0
+    internal_retries = internal_errors = 0
     for task in EXPECTED_ARMS:
         for stage in [f'search-{objective}' for objective in ('accuracy','composite')] + list(EXPECTED_ARMS[task]):
             with (directory/task/stage/'calls.jsonl').open(encoding='utf-8') as stream:
@@ -45,6 +46,8 @@ def audit_live_receipts(directory, budget, status, registered):
                     elif kind == 'retry_request': invalid_retries += 1
                     elif kind == 'retry_timeout_request': timeout_retries += 1
                     elif kind == 'jev_timeout': timeouts += 1
+                    elif kind == 'retry_internal_error_request': internal_retries += 1
+                    elif kind == 'jev_internal_error': internal_errors += 1
         for arm in EXPECTED_ARMS[task]:
             for panel in EXPECTED_PANELS[task]:
                 with gzip.open(directory/task/arm/(panel+'-predictions.json.gz'),'rt',encoding='utf-8') as stream:
@@ -66,13 +69,15 @@ def audit_live_receipts(directory, budget, status, registered):
             or invalid_retries != budget.get('invalid_answer_retries')
             or timeout_retries != budget.get('jev_timeout_retries')
             or timeouts != budget.get('jev_timeout_failures')
-            or timeouts != budget.get('jev_unknown_usage_calls')
+            or internal_retries != budget.get('jev_internal_error_retries')
+            or internal_errors != budget.get('jev_internal_error_failures')
+            or timeouts + internal_errors != budget.get('jev_unknown_usage_calls')
             or parse_failures != budget.get('proposal_parse_retries')
             or proposal_tokens_in != budget.get('proposal_input_tokens_reported')
             or proposal_tokens_out != budget.get('proposal_output_tokens_reported')):
         return 'budget receipt disagrees with raw traces'
     proposal_reserve = (32+parse_failures)*.07
-    estimated = (tokens*.042/1_000_000 + timeouts*.05
+    estimated = (tokens*.042/1_000_000 + (timeouts+internal_errors)*.05
                  + max(proposal_reserve,(proposal_tokens_in*.30+proposal_tokens_out*1.20)/1_000_000))
     if (not math.isclose(budget.get('proposal_reserve_usd',-1),proposal_reserve,abs_tol=1e-9)
             or not math.isclose(budget.get('estimated_usd',-1),estimated,abs_tol=1e-8)):
@@ -115,11 +120,13 @@ def validate_artifact(directory, seed, item):
                 or protocol.get('iterations') != 8 or 'cost-budget.json' not in hashes):
             return 'authorized live protocol or budget artifact missing'
         budget = read_json(directory/'cost-budget.json')
-        if (budget.get('limit_usd') != 8.0 or budget.get('estimated_usd', 9.0) > 8.0
+        if (budget.get('limit_usd') != 7.0 or budget.get('estimated_usd', 8.0) > 7.0
                 or budget.get('proposal_calls') != 32 or budget.get('jev_inflight_calls') != 0
                 or not 0 <= budget.get('invalid_answer_retries', 21) <= 20
                 or not 0 <= budget.get('proposal_parse_retries', 21) <= 20
                 or not 0 <= budget.get('jev_timeout_retries', 21) <= 20
+                or not 0 <= budget.get('jev_internal_error_retries', 21) <= 20
+                or budget.get('jev_timeout_retries', 21) + budget.get('jev_internal_error_retries', 21) > 20
                 or budget.get('proposal_attempts') != 32+budget.get('proposal_parse_retries',0)):
             return 'authorized live budget or proposal count invalid'
         if (protocol.get('inventory') != inventory()

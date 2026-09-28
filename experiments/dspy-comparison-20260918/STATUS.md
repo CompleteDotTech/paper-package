@@ -9,7 +9,12 @@ dispatch flaw and an insufficient aggregate provenance check; the runner and
 report have been corrected. [Seed 23 run 36487767662](https://github.com/CompleteDotTech/paper-package/actions/runs/36487767662)
 was canceled with its partial artifact preserved so the final five seeds can
 be executed on one source/data/dependency snapshot. The comparable five-seed
-matrix remains incomplete. See the [run plan](LIVE_RUN_PLAN.md) for exact costs,
+matrix remains incomplete. A second seed 11 completed on the revised dispatcher
+in [run 36489940547](https://github.com/CompleteDotTech/paper-package/actions/runs/36489940547),
+but subsequent seed 23 runs 36493827639 and 36494005849 failed on TypeSafe
+internal server errors. The current runner bounds and audits retries of that
+transient provider error, and the final cohort will rerun all five seeds on its
+amended source commit. See the [run plan](LIVE_RUN_PLAN.md) for exact costs,
 failed attempts, and execution amendments. No aggregate gain is claimed.
 
 The sections below preserve the preauthorization and offline audit history;
@@ -19,7 +24,7 @@ their earlier “blocked” status describes that historical phase.
 
 The user authorized a new live comparison with a $50 total cap and the existing
 restricted OmniRoute DeepSeek route for DSPy proposals. The manual workflow now
-selects one seed per dispatch and records a conservative $8 per-seed estimated
+selects one seed per dispatch and records a conservative $7 per-seed estimated
 spend limit. See [the run plan](LIVE_RUN_PLAN.md). This preparation creates no
 new five-seed result; the historical status and blockers below remain the
 record of what had been executed before this authorization.

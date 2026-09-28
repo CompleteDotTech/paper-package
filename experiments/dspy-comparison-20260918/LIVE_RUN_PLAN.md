@@ -30,12 +30,12 @@ captures in PRs #28–#30.
   The 120,000-byte serialized proposal-input guard is tighter than that token
   allowance. The 160 initial reserves sum to **$11.20**; the maximum 100 parse
   retries raise that reservation to **$18.20** if all are used.
-- The controlled runner limits each seed to an $8 estimate from reported Jev
+- The current controlled runner limits each seed to a $7 estimate from reported Jev
   usage plus conservative proposal reserves. Seeds are dispatched individually,
   with observed token usage and provider billing reviewed before another seed.
-  Five per-seed limits total $40, leaving a $10 buffer under the $50 cap for
+  Five current per-seed limits total $35, leaving a $15 buffer under the $50 cap for
   in-flight usage and accounting differences. Do not dispatch another seed if
-  cumulative actual spend plus the next seed's $8 allowance would exceed $50.
+  cumulative actual spend plus the next seed's $7 allowance would exceed $50.
 
 ## Execution and publication gates
 
@@ -138,3 +138,33 @@ demonstrations must fit 120,000 bytes. Each returned usage settles its reserve;
 an unknown usage retains the reserve. The aggregate validator requires the
 exact 294-row arm/panel/calibration matrix per seed and rejects mixed protocol,
 source, dependency, or data inventories.
+
+## Internal-server-error execution amendment
+
+The first cohort attempt, [seed 11 run 36489940547](https://github.com/CompleteDotTech/paper-package/actions/runs/36489940547),
+completed on source commit `8283d85`: 294 metric rows, 32 accepted proposals,
+12,242 logical Jev calls, and a $2.897156556 guarded estimate. Its ZIP digest is
+`cde17140732ba4f7912ed598c801e836299d9fecad19419cd7271516a37806b5`.
+It is valid standalone evidence, but is excluded from the final comparable
+cohort after this execution amendment.
+
+[Seed 23 run 36493827639](https://github.com/CompleteDotTech/paper-package/actions/runs/36493827639)
+failed on a TypeSafe internal server error during the initial validation
+baseline, after 12 logical calls and before any proposal. Its guarded estimate
+was $0.050401478, including a $0.05 reserve for the call without usage.
+[The unchanged retry, run 36494005849](https://github.com/CompleteDotTech/paper-package/actions/runs/36494005849),
+failed on the same provider error after five accepted proposals. It recorded
+218,961 successful Jev input tokens and a $0.409196362 guarded estimate,
+including one unknown-usage reserve. Both failed artifacts are preserved and
+excluded from results.
+
+For the next cohort, a TypeSafe internal server error may be retried at most
+twice for the same request. Every failure and retry receives a raw event; each
+failure without usage retains a $0.05 reserve. Timeout and internal-error
+retries share one cap of 20 per seed, so this amendment does not increase the
+maximum extra Jev calls. Other provider errors still stop the run. The search
+examples, candidates, feedback, scoring, and acceptance rules remain fixed.
+The per-seed limit is reduced to $7. The guarded estimate of all prior attempts
+through the two seed-23 failures is $9.24442289. Five new $7 limits total $35,
+leaving $5.75557711 under the user's $50 cap before billing differences.
+Every final seed must run on the same amended source commit.

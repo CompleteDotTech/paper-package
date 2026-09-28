@@ -104,7 +104,7 @@ class FakeBackend:
 class Tests(unittest.TestCase):
     def test_five_seed_cost_guard_and_usage_fail_closed(self):
         from graph_synthesis.dspy_benchmark.run import CostBudget, BudgetExhausted
-        self.assertEqual(CostBudget().limit * 5, 40.0)
+        self.assertEqual(CostBudget().limit * 5, 35.0)
         budget = CostBudget(limit=.07)
         budget.reserve_proposal(100)
         self.assertEqual(budget.record()['proposal_calls'], 1)
@@ -296,6 +296,30 @@ class Tests(unittest.TestCase):
             self.assertEqual(budget.record()['unknown_jev_usage_reserve_usd'],.05)
             self.assertEqual([x['event'] for x in events if x['event'] in ('jev_timeout','retry_timeout_request')],
                              ['jev_timeout','retry_timeout_request'])
+            c.close()
+    def test_internal_server_retry_is_audited_and_reserves_unknown_usage(self):
+        from typesafe_sdk import TypeSafeInternalServerError
+        from httpx2 import Headers
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class FailsOnce(FakeBackend):
+            def predict(self,config,state):
+                self.count+=1
+                if self.count==1:
+                    raise TypeSafeInternalServerError(500,{},Headers())
+                return {'model':self.identity['model'],'choice':'a',
+                        'probabilities':{'a':.8,'b':.2},
+                        'usage':{'input_tokens':10,'output_tokens':0}}
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=FailsOnce();budget=CostBudget()
+            ParallelEvaluator(b,c,p/'audit',2,budget=budget).evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            events=[json.loads(line) for line in (p/'audit'/'calls.jsonl').read_text().splitlines()]
+            self.assertEqual(b.count,2)
+            self.assertEqual(budget.record()['jev_internal_error_failures'],1)
+            self.assertEqual(budget.record()['jev_internal_error_retries'],1)
+            self.assertEqual(budget.record()['unknown_jev_usage_reserve_usd'],.05)
+            self.assertEqual([x['event'] for x in events if x['event'] in
+                              ('jev_internal_error','retry_internal_error_request')],
+                             ['jev_internal_error','retry_internal_error_request'])
             c.close()
     def test_missing_keys_block_before_model_calls(self):
         with tempfile.TemporaryDirectory() as d,patch.dict(os.environ,{},clear=True):

@@ -1,0 +1,6 @@
+hypothesis,result,primary_measure,value,boundary
+H1,met,factor-state reduction,0.992620409149,"counted DP states, not wall-clock"
+H2,not met,local evaluation reduction,0.901092529297,connected control reported separately
+H3,met,recorded oracle/witness failures,0,supplied lineage and costs only
+H4,met,strict endpoint-scenario improvements,45,finite endpoint scenarios; continuous interval claim unsupported
+H5,met,recorded oracle/control failures,0,supplied n-ary constraints and utility

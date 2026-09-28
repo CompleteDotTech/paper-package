@@ -1,6 +1,6 @@
 # Evidence-preserving graph synthesis extension
 
-This additive extension turns exact saved Jev observations into durable, source-bound graph assertions, analyzes relationships and topology, and exercises correction/retraction. It preserves all 161 files in the current baseline MANIFEST inventory. Standalone datasets remain ignored and are acquired through the existing pinned downloader. Read [the illustrated research paper](paper.md), [15-figure gallery](figures/README.md), [visual review and limitations](VISUAL_REVIEW.md), [results](RESULTS.md), [protocol](PROTOCOL.md), and [relationship design notes](RELATIONSHIPS.md).
+This additive extension turns exact saved Jev observations into durable, source-bound graph assertions, analyzes relationships and topology, and exercises correction/retraction. It preserves all 161 files in the current baseline MANIFEST inventory. Standalone datasets remain ignored and use [verified source acquisition](DATASETS.md) with the original frozen preparation code. Read [the illustrated research paper](paper.md), [15-figure gallery](figures/README.md), [visual review and limitations](VISUAL_REVIEW.md), [results](RESULTS.md), [protocol](PROTOCOL.md), and [relationship design notes](RELATIONSHIPS.md).
 
 ## Complementary ten-figure analysis
 
@@ -20,13 +20,13 @@ From the repository root, use Python 3.12 and the original NumPy pin for closest
 
 ```sh
 python -m pip install -r graph_synthesis/requirements-verification.txt
-python -B scripts/download_datasets.py
+python -B -m graph_synthesis.datasets
 python -B -m graph_synthesis.verify --replay --tests --output ../original-verification.json
 python -B -m unittest discover -s graph_synthesis/tests -v
 python -B -m graph_synthesis.study --output ../graph-study.json --export-graphs ../graphs
 ```
 
-The graph compiler and core study use the standard library; optional visualization and PDF rendering use separately pinned dependencies; NumPy is required by the preserved replay and SciPy by four original calibration regression tests. Dataset acquisition uses the network once and checks six dataset hashes. Subsequent replay and tests make **no model calls**; the portable verifier blocks network connections during its replay and original tests. The verified full machine-readable result is `results/graph-study.json.gz` (standard gzip-compressed JSON); GitHub Actions publishes a fresh uncompressed result with verification logs. Graph exports contain the initial graph, accepted view, and post-withdrawal graph with evidence and decision hashes for each arm/task. They can contain original scientific text; existing dataset rights and notices still apply.
+The graph compiler and core study use the standard library; optional visualization and PDF rendering use separately pinned dependencies; NumPy is required by the preserved replay and SciPy by four original calibration regression tests. Dataset acquisition uses the network once and checks six dataset hashes. Subsequent replay and tests make **no model calls**; the portable verifier blocks network connections during its replay and original tests. The verified full machine-readable result is `results/graph-study.json.gz` (standard gzip-compressed JSON); an explicitly dispatched Graph synthesis research workflow publishes a fresh uncompressed result with verification logs. See the [local and manual validation map](../.github/LOCAL_VALIDATION.md); pull requests and pushes do not start CI. Graph exports contain the initial graph, accepted view, and post-withdrawal graph with evidence and decision hashes for each arm/task. They can contain original scientific text; existing dataset rights and notices still apply.
 
 The original `scripts/verify_package.py` expects a closed inventory and cannot run directly against an expanded checkout; use the extension verifier. It also works around original Windows path keys in a temporary copy rather than changing frozen experiment bytes. Reported numerical tolerance is not bitwise determinism.
 
@@ -56,7 +56,7 @@ python -B -m graph_synthesis.visualize --output ../visual-figures --formats svg,
 python -B -m graph_synthesis.render_paper --output ../graph-synthesis-assessment.pdf
 ```
 
-PDF generation uses local repository assets only and requires the platform libraries used by WeasyPrint (including Pango). The PDF build receipt records source, figure-manifest and renderer hashes. Exact PDF/font bytes may vary across platforms; no cross-platform byte-determinism claim is made. PNGs and PDFs are build artifacts, while scalable SVGs, chart data and their manifest are reviewed in Git. The read-only Visual assessment workflow regenerates the outputs and publishes a PDF/figure artifact.
+PDF generation uses local repository assets only and requires the platform libraries used by WeasyPrint (including Pango). The PDF build receipt records source, figure-manifest and renderer hashes. Exact PDF/font bytes may vary across platforms; no cross-platform byte-determinism claim is made. PNGs and PDFs are build artifacts, while scalable SVGs, chart data and their manifest are reviewed in Git. The read-only Visual assessment workflow regenerates the outputs and publishes a PDF/figure artifact only when explicitly started with Run workflow; the rendering commands above also run locally.
 
 To intentionally update the committed figures after a reviewed analysis change, run `python -B -m graph_synthesis.visualize --formats svg` and include the changed SVGs, JSON/CSV and figure manifest together. `--check` never rewrites evidence. Statistical test units and denominators are documented beside each plot; the illustrative 1% target remains unqualified.
 

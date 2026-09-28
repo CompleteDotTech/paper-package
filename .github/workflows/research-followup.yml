@@ -1,8 +1,5 @@
 name: Five improvement follow-up
 on:
-  pull_request:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read

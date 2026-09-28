@@ -2,9 +2,26 @@
 import unittest
 import numpy as np
 from graph_synthesis.dspy_benchmark.study import evaluate_metrics, LABELS
-from .report import clusters, weighted_scores, paired_interval
+from .report import (aurc_tie_bounds, clusters, numerical_temperature_ties,
+                     paired_interval, weighted_scores)
 
 class TestReport(unittest.TestCase):
+    def test_temperature_near_tie_is_reported_but_resolved_flip_fails(self):
+        rows=[{'id':'tie'}]
+        self.assertEqual(numerical_temperature_ties(
+            np.array([[.45999999999999996,.46]]),np.array([[.4,.4]]),rows),['tie'])
+        with self.assertRaisesRegex(ValueError,'resolved argmax'):
+            numerical_temperature_ties(np.array([[.4,.6]]),np.array([[.6,.4]]),rows)
+
+    def test_aurc_bounds_only_permute_near_equal_confidence(self):
+        rows=[{'id':'a','gold_label':'same'},{'id':'b','gold_label':'same'},
+              {'id':'c','gold_label':'different'}]
+        p=np.array([[.8,.2],[.2,.8],[.3,.7]])
+        lower,upper=aurc_tie_bounds(p,rows,'entity_resolution')
+        self.assertLess(lower,upper)
+        self.assertAlmostEqual(lower,(0+1/2+1/3)/3)
+        self.assertAlmostEqual(upper,(1+1/2+1/3)/3)
+
     def test_overlapping_identity_units_share_component(self):
         result=clusters([{'groups':['a','b']},{'groups':['b','c']},{'groups':['d']},{'groups':['e','c']}])
         self.assertEqual([x.tolist() for x in result],[[0,1,3],[2]])

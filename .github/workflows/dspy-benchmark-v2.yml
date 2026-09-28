@@ -1,9 +1,5 @@
 name: Complete live DSPy calibration comparison v2
 on:
-  pull_request:
-    paths:
-      - 'graph_synthesis/dspy_benchmark_v2/**'
-      - '.github/workflows/dspy-benchmark-v2.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -35,7 +31,8 @@ jobs:
           python -B -m unittest graph_synthesis.dspy_benchmark.test_study graph_synthesis.dspy_benchmark.test_audit graph_synthesis.dspy_benchmark_v2.test_adapter graph_synthesis.dspy_multicall.test_run graph_synthesis.dspy_benchmark_analysis.test_report graph_synthesis.dspy_benchmark_analysis.test_multicall_report -v
   primary:
     needs: verify
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    # Existing captures are audited offline. New paid inference requires fresh authorization.
+    if: github.event_name == 'paid_inference_authorized'
     strategy:
       fail-fast: false
       max-parallel: 8

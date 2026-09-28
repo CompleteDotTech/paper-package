@@ -170,6 +170,14 @@ def replace_section(text, section):
         before, remainder=text.split(START,1)
         _,after=remainder.split(END,1)
         text=before+after.lstrip('\n')
+    # The generated reader map belongs before every study, including an
+    # independently regenerated adaptive section.
+    from graph_synthesis.manuscript_navigation import START as NAV_START, END as NAV_END
+    if NAV_START in text:
+        if text.count(NAV_START) != 1 or text.count(NAV_END) != 1:
+            raise ValueError('Unbalanced manuscript navigation markers')
+        front, remainder = text.split(NAV_END, 1)
+        return front + NAV_END + '\n\n' + section + '\n\n' + remainder.lstrip('\n')
     return section+'\n\n'+text.lstrip('\n')
 
 

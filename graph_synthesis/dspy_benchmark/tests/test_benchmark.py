@@ -70,6 +70,32 @@ class Tests(unittest.TestCase):
         self.assertEqual(scalar_proposal_usage(raw),
                          {'prompt_tokens':6410,'completion_tokens':6442,'total_tokens':12852})
 
+    def test_malformed_proposal_retry_is_recorded_and_reserved(self):
+        import dspy
+        from dspy.utils.exceptions import AdapterParseError
+        from graph_synthesis.dspy_benchmark import run
+        class FakeProposer:
+            def __init__(self,*args,**kwargs):
+                self.identity={'model':'test'}
+                self.lm=type('LM',(),{'history':[{'usage':{'prompt_tokens':10,
+                                                       'completion_tokens':20}}]})()
+                self.calls=0
+            def propose(self,config,feedback,iteration,history):
+                self.calls+=1
+                if self.calls==1:
+                    raise AdapterParseError('JSONAdapter',dspy.Signature,'', 'missing field')
+                return {'task':config.task,'instructions':config.instructions,
+                        'criteria':config.criteria}
+        with tempfile.TemporaryDirectory() as d, patch.object(run,'DSPyProposer',FakeProposer):
+            p=Path(d)/'proposals.jsonl';budget=run.CostBudget()
+            proposer=run.LoggedProposer('openai/test',p,11,budget=budget)
+            proposer.propose(CFG,[],1,[])
+            self.assertEqual(proposer.inner.calls,2)
+            self.assertEqual(budget.record()['proposal_calls'],1)
+            self.assertEqual(budget.record()['proposal_attempts'],2)
+            self.assertEqual(len(p.read_text().splitlines()),1)
+            self.assertEqual(len((p.parent/'proposal-parse-failures.jsonl').read_text().splitlines()),1)
+
     def test_inventory_all_registered_panels(self):
         v=inventory()
         self.assertEqual(v['relation_support']['splits']['test']['n'],339)

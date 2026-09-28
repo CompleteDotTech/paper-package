@@ -13,8 +13,10 @@ captures in PRs #28–#30.
   model-restricted OmniRoute gateway key. The key is held in GitHub Actions as
   `OMNIROUTE_DEEPSEEK_API_KEY`; the workflow pins the HTTPS gateway base URL.
   Neither key value is committed or printed.
-- Registered upper bound: 65,000 logical Jev requests and 160 proposal calls
-  across five seeds. Automatic Jev SDK retries are disabled for this execution.
+- Registered upper bound: 65,000 logical Jev requests and 160 accepted proposal
+  slots across five seeds. The execution amendment permits at most 100 extra
+  invalid-answer Jev calls and 100 extra malformed-proposal calls across those
+  seeds. Automatic Jev SDK retries are disabled for this execution.
 - [TypeSafe's public Jev price](https://typesafe.ai/) is $0.042 per million input
   tokens with output free. In the previous, different v2 run, 12,829 primary
   attempts consumed 24,465,570 reported input tokens, about 1,907 per attempt.
@@ -25,7 +27,8 @@ captures in PRs #28–#30.
   rates; off-peak can be lower. With at most 16,384 output tokens, $0.07 per
   proposal covers 120,000 input tokens and model output at peak rates.
   The 120,000-byte serialized proposal-input guard is tighter than that token
-  allowance. All 160 reserves sum to **$11.20**.
+  allowance. The 160 initial reserves sum to **$11.20**; the maximum 100 parse
+  retries raise that reservation to **$18.20** if all are used.
 - The controlled runner limits each seed to an $8 estimate from reported Jev
   usage plus conservative proposal reserves. Seeds are dispatched individually,
   with observed token usage and provider billing reviewed before another seed.
@@ -85,3 +88,13 @@ $8 seed cap, including rejected answers. A model-ID mismatch, missing usage, or
 other provider error still stops the run. The retry changes no example,
 candidate, score, or acceptance rule; the extra physical calls are explicitly
 recorded in `cost-budget.json` and the raw event log.
+
+The fourth attempt, [run 36480687828](https://github.com/CompleteDotTech/paper-package/actions/runs/36480687828),
+completed six proposals before the seventh returned JSON without the required
+`improved_criteria` field. It recorded 281,416 Jev input tokens, seven proposal
+attempts, zero invalid-answer retries, and a $0.501819472 guarded estimate.
+It is excluded from results. For the next attempt, a DSPy JSON parse failure
+may be retried twice for the same frozen feedback and iteration, up to 20 extra
+proposal calls per seed. Each failed parse has an audit row, and each retry adds
+a $0.07 reserve. Other proposal errors still stop the run. The logical search
+still requires exactly eight accepted candidate proposals per objective.

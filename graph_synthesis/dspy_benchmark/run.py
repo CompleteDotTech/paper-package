@@ -26,6 +26,7 @@ DEEPSEEK_OUTPUT_USD_PER_MILLION = 1.20
 PROPOSAL_RESERVE_USD = 0.07
 PER_SEED_BUDGET_USD = 8.0  # Five manually dispatched seeds reserve at most $40 of the $50 cap.
 MAX_INVALID_ANSWER_RETRIES_PER_SEED = 20
+MAX_PROPOSAL_PARSE_RETRIES_PER_SEED = 20
 
 
 class CostBudget:
@@ -39,6 +40,7 @@ class CostBudget:
         self.proposer_output_tokens = 0
         self.reserved_usd = 0.0
         self.invalid_answer_retries = 0
+        self.proposal_parse_retries = 0
 
     def target(self, usage):
         tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
@@ -73,6 +75,14 @@ class CostBudget:
                 raise BudgetExhausted('Invalid-answer retry allowance exhausted')
             self.invalid_answer_retries += 1
 
+    def retry_proposal_parse(self):
+        with self.lock:
+            if self.proposal_parse_retries >= MAX_PROPOSAL_PARSE_RETRIES_PER_SEED:
+                raise BudgetExhausted('Proposal parse retry allowance exhausted')
+            self.proposal_parse_retries += 1
+            self.reserved_usd += PROPOSAL_RESERVE_USD
+            self._check()
+
     def _check(self):
         if self.estimated_usd() > self.limit:
             raise BudgetExhausted('Per-seed estimated spend limit reached')
@@ -91,6 +101,8 @@ class CostBudget:
                 'proposal_output_tokens_reported': self.proposer_output_tokens,
                 'proposal_reserve_usd': self.reserved_usd,
                 'invalid_answer_retries': self.invalid_answer_retries,
+                'proposal_parse_retries': self.proposal_parse_retries,
+                'proposal_attempts': self.proposals + self.proposal_parse_retries,
                 'pricing_basis': {'jev_input_per_million_usd': JEV_INPUT_USD_PER_MILLION,
                                   'deepseek_input_per_million_usd': DEEPSEEK_INPUT_USD_PER_MILLION,
                                   'deepseek_output_per_million_usd': DEEPSEEK_OUTPUT_USD_PER_MILLION},
@@ -232,7 +244,19 @@ class LoggedProposer:
         if self.budget is not None:
             self.budget.reserve_proposal(len(canonical({'config':asdict(config),'feedback':feedback,
                                                          'history':history,'iteration':iteration}).encode('utf-8')))
-        proposal = self.inner.propose(config,feedback,iteration,history)
+        from dspy.utils.exceptions import AdapterParseError
+        for attempt in range(3):
+            try:
+                proposal = self.inner.propose(config,feedback,iteration,history)
+                break
+            except AdapterParseError:
+                self.output.parent.mkdir(parents=True,exist_ok=True)
+                with self.output.with_name('proposal-parse-failures.jsonl').open('a',encoding='utf-8') as f:
+                    f.write(canonical({'iteration':iteration,'attempt':attempt+1,
+                                       'error_type':'AdapterParseError'})+'\n')
+                if attempt == 2 or self.budget is None:
+                    raise
+                self.budget.retry_proposal_parse()
         records = self.inner.lm.history
         last = records[-1] if records else {}
         if self.budget is not None:

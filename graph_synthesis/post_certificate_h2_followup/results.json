@@ -1,0 +1,5142 @@
+{
+  "connected_mean_reduction": 0.0,
+  "controls": {
+    "accepted": [
+      {
+        "evaluations": 27,
+        "graph_index": 0,
+        "passed": true,
+        "primitive_ids": [
+          15,
+          13,
+          11
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 0,
+        "passed": true,
+        "primitive_ids": [
+          50
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 0,
+        "passed": true,
+        "primitive_ids": [
+          62,
+          59,
+          63
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 0,
+        "passed": true,
+        "primitive_ids": [
+          42,
+          44,
+          41
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 0,
+        "passed": true,
+        "primitive_ids": [
+          8,
+          10
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 1,
+        "passed": true,
+        "primitive_ids": [
+          46
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 1,
+        "passed": true,
+        "primitive_ids": [
+          35,
+          37,
+          36,
+          39
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 1,
+        "passed": true,
+        "primitive_ids": [
+          37,
+          35
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 1,
+        "passed": true,
+        "primitive_ids": [
+          54,
+          53,
+          52
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 1,
+        "passed": true,
+        "primitive_ids": [
+          59,
+          63
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 2,
+        "passed": true,
+        "primitive_ids": [
+          38,
+          33,
+          32,
+          37
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 2,
+        "passed": true,
+        "primitive_ids": [
+          58,
+          61,
+          60
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 2,
+        "passed": true,
+        "primitive_ids": [
+          17,
+          16
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 2,
+        "passed": true,
+        "primitive_ids": [
+          6,
+          1,
+          0,
+          4
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 2,
+        "passed": true,
+        "primitive_ids": [
+          4
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 3,
+        "passed": true,
+        "primitive_ids": [
+          63,
+          58,
+          57
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 11,
+        "graph_index": 3,
+        "passed": true,
+        "primitive_ids": [
+          24
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 3,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          50,
+          48,
+          52
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 9,
+        "graph_index": 3,
+        "passed": true,
+        "primitive_ids": [
+          35
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 20,
+        "graph_index": 3,
+        "passed": true,
+        "primitive_ids": [
+          51,
+          48,
+          53
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 4,
+        "passed": true,
+        "primitive_ids": [
+          52
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 4,
+        "passed": true,
+        "primitive_ids": [
+          35,
+          34,
+          33,
+          36
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 19,
+        "graph_index": 4,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          31
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 4,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          21
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 4,
+        "passed": true,
+        "primitive_ids": [
+          12,
+          13
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 5,
+        "passed": true,
+        "primitive_ids": [
+          1,
+          6
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 5,
+        "passed": true,
+        "primitive_ids": [
+          37,
+          32,
+          34
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 5,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          31
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 5,
+        "passed": true,
+        "primitive_ids": [
+          21,
+          16
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 20,
+        "graph_index": 5,
+        "passed": true,
+        "primitive_ids": [
+          2
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 6,
+        "passed": true,
+        "primitive_ids": [
+          34,
+          33,
+          37,
+          35
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 6,
+        "passed": true,
+        "primitive_ids": [
+          12,
+          11
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 6,
+        "passed": true,
+        "primitive_ids": [
+          40,
+          46,
+          42
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 6,
+        "passed": true,
+        "primitive_ids": [
+          34,
+          37
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 21,
+        "graph_index": 6,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          49
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 7,
+        "passed": true,
+        "primitive_ids": [
+          50,
+          54
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 7,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          45
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 7,
+        "passed": true,
+        "primitive_ids": [
+          36,
+          39,
+          37
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 7,
+        "passed": true,
+        "primitive_ids": [
+          37,
+          39
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 7,
+        "passed": true,
+        "primitive_ids": [
+          13,
+          11
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 8,
+        "passed": true,
+        "primitive_ids": [
+          56,
+          63,
+          61
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 8,
+        "passed": true,
+        "primitive_ids": [
+          25,
+          26,
+          29,
+          28
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 8,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          41,
+          42,
+          46
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 8,
+        "passed": true,
+        "primitive_ids": [
+          43
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 9,
+        "graph_index": 8,
+        "passed": true,
+        "primitive_ids": [
+          6
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 12,
+        "graph_index": 9,
+        "passed": true,
+        "primitive_ids": [
+          11
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 9,
+        "passed": true,
+        "primitive_ids": [
+          41,
+          42,
+          47,
+          44
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 9,
+        "passed": true,
+        "primitive_ids": [
+          34
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 9,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          20
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 9,
+        "passed": true,
+        "primitive_ids": [
+          34,
+          38,
+          39,
+          32
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 10,
+        "passed": true,
+        "primitive_ids": [
+          26,
+          30,
+          24
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 10,
+        "passed": true,
+        "primitive_ids": [
+          30,
+          29
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 10,
+        "passed": true,
+        "primitive_ids": [
+          53,
+          49
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 10,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          59,
+          58,
+          60
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 10,
+        "passed": true,
+        "primitive_ids": [
+          11,
+          9,
+          8,
+          13
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 4,
+        "graph_index": 11,
+        "passed": true,
+        "primitive_ids": [
+          47
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 11,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          30,
+          27
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 11,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          4,
+          0
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 11,
+        "passed": true,
+        "primitive_ids": [
+          58,
+          62
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 11,
+        "passed": true,
+        "primitive_ids": [
+          48,
+          53,
+          52,
+          49
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 12,
+        "passed": true,
+        "primitive_ids": [
+          60
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 12,
+        "passed": true,
+        "primitive_ids": [
+          32,
+          37,
+          33
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 12,
+        "passed": true,
+        "primitive_ids": [
+          48,
+          54,
+          52,
+          51
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 12,
+        "passed": true,
+        "primitive_ids": [
+          45,
+          44
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 12,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          6,
+          0
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 13,
+        "passed": true,
+        "primitive_ids": [
+          47
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 11,
+        "graph_index": 13,
+        "passed": true,
+        "primitive_ids": [
+          6,
+          0,
+          4
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 13,
+        "passed": true,
+        "primitive_ids": [
+          39,
+          33
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 13,
+        "passed": true,
+        "primitive_ids": [
+          10,
+          9,
+          13,
+          14
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 13,
+        "passed": true,
+        "primitive_ids": [
+          62,
+          57
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 14,
+        "passed": true,
+        "primitive_ids": [
+          34,
+          35,
+          36,
+          32
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 14,
+        "passed": true,
+        "primitive_ids": [
+          61,
+          58
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 14,
+        "passed": true,
+        "primitive_ids": [
+          51
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 17,
+        "graph_index": 14,
+        "passed": true,
+        "primitive_ids": [
+          22
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 2,
+        "graph_index": 14,
+        "passed": true,
+        "primitive_ids": [
+          60
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 15,
+        "passed": true,
+        "primitive_ids": [
+          43,
+          41,
+          47
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 15,
+        "passed": true,
+        "primitive_ids": [
+          61,
+          56,
+          59
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 13,
+        "graph_index": 15,
+        "passed": true,
+        "primitive_ids": [
+          43,
+          44
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 15,
+        "passed": true,
+        "primitive_ids": [
+          6,
+          0,
+          3
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 2,
+        "graph_index": 15,
+        "passed": true,
+        "primitive_ids": [
+          8
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 16,
+        "passed": true,
+        "primitive_ids": [
+          53,
+          55,
+          48,
+          49
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 16,
+        "passed": true,
+        "primitive_ids": [
+          11
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 16,
+        "passed": true,
+        "primitive_ids": [
+          20,
+          22
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 16,
+        "passed": true,
+        "primitive_ids": [
+          52,
+          54,
+          55,
+          50
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 16,
+        "passed": true,
+        "primitive_ids": [
+          35,
+          34,
+          38
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 17,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          21,
+          22,
+          16
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 11,
+        "graph_index": 17,
+        "passed": true,
+        "primitive_ids": [
+          2
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 17,
+        "passed": true,
+        "primitive_ids": [
+          53,
+          52,
+          55,
+          51
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 17,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          41,
+          40,
+          44
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 17,
+        "passed": true,
+        "primitive_ids": [
+          12,
+          8,
+          14
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 18,
+        "passed": true,
+        "primitive_ids": [
+          37,
+          34,
+          38,
+          36
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 18,
+        "passed": true,
+        "primitive_ids": [
+          8,
+          13
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 18,
+        "passed": true,
+        "primitive_ids": [
+          41,
+          45,
+          43,
+          42
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 18,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          26
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 19,
+        "graph_index": 18,
+        "passed": true,
+        "primitive_ids": [
+          14
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 19,
+        "passed": true,
+        "primitive_ids": [
+          1,
+          4,
+          0,
+          3
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 19,
+        "passed": true,
+        "primitive_ids": [
+          24
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 19,
+        "passed": true,
+        "primitive_ids": [
+          52,
+          55,
+          51,
+          50
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 19,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          23
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 19,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          29,
+          27,
+          26
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 20,
+        "passed": true,
+        "primitive_ids": [
+          22
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 5,
+        "graph_index": 20,
+        "passed": true,
+        "primitive_ids": [
+          38,
+          34
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 20,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          59
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 20,
+        "passed": true,
+        "primitive_ids": [
+          0,
+          6,
+          4,
+          3
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 20,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          46,
+          42
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 21,
+        "passed": true,
+        "primitive_ids": [
+          14
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 21,
+        "passed": true,
+        "primitive_ids": [
+          10,
+          14,
+          13
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 21,
+        "passed": true,
+        "primitive_ids": [
+          48
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 21,
+        "passed": true,
+        "primitive_ids": [
+          61,
+          56
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 21,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          30,
+          24,
+          28
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 22,
+        "passed": true,
+        "primitive_ids": [
+          33,
+          37,
+          34
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 22,
+        "passed": true,
+        "primitive_ids": [
+          4,
+          5,
+          2
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 22,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          1,
+          0,
+          6
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 22,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          52
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 22,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          26
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 23,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          16,
+          23,
+          21
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 23,
+        "passed": true,
+        "primitive_ids": [
+          35,
+          38,
+          34
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 23,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          0
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 23,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          62,
+          61,
+          56
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 23,
+        "passed": true,
+        "primitive_ids": [
+          57
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 24,
+        "passed": true,
+        "primitive_ids": [
+          18,
+          16,
+          21
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 24,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          42,
+          43
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 22,
+        "graph_index": 24,
+        "passed": true,
+        "primitive_ids": [
+          0,
+          7
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 14,
+        "graph_index": 24,
+        "passed": true,
+        "primitive_ids": [
+          32
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 24,
+        "passed": true,
+        "primitive_ids": [
+          59,
+          57,
+          56
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 25,
+        "passed": true,
+        "primitive_ids": [
+          3,
+          4
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 25,
+        "passed": true,
+        "primitive_ids": [
+          1,
+          3,
+          4
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 25,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          26
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 25,
+        "passed": true,
+        "primitive_ids": [
+          0,
+          6,
+          1
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 25,
+        "passed": true,
+        "primitive_ids": [
+          56
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 26,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          22,
+          18
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 26,
+        "passed": true,
+        "primitive_ids": [
+          36,
+          35,
+          37
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 26,
+        "passed": true,
+        "primitive_ids": [
+          41
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 26,
+        "passed": true,
+        "primitive_ids": [
+          59,
+          61
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 26,
+        "passed": true,
+        "primitive_ids": [
+          11,
+          10,
+          8,
+          12
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 18,
+        "graph_index": 27,
+        "passed": true,
+        "primitive_ids": [
+          14
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 12,
+        "graph_index": 27,
+        "passed": true,
+        "primitive_ids": [
+          37
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 27,
+        "passed": true,
+        "primitive_ids": [
+          49,
+          51,
+          55
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 27,
+        "passed": true,
+        "primitive_ids": [
+          61,
+          60
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 27,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          21,
+          23,
+          17
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 28,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          56,
+          60
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 28,
+        "passed": true,
+        "primitive_ids": [
+          1,
+          3,
+          0,
+          5
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 28,
+        "passed": true,
+        "primitive_ids": [
+          59
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 28,
+        "passed": true,
+        "primitive_ids": [
+          5,
+          0,
+          1
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 28,
+        "passed": true,
+        "primitive_ids": [
+          32,
+          33
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 29,
+        "passed": true,
+        "primitive_ids": [
+          5
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 2,
+        "graph_index": 29,
+        "passed": true,
+        "primitive_ids": [
+          3,
+          4,
+          2
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 29,
+        "passed": true,
+        "primitive_ids": [
+          52,
+          49,
+          54,
+          48
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 29,
+        "passed": true,
+        "primitive_ids": [
+          25,
+          29
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 29,
+        "passed": true,
+        "primitive_ids": [
+          24,
+          31,
+          29,
+          25
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 13,
+        "graph_index": 30,
+        "passed": true,
+        "primitive_ids": [
+          7
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 30,
+        "passed": true,
+        "primitive_ids": [
+          3,
+          1
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 30,
+        "passed": true,
+        "primitive_ids": [
+          40,
+          47,
+          46,
+          41
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 30,
+        "passed": true,
+        "primitive_ids": [
+          40,
+          47,
+          41,
+          45
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 30,
+        "passed": true,
+        "primitive_ids": [
+          63,
+          60
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 3,
+        "graph_index": 31,
+        "passed": true,
+        "primitive_ids": [
+          62
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 14,
+        "graph_index": 31,
+        "passed": true,
+        "primitive_ids": [
+          50
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 31,
+        "passed": true,
+        "primitive_ids": [
+          39,
+          34
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 31,
+        "passed": true,
+        "primitive_ids": [
+          37,
+          38
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 31,
+        "passed": true,
+        "primitive_ids": [
+          46,
+          40,
+          42
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 32,
+        "passed": true,
+        "primitive_ids": [
+          1
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 32,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          50,
+          51
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 22,
+        "graph_index": 32,
+        "passed": true,
+        "primitive_ids": [
+          21,
+          22
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 32,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          40,
+          43,
+          44
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 32,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          23
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 33,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          7
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 33,
+        "passed": true,
+        "primitive_ids": [
+          58
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 33,
+        "passed": true,
+        "primitive_ids": [
+          45,
+          47,
+          41,
+          44
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 12,
+        "graph_index": 33,
+        "passed": true,
+        "primitive_ids": [
+          16
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 33,
+        "passed": true,
+        "primitive_ids": [
+          14,
+          11
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 34,
+        "passed": true,
+        "primitive_ids": [
+          36,
+          35
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 34,
+        "passed": true,
+        "primitive_ids": [
+          53
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 34,
+        "passed": true,
+        "primitive_ids": [
+          4
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 34,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          23,
+          19
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 34,
+        "passed": true,
+        "primitive_ids": [
+          37,
+          36
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 35,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          0,
+          1
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 35,
+        "passed": true,
+        "primitive_ids": [
+          17,
+          19,
+          18
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 35,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          16,
+          18
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 21,
+        "graph_index": 35,
+        "passed": true,
+        "primitive_ids": [
+          5
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 35,
+        "passed": true,
+        "primitive_ids": [
+          56
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 36,
+        "passed": true,
+        "primitive_ids": [
+          17,
+          23,
+          18
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 36,
+        "passed": true,
+        "primitive_ids": [
+          27
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 36,
+        "passed": true,
+        "primitive_ids": [
+          12
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 36,
+        "passed": true,
+        "primitive_ids": [
+          41,
+          42
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 36,
+        "passed": true,
+        "primitive_ids": [
+          9,
+          8
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 37,
+        "passed": true,
+        "primitive_ids": [
+          12
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 37,
+        "passed": true,
+        "primitive_ids": [
+          16,
+          17
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 37,
+        "passed": true,
+        "primitive_ids": [
+          61,
+          56,
+          59,
+          62
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 22,
+        "graph_index": 37,
+        "passed": true,
+        "primitive_ids": [
+          60
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 37,
+        "passed": true,
+        "primitive_ids": [
+          0,
+          3
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 38,
+        "passed": true,
+        "primitive_ids": [
+          36
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 38,
+        "passed": true,
+        "primitive_ids": [
+          0,
+          6,
+          3
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 38,
+        "passed": true,
+        "primitive_ids": [
+          10,
+          15
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 38,
+        "passed": true,
+        "primitive_ids": [
+          39,
+          32,
+          34
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 38,
+        "passed": true,
+        "primitive_ids": [
+          8
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 39,
+        "passed": true,
+        "primitive_ids": [
+          62,
+          60,
+          63
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 39,
+        "passed": true,
+        "primitive_ids": [
+          63,
+          60,
+          59,
+          57
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 19,
+        "graph_index": 39,
+        "passed": true,
+        "primitive_ids": [
+          52
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 39,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          27
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 39,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          40
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 40,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          27,
+          25,
+          30
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 40,
+        "passed": true,
+        "primitive_ids": [
+          13,
+          9,
+          10,
+          8
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 40,
+        "passed": true,
+        "primitive_ids": [
+          7,
+          3
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 21,
+        "graph_index": 40,
+        "passed": true,
+        "primitive_ids": [
+          9
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 40,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          49,
+          54,
+          51
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 41,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          62,
+          58
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 41,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          43,
+          42,
+          41
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 41,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          40
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 41,
+        "passed": true,
+        "primitive_ids": [
+          40,
+          44,
+          47
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 41,
+        "passed": true,
+        "primitive_ids": [
+          52
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 42,
+        "passed": true,
+        "primitive_ids": [
+          30,
+          26,
+          28
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 10,
+        "graph_index": 42,
+        "passed": true,
+        "primitive_ids": [
+          4
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 42,
+        "passed": true,
+        "primitive_ids": [
+          9,
+          13,
+          11,
+          8
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 18,
+        "graph_index": 42,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          1
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 42,
+        "passed": true,
+        "primitive_ids": [
+          36,
+          32,
+          34,
+          38
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 43,
+        "passed": true,
+        "primitive_ids": [
+          33,
+          35,
+          37,
+          39
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 43,
+        "passed": true,
+        "primitive_ids": [
+          36,
+          37,
+          38,
+          32
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 43,
+        "passed": true,
+        "primitive_ids": [
+          52,
+          48,
+          55
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 43,
+        "passed": true,
+        "primitive_ids": [
+          19
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 43,
+        "passed": true,
+        "primitive_ids": [
+          39,
+          38,
+          33
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 44,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          44,
+          42
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 44,
+        "passed": true,
+        "primitive_ids": [
+          13,
+          9,
+          8,
+          11
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 44,
+        "passed": true,
+        "primitive_ids": [
+          15,
+          11
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 44,
+        "passed": true,
+        "primitive_ids": [
+          42,
+          46
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 44,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          62,
+          58
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 11,
+        "graph_index": 45,
+        "passed": true,
+        "primitive_ids": [
+          61
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 45,
+        "passed": true,
+        "primitive_ids": [
+          40,
+          45,
+          46,
+          41
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 19,
+        "graph_index": 45,
+        "passed": true,
+        "primitive_ids": [
+          54
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 45,
+        "passed": true,
+        "primitive_ids": [
+          61,
+          63,
+          62,
+          56
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 45,
+        "passed": true,
+        "primitive_ids": [
+          18,
+          22,
+          21
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 46,
+        "passed": true,
+        "primitive_ids": [
+          59,
+          60,
+          57,
+          56
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 6,
+        "graph_index": 46,
+        "passed": true,
+        "primitive_ids": [
+          7
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 46,
+        "passed": true,
+        "primitive_ids": [
+          41,
+          43,
+          40,
+          46
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 20,
+        "graph_index": 46,
+        "passed": true,
+        "primitive_ids": [
+          43
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 46,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          17,
+          21
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 47,
+        "passed": true,
+        "primitive_ids": [
+          18,
+          23,
+          19
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 21,
+        "graph_index": 47,
+        "passed": true,
+        "primitive_ids": [
+          30,
+          25
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 17,
+        "graph_index": 47,
+        "passed": true,
+        "primitive_ids": [
+          4,
+          1
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 47,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          48,
+          49
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 10,
+        "graph_index": 47,
+        "passed": true,
+        "primitive_ids": [
+          4
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 16,
+        "graph_index": 48,
+        "passed": true,
+        "primitive_ids": [
+          21
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 12,
+        "graph_index": 48,
+        "passed": true,
+        "primitive_ids": [
+          51,
+          55,
+          53
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 48,
+        "passed": true,
+        "primitive_ids": [
+          60
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 10,
+        "graph_index": 48,
+        "passed": true,
+        "primitive_ids": [
+          55
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 48,
+        "passed": true,
+        "primitive_ids": [
+          1,
+          4
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 10,
+        "graph_index": 49,
+        "passed": true,
+        "primitive_ids": [
+          41
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 49,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          5,
+          4,
+          0
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 49,
+        "passed": true,
+        "primitive_ids": [
+          49
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 49,
+        "passed": true,
+        "primitive_ids": [
+          17,
+          21
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 49,
+        "passed": true,
+        "primitive_ids": [
+          44,
+          43
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 50,
+        "passed": true,
+        "primitive_ids": [
+          38,
+          34,
+          33,
+          39
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 50,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          30
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 11,
+        "graph_index": 50,
+        "passed": true,
+        "primitive_ids": [
+          3
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 50,
+        "passed": true,
+        "primitive_ids": [
+          56,
+          63,
+          62
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 50,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          20,
+          21
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 51,
+        "passed": true,
+        "primitive_ids": [
+          28
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 51,
+        "passed": true,
+        "primitive_ids": [
+          51,
+          48,
+          53
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 51,
+        "passed": true,
+        "primitive_ids": [
+          9
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 51,
+        "passed": true,
+        "primitive_ids": [
+          41,
+          47,
+          46
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 51,
+        "passed": true,
+        "primitive_ids": [
+          24,
+          26
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 52,
+        "passed": true,
+        "primitive_ids": [
+          0,
+          5,
+          7
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 52,
+        "passed": true,
+        "primitive_ids": [
+          16,
+          23,
+          17,
+          19
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 52,
+        "passed": true,
+        "primitive_ids": [
+          38,
+          33,
+          35
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 52,
+        "passed": true,
+        "primitive_ids": [
+          8
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 52,
+        "passed": true,
+        "primitive_ids": [
+          31,
+          27
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 53,
+        "passed": true,
+        "primitive_ids": [
+          18,
+          23,
+          20,
+          16
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 53,
+        "passed": true,
+        "primitive_ids": [
+          14,
+          13
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 53,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          26,
+          30,
+          27
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 19,
+        "graph_index": 53,
+        "passed": true,
+        "primitive_ids": [
+          51,
+          50
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 53,
+        "passed": true,
+        "primitive_ids": [
+          22,
+          20,
+          23,
+          21
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 22,
+        "graph_index": 54,
+        "passed": true,
+        "primitive_ids": [
+          55,
+          51
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 54,
+        "passed": true,
+        "primitive_ids": [
+          5,
+          1,
+          0,
+          7
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 1,
+        "graph_index": 54,
+        "passed": true,
+        "primitive_ids": [
+          39
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 54,
+        "passed": true,
+        "primitive_ids": [
+          52
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 54,
+        "passed": true,
+        "primitive_ids": [
+          18,
+          23,
+          20
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 17,
+        "graph_index": 55,
+        "passed": true,
+        "primitive_ids": [
+          13
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 55,
+        "passed": true,
+        "primitive_ids": [
+          17,
+          19
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 17,
+        "graph_index": 55,
+        "passed": true,
+        "primitive_ids": [
+          46
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 15,
+        "graph_index": 55,
+        "passed": true,
+        "primitive_ids": [
+          21
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 55,
+        "passed": true,
+        "primitive_ids": [
+          58,
+          56,
+          63
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 25,
+        "graph_index": 56,
+        "passed": true,
+        "primitive_ids": [
+          6
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 56,
+        "passed": true,
+        "primitive_ids": [
+          56,
+          62,
+          59
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 29,
+        "graph_index": 56,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          26,
+          28
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 21,
+        "graph_index": 56,
+        "passed": true,
+        "primitive_ids": [
+          50,
+          49
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 56,
+        "passed": true,
+        "primitive_ids": [
+          62,
+          61,
+          56
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 24,
+        "graph_index": 57,
+        "passed": true,
+        "primitive_ids": [
+          42,
+          47
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 57,
+        "passed": true,
+        "primitive_ids": [
+          24
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 57,
+        "passed": true,
+        "primitive_ids": [
+          62,
+          59
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 26,
+        "graph_index": 57,
+        "passed": true,
+        "primitive_ids": [
+          49,
+          54,
+          55
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 57,
+        "passed": true,
+        "primitive_ids": [
+          24,
+          31,
+          27
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 58,
+        "passed": true,
+        "primitive_ids": [
+          16,
+          22
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 58,
+        "passed": true,
+        "primitive_ids": [
+          31,
+          30,
+          29,
+          27
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 58,
+        "passed": true,
+        "primitive_ids": [
+          6,
+          7
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 58,
+        "passed": true,
+        "primitive_ids": [
+          11,
+          10,
+          14,
+          9
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 58,
+        "passed": true,
+        "primitive_ids": [
+          2,
+          1
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 59,
+        "passed": true,
+        "primitive_ids": [
+          6,
+          1,
+          0
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 7,
+        "graph_index": 59,
+        "passed": true,
+        "primitive_ids": [
+          53,
+          55
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 59,
+        "passed": true,
+        "primitive_ids": [
+          39,
+          33,
+          36,
+          37
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 11,
+        "graph_index": 59,
+        "passed": true,
+        "primitive_ids": [
+          47,
+          44
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 59,
+        "passed": true,
+        "primitive_ids": [
+          57,
+          59,
+          58,
+          63
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 3,
+        "graph_index": 60,
+        "passed": true,
+        "primitive_ids": [
+          35
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 60,
+        "passed": true,
+        "primitive_ids": [
+          32,
+          37,
+          39,
+          33
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 18,
+        "graph_index": 60,
+        "passed": true,
+        "primitive_ids": [
+          21
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 60,
+        "passed": true,
+        "primitive_ids": [
+          58,
+          63
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 19,
+        "graph_index": 60,
+        "passed": true,
+        "primitive_ids": [
+          7
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 22,
+        "graph_index": 61,
+        "passed": true,
+        "primitive_ids": [
+          51
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 14,
+        "graph_index": 61,
+        "passed": true,
+        "primitive_ids": [
+          6,
+          3
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 61,
+        "passed": true,
+        "primitive_ids": [
+          26,
+          31,
+          27
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 61,
+        "passed": true,
+        "primitive_ids": [
+          46,
+          47,
+          41,
+          43
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 14,
+        "graph_index": 61,
+        "passed": true,
+        "primitive_ids": [
+          44
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 27,
+        "graph_index": 62,
+        "passed": true,
+        "primitive_ids": [
+          14,
+          9,
+          13
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 62,
+        "passed": true,
+        "primitive_ids": [
+          28,
+          26,
+          27
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 23,
+        "graph_index": 62,
+        "passed": true,
+        "primitive_ids": [
+          23,
+          18
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 62,
+        "passed": true,
+        "primitive_ids": [
+          38,
+          36,
+          39
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 62,
+        "passed": true,
+        "primitive_ids": [
+          29,
+          24,
+          30
+        ],
+        "transaction_index": 4
+      },
+      {
+        "evaluations": 31,
+        "graph_index": 63,
+        "passed": true,
+        "primitive_ids": [
+          19,
+          21,
+          18
+        ],
+        "transaction_index": 0
+      },
+      {
+        "evaluations": 32,
+        "graph_index": 63,
+        "passed": true,
+        "primitive_ids": [
+          44,
+          40,
+          47,
+          43
+        ],
+        "transaction_index": 1
+      },
+      {
+        "evaluations": 28,
+        "graph_index": 63,
+        "passed": true,
+        "primitive_ids": [
+          51,
+          49,
+          50
+        ],
+        "transaction_index": 2
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 63,
+        "passed": true,
+        "primitive_ids": [
+          34,
+          39,
+          37
+        ],
+        "transaction_index": 3
+      },
+      {
+        "evaluations": 30,
+        "graph_index": 63,
+        "passed": true,
+        "primitive_ids": [
+          32,
+          37,
+          34
+        ],
+        "transaction_index": 4
+      }
+    ],
+    "affected_injection": [
+      {
+        "affected_closure_size": 6,
+        "exception": "RuntimeError",
+        "fail_node": 76,
+        "graph_index": 0,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 28,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 1,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 21,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 2,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 28,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 3,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 20,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 4,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 25,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 5,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 17,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 6,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 23,
+        "exception": "RuntimeError",
+        "fail_node": 65,
+        "graph_index": 7,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 26,
+        "exception": "RuntimeError",
+        "fail_node": 66,
+        "graph_index": 8,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 20,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 9,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 19,
+        "exception": "RuntimeError",
+        "fail_node": 68,
+        "graph_index": 10,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 22,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 11,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 20,
+        "exception": "RuntimeError",
+        "fail_node": 68,
+        "graph_index": 12,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 2,
+        "exception": "RuntimeError",
+        "fail_node": 79,
+        "graph_index": 13,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 21,
+        "exception": "RuntimeError",
+        "fail_node": 66,
+        "graph_index": 14,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 20,
+        "exception": "RuntimeError",
+        "fail_node": 68,
+        "graph_index": 15,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 23,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 16,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 6,
+        "exception": "RuntimeError",
+        "fail_node": 72,
+        "graph_index": 17,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 14,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 18,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 19,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 19,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 17,
+        "exception": "RuntimeError",
+        "fail_node": 72,
+        "graph_index": 20,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 29,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 21,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 11,
+        "exception": "RuntimeError",
+        "fail_node": 77,
+        "graph_index": 22,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 15,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 23,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 10,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 24,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 5,
+        "exception": "RuntimeError",
+        "fail_node": 80,
+        "graph_index": 25,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 25,
+        "exception": "RuntimeError",
+        "fail_node": 69,
+        "graph_index": 26,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 18,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 27,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 9,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 28,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 31,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 29,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 24,
+        "exception": "RuntimeError",
+        "fail_node": 66,
+        "graph_index": 30,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 21,
+        "exception": "RuntimeError",
+        "fail_node": 68,
+        "graph_index": 31,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 30,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 32,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 24,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 33,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 22,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 34,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 13,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 35,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 25,
+        "exception": "RuntimeError",
+        "fail_node": 66,
+        "graph_index": 36,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 26,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 37,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 21,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 38,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 27,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 39,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 5,
+        "exception": "RuntimeError",
+        "fail_node": 74,
+        "graph_index": 40,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 22,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 41,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 12,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 42,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 30,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 43,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 13,
+        "exception": "RuntimeError",
+        "fail_node": 73,
+        "graph_index": 44,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 15,
+        "exception": "RuntimeError",
+        "fail_node": 66,
+        "graph_index": 45,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 14,
+        "exception": "RuntimeError",
+        "fail_node": 75,
+        "graph_index": 46,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 31,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 47,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 16,
+        "exception": "RuntimeError",
+        "fail_node": 65,
+        "graph_index": 48,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 24,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 49,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 10,
+        "exception": "RuntimeError",
+        "fail_node": 70,
+        "graph_index": 50,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 17,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 51,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 9,
+        "exception": "RuntimeError",
+        "fail_node": 74,
+        "graph_index": 52,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 8,
+        "exception": "RuntimeError",
+        "fail_node": 70,
+        "graph_index": 53,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 9,
+        "exception": "RuntimeError",
+        "fail_node": 74,
+        "graph_index": 54,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 18,
+        "exception": "RuntimeError",
+        "fail_node": 65,
+        "graph_index": 55,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 2,
+        "exception": "RuntimeError",
+        "fail_node": 92,
+        "graph_index": 56,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 17,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 57,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 1,
+        "exception": "RuntimeError",
+        "fail_node": 93,
+        "graph_index": 58,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 28,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 59,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 16,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 60,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 24,
+        "exception": "RuntimeError",
+        "fail_node": 67,
+        "graph_index": 61,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 15,
+        "exception": "RuntimeError",
+        "fail_node": 64,
+        "graph_index": 62,
+        "passed": true,
+        "primitive": 0
+      },
+      {
+        "affected_closure_size": 9,
+        "exception": "RuntimeError",
+        "fail_node": 72,
+        "graph_index": 63,
+        "passed": true,
+        "primitive": 0
+      }
+    ],
+    "connected_boundary": [
+      {
+        "control_index": 0,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 1,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 2,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 3,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 4,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 5,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 6,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 7,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 8,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 9,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 10,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 11,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 12,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 13,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 14,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      },
+      {
+        "control_index": 15,
+        "evaluations": 256,
+        "passed": true,
+        "saving": 0.0
+      }
+    ],
+    "cycle_rejection": [
+      {
+        "control_index": 0,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 1,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 2,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 3,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 4,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 5,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 6,
+        "exception": "ValueError",
+        "passed": true
+      },
+      {
+        "control_index": 7,
+        "exception": "ValueError",
+        "passed": true
+      }
+    ],
+    "malformed_update": [
+      {
+        "exception": "ValueError",
+        "graph_index": 0,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 1,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 2,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 3,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 4,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 5,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 6,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 7,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 8,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 9,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 10,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 11,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 12,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 13,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 14,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 15,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 16,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 17,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 18,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 19,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 20,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 21,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 22,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 23,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 24,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 25,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 26,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 27,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 28,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 29,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 30,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 31,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 32,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 33,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 34,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 35,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 36,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 37,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 38,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 39,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 40,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 41,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 42,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 43,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 44,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 45,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 46,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 47,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 48,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 49,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 50,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 51,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 52,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 53,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 54,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 55,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 56,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 57,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 58,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 59,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 60,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 61,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 62,
+        "passed": true
+      },
+      {
+        "exception": "ValueError",
+        "graph_index": 63,
+        "passed": true
+      }
+    ],
+    "stale_revision": [
+      {
+        "exception": "RuntimeError",
+        "graph_index": 0,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 1,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 2,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 3,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 4,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 5,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 6,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 7,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 8,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 9,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 10,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 11,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 12,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 13,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 14,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 15,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 16,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 17,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 18,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 19,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 20,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 21,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 22,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 23,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 24,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 25,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 26,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 27,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 28,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 29,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 30,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 31,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 32,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 33,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 34,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 35,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 36,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 37,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 38,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 39,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 40,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 41,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 42,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 43,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 44,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 45,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 46,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 47,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 48,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 49,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 50,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 51,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 52,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 53,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 54,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 55,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 56,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 57,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 58,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 59,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 60,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 61,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 62,
+        "passed": true
+      },
+      {
+        "exception": "RuntimeError",
+        "graph_index": 63,
+        "passed": true
+      }
+    ],
+    "unaffected_noop": [
+      {
+        "affected_closure_size": 0,
+        "control_index": 0,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 1,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 2,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 3,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 4,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 5,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 6,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 7,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 8,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 9,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 10,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 11,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 12,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 13,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 14,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 15,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 16,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 17,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 18,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 19,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 20,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 21,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 22,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 23,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 24,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 25,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 26,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 27,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 28,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 29,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 30,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 31,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 32,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 33,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 34,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 35,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 36,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 37,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 38,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 39,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 40,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 41,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 42,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 43,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 44,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 45,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 46,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 47,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 48,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 49,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 50,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 51,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 52,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 53,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 54,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 55,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 56,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 57,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 58,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 59,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 60,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 61,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 62,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      },
+      {
+        "affected_closure_size": 0,
+        "control_index": 63,
+        "evaluations": 0,
+        "passed": true,
+        "primitive": 1
+      }
+    ]
+  },
+  "counts": {
+    "accepted": {
+      "passed": 320,
+      "total": 320
+    },
+    "affected_injection": {
+      "passed": 64,
+      "total": 64
+    },
+    "connected_boundary": {
+      "passed": 16,
+      "total": 16
+    },
+    "cycle_rejection": {
+      "passed": 8,
+      "total": 8
+    },
+    "malformed_update": {
+      "passed": 64,
+      "total": 64
+    },
+    "stale_revision": {
+      "passed": 64,
+      "total": 64
+    },
+    "unaffected_noop": {
+      "passed": 64,
+      "total": 64
+    }
+  },
+  "evaluation_reduction": 0.90047607421875,
+  "full_recompute_evaluations": 81920,
+  "local_evaluations": 8153,
+  "original_h2_result": {
+    "passed": 63,
+    "primary_target_met": false,
+    "total": 64
+  },
+  "primary_target_met": true,
+  "protocol_commit": "f0d39d568c66175ffba0f023e6eb36c5fbad39e0",
+  "schema_version": 1,
+  "seed": 20260929,
+  "source_sha256": {
+    "PROTOCOL.md": "c4878691c4efb7d8bf69f8ade4a50d0bb7b979fec89a81a911b7525b09baa810",
+    "run.py": "bc6a744bcb6eaa4bed15a40e8b77f0f89869bfb3e2624f7641e38cb5bac48a9d"
+  }
+}

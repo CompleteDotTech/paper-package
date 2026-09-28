@@ -1,3 +1,38 @@
+<!-- MANUSCRIPT_NAVIGATION_START -->
+
+# Jev graph synthesis: current research map
+
+This cumulative author-review draft preserves separate studies and the original manuscript. The latest fresh same-data repeat did not resolve the original entity-matching macro-F1 improvement; the later saved-response and controlled results are exploratory and do not establish independent semantic generalization. No study here validates unattended graph writes.
+
+## Study directory
+
+Each entry links to its study and its in-document protocol or evidence boundary. Dates refer to the recorded study drafts. “Controlled” means supplied fixtures or simulated decisions, not new Jev service observations.
+
+| Study and protocol | Evidence type | Main result and limit | Date |
+|---|---|---|---|
+| [Adaptive verification and joint conflict resolution for Jev graph synthesis](#adaptive-verification-and-joint-conflict-resolution-for-jev-graph-synthesis); [Protocol and scope](#research-question-and-provenance) | Saved responses; simulated review; controlled graphs | Routing misses its cost target; fallback adds wrong edges; controlled review and optimization meet targets. | 2026-09-18 |
+| [Risk control, targeted verification and structural tractability in Jev graph synthesis](#risk-control-targeted-verification-and-structural-tractability-in-jev-graph-synthesis); [Protocol and scope](#1-motivation-scope-and-provenance) | Saved responses; controlled graphs | Four primary targets fail; forest optimization meets its controlled target. | 2026-09-18 |
+| [Reliability, evidence lineage and incremental structure in Jev graph synthesis](#reliability-evidence-lineage-and-incremental-structure-in-jev-graph-synthesis); [Protocol and scope](#1-motivation-and-protocol) | Saved responses; simulated review; controlled algorithms | Reliability calibration misses; four controlled targets meet. | 2026-09-18 |
+| [Reliability ranking, source diversity and bounded exact inference for Jev graph synthesis](#reliability-ranking-source-diversity-and-bounded-exact-inference-for-jev-graph-synthesis); [Protocol and scope](#1-research-motivation-and-evidence-boundary) | Saved responses; simulated review; controlled algorithms | Ranking, diversity and review miss targets; two exact structural targets meet. | 2026-09-18 |
+| [Source risk, review budgets and structural certificates for Jev graph synthesis](#source-risk-review-budgets-and-structural-certificates-for-jev-graph-synthesis); [Protocol and scope](#1-research-questions-and-frozen-evaluation) | Saved responses; simulated review; controlled algorithms | Source risk and review miss; three structural targets meet. | 2026-09-18 |
+| [Assumption-aware graph synthesis: five falsifiable follow-up experiments](#assumption-aware-graph-synthesis-five-falsifiable-follow-up-experiments); [Protocol and scope](#1-motivation-scope-and-novelty-boundary) | Controlled algorithms and decision models | Lineage and review miss; three controlled targets meet. | 2026-09-18 |
+| [Uncertainty, repair ambiguity and grounded evidence in Jev graph synthesis](#uncertainty-repair-ambiguity-and-grounded-evidence-in-jev-graph-synthesis); [Protocol and scope](#1-research-question-prior-evidence-and-novelty-boundary) | Controlled algorithms and decision models | Five controlled targets meet; no new semantic evaluation. | 2026-09-18 |
+| [Five initial hypotheses: distinct additions and concurrent replication](#five-initial-hypotheses-distinct-additions-and-concurrent-replication); [Protocol and scope](#1-motivation-novelty-scope-and-protocol) | Saved responses; controlled algorithms | Label shift misses; four controlled targets meet; one overlaps concurrent work. | 2026-09-18 |
+| [Interval-priority regret: fifth distinct addition after concurrent overlap](#interval-priority-regret-fifth-distinct-addition-after-concurrent-overlap); [Protocol and scope](#hypothesis-and-falsification) | Controlled interval optimization | Regret target meets on controlled fixtures; no semantic validation. | 2026-09-18 |
+| [Structural frontiers for evidence-preserving Jev graph synthesis](#structural-frontiers-for-evidence-preserving-jev-graph-synthesis); [Protocol and scope](#1-motivation-novelty-scope-and-frozen-design) | Controlled algorithms and decision models | Review misses; four structural targets meet. | 2026-09-18 |
+| [Dependence-aware certificates for Jev graph synthesis](#dependence-aware-certificates-for-jev-graph-synthesis); [Protocol and scope](#1-motivation-novelty-boundary-and-frozen-methodology) | Saved responses; controlled algorithms | Forecasting misses; four controlled targets meet, with documented overlap. | 2026-09-18 |
+| [Five post-certificate improvements for Jev graph synthesis](#five-post-certificate-improvements-for-jev-graph-synthesis); [Protocol and scope](#1-frozen-methodology-and-novelty-boundary) | Saved responses; controlled algorithms | Source-risk stacking misses; four controlled targets meet. | 2026-09-18 |
+| [Do additional Jev calls improve graph edges?](#do-additional-jev-calls-improve-graph-edges); [Protocol and scope](#design-and-evidence-boundary) | 3,024 fresh Jev calls | No added-call policy establishes a matched-volume advantage. | 2026-09-18 |
+| [Fresh Jev execution and graph-synthesis falsification](#fresh-jev-execution-and-graph-synthesis-falsification); [Protocol and scope](#evidence-scope) | Fresh same-data Jev repeat; synthetic challenge | Original entity improvement is unresolved on fresh macro-F1 interval. | 2026-09-18 |
+| [Follow-up: five evidence-driven improvements](#follow-up-five-evidence-driven-improvements); [Protocol and scope](#summary-of-fixed-operational-targets) | Saved responses; controlled algorithms | Mixed target outcomes; no independent semantic validation. | 2026-09-18 |
+| [Original study (historical evidence; unchanged text)](#original-study-historical-evidence-unchanged-text); [Protocol and scope](#3-research-questions-and-scope) | Original Jev calls; cached replay | Positive entity-matching result on original split; relation gain inconclusive. | 2026-09-18 |
+
+## Reading the evidence
+
+The [fresh repeat](#fresh-jev-execution-and-graph-synthesis-falsification) and [multicall study](#do-additional-jev-calls-improve-graph-edges) contain new service calls. Later studies mostly replay saved responses or test controlled algorithms; their target passes do not measure new semantic accuracy. The [historical original study](#original-study-historical-evidence-unchanged-text) reports the initial fixed-split improvement. See [current results](../CURRENT_RESULTS.md) for the chronological record and the linked protocols and reports.
+
+<!-- MANUSCRIPT_NAVIGATION_END -->
+
 <!-- ADAPTIVE_RESEARCH_START -->
 
 # Adaptive verification and joint conflict resolution for Jev graph synthesis

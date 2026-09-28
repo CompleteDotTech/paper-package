@@ -6,10 +6,15 @@ import re
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 from urllib.request import url2pathname
+from .manuscript_navigation import assign_heading_anchors, update_navigation
 
 NUMERIC = re.compile(r'[+-]?(?:\d[\d,]*(?:\.\d*)?|\.\d+)%?')
-TABLE_CSS = '\nth { overflow-wrap: normal; }\ntd.numeric { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }\n'
-RESEARCH_MARKER = re.compile(r'<!--\s*[A-Z][A-Z0-9_]*_RESEARCH_(?:START|END)\s*-->')
+TABLE_CSS = ('\nth { overflow-wrap: normal; }'
+             '\ntd.numeric { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }'
+             '\nbody > table:first-of-type { break-inside: auto; font-size: 7.4pt; }'
+             '\nbody > table:first-of-type :is(th, td):last-child { white-space: nowrap; }'
+             '\nbody > table:first-of-type tr { break-inside: avoid; }\n')
+RESEARCH_MARKER = re.compile(r'<!--\s*(?:[A-Z][A-Z0-9_]*_RESEARCH|MANUSCRIPT_NAVIGATION)_(?:START|END)\s*-->')
 
 
 def strip_research_markers(markdown):
@@ -37,15 +42,28 @@ def validate_images(markdown, source, root):
             raise ValueError('Missing or unsafe manuscript image: ' + url)
 
 
-def render(output):
+def render_with_anchors(markdown):
+    """Give Markdown, HTML and PDF the same stable internal destinations."""
     from markdown_it import MarkdownIt
+
+    parser = MarkdownIt("commonmark", {"html": False}).enable("table")
+    tokens = parser.parse(markdown)
+    assign_heading_anchors(tokens)
+    return parser.renderer.render(tokens, parser.options, {})
+
+
+def render(output):
     from weasyprint import HTML, default_url_fetcher
     from .render_paper import CSS
     root = Path(__file__).resolve().parents[1]
     source = root / "manuscript/paper-current.md"
-    markdown = strip_research_markers(source.read_text(encoding="utf-8"))
+    original = source.read_text(encoding="utf-8")
+    current = update_navigation(original)
+    if current != original:
+        source.write_text(current, encoding="utf-8", newline="\n")
+    markdown = strip_research_markers(current)
     validate_images(markdown, source, root)
-    body = MarkdownIt("commonmark", {"html": False}).enable("table").render(markdown)
+    body = render_with_anchors(markdown)
     body = re.sub(r"<p>(<img [^>]+>)</p>", r"<figure>\1</figure>", body)
     body = format_numeric_cells(body)
     text = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Jev: fresh execution and graph synthesis</title><style>' + CSS + TABLE_CSS + '</style></head><body>' + body + '</body></html>'

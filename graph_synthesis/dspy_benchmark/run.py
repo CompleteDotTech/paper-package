@@ -27,6 +27,8 @@ PROPOSAL_RESERVE_USD = 0.07
 PER_SEED_BUDGET_USD = 8.0  # Five manually dispatched seeds reserve at most $40 of the $50 cap.
 MAX_INVALID_ANSWER_RETRIES_PER_SEED = 20
 MAX_PROPOSAL_PARSE_RETRIES_PER_SEED = 20
+MAX_TIMEOUT_RETRIES_PER_SEED = 20
+UNKNOWN_JEV_TIMEOUT_RESERVE_USD = 0.05
 
 
 class CostBudget:
@@ -41,6 +43,8 @@ class CostBudget:
         self.reserved_usd = 0.0
         self.invalid_answer_retries = 0
         self.proposal_parse_retries = 0
+        self.timeout_retries = 0
+        self.timeout_failures = 0
 
     def target(self, usage):
         tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
@@ -83,6 +87,17 @@ class CostBudget:
             self.reserved_usd += PROPOSAL_RESERVE_USD
             self._check()
 
+    def record_jev_timeout(self):
+        with self.lock:
+            self.timeout_failures += 1
+            self._check()
+
+    def retry_jev_timeout(self):
+        with self.lock:
+            if self.timeout_retries >= MAX_TIMEOUT_RETRIES_PER_SEED:
+                raise BudgetExhausted('Jev timeout retry allowance exhausted')
+            self.timeout_retries += 1
+
     def _check(self):
         if self.estimated_usd() > self.limit:
             raise BudgetExhausted('Per-seed estimated spend limit reached')
@@ -91,7 +106,7 @@ class CostBudget:
         jev = self.target_input_tokens * JEV_INPUT_USD_PER_MILLION / 1_000_000
         observed_proposal = (self.proposer_input_tokens * DEEPSEEK_INPUT_USD_PER_MILLION
                              + self.proposer_output_tokens * DEEPSEEK_OUTPUT_USD_PER_MILLION) / 1_000_000
-        return jev + max(self.reserved_usd, observed_proposal)
+        return jev + self.timeout_failures * UNKNOWN_JEV_TIMEOUT_RESERVE_USD + max(self.reserved_usd, observed_proposal)
 
     def record(self):
         return {'limit_usd': self.limit, 'estimated_usd': self.estimated_usd(),
@@ -103,6 +118,9 @@ class CostBudget:
                 'invalid_answer_retries': self.invalid_answer_retries,
                 'proposal_parse_retries': self.proposal_parse_retries,
                 'proposal_attempts': self.proposals + self.proposal_parse_retries,
+                'jev_timeout_failures': self.timeout_failures,
+                'jev_timeout_retries': self.timeout_retries,
+                'unknown_jev_timeout_reserve_usd': self.timeout_failures * UNKNOWN_JEV_TIMEOUT_RESERVE_USD,
                 'pricing_basis': {'jev_input_per_million_usd': JEV_INPUT_USD_PER_MILLION,
                                   'deepseek_input_per_million_usd': DEEPSEEK_INPUT_USD_PER_MILLION,
                                   'deepseek_output_per_million_usd': DEEPSEEK_OUTPUT_USD_PER_MILLION},
@@ -119,6 +137,7 @@ class ParallelEvaluator(Evaluator):
         self.budget = budget
 
     def evaluate(self, config, rows, phase):
+        from typesafe_sdk import TypeSafeAPITimeoutError
         keys = [digest({'schema':1, 'backend':self.backend.identity,
                         'config':config.fingerprint(), 'state':r.state}) for r in rows]
         responses, missing = {}, {}
@@ -130,6 +149,21 @@ class ParallelEvaluator(Evaluator):
                 responses[key] = cached
         if len(missing) > self.max_calls-self.calls:
             raise BudgetExhausted('Insufficient budget for a complete evaluation')
+        def fetch_with_timeout_retries(key, first_job=None):
+            for attempt in range(3):
+                try:
+                    if attempt == 0 and first_job is not None:
+                        return first_job.result()
+                    return self.backend.predict(config,parse_json(canonical(missing[key].state)))
+                except TypeSafeAPITimeoutError:
+                    if self.budget is not None:
+                        self.budget.record_jev_timeout()
+                    self.event({'event':'jev_timeout','key':key,'phase':phase,'attempt':attempt+1,
+                                'unknown_usage_reserve_usd':UNKNOWN_JEV_TIMEOUT_RESERVE_USD})
+                    if attempt == 2 or self.budget is None:
+                        raise
+                    self.budget.retry_jev_timeout()
+                    self.event({'event':'retry_timeout_request','key':key,'phase':phase})
         with ThreadPoolExecutor(max_workers=self.workers) as pool:
             jobs = []
             for key, row in missing.items():
@@ -140,7 +174,7 @@ class ParallelEvaluator(Evaluator):
             errors = []
             for key, job in jobs:
                 try:
-                    response = job.result()
+                    response = fetch_with_timeout_retries(key,job)
                     while True:
                         for token in self.usage:
                             count = response.get('usage',{}).get(token,0)
@@ -161,7 +195,7 @@ class ParallelEvaluator(Evaluator):
                                 raise
                             self.budget.retry_invalid_answer()
                             self.event({'event':'retry_request','key':key,'phase':phase})
-                            response = self.backend.predict(config,parse_json(canonical(missing[key].state)))
+                            response = fetch_with_timeout_retries(key)
                     self.cache.put(key,response)
                     responses[key] = response
                     self.event({'event':'response','key':key,'phase':phase,'response':response})

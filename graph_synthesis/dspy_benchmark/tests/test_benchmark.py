@@ -191,6 +191,26 @@ class Tests(unittest.TestCase):
             self.assertEqual([x['event'] for x in events if x['event'] in ('invalid_answer','retry_request')],
                              ['invalid_answer','retry_request'])
             c.close()
+    def test_timeout_retry_is_audited_and_reserves_unknown_usage(self):
+        from typesafe_sdk import TypeSafeAPITimeoutError
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class SlowOnce(FakeBackend):
+            def predict(self,config,state):
+                self.count+=1
+                if self.count==1:raise TypeSafeAPITimeoutError(30.0)
+                return {'model':self.identity['model'],'choice':'a',
+                        'probabilities':{'a':.8,'b':.2},
+                        'usage':{'input_tokens':10,'output_tokens':0}}
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=SlowOnce();budget=CostBudget()
+            ParallelEvaluator(b,c,p/'audit',2,budget=budget).evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            events=[json.loads(line) for line in (p/'audit'/'calls.jsonl').read_text().splitlines()]
+            self.assertEqual(b.count,2)
+            self.assertEqual(budget.record()['jev_timeout_retries'],1)
+            self.assertEqual(budget.record()['unknown_jev_timeout_reserve_usd'],.05)
+            self.assertEqual([x['event'] for x in events if x['event'] in ('jev_timeout','retry_timeout_request')],
+                             ['jev_timeout','retry_timeout_request'])
+            c.close()
     def test_missing_keys_block_before_model_calls(self):
         with tempfile.TemporaryDirectory() as d,patch.dict(os.environ,{},clear=True):
             p=Path(d)/'run'

@@ -16,7 +16,8 @@ captures in PRs #28–#30.
 - Registered upper bound: 65,000 logical Jev requests and 160 accepted proposal
   slots across five seeds. The execution amendment permits at most 100 extra
   invalid-answer Jev calls and 100 extra malformed-proposal calls across those
-  seeds. Automatic Jev SDK retries are disabled for this execution.
+  seeds. At most 100 extra Jev calls across five seeds may also follow logged
+  transport timeouts. Automatic Jev SDK retries are disabled for this execution.
 - [TypeSafe's public Jev price](https://typesafe.ai/) is $0.042 per million input
   tokens with output free. In the previous, different v2 run, 12,829 primary
   attempts consumed 24,465,570 reported input tokens, about 1,907 per attempt.
@@ -98,3 +99,14 @@ may be retried twice for the same frozen feedback and iteration, up to 20 extra
 proposal calls per seed. Each failed parse has an audit row, and each retry adds
 a $0.07 reserve. Other proposal errors still stop the run. The logical search
 still requires exactly eight accepted candidate proposals per objective.
+
+The fifth attempt, [run 36482250053](https://github.com/CompleteDotTech/paper-package/actions/runs/36482250053),
+completed all 16 relation-support proposal slots and froze that task's
+calibration. During control evaluation, two TypeSafe requests timed out after
+the SDK's 30-second timeout. The run recorded 5,815,753 successful Jev input
+tokens, five invalid-answer retries, zero proposal parse retries, and a
+$1.364261626 guarded estimate. It is excluded from results. The next attempt
+permits up to two retries of a timed-out request and 20 extra timeout calls per
+seed. Every timeout and retry has an event, and each timed-out call reserves
+$0.05 for usage that the provider did not return. A non-timeout provider error
+still stops the run. The logical example and scoring remain unchanged.

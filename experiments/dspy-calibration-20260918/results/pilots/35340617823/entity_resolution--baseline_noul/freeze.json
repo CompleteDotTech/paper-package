@@ -1,0 +1,88 @@
+{
+  "payload": {
+    "protocol_sha256": "38e195ffd4a2547bb343d1af101a08f9fc987207dd2dc064c606d200056ae24c",
+    "searches": [
+      {
+        "seed": 17,
+        "accuracy_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "nll_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "ledger_sha256": "a8f490f783585175a4a1baea9c1311a69a89b879d9965f55033d4191d180f4fa"
+      },
+      {
+        "seed": 29,
+        "accuracy_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "nll_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "ledger_sha256": "b810bb9d34bc4d67b8b9da34350287281b2687936fbbafba6e60bccc2f0c8ee4"
+      },
+      {
+        "seed": 43,
+        "accuracy_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "nll_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "ledger_sha256": "e99e031d3a8d929dd07a5ea2d72b770841926aa23143be06a21c0c5940605c48"
+      },
+      {
+        "seed": 71,
+        "accuracy_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Are the two entities mentioned in the records the same?"
+          }
+        },
+        "nll_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "ledger_sha256": "4a7db5d5b2d511d14c11fed549ef0935b4c95cbf568d377ef6bddd7c142ce793"
+      },
+      {
+        "seed": 101,
+        "accuracy_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "nll_questions": {
+          "baseline_noul__decision": {
+            "type": "noul",
+            "instructions": "Do the two records refer to the same underlying entity?"
+          }
+        },
+        "ledger_sha256": "4ced9257dcc44bbf33e1b94071a672c4afa88f520bac9b86f62c52263ff8bd39"
+      }
+    ]
+  },
+  "sha256": "1d3c9d1cac649f0ec2ac484a34994941b79aadd27172a2f3dba3c51b50224295"
+}

@@ -1,0 +1,5 @@
+{
+  "upstream_capture_manifest_sha256": "48ace37ed8393f51840d1033a8cab72e6083d0962bdafabd6c73c12a46db3f9d",
+  "analysis_source_sha256": "fcccdb688cb07e534e522a353a8a78a3d2a65b727021fa6edaa2946542a60203",
+  "note": "Every workflow result and request was reconstructed from captured live responses."
+}

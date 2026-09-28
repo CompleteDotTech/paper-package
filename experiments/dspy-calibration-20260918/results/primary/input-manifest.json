@@ -1,0 +1,14 @@
+{
+  "captures": {
+    "entity_resolution--baseline_noul": "7d2ce0e38e0f03411cab4e1b88cfbe31d13f6e4e73307e54b523b3e0df622774",
+    "entity_resolution--fewshot_contract": "fd884525f97c623a3e8b2c4319ce21f7d4defcecae800af0aa416ae7ae74ece5",
+    "entity_resolution--identity_contract": "b38aaa9fbfadd56212e47089f22edecdabd1872d22062850605d40339080d969",
+    "entity_resolution--identity_noul": "429a2b6bd091368906e408420ed6ed7487fa12c2a010340fffe96ae7d3315609",
+    "relation_support--baseline_choice": "2c73ae21af749688cc91412b041df964e83f867761fb9aa6224f486e3357f453",
+    "relation_support--conditional_nouls": "bfc341f08a9e36bde1a4453bc31d1817d72c2eef96c29c43553d5cc0ca0d97d9",
+    "relation_support--evidence_contract": "16b9cb6e1cd7dc48d59519f22ceeec648ca76484afb7aecb6b53dc7d4e0fbbc5",
+    "relation_support--fewshot_contract": "48ace37ed8393f51840d1033a8cab72e6083d0962bdafabd6c73c12a46db3f9d"
+  },
+  "analysis_source_sha256": "367f820ee1e76b3b6f86a5fc3eefe714b7b88955b832acd8ab4ea4906d31ce9c",
+  "note": "Capture manifests bind raw observations; this report does not run a model."
+}

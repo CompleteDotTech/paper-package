@@ -1,0 +1,138 @@
+{
+  "payload": {
+    "protocol_sha256": "8b905061dada9e5e7a5c21c873a314a1d2384c33dfb2889a89e4eaa9a8924f3c",
+    "searches": [
+      {
+        "seed": 17,
+        "accuracy_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "nll_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "ledger_sha256": "59799285515cfef721e8015e2bce02fdf7364349277d8eba918c61cafd8f3a5c"
+      },
+      {
+        "seed": 29,
+        "accuracy_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "nll_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "ledger_sha256": "87f4aa7ef8b09ec3cb9efc835e41f34c98297d1aeaab727b4ed826472754722c"
+      },
+      {
+        "seed": 43,
+        "accuracy_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "nll_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "ledger_sha256": "8159b268659dfacaef4c16288cd14460397057b5ec8ab8b8c7d0f98a84acaaab"
+      },
+      {
+        "seed": 71,
+        "accuracy_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "nll_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "ledger_sha256": "14f6bc2a4bea21ac8644c172a1bba0ab478d64f29728aa30928431118327c950"
+      },
+      {
+        "seed": 101,
+        "accuracy_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "nll_questions": {
+          "baseline_choice__decision": {
+            "type": "choice",
+            "instructions": "Does the evidence support, refute, or provide insufficient information about the claim?",
+            "criteria": {
+              "SUPPORTS": "SUPPORTS",
+              "REFUTES": "REFUTES",
+              "NOT_ENOUGH_INFO": "NOT_ENOUGH_INFO"
+            }
+          }
+        },
+        "ledger_sha256": "722c0fa279f087b6f0b5d750b03ca637aa0e7574da67703a6b9fc09cbeea7cbe"
+      }
+    ]
+  },
+  "sha256": "4011ba46f256241e031d481a1d83ff8d7323e3ad649990c7e1759b63e5fc3c43"
+}

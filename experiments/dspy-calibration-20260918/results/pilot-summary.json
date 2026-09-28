@@ -1,0 +1,146 @@
+[
+  {
+    "run": "35339699653",
+    "formulation": "entity_resolution--baseline_noul",
+    "http_attempts": 89,
+    "successful_responses": 89,
+    "reported_input_tokens": 37366,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "entity_resolution--fewshot_contract",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 91113,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "entity_resolution--identity_contract",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 34953,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "entity_resolution--identity_noul",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 30873,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "relation_support--baseline_choice",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 47707,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "relation_support--conditional_nouls",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 56527,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "relation_support--evidence_contract",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 55087,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35339699653",
+    "formulation": "relation_support--fewshot_contract",
+    "http_attempts": 60,
+    "successful_responses": 60,
+    "reported_input_tokens": 216727,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "entity_resolution--baseline_noul",
+    "http_attempts": 1263,
+    "successful_responses": 1263,
+    "reported_input_tokens": 682769,
+    "test_calls": 513,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "entity_resolution--fewshot_contract",
+    "http_attempts": 1319,
+    "successful_responses": 1319,
+    "reported_input_tokens": 3741058,
+    "test_calls": 513,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "entity_resolution--identity_contract",
+    "http_attempts": 1261,
+    "successful_responses": 1261,
+    "reported_input_tokens": 2332955,
+    "test_calls": 513,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "entity_resolution--identity_noul",
+    "http_attempts": 1261,
+    "successful_responses": 1261,
+    "reported_input_tokens": 1630321,
+    "test_calls": 513,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "relation_support--baseline_choice",
+    "http_attempts": 381,
+    "successful_responses": 381,
+    "reported_input_tokens": 365905,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "relation_support--conditional_nouls",
+    "http_attempts": 1223,
+    "successful_responses": 1223,
+    "reported_input_tokens": 3211873,
+    "test_calls": 773,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "relation_support--evidence_contract",
+    "http_attempts": 314,
+    "successful_responses": 314,
+    "reported_input_tokens": 316497,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  },
+  {
+    "run": "35340617823",
+    "formulation": "relation_support--fewshot_contract",
+    "http_attempts": 370,
+    "successful_responses": 370,
+    "reported_input_tokens": 1486299,
+    "test_calls": 0,
+    "note": "Nested-output pilot, not pooled with v2 searches."
+  }
+]

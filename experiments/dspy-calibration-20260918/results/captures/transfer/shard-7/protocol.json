@@ -1,0 +1,43 @@
+{
+  "model": "jev-1.13.0",
+  "shard": 7,
+  "shards": 8,
+  "rows": 60,
+  "upstream_freeze_sha256": "ff4aa214af2fb395e08448e4d14aee0de624c0b8f6368f0f742600d8af4a5204",
+  "variants": [
+    {
+      "selection": "baseline",
+      "seed": 0,
+      "questions_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0"
+    },
+    {
+      "selection": "dspy",
+      "seed": 17,
+      "questions_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0"
+    },
+    {
+      "selection": "dspy",
+      "seed": 29,
+      "questions_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0"
+    },
+    {
+      "selection": "dspy",
+      "seed": 43,
+      "questions_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0"
+    },
+    {
+      "selection": "dspy",
+      "seed": 71,
+      "questions_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0"
+    },
+    {
+      "selection": "dspy",
+      "seed": 101,
+      "questions_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0"
+    }
+  ],
+  "source_sha256": "98b2e05c0438de4aa902735d2e456d93365373c950f6e2a6f9e5441046096d55",
+  "original_multicall_source_sha256": "e693df82e8e048789e8ed11ea99b53fa6c1fc37478f1efe55982c06b0586aec3",
+  "original_plan_sha256": "ea19a67662404c0dedcd5e88a2226720eeb03ea314a02abdff8406b4a80b058c",
+  "scope": "Transfer of five frozen primary-verifier prompts; other reviewers, escalation threshold and workflow rules unchanged."
+}

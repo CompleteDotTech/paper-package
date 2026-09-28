@@ -33,4 +33,15 @@ class PublicationTests(unittest.TestCase):
             (root/'extra.json').write_text('{}')
             with self.assertRaisesRegex(ValueError,'inventory mismatch'):verify_package(root)
 
+    def test_missing_offline_provenance_rejected_before_publication(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            for part in ('primary','multicall','repeatability','quality'):
+                path=root/part/'REPORT.md';path.parent.mkdir();path.write_text('synthetic')
+            write(root/'offline-audit-status.json',{'analysis_source_commit':'wrong',
+                'new_inference_calls':0,'new_paid_api_calls':0,'historical_run_conclusion':'failure'})
+            files={p.relative_to(root).as_posix():sha(p) for p in root.rglob('*') if p.is_file()}
+            write(root/'package-manifest.json',{'sha256':files})
+            with self.assertRaisesRegex(ValueError,'provenance mismatch'):verify_package(root)
+
 if __name__=='__main__':unittest.main()

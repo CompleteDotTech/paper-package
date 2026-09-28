@@ -1,0 +1,242 @@
+[
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "selection": "baseline",
+    "seed": 0,
+    "repeat_rows_with_label_disagreement": 1,
+    "repeat_max_probability_spread": 0.050000000000000044,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.029999999999999916
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "selection": "dspy",
+    "seed": 17,
+    "repeat_rows_with_label_disagreement": 1,
+    "repeat_max_probability_spread": 0.030000000000000027,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.030000000000000027
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "selection": "dspy",
+    "seed": 29,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.040000000000000036,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000018
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "selection": "dspy",
+    "seed": 43,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.030000000000000027,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.04999999999999999
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "selection": "dspy",
+    "seed": 71,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.030000000000000027,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.040000000000000036
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "selection": "dspy",
+    "seed": 101,
+    "repeat_rows_with_label_disagreement": 1,
+    "repeat_max_probability_spread": 0.040000000000000036,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.030000000000000027
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "selection": "baseline",
+    "seed": 0,
+    "repeat_rows_with_label_disagreement": 1,
+    "repeat_max_probability_spread": 0.09000000000000002,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.050000000000000044
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "selection": "dspy",
+    "seed": 17,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.03,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000018
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "selection": "dspy",
+    "seed": 29,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.050000000000000044,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.040000000000000036
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "selection": "dspy",
+    "seed": 43,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.030000000000000027,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.010000000000000009
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "selection": "dspy",
+    "seed": 71,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.030000000000000027,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000004
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "selection": "dspy",
+    "seed": 101,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.09999999999999998,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.039999999999999994
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "selection": "baseline",
+    "seed": 0,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.040000000000000036,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.040000000000000036
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "selection": "dspy",
+    "seed": 17,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.040000000000000036,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.030000000000000027
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "selection": "dspy",
+    "seed": 29,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.05999999999999994,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.05999999999999994
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "selection": "dspy",
+    "seed": 43,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.050000000000000044,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.030000000000000027
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "selection": "dspy",
+    "seed": 71,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.040000000000000036,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.039999999999999925
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "selection": "dspy",
+    "seed": 101,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.050000000000000044,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.019999999999999907
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "selection": "baseline",
+    "seed": 0,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.04999999999999999,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.03
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "selection": "dspy",
+    "seed": 17,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.06,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000018
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "selection": "dspy",
+    "seed": 29,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.07,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000018
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "selection": "dspy",
+    "seed": 43,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.03999999999999998,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000004
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "selection": "dspy",
+    "seed": 71,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.04999999999999999,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.03
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "selection": "dspy",
+    "seed": 101,
+    "repeat_rows_with_label_disagreement": 0,
+    "repeat_max_probability_spread": 0.04999999999999999,
+    "batch_vs_isolated_label_disagreements": 0,
+    "batch_vs_isolated_max_probability_difference": 0.020000000000000018
+  }
+]

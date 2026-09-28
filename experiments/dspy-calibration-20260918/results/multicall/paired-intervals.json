@@ -1,0 +1,3509 @@
+[
+  {
+    "workflow": "single",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": 0.005357142857142856,
+      "cluster_bootstrap_95_percentile": [
+        -0.001818319977894446,
+        0.014667231638418078
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.005357142857142838,
+            "cluster_bootstrap_95_percentile": [
+              -0.001818319977894564,
+              0.014667231638418017
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0016232728884832959,
+            "cluster_bootstrap_95_percentile": [
+              -0.005090945379619532,
+              0.0014776602288919377
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0015380048075754882,
+            "cluster_bootstrap_95_percentile": [
+              -0.0034116345087835667,
+              5.9160729701329244e-05
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.004118311640812111,
+            "cluster_bootstrap_95_percentile": [
+              -0.0019432060439866423,
+              0.012251243765531408
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.00885199997704933,
+            "cluster_bootstrap_95_percentile": [
+              -0.0027423507503106155,
+              0.02363405219985522
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.001240259740259743,
+            "cluster_bootstrap_95_percentile": [
+              -0.011521948105746778,
+              0.009123163085862843
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.005357142857142838,
+            "cluster_bootstrap_95_percentile": [
+              -0.001818319977894564,
+              0.014667231638418017
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0001415425136395143,
+            "cluster_bootstrap_95_percentile": [
+              -0.002650076723956947,
+              0.0024054274432384767
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0005426577156690815,
+            "cluster_bootstrap_95_percentile": [
+              -0.0017355378090328423,
+              0.0006708619659547836
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.004118311640812111,
+            "cluster_bootstrap_95_percentile": [
+              -0.0019432060439866423,
+              0.012251243765531408
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.00885199997704933,
+            "cluster_bootstrap_95_percentile": [
+              -0.0027423507503106155,
+              0.02363405219985522
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.00451522387020975,
+            "cluster_bootstrap_95_percentile": [
+              -0.004105657488994873,
+              0.013379026703587356
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0029761904761905766,
+            "cluster_bootstrap_95_percentile": [
+              -0.0076689166769370485,
+              0.001194119224238171
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0005812475272800599,
+            "cluster_bootstrap_95_percentile": [
+              -0.005284442351228699,
+              0.0039832438698967415
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0011389387711317756,
+            "cluster_bootstrap_95_percentile": [
+              -0.0009198453326542469,
+              0.0032443105530093885
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.003131072562317483,
+            "cluster_bootstrap_95_percentile": [
+              -0.008066960229303735,
+              0.00182556617153719
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0048258307634535536,
+            "cluster_bootstrap_95_percentile": [
+              -0.01180901715774301,
+              0.0017380529142252408
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0008913209894720608,
+            "cluster_bootstrap_95_percentile": [
+              -0.011011432556307073,
+              0.02143862894764186
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "single",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.00023535223269721683,
+            "cluster_bootstrap_95_percentile": [
+              -0.0027582046786913893,
+              0.002602626096657656
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0002021917808218976,
+            "cluster_bootstrap_95_percentile": [
+              -0.0020925784829458937,
+              0.002036623776223753
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.014082191780821915,
+            "cluster_bootstrap_95_percentile": [
+              -0.03213180645161292,
+              0.0014409230769230758
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.0016951673120700894,
+            "cluster_bootstrap_95_percentile": [
+              -0.0020851290242373103,
+              0.005339383364983726
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -9.477923115297493e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.0024158157123725698,
+              0.0020717981201191925
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.000822559329033995,
+            "cluster_bootstrap_95_percentile": [
+              -0.002075721442062669,
+              0.010863889551094812
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.005479452054794387,
+            "cluster_bootstrap_95_percentile": [
+              -0.013513513513513487,
+              0.0
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.006022387158613918,
+            "cluster_bootstrap_95_percentile": [
+              -0.01926476266043318,
+              0.0049930140434518875
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0007632874458895489,
+            "cluster_bootstrap_95_percentile": [
+              -0.003994419193762687,
+              0.004916574803523728
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0064162179738328495,
+            "cluster_bootstrap_95_percentile": [
+              -0.01561257221975458,
+              0.0
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.009279103322308302,
+            "cluster_bootstrap_95_percentile": [
+              -0.02276259250006207,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0016772748179440244,
+            "cluster_bootstrap_95_percentile": [
+              -0.025986862587446993,
+              0.025849680297647466
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "single",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": 0.006844106463878327,
+      "cluster_bootstrap_95_percentile": [
+        -0.002247402213398665,
+        0.019782037815126042
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.00684410646387823,
+            "cluster_bootstrap_95_percentile": [
+              -0.002247402213398761,
+              0.01978203781512608
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0020085132225989843,
+            "cluster_bootstrap_95_percentile": [
+              -0.0063153142478668016,
+              0.0018112846230199087
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0019087818073968421,
+            "cluster_bootstrap_95_percentile": [
+              -0.004313644200447248,
+              1.037070709814025e-05
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.005307818200426695,
+            "cluster_bootstrap_95_percentile": [
+              -0.0022947062490700195,
+              0.01634946705089778
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.01127149332228028,
+            "cluster_bootstrap_95_percentile": [
+              -0.002983340571816703,
+              0.03209031084393627
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0038658831662633925,
+            "cluster_bootstrap_95_percentile": [
+              -0.014404690045978868,
+              0.010403130209603501
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.00684410646387823,
+            "cluster_bootstrap_95_percentile": [
+              -0.002247402213398761,
+              0.01978203781512608
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0006513517048061246,
+            "cluster_bootstrap_95_percentile": [
+              -0.003789194919903856,
+              0.0025625899209698075
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0006669737969225709,
+            "cluster_bootstrap_95_percentile": [
+              -0.002108279227297065,
+              0.0007157386191802851
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.005307818200426695,
+            "cluster_bootstrap_95_percentile": [
+              -0.0022947062490700195,
+              0.01634946705089778
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.01127149332228028,
+            "cluster_bootstrap_95_percentile": [
+              -0.002983340571816703,
+              0.03209031084393627
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.00571666181900575,
+            "cluster_bootstrap_95_percentile": [
+              -0.013362641010825781,
+              0.01688813850541989
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0022813688212928174,
+            "cluster_bootstrap_95_percentile": [
+              -0.00813091090094579,
+              0.0022729433114414515
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.0009290307734323711,
+            "cluster_bootstrap_95_percentile": [
+              -0.0037225647292598403,
+              0.005873759066603877
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0012432070096971004,
+            "cluster_bootstrap_95_percentile": [
+              -0.001021317025519694,
+              0.00376035255696471
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0021959364714184693,
+            "cluster_bootstrap_95_percentile": [
+              -0.008310562353906564,
+              0.0032336893276410992
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0036534478604253184,
+            "cluster_bootstrap_95_percentile": [
+              -0.012705616998299122,
+              0.0034004172571001938
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0027207066324982723,
+            "cluster_bootstrap_95_percentile": [
+              -0.009382518851560502,
+              0.023594710662762013
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "repeat_vote",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": -0.002380952380952381,
+      "cluster_bootstrap_95_percentile": [
+        -0.006493890724659956,
+        0.000621215062111801
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0011904761904760752,
+            "cluster_bootstrap_95_percentile": [
+              -0.0031152647975077885,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.06957601541484437,
+            "cluster_bootstrap_95_percentile": [
+              -0.22203485219021304,
+              0.0013196114263396036
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.000714687576421541,
+            "cluster_bootstrap_95_percentile": [
+              -0.0018007715357895692,
+              0.0003192222402937816
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0009389585702270775,
+            "cluster_bootstrap_95_percentile": [
+              -0.0024649805586011374,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0018844988213424507,
+            "cluster_bootstrap_95_percentile": [
+              -0.004975063592961393,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0011913780663780627,
+            "cluster_bootstrap_95_percentile": [
+              -0.010537901201362724,
+              0.009646740674798258
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0011904761904760752,
+            "cluster_bootstrap_95_percentile": [
+              -0.0031152647975077885,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.02611279902588315,
+            "cluster_bootstrap_95_percentile": [
+              -0.08239922062009161,
+              0.0007045240571365861
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0015899647903467873,
+            "cluster_bootstrap_95_percentile": [
+              -0.004128176383968068,
+              5.6831919061774125e-05
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0009389585702270775,
+            "cluster_bootstrap_95_percentile": [
+              -0.0024649805586011374,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0018844988213424507,
+            "cluster_bootstrap_95_percentile": [
+              -0.004975063592961393,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.006131071514495781,
+            "cluster_bootstrap_95_percentile": [
+              -0.017760639697892384,
+              0.0011933554604186569
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.004166666666666763,
+            "cluster_bootstrap_95_percentile": [
+              -0.010827458878818285,
+              0.0010840108401084514
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.025345107073605266,
+            "cluster_bootstrap_95_percentile": [
+              -0.07928311317132354,
+              0.000585129346570925
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.002051307258431695,
+            "cluster_bootstrap_95_percentile": [
+              -0.006365793756803577,
+              0.0005881013269410665
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.004732113058862009,
+            "cluster_bootstrap_95_percentile": [
+              -0.01306750172214445,
+              0.0015941928739024477
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0074023913848856315,
+            "cluster_bootstrap_95_percentile": [
+              -0.01959016532390049,
+              0.0017507524908424543
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.004636814701385189,
+            "cluster_bootstrap_95_percentile": [
+              -0.01582133182903933,
+              0.010347692787356443
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "repeat_vote",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.31703659209556534,
+            "cluster_bootstrap_95_percentile": [
+              -1.0388310509376164,
+              0.0021714934965451414
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 5.1385083713856305e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.0015505087014725811,
+              0.001467910763230038
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0021461187214612057,
+            "cluster_bootstrap_95_percentile": [
+              -0.0070840118599612215,
+              0.008846641228566038
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.11689201485392708,
+            "cluster_bootstrap_95_percentile": [
+              -0.38247934720013393,
+              0.0027500456982273904
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0049999326591819715,
+            "cluster_bootstrap_95_percentile": [
+              -0.016096309523787596,
+              0.0009181825308513583
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.02201474349854965,
+            "cluster_bootstrap_95_percentile": [
+              -0.0593075844659275,
+              0.001735265178528554
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.11391443437175353,
+            "cluster_bootstrap_95_percentile": [
+              -0.3676452466125885,
+              0.0016084025915853797
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.008454900858675202,
+            "cluster_bootstrap_95_percentile": [
+              -0.02767353166366141,
+              0.0016330839412168157
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.002726305877829821,
+            "cluster_bootstrap_95_percentile": [
+              -0.042341798829679284,
+              0.023757973061725356
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "repeat_vote",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": -0.0030418250950570345,
+      "cluster_bootstrap_95_percentile": [
+        -0.00846201413427562,
+        0.0008097165991902835
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0015209125475283969,
+            "cluster_bootstrap_95_percentile": [
+              -0.004050249079488882,
+              0.0
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0008892393779901253,
+            "cluster_bootstrap_95_percentile": [
+              -0.004282627332478947,
+              0.0023306700542499986
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0009273237140256518,
+            "cluster_bootstrap_95_percentile": [
+              -0.002232462901060964,
+              0.00031008678786581523
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0011749636769413652,
+            "cluster_bootstrap_95_percentile": [
+              -0.003125023708462571,
+              0.0
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0023903483497241806,
+            "cluster_bootstrap_95_percentile": [
+              -0.006433675647915424,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0038820140569190004,
+            "cluster_bootstrap_95_percentile": [
+              -0.010139743135667522,
+              0.012793008165645957
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0015209125475283969,
+            "cluster_bootstrap_95_percentile": [
+              -0.004050249079488882,
+              0.0
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0009155261914830515,
+            "cluster_bootstrap_95_percentile": [
+              -0.0033322551799542925,
+              0.0014339452461247884
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0006434718077423518,
+            "cluster_bootstrap_95_percentile": [
+              -0.0016631582286530133,
+              0.00034752121684506593
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0011749636769413652,
+            "cluster_bootstrap_95_percentile": [
+              -0.003125023708462571,
+              0.0
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0023903483497241806,
+            "cluster_bootstrap_95_percentile": [
+              -0.006433675647915424,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.002091425656153209,
+            "cluster_bootstrap_95_percentile": [
+              -0.012234479450612748,
+              0.008045271463303706
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.005323193916349722,
+            "cluster_bootstrap_95_percentile": [
+              -0.014285714285714235,
+              0.0007968924302787973
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.000761225352066075,
+            "cluster_bootstrap_95_percentile": [
+              -0.003052457239646954,
+              0.0015951511953611148
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.00027388393973296066,
+            "cluster_bootstrap_95_percentile": [
+              -0.0014657341056011693,
+              0.001042061637917213
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.006069401129849106,
+            "cluster_bootstrap_95_percentile": [
+              -0.01733707639838635,
+              0.0013459298288045977
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.009492259327251062,
+            "cluster_bootstrap_95_percentile": [
+              -0.025947729900879478,
+              0.001360751891053447
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.002663484510270993,
+            "cluster_bootstrap_95_percentile": [
+              -0.012480376550399538,
+              0.0091891988434178
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "blind_vote",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": 0.006547619047619048,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.015338603114676727
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0017857142857143904,
+            "cluster_bootstrap_95_percentile": [
+              -0.008125679347826131,
+              0.012034527699782527
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0006122247181413742,
+            "cluster_bootstrap_95_percentile": [
+              -0.0020204886971625204,
+              0.0005466924022664601
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0004679151031451445,
+            "cluster_bootstrap_95_percentile": [
+              -0.0010926304079948933,
+              6.539473363839498e-05
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0011289048622847853,
+            "cluster_bootstrap_95_percentile": [
+              -0.007103156508728439,
+              0.009512258045290392
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.002975243281518214,
+            "cluster_bootstrap_95_percentile": [
+              -0.012765163081757125,
+              0.019476038418804038
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.001598484848484856,
+            "cluster_bootstrap_95_percentile": [
+              -0.00880461007591442,
+              0.008501741479289383
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0017857142857143904,
+            "cluster_bootstrap_95_percentile": [
+              -0.008125679347826131,
+              0.012034527699782527
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0006470417284638597,
+            "cluster_bootstrap_95_percentile": [
+              -0.001876511425358926,
+              0.0004344780609713441
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.00022333486182604667,
+            "cluster_bootstrap_95_percentile": [
+              -0.0006787375772174115,
+              0.00018849224067964452
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0011289048622847853,
+            "cluster_bootstrap_95_percentile": [
+              -0.007103156508728439,
+              0.009512258045290392
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.002975243281518214,
+            "cluster_bootstrap_95_percentile": [
+              -0.012765163081757125,
+              0.019476038418804038
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0015550836686029704,
+            "cluster_bootstrap_95_percentile": [
+              -0.0113973516806435,
+              0.0094881607272752
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0011904761904760752,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              0.0037037037037036535
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0009198094319331496,
+            "cluster_bootstrap_95_percentile": [
+              -0.003161009874128906,
+              0.0009530576804346587
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -5.7596909006418784e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.0006710946273411941,
+              0.0005263718073100767
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0009190592294363586,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              0.0028322459662518547
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0020784891900822444,
+            "cluster_bootstrap_95_percentile": [
+              0.0,
+              0.0065914925085869755
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.001298903936839721,
+            "cluster_bootstrap_95_percentile": [
+              -0.006023077188248723,
+              0.00537537694522256
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "blind_vote",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.016438356164383605,
+            "cluster_bootstrap_95_percentile": [
+              -0.04722587719298262,
+              0.0
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.00014699105632653975,
+            "cluster_bootstrap_95_percentile": [
+              -0.0009990630760937703,
+              0.0007891382614348295
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.00016651445966511802,
+            "cluster_bootstrap_95_percentile": [
+              -0.0008689030879040549,
+              0.0005979104422147852
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.01429857772834009,
+            "cluster_bootstrap_95_percentile": [
+              -0.03989884682010489,
+              0.0
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.027386117063260107,
+            "cluster_bootstrap_95_percentile": [
+              -0.08047729542914177,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.01632876712328766,
+            "cluster_bootstrap_95_percentile": [
+              -0.032175881953867023,
+              0.0018428481240981202
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.016438356164383605,
+            "cluster_bootstrap_95_percentile": [
+              -0.04722587719298262,
+              0.0
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.001033406895804112,
+            "cluster_bootstrap_95_percentile": [
+              -0.00448222498433658,
+              0.0013796760152414904
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 9.350270656183213e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.0005281769254075572,
+              0.0007606002219318888
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.01429857772834009,
+            "cluster_bootstrap_95_percentile": [
+              -0.03989884682010489,
+              0.0
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.027386117063260107,
+            "cluster_bootstrap_95_percentile": [
+              -0.08047729542914177,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.013847619363085859,
+            "cluster_bootstrap_95_percentile": [
+              -0.03270574159535201,
+              0.0008329526115648051
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0031270809555472567,
+            "cluster_bootstrap_95_percentile": [
+              -0.010835644945712658,
+              0.002065545596098778
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 5.9313321930903884e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.001673984895035098,
+              0.0015507164747579985
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0200906852274218,
+            "cluster_bootstrap_95_percentile": [
+              -0.030612283925235184,
+              0.0013208356108715313
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "blind_vote",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": 0.008365019011406846,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.020457366215344924
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.00684410646387823,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              0.018461538461538314
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0007413580159071342,
+            "cluster_bootstrap_95_percentile": [
+              -0.002443752889459276,
+              0.0006401606020505006
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0005515738368868095,
+            "cluster_bootstrap_95_percentile": [
+              -0.0013161708390489427,
+              6.629129005772975e-05
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.005503156370121887,
+            "cluster_bootstrap_95_percentile": [
+              0.0,
+              0.015213659744002411
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.010942747948727405,
+            "cluster_bootstrap_95_percentile": [
+              0.0,
+              0.029607031405659887
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.00018343127088375766,
+            "cluster_bootstrap_95_percentile": [
+              -0.011373492141165599,
+              0.01031720818268443
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.00684410646387823,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              0.018461538461538314
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.000539799685818243,
+            "cluster_bootstrap_95_percentile": [
+              -0.0018612503393176925,
+              0.0005575671211324092
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.00031127836940136877,
+            "cluster_bootstrap_95_percentile": [
+              -0.0008582078964624124,
+              0.00016513224448981562
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.005503156370121887,
+            "cluster_bootstrap_95_percentile": [
+              0.0,
+              0.015213659744002411
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.010942747948727405,
+            "cluster_bootstrap_95_percentile": [
+              0.0,
+              0.029607031405659887
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0006982817801807692,
+            "cluster_bootstrap_95_percentile": [
+              -0.010941785376586854,
+              0.013641746134186783
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.001520912547528619,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              0.004897959183673417
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0003071447124508575,
+            "cluster_bootstrap_95_percentile": [
+              -0.0022371604345912343,
+              0.0013581710691336225
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -9.004727728947892e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.0007786516099223054,
+              0.000496354845635234
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0011578807765593169,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              0.003713868547496528
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.002676395180718494,
+            "cluster_bootstrap_95_percentile": [
+              0.0,
+              0.008675318471610117
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0017803052850758685,
+            "cluster_bootstrap_95_percentile": [
+              -0.007218720663117018,
+              0.0046054459527086694
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "targeted",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        -0.006962901797246929,
+        0.007784625554086632
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -0.00696290179724707,
+              0.007784625554086615
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.07030926485242539,
+            "cluster_bootstrap_95_percentile": [
+              -0.007860926714685518,
+              0.23210605144158028
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0015435612984097957,
+            "cluster_bootstrap_95_percentile": [
+              -0.005733101066913575,
+              0.002199425683675828
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.00014001703504329388,
+            "cluster_bootstrap_95_percentile": [
+              -0.00604896870008029,
+              0.00614074988671599
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00020447500116571593,
+            "cluster_bootstrap_95_percentile": [
+              -0.011415051214343214,
+              0.012111981683409935
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.002471019721019735,
+            "cluster_bootstrap_95_percentile": [
+              -0.012424082329884291,
+              0.018125856320085672
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -0.00696290179724707,
+              0.007784625554086615
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.009111792033219102,
+            "cluster_bootstrap_95_percentile": [
+              -0.04932379048538185,
+              0.06412266281171439
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.02522571413482813,
+            "cluster_bootstrap_95_percentile": [
+              0.01788095753830972,
+              0.032513748530454516
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.00014001703504329388,
+            "cluster_bootstrap_95_percentile": [
+              -0.00604896870008029,
+              0.00614074988671599
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00020447500116571593,
+            "cluster_bootstrap_95_percentile": [
+              -0.011415051214343214,
+              0.012111981683409935
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.030150342958353366,
+            "cluster_bootstrap_95_percentile": [
+              0.021712766415538657,
+              0.044041456846169794
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.03392857142857142,
+            "cluster_bootstrap_95_percentile": [
+              -0.0531292103293413,
+              -0.016874811746987926
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.012864240119030201,
+            "cluster_bootstrap_95_percentile": [
+              -0.029758058566937605,
+              0.05674821706572566
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.021589621836803935,
+            "cluster_bootstrap_95_percentile": [
+              0.014157806604652632,
+              0.029761657542283566
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.04131518846907256,
+            "cluster_bootstrap_95_percentile": [
+              -0.06657178182097112,
+              -0.01817598639279695
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.04833500071886154,
+            "cluster_bootstrap_95_percentile": [
+              -0.0769676836693681,
+              -0.022625848659614336
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.032719722028518826,
+            "cluster_bootstrap_95_percentile": [
+              7.361925775022851e-05,
+              0.05044751546723257
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "targeted",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.0027736336933390504,
+            "cluster_bootstrap_95_percentile": [
+              -0.0045939546586554105,
+              0.011908195672238206
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.00012965995921579432,
+            "cluster_bootstrap_95_percentile": [
+              -0.006434205352495711,
+              0.007021063202747547
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.00783395599833956,
+            "cluster_bootstrap_95_percentile": [
+              -0.020187642045454545,
+              0.02902355068542567
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.07054557304572018,
+            "cluster_bootstrap_95_percentile": [
+              -0.24783649897719517,
+              0.05714698598581623
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.03513019685374491,
+            "cluster_bootstrap_95_percentile": [
+              0.02422689272726974,
+              0.04706742765566662
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.034096670541915675,
+            "cluster_bootstrap_95_percentile": [
+              0.02066398560197595,
+              0.0514466949458658
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.04109589041095907,
+            "cluster_bootstrap_95_percentile": [
+              -0.08101265822784809,
+              -0.009230769230769261
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.04542845960247166,
+            "cluster_bootstrap_95_percentile": [
+              -0.17366973693708396,
+              0.04824495951694635
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.027324218364936093,
+            "cluster_bootstrap_95_percentile": [
+              0.016461357176386672,
+              0.04100042228922008
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.053722361664416574,
+            "cluster_bootstrap_95_percentile": [
+              -0.11382467178629195,
+              -0.008694428350691308
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.06341051626884753,
+            "cluster_bootstrap_95_percentile": [
+              -0.1226167123912733,
+              -0.014663690829463427
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.02170996183682261,
+            "cluster_bootstrap_95_percentile": [
+              -0.02689424112635512,
+              0.06414239217190942
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "targeted",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        -0.008823529411764706,
+        0.008856460540411856
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -0.008823529411764786,
+              0.008856460540411846
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.08905489631483376,
+            "cluster_bootstrap_95_percentile": [
+              -0.011274491509468344,
+              0.2927572018824442
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0020079915334161036,
+            "cluster_bootstrap_95_percentile": [
+              -0.007146237679148857,
+              0.002346227178314185
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0002023772178986194,
+            "cluster_bootstrap_95_percentile": [
+              -0.007591332252993072,
+              0.00695517121704236
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00025324361305956167,
+            "cluster_bootstrap_95_percentile": [
+              -0.014267322384896673,
+              0.014005030634705033
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.007202980374083026,
+            "cluster_bootstrap_95_percentile": [
+              -0.009538903318903315,
+              0.020796001155823227
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -0.008823529411764786,
+              0.008856460540411846
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.031222011237639458,
+            "cluster_bootstrap_95_percentile": [
+              -0.021183338066173733,
+              0.09176001040958531
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.022476561136801826,
+            "cluster_bootstrap_95_percentile": [
+              0.013080942167259295,
+              0.03170158607803863
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0002023772178986194,
+            "cluster_bootstrap_95_percentile": [
+              -0.007591332252993072,
+              0.00695517121704236
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00025324361305956167,
+            "cluster_bootstrap_95_percentile": [
+              -0.014267322384896673,
+              0.014005030634705033
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.029861701920981074,
+            "cluster_bootstrap_95_percentile": [
+              0.012270248358566669,
+              0.04590235984680078
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.03193916349809889,
+            "cluster_bootstrap_95_percentile": [
+              -0.05343966217313625,
+              -0.011427554651753751
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.02904434308355358,
+            "cluster_bootstrap_95_percentile": [
+              -0.01167572137655817,
+              0.07820192604856757
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.019997889720630324,
+            "cluster_bootstrap_95_percentile": [
+              0.010779390113994983,
+              0.029927670346841503
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.038165233078779726,
+            "cluster_bootstrap_95_percentile": [
+              -0.06611464111445914,
+              -0.011703709969272814
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.043848981007875376,
+            "cluster_bootstrap_95_percentile": [
+              -0.07521722568931866,
+              -0.0125977627226438
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.02824436164201273,
+            "cluster_bootstrap_95_percentile": [
+              -0.008183405622811573,
+              0.04688489234827669
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "structured",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": -0.0005952380952380951,
+      "cluster_bootstrap_95_percentile": [
+        -0.0018993427458617327,
+        0.0
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0005952380952380931,
+            "cluster_bootstrap_95_percentile": [
+              -0.001899342745861851,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.00012931344573063885,
+            "cluster_bootstrap_95_percentile": [
+              -0.003141940082573452,
+              0.0032675608960585707
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.00024466032377651326,
+            "cluster_bootstrap_95_percentile": [
+              -0.0013939373107337012,
+              0.001918305620185226
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.00048140086162895557,
+            "cluster_bootstrap_95_percentile": [
+              -0.0015518974568033445,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0009828921045513805,
+            "cluster_bootstrap_95_percentile": [
+              -0.00320704164679837,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.00244203944203944,
+            "cluster_bootstrap_95_percentile": [
+              -0.012396350180009242,
+              0.014664341085591977
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0005952380952380931,
+            "cluster_bootstrap_95_percentile": [
+              -0.001899342745861851,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.004875840660198194,
+            "cluster_bootstrap_95_percentile": [
+              -0.020113772825227805,
+              0.007404959053825732
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.006876560985875885,
+            "cluster_bootstrap_95_percentile": [
+              0.004705068092018085,
+              0.009069091105264696
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.00048140086162895557,
+            "cluster_bootstrap_95_percentile": [
+              -0.0015518974568033445,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0009828921045513805,
+            "cluster_bootstrap_95_percentile": [
+              -0.00320704164679837,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.009030167801046082,
+            "cluster_bootstrap_95_percentile": [
+              0.004768506609130758,
+              0.014534054556288452
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.013095238095238049,
+            "cluster_bootstrap_95_percentile": [
+              -0.020625000000000004,
+              -0.0065277070566957945
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.006453111523230526,
+            "cluster_bootstrap_95_percentile": [
+              -0.020526972101292555,
+              0.004837495064713708
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.00500539181271123,
+            "cluster_bootstrap_95_percentile": [
+              0.002680020825598374,
+              0.007356414973875947
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.014932202298446051,
+            "cluster_bootstrap_95_percentile": [
+              -0.026106727421832794,
+              -0.0064386914006169995
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.019787588079309804,
+            "cluster_bootstrap_95_percentile": [
+              -0.032141402707762196,
+              -0.009361026901999088
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.010672816844354838,
+            "cluster_bootstrap_95_percentile": [
+              -0.004089804113016398,
+              0.02122702050023029
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "structured",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0006143841885057899,
+            "cluster_bootstrap_95_percentile": [
+              -0.004969602672311496,
+              0.0032298658146263813
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0009697826193302006,
+            "cluster_bootstrap_95_percentile": [
+              -0.004222777868796277,
+              0.0018122034695196528
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.013870208938702097,
+            "cluster_bootstrap_95_percentile": [
+              -0.008410976159990249,
+              0.033127864062243044
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.02460338299766829,
+            "cluster_bootstrap_95_percentile": [
+              -0.07747089216343131,
+              0.01441571539162527
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.009507552932717905,
+            "cluster_bootstrap_95_percentile": [
+              0.006630221144335409,
+              0.012208310416032606
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.008612407164663188,
+            "cluster_bootstrap_95_percentile": [
+              -0.014320145827595247,
+              0.017589627932965386
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.010958904109588885,
+            "cluster_bootstrap_95_percentile": [
+              -0.02716329966329974,
+              0.002740677321156754
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.026623953269661493,
+            "cluster_bootstrap_95_percentile": [
+              -0.07483706434703684,
+              0.009868199365206446
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.005673172254226588,
+            "cluster_bootstrap_95_percentile": [
+              -5.981218334252316e-05,
+              0.010438574022211274
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.008493777454962825,
+            "cluster_bootstrap_95_percentile": [
+              -0.027151842696882766,
+              0.00905245111997519
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.015598453193142348,
+            "cluster_bootstrap_95_percentile": [
+              -0.03958647693568205,
+              0.005210042949056874
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.018436892079301354,
+            "cluster_bootstrap_95_percentile": [
+              -0.012210321363743027,
+              0.054893591229824255
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "structured",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": -0.0007604562737642584,
+      "cluster_bootstrap_95_percentile": [
+        -0.002371541501976284,
+        0.0
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0007604562737643095,
+            "cluster_bootstrap_95_percentile": [
+              -0.0023715415019761625,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.0003357390248156511,
+            "cluster_bootstrap_95_percentile": [
+              -0.003673817152789351,
+              0.004188171330363364
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0005817490494296196,
+            "cluster_bootstrap_95_percentile": [
+              -0.0013416426270579519,
+              0.0025050625752938965
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0006262012828360808,
+            "cluster_bootstrap_95_percentile": [
+              -0.00195592108443714,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0012524567532353759,
+            "cluster_bootstrap_95_percentile": [
+              -0.004003313308246997,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0022813688212927757,
+            "cluster_bootstrap_95_percentile": [
+              -0.013013981577066626,
+              0.01555930817610061
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0007604562737643095,
+            "cluster_bootstrap_95_percentile": [
+              -0.0023715415019761625,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.0005998650076168843,
+            "cluster_bootstrap_95_percentile": [
+              -0.011989415623325431,
+              0.009911324841513183
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0061462856546231626,
+            "cluster_bootstrap_95_percentile": [
+              0.0034985310691651506,
+              0.008923748708311233
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0006262012828360808,
+            "cluster_bootstrap_95_percentile": [
+              -0.00195592108443714,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0012524567532353759,
+            "cluster_bootstrap_95_percentile": [
+              -0.004003313308246997,
+              0.0
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.009146124175403322,
+            "cluster_bootstrap_95_percentile": [
+              0.0035555686248365088,
+              0.019961132116543195
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.013688212927756571,
+            "cluster_bootstrap_95_percentile": [
+              -0.022473748723186866,
+              -0.006381298992161217
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.0008543607723200397,
+            "cluster_bootstrap_95_percentile": [
+              -0.012107514236654482,
+              0.007853601903920683
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.00482003830613098,
+            "cluster_bootstrap_95_percentile": [
+              0.002170594312966461,
+              0.007625224631397258
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.01669591156010397,
+            "cluster_bootstrap_95_percentile": [
+              -0.029072606270691623,
+              -0.007179704346889124
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.02102917290225137,
+            "cluster_bootstrap_95_percentile": [
+              -0.03522015604031237,
+              -0.009102536037009007
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.004344371170459313,
+            "cluster_bootstrap_95_percentile": [
+              -0.0084288142899204,
+              0.017935545348101375
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "contrastive",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": -0.004166666666666667,
+      "cluster_bootstrap_95_percentile": [
+        -0.011628471438247912,
+        0.002222846441947562
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.004166666666666541,
+            "cluster_bootstrap_95_percentile": [
+              -0.011628471438248036,
+              0.0022228464419475785
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.03535229385157046,
+            "cluster_bootstrap_95_percentile": [
+              -0.002600341348898792,
+              0.11177818423499039
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 2.402197783513138e-05,
+            "cluster_bootstrap_95_percentile": [
+              -0.0018867243992367513,
+              0.001991479992107687
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0036502001511810045,
+            "cluster_bootstrap_95_percentile": [
+              -0.011940645132360688,
+              0.0034958967148550927
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.006166531167540956,
+            "cluster_bootstrap_95_percentile": [
+              -0.017824265309487084,
+              0.0038513506098987087
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.007582671957671962,
+            "cluster_bootstrap_95_percentile": [
+              -0.009366281507737936,
+              0.015983733327268355
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.004166666666666541,
+            "cluster_bootstrap_95_percentile": [
+              -0.011628471438248036,
+              0.0022228464419475785
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.004304677584041683,
+            "cluster_bootstrap_95_percentile": [
+              -0.010216506524566033,
+              0.022298194623799512
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.006199908962154832,
+            "cluster_bootstrap_95_percentile": [
+              -0.010447986511072841,
+              -0.0009937528054445098
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0036502001511810045,
+            "cluster_bootstrap_95_percentile": [
+              -0.011940645132360688,
+              0.0034958967148550927
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.006166531167540956,
+            "cluster_bootstrap_95_percentile": [
+              -0.017824265309487084,
+              0.0038513506098987087
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.005834144706215877,
+            "cluster_bootstrap_95_percentile": [
+              -0.016070512307279586,
+              0.0052028801217330525
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.01309523809523816,
+            "cluster_bootstrap_95_percentile": [
+              -0.0018467289719626024,
+              0.028301886792452935
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.006916885243828275,
+            "cluster_bootstrap_95_percentile": [
+              -0.005756768099339939,
+              0.023449119029870853
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.002112297130994756,
+            "cluster_bootstrap_95_percentile": [
+              -0.00568739043577313,
+              0.002127045049105456
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.008325255984105162,
+            "cluster_bootstrap_95_percentile": [
+              -0.007608094182533415,
+              0.024212568421169648
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.0145400465026565,
+            "cluster_bootstrap_95_percentile": [
+              -0.007585734259927662,
+              0.036550493742655996
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.007859731469455511,
+            "cluster_bootstrap_95_percentile": [
+              -0.030239589942416142,
+              0.01414009815887093
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "contrastive",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": -0.00821917808219178,
+      "cluster_bootstrap_95_percentile": [
+        -0.02608695652173913,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.008219178082191858,
+            "cluster_bootstrap_95_percentile": [
+              -0.026086956521739202,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.001122358341734797,
+            "cluster_bootstrap_95_percentile": [
+              -0.002365388872081402,
+              0.00485115366679704
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0017605479452055262,
+            "cluster_bootstrap_95_percentile": [
+              -0.0012036874727193933,
+              0.004766517786561263
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.006530421799178732,
+            "cluster_bootstrap_95_percentile": [
+              -0.02054836412114758,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.01434513354931699,
+            "cluster_bootstrap_95_percentile": [
+              -0.047258178389788685,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0023561643835616417,
+            "cluster_bootstrap_95_percentile": [
+              -0.017893328771809793,
+              0.01958301350390903
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.008219178082191858,
+            "cluster_bootstrap_95_percentile": [
+              -0.026086956521739202,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.0007605645462102073,
+            "cluster_bootstrap_95_percentile": [
+              -0.028786635315133334,
+              0.045365093159729766
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.013236968190870724,
+            "cluster_bootstrap_95_percentile": [
+              -0.01989476095508992,
+              -0.007655863520249469
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.006530421799178732,
+            "cluster_bootstrap_95_percentile": [
+              -0.02054836412114758,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.01434513354931699,
+            "cluster_bootstrap_95_percentile": [
+              -0.047258178389788685,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.022949336662368536,
+            "cluster_bootstrap_95_percentile": [
+              -0.044235229493214616,
+              -0.0085239504103373
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.002739726027397249,
+            "cluster_bootstrap_95_percentile": [
+              -0.023880597014925398,
+              0.028915662650602414
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.004524262492364706,
+            "cluster_bootstrap_95_percentile": [
+              -0.01705790350648142,
+              0.0392519987029969
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.006406833679514279,
+            "cluster_bootstrap_95_percentile": [
+              -0.010819259985769932,
+              -0.0022382397062626702
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.004129338745943789,
+            "cluster_bootstrap_95_percentile": [
+              -0.02834784035890231,
+              0.016787316941880723
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.006117034999934989,
+            "cluster_bootstrap_95_percentile": [
+              -0.050722215378302855,
+              0.02963515615073357
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0032032937581431553,
+            "cluster_bootstrap_95_percentile": [
+              -0.04411333111396692,
+              0.03338941577448818
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "contrastive",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": -0.0030418250950570345,
+      "cluster_bootstrap_95_percentile": [
+        -0.011496152750071247,
+        0.0036380471380471307
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.003041825095057127,
+            "cluster_bootstrap_95_percentile": [
+              -0.011496152750071337,
+              0.0036380471380471477
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.04485337861285554,
+            "cluster_bootstrap_95_percentile": [
+              -0.0035739091171885897,
+              0.14306397250746333
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0004579795264159636,
+            "cluster_bootstrap_95_percentile": [
+              -0.0028989543478260627,
+              0.001958987708970139
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0026411960648836663,
+            "cluster_bootstrap_95_percentile": [
+              -0.012442522880962533,
+              0.005762689933014575
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.004171204248317406,
+            "cluster_bootstrap_95_percentile": [
+              -0.01708479170487395,
+              0.006394657829660728
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0085873948611591,
+            "cluster_bootstrap_95_percentile": [
+              -0.010226803104077906,
+              0.018114094616049473
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.003041825095057127,
+            "cluster_bootstrap_95_percentile": [
+              -0.011496152750071337,
+              0.0036380471380471477
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.005288404777051947,
+            "cluster_bootstrap_95_percentile": [
+              -0.009476214010375248,
+              0.026002394802045792
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.004246656780800273,
+            "cluster_bootstrap_95_percentile": [
+              -0.009478858560434626,
+              0.00212642156467273
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0026411960648836663,
+            "cluster_bootstrap_95_percentile": [
+              -0.012442522880962533,
+              0.005762689933014575
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.004171204248317406,
+            "cluster_bootstrap_95_percentile": [
+              -0.01708479170487395,
+              0.006394657829660728
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0002532290816454619,
+            "cluster_bootstrap_95_percentile": [
+              -0.01185778258895045,
+              0.01418795459520071
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.01596958174904939,
+            "cluster_bootstrap_95_percentile": [
+              -1.7421602787455867e-05,
+              0.032099509147701925
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.007580997262295386,
+            "cluster_bootstrap_95_percentile": [
+              -0.0063860803629036565,
+              0.0262911940067903
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0009202774806451042,
+            "cluster_bootstrap_95_percentile": [
+              -0.005340485553887658,
+              0.004213218713387365
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.011808078106455677,
+            "cluster_bootstrap_95_percentile": [
+              -0.006727567440070342,
+              0.029937558338847776
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 0.02015859036924672,
+            "cluster_bootstrap_95_percentile": [
+              -0.003394452021534041,
+              0.04368079333622721
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.010043130446876353,
+            "cluster_bootstrap_95_percentile": [
+              -0.03290619529416828,
+              0.016167749290421973
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "selective",
+    "panel": "full_transfer",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        -0.006962901797246929,
+        0.007784625554086632
+      ],
+      "n_examples": 336,
+      "n_source_components": 189,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -0.00696290179724707,
+              0.007784625554086615
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.06948335360067837,
+            "cluster_bootstrap_95_percentile": [
+              -0.007344231666207239,
+              0.23060867164822504
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0017372076585965568,
+            "cluster_bootstrap_95_percentile": [
+              -0.005951928430990399,
+              0.0018835386214151998
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.00014001703504329388,
+            "cluster_bootstrap_95_percentile": [
+              -0.00604896870008029,
+              0.00614074988671599
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00020447500116571593,
+            "cluster_bootstrap_95_percentile": [
+              -0.011415051214343214,
+              0.012111981683409935
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0020785233285233254,
+            "cluster_bootstrap_95_percentile": [
+              -0.01315231182795698,
+              0.013054836177962778
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -0.00696290179724707,
+              0.007784625554086615
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.02382272770354754,
+            "cluster_bootstrap_95_percentile": [
+              -0.0030039276649209494,
+              0.07663774310052328
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0020924334917932497,
+            "cluster_bootstrap_95_percentile": [
+              -0.0006717627509247821,
+              0.005392321388984573
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.00014001703504329388,
+            "cluster_bootstrap_95_percentile": [
+              -0.00604896870008029,
+              0.00614074988671599
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00020447500116571593,
+            "cluster_bootstrap_95_percentile": [
+              -0.011415051214343214,
+              0.012111981683409935
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.0013251441950263426,
+            "cluster_bootstrap_95_percentile": [
+              -0.011860193885607861,
+              0.012358120717381836
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 336,
+        "n_source_components": 189,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.0023809523809523725,
+            "cluster_bootstrap_95_percentile": [
+              -0.014094775669979017,
+              0.008459214501510659
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.02142905902257508,
+            "cluster_bootstrap_95_percentile": [
+              -0.00656271424920146,
+              0.07210600896660113
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.005132527239802204,
+            "cluster_bootstrap_95_percentile": [
+              0.001102892878990764,
+              0.010354913258660867
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.004911436436446315,
+            "cluster_bootstrap_95_percentile": [
+              -0.017554912967864107,
+              0.006335052079305524
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0035009901386854336,
+            "cluster_bootstrap_95_percentile": [
+              -0.021501369575590255,
+              0.01374521147622119
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.0005709705821586863,
+            "cluster_bootstrap_95_percentile": [
+              -0.019178182727355966,
+              0.012542605618588666
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "selective",
+    "panel": "original_development",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "n_examples": 73,
+      "n_source_components": 40,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.001476023336582033,
+            "cluster_bootstrap_95_percentile": [
+              -0.006256119946005301,
+              0.010716049646390122
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.0004027397260273624,
+            "cluster_bootstrap_95_percentile": [
+              -0.006907819107415451,
+              0.00651634591549295
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.005013698630136985,
+            "cluster_bootstrap_95_percentile": [
+              -0.021026000000000003,
+              0.02842780555555554
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.003121034905788189,
+            "cluster_bootstrap_95_percentile": [
+              -0.01484596303977122,
+              0.00655392567862715
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0013496782779857108,
+            "cluster_bootstrap_95_percentile": [
+              -0.0022755227679190494,
+              0.005149199123445223
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": 1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.006815027934468615,
+            "cluster_bootstrap_95_percentile": [
+              -0.0017048201901883864,
+              0.01818713430121081
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 73,
+        "n_source_components": 40,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": 0.0,
+            "cluster_bootstrap_95_percentile": [
+              -0.01739130434782599,
+              0.017151785714285647
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": -0.014726605686277927,
+            "cluster_bootstrap_95_percentile": [
+              -0.041562808350527676,
+              0.0061678890652884216
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.0017303131087377799,
+            "cluster_bootstrap_95_percentile": [
+              -0.0028310405032016795,
+              0.0065120214342613055
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.003973071674594819,
+            "cluster_bootstrap_95_percentile": [
+              -0.033478299257777344,
+              0.019038624191111107
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.0005813823017836173,
+            "cluster_bootstrap_95_percentile": [
+              -0.0298228120517248,
+              0.027848592502939414
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.008179802285259996,
+            "cluster_bootstrap_95_percentile": [
+              -0.023522316882500553,
+              0.04612656105419872
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "workflow": "selective",
+    "panel": "original_test",
+    "policy": {
+      "mean_accuracy_delta": 0.0,
+      "cluster_bootstrap_95_percentile": [
+        -0.008823529411764706,
+        0.008856460540411856
+      ],
+      "n_examples": 263,
+      "n_source_components": 149,
+      "repetitions": 2000,
+      "interpretation": "Exploratory conditional-on-prompts paired interval; no multiplicity correction."
+    },
+    "forecast": {
+      "raw": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -0.008823529411764786,
+              0.008856460540411846
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.08835991295154944,
+            "cluster_bootstrap_95_percentile": [
+              -0.009213980166190868,
+              0.2888493927270367
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": -0.002107611305279228,
+            "cluster_bootstrap_95_percentile": [
+              -0.007087361087543852,
+              0.002053494051228205
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0002023772178986194,
+            "cluster_bootstrap_95_percentile": [
+              -0.007591332252993072,
+              0.00695517121704236
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00025324361305956167,
+            "cluster_bootstrap_95_percentile": [
+              -0.014267322384896673,
+              0.014005030634705033
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": 0.006678265545185691,
+            "cluster_bootstrap_95_percentile": [
+              -0.010731264549791092,
+              0.016179153292098358
+            ]
+          }
+        }
+      },
+      "temperature": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -1.1102230246251565e-16,
+            "cluster_bootstrap_95_percentile": [
+              -0.008823529411764786,
+              0.008856460540411846
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.031301414663553295,
+            "cluster_bootstrap_95_percentile": [
+              -0.0024095984436156917,
+              0.09728311582012274
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.002298597486500298,
+            "cluster_bootstrap_95_percentile": [
+              -0.0010748219625710646,
+              0.0061162898855422285
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.0002023772178986194,
+            "cluster_bootstrap_95_percentile": [
+              -0.007591332252993072,
+              0.00695517121704236
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.00025324361305956167,
+            "cluster_bootstrap_95_percentile": [
+              -0.014267322384896673,
+              0.014005030634705033
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.004137411461148502,
+            "cluster_bootstrap_95_percentile": [
+              -0.02293228085458667,
+              0.01786844338091687
+            ]
+          }
+        }
+      },
+      "temperature_bias": {
+        "n_examples": 263,
+        "n_source_components": 149,
+        "bootstrap_repetitions": 2000,
+        "interpretation": "Exploratory pointwise intervals conditional on frozen searches and fitted calibrators; no multiplicity correction or calibration-fit uncertainty.",
+        "metrics": {
+          "accuracy": {
+            "mean_paired_delta": -0.003041825095056905,
+            "cluster_bootstrap_95_percentile": [
+              -0.01692435424354255,
+              0.0090165475163317
+            ]
+          },
+          "log_loss": {
+            "mean_paired_delta": 0.031464661774461944,
+            "cluster_bootstrap_95_percentile": [
+              -0.0019916162601695555,
+              0.09366686458078292
+            ]
+          },
+          "brier": {
+            "mean_paired_delta": 0.006076868044242095,
+            "cluster_bootstrap_95_percentile": [
+              0.0010841964242869497,
+              0.012536586180038419
+            ]
+          },
+          "macro_f1": {
+            "mean_paired_delta": -0.005529749859078059,
+            "cluster_bootstrap_95_percentile": [
+              -0.02054657386782937,
+              0.006799195357020869
+            ]
+          },
+          "mcc": {
+            "mean_paired_delta": -0.004125032550402863,
+            "cluster_bootstrap_95_percentile": [
+              -0.025625472159394647,
+              0.015188961494532804
+            ]
+          },
+          "ece": {
+            "mean_paired_delta": -0.010358728035358006,
+            "cluster_bootstrap_95_percentile": [
+              -0.0264554127664657,
+              0.013704522238856348
+            ]
+          }
+        }
+      }
+    }
+  }
+]

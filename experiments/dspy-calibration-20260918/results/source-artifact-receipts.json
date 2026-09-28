@@ -1,0 +1,382 @@
+[
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10546298939,
+    "name": "dspy-v2-primary-entity_resolution--baseline_noul",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-entity_resolution--baseline_noul.zip",
+    "size": 978264,
+    "sha256": "d38b9f36f7a6bac2bf6a368990aaedb5463a5b7b10c06d9665828e58cdf9dd19",
+    "created_at": "2026-09-18T12:29:23Z",
+    "expires_at": "2026-10-18T12:29:21Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10545663775,
+    "name": "dspy-v2-primary-entity_resolution--fewshot_contract",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-entity_resolution--fewshot_contract.zip",
+    "size": 2544176,
+    "sha256": "0b1874e9c036560998dfc5151d56f080bcfdb79dbdb14064ae8904acd20464e5",
+    "created_at": "2026-09-18T12:31:39Z",
+    "expires_at": "2026-10-18T12:31:37Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10546558900,
+    "name": "dspy-v2-primary-entity_resolution--identity_contract",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-entity_resolution--identity_contract.zip",
+    "size": 1656386,
+    "sha256": "05391dd70f6f98b7d1aea76db2ddd6432f89683ed1bad6430a93956542315d32",
+    "created_at": "2026-09-18T12:32:00Z",
+    "expires_at": "2026-10-18T12:31:59Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10546830214,
+    "name": "dspy-v2-primary-entity_resolution--identity_noul",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-entity_resolution--identity_noul.zip",
+    "size": 1504834,
+    "sha256": "e5f06d56e445917a19fe14d6dcb550f9b9dfbb402bebc199d0809d82e9cbdaf9",
+    "created_at": "2026-09-18T12:32:56Z",
+    "expires_at": "2026-10-18T12:32:55Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10545629241,
+    "name": "dspy-v2-primary-relation_support--baseline_choice",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-relation_support--baseline_choice.zip",
+    "size": 1975900,
+    "sha256": "aeb70b69cb294c7f3f20408f4aa10373c36423e7e10e1f5a0244824a9f51f3e2",
+    "created_at": "2026-09-18T12:33:44Z",
+    "expires_at": "2026-10-18T12:33:42Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10547870221,
+    "name": "dspy-v2-primary-relation_support--conditional_nouls",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-relation_support--conditional_nouls.zip",
+    "size": 2734331,
+    "sha256": "7c53bf0ffa595c334d5984f2e8f00eaa5da16824fb47d4af6f9f15adc6482a36",
+    "created_at": "2026-09-18T12:47:03Z",
+    "expires_at": "2026-10-18T12:47:02Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10546820708,
+    "name": "dspy-v2-primary-relation_support--evidence_contract",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-relation_support--evidence_contract.zip",
+    "size": 2778668,
+    "sha256": "97399a6cc9eb65c421f0ed21b17bd02fbd919ff37ae1980f1a73d51191eb3ee6",
+    "created_at": "2026-09-18T12:35:54Z",
+    "expires_at": "2026-10-18T12:35:52Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35342763186,
+    "artifact_id": 10546499997,
+    "name": "dspy-v2-primary-relation_support--fewshot_contract",
+    "zip_path": "original-zips\\35342763186\\dspy-v2-primary-relation_support--fewshot_contract.zip",
+    "size": 8930685,
+    "sha256": "402012990877b9cf84991424f2733fd30865af5e0744694a09633661947d4a23",
+    "created_at": "2026-09-18T12:38:07Z",
+    "expires_at": "2026-10-18T12:38:05Z",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547288260,
+    "name": "dspy-completed-diagnostic-entity_resolution",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-diagnostic-entity_resolution.zip",
+    "size": 691340,
+    "sha256": "bc78ebab6f275e729a13bfbc6a0ebf66de9bdc5932c3a5131dbe3ee14e5b765c",
+    "created_at": "2026-09-18T12:56:46Z",
+    "expires_at": "2026-10-18T12:56:45Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10546948679,
+    "name": "dspy-completed-diagnostic-relation_support",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-diagnostic-relation_support.zip",
+    "size": 1818794,
+    "sha256": "91b6bae6c94c33b2a0fb95df26e54c443eaa7dc21a0aabb520595b23dc7b1dfa",
+    "created_at": "2026-09-18T12:56:43Z",
+    "expires_at": "2026-10-18T12:56:42Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547776068,
+    "name": "dspy-completed-primary-analysis",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-primary-analysis.zip",
+    "size": 164377,
+    "sha256": "0aad3c4771c861196264523f34f53b516e771c02ba517ab38ad5b252dd99041a",
+    "created_at": "2026-09-18T12:48:31Z",
+    "expires_at": "2026-10-18T12:48:30Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547657809,
+    "name": "dspy-completed-transfer-0",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-0.zip",
+    "size": 2163685,
+    "sha256": "842af38c8ffb90a6e7cd72e22b041634dfe5d2d87da0fed9ba620b4580850259",
+    "created_at": "2026-09-18T12:57:52Z",
+    "expires_at": "2026-10-18T12:57:52Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547671708,
+    "name": "dspy-completed-transfer-1",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-1.zip",
+    "size": 2199809,
+    "sha256": "89918d06083388746e07958167fa69a085e5e25a03b61beb759de2f351c429c7",
+    "created_at": "2026-09-18T12:58:04Z",
+    "expires_at": "2026-10-18T12:58:03Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547671696,
+    "name": "dspy-completed-transfer-2",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-2.zip",
+    "size": 2116514,
+    "sha256": "8922fed93ab17635b2884e1fa71f28216dcb2b2b53a7d2a4afa5e38c997723be",
+    "created_at": "2026-09-18T12:57:59Z",
+    "expires_at": "2026-10-18T12:57:59Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10546938933,
+    "name": "dspy-completed-transfer-3",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-3.zip",
+    "size": 2128423,
+    "sha256": "6189e967606c615ed2dff920eec0902faf45a4a5f040e61b4a4d384ff5cd55fb",
+    "created_at": "2026-09-18T12:58:06Z",
+    "expires_at": "2026-10-18T12:58:06Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547108616,
+    "name": "dspy-completed-transfer-4",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-4.zip",
+    "size": 2119616,
+    "sha256": "785c9f99ee9ae191345da81217d9a506716caccb3a81dcc8935a9b7ecb8f4098",
+    "created_at": "2026-09-18T12:57:54Z",
+    "expires_at": "2026-10-18T12:57:53Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547228249,
+    "name": "dspy-completed-transfer-5",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-5.zip",
+    "size": 2113930,
+    "sha256": "73fd6e431eb6947a6a6ae4284823e840f12a381299acd117b9bc5aa90e2b34de",
+    "created_at": "2026-09-18T12:57:58Z",
+    "expires_at": "2026-10-18T12:57:57Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10546864145,
+    "name": "dspy-completed-transfer-6",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-6.zip",
+    "size": 2067946,
+    "sha256": "06fd9d57582d965059735621805aac13eaaf8c14e3a6c36d37f0e22e970d99a4",
+    "created_at": "2026-09-18T12:57:48Z",
+    "expires_at": "2026-10-18T12:57:46Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547741581,
+    "name": "dspy-completed-transfer-7",
+    "zip_path": "original-zips\\35345560822\\dspy-completed-transfer-7.zip",
+    "size": 2079082,
+    "sha256": "e6a984fec2d22991586fb87963e525e16ace9bd2784c7bb4131be481edb1720e",
+    "created_at": "2026-09-18T12:57:44Z",
+    "expires_at": "2026-10-18T12:57:43Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35345560822,
+    "artifact_id": 10547885250,
+    "name": "dspy-v2-completed-primary",
+    "zip_path": "original-zips\\35345560822\\dspy-v2-completed-primary.zip",
+    "size": 23195901,
+    "sha256": "975800b629deccbd504f165a809c65d88869e306210861210568c648756655e0",
+    "created_at": "2026-09-18T12:47:48Z",
+    "expires_at": "2026-10-18T12:47:47Z",
+    "head_sha": "f197f9f24076bf85b7739916669dae9fdb428adf"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544179619,
+    "name": "dspy-live-entity_resolution--baseline_noul",
+    "zip_path": "original-zips\\35339699653\\dspy-live-entity_resolution--baseline_noul.zip",
+    "size": 54666,
+    "sha256": "7e1584dd16d70f053d1a0007efa9582aa151bc45f576a59ed6cea1ecd5261ee5",
+    "expires_at": "2026-10-02T11:31:32Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544039878,
+    "name": "dspy-live-entity_resolution--fewshot_contract",
+    "zip_path": "original-zips\\35339699653\\dspy-live-entity_resolution--fewshot_contract.zip",
+    "size": 95858,
+    "sha256": "9ae4448f80501ffd52c6435f0567101a37f1b060dc60711bd9c93ea770bb5a97",
+    "expires_at": "2026-10-02T11:31:20Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544154513,
+    "name": "dspy-live-entity_resolution--identity_contract",
+    "zip_path": "original-zips\\35339699653\\dspy-live-entity_resolution--identity_contract.zip",
+    "size": 61150,
+    "sha256": "4241d92088ae43f6d422d11cb942b6f9a919d330c903023c0a235dd06a96ffef",
+    "expires_at": "2026-10-02T11:31:19Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10545140133,
+    "name": "dspy-live-entity_resolution--identity_noul",
+    "zip_path": "original-zips\\35339699653\\dspy-live-entity_resolution--identity_noul.zip",
+    "size": 54235,
+    "sha256": "86ac04a14158cd5b6e3a85ebe32735828443e7ef485fdca99e19fdc309327c8b",
+    "expires_at": "2026-10-02T11:31:20Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544930838,
+    "name": "dspy-live-relation_support--baseline_choice",
+    "zip_path": "original-zips\\35339699653\\dspy-live-relation_support--baseline_choice.zip",
+    "size": 85817,
+    "sha256": "489889e1c955ea48a48156d77caf3b74156e9945dcb6d2c198745c6d2a75f45c",
+    "expires_at": "2026-10-02T11:31:33Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544094926,
+    "name": "dspy-live-relation_support--conditional_nouls",
+    "zip_path": "original-zips\\35339699653\\dspy-live-relation_support--conditional_nouls.zip",
+    "size": 98100,
+    "sha256": "afd675ee6122b65ae5a68cf1285191620e144345cb40dd07b17d76d4a6ebc8ae",
+    "expires_at": "2026-10-02T11:32:11Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544367512,
+    "name": "dspy-live-relation_support--evidence_contract",
+    "zip_path": "original-zips\\35339699653\\dspy-live-relation_support--evidence_contract.zip",
+    "size": 104384,
+    "sha256": "325f20fd91fafb4a9c60b57e9e2b6fa234b16ee21a55e7cecf1dd54aa8d2ed9d",
+    "expires_at": "2026-10-02T11:31:47Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35339699653,
+    "artifact_id": 10544482339,
+    "name": "dspy-live-relation_support--fewshot_contract",
+    "zip_path": "original-zips\\35339699653\\dspy-live-relation_support--fewshot_contract.zip",
+    "size": 332322,
+    "sha256": "acbb0defecc4c0be49a1c2619fe32bb402181e4c42c514315d34f0fe1716fe07",
+    "expires_at": "2026-10-02T11:31:50Z",
+    "head_sha": "e0713f7281c8a23db6fcc5627765183eb0451a56"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10545369006,
+    "name": "dspy-live-entity_resolution--baseline_noul",
+    "zip_path": "original-zips\\35340617823\\dspy-live-entity_resolution--baseline_noul.zip",
+    "size": 812013,
+    "sha256": "63d64962bde775fcc330db94c08652be88b5d680cc244cf2e4eb1540438b0f24",
+    "expires_at": "2026-10-02T12:01:43Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10545339360,
+    "name": "dspy-live-entity_resolution--fewshot_contract",
+    "zip_path": "original-zips\\35340617823\\dspy-live-entity_resolution--fewshot_contract.zip",
+    "size": 2098202,
+    "sha256": "10a43edb38987c97c06614f36b9edf5eee947dddf131bb12e188e15993a670b7",
+    "expires_at": "2026-10-02T12:03:02Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10545024928,
+    "name": "dspy-live-entity_resolution--identity_contract",
+    "zip_path": "original-zips\\35340617823\\dspy-live-entity_resolution--identity_contract.zip",
+    "size": 1325250,
+    "sha256": "93aaebb6f68072c23b5d59ee48b507dd289a05f666b75919109566f372ef9e95",
+    "expires_at": "2026-10-02T12:02:53Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10545860255,
+    "name": "dspy-live-entity_resolution--identity_noul",
+    "zip_path": "original-zips\\35340617823\\dspy-live-entity_resolution--identity_noul.zip",
+    "size": 1156637,
+    "sha256": "f7e23a2b2b936a11117967345cfb28f250d32c907236511af13bf9a6cfca667f",
+    "expires_at": "2026-10-02T12:02:51Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10544899263,
+    "name": "dspy-live-relation_support--baseline_choice",
+    "zip_path": "original-zips\\35340617823\\dspy-live-relation_support--baseline_choice.zip",
+    "size": 556788,
+    "sha256": "6b3e2f9e462196f81706c39500c6b3777083763e641ddef9fd88f80177e7d6a2",
+    "expires_at": "2026-10-02T11:55:29Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10545592010,
+    "name": "dspy-live-relation_support--conditional_nouls",
+    "zip_path": "original-zips\\35340617823\\dspy-live-relation_support--conditional_nouls.zip",
+    "size": 2095350,
+    "sha256": "da372cce39eb51adf9d2b9b8ee981af9f65ba41009ff49f2662e7ad5d80c6275",
+    "expires_at": "2026-10-02T12:13:33Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10545372648,
+    "name": "dspy-live-relation_support--evidence_contract",
+    "zip_path": "original-zips\\35340617823\\dspy-live-relation_support--evidence_contract.zip",
+    "size": 564952,
+    "sha256": "f414b2ed90c3cb0341e812ca6c059ed6684e606c631d1c8ea3028fd851d62fa5",
+    "expires_at": "2026-10-02T11:52:35Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  },
+  {
+    "run_id": 35340617823,
+    "artifact_id": 10544729525,
+    "name": "dspy-live-relation_support--fewshot_contract",
+    "zip_path": "original-zips\\35340617823\\dspy-live-relation_support--fewshot_contract.zip",
+    "size": 2061486,
+    "sha256": "a0a9f1e941c33ea8605541009516f0dd8f6d955e01d12907a0eaff9dcb485e5a",
+    "expires_at": "2026-10-02T11:56:14Z",
+    "head_sha": "9e97de8fa1fe8c9158e5febbe8fd22b8e850e1db"
+  }
+]

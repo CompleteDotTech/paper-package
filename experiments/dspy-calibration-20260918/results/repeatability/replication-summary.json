@@ -1,0 +1,1202 @@
+[
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.95,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9466666666666667,
+      "between_search_std": 0.007453559924999273,
+      "mean_within_search_service_std": 0.00577350269189625
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9484702093397747,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9454408822524766,
+      "between_search_std": 0.006773781293280005,
+      "mean_within_search_service_std": 0.005246948427944972
+    },
+    "mcc": {
+      "baseline_mean": 0.9181705804946891,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9135295612368874,
+      "between_search_std": 0.010377634545330257,
+      "mean_within_search_service_std": 0.008038481153418172
+    },
+    "brier": {
+      "baseline_mean": 0.06123333333333333,
+      "baseline_service_std": 0.006268949938652673,
+      "dspy_mean": 0.06386333333333333,
+      "between_search_std": 0.002716438640736965,
+      "mean_within_search_service_std": 0.0029468272952265936
+    },
+    "log_loss": {
+      "baseline_mean": 0.10529162154938819,
+      "baseline_service_std": 0.007918074216728174,
+      "dspy_mean": 0.1076306687199235,
+      "between_search_std": 0.002785296625474758,
+      "mean_within_search_service_std": 0.004630307915189848
+    },
+    "ece": {
+      "baseline_mean": 0.033500000000000016,
+      "baseline_service_std": 0.0039051248379533645,
+      "dspy_mean": 0.04263333333333334,
+      "between_search_std": 0.015144856112445131,
+      "mean_within_search_service_std": 0.012940233620413365
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.95,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9466666666666667,
+      "between_search_std": 0.007453559924999273,
+      "mean_within_search_service_std": 0.00577350269189625
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9484702093397747,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9454408822524766,
+      "between_search_std": 0.006773781293280005,
+      "mean_within_search_service_std": 0.005246948427944972
+    },
+    "mcc": {
+      "baseline_mean": 0.9181705804946891,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9135295612368874,
+      "between_search_std": 0.010377634545330257,
+      "mean_within_search_service_std": 0.008038481153418172
+    },
+    "brier": {
+      "baseline_mean": 0.20447339261303926,
+      "baseline_service_std": 0.012578391846168309,
+      "dspy_mean": 0.19977138748830758,
+      "between_search_std": 0.003951399944530381,
+      "mean_within_search_service_std": 0.011532263240033999
+    },
+    "log_loss": {
+      "baseline_mean": 0.34579687756658734,
+      "baseline_service_std": 0.021778041700205603,
+      "dspy_mean": 0.337992394367984,
+      "between_search_std": 0.007138307761038785,
+      "mean_within_search_service_std": 0.020121246101968936
+    },
+    "ece": {
+      "baseline_mean": 0.24239415205092127,
+      "baseline_service_std": 0.017028706565796945,
+      "dspy_mean": 0.23376701331706845,
+      "between_search_std": 0.007428420509010825,
+      "mean_within_search_service_std": 0.02089163550993663
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.8833333333333333,
+      "baseline_service_std": 0.05773502691896256,
+      "dspy_mean": 0.8633333333333333,
+      "between_search_std": 0.03613247231446466,
+      "mean_within_search_service_std": 0.03309401076758502
+    },
+    "macro_f1": {
+      "baseline_mean": 0.8426455026455026,
+      "baseline_service_std": 0.08348668178281732,
+      "dspy_mean": 0.8205969564520289,
+      "between_search_std": 0.03724851956470974,
+      "mean_within_search_service_std": 0.05138192300621989
+    },
+    "mcc": {
+      "baseline_mean": 0.801194421205336,
+      "baseline_service_std": 0.0963308281535218,
+      "dspy_mean": 0.7695155091253144,
+      "between_search_std": 0.05671271990105117,
+      "mean_within_search_service_std": 0.05123891946482258
+    },
+    "brier": {
+      "baseline_mean": 0.2139506595409423,
+      "baseline_service_std": 0.021825891744414922,
+      "dspy_mean": 0.21009606981539689,
+      "between_search_std": 0.005732271049586167,
+      "mean_within_search_service_std": 0.018073003964774775
+    },
+    "log_loss": {
+      "baseline_mean": 0.3443165923436672,
+      "baseline_service_std": 0.03054085268569369,
+      "dspy_mean": 0.3383448908708716,
+      "between_search_std": 0.007792863677194382,
+      "mean_within_search_service_std": 0.02621292746801641
+    },
+    "ece": {
+      "baseline_mean": 0.15164728610438688,
+      "baseline_service_std": 0.01667751478708951,
+      "dspy_mean": 0.14034295387322945,
+      "between_search_std": 0.01366032056718797,
+      "mean_within_search_service_std": 0.024003036764834063
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.8833333333333333,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.89,
+      "between_search_std": 0.009128709291752798,
+      "mean_within_search_service_std": 0.01732050807568879
+    },
+    "macro_f1": {
+      "baseline_mean": 0.8891774891774891,
+      "baseline_service_std": 0.02399377742086757,
+      "dspy_mean": 0.8947186147186146,
+      "between_search_std": 0.00758749863210622,
+      "mean_within_search_service_std": 0.014396266452520543
+    },
+    "mcc": {
+      "baseline_mean": 0.8284250955231112,
+      "baseline_service_std": 0.03486652241940952,
+      "dspy_mean": 0.836477173964932,
+      "between_search_std": 0.011025762493465888,
+      "mean_within_search_service_std": 0.020919913451645712
+    },
+    "brier": {
+      "baseline_mean": 0.17809,
+      "baseline_service_std": 0.0007280796659706874,
+      "dspy_mean": 0.1755928243376526,
+      "between_search_std": 0.0028923517765953887,
+      "mean_within_search_service_std": 0.003084051421610013
+    },
+    "log_loss": {
+      "baseline_mean": 0.2709677256813941,
+      "baseline_service_std": 0.006718122085530149,
+      "dspy_mean": 0.26808512750359775,
+      "between_search_std": 0.0048827990606417435,
+      "mean_within_search_service_std": 0.005979878683543037
+    },
+    "ece": {
+      "baseline_mean": 0.10083333333333332,
+      "baseline_service_std": 0.011772142257606893,
+      "dspy_mean": 0.10178787878787877,
+      "between_search_std": 0.00369869246993369,
+      "mean_within_search_service_std": 0.00771085834739765
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.8833333333333333,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.89,
+      "between_search_std": 0.009128709291752798,
+      "mean_within_search_service_std": 0.01732050807568879
+    },
+    "macro_f1": {
+      "baseline_mean": 0.8891774891774891,
+      "baseline_service_std": 0.02399377742086757,
+      "dspy_mean": 0.8947186147186146,
+      "between_search_std": 0.00758749863210622,
+      "mean_within_search_service_std": 0.014396266452520543
+    },
+    "mcc": {
+      "baseline_mean": 0.8284250955231112,
+      "baseline_service_std": 0.03486652241940952,
+      "dspy_mean": 0.836477173964932,
+      "between_search_std": 0.011025762493465888,
+      "mean_within_search_service_std": 0.020919913451645712
+    },
+    "brier": {
+      "baseline_mean": 0.2409030905836979,
+      "baseline_service_std": 0.012634573229961492,
+      "dspy_mean": 0.23415963723235375,
+      "between_search_std": 0.02200722322802269,
+      "mean_within_search_service_std": 0.0061600731966521
+    },
+    "log_loss": {
+      "baseline_mean": 0.3941698738423839,
+      "baseline_service_std": 0.023320668428597195,
+      "dspy_mean": 0.38622053955447694,
+      "between_search_std": 0.03096662507246286,
+      "mean_within_search_service_std": 0.013199838189477805
+    },
+    "ece": {
+      "baseline_mean": 0.17569955304230894,
+      "baseline_service_std": 0.015495032133974816,
+      "dspy_mean": 0.16610462653256455,
+      "between_search_std": 0.01626316676559693,
+      "mean_within_search_service_std": 0.014645335184313787
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9333333333333333,
+      "baseline_service_std": 0.02886751345948125,
+      "dspy_mean": 0.9333333333333333,
+      "between_search_std": 0.01178511301977579,
+      "mean_within_search_service_std": 0.023094010767585
+    },
+    "macro_f1": {
+      "baseline_mean": 0.919072039072039,
+      "baseline_service_std": 0.034598719428359986,
+      "dspy_mean": 0.919072039072039,
+      "between_search_std": 0.014124868058866808,
+      "mean_within_search_service_std": 0.02767897554268799
+    },
+    "mcc": {
+      "baseline_mean": 0.8826367508088517,
+      "baseline_service_std": 0.05159940354698358,
+      "dspy_mean": 0.8826367508088517,
+      "between_search_std": 0.021065368287011034,
+      "mean_within_search_service_std": 0.04127952283758686
+    },
+    "brier": {
+      "baseline_mean": 0.14963863879972483,
+      "baseline_service_std": 0.017349447715479395,
+      "dspy_mean": 0.14740673176721536,
+      "between_search_std": 0.014468743605631364,
+      "mean_within_search_service_std": 0.013284705236883954
+    },
+    "log_loss": {
+      "baseline_mean": 0.27058267388453455,
+      "baseline_service_std": 0.02656562735431532,
+      "dspy_mean": 0.2687242065829176,
+      "between_search_std": 0.02255073940559279,
+      "mean_within_search_service_std": 0.018758033869666412
+    },
+    "ece": {
+      "baseline_mean": 0.12518447482619854,
+      "baseline_service_std": 0.010311276744664371,
+      "dspy_mean": 0.1291352381160976,
+      "between_search_std": 0.005542300420721623,
+      "mean_within_search_service_std": 0.015881175567970127
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.85,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.85,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.8614718614718614,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.8614718614718614,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.7881647033140068,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.7881647033140068,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.18362304966666668,
+      "baseline_service_std": 0.002457726020476308,
+      "dspy_mean": 0.18341341666666666,
+      "between_search_std": 0.0011581747086539555,
+      "mean_within_search_service_std": 0.0021983894768144562
+    },
+    "log_loss": {
+      "baseline_mean": 0.36964502075316374,
+      "baseline_service_std": 0.005467679604892289,
+      "dspy_mean": 0.36895151039183294,
+      "between_search_std": 0.0022605383274962626,
+      "mean_within_search_service_std": 0.0032415563565501362
+    },
+    "ece": {
+      "baseline_mean": 0.1904933333333333,
+      "baseline_service_std": 0.015451786574158136,
+      "dspy_mean": 0.19658666666666666,
+      "between_search_std": 0.006282710402366153,
+      "mean_within_search_service_std": 0.02382588992202955
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.85,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.85,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.8614718614718614,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.8614718614718614,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.7881647033140068,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.7881647033140068,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.171601983932746,
+      "baseline_service_std": 0.0024615560701164805,
+      "dspy_mean": 0.1711643498274153,
+      "between_search_std": 0.0012603292707512846,
+      "mean_within_search_service_std": 0.0029658091201607947
+    },
+    "log_loss": {
+      "baseline_mean": 0.310340916090283,
+      "baseline_service_std": 0.0058163363608826355,
+      "dspy_mean": 0.3075665627619487,
+      "between_search_std": 0.003134292976373746,
+      "mean_within_search_service_std": 0.0047872796863766675
+    },
+    "ece": {
+      "baseline_mean": 0.15893583331920189,
+      "baseline_service_std": 0.013379493215177805,
+      "dspy_mean": 0.14804427953813482,
+      "between_search_std": 0.002809279125749558,
+      "mean_within_search_service_std": 0.015429076850911938
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.85,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.85,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.8614718614718614,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.8614718614718614,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.7881647033140068,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.7881647033140068,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.12805351609958332,
+      "baseline_service_std": 0.0028052662998700986,
+      "dspy_mean": 0.1273701767121901,
+      "between_search_std": 0.0019596812148613184,
+      "mean_within_search_service_std": 0.004429536254927779
+    },
+    "log_loss": {
+      "baseline_mean": 0.23320363721658016,
+      "baseline_service_std": 0.004539258569150551,
+      "dspy_mean": 0.23108959900718415,
+      "between_search_std": 0.0029202227979393675,
+      "mean_within_search_service_std": 0.00519256224469951
+    },
+    "ece": {
+      "baseline_mean": 0.12253892739439122,
+      "baseline_service_std": 0.004992781038852703,
+      "dspy_mean": 0.12153995968681701,
+      "between_search_std": 0.0007935479168252765,
+      "mean_within_search_service_std": 0.002299276165672964
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.903030303030303,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.903030303030303,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.8485552916276634,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.8485552916276634,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.17723959936060943,
+      "baseline_service_std": 0.004280089190087961,
+      "dspy_mean": 0.1768290456756113,
+      "between_search_std": 0.0011538575753972152,
+      "mean_within_search_service_std": 0.0052740758739123475
+    },
+    "log_loss": {
+      "baseline_mean": 0.267825296168791,
+      "baseline_service_std": 0.0019337735714532172,
+      "dspy_mean": 0.2697356293595957,
+      "between_search_std": 0.0014660926177529582,
+      "mean_within_search_service_std": 0.0056600515533599466
+    },
+    "ece": {
+      "baseline_mean": 0.132469696969697,
+      "baseline_service_std": 0.007806060017880674,
+      "dspy_mean": 0.13190202020202021,
+      "between_search_std": 0.0020540926221465946,
+      "mean_within_search_service_std": 0.010205522056384116
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.903030303030303,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.903030303030303,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.8485552916276634,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.8485552916276634,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.20724484982781832,
+      "baseline_service_std": 0.004682087466017034,
+      "dspy_mean": 0.21818966013935306,
+      "between_search_std": 0.023082753470910773,
+      "mean_within_search_service_std": 0.003283189136965228
+    },
+    "log_loss": {
+      "baseline_mean": 0.3693003827092922,
+      "baseline_service_std": 0.014434700777954442,
+      "dspy_mean": 0.3816085467456071,
+      "between_search_std": 0.03415447324326832,
+      "mean_within_search_service_std": 0.007790049285396689
+    },
+    "ece": {
+      "baseline_mean": 0.15205632730229704,
+      "baseline_service_std": 0.014433066944156608,
+      "dspy_mean": 0.15745135824074222,
+      "between_search_std": 0.02790403164121011,
+      "mean_within_search_service_std": 0.007452988548543452
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.95,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9466666666666667,
+      "between_search_std": 0.007453559924999273,
+      "mean_within_search_service_std": 0.00577350269189625
+    },
+    "macro_f1": {
+      "baseline_mean": 0.939047619047619,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.935615520282187,
+      "between_search_std": 0.007674406144999259,
+      "mean_within_search_service_std": 0.005944569438322811
+    },
+    "mcc": {
+      "baseline_mean": 0.9124276803367268,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9066071952365652,
+      "between_search_std": 0.013015000345986205,
+      "mean_within_search_service_std": 0.010081375918177668
+    },
+    "brier": {
+      "baseline_mean": 0.15384300267251397,
+      "baseline_service_std": 0.00933930785481757,
+      "dspy_mean": 0.16040011941902377,
+      "between_search_std": 0.016077279644889975,
+      "mean_within_search_service_std": 0.004142045204036788
+    },
+    "log_loss": {
+      "baseline_mean": 0.2920154721081794,
+      "baseline_service_std": 0.01920886567546419,
+      "dspy_mean": 0.3010330387603284,
+      "between_search_std": 0.027597347297953746,
+      "mean_within_search_service_std": 0.007995839890147034
+    },
+    "ece": {
+      "baseline_mean": 0.15816996553482482,
+      "baseline_service_std": 0.015426462420853717,
+      "dspy_mean": 0.16705819290690463,
+      "between_search_std": 0.01702003277122669,
+      "mean_within_search_service_std": 0.010247473690622835
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9833333333333333,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.9933333333333333,
+      "between_search_std": 0.009128709291752798,
+      "mean_within_search_service_std": 0.011547005383792526
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9619047619047619,
+      "baseline_service_std": 0.06598288790738582,
+      "dspy_mean": 0.9847619047619047,
+      "between_search_std": 0.02086562123829203,
+      "mean_within_search_service_std": 0.02639315516295433
+    },
+    "mcc": {
+      "baseline_mean": 0.9311640158719574,
+      "baseline_service_std": 0.1192274218987746,
+      "dspy_mean": 0.972465606348783,
+      "between_search_std": 0.03770302127499651,
+      "mean_within_search_service_std": 0.04769096875950984
+    },
+    "brier": {
+      "baseline_mean": 0.046546666666666674,
+      "baseline_service_std": 0.0021990300892287353,
+      "dspy_mean": 0.04436133333333334,
+      "between_search_std": 0.003835227503030296,
+      "mean_within_search_service_std": 0.00208705360700055
+    },
+    "log_loss": {
+      "baseline_mean": 0.11337166926286628,
+      "baseline_service_std": 0.0016018938981587464,
+      "dspy_mean": 0.11073847413988797,
+      "between_search_std": 0.003958827887796216,
+      "mean_within_search_service_std": 0.0023645180684171165
+    },
+    "ece": {
+      "baseline_mean": 0.09766666666666668,
+      "baseline_service_std": 0.0005773502691896503,
+      "dspy_mean": 0.09606666666666666,
+      "between_search_std": 0.0021877182430813844,
+      "mean_within_search_service_std": 0.0015360141438945797
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9833333333333333,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.9933333333333333,
+      "between_search_std": 0.009128709291752798,
+      "mean_within_search_service_std": 0.011547005383792526
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9619047619047619,
+      "baseline_service_std": 0.06598288790738582,
+      "dspy_mean": 0.9847619047619047,
+      "between_search_std": 0.02086562123829203,
+      "mean_within_search_service_std": 0.02639315516295433
+    },
+    "mcc": {
+      "baseline_mean": 0.9311640158719574,
+      "baseline_service_std": 0.1192274218987746,
+      "dspy_mean": 0.972465606348783,
+      "between_search_std": 0.03770302127499651,
+      "mean_within_search_service_std": 0.04769096875950984
+    },
+    "brier": {
+      "baseline_mean": 0.020028937984556117,
+      "baseline_service_std": 0.006203221316402134,
+      "dspy_mean": 0.01431119106703302,
+      "between_search_std": 0.009462387802346517,
+      "mean_within_search_service_std": 0.0036277129214504853
+    },
+    "log_loss": {
+      "baseline_mean": 0.0326326798959758,
+      "baseline_service_std": 0.006600854966271466,
+      "dspy_mean": 0.026247520186476792,
+      "between_search_std": 0.0111744974838606,
+      "mean_within_search_service_std": 0.004217316230069266
+    },
+    "ece": {
+      "baseline_mean": 0.02525758775135303,
+      "baseline_service_std": 0.003872039494748373,
+      "dspy_mean": 0.021060804714028894,
+      "between_search_std": 0.00753431047369594,
+      "mean_within_search_service_std": 0.0025897307406407984
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9933333333333333,
+      "between_search_std": 0.009128709291752798,
+      "mean_within_search_service_std": 0.011547005383792526
+    },
+    "macro_f1": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9847619047619047,
+      "between_search_std": 0.02086562123829203,
+      "mean_within_search_service_std": 0.02639315516295433
+    },
+    "mcc": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.972465606348783,
+      "between_search_std": 0.03770302127499651,
+      "mean_within_search_service_std": 0.04769096875950984
+    },
+    "brier": {
+      "baseline_mean": 0.018172629353343978,
+      "baseline_service_std": 0.005868629117015731,
+      "dspy_mean": 0.013363344122358551,
+      "between_search_std": 0.008664800024518336,
+      "mean_within_search_service_std": 0.003498868608190003
+    },
+    "log_loss": {
+      "baseline_mean": 0.030858493809444092,
+      "baseline_service_std": 0.006358296862891222,
+      "dspy_mean": 0.025367949422149517,
+      "between_search_std": 0.010405494436059618,
+      "mean_within_search_service_std": 0.004114483006172567
+    },
+    "ece": {
+      "baseline_mean": 0.024322782200597387,
+      "baseline_service_std": 0.0038716048511081035,
+      "dspy_mean": 0.020615856983386943,
+      "between_search_std": 0.007138151241763383,
+      "mean_within_search_service_std": 0.002591898407661339
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9666666666666667,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.99,
+      "between_search_std": 0.022360679774997918,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9422799422799423,
+      "baseline_service_std": 0.04998703629347406,
+      "dspy_mean": 0.9826839826839827,
+      "between_search_std": 0.038719791818178154,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.8934453669445372,
+      "baseline_service_std": 0.09227901911695982,
+      "dspy_mean": 0.9680336100833612,
+      "between_search_std": 0.07147902084886826,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.054623333333333336,
+      "baseline_service_std": 0.006980238773375402,
+      "dspy_mean": 0.023874,
+      "between_search_std": 0.01752624023191131,
+      "mean_within_search_service_std": 0.002330422286562136
+    },
+    "log_loss": {
+      "baseline_mean": 0.09462396143993203,
+      "baseline_service_std": 0.007517713632498085,
+      "dspy_mean": 0.05346213933705756,
+      "between_search_std": 0.02351346089878906,
+      "mean_within_search_service_std": 0.0027657240880886286
+    },
+    "ece": {
+      "baseline_mean": 0.060500000000000005,
+      "baseline_service_std": 0.019974984355438145,
+      "dspy_mean": 0.042699999999999995,
+      "between_search_std": 0.010662368925858407,
+      "mean_within_search_service_std": 0.006027565638352867
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9666666666666667,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.99,
+      "between_search_std": 0.022360679774997918,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9422799422799423,
+      "baseline_service_std": 0.04998703629347406,
+      "dspy_mean": 0.9826839826839827,
+      "between_search_std": 0.038719791818178154,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.8934453669445372,
+      "baseline_service_std": 0.09227901911695982,
+      "dspy_mean": 0.9680336100833612,
+      "between_search_std": 0.07147902084886826,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.047952021154029426,
+      "baseline_service_std": 0.018518080783507477,
+      "dspy_mean": 0.01126049367767742,
+      "between_search_std": 0.018161607696601974,
+      "mean_within_search_service_std": 0.003007359475732998
+    },
+    "log_loss": {
+      "baseline_mean": 0.06751216315190453,
+      "baseline_service_std": 0.021352974813627478,
+      "dspy_mean": 0.020834805038209323,
+      "between_search_std": 0.023662284756244018,
+      "mean_within_search_service_std": 0.004036864901887839
+    },
+    "ece": {
+      "baseline_mean": 0.035364048856598274,
+      "baseline_service_std": 0.008454779562312456,
+      "dspy_mean": 0.0161589511508204,
+      "between_search_std": 0.015513566994305887,
+      "mean_within_search_service_std": 0.00256505279848158
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9833333333333333,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9711399711399712,
+      "baseline_service_std": 0.04998703629347406,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.9467226834722686,
+      "baseline_service_std": 0.09227901911695982,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.019249827702778697,
+      "baseline_service_std": 0.009047207815776654,
+      "dspy_mean": 0.004970629072022437,
+      "between_search_std": 0.006528550732304492,
+      "mean_within_search_service_std": 0.001622713234487482
+    },
+    "log_loss": {
+      "baseline_mean": 0.03469517652158342,
+      "baseline_service_std": 0.010283051384752028,
+      "dspy_mean": 0.013596427411370534,
+      "between_search_std": 0.01106485956958717,
+      "mean_within_search_service_std": 0.0025523796522053054
+    },
+    "ece": {
+      "baseline_mean": 0.027762939770885054,
+      "baseline_service_std": 0.006540884079887743,
+      "dspy_mean": 0.012003465137245171,
+      "between_search_std": 0.008874535454086384,
+      "mean_within_search_service_std": 0.0019874997201795525
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.95,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.99,
+      "between_search_std": 0.022360679774997918,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9134199134199135,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9826839826839827,
+      "between_search_std": 0.038719791818178154,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.8401680504168059,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9680336100833612,
+      "between_search_std": 0.07147902084886826,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.08914,
+      "baseline_service_std": 0.0046852001024502744,
+      "dspy_mean": 0.05019466666666668,
+      "between_search_std": 0.01912351586107766,
+      "mean_within_search_service_std": 0.00204085803987944
+    },
+    "log_loss": {
+      "baseline_mean": 0.1581248666369215,
+      "baseline_service_std": 0.0050257361408856584,
+      "dspy_mean": 0.1181745637412386,
+      "between_search_std": 0.025345789442576424,
+      "mean_within_search_service_std": 0.0024970083299999954
+    },
+    "ece": {
+      "baseline_mean": 0.08300000000000002,
+      "baseline_service_std": 0.00576628129733538,
+      "dspy_mean": 0.09280000000000001,
+      "between_search_std": 0.00459377598254181,
+      "mean_within_search_service_std": 0.0013897815857009802
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.95,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.99,
+      "between_search_std": 0.022360679774997918,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9134199134199135,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9826839826839827,
+      "between_search_std": 0.038719791818178154,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 0.8401680504168059,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 0.9680336100833612,
+      "between_search_std": 0.07147902084886826,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.0921503336328884,
+      "baseline_service_std": 0.014212135282588521,
+      "dspy_mean": 0.0161876897859973,
+      "between_search_std": 0.030890070207206792,
+      "mean_within_search_service_std": 0.002661053464136272
+    },
+    "log_loss": {
+      "baseline_mean": 0.13678314096242872,
+      "baseline_service_std": 0.025127844575089976,
+      "dspy_mean": 0.029411203940792212,
+      "between_search_std": 0.040069827326324664,
+      "mean_within_search_service_std": 0.0047505028027687675
+    },
+    "ece": {
+      "baseline_mean": 0.06045499558654154,
+      "baseline_service_std": 0.011473887374414939,
+      "dspy_mean": 0.018523856760782338,
+      "between_search_std": 0.017315522968157693,
+      "mean_within_search_service_std": 0.003535805432421635
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 0.9666666666666667,
+      "baseline_service_std": 0.028867513459481315,
+      "dspy_mean": 0.9966666666666667,
+      "between_search_std": 0.007453559924999322,
+      "mean_within_search_service_std": 0.005773502691896263
+    },
+    "macro_f1": {
+      "baseline_mean": 0.9422799422799423,
+      "baseline_service_std": 0.04998703629347406,
+      "dspy_mean": 0.9942279942279942,
+      "between_search_std": 0.012906597272726035,
+      "mean_within_search_service_std": 0.009997407258694812
+    },
+    "mcc": {
+      "baseline_mean": 0.8934453669445372,
+      "baseline_service_std": 0.09227901911695982,
+      "dspy_mean": 0.9893445366944538,
+      "between_search_std": 0.023826340282956084,
+      "mean_within_search_service_std": 0.018455803823391966
+    },
+    "brier": {
+      "baseline_mean": 0.02905464302389545,
+      "baseline_service_std": 0.007834252684865822,
+      "dspy_mean": 0.006853735026397871,
+      "between_search_std": 0.010416360191982653,
+      "mean_within_search_service_std": 0.0017285263116279142
+    },
+    "log_loss": {
+      "baseline_mean": 0.04880147815716488,
+      "baseline_service_std": 0.008757518077096942,
+      "dspy_mean": 0.01739685318268751,
+      "between_search_std": 0.014234718745900321,
+      "mean_within_search_service_std": 0.0026870362109516037
+    },
+    "ece": {
+      "baseline_mean": 0.03759647488601482,
+      "baseline_service_std": 0.005045392454950461,
+      "dspy_mean": 0.014973658223049777,
+      "between_search_std": 0.010257249115605861,
+      "mean_within_search_service_std": 0.001981204263305808
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "calibration": "raw",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.013963333333333333,
+      "baseline_service_std": 0.0018961100530647818,
+      "dspy_mean": 0.014428,
+      "between_search_std": 0.0003724811702921661,
+      "mean_within_search_service_std": 0.001991477603586816
+    },
+    "log_loss": {
+      "baseline_mean": 0.03870723887294158,
+      "baseline_service_std": 0.0029175051448869322,
+      "dspy_mean": 0.03981488675403643,
+      "between_search_std": 0.0004811904129660768,
+      "mean_within_search_service_std": 0.0025927466561714617
+    },
+    "ece": {
+      "baseline_mean": 0.03449999999999997,
+      "baseline_service_std": 0.00229128784747791,
+      "dspy_mean": 0.03546666666666666,
+      "between_search_std": 0.0003800584750330521,
+      "mean_within_search_service_std": 0.0019263515391724662
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "calibration": "temperature",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.002374452024876688,
+      "baseline_service_std": 0.0008635978233370637,
+      "dspy_mean": 0.002512233960811091,
+      "between_search_std": 0.00013331980327294,
+      "mean_within_search_service_std": 0.0011166925777608722
+    },
+    "log_loss": {
+      "baseline_mean": 0.011226225269765027,
+      "baseline_service_std": 0.0019823052818955457,
+      "dspy_mean": 0.01174323144312322,
+      "between_search_std": 0.0002536126404390902,
+      "mean_within_search_service_std": 0.0022796636968502627
+    },
+    "ece": {
+      "baseline_mean": 0.010570195512435052,
+      "baseline_service_std": 0.0017431559040434247,
+      "dspy_mean": 0.011046393307393125,
+      "between_search_std": 0.00021946905109513116,
+      "mean_within_search_service_std": 0.0019608600294304334
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "calibration": "temperature_bias",
+    "unique_evaluation_examples": 20,
+    "search_seeds": 5,
+    "service_repetitions_per_seed": 3,
+    "accuracy": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "macro_f1": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "mcc": {
+      "baseline_mean": 1.0,
+      "baseline_service_std": 0.0,
+      "dspy_mean": 1.0,
+      "between_search_std": 0.0,
+      "mean_within_search_service_std": 0.0
+    },
+    "brier": {
+      "baseline_mean": 0.0019928734150428057,
+      "baseline_service_std": 0.0007117939025748042,
+      "dspy_mean": 0.002092444078269092,
+      "between_search_std": 9.805981058199584e-05,
+      "mean_within_search_service_std": 0.0008890611602939003
+    },
+    "log_loss": {
+      "baseline_mean": 0.010612086790356854,
+      "baseline_service_std": 0.0018508654783221657,
+      "dspy_mean": 0.01110357196285495,
+      "between_search_std": 0.00019771668885348298,
+      "mean_within_search_service_std": 0.0020352393474251627
+    },
+    "ece": {
+      "baseline_mean": 0.01006788737897086,
+      "baseline_service_std": 0.0016575429953220439,
+      "dspy_mean": 0.010530922010387574,
+      "between_search_std": 0.00017436296256840623,
+      "mean_within_search_service_std": 0.0017884285886246253
+    }
+  }
+]

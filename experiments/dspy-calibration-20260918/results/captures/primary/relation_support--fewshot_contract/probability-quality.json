@@ -1,0 +1,137 @@
+{
+  "choice_answers": 10859,
+  "rounded_mass_defects": 13,
+  "defects": [
+    {
+      "site": "calibration/scifact-1119-13907928",
+      "question": "v10__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.93,
+        "REFUTES": 0.05,
+        "SUPPORTS": 0.01
+      }
+    },
+    {
+      "site": "calibration/scifact-246-3430789",
+      "question": "v9__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.14,
+        "REFUTES": 0.04,
+        "SUPPORTS": 0.81
+      }
+    },
+    {
+      "site": "calibration/scifact-43-7224723",
+      "question": "v5__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.4,
+        "REFUTES": 0.56,
+        "SUPPORTS": 0.03
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-1187-52873726",
+      "question": "v10__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.39,
+        "REFUTES": 0.04,
+        "SUPPORTS": 0.56
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-1187-52873726",
+      "question": "v6__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.39,
+        "REFUTES": 0.05,
+        "SUPPORTS": 0.55
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-1213-14407673",
+      "question": "v7__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.93,
+        "REFUTES": 0.01,
+        "SUPPORTS": 0.05
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-180-16966326",
+      "question": "v4__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.17,
+        "REFUTES": 0.8,
+        "SUPPORTS": 0.02
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-5-13734012",
+      "question": "v6__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.04,
+        "REFUTES": 0.4,
+        "SUPPORTS": 0.55
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-692-24088502",
+      "question": "v10__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.16,
+        "REFUTES": 0.81,
+        "SUPPORTS": 0.02
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-759-1805641",
+      "question": "v7__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.27,
+        "REFUTES": 0.67,
+        "SUPPORTS": 0.05
+      }
+    },
+    {
+      "site": "test/evaluation/scifact-880-8426046",
+      "question": "v10__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.04,
+        "REFUTES": 0.02,
+        "SUPPORTS": 0.93
+      }
+    },
+    {
+      "site": "test/additional_corpus/scifact-12-33409100",
+      "question": "v6__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.28,
+        "REFUTES": 0.04,
+        "SUPPORTS": 0.67
+      }
+    },
+    {
+      "site": "test/additional_corpus/scifact-356-6144337",
+      "question": "v0__fewshot_contract__decision",
+      "raw_mass": 0.9900000000000001,
+      "raw_probabilities": {
+        "NOT_ENOUGH_INFO": 0.17,
+        "REFUTES": 0.01,
+        "SUPPORTS": 0.81
+      }
+    }
+  ],
+  "note": "Bounded input normalization fixed before this capture, distinct from fitted calibration."
+}

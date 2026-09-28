@@ -1,0 +1,566 @@
+{
+  "upstream_freeze_sha256": "ff4aa214af2fb395e08448e4d14aee0de624c0b8f6368f0f742600d8af4a5204",
+  "n_calibration": 150,
+  "fits": {
+    "single": [
+      {
+        "temperature": 2.789901893266888,
+        "temperature_bias": {
+          "temperature": 2.8412691431092996,
+          "bias": [
+            0.48712264595350596,
+            -0.35051544107985433,
+            -0.13660720487365163
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.8105741219667224,
+        "temperature_bias": {
+          "temperature": 2.8882897295802317,
+          "bias": [
+            0.49738641629071384,
+            -0.3549618764148561,
+            -0.14242453987585774
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.8526605998103114,
+        "temperature_bias": {
+          "temperature": 3.021869939905251,
+          "bias": [
+            0.54023612446191,
+            -0.40662157739846777,
+            -0.13361454706344228
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.7769094331741346,
+        "temperature_bias": {
+          "temperature": 2.859720257518557,
+          "bias": [
+            0.49858103702827233,
+            -0.36113416090794087,
+            -0.13744687612033146
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.7116745105043067,
+        "temperature_bias": {
+          "temperature": 2.7788303698079586,
+          "bias": [
+            0.5036610994953373,
+            -0.3697183439990136,
+            -0.13394275549632373
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.7838206881200365,
+        "temperature_bias": {
+          "temperature": 2.8766825686447275,
+          "bias": [
+            0.5052065356689485,
+            -0.38193626321874047,
+            -0.123270272450208
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ],
+    "repeat_vote": [
+      {
+        "temperature": 2.6837454617051426,
+        "temperature_bias": {
+          "temperature": 2.7707741064180182,
+          "bias": [
+            0.5115067441812972,
+            -0.3762610039827245,
+            -0.13524574019857266
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.675893897353288,
+        "temperature_bias": {
+          "temperature": 2.7770254446441522,
+          "bias": [
+            0.5174374201876482,
+            -0.3896651716535102,
+            -0.12777224853413793
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.689652905999521,
+        "temperature_bias": {
+          "temperature": 2.8061861605786285,
+          "bias": [
+            0.5271564722265608,
+            -0.40101560595165664,
+            -0.12614086627490417
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.660652246674242,
+        "temperature_bias": {
+          "temperature": 2.770829096103791,
+          "bias": [
+            0.5210091130721382,
+            -0.388553909537654,
+            -0.13245520353448414
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.6531069314378968,
+        "temperature_bias": {
+          "temperature": 2.743456270385372,
+          "bias": [
+            0.5099223601879114,
+            -0.3771438114162261,
+            -0.13277854877168527
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.704261540778157,
+        "temperature_bias": {
+          "temperature": 2.7925494821107613,
+          "bias": [
+            0.5132920483528572,
+            -0.3983419896898372,
+            -0.11495005866302005
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ],
+    "blind_vote": [
+      {
+        "temperature": 1.7615714234952253,
+        "temperature_bias": {
+          "temperature": 1.777973638644237,
+          "bias": [
+            0.5911746867685633,
+            -0.45029917096553823,
+            -0.1408755158030251
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 1.7620849885476393,
+        "temperature_bias": {
+          "temperature": 1.782428123003855,
+          "bias": [
+            0.5949838021064239,
+            -0.4533252011178276,
+            -0.14165860098859628
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 1.7797791293768144,
+        "temperature_bias": {
+          "temperature": 1.815052707223163,
+          "bias": [
+            0.60451902258382,
+            -0.4615628983709342,
+            -0.14295612421288573
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 1.7642502222593484,
+        "temperature_bias": {
+          "temperature": 1.7808456311718015,
+          "bias": [
+            0.5913014148047281,
+            -0.45146374639725034,
+            -0.13983766840747774
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 1.7617121633164314,
+        "temperature_bias": {
+          "temperature": 1.7877322749177726,
+          "bias": [
+            0.5995332310912636,
+            -0.4587327568119457,
+            -0.14080047427931786
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 1.7635305199085967,
+        "temperature_bias": {
+          "temperature": 1.7815186830875165,
+          "bias": [
+            0.5936129336857473,
+            -0.45512721784539495,
+            -0.13848571584035235
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ],
+    "targeted": [
+      {
+        "temperature": 2.99039018514884,
+        "temperature_bias": {
+          "temperature": 3.5877563017439464,
+          "bias": [
+            0.6847704426741057,
+            -0.43143311569486836,
+            -0.25333732697923733
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 4.701528906403389,
+        "temperature_bias": {
+          "temperature": 5.3723334961836136,
+          "bias": [
+            0.6883693611023084,
+            -0.43315633198923287,
+            -0.25521302911307553
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 4.893964800743024,
+        "temperature_bias": {
+          "temperature": 5.510275416824699,
+          "bias": [
+            0.717262240959425,
+            -0.4460739269573337,
+            -0.2711883140020913
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.943500824467648,
+        "temperature_bias": {
+          "temperature": 3.4142925553067105,
+          "bias": [
+            0.6753870211947232,
+            -0.4048745093855277,
+            -0.27051251180919544
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 3.020182446578475,
+        "temperature_bias": {
+          "temperature": 3.6142647996443293,
+          "bias": [
+            0.7006461505881186,
+            -0.4208715028908487,
+            -0.27977464769726995
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 6.3787525232816495,
+        "temperature_bias": {
+          "temperature": 6.5290786303253,
+          "bias": [
+            0.6758013951573985,
+            -0.41174491729708085,
+            -0.2640564778603176
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ],
+    "structured": [
+      {
+        "temperature": 2.7785994099376854,
+        "temperature_bias": {
+          "temperature": 3.0099806183317526,
+          "bias": [
+            0.6040979373056267,
+            -0.3636905109286794,
+            -0.2404074263769473
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 4.4437750238559115,
+        "temperature_bias": {
+          "temperature": 4.970002067555601,
+          "bias": [
+            0.6211631557601968,
+            -0.3858566456825045,
+            -0.23530651007769227
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.7628380069102363,
+        "temperature_bias": {
+          "temperature": 2.950209470231424,
+          "bias": [
+            0.5968460661898021,
+            -0.3719997538657883,
+            -0.22484631232401375
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.761234541268861,
+        "temperature_bias": {
+          "temperature": 2.9472560429483843,
+          "bias": [
+            0.597068066422407,
+            -0.39395551398116246,
+            -0.2031125524412445
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.749189237456667,
+        "temperature_bias": {
+          "temperature": 2.9596425798874324,
+          "bias": [
+            0.6067266709276228,
+            -0.37987716140823774,
+            -0.22684950951938504
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.8246457317730638,
+        "temperature_bias": {
+          "temperature": 3.0974076679095695,
+          "bias": [
+            0.6207189925946486,
+            -0.39509274931078103,
+            -0.22562624328386754
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ],
+    "contrastive": [
+      {
+        "temperature": 6.636134651871197,
+        "temperature_bias": {
+          "temperature": 6.629938595528643,
+          "bias": [
+            0.5576009294737962,
+            -0.3573648004294448,
+            -0.20023612904435145
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 6.7146791162288935,
+        "temperature_bias": {
+          "temperature": 6.688028427451576,
+          "bias": [
+            0.5515787855650859,
+            -0.3333093813210364,
+            -0.2182694042440495
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 5.331114795254447,
+        "temperature_bias": {
+          "temperature": 5.507307867564718,
+          "bias": [
+            0.5659196664685971,
+            -0.33460339768089725,
+            -0.2313162687876999
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 6.721459525498358,
+        "temperature_bias": {
+          "temperature": 6.696646491787947,
+          "bias": [
+            0.5670556134812182,
+            -0.3543677116713921,
+            -0.21268790180982616
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 5.2596242237111275,
+        "temperature_bias": {
+          "temperature": 5.456037476207078,
+          "bias": [
+            0.5695252200118601,
+            -0.35055233869696073,
+            -0.2189728813148994
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 5.279874710773155,
+        "temperature_bias": {
+          "temperature": 5.452936614986547,
+          "bias": [
+            0.5726856558803254,
+            -0.350428982275896,
+            -0.2222566736044294
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ],
+    "selective": [
+      {
+        "temperature": 2.965666670983578,
+        "temperature_bias": {
+          "temperature": 3.044298808639343,
+          "bias": [
+            0.4995647258761813,
+            -0.3587911899745044,
+            -0.1407735359016769
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.987031853725119,
+        "temperature_bias": {
+          "temperature": 3.1296153462751124,
+          "bias": [
+            0.5360345855534147,
+            -0.3884595902671437,
+            -0.14757499528627094
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 3.135552482855186,
+        "temperature_bias": {
+          "temperature": 3.3800900464677883,
+          "bias": [
+            0.5726297289557376,
+            -0.43439020273058965,
+            -0.13823952622514796
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.9929534653362424,
+        "temperature_bias": {
+          "temperature": 3.115130226178366,
+          "bias": [
+            0.5163659510770156,
+            -0.373688412032843,
+            -0.14267753904417257
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.9791944343982624,
+        "temperature_bias": {
+          "temperature": 3.1063221387846767,
+          "bias": [
+            0.5269573580271226,
+            -0.38559968059568595,
+            -0.14135767743143668
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      },
+      {
+        "temperature": 2.965704634479344,
+        "temperature_bias": {
+          "temperature": 3.092057820946667,
+          "bias": [
+            0.5278369508832124,
+            -0.40271014017437934,
+            -0.12512681070883303
+          ]
+        },
+        "n_calibration": 150,
+        "fit_objective": "calibration NLL; bias ridge=0.01"
+      }
+    ]
+  }
+}

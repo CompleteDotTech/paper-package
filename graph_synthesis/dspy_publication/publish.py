@@ -10,11 +10,12 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import subprocess
 
 RELATIVE = Path('experiments/dspy-calibration-20260918/results')
 PRIMARY_RUN = 35342763186
 COMPLETION_RUN = 35345560822
-BASE_COMMIT = 'f197f9f24076bf85b7739916669dae9fdb428adf'
+BASE_COMMIT = '24b2060279f7d137fd78e345de96cca5ef158770'
 ARMS = {'relation_support': ['baseline_choice','evidence_contract','conditional_nouls','fewshot_contract'],
         'entity_resolution': ['baseline_noul','identity_contract','identity_noul','fewshot_contract']}
 WORKFLOWS = ['single','repeat_vote','blind_vote','targeted','structured','contrastive','selective']
@@ -47,6 +48,17 @@ def verify_package(root):
             raise ValueError('Disallowed model/font/credential artifact: '+name)
     for part in ('primary','multicall','repeatability','quality'):
         if not (root/part/'REPORT.md').exists():raise ValueError('Missing report: '+part)
+    status=read(root/'offline-audit-status.json')
+    if (status.get('analysis_source_commit')!=BASE_COMMIT or
+            status.get('new_inference_calls')!=0 or status.get('new_paid_api_calls')!=0 or
+            status.get('historical_run_conclusion')!='failure'):
+        raise ValueError('Offline audit provenance mismatch')
+    with (root/'repository-source.tar').open('rb') as source:
+        archived=subprocess.check_output(['git','get-tar-commit-id'],stdin=source,text=True).strip()
+    if archived!=BASE_COMMIT:raise ValueError('Audited source archive mismatch')
+    receipts=read(root/'source-artifact-receipts.json')
+    if {r['run_id'] for r in receipts}!={35339699653,35340617823,PRIMARY_RUN,COMPLETION_RUN}:
+        raise ValueError('Missing raw artifact provenance')
     expected={(task,arm) for task,arms in ARMS.items() for arm in arms}
     captures=sorted((root/'captures'/'primary').iterdir())
     if len(captures)!=8:raise ValueError('Require all eight formulations')
@@ -128,7 +140,7 @@ def summarize(root):
         '', '| Task / formulation | Mean NLL: raw → T → T+bias | Mean Brier: raw → T → T+bias | Accuracy after T+bias |',
         '|---|---:|---:|---:|',*calibration,
         '', f"Across these eight formulation comparisons, temperature lowered mean DSPy NLL in {counters['temperature']['log_loss']}/8, Brier in {counters['temperature']['brier']}/8, and ECE in {counters['temperature']['ece']}/8. Temperature plus bias lowered these metrics in {counters['temperature_bias']['log_loss']}/8, {counters['temperature_bias']['brier']}/8 and {counters['temperature_bias']['ece']}/8 respectively. These correlated comparisons are descriptive counts, not eight independent replications.",
-        '', '**Scalar temperature preserves the winning label.** It cannot improve argmax classification accuracy here. Bias calibration can change labels and can harm accuracy. All calibrator fits use only the designated calibration split, with fixed bounds and regularization.',
+        '', 'Scalar temperature is analytically rank preserving, but one near-tied saved probability row changes its floating-point argmax after transformation. This numerical sensitivity is documented in [numerical-ties.json](primary/numerical-ties.json), not credited as semantic improvement. Bias calibration can change labels and can harm accuracy. All calibrator fits use only the designated calibration split, with fixed bounds and regularization.',
         '', '## Seven multi-call workflows','',
         'This is transfer of the five already-frozen primary-verifier prompts, not independent DSPy optimization of every reviewer or workflow component. Original reviewer/adjudicator prompts, policies, threshold, demonstrations and abstention rules stay fixed.',
         '', '| Workflow | Baseline policy accuracy | DSPy policy accuracy mean ± SD | DSPy coverage | Forecast NLL: raw → T → T+bias |',
@@ -150,8 +162,8 @@ def summarize(root):
         '', 'The 17 legacy graph research workflows were rerun as regression/replay checks. They are not 17 new independently DSPy-trained semantic systems. Archived specialist-model retraining, open-corpus retrieval evaluation and exhaustive search of every possible prompt are outside this comparison.',
         '', '## Source and execution provenance','',
         f'- Primary live capture: https://github.com/CompleteDotTech/paper-package/actions/runs/{PRIMARY_RUN}',
-        f'- Completion, transfer, repeatability and independent audit: https://github.com/CompleteDotTech/paper-package/actions/runs/{COMPLETION_RUN}',
-        f'- Audited analysis source commit: `{BASE_COMMIT}`.',
+        f'- Completion, transfer and repeatability captures: https://github.com/CompleteDotTech/paper-package/actions/runs/{COMPLETION_RUN}. Its original analysis job failed on a numerical near-tie and its downstream audit did not run.',
+        f'- Offline independent audit source commit: `{BASE_COMMIT}`. [Offline audit status](offline-audit-status.json) and [original artifact receipts](source-artifact-receipts.json) preserve that failure history and the zero-new-inference correction.',
         '- TypeSafe API and model documentation: https://docs.typesafe.ai/api ; https://docs.typesafe.ai/models',
         '- Calibration reference: Guo et al. (2017), https://proceedings.mlr.press/v70/guo17a.html',
         '- Official proposal model: https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF','']
@@ -167,15 +179,15 @@ def publish(source,repo):
     for path in source.rglob('*'):
         if path.is_file() and path.relative_to(source).as_posix() not in excluded:
             target=destination/path.relative_to(source);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
-    write(destination/'original-ci-package-manifest.json',{'sha256':manifest})
+    write(destination/'offline-package-manifest.json',{'sha256':manifest})
     summary,text=summarize(destination)
     write(destination/'summary.json',summary)
     (destination/'SUMMARY.md').write_text(text,encoding='utf-8')
     write(destination/'publication.json',{'primary_run':PRIMARY_RUN,'completion_run':COMPLETION_RUN,
         'audited_source_commit':BASE_COMMIT,'publisher_source_sha256':sha(__file__),
-        'original_ci_manifest_sha256':sha(source/'package-manifest.json'),
+        'offline_package_manifest_sha256':sha(source/'package-manifest.json'),
         'excluded_from_git':{'repository-source.tar':manifest.get('repository-source.tar')},
-        'note':'The complete repository source tar is retained in CI evidence, not duplicated in Git. No model calls occur during publication.'})
+        'note':'The complete source tar is retained in the offline evidence package outside Git, not duplicated here. No model calls occur during publication.'})
     entry='# DSPy benchmark comparison results\n\n[Full comparison and conclusions]('+RELATIVE.as_posix()+'/SUMMARY.md)\n\n'
     entry+='Forty actual DSPy searches across eight Jev formulations, separate calibration ablations, all seven multi-call workflows, fresh repeatability and batching diagnostics, and independent raw-response audits.\n\n'
     entry+='Read the full report for positive, negative and null results, exact coverage, costs and limitations. This is exploratory evidence on public datasets, not a claim of universal accuracy improvement.\n'

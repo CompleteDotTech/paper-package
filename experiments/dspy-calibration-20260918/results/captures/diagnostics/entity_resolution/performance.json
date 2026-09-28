@@ -1,0 +1,226 @@
+{
+  "repeat-0/ordinary": {
+    "calls": 20,
+    "input_tokens": 32231,
+    "mean_request_seconds": 0.22159632129999912,
+    "median_request_seconds": 0.20415369899999547,
+    "p95_request_seconds": 0.3825467998500028
+  },
+  "repeat-0/fewshot": {
+    "calls": 20,
+    "input_tokens": 49891,
+    "mean_request_seconds": 0.2152593975000002,
+    "median_request_seconds": 0.17902647599999355,
+    "p95_request_seconds": 0.4226977698499973
+  },
+  "repeat-1/ordinary": {
+    "calls": 20,
+    "input_tokens": 32231,
+    "mean_request_seconds": 0.15945978120000107,
+    "median_request_seconds": 0.14562967500000923,
+    "p95_request_seconds": 0.261240751899993
+  },
+  "repeat-1/fewshot": {
+    "calls": 20,
+    "input_tokens": 49891,
+    "mean_request_seconds": 0.20013450440000255,
+    "median_request_seconds": 0.1642130270000024,
+    "p95_request_seconds": 0.3637242538999979
+  },
+  "repeat-2/ordinary": {
+    "calls": 20,
+    "input_tokens": 32231,
+    "mean_request_seconds": 0.22376398295000044,
+    "median_request_seconds": 0.18627985700000238,
+    "p95_request_seconds": 0.5651938033000022
+  },
+  "repeat-2/fewshot": {
+    "calls": 20,
+    "input_tokens": 49891,
+    "mean_request_seconds": 0.16564455359999714,
+    "median_request_seconds": 0.15082009350000192,
+    "p95_request_seconds": 0.25364124614999783
+  },
+  "batch/ordinary": {
+    "calls": 20,
+    "input_tokens": 32165,
+    "mean_request_seconds": 0.1865974906499986,
+    "median_request_seconds": 0.15313220900000601,
+    "p95_request_seconds": 0.3505234951000035
+  },
+  "batch/fewshot": {
+    "calls": 20,
+    "input_tokens": 49825,
+    "mean_request_seconds": 0.21503371334999882,
+    "median_request_seconds": 0.19657569649999118,
+    "p95_request_seconds": 0.32060496645001435
+  },
+  "isolated/identity_contract/3": {
+    "calls": 20,
+    "input_tokens": 10425,
+    "mean_request_seconds": 0.15338443349999692,
+    "median_request_seconds": 0.14794932050000398,
+    "p95_request_seconds": 0.20814035924999671
+  },
+  "isolated/identity_noul/0": {
+    "calls": 20,
+    "input_tokens": 10345,
+    "mean_request_seconds": 0.1605308266500117,
+    "median_request_seconds": 0.1445764615000229,
+    "p95_request_seconds": 0.2215841369499815
+  },
+  "isolated/identity_noul/5": {
+    "calls": 20,
+    "input_tokens": 8745,
+    "mean_request_seconds": 0.16970337009999384,
+    "median_request_seconds": 0.1591305885000054,
+    "p95_request_seconds": 0.23963045309997147
+  },
+  "isolated/identity_contract/2": {
+    "calls": 20,
+    "input_tokens": 11705,
+    "mean_request_seconds": 0.1513400066499912,
+    "median_request_seconds": 0.1435179249999976,
+    "p95_request_seconds": 0.21586745809999003
+  },
+  "isolated/fewshot_contract/4": {
+    "calls": 20,
+    "input_tokens": 30425,
+    "mean_request_seconds": 0.18960537185000134,
+    "median_request_seconds": 0.15228529850001848,
+    "p95_request_seconds": 0.375561698649989
+  },
+  "isolated/baseline_noul/4": {
+    "calls": 20,
+    "input_tokens": 8445,
+    "mean_request_seconds": 0.18176050985000672,
+    "median_request_seconds": 0.15881704150001497,
+    "p95_request_seconds": 0.35764726979995204
+  },
+  "isolated/baseline_noul/1": {
+    "calls": 20,
+    "input_tokens": 8465,
+    "mean_request_seconds": 0.17684641440000348,
+    "median_request_seconds": 0.13600427700001205,
+    "p95_request_seconds": 0.5367753492999725
+  },
+  "isolated/baseline_noul/2": {
+    "calls": 20,
+    "input_tokens": 8425,
+    "mean_request_seconds": 0.18134102235000568,
+    "median_request_seconds": 0.16957137749999163,
+    "p95_request_seconds": 0.25327076389999964
+  },
+  "isolated/fewshot_contract/5": {
+    "calls": 20,
+    "input_tokens": 30425,
+    "mean_request_seconds": 0.1774954440500011,
+    "median_request_seconds": 0.16355549149997728,
+    "p95_request_seconds": 0.225591202849998
+  },
+  "isolated/fewshot_contract/0": {
+    "calls": 20,
+    "input_tokens": 30425,
+    "mean_request_seconds": 0.1766016812500027,
+    "median_request_seconds": 0.16429871849999245,
+    "p95_request_seconds": 0.24561412564999627
+  },
+  "isolated/identity_contract/5": {
+    "calls": 20,
+    "input_tokens": 10305,
+    "mean_request_seconds": 0.1718158473499926,
+    "median_request_seconds": 0.17433735049996812,
+    "p95_request_seconds": 0.21490391314998192
+  },
+  "isolated/baseline_noul/0": {
+    "calls": 20,
+    "input_tokens": 8465,
+    "mean_request_seconds": 0.16078168419999628,
+    "median_request_seconds": 0.1562517934999903,
+    "p95_request_seconds": 0.2042465679499856
+  },
+  "isolated/identity_noul/1": {
+    "calls": 20,
+    "input_tokens": 8645,
+    "mean_request_seconds": 0.19859804049999924,
+    "median_request_seconds": 0.16678387250001947,
+    "p95_request_seconds": 0.3166545572499814
+  },
+  "isolated/baseline_noul/3": {
+    "calls": 20,
+    "input_tokens": 8465,
+    "mean_request_seconds": 0.1585968980500027,
+    "median_request_seconds": 0.1469279874999927,
+    "p95_request_seconds": 0.24034081690002296
+  },
+  "isolated/identity_noul/4": {
+    "calls": 20,
+    "input_tokens": 8865,
+    "mean_request_seconds": 0.16374757784999758,
+    "median_request_seconds": 0.13714559199999599,
+    "p95_request_seconds": 0.2887147564500169
+  },
+  "isolated/identity_contract/1": {
+    "calls": 20,
+    "input_tokens": 10085,
+    "mean_request_seconds": 0.17334914305000665,
+    "median_request_seconds": 0.18009591200001296,
+    "p95_request_seconds": 0.23110787865001897
+  },
+  "isolated/identity_contract/4": {
+    "calls": 20,
+    "input_tokens": 10485,
+    "mean_request_seconds": 0.19999856355000106,
+    "median_request_seconds": 0.16695228349999525,
+    "p95_request_seconds": 0.3838517367000378
+  },
+  "isolated/identity_contract/0": {
+    "calls": 20,
+    "input_tokens": 11705,
+    "mean_request_seconds": 0.19940658535001177,
+    "median_request_seconds": 0.17425432550001574,
+    "p95_request_seconds": 0.30563742725003645
+  },
+  "isolated/identity_noul/3": {
+    "calls": 20,
+    "input_tokens": 8725,
+    "mean_request_seconds": 0.16374318240001032,
+    "median_request_seconds": 0.15027125849999834,
+    "p95_request_seconds": 0.23821648720001756
+  },
+  "isolated/fewshot_contract/2": {
+    "calls": 20,
+    "input_tokens": 30425,
+    "mean_request_seconds": 0.15698312855000296,
+    "median_request_seconds": 0.14787651949998804,
+    "p95_request_seconds": 0.21793660564999442
+  },
+  "isolated/fewshot_contract/1": {
+    "calls": 20,
+    "input_tokens": 30425,
+    "mean_request_seconds": 0.17469456135000314,
+    "median_request_seconds": 0.16996705700000803,
+    "p95_request_seconds": 0.23778056275000667
+  },
+  "isolated/fewshot_contract/3": {
+    "calls": 20,
+    "input_tokens": 30425,
+    "mean_request_seconds": 0.1811796044000019,
+    "median_request_seconds": 0.1482969280000077,
+    "p95_request_seconds": 0.39413309640000027
+  },
+  "isolated/baseline_noul/5": {
+    "calls": 20,
+    "input_tokens": 8465,
+    "mean_request_seconds": 0.16450896335000492,
+    "median_request_seconds": 0.15179397950001317,
+    "p95_request_seconds": 0.2155640223000405
+  },
+  "isolated/identity_noul/2": {
+    "calls": 20,
+    "input_tokens": 9185,
+    "mean_request_seconds": 0.1606749740500007,
+    "median_request_seconds": 0.14920924200001195,
+    "p95_request_seconds": 0.2206289508499936
+  }
+}

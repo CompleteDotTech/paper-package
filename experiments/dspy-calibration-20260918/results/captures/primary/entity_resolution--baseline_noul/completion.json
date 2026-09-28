@@ -1,0 +1,26 @@
+{
+  "source_files_sha256": {
+    "calibration.json": "593af4abd51da541c21bbdb16e02179bf96b8a1884f85a42c62fd23770f7238c",
+    "calls.jsonl.gz": "f604faa31a246629f647409aaa665566dd9187bcb9a8b4d11d0a9033e16c9d48",
+    "evaluation-predictions.json": "090c5ee4ebeb00db832817eaf50f8fcb8f9db3846ded6ebf944d36a49d2f1240",
+    "fixtures-predictions.json": "09a3c15d7f9db5701ca1fa2a3bb7e2b09ba60d0ea19f064a3344784b891fc587",
+    "freeze.json": "fcb710ccd3832c2289dc2c626fb6a8c46a98874a97843cb542bbca9e37f8cf6f",
+    "proposal-traces-101.jsonl": "d04570e4cd0c851580d3714754e658fbd966dbc4cd5a35746eff3b2648ece251",
+    "proposal-traces-17.jsonl": "52da5f9b2623c2c8400ace41e88f56304bcbed8acaf769effbf968adb82d9849",
+    "proposal-traces-29.jsonl": "ae16f13d9e0e7312e2201a2f395056017643a8f51ca1e6914b6c12065b533cd7",
+    "proposal-traces-43.jsonl": "bc525d15e954ae3b2786d570cefb1b56d1846f5d9b7eff966ee8895216ab0df7",
+    "proposal-traces-71.jsonl": "d065c32d87237116f6c0a63cd3aea91f21c65121ce444775c2be319aa074c7b6",
+    "protocol.json": "7cc15a7c6fce5ac3d6e733883844d8a76366c474d2fdadf2d95c7b6324ac3f9a",
+    "results.json": "210bc4e23a49ca21b9bb135d8f728e5ec74ec7ca183bbf8d39d910a2d84b642f",
+    "search-101.json": "754356c0ed841b9c4d20adf727ab0d292762322cb24331e2de07b85f01fcbccf",
+    "search-17.json": "3b6f8db464f86d8d9ec4089efb0b1493d5b19af9e4b0a88ac706d72ff94d6637",
+    "search-29.json": "36ab1d917dd127a70635b17870dbae548561c4b1129d089eec80bae587747475",
+    "search-43.json": "cb4b64a7180b4eaf48b0927044c4fcaa5d6f88e97d907e9811174d888ade6886",
+    "search-71.json": "e767b58a848ed0c1d303f9242651e0e09882ebc4e71b9356408c15eda338273f"
+  },
+  "source_workflow_run": 35342763186,
+  "completion_source_sha256": "2f64e354438146d64f1d2d58b46cb119aa1f86fdb748ddcd12bff008a2c7ee01",
+  "new_inference_calls": 0,
+  "verified_final_response_count": 903,
+  "fixture_rule": "Binary classification metrics exclude original uncertain labels; all 100 fixture observations retained, 12 ambiguity rows reported separately."
+}

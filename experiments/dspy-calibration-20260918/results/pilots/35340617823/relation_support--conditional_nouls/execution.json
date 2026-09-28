@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "http_attempts": 1223,
+  "reported_input_tokens": 3211873,
+  "estimated_jev_usd": 0.134898666,
+  "price_basis": "TypeSafe docs 2026-09-18, input $0.042/M; not invoice",
+  "dspy_searches": 5,
+  "proposals_planned": 15,
+  "live": true
+}

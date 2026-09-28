@@ -1,0 +1,12 @@
+{
+  "analysis_source_commit": "24b2060279f7d137fd78e345de96cca5ef158770",
+  "primary_run": 35342763186,
+  "completion_run": 35345560822,
+  "historical_run_conclusion": "failure",
+  "historical_audit": "primary_analysis failed on one numerical near-tie; downstream audit skipped",
+  "new_inference_calls": 0,
+  "new_paid_api_calls": 0,
+  "offline_result": "Primary, transfer, repeatability, quality and 528 graph replays reconstructed from preserved captures",
+  "unresolved_live_work": "none required for coverage; no independent new corpus or broader generalization claim",
+  "main_integration": "68c5bf7e68dd503591704a3e996b65f0d812c1df"
+}

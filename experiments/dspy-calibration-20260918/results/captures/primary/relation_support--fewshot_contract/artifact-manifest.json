@@ -1,0 +1,28 @@
+{
+  "sha256": {
+    "additional_corpus-predictions.json": "3856947c2cb7a9dd3350760d49a8465cba3dbc2be6082de4ec0ef772433a1309",
+    "ambiguity-results.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "calibration.json": "29c43968786ed769ec0c5e373222ab5c420b85106a6fbb38b9ed28dffb7fe5e2",
+    "calls.jsonl.gz": "3dc4091c4d11422f44553db9c669a29df77d8ed4d7fa5f98f020b52d98a6a3b7",
+    "challenge-predictions.json": "a8393590984e2974141dc8e896b06f626f36ae83c952e183538622be928a8aea",
+    "completion.json": "aa0c2326087e8a3ecaabb9a391d7aaca8718b76affba8508b29c2a0f96e85eb9",
+    "evaluation-predictions.json": "51dcd1cbc6785e0e7f93fc6da03d989344183ff26f5dab8d20bb958a0c5ffb81",
+    "execution.json": "1b242e2487779cfd7b583c425c2b25ddfe28484fc830d3010013ccc212a8fdf0",
+    "fixtures-predictions.json": "c69418ba516eb8cb999198f5e8a7b58c6e4b312344517ce82d8fd60e9ba3e302",
+    "freeze.json": "75cf30cb5243a4a30acb348002bd98da4f5ff2650dbd4b740783b336d28ea70b",
+    "original-results-before-completion.json": "eacc6d01f747478e4e5b8c1f3792f27a53850ac70107a4e49a74307d7bb9b25a",
+    "probability-quality.json": "f4c054187c24829aee0c3b5cd30eddca378e7d848790f02eba6e813005b7345b",
+    "proposal-traces-101.jsonl": "aa5a192168e4b765007a08f8726925f01f480ff154c755a2909ce83d8cfd14ac",
+    "proposal-traces-17.jsonl": "8fe7b6bdb081ee056ea4b80a22bccc50d8447b8ed5ac7df7ca76d39ad8c1b0a8",
+    "proposal-traces-29.jsonl": "fdbd4004679fad8e093e8516840d8fb3e610a62a6c72acf67e3947469f19c1d4",
+    "proposal-traces-43.jsonl": "818f57a833cf30e0bcd775435bbd6d5ba35e9e0f8d4e0680b02282a67b0974d2",
+    "proposal-traces-71.jsonl": "e9efd142ef401e01966a369f76d4750b758035360b063dedeacf0bc928bcca2f",
+    "protocol.json": "37d025f6019fcec5912d4fdf2c8a55da28931e0a3a810c9573d8fb6578fa8145",
+    "results.json": "eacc6d01f747478e4e5b8c1f3792f27a53850ac70107a4e49a74307d7bb9b25a",
+    "search-101.json": "e416e5d0815aba0a130e82ccc5420029215d54da73ae2ce972750f9058da60e5",
+    "search-17.json": "dcff9c8a67ce974a7690adde50d8bb3688de9f5f58b4e3ec60835d76d43a970e",
+    "search-29.json": "8a16b6e5fc4b6668267102763e61fec8f7e238627e051325c9a2091f35a8fc03",
+    "search-43.json": "645e9ab0b5608c0f0c6b914556332c1a8a1a00fbf3cdf540534959d727dacde7",
+    "search-71.json": "53b9979616242ecd31318e7abd53d9b71c44c59c7d8300df3e26c5739d8e7137"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "sha256": {
+    "additional_corpus-predictions.json": "3e93a1e6e9c76c110c2e56f6413ca9c1c9abe0d98941f1eef88aa751d7de7961",
+    "ambiguity-results.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "calibration.json": "7841ba2975cc1034b21126bca231fd9117c8e2063da017fef84a3ca7c819372d",
+    "calls.jsonl.gz": "47725d06e4ae5867841d5105978413bceac3c5bb9988da7006e7e4589475360e",
+    "challenge-predictions.json": "8aa45d01ec53df1e05f68051887804c741e4f674821a09be9bfe142c66f32843",
+    "completion.json": "12143e04df4acad7492b5a153ddc80e7a6e965ea6229b4e77ea335063bf58f3b",
+    "evaluation-predictions.json": "1d3368f22192b153d85f07cfa5a69d9b2ddf316223c60ddc55d7276b0fea3959",
+    "execution.json": "b40e308ca08a093968d33a1e94a1186271c84b0447c317e93ef6629927cb27ed",
+    "fixtures-predictions.json": "e5e4d1b040ee7fb1c415bebb95da573066d6878ab9e52e8e241117829acfd361",
+    "freeze.json": "c158c68184ebdc73f2e7da74c6c0fee4981f07aeda0999e3f8284eed9bddc980",
+    "original-results-before-completion.json": "6abaa61202a27a184cd5153b8570161330d61d85ef9072a8c746a29be58690b3",
+    "probability-quality.json": "ff5475df47e2c4c58bbea8555ca77422c19d8313787e06aee83f0bbd60b615c5",
+    "proposal-traces-101.jsonl": "a6b90fb70d726d3603c9074ffebf7faa5a8b18766a102f82ca85c94e37e1ee56",
+    "proposal-traces-17.jsonl": "bbd402d024626dccfed3a1f64fb64388f8848a56a5704870f3360556f97a2860",
+    "proposal-traces-29.jsonl": "4f984e1bdefbc4c38330d57cc1112d401bc6b5d1068b72f16e5835b327787476",
+    "proposal-traces-43.jsonl": "c2d217d1a06fdd8e86e2d1ab51ed0228ff7082f3515d61cb67c4704c55f640a2",
+    "proposal-traces-71.jsonl": "e39453f57a360e1921cb563dc2c0877f384393bd8c5d9555ee5fd45625a5925c",
+    "protocol.json": "ca165f07efcc615218e4286751da2f9620f539225bca2824e0db61f96bc65ee4",
+    "results.json": "6abaa61202a27a184cd5153b8570161330d61d85ef9072a8c746a29be58690b3",
+    "search-101.json": "0e28ff273dd98c23916dc0a52afc5963a5090f02c4822c7bde5cbb605caa7dc4",
+    "search-17.json": "1587cb8205642c4d14e24b55545104b00a4806bd35a11c589eb23997a62c6601",
+    "search-29.json": "0e2e79add55f984036d63cc7f89da79c5d2e83de1fe3adf8a62186aa537bbe65",
+    "search-43.json": "e6209cc9216832956cfef7270047d37620e23e8d123fdc01bc1f5bd49f61a1fc",
+    "search-71.json": "b2d2936e8249a320d87653b5e138958807f546beeea3cd24a3fa8d5327f686b5"
+  }
+}

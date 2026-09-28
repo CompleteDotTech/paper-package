@@ -39,6 +39,13 @@ def validate_artifact(directory, seed, item):
             or bool(protocol.get('baseline_only')) != (item['status'] == 'completed_baseline_only')
             or (item['status'] == 'completed' and protocol.get('iterations', 0) < 1)):
         return 'protocol and completion status disagree'
+    if protocol.get('proposer_model') == 'openai/ollamacloud/deepseek-v4.1-flash':
+        if protocol.get('iterations') != 8 or 'cost-budget.json' not in hashes:
+            return 'authorized live protocol or budget artifact missing'
+        budget = read_json(directory/'cost-budget.json')
+        if (budget.get('limit_usd') != 8.0 or budget.get('estimated_usd', 9.0) > 8.0
+                or budget.get('proposal_calls') != 32):
+            return 'authorized live budget or proposal count invalid'
     metrics = read_json(directory/'metrics.json')
     if not isinstance(metrics, list) or not metrics:
         return 'missing metric records'

@@ -49,6 +49,19 @@ class FakeBackend:
                 'probabilities':{'a':.8,'b':.2},'usage':{'input_tokens':10,'output_tokens':0}}
 
 class Tests(unittest.TestCase):
+    def test_five_seed_cost_guard_and_usage_fail_closed(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget, BudgetExhausted
+        self.assertEqual(CostBudget().limit * 5, 40.0)
+        budget = CostBudget(limit=.05)
+        budget.reserve_proposal(100)
+        self.assertEqual(budget.record()['proposal_calls'], 1)
+        with self.assertRaises(BudgetExhausted):
+            budget.target({'input_tokens': 1})
+        with self.assertRaises(BudgetExhausted):
+            CostBudget().target({})
+        with self.assertRaises(BudgetExhausted):
+            CostBudget().reserve_proposal(120_001)
+
     def test_inventory_all_registered_panels(self):
         v=inventory()
         self.assertEqual(v['relation_support']['splits']['test']['n'],339)
@@ -206,8 +219,11 @@ class Tests(unittest.TestCase):
                 events.append(state['phase'])
                 return {'model':'jev-1.13.0','choice':'a','probabilities':{'a':.7,'b':.3},'usage':{'input_tokens':2,'output_tokens':0}}
         class Proposer:
-            def __init__(self,*args,**kwargs): self.identity={'test_double':True}
+            def __init__(self,*args,**kwargs):
+                self.identity={'test_double':True}
+                self.budget=kwargs['budget']
             def propose(self,cfg,feedback,iteration,history):
+                self.budget.reserve_proposal(100)
                 return {'task':cfg.task,'instructions':cfg.instructions+' revised','criteria':cfg.criteria}
         def rows(phase,n):
             return [Example(phase+str(i),{'phase':phase,'i':i},'a' if i%2 else 'b',phase+str(i)) for i in range(n)]

@@ -11,6 +11,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from pathlib import Path
+from threading import Lock
 import numpy as np
 from graph_synthesis.dspy_jev_optimizer.core import (
     JevConfig, Evaluator, Cache, BudgetExhausted, digest, canonical, parse_json,
@@ -19,14 +20,82 @@ from graph_synthesis.dspy_jev_optimizer.providers import TypeSafeBackend, DSPyPr
 from .data import ROOT, SEEDS, OBJECTIVES, load_task, panels, state, inventory
 from .calibration import fit, apply, evaluation
 
+JEV_INPUT_USD_PER_MILLION = 0.042
+DEEPSEEK_INPUT_USD_PER_MILLION = 0.30
+DEEPSEEK_OUTPUT_USD_PER_MILLION = 1.20
+PROPOSAL_RESERVE_USD = 0.05
+PER_SEED_BUDGET_USD = 8.0  # Five manually dispatched seeds reserve at most $40 of the $50 cap.
+
+
+class CostBudget:
+    """Conservative per-seed guard; records provider-reported usage, never keys."""
+    def __init__(self, limit=PER_SEED_BUDGET_USD):
+        self.limit = limit
+        self.lock = Lock()
+        self.target_input_tokens = 0
+        self.proposals = 0
+        self.proposer_input_tokens = 0
+        self.proposer_output_tokens = 0
+        self.reserved_usd = 0.0
+
+    def target(self, usage):
+        tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
+        if type(tokens) is not int or tokens < 0:
+            raise BudgetExhausted('Jev response lacks valid input-token usage')
+        with self.lock:
+            self.target_input_tokens += tokens
+            self._check()
+
+    def reserve_proposal(self, payload_bytes):
+        if payload_bytes > 120_000:
+            raise BudgetExhausted('Proposal input exceeds pre-priced bound')
+        with self.lock:
+            self.proposals += 1
+            self.reserved_usd += PROPOSAL_RESERVE_USD
+            self._check()
+
+    def proposal_usage(self, usage):
+        if not isinstance(usage, dict):
+            return  # Conservative per-proposal reserve remains charged.
+        input_tokens = usage.get('prompt_tokens', usage.get('input_tokens'))
+        output_tokens = usage.get('completion_tokens', usage.get('output_tokens'))
+        if type(input_tokens) is int and input_tokens >= 0:
+            self.proposer_input_tokens += input_tokens
+        if type(output_tokens) is int and output_tokens >= 0:
+            self.proposer_output_tokens += output_tokens
+        self._check()
+
+    def _check(self):
+        if self.estimated_usd() > self.limit:
+            raise BudgetExhausted('Per-seed estimated spend limit reached')
+
+    def estimated_usd(self):
+        jev = self.target_input_tokens * JEV_INPUT_USD_PER_MILLION / 1_000_000
+        observed_proposal = (self.proposer_input_tokens * DEEPSEEK_INPUT_USD_PER_MILLION
+                             + self.proposer_output_tokens * DEEPSEEK_OUTPUT_USD_PER_MILLION) / 1_000_000
+        return jev + max(self.reserved_usd, observed_proposal)
+
+    def record(self):
+        return {'limit_usd': self.limit, 'estimated_usd': self.estimated_usd(),
+                'jev_input_tokens': self.target_input_tokens,
+                'proposal_calls': self.proposals,
+                'proposal_input_tokens_reported': self.proposer_input_tokens,
+                'proposal_output_tokens_reported': self.proposer_output_tokens,
+                'proposal_reserve_usd': self.reserved_usd,
+                'pricing_basis': {'jev_input_per_million_usd': JEV_INPUT_USD_PER_MILLION,
+                                  'deepseek_input_per_million_usd': DEEPSEEK_INPUT_USD_PER_MILLION,
+                                  'deepseek_output_per_million_usd': DEEPSEEK_OUTPUT_USD_PER_MILLION},
+                'note': 'Estimate from reported tokens and conservative proposal reserve, not an invoice.'}
+
 
 class ParallelEvaluator(Evaluator):
     """Only the caller thread touches SQLite and audit files."""
-    def __init__(self, *args, workers=4, **kwargs):
+    def __init__(self, *args, workers=4, budget=None, **kwargs):
         super().__init__(*args, **kwargs)
         if not 1 <= workers <= 8:
             raise ValueError('workers must be 1..8')
         self.workers = workers
+        self.budget = budget
 
     def evaluate(self, config, rows, phase):
         keys = [digest({'schema':1, 'backend':self.backend.identity,
@@ -59,6 +128,8 @@ class ParallelEvaluator(Evaluator):
                         if type(count) is not int or count < 0:
                             raise ValueError('Invalid usage')
                         self.usage[token] += count
+                    if self.budget is not None:
+                        self.budget.target(response.get('usage'))
                     self.cache.put(key,response)
                     responses[key] = response
                     self.event({'event':'response','key':key,'phase':phase,'response':response})
@@ -86,7 +157,7 @@ class ParallelEvaluator(Evaluator):
 class LegacyBackend(TypeSafeBackend):
     """Preserve native Choice/Noul formulations, not a rewritten surrogate."""
     def __init__(self, model, task, arm, spec, demos, seed):
-        super().__init__(model, retries=2)
+        super().__init__(model, retries=0)
         self.task, self.arm, self.spec, self.demos = task,arm,spec,demos
         self.identity.update(legacy_arm=arm, spec_sha256=digest(spec), repeat_seed=seed,
                              demonstration_sha256=digest(demos) if arm=='fewshot_contract' else None)
@@ -118,16 +189,31 @@ class LegacyBackend(TypeSafeBackend):
 
 
 class LoggedProposer:
-    def __init__(self, model, output, seed):
-        self.inner = DSPyProposer(model)
+    def __init__(self, model, output, seed, budget=None):
+        base = os.environ.get('DSPY_PROPOSER_API_BASE', '').strip()
+        if base:
+            if model != 'openai/ollamacloud/deepseek-v4.1-flash' or base != 'https://train.home.complete.tech:20128/v1':
+                raise ValueError('Unregistered proposal model or gateway endpoint')
+            import dspy
+            lm = dspy.LM(model, api_base=base, api_key=os.environ['OPENAI_API_KEY'],
+                         temperature=1.0, max_tokens=4096, timeout=60, num_retries=0, cache=False)
+            self.inner = DSPyProposer(model, lm=lm)
+        else:
+            self.inner = DSPyProposer(model)
         self.output = output
+        self.budget = budget
         self.identity = {**self.inner.identity,'repeat_seed':seed,
                          'seed_scope':'Python/NumPy and feedback order; remote sampling is not guaranteed deterministic'}
 
     def propose(self, config, feedback, iteration, history):
+        if self.budget is not None:
+            self.budget.reserve_proposal(len(canonical({'config':asdict(config),'feedback':feedback,
+                                                         'history':history,'iteration':iteration}).encode('utf-8')))
         proposal = self.inner.propose(config,feedback,iteration,history)
         records = self.inner.lm.history
         last = records[-1] if records else {}
+        if self.budget is not None:
+            self.budget.proposal_usage(last.get('usage'))
         # Whitelist metadata; never serialize provider arguments or authentication headers.
         row = {'iteration':iteration,'input_config':asdict(config),'training_feedback':feedback,
                'candidate':proposal,'usage':last.get('usage'), 'cost_usd':last.get('cost')}
@@ -204,6 +290,7 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 'execution':'live_provider_calls',
                 'note':'Historically examined public test sets; held out only from the current optimization.'}
     write_json(output/'protocol.json',protocol)
+    budget = CostBudget()
     all_metrics,usage = [],[]
     try:
         for task in ('relation_support','entity_resolution'):
@@ -213,7 +300,7 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
             task_dir = output/task
             task_dir.mkdir()
             cache = Cache(task_dir/'calls.sqlite3')
-            backend = TypeSafeBackend(model,retries=2)
+            backend = TypeSafeBackend(model,retries=0)
             backend.identity['repeat_seed'] = seed
             targets = []
             try:
@@ -221,10 +308,12 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 if not baseline_only:
                     for objective in OBJECTIVES:
                         search = task_dir/('search-'+objective)
-                        ev = ParallelEvaluator(backend,cache,search,2000,workers=workers)
-                        proposer = LoggedProposer(proposer_model, task_dir/('proposals-'+objective+'.jsonl'),seed)
+                        ev = ParallelEvaluator(backend,cache,search,2000,workers=workers,budget=budget)
+                        proposer = LoggedProposer(proposer_model, task_dir/('proposals-'+objective+'.jsonl'),seed,budget=budget)
                         freeze = optimize(cfg,train,splits['validation'],proposer,ev,search,
                                           iterations=iterations,selection_metric=objective,failure_sample=12,patience=0)
+                        if freeze['stop_reason'] != 'iteration_budget':
+                            raise BudgetExhausted('Search ended before the frozen iteration budget')
                         frozen_run(search)
                         targets.append(('dspy_'+objective,JevConfig.from_dict(freeze['champion']),backend))
                         usage.append({'task':task,'stage':'search_'+objective,**ev.summary()})
@@ -240,7 +329,7 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 # All calibration parameters are persisted before ANY test prediction in this task.
                 for name,config,target_backend in targets:
                     target_dir = task_dir/name
-                    ev = ParallelEvaluator(target_backend,cache,target_dir,12000,workers=workers)
+                    ev = ParallelEvaluator(target_backend,cache,target_dir,12000,workers=workers,budget=budget)
                     _,cal = ev.evaluate(config,splits['calibration'],'calibration')
                     fits = {}
                     for fraction in (.25,.5,1.):
@@ -275,12 +364,17 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 backend.close()
                 cache.close()
             write_json(output/'usage.json',usage)
+            write_json(output/'cost-budget.json',budget.record())
+        if not baseline_only and budget.proposals != iterations * len(OBJECTIVES) * 2:
+            raise RuntimeError('Completed comparison lacks frozen proposal count')
         write_json(output/'status.json',{'status':'completed_baseline_only' if baseline_only else 'completed',
-            'live_logical_calls':sum(r['logical_calls'] for r in usage), 'protocol_sha256':digest(protocol)})
+            'live_logical_calls':sum(r['logical_calls'] for r in usage), 'protocol_sha256':digest(protocol),
+            'estimated_cost_usd':budget.estimated_usd()})
         write_artifact_inventory(output)
         return all_metrics
     except Exception as exc:
         write_json(output/'usage.json',usage)
+        write_json(output/'cost-budget.json',budget.record())
         write_json(output/'status.json',{'status':'failed','error_type':type(exc).__name__,
                                        'note':'Partial observations are not complete benchmark results.'})
         raise

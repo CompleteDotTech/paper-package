@@ -1,6 +1,12 @@
 name: Repeated DSPy Jev benchmarks
 on:
   workflow_dispatch:
+    inputs:
+      seed:
+        description: 'Run one registered seed, then review spend before dispatching the next'
+        required: true
+        type: choice
+        options: ['11', '23', '37', '53', '71']
 permissions:
   contents: read
 jobs:
@@ -22,9 +28,9 @@ jobs:
     needs: offline
     strategy:
       fail-fast: false
-      max-parallel: 2
+      max-parallel: 1
       matrix:
-        seed: [11, 23, 37, 53, 71]
+        seed: ${{ fromJSON(format('[{0}]', inputs.seed)) }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -43,9 +49,10 @@ jobs:
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OMNIROUTE_DEEPSEEK_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          DSPY_PROPOSER_MODEL: ${{ vars.DSPY_PROPOSER_MODEL }}
+          DSPY_PROPOSER_MODEL: openai/ollamacloud/deepseek-v4.1-flash
+          DSPY_PROPOSER_API_BASE: https://train.home.complete.tech:20128/v1
           LITELLM_LOCAL_MODEL_COST_MAP: 'True'
         run: python -B -m graph_synthesis.dspy_benchmark.run --seed ${{ matrix.seed }} --iterations 8 --workers 4 --output '${{ runner.temp }}/comparison/seed-${{ matrix.seed }}'
       - name: Generate report without inventing missing runs

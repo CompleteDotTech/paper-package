@@ -1,5 +1,14 @@
 # DSPy / Jev comparison: actual execution status
 
+## Authorized follow-up preparation (2026-09-28)
+
+The user authorized a new live comparison with a $50 total cap and the existing
+restricted OmniRoute DeepSeek route for DSPy proposals. The manual workflow now
+selects one seed per dispatch and records a conservative $8 per-seed estimated
+spend limit. See [the run plan](LIVE_RUN_PLAN.md). This preparation creates no
+new five-seed result; the historical status and blockers below remain the
+record of what had been executed before this authorization.
+
 **Live with/without-DSPy comparison: NOT COMPLETED. No new Jev inference calls and no new DSPy inference runs were completed.**
 
 ## Live execution blockers

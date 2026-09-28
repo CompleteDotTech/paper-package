@@ -52,7 +52,7 @@ class Tests(unittest.TestCase):
     def test_five_seed_cost_guard_and_usage_fail_closed(self):
         from graph_synthesis.dspy_benchmark.run import CostBudget, BudgetExhausted
         self.assertEqual(CostBudget().limit * 5, 40.0)
-        budget = CostBudget(limit=.05)
+        budget = CostBudget(limit=.07)
         budget.reserve_proposal(100)
         self.assertEqual(budget.record()['proposal_calls'], 1)
         with self.assertRaises(BudgetExhausted):

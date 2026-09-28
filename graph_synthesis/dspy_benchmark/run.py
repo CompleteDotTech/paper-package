@@ -23,7 +23,7 @@ from .calibration import fit, apply, evaluation
 JEV_INPUT_USD_PER_MILLION = 0.042
 DEEPSEEK_INPUT_USD_PER_MILLION = 0.30
 DEEPSEEK_OUTPUT_USD_PER_MILLION = 1.20
-PROPOSAL_RESERVE_USD = 0.05
+PROPOSAL_RESERVE_USD = 0.07
 PER_SEED_BUDGET_USD = 8.0  # Five manually dispatched seeds reserve at most $40 of the $50 cap.
 
 
@@ -196,8 +196,9 @@ class LoggedProposer:
                 raise ValueError('Unregistered proposal model or gateway endpoint')
             import dspy
             lm = dspy.LM(model, api_base=base, api_key=os.environ['OPENAI_API_KEY'],
-                         temperature=1.0, max_tokens=4096, timeout=60, num_retries=0, cache=False)
+                         temperature=1.0, max_tokens=16384, timeout=180, num_retries=0, cache=False)
             self.inner = DSPyProposer(model, lm=lm)
+            self.inner.identity['max_tokens'] = 16384
         else:
             self.inner = DSPyProposer(model)
         self.output = output

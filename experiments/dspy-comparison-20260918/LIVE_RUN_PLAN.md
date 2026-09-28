@@ -1,6 +1,6 @@
 # Authorized five-seed comparison run plan
 
-Status: **prepared; no five-seed results yet**. The user approved the existing
+Status: **first live attempt failed; no five-seed results yet**. The user approved the existing
 OmniRoute DeepSeek route and a **$50 total spending cap** on 2026-09-28.
 The earlier instruction to use captures only applied to the prior PR remediation;
 this is a new authorized live run. It remains distinct from the published v2
@@ -22,9 +22,10 @@ captures in PRs #28–#30.
   not a token bound for the new prompts.
 - [Ollama's published DeepSeek V4.1 Flash price](https://www.ollama.com/pricing)
   is $0.30 per million input tokens and $1.20 per million output tokens at peak
-  rates; off-peak can be lower. With at most 4,096 output tokens, $0.05 per
-  proposal conservatively covers the runner's 120,000-byte proposal-input bound
-  and model output. All 160 reserves sum to **$8**.
+  rates; off-peak can be lower. With at most 16,384 output tokens, $0.07 per
+  proposal covers 120,000 input tokens and model output at peak rates.
+  The 120,000-byte serialized proposal-input guard is tighter than that token
+  allowance. All 160 reserves sum to **$11.20**.
 - The controlled runner limits each seed to an $8 estimate from reported Jev
   usage plus conservative proposal reserves. Seeds are dispatched individually,
   with observed token usage and provider billing reviewed before another seed.
@@ -49,3 +50,16 @@ captures in PRs #28–#30.
 
 This plan and its price arithmetic do not prove that the gateway has enough
 credits or that every run can finish inside the hosted job timeout.
+
+## Failed first attempt and execution amendment
+
+Run [36478661190](https://github.com/CompleteDotTech/paper-package/actions/runs/36478661190)
+used the authorized seed 11 and stopped after 60 successful Jev calls and one
+DeepSeek proposal attempt. The gateway returned 4,096 completion tokens of
+reasoning with an empty answer, so DSPy's JSON adapter raised
+`AdapterParseError`. Its artifact records 55,087 Jev input tokens and a
+$0.052313654 estimate, including a $0.05 proposal reserve. The failed attempt
+is preserved as a failed run and is excluded from study results. For the next
+attempt, the same method uses a 16,384-token proposal output ceiling and a
+$0.07 reserve per call. This changes only the execution ceiling and accounting;
+the frozen data, feedback, search iterations, and acceptance rule stay fixed.

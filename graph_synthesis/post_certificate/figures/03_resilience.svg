@@ -13,5 +13,5 @@
 <text x="841.4" y="580" text-anchor="middle" font-family="sans-serif" font-size="16">1536</text>
 <text x="1130.0" y="580" text-anchor="middle" font-family="sans-serif" font-size="16">2048</text>
 <text x="28" y="325.0" transform="rotate(-90 28 325.0)" text-anchor="middle" font-family="sans-serif" font-size="20">minimum deletion cost</text>
-<text x="600.0" y="660" text-anchor="middle" font-family="sans-serif" font-size="16">All analytic large fixtures match the independent closed form.</text>
+<text x="600.0" y="660" text-anchor="middle" font-family="sans-serif" font-size="16">Recorded oracle/witness failures: 0. Supplied lineage and costs only.</text>
 </svg>

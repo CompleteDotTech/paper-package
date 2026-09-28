@@ -1,16 +1,5 @@
 name: Corpus methodology
 on:
-  pull_request:
-    paths:
-      - 'graph_synthesis/corpus/**'
-      - 'LARGE_CORPUS_METHODOLOGY.md'
-      - '.github/workflows/corpus-methodology.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'graph_synthesis/corpus/**'
-      - 'LARGE_CORPUS_METHODOLOGY.md'
-      - '.github/workflows/corpus-methodology.yml'
   workflow_dispatch:
 permissions:
   contents: read

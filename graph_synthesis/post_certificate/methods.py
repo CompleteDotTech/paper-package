@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from functools import lru_cache
+from heapq import heappop, heappush
 from itertools import combinations, product
 from math import inf
 from typing import Dict, Iterable, List, Mapping, Sequence, Tuple, FrozenSet, Set
@@ -41,26 +42,31 @@ def min_fill_order(n: int, factors: Sequence[Factor]) -> Tuple[List[int], int]:
     adj=_scope_graph(n,factors)
     active=set(range(n))
     order=[]; width=0
+    versions=[0]*n
+    def key(v):
+        neigh=sorted(adj[v])
+        fill=sum(b not in adj[a] for i,a in enumerate(neigh) for b in neigh[i+1:])
+        return fill,len(neigh),v
+    heap=[]
+    for v in active: heappush(heap,(*key(v),versions[v]))
     while active:
-        best=None
-        for v in active:
-            neigh=sorted(adj[v] & active)
-            fill=0
-            for i,a in enumerate(neigh):
-                aa=adj[a]
-                for b in neigh[i+1:]:
-                    if b not in aa:
-                        fill+=1
-            key=(fill,len(neigh),v)
-            if best is None or key<best[0]:
-                best=(key,v,neigh)
-        _,v,neigh=best
+        _,_,v,version=heappop(heap)
+        if v not in active or version!=versions[v]: continue
+        neigh=sorted(adj[v])
+        # Removing v and filling its neighborhood changes scores only for
+        # those neighbors and vertices sharing an affected edge endpoint.
+        affected=set(neigh)
+        for a in neigh: affected.update(adj[a])
         width=max(width,len(neigh))
         for i,a in enumerate(neigh):
             for b in neigh[i+1:]:
                 adj[a].add(b); adj[b].add(a)
+            adj[a].discard(v)
         active.remove(v)
         order.append(v)
+        for a in affected & active:
+            versions[a]+=1
+            heappush(heap,(*key(a),versions[a]))
     return order,width
 
 
@@ -71,25 +77,39 @@ def max_sum_elimination(
     state_cap: int=250_000,
 ) -> EliminationResult:
     n=len(weights)
+    if type(width_cap) is not int or width_cap<0 or type(state_cap) is not int or state_cap<0:
+        raise ValueError('caps must be nonnegative integers')
+    if any(type(w) is not int or w<0 for w in weights):
+        raise ValueError('weights must be nonnegative integers')
+    scopes=[]
+    for raw in forbidden_scopes:
+        if any(type(v) is not int or not 0<=v<n for v in raw):
+            raise ValueError('forbidden scope contains an unknown vertex')
+        scope=tuple(sorted(set(raw)))
+        if len(scope)<2: raise ValueError('forbidden scope must have at least 2 vertices')
+        # A scope is a clique in the primal graph: its width lower bound
+        # already exceeds the cap. Never allocate its exponential table.
+        if len(scope)-1>width_cap:
+            return EliminationResult('staged',None,tuple(),tuple(),len(scope)-1,0)
+        scopes.append(scope)
+    materialized=2*n
+    for scope in scopes:
+        # Avoid even constructing an unbounded integer for a huge custom cap.
+        remaining=state_cap-materialized
+        if remaining<0 or len(scope)>=max(1,remaining.bit_length()):
+            return EliminationResult('staged',None,tuple(),tuple(),0,0)
+        materialized+=1<<len(scope)
+    if materialized>state_cap:
+        return EliminationResult('staged',None,tuple(),tuple(),0,0)
+    order,width=min_fill_order(n,[Factor(scope,{}) for scope in scopes])
+    if width>width_cap:
+        return EliminationResult('staged',None,tuple(),tuple(order),width,0)
     factors: List[Factor]=[]
     for v,w in enumerate(weights):
         factors.append(Factor((v,),{(0,):0,(1,):int(w)}))
-    for raw in forbidden_scopes:
-        scope=tuple(sorted(set(raw)))
-        if len(scope)<2:
-            raise ValueError('forbidden scope must have at least 2 vertices')
+    for scope in scopes:
         table={bits:(NEG_INF if all(bits) else 0) for bits in product((0,1), repeat=len(scope))}
         factors.append(Factor(scope,table))
-    # Exact fast path for the long path/triangle-chain fixtures used by the
-    # protocol: every non-unary scope lies inside a three-vertex sliding
-    # window, so 0..n-1 is the same endpoint-first min-fill elimination.
-    nonunary=[f.scope for f in factors if len(f.scope)>1]
-    if n>64 and nonunary and all(max(s)-min(s)<=2 for s in nonunary):
-        order=list(range(n)); width=max(max(s)-min(s) for s in nonunary)
-    else:
-        order,width=min_fill_order(n,factors)
-    if width>width_cap:
-        return EliminationResult('staged',None,tuple(),tuple(order),width,0)
     work=list(factors)
     back=[]
     states=0
@@ -99,6 +119,10 @@ def max_sum_elimination(
         union=sorted({x for f in touched for x in f.scope if x!=v})
         if len(union)>width_cap:
             return EliminationResult('staged',None,tuple(),tuple(order),max(width,len(union)),states)
+        output_states=1<<len(union)
+        if materialized+output_states>state_cap or states+2*output_states>state_cap:
+            return EliminationResult('staged',None,tuple(),tuple(order),width,states)
+        materialized+=output_states
         choices={}
         new_table={}
         for bits in product((0,1), repeat=len(union)):
@@ -121,8 +145,6 @@ def max_sum_elimination(
                 best=0; val=vals[0]
             choices[bits]=best
             new_table[bits]=val
-            if states>state_cap:
-                return EliminationResult('staged',None,tuple(),tuple(order),width,states)
         back.append((v,tuple(union),choices))
         work.append(Factor(tuple(union),new_table))
     total=0
@@ -166,12 +188,32 @@ class DependencyGraph:
     definitions: Dict[int, Tuple[str, Tuple[int,...]]]
 
     def __post_init__(self):
+        if type(self.primitive_count) is not int or self.primitive_count<0:
+            raise ValueError('primitive count must be nonnegative')
+        primitives=set(range(self.primitive_count))
+        if any(type(node) is not int or node<self.primitive_count for node in self.definitions):
+            raise ValueError('derived identifiers must be distinct from primitives')
+        nodes=primitives | set(self.definitions)
         self.total_nodes=self.primitive_count+len(self.definitions)
-        self.reverse={i:set() for i in range(self.total_nodes)}
+        self.reverse={i:set() for i in nodes}
+        indegree={node:0 for node in self.definitions}
         for node,(op,deps) in self.definitions.items():
+            if op not in ('and','or','xor') or any(type(d) is not int or d not in nodes for d in deps):
+                raise ValueError('invalid operation or unknown dependency')
+            indegree[node]=len(set(deps)-primitives)
             for d in deps:
                 self.reverse[d].add(node)
-        self.derived_order=tuple(sorted(self.definitions))
+        ready=[]
+        for node,count in indegree.items():
+            if count==0: heappush(ready,node)
+        order=[]
+        while ready:
+            node=heappop(ready); order.append(node)
+            for child in self.reverse[node]:
+                indegree[child]-=1
+                if indegree[child]==0: heappush(ready,child)
+        if len(order)!=len(self.definitions): raise ValueError('dependency graph contains a cycle')
+        self.derived_order=tuple(order)
 
     @staticmethod
     def eval_op(op: str, vals: Sequence[bool]) -> bool:
@@ -395,7 +437,8 @@ def expected_residual_variance(queries: Sequence[Sequence[Sequence[int]]], probs
     return total
 
 
-def select_interval_minimax(queries, intervals: Mapping[int,Tuple[float,float]], budget:int=2):
+def select_endpoint_minimax(queries, intervals: Mapping[int,Tuple[float,float]], budget:int=2):
+    """Minimize the frozen finite endpoint-scenario objective, not interval interiors."""
     atoms=tuple(sorted(intervals))
     candidates=list(combinations(atoms,budget))
     endpoints=[]
@@ -412,7 +455,8 @@ def select_interval_minimax(queries, intervals: Mapping[int,Tuple[float,float]],
     return {'minimax':minimax,'minimax_worst':worst[minimax], 'midpoint':midpoint,'midpoint_worst':worst[midpoint], 'all_worst':worst}
 
 
-def oracle_interval_worst(queries, intervals: Mapping[int,Tuple[float,float]], review: Sequence[int]) -> float:
+def oracle_endpoint_worst(queries, intervals: Mapping[int,Tuple[float,float]], review: Sequence[int]) -> float:
+    """Independent world enumeration over the same finite endpoint scenarios."""
     atoms=tuple(sorted(intervals)); worst=0.0
     for bits in product((0,1),repeat=len(atoms)):
         p={a:intervals[a][bits[i]] for i,a in enumerate(atoms)}

@@ -210,11 +210,22 @@
     ],
     "connected_mean_reduction": 0.0,
     "evaluation_reduction": 0.901092529296875,
-    "failure_atomic_controls": 64,
+    "failure_atomic_controls": 63,
     "full_recompute_evaluations": 163840,
     "local_evaluations": 16205,
     "malformed_controls": 64,
-    "primary_target_met": true,
+    "primary_target_met": false,
+    "rejection_control_failures": [
+      {
+        "control": "injected_evaluation",
+        "expected_exception_raised": false,
+        "fail_node": null,
+        "graph_index": 29,
+        "primitive": 29,
+        "reason": "no affected derived node"
+      }
+    ],
+    "revision_mismatches": 0,
     "snapshot_mismatches": 0,
     "stale_revision_controls": 64
   },
@@ -309,9 +320,45 @@
     "small_solved": 160
   },
   "H4": {
+    "continuous_interval_claim_supported": false,
     "degenerate_point_controls": 16,
     "engineered_strict": 32,
     "fixtures": 128,
+    "interior_counterexample": {
+      "alternative_continuous_worst": 0.24,
+      "alternative_review": [
+        0,
+        2
+      ],
+      "continuous_interval_claim_supported": false,
+      "endpoint_selected": [
+        1,
+        2
+      ],
+      "endpoint_worst": 0.09000000000000001,
+      "interior_loss": 0.25,
+      "interior_witness": {
+        "0": 0.5,
+        "1": 0.4,
+        "2": 0.5
+      },
+      "intervals": {
+        "0": [
+          0.1,
+          0.9
+        ],
+        "1": [
+          0.3,
+          0.4
+        ],
+        "2": [
+          0.5,
+          0.5
+        ]
+      },
+      "role": "post-review negative control; outside the frozen endpoint fixture population"
+    },
+    "objective_scope": "finite interval endpoint scenarios only",
     "oracle_discrepancies": 0,
     "primary_target_met": true,
     "random_strict": 13,
@@ -578,13 +625,14 @@
     "small_solved": 160
   },
   "baseline_commit": "9d2e4a60a6c79e616ab1d352cd5da9fe414e6c98",
+  "correction_record": "graph_synthesis/post_certificate/CORRECTIONS.md",
   "fresh_jev_calls": 0,
   "new_scientific_documents": 0,
   "protocol_commit": "8187cc4e4b98e40f3146ce787b71f262b62b3abd",
   "seed": 20260923,
   "targets_met": {
     "H1": true,
-    "H2": true,
+    "H2": false,
     "H3": true,
     "H4": true,
     "H5": true

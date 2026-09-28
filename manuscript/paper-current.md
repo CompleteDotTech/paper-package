@@ -1,3 +1,39 @@
+<!-- MANUSCRIPT_NAVIGATION_START -->
+
+# Jev graph synthesis: current research map
+
+This cumulative author-review draft preserves separate studies and the original manuscript. The latest fresh same-data repeat did not resolve the original entity-matching macro-F1 improvement; the later saved-response and controlled results are exploratory and do not establish independent semantic generalization. No study here validates unattended graph writes.
+
+## Study directory
+
+Each entry links to its study and its in-document protocol or evidence boundary. Dates refer to the recorded study drafts. “Controlled” means supplied fixtures or simulated decisions, not new Jev service observations.
+
+| Study and protocol | Evidence type | Main result and limit | Date |
+|---|---|---|---|
+| [Adaptive verification and joint conflict resolution for Jev graph synthesis](#adaptive-verification-and-joint-conflict-resolution-for-jev-graph-synthesis); [Protocol and scope](#research-question-and-provenance) | Saved responses; simulated review; controlled graphs | Routing misses its cost target; fallback adds wrong edges; controlled review and optimization meet targets. | 2026-09-18 |
+| [Risk control, targeted verification and structural tractability in Jev graph synthesis](#risk-control-targeted-verification-and-structural-tractability-in-jev-graph-synthesis); [Protocol and scope](#1-motivation-scope-and-provenance) | Saved responses; controlled graphs | Four primary targets fail; forest optimization meets its controlled target. | 2026-09-18 |
+| [Reliability, evidence lineage and incremental structure in Jev graph synthesis](#reliability-evidence-lineage-and-incremental-structure-in-jev-graph-synthesis); [Protocol and scope](#1-motivation-and-protocol) | Saved responses; simulated review; controlled algorithms | Reliability calibration misses; four controlled targets meet. | 2026-09-18 |
+| [Reliability ranking, source diversity and bounded exact inference for Jev graph synthesis](#reliability-ranking-source-diversity-and-bounded-exact-inference-for-jev-graph-synthesis); [Protocol and scope](#1-research-motivation-and-evidence-boundary) | Saved responses; simulated review; controlled algorithms | Ranking, diversity and review miss targets; two exact structural targets meet. | 2026-09-18 |
+| [Source risk, review budgets and structural certificates for Jev graph synthesis](#source-risk-review-budgets-and-structural-certificates-for-jev-graph-synthesis); [Protocol and scope](#1-research-questions-and-frozen-evaluation) | Saved responses; simulated review; controlled algorithms | Source risk and review miss; three structural targets meet. | 2026-09-18 |
+| [Assumption-aware graph synthesis: five falsifiable follow-up experiments](#assumption-aware-graph-synthesis-five-falsifiable-follow-up-experiments); [Protocol and scope](#1-motivation-scope-and-novelty-boundary) | Controlled algorithms and decision models | Lineage and review miss; three controlled targets meet. | 2026-09-18 |
+| [Uncertainty, repair ambiguity and grounded evidence in Jev graph synthesis](#uncertainty-repair-ambiguity-and-grounded-evidence-in-jev-graph-synthesis); [Protocol and scope](#1-research-question-prior-evidence-and-novelty-boundary) | Controlled algorithms and decision models | Five controlled targets meet; no new semantic evaluation. | 2026-09-18 |
+| [Five initial hypotheses: distinct additions and concurrent replication](#five-initial-hypotheses-distinct-additions-and-concurrent-replication); [Protocol and scope](#1-motivation-novelty-scope-and-protocol) | Saved responses; controlled algorithms | Label shift misses; four controlled targets meet; one overlaps concurrent work. | 2026-09-18 |
+| [Interval-priority regret: fifth distinct addition after concurrent overlap](#interval-priority-regret-fifth-distinct-addition-after-concurrent-overlap); [Protocol and scope](#hypothesis-and-falsification) | Controlled interval optimization | Regret target meets on controlled fixtures; no semantic validation. | 2026-09-18 |
+| [Structural frontiers for evidence-preserving Jev graph synthesis](#structural-frontiers-for-evidence-preserving-jev-graph-synthesis); [Protocol and scope](#1-motivation-novelty-scope-and-frozen-design) | Controlled algorithms and decision models | Review misses; four structural targets meet. | 2026-09-18 |
+| [Dependence-aware certificates for Jev graph synthesis](#dependence-aware-certificates-for-jev-graph-synthesis); [Protocol and scope](#1-motivation-novelty-boundary-and-frozen-methodology) | Saved responses; controlled algorithms | Forecasting misses; four controlled targets meet, with documented overlap. | 2026-09-18 |
+| [Five post-certificate improvements for Jev graph synthesis](#five-post-certificate-improvements-for-jev-graph-synthesis); [Protocol and scope](#1-frozen-methodology-and-novelty-boundary) | Saved responses; controlled algorithms | Source-risk stacking misses; four controlled targets meet. | 2026-09-18 |
+| [Post-certificate structural extensions for Jev graph synthesis](#post-certificate-structural-extensions-for-jev-graph-synthesis); [Protocol and scope](#1-frozen-protocol-and-evidence-boundary) | Controlled algorithms; finite endpoint scenarios | H2 misses an injected-failure control; H4 passes only its endpoint-scenario target, not continuous interval minimax. | 2026-09-28 |
+| [Do additional Jev calls improve graph edges?](#do-additional-jev-calls-improve-graph-edges); [Protocol and scope](#design-and-evidence-boundary) | 3,024 fresh Jev calls | No added-call policy establishes a matched-volume advantage. | 2026-09-18 |
+| [Fresh Jev execution and graph-synthesis falsification](#fresh-jev-execution-and-graph-synthesis-falsification); [Protocol and scope](#evidence-scope) | Fresh same-data Jev repeat; synthetic challenge | Original entity improvement is unresolved on fresh macro-F1 interval. | 2026-09-18 |
+| [Follow-up: five evidence-driven improvements](#follow-up-five-evidence-driven-improvements); [Protocol and scope](#summary-of-fixed-operational-targets) | Saved responses; controlled algorithms | Mixed target outcomes; no independent semantic validation. | 2026-09-18 |
+| [Original study (historical evidence; unchanged text)](#original-study-historical-evidence-unchanged-text); [Protocol and scope](#3-research-questions-and-scope) | Original Jev calls; cached replay | Positive entity-matching result on original split; relation gain inconclusive. | 2026-09-18 |
+
+## Reading the evidence
+
+The [fresh repeat](#fresh-jev-execution-and-graph-synthesis-falsification) and [multicall study](#do-additional-jev-calls-improve-graph-edges) contain new service calls. Later studies mostly replay saved responses or test controlled algorithms; their target passes do not measure new semantic accuracy. The [historical original study](#original-study-historical-evidence-unchanged-text) reports the initial fixed-split improvement. See [current results](../CURRENT_RESULTS.md) for the chronological record and the linked protocols and reports.
+
+<!-- MANUSCRIPT_NAVIGATION_END -->
+
 <!-- ADAPTIVE_RESEARCH_START -->
 
 # Adaptive verification and joint conflict resolution for Jev graph synthesis
@@ -1578,6 +1614,186 @@ These sources motivate established components; they do not validate this impleme
 
 <!-- CERTIFICATES_RESEARCH_END -->
 
+<!-- POST_CERTIFICATES_RESEARCH_START -->
+
+# Five post-certificate improvements for Jev graph synthesis
+
+Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026
+
+## Abstract
+
+The dependence-aware certificate study left an asymmetric frontier: its source-random-effects forecast improved Brier by only 6.39% and missed its frozen target, while its dependence bounds, flow certificates, repair-invariant queries and local delta maintenance passed controlled tests. This pre-execution-frozen follow-up tests five responses to those remaining boundaries. The outcomes are: H1 **not met**, H2 **met**, H3 **met**, H4 **met**, and H5 **met**. No fresh Jev calls are made. H1 reuses previously inspected saved responses; H2–H5 are controlled algorithmic experiments. These results are not new semantic-accuracy evidence and are not a comparison against KARMA or another external graph system.
+
+## 1. Frozen methodology and novelty boundary
+
+The protocol was committed as `f923e8d41ca5953d9793fadcc3730cfe9fc70b3a` against merged baseline `9d2e4a60a6c79e616ab1d352cd5da9fe414e6c98` before implementation or execution. It fixes generators, thresholds, comparators and seed 20260923. Existing package studies already contain relation-level stacking, fixed pairwise-dependence sensitivity analyses, bipartite flow, repair ambiguity and exact-marginal credal bounds. The five experiments here test different package-level integrations: source-group forecast stacking, active dependence-constraint acquisition, verified small-separator conditioning beyond bipartite graphs, reusable singleton repair margins and interval-valued marginal premises. This is a repository-scoped experiment distinction, not a worldwide novelty claim.
+
+**Fresh Jev service calls: 0.** No production graph policy is changed. The controlled structural fixtures do not establish real-world source truth, reviewer behavior, calibrated Jev probabilities or end-to-end database latency. A pass means only that the frozen target for the stated evidence population was met.
+
+| Hypothesis | Frozen primary requirement | Result | Evidence class |
+|---|---|---|---|
+| H1: exposure-stratified source-risk stacking | Beat random-effects Brier by >=3%, do not regress feature-risk Brier, absolute bias <=0.03 | Not met | Previously inspected saved-response source forecasts |
+| H2: active dependence constraints | Zero containment/widening failures; mean width <=75% marginal-only and <=90% lexicographic same-budget | Met | Supplied finite joint distributions |
+| H3: near-bipartite separator solver | Exact small oracles; solve all 512/1024/2048 residual cases; safe controls | Met | Supplied weighted conflict graphs |
+| H4: repair-margin query index | Zero query/witness mismatches and >=70% fewer frozen-count optimization invocations | Met | Repeated controlled singleton queries |
+| H5: interval marginals | Zero containment failures; prevent 20/20 designed false admissions; fail closed on malformed inputs | Met | Supplied joint distributions and uncertainty intervals |
+
+## 2. H1 — Exposure-stratified source-risk stacking
+
+The certificate result suggested that within-source dependence contains information but did not outperform the richer feature-risk forecast. H1 therefore combines the two forecasts without using evaluation labels for fitting. Leave-one-source-group-out development predictions select convex weights separately for singleton and multi-edge exposure strata when each stratum has at least eight folds; otherwise the global development weight is used.
+
+Development selected feature weights: global **1.0**, singleton **1.0**, multi-edge **1.0**. Development fold counts are 23 total, 14 singleton and 9 multi-edge. Evaluation scoring uses the identical 98 nonempty source groups as the comparators (60 singleton, 38 multi-edge).
+
+| Forecast | Brier | Clipped log loss | Bias |
+|---|---:|---:|---:|
+| Existing feature-risk | 0.128923 | 0.467074 | -0.072629 |
+| Certificate random effects | 0.131444 | 0.435042 | -0.012382 |
+| Exposure-stratified stack | 0.128923 | 0.467074 | -0.072629 |
+
+The stacked-minus-feature paired Brier mean is +0.000000, with descriptive 95% interval [+0.000000, +0.000000]. The stacked-minus-random-effects mean is -0.002522, with 95% interval [-0.028381, +0.021169]. The frozen conjunction is **not met**. These intervals condition on the selected development weights and reuse already inspected evaluation data; they are not independent validation.
+
+![H1. Forecast Brier on the identical nonempty source-group denominator.](../graph_synthesis/post_certificates/figures/01_stacked_risk.png)
+
+## 3. H2 — Greedy acquisition of dependence constraints
+
+Marginal-only dependence bounds are safe but can be wide. H2 treats exact pairwise intersections from each fixture's supplied joint distribution as controlled observations and asks which three would most narrow the conclusion interval. At each step the policy evaluates every not-yet-observed pair and selects the one giving the smallest certified width; the comparator spends the same budget on the first three lexicographic pairs.
+
+Across 128 fixtures, mean width is **0.326563** from marginals alone, **0.176527** after the lexicographic budget and **0.096687** after the greedy budget. Truth-containment failures: **0**. Chosen-step widening failures: **0**. The frozen target is **met**.
+
+This is an oracle value-of-information experiment: it assumes the selected pairwise intersections can be supplied exactly. It does not show that those quantities are observable cheaply, that Jev scores are source reliabilities, or that a production estimator would preserve the same benefit.
+
+![H2. Mean certified width before and after equal three-constraint budgets.](../graph_synthesis/post_certificates/figures/02_constraint_acquisition.png)
+
+## 4. H3 — Separator-conditioned near-bipartite exact optimization
+
+The prior flow certificate handles bipartite components but stages sufficiently large non-bipartite ones. H3 accepts a supplied separator of at most four vertices, verifies that deleting it leaves a bipartite graph, enumerates every independent separator choice and solves each residual branch with the existing certified bipartite solver. An invalid separator is not trusted; it stages.
+
+The 128 small exhaustive fixtures have **0** oracle failures and **0** order/duplicate-invariance failures. Large residual-cycle results are 512→258/258, 1024→514/514, 2048→1026/1026, written as residual vertices → obtained/analytic utility. The current generic solver stages respectively **513, 1025, 2049** vertices on those fixtures. Malformed and non-transversal controls stage safely: **True**. The frozen target is **met**.
+
+The supplied priorities and conflict edges remain premises. Exact maximum supplied-priority utility does not establish that a selected assertion is factually true.
+
+![H3. Separator-conditioned utility versus the analytic optimum.](../graph_synthesis/post_certificates/figures/03_near_bipartite.png)
+
+## 5. H4 — Reusable repair-margin singleton query index
+
+The certificate query implementation recomputes a base optimum plus forced-in/forced-out alternatives for repeated questions. H4 precomputes each vertex's inclusion and exclusion margin once, then classifies any singleton query at any tested tolerance by comparing those margins with the tolerance threshold.
+
+Across **2653** repeated singleton queries, classification mismatches are **0** and witness failures are **0**. Under the frozen top-level solve-count accounting, repeated queries require **7,959** invocations versus **1,814** for index construction, a **77.21%** reduction. A control using the existing query's realized early-exit count gives a still-separated descriptive reduction of **74.41%**. The frozen target is **met**.
+
+This index is deliberately limited to singleton queries and in-memory top-level optimization calls. It is not a measured SQL/database speedup or a semantic guarantee.
+
+![H4. Frozen-accounting optimization calls for repeated queries versus one reusable index.](../graph_synthesis/post_certificates/figures/04_query_index.png)
+
+## 6. H5 — Interval-marginal dependence certificates
+
+Previous dependence-safe methods remain conditional on exact atom marginals. H5 instead supplies each atom with a lower and upper probability and optimizes over all Boolean-world distributions whose marginals lie inside those intervals. Reported endpoints use independently checked, outward-padded dual bounds rather than treating numerical primal optima as certificates. Exact point marginals are a special case. Invalid, infeasible or over-cap inputs return a non-certifying [0,1] stage.
+
+Across 128 arbitrary-joint fixtures, truth-containment failures are **0**. Mean point-bound width is **0.361057** and mean interval-marginal width is **0.467497**, exposing the cost of premise uncertainty rather than hiding it. On 20 deliberately biased singleton point estimates, the interval policy prevents **20/20** designed false admissions. Malformed inputs returning a certifying interval: **0**. The frozen target is **met**.
+
+The interval itself is still a supplied assumption. If the real marginal falls outside it, the certificate can again be wrong. This test converts one known premise-error mode into explicit uncertainty; it does not validate how such intervals should be estimated from real sources.
+
+![H5. False admissions on designed marginal-misspecification controls.](../graph_synthesis/post_certificates/figures/05_interval_marginals.png)
+
+## 7. Interpretation and falsification boundary
+
+The five experiments are intentionally heterogeneous. H1 asks whether two already observed forecast signals combine on reused response data. H2 asks whether a constrained information budget can reduce dependence uncertainty on finite controlled worlds. H3 and H4 test exact structural reuse. H5 asks whether uncertainty in the probability premises can be represented rather than ignored. Their pass/fail outcomes must not be pooled into a semantic success percentage.
+
+The strongest remaining scientific boundary is unchanged: freeze a policy before observing a new source-disjoint, independently adjudicated corpus and compare full graph quality, downstream queries, provenance errors, reviewer mistakes, resource budgets and staging against appropriate external baselines. None of the controlled algorithmic passes can substitute for that prospective semantic evaluation.
+
+## 8. Reproduction
+
+```bash
+python -m pip install -r graph_synthesis/post_certificates/requirements.txt
+python -B -m graph_synthesis.post_certificates.run
+python -B -m unittest discover -s graph_synthesis/post_certificates/tests -v
+python -B -m graph_synthesis.post_certificates.run --check
+python -B -m graph_synthesis.post_certificates.report --figures --update-paper
+python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
+```
+
+The machine-readable results retain the controlled fixtures, selected pair constraints, optimization witnesses, development-only weights, uncertainty intervals and falsifying controls. The five PNG/SVG pairs and summary table are generated from those recorded results. Earlier study artifacts are not rewritten.
+
+<!-- POST_CERTIFICATES_RESEARCH_END -->
+
+<!-- POST_CERTIFICATE_RESEARCH_START -->
+
+# Post-certificate structural extensions for Jev graph synthesis
+
+Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026; corrected September 28, 2026
+
+## Abstract
+
+Five precommitted controlled extensions were executed after the dependence-aware certificate study. Recorded frozen-target outcomes: **H1: met; H2: not met; H3: met; H4: met; H5: met.** These are separate algorithmic conjunctions, not a pooled success percentage. The experiments address induced-width repair, transactional delta maintenance, query resilience, finite endpoint-scenario review and n-ary conflict constraints. **H4 tests endpoint scenarios only; it does not establish minimax review over continuous probability intervals.** An interior counterexample below rejects that broader interpretation. No new semantic-accuracy observations, deployment guarantees or external-system superiority are established.
+
+## 1. Frozen protocol and evidence boundary
+
+The protocol was committed as `8187cc4e4b98e40f3146ce787b71f262b62b3abd` against baseline `9d2e4a60a6c79e616ab1d352cd5da9fe414e6c98` before implementation and execution. Its bytes, fixture definitions, caps, seed `20260923` and thresholds remain unchanged. **Fresh Jev calls: 0. New scientific documents: 0.** This is exploratory follow-up, not independent preregistration.
+
+[The correction record](../graph_synthesis/post_certificate/CORRECTIONS.md) distinguishes repaired implementation/control defects from the preserved protocol. H4's frozen Method explicitly specifies interval endpoint vectors; its former broader interval-minimax description is withdrawn. The supplemental negative control is outside the frozen 128-fixture population. Treewidth-aware dynamic programming, incremental view maintenance, query resilience, finite-scenario minimax decisions and hypergraph optimization have prior art; these are repository experiments, not worldwide novelty claims.
+
+| Hypothesis | Frozen target | Recorded outcome |
+|---|---|---|
+| H1: induced-width repair | zero oracle/permutation failures; solve 8 large chains; stage controls; >=90% fewer counted states | **met** |
+| H2: transactional delta | zero snapshot/atomicity failures; >=80% fewer local evaluations | **not met** |
+| H3: query resilience | zero oracle/witness failures; solve 8 analytic families; stage 6 controls | **met** |
+| H4: endpoint-scenario review | zero endpoint-oracle discrepancies; never worse than midpoint on endpoint scenarios; strict gain on >=20% | **met**, endpoint scenarios only |
+| H5: n-ary conflicts | zero oracle/permutation failures; solve 8 chains; strict gain vs pairwise projection; stage controls | **met** |
+
+A failed conjunction remains not met regardless of individual favorable endpoints.
+
+## 2. H1 - induced-width exact conflict optimization
+
+The solver computes deterministic min-fill order from the actual graph, checking width and allocation limits before constructing exponential tables. The shortcut based on numeric identifier distance has been removed. Of 160 small fixtures, 160 match the exhaustive objective; recorded failures: **0**; permutation failures: **0**. Width distribution: {'1': 33, '2': 45, '3': 53, '4': 29}.
+
+For the frozen 12-16 vertex subset, counted elimination evaluations are **14,660**, versus **1,986,560** full assignments: **99.26% reduction**. This original work counter is not total memory allocation or CPU time; a separate cumulative table-allocation guard enforces the frozen cap. Large triangle chains use an independent prefix dynamic-programming oracle. Per-fixture objectives, widths and staged controls remain in `results.json`.
+
+![H1. Counted exact-DP work versus full enumeration.](../graph_synthesis/post_certificate/figures/01_induced_width.svg)
+
+## 3. H2 - transactional batch delta maintenance
+
+Transactions validate revisions and updates, evaluate an overlay in computed topological order, and return it only after successful evaluation. Unknown dependencies and cycles are rejected. Across **640** accepted transactions, independent full recomputation finds **0 snapshot mismatches**. A control passes only when the expected exception is raised and original values/revision remain unchanged: injected evaluation **63/64**, stale revision **64/64**, malformed update **64/64**. Returned revision mismatches: **0**. The frozen injected-failure conjunction is not met: one selected primitive has no affected derived node, so no failure was injected. That case remains in the denominator; the exact control record is retained in `results.json`.
+
+Local evaluations: 16,205, versus 163,840 for full recomputation: **90.11% reduction**. Connected controls separately show **0.00% mean saving**. These are in-memory atomic batches, not crash durability or concurrent database isolation.
+
+![H2. Local work and connected-control boundary.](../graph_synthesis/post_certificate/figures/02_transactional_delta.svg)
+
+## 4. H3 - exact query-resilience certificates
+
+For supplied monotone DNF lineage and removal costs, incidence decomposition and bounded branch-and-bound find a minimum-cost deletion set hitting each active proof clause. **160/160** small fixtures match the exhaustive oracle. Recorded oracle, witness or control failures: **0**. All 8 analytic-family results and 6 over-cap controls are retained. This is conditional structural resilience, not factual truth or calibrated review effort.
+
+![H3. Recorded resilience cost in decomposable families.](../graph_synthesis/post_certificate/figures/03_resilience.svg)
+
+## 5. H4 - endpoint-scenario query review
+
+The selector minimizes worst-case expected residual Bernoulli variance **over the finite Cartesian product of interval endpoints**, with two reviews. Production uses Shannon recursion; the independent checker enumerates Boolean worlds over the same endpoint scenarios. Neither searches interval interiors.
+
+Across 128 frozen fixtures, endpoint-oracle discrepancies: **0**; cases worse than midpoint on endpoint scenarios: **0**. Strict endpoint gains: **45/128 (35.16%)**, comprising 13 random and 32 engineered fixtures. Point-interval controls pass **16/16**.
+
+**Continuous-interval claim: unsupported.** For singleton queries with intervals `0=[0.1,0.9]`, `1=[0.3,0.4]`, `2=[0.5,0.5]`, the supplemental control selects reviews [1, 2] and reports endpoint worst loss 0.09. The allowed interior witness `p0=0.5` yields **0.25**. Reviewing [0, 2] has analytic continuous worst loss **0.24**. The endpoint choice is therefore not continuous-interval minimax. This negative evidence is separate from the preserved endpoint target. Independent primitives are assumed; no dependence or semantic-calibration guarantee follows.
+
+![H4. Endpoint-scenario outcomes only; continuous interval claim unsupported.](../graph_synthesis/post_certificate/figures/04_interval_review.svg)
+
+## 6. H5 - n-ary conflict constraints
+
+A forbidden hyperedge rejects only its all-selected assignment; pairwise conflict is the arity-two case. **160/160** small fixtures match exhaustive optimization; recorded failures: **0**; permutation failures: **0**. Eight chains compare against `n - floor(n/3)`, with objectives and staging controls retained. At the largest chain, retained n-ary utility is **1366**, versus **683** under deliberately over-conservative pairwise projection.
+
+![H5. N-ary repair versus pairwise projection.](../graph_synthesis/post_certificate/figures/05_hypergraph.svg)
+
+## 7. Interpretation
+
+Every result is conditional on supplied graphs, lineage, costs, constraints or finite probability scenarios. Work counters do not measure wall-clock/API latency or cloud cost. The H4 interior counterexample rejects the broader interval-minimax interpretation. None establishes correct extracted entities, relations, qualifiers or probabilities. No production graph policy changes here.
+
+## 8. Reproducibility
+
+```bash
+python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v
+python -B -m graph_synthesis.post_certificate.run --check
+python -B -m graph_synthesis.post_certificate.report --check --update-paper
+```
+
+`results.json` retains outcomes and controls; `summary.csv` and five SVGs derive from those measurements. Manual validation also checks protocol ancestry/bytes, archive integrity, deterministic HTML and current-paper build hashes. The correction record documents implementation and interpretation changes; the frozen protocol is unchanged.
+
+<!-- POST_CERTIFICATE_RESEARCH_END -->
 # Do additional Jev calls improve graph edges?
 
 Timothy Wayne Gregg — exploratory research addendum, September 18, 2026
@@ -2294,88 +2510,4 @@ A fixed Jev service benefits from a selected bundle of explicit identity instruc
 
 The package bibliography supplies the citation entries used above. The source-verification notes distinguish interface documentation, original papers, dataset provenance, and remaining licensing or metadata questions.
 
-<!-- POST_CERTIFICATE_RESEARCH_START -->
 
-# Post-certificate structural extensions for Jev graph synthesis
-
-Timothy Wayne Gregg | AI-assisted author-review research extension | September 18, 2026
-
-## Abstract
-
-Five precommitted controlled extensions were executed after the dependence-aware certificate study. All five frozen **algorithmic** targets were met: bounded induced-width max-sum repair matched exhaustive oracles and solved connected non-bipartite triangle chains through 1,025 vertices; atomic batch delta maintenance matched full recomputation across 640 accepted transactions while reducing counted local derived-node evaluations by 90.11%; exact query resilience matched 160 exhaustive small oracles and eight large analytic decompositions; interval-minimax review never worsened the frozen worst-case objective and strictly improved 45/128 fixtures (35.16%); and n-ary forbidden-set repair matched all small oracles and retained strictly more supplied utility than a pairwise clique projection on every large three-way-conflict chain. These are structural and decision-theoretic findings. They are not new Jev semantic-accuracy observations, deployment guarantees, or evidence of superiority to an external graph-synthesis system.
-
-## 1. Frozen protocol and evidence boundary
-
-The protocol was committed as `8187cc4e4b98e40f3146ce787b71f262b62b3abd` against baseline `9d2e4a60a6c79e616ab1d352cd5da9fe414e6c98` before implementation and execution. Seed `20260923` is an arbitrary reproducibility seed. **Fresh Jev calls: 0. New scientific documents: 0.** Existing negative semantic/routing/calibration results motivated this round, so this is exploratory follow-up rather than independent preregistration.
-
-The package-level additions are not worldwide novelty claims. Treewidth-aware dynamic programming, incremental view maintenance, query resilience/deletion propagation, minimax decision rules under imprecise probabilities, and hypergraph/constraint optimization all have prior art. The contribution here is the frozen integration and falsification suite for this repository.
-
-| Hypothesis | Frozen target | Outcome |
-|---|---|---|
-| H1: induced-width exact conflict optimization | zero small/oracle/permutation failures; solve 8 large width-2 chains; stage all over-width controls; >=90% fewer counted states | **Met** |
-| H2: transactional batch delta maintenance | zero snapshot or atomicity failures; >=80% fewer local derived evaluations | **Met** |
-| H3: exact query-resilience certificates | zero small oracle/witness failures; solve 8 analytic large fixtures; stage 6 over-cap controls | **Met** |
-| H4: interval-minimax query review | zero oracle discrepancies; never worse than midpoint worst case; strict gain on >=20% | **Met** |
-| H5: n-ary conflict constraints | zero small oracle/permutation failures; solve 8 large chains; strict utility gain vs pairwise projection; stage controls | **Met** |
-
-“Met” refers only to the predeclared controlled fixture conjunction. These rows must not be pooled into a semantic-success percentage.
-
-## 2. H1 - induced-width exact conflict optimization
-
-A max-sum variable-elimination solver uses a deterministic min-fill order and stages components whose induced width exceeds four or whose materialized state budget exceeds the frozen cap. On 160 seeded 8-16 vertex bounded-width graphs, the solver matches exhaustive maximum-weight compatible-subset objectives with **0 failures** and **0 input-order permutation failures**. Width distribution is {'1': 33, '2': 45, '3': 53, '4': 29}.
-
-For 12-16 vertex fixtures, counted factor states are **14,660** versus **1,986,560** full assignments, a 99.26% reduction in this work metric. All eight connected triangle-chain controls from 33 to 1,025 vertices are solved exactly at induced width two. K6-K10 controls stage at widths 5-9. State-count reduction is not a measured CPU or service-latency speedup.
-
-![H1. Counted exact-DP states versus full enumeration.](../graph_synthesis/post_certificate/figures/01_induced_width.svg)
-
-## 3. H2 - transactional batch delta maintenance
-
-Each transaction validates its revision and changes, computes a reverse-dependency closure, evaluates a copy-on-write overlay in topological order, and commits only after every affected derived node succeeds. Across **640** accepted 1-4 primitive transactions on 128 modular DAGs there are **0 snapshot mismatches** against independent full recomputation. The suite also records 64/64 injected-evaluation failures, 64/64 stale revisions and 64/64 malformed updates with no partial state/revision mutation.
-
-Local work falls from 163,840 full derived-node evaluations to 16,205, a 90.11% reduction. Every connected control evaluates all 256 derived nodes, yielding 0.00% saving and making the locality boundary explicit. This is in-memory atomic batch behavior, not crash durability or concurrent database isolation.
-
-![H2. Local delta work and connected worst-case control.](../graph_synthesis/post_certificate/figures/02_transactional_delta.svg)
-
-## 4. H3 - exact query-resilience certificates
-
-For monotone DNF lineage, the method computes a minimum-cost evidence deletion set that hits every active proof clause using incidence-component decomposition and bounded branch-and-bound. All **160** small fixtures match exhaustive deletion-subset oracles with valid witnesses. Eight analytic decomposable families from 256 to 2,048 proof components (up to 4,096 atoms) match their closed-form optimum; six connected 19-24 atom controls stage under the frozen component cap.
-
-The output is a robustness margin relative to the supplied proof lineage and removal costs. It does not say that those proofs are factually correct or that their costs are calibrated to real review effort.
-
-![H3. Certified resilience cost across large decomposable proof families.](../graph_synthesis/post_certificate/figures/03_resilience.svg)
-
-## 5. H4 - interval-minimax query review
-
-Point-risk review can be brittle when primitive probabilities are uncertain. The proposed selector chooses two reviews minimizing worst-case expected residual Bernoulli variance across all endpoint combinations of supplied marginal probability intervals. Production query probability uses memoized Shannon recursion; the independent checker enumerates Boolean worlds directly.
-
-Across 128 non-degenerate fixtures there are **0 oracle discrepancies** and **0 cases worse than the midpoint selector** under the same worst-case objective. The minimax selector is strictly better on **45 fixtures (35.16%)**, including 13 seeded random fixtures and all 32 engineered fragile-midpoint controls. All 16 point-interval controls reduce to the point solution.
-
-This remains conditional on independent primitives; interval robustness is not a dependence certificate or a semantic calibration guarantee.
-
-![H4. Minimax versus midpoint worst-case review outcomes.](../graph_synthesis/post_certificate/figures/04_interval_review.svg)
-
-## 6. H5 - n-ary conflict constraints
-
-Pairwise conflict edges cannot faithfully represent a rule such as “not all three assertions may coexist.” The factor solver is generalized to forbidden hyperedges: a factor rejects only the all-selected assignment for that scope. Pairwise conflict is the arity-two special case.
-
-All **160** weighted small hypergraphs match exhaustive subset optimization with **0 failures** and **0 permutation failures**. Eight three-consecutive-forbidden chains from 64 through 2,048 vertices match the analytic optimum `n - floor(n/3)`. Pairwise clique projection is deliberately over-conservative: at n=2,048 it retains 683 unit utility versus 1366 for the n-ary model. All arity-6 through arity-10 over-width controls stage.
-
-![H5. Exact n-ary repair versus pairwise projection.](../graph_synthesis/post_certificate/figures/05_hypergraph.svg)
-
-## 7. Interpretation
-
-This round strengthens a repeated pattern in the package: explicit structure can create large exactness/work-count gains under supplied assumptions, while those gains do not substitute for semantic validation. H1 and H5 broaden tractable repair structure; H2 makes local maintenance atomic across batches; H3 adds a quantitative fragility certificate; H4 replaces a point-risk review objective with a worst-case interval objective. None establishes that Jev extracted the right entities, relations, qualifiers, probabilities, priorities, costs or constraints.
-
-A decisive next semantic study still requires a new source-disjoint corpus, frozen policy before evaluation, independent adjudication, prospective service cost/latency and matched external baselines. No production graph policy changes in this extension.
-
-## 8. Reproducibility
-
-```bash
-python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v
-python -B -m graph_synthesis.post_certificate.run --check
-python -B -m graph_synthesis.post_certificate.report --check
-```
-
-`results.json` contains the frozen benchmark outcomes, controls and work counters; `summary.csv` provides a compact result table; the five SVG figures are deterministic renderings of those results. The frozen protocol remains unchanged.
-
-<!-- POST_CERTIFICATE_RESEARCH_END -->

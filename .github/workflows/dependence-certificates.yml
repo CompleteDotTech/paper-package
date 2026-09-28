@@ -1,8 +1,6 @@
 name: Dependence-aware graph certificates
 on:
-  pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:

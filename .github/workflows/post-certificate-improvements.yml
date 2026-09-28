@@ -1,20 +1,13 @@
 name: Post-certificate structural improvements
 
 on:
-  pull_request:
-  push:
-    branches:
-      - research/structural-certificates-round2-20260918
+  workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: post-certificate-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  replay-and-publish:
+  replay-and-validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -22,14 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
-          persist-credentials: true
-
+          persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
-
       - name: Verify frozen protocol ancestry and bytes
         shell: bash
         run: |
@@ -37,34 +27,18 @@ jobs:
           protocol=8187cc4e4b98e40f3146ce787b71f262b62b3abd
           git merge-base --is-ancestor "$protocol" HEAD
           git show "$protocol:graph_synthesis/post_certificate/PROTOCOL.md" | cmp - graph_synthesis/post_certificate/PROTOCOL.md
-
-      - name: Run focused regressions
-        run: python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v
-
-      - name: Replay frozen benchmarks byte-for-byte
-        run: python -B -m graph_synthesis.post_certificate.run --check
-
-      - name: Generate report, figures and additive paper source
-        if: github.event_name == 'push'
-        run: python -B -m graph_synthesis.post_certificate.report --update-paper
-
-      - name: Verify committed generated report, figures and additive paper source
-        if: github.event_name == 'pull_request'
-        run: python -B -m graph_synthesis.post_certificate.report --check --update-paper
-
-      - name: Install paper rendering dependencies
+          python -B -m graph_synthesis.verify
+      - name: Focused regressions and frozen replay
         run: |
-          python -m pip install --upgrade pip
+          python -B -m unittest discover -s graph_synthesis/post_certificate/tests -v
+          python -B -m graph_synthesis.post_certificate.run --check
+          python -B -m graph_synthesis.post_certificate.report --check --update-paper
+      - name: Install rendering dependencies
+        run: |
           python -m pip install -r graph_synthesis/requirements-figures.txt
           sudo apt-get update
           sudo apt-get install -y poppler-utils
-
-      - name: Rebuild current HTML/PDF
-        if: github.event_name == 'push'
-        run: python -B -m graph_synthesis.render_current_paper --output manuscript/paper-current.pdf
-
-      - name: Verify committed current paper hashes and render independently
-        if: github.event_name == 'pull_request'
+      - name: Verify committed build hashes and deterministic manuscript
         shell: bash
         run: |
           set -euo pipefail
@@ -72,20 +46,19 @@ jobs:
           import hashlib,json
           from pathlib import Path
           sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
-          b=json.loads(Path('manuscript/paper-current.build.json').read_text())
+          b=json.loads(Path('manuscript/paper-current.build.json').read_text(encoding='utf-8'))
           assert sha('manuscript/paper-current.md')==b['source_sha256']
           assert sha('graph_synthesis/render_current_paper.py')==b['renderer_sha256']
           assert sha('manuscript/paper-current.pdf')==b['pdf_sha256']
-          print('Committed current-paper hashes verified')
           PY
           python -B -m graph_synthesis.render_current_paper --output "$RUNNER_TEMP/post-certificate-paper.pdf"
-
+          git diff --exit-code -- manuscript/paper-current.md manuscript/paper-current.html
+          git diff --check
       - name: PDF structural and raster smoke check
         shell: bash
         run: |
           set -euo pipefail
-          pdf="${RUNNER_TEMP}/post-certificate-paper.pdf"
-          if [ "${{ github.event_name }}" = "push" ]; then pdf=manuscript/paper-current.pdf; fi
+          pdf="$RUNNER_TEMP/post-certificate-paper.pdf"
           pdfinfo "$pdf" | tee "$RUNNER_TEMP/pdfinfo.txt"
           pages=$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')
           test "${pages:-0}" -gt 0
@@ -93,40 +66,15 @@ jobs:
           pdftoppm -f "$pages" -singlefile -png -r 120 "$pdf" "$RUNNER_TEMP/paper-last"
           test -s "$RUNNER_TEMP/paper-first.png"
           test -s "$RUNNER_TEMP/paper-last.png"
-
-      - name: Check generated source for whitespace errors
-        run: git diff --check
-
-      - name: Publish generated research artifacts
-        if: github.event_name == 'push'
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add graph_synthesis/post_certificate/RESULTS.md \
-                  graph_synthesis/post_certificate/PAPER_SECTION.md \
-                  graph_synthesis/post_certificate/CURRENT_SNIPPET.md \
-                  graph_synthesis/post_certificate/summary.csv \
-                  graph_synthesis/post_certificate/figures \
-                  CURRENT_RESULTS.md \
-                  manuscript/paper-current.md \
-                  manuscript/paper-current.html \
-                  manuscript/paper-current.pdf \
-                  manuscript/paper-current.build.json
-          if git diff --cached --quiet; then
-            echo "Publication artifacts already current"
-          else
-            git commit -m "research: publish post-certificate benchmarks and paper"
-            git push origin HEAD:research/structural-certificates-round2-20260918
-          fi
-
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
         with:
           name: post-certificate-pdf-review-${{ github.run_id }}
           path: |
+            ${{ runner.temp }}/post-certificate-paper.pdf
+            ${{ runner.temp }}/post-certificate-paper.build.json
             ${{ runner.temp }}/pdfinfo.txt
             ${{ runner.temp }}/paper-first.png
             ${{ runner.temp }}/paper-last.png
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14

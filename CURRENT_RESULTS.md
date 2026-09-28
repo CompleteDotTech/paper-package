@@ -90,6 +90,14 @@ Original H4 is concurrent replication of the separately merged bipartite study, 
 
 <!-- CERTIFICATES_RESEARCH_END -->
 
+<!-- POST_CERTIFICATES_RESEARCH_START -->
+
+## Five post-certificate improvements after PR #20
+
+[Executed report](graph_synthesis/post_certificates/RESULTS.md), [frozen protocol](graph_synthesis/post_certificates/PROTOCOL.md), [five figures](graph_synthesis/post_certificates/figures/) and [complete updated paper](manuscript/paper-current.pdf). H1 not met; H2 met; H3 met; H4 met; H5 met. H1 reuses previously inspected saved responses; H2-H5 are controlled algorithms. The suite tests source-risk stacking, active dependence constraints, verified near-bipartite separators, reusable singleton repair margins and interval-valued probability premises. No fresh Jev calls, independent semantic-accuracy claim, worldwide novelty claim or production-policy change.
+
+<!-- POST_CERTIFICATES_RESEARCH_END -->
+
 Read the [updated full paper](manuscript/paper-current.md), [PDF](manuscript/paper-current.pdf), or [HTML](manuscript/paper-current.html).
 
 The fresh full Jev run does **not** reproduce the original interval-based entity improvement: its selected-minus-baseline macro-F1 interval includes zero. Entity accuracy still rises descriptively from 405/413 to 408/413; relation accuracy rises from 286/339 to 290/339, also without a resolved macro-F1 effect. This repeats previously inspected data; it is not independent validation.
@@ -118,6 +126,6 @@ The archived root README and original manuscript are retained as part of the imm
 
 ## Five post-certificate structural extensions
 
-[Executed report](graph_synthesis/post_certificate/RESULTS.md), [frozen protocol](graph_synthesis/post_certificate/PROTOCOL.md), [five figures](graph_synthesis/post_certificate/figures/) and the updated full paper. H1-H5 meet their frozen controlled targets. Induced-width repair reduces counted exact-DP states 99.26% on the measured small subset; transactional local updates reduce counted derived evaluations 90.11% while the connected control saves 0%; query resilience matches exhaustive/analytic optima; interval-minimax review is strictly better on 45/128 worst-case fixtures and never worse; n-ary repair avoids pairwise over-rejection on all large controls. No fresh Jev calls, independent semantic-accuracy claim, external-system superiority, worldwide novelty claim or production-policy change.
+[Executed report](graph_synthesis/post_certificate/RESULTS.md), [frozen protocol](graph_synthesis/post_certificate/PROTOCOL.md), [corrections](graph_synthesis/post_certificate/CORRECTIONS.md), and [five figures](graph_synthesis/post_certificate/figures/). Recorded target outcomes: **H1: met; H2: not met; H3: met; H4: met; H5: met.** H4 covers only endpoint scenarios; its broader continuous-interval minimax claim is unsupported, with an interior counterexample retained. Counted H1 reduction: 99.26%; local H2 reduction: 90.11%, connected-control saving: 0.00%. No fresh Jev calls, independent semantic-accuracy claim, external-system superiority or production-policy change.
 
 <!-- POST_CERTIFICATE_RESEARCH_END -->

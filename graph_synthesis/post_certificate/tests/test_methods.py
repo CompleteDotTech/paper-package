@@ -4,7 +4,7 @@ from graph_synthesis.post_certificate.methods import (
     max_sum_elimination, brute_force_optimum, DependencyGraph,
     query_resilience, brute_force_resilience,
     dnf_probability_shannon, dnf_probability_worlds,
-    select_interval_minimax, oracle_interval_worst,
+    select_endpoint_minimax, oracle_endpoint_worst,
 )
 
 
@@ -100,14 +100,14 @@ class ProbabilityTests(unittest.TestCase):
     def test_minimax_not_worse_than_midpoint(self):
         intervals={0:(.39,.41),1:(.41,.43),2:(.05,.5),3:(.1,.5),4:(.01,.05),5:(.94,.98)}
         queries=[[(a,)] for a in range(6)]
-        got=select_interval_minimax(queries,intervals,2)
+        got=select_endpoint_minimax(queries,intervals,2)
         self.assertLessEqual(got['minimax_worst'],got['midpoint_worst']+1e-12)
-        self.assertAlmostEqual(got['minimax_worst'],oracle_interval_worst(queries,intervals,got['minimax']),places=12)
+        self.assertAlmostEqual(got['minimax_worst'],oracle_endpoint_worst(queries,intervals,got['minimax']),places=12)
 
     def test_point_intervals_reduce_to_point_selection(self):
         intervals={i:(p,p) for i,p in enumerate([.1,.2,.3,.4,.5,.6])}
         queries=[[(a,)] for a in range(6)]
-        got=select_interval_minimax(queries,intervals,2)
+        got=select_endpoint_minimax(queries,intervals,2)
         self.assertEqual(got['minimax'],got['midpoint'])
         self.assertAlmostEqual(got['minimax_worst'],got['midpoint_worst'],places=12)
 

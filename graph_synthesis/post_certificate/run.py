@@ -7,7 +7,7 @@ from itertools import combinations
 from .methods import (
     max_sum_elimination, brute_force_optimum, DependencyGraph,
     query_resilience, brute_force_resilience,
-    select_interval_minimax, oracle_interval_worst,
+    select_endpoint_minimax, oracle_endpoint_worst, expected_residual_variance,
 )
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -28,6 +28,14 @@ def k_tree_graph(rng,n,k):
         clique=tuple(sorted(base+(v,)))
         for c in combinations(clique,k): kcliques.add(tuple(c))
     return sorted(edges)
+
+
+def triangle_chain_oracle(weights):
+    """Independent prefix recurrence: selected vertices must be three apart."""
+    prefix=[0]
+    for i,weight in enumerate(weights):
+        prefix.append(max(prefix[-1],weight+prefix[max(0,i-2)]))
+    return prefix[-1]
 
 
 def h1(rng):
@@ -58,7 +66,7 @@ def h1(rng):
             if i+1<n: edges.append((i,i+1))
             if i+2<n: edges.append((i,i+2))
         got=max_sum_elimination([1]*n,edges)
-        expected=(n+2)//3
+        expected=triangle_chain_oracle([1]*n)
         large.append({'n':n,'objective':got.objective,'expected':expected,'width':got.induced_width,'states':got.factor_states,'status':got.status})
         if got.status!='solved' or got.objective!=expected: failures.append({'large_n':n,'got':got.objective,'expected':expected,'status':got.status})
     controls=[]
@@ -100,6 +108,7 @@ def make_connected_dag():
 
 def h2(rng):
     mismatches=0; accepted=0; local_evals=0; full_evals=0
+    revision_mismatches=0; control_failures=[]
     failure_atomic=0; stale_atomic=0; malformed_atomic=0
     for gi in range(128):
         g=make_modular_dag(rng)
@@ -112,6 +121,7 @@ def h2(rng):
             newprim={i:newv[i] for i in range(64)}
             full=g.full_recompute(newprim)
             if newv!=full: mismatches+=1
+            if newrev!=rev+1: revision_mismatches+=1
             values,rev=newv,newrev; accepted+=1; local_evals+=ev; full_evals+=256
         if gi<64:
             before=dict(values); brevis=rev
@@ -123,15 +133,23 @@ def h2(rng):
                 for y in g.reverse[x]:
                     if y not in seen: seen.add(y); affected.append(y); stack.append(y)
             fail=affected[len(affected)//2] if affected else None
+            raised=False
             try: g.transact(values,rev,changes,expected_revision=rev,fail_node=fail)
-            except RuntimeError: pass
-            if values==before and rev==brevis: failure_atomic+=1
+            except RuntimeError: raised=True
+            if fail is not None and raised and values==before and rev==brevis: failure_atomic+=1
+            else: control_failures.append({'graph_index':gi,'control':'injected_evaluation','primitive':p,
+                                           'fail_node':fail,'expected_exception_raised':raised,
+                                           'reason':'no affected derived node' if fail is None else 'rejection or atomicity failure'})
+            raised=False
             try: g.transact(values,rev,changes,expected_revision=rev-1)
-            except RuntimeError: pass
-            if values==before and rev==brevis: stale_atomic+=1
+            except RuntimeError: raised=True
+            if raised and values==before and rev==brevis: stale_atomic+=1
+            else: control_failures.append({'graph_index':gi,'control':'stale_revision','expected_exception_raised':raised})
+            raised=False
             try: g.transact(values,rev,{64:True},expected_revision=rev)
-            except ValueError: pass
-            if values==before and rev==brevis: malformed_atomic+=1
+            except ValueError: raised=True
+            if raised and values==before and rev==brevis: malformed_atomic+=1
+            else: control_failures.append({'graph_index':gi,'control':'malformed_update','expected_exception_raised':raised})
     connected=[]
     for i in range(16):
         g=make_connected_dag(); prim={j:bool((j+i)%2) for j in range(64)}; values=g.full_recompute(prim)
@@ -140,10 +158,11 @@ def h2(rng):
         connected.append({'evaluations':ev,'full':256,'correct':ok,'saving':1-ev/256})
         if not ok: mismatches+=1
     saving=1-local_evals/full_evals
-    target=(mismatches==0 and failure_atomic==64 and stale_atomic==64 and malformed_atomic==64 and saving>=.80)
+    target=(mismatches==0 and revision_mismatches==0 and failure_atomic==64 and stale_atomic==64 and malformed_atomic==64 and saving>=.80)
     return {'primary_target_met':target,'accepted_transactions':accepted,'snapshot_mismatches':mismatches,'local_evaluations':local_evals,
             'full_recompute_evaluations':full_evals,'evaluation_reduction':saving,'failure_atomic_controls':failure_atomic,
             'stale_revision_controls':stale_atomic,'malformed_controls':malformed_atomic,'connected_controls':connected,
+            'revision_mismatches':revision_mismatches,'rejection_control_failures':control_failures,
             'connected_mean_reduction':sum(x['saving'] for x in connected)/len(connected)}
 
 
@@ -202,6 +221,34 @@ def engineered_interval_fixture(i):
     return intervals,queries
 
 
+def interval_interior_counterexample():
+    """Post-review falsification of the broader continuous-interval claim.
+
+    Singleton queries make the continuous maxima analytic: p*(1-p) is
+    maximized at the allowed point closest to 0.5. This is not a new H4
+    threshold, fixture or positive benchmark; it records the claim's limit.
+    """
+    intervals={0:(.1,.9),1:(.3,.4),2:(.5,.5)}
+    queries=[[(a,)] for a in intervals]
+    selected=select_endpoint_minimax(queries,intervals,2)
+    witness={0:.5,1:.4,2:.5}
+    continuous={}
+    for review in combinations(intervals,2):
+        remaining=set(intervals)-set(review)
+        continuous[review]=sum((p:=min(hi,max(lo,.5)))*(1-p)
+                               for a in remaining for lo,hi in [intervals[a]])
+    alternative=min(continuous,key=lambda pair:(continuous[pair],pair))
+    return {'role':'post-review negative control; outside the frozen endpoint fixture population',
+            'intervals':{str(a):list(v) for a,v in intervals.items()},
+            'endpoint_selected':list(selected['minimax']),
+            'endpoint_worst':selected['minimax_worst'],
+            'interior_witness':{str(a):p for a,p in witness.items()},
+            'interior_loss':expected_residual_variance(queries,witness,selected['minimax']),
+            'alternative_review':list(alternative),
+            'alternative_continuous_worst':continuous[alternative],
+            'continuous_interval_claim_supported':False}
+
+
 def h4(rng):
     fixtures=[]; discrepancies=0; worse=0; strict=0; random_strict=0; engineered_strict=0
     for i in range(96):
@@ -210,9 +257,9 @@ def h4(rng):
     for i in range(32): fixtures.append(('engineered',*engineered_interval_fixture(i)))
     samples=[]
     for kind,intervals,queries in fixtures:
-        got=select_interval_minimax(queries,intervals,2)
-        om=oracle_interval_worst(queries,intervals,got['minimax'])
-        op=oracle_interval_worst(queries,intervals,got['midpoint'])
+        got=select_endpoint_minimax(queries,intervals,2)
+        om=oracle_endpoint_worst(queries,intervals,got['minimax'])
+        op=oracle_endpoint_worst(queries,intervals,got['midpoint'])
         if abs(om-got['minimax_worst'])>1e-10 or abs(op-got['midpoint_worst'])>1e-10: discrepancies+=1
         if om>op+1e-12: worse+=1
         if om<op-1e-12:
@@ -224,10 +271,13 @@ def h4(rng):
     for i in range(16):
         p={a:round(rng.uniform(.05,.95),5) for a in range(6)}; intervals={a:(v,v) for a,v in p.items()}
         queries=[[(a,)] for a in range(6)]
-        got=select_interval_minimax(queries,intervals,2)
+        got=select_endpoint_minimax(queries,intervals,2)
         if got['minimax']==got['midpoint'] and abs(got['minimax_worst']-got['midpoint_worst'])<1e-12: point_controls+=1
     target=(discrepancies==0 and worse==0 and strict>=26 and point_controls==16)
-    return {'primary_target_met':target,'fixtures':128,'oracle_discrepancies':discrepancies,'worse_than_midpoint':worse,
+    return {'primary_target_met':target,'objective_scope':'finite interval endpoint scenarios only',
+            'continuous_interval_claim_supported':False,
+            'interior_counterexample':interval_interior_counterexample(),
+            'fixtures':128,'oracle_discrepancies':discrepancies,'worse_than_midpoint':worse,
             'strict_improvements':strict,'strict_fraction':strict/128,'random_strict':random_strict,'engineered_strict':engineered_strict,
             'degenerate_point_controls':point_controls,'samples':samples}
 
@@ -274,7 +324,8 @@ def h5(rng):
 
 def execute():
     rng=random.Random(SEED)
-    result={'baseline_commit':BASELINE,'protocol_commit':PROTOCOL_COMMIT,'seed':SEED,'fresh_jev_calls':0,'new_scientific_documents':0}
+    result={'baseline_commit':BASELINE,'protocol_commit':PROTOCOL_COMMIT,'seed':SEED,'fresh_jev_calls':0,'new_scientific_documents':0,
+            'correction_record':'graph_synthesis/post_certificate/CORRECTIONS.md'}
     result['H1']=h1(rng); result['H2']=h2(rng); result['H3']=h3(rng); result['H4']=h4(rng); result['H5']=h5(rng)
     result['targets_met']={k:result[k]['primary_target_met'] for k in ['H1','H2','H3','H4','H5']}
     return result

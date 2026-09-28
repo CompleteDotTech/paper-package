@@ -3,8 +3,8 @@
   "scope": "Optimizer extension only; excludes this manifest, generated runs, and local caches. Root MANIFEST.json remains immutable.",
   "files": {
     ".github/workflows/dspy-jev-optimizer.yml": {
-      "bytes": 2304,
-      "sha256": "7027f242d6d66951935c0876cf331af5b5a84859e63359b4337ee2646b14d76e"
+      "bytes": 2060,
+      "sha256": "1199ce30f0b8ebe22300d5b81967dcc9c6fc857243d4f07e9237bffdcce0e9e1"
     },
     "DSPY_JEV_OPTIMIZER.md": {
       "bytes": 872,

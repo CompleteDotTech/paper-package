@@ -1,7 +1,8 @@
 """Copy a complete, hash-verified CI evidence package and derive the results entry point.
 
 No network calls, model calls, secret access, original-manuscript writes or changes
-of research outcome definitions occur here. CI performs the authorized Git push.
+of research outcome definitions occur here. The manual workflow verifies the
+committed results and never pushes them.
 """
 from __future__ import annotations
 import argparse

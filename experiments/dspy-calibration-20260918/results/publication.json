@@ -2,7 +2,7 @@
   "primary_run": 35342763186,
   "completion_run": 35345560822,
   "audited_source_commit": "24b2060279f7d137fd78e345de96cca5ef158770",
-  "publisher_source_sha256": "93aafa8d6180b6c56e07e11bb852789fbd939a040d84212b5782bcb3c84e8814",
+  "publisher_source_sha256": "73138774ffb048fd2421efe0b7e0d8c05e667f54484bafcf1612c3d1df043c47",
   "offline_package_manifest_sha256": "8feebe90566e33f2754ca6ce5a15f2321ca296367a049c71ce7a4003f7819fde",
   "excluded_from_git": {
     "repository-source.tar": "d538f8726088b892a19646a7821206e790d7431fef028a727c8c1e4d47b48350"

@@ -48,14 +48,18 @@ def diagnose(directory):
                 'rows_with_label_disagreement':int(np.sum(np.any(predictions!=predictions[0],axis=0))),
                 'max_probability_spread':float(np.max(spread)),
                 'note':'Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases.'})
-        keep=[i for i,row in enumerate(rows) if not flags['test/'+panel+'/'+row['id']]]
+        # The 12 preserved entity fixtures labelled uncertain have no binary
+        # accuracy target. Keep them in raw/duplicate diagnostics, not metrics.
+        eligible=[i for i,row in enumerate(rows) if row['gold_label'] in study.LABELS[task]]
+        keep=[i for i in eligible if not flags['test/'+panel+'/'+rows[i]['id']]]
         if not keep:continue
         strict_rows=[rows[i] for i in keep]
         for i,(selection,seed,_) in enumerate(variants):
             for method in ('raw','temperature','temperature_bias'):
                 pp=study.calibrated(p[i],fits[i],method)[keep]
                 sensitivity.append({'task':task,'arm':arm,'panel':panel,'selection':selection,'seed':seed,'calibration':method,
-                    'common_subset_rows':len(keep),'excluded_mass_defect_rows':len(rows)-len(keep),
+                    'common_subset_rows':len(keep),'excluded_mass_defect_rows':len(eligible)-len(keep),
+                    'excluded_nonbinary_rows':len(rows)-len(eligible),
                     'metrics':study.evaluate_metrics(pp,strict_rows,task),
                     'note':'Post-hoc data-quality sensitivity on the same rows for all variants; fitted calibrators unchanged. Not the primary estimand.'})
     return {'task':task,'arm':arm,'distinct_final_configurations':len(grouped),

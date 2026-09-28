@@ -17,6 +17,7 @@ METRICS = ('accuracy', 'macro_f1', 'mcc', 'brier', 'log_loss', 'ece', 'aurc',
            'correct_positive_edges', 'wrong_positive_edges')
 METHODS = ('raw', 'temperature', 'temperature_bias')
 BOOTSTRAPS = 2000
+NUMERICAL_TIE_GAP = 1e-14
 
 
 def close(a, b, context=''):
@@ -29,6 +30,44 @@ def close(a, b, context=''):
     elif isinstance(a, (float,int)) and not isinstance(a,bool):
         if not np.isclose(a,b,atol=2e-10,rtol=1e-9): raise ValueError('Mismatched value: '+context)
     elif a != b: raise ValueError('Mismatched value: '+context)
+
+
+def aurc_tie_bounds(probabilities, rows, task):
+    """Bounds from permuting only confidence scores indistinguishable at 1e-14."""
+    p = np.asarray(probabilities, dtype=float)
+    confidence = p.max(axis=1)
+    labels = LABELS[task]
+    wrong = p.argmax(axis=1) != np.asarray([labels.index(r['gold_label']) for r in rows])
+    order = sorted(range(len(rows)), key=lambda i: -confidence[i])
+    low, high = [], []
+    start = 0
+    while start < len(order):
+        end = start + 1
+        while end < len(order) and confidence[order[start]] - confidence[order[end]] <= NUMERICAL_TIE_GAP:
+            end += 1
+        errors = [int(wrong[i]) for i in order[start:end]]
+        low.extend(sorted(errors))
+        high.extend(sorted(errors, reverse=True))
+        start = end
+    ranks = np.arange(1, len(rows) + 1)
+    return (float(np.mean(np.cumsum(low) / ranks)),
+            float(np.mean(np.cumsum(high) / ranks)))
+
+
+def numerical_temperature_ties(raw, transformed, rows):
+    """Identify rank changes solely within unresolved floating-point top ties."""
+    before = np.asarray(raw)
+    after = np.asarray(transformed)
+    changed = np.flatnonzero(before.argmax(axis=1) != after.argmax(axis=1))
+    tie_ids = []
+    for i in changed:
+        raw_top = np.sort(before[i])[-2:]
+        calibrated_top = np.sort(after[i])[-2:]
+        if (raw_top[1] - raw_top[0] > NUMERICAL_TIE_GAP or
+                calibrated_top[1] - calibrated_top[0] > NUMERICAL_TIE_GAP):
+            raise ValueError('Scalar temperature changed a resolved argmax: ' + rows[i]['id'])
+        tie_ids.append(rows[i]['id'])
+    return tie_ids
 
 
 def clusters(rows):
@@ -120,7 +159,7 @@ def load_capture(directory):
     for search in frozen['payload']['searches']:
         if digest(read(directory/f"search-{search['seed']}.json"))!=search['ledger_sha256']:
             raise ValueError('Search ledger integrity failure')
-    cal=read(directory/'calibration.json');results=read(directory/'results.json');panels={};keys=set()
+    cal=read(directory/'calibration.json');results=read(directory/'results.json');panels={};keys=set();aurc_drift=[]
     for panel,rows in expected_panels.items():
         saved=read(directory/(panel+'-predictions.json'))
         if [r['id'] for r in saved['rows']]!=[r['id'] for r in rows]:raise ValueError('Panel IDs changed')
@@ -135,8 +174,18 @@ def load_capture(directory):
             for method in METHODS:
                 matches=[r for r in results if r['panel']==panel and r['selection']==key[0] and r['seed']==key[1] and r['calibration']==method]
                 if len(matches)!=1:raise ValueError('Duplicate or missing result')
-                recomputed=evaluate_metrics(calibrated(p[i],cal['fits'][i],method),rows,task)
-                close(recomputed,matches[0]['metrics'],f'{task}/{arm}/{panel}/{key}/{method}')
+                transformed=calibrated(p[i],cal['fits'][i],method)
+                recomputed=evaluate_metrics(transformed,rows,task)
+                recorded=matches[0]['metrics']
+                context=f'{task}/{arm}/{panel}/{key}/{method}'
+                close({k:v for k,v in recomputed.items() if k!='aurc'},
+                      {k:v for k,v in recorded.items() if k!='aurc'},context)
+                if not np.isclose(recomputed['aurc'],recorded['aurc'],atol=2e-10,rtol=1e-9):
+                    lower,upper=aurc_tie_bounds(transformed,rows,task)
+                    if not lower-2e-10 <= recorded['aurc'] <= upper+2e-10:
+                        raise ValueError('AURC exceeds near-tie permutation bounds: '+context)
+                    aurc_drift.append({'context':context,'recorded':recorded['aurc'],
+                                       'recomputed':recomputed['aurc'],'tie_bounds':[lower,upper]})
                 keys.add((panel,*key,method))
     if len(keys)!=len(results):raise ValueError('Unaccounted results')
     calls={};n_calls=tokens=0;phase=Counter();latency=defaultdict(list)
@@ -177,7 +226,7 @@ def load_capture(directory):
             for i,cfg in enumerate(configs):
                 raw=probabilities({k:call['response']['answers'][f'v{i}__{k}'] for k in cfg},task,cfg)
                 close(raw,saved['probabilities'][i][j],f'raw/{panel}/{i}/{j}')
-    execution={**execution,'attempts_by_phase':dict(phase),
+    execution={**execution,'numerical_aurc_tie_drift':aurc_drift,'attempts_by_phase':dict(phase),
                'latency_seconds_by_phase':{k:{'median':float(np.median(v)),'p95':float(np.quantile(v,.95))} for k,v in latency.items()}}
     return Capture(directory,task,arm,protocol,cal,results,panels,execution,calls)
 
@@ -231,7 +280,7 @@ def analyze(captures,out,graphs=False):
     flat=[{**{k:r[k] for k in ('task','arm','panel','selection','seed','calibration')},**{k:r['metrics'][k] for k in ('n',)+METRICS}} for r in results]
     write_csv(out/'all-results.csv',flat);write_json(out/'seed-summary.json',summary)
     write_json(out/'execution.json',[{'task':c.task,'arm':c.arm,**c.execution} for c in captures])
-    intervals=[];changes=[];ledger_stats=[];calibration_effects=[]
+    intervals=[];changes=[];ledger_stats=[];calibration_effects=[];temperature_ties=[]
     for cap in captures:
         for seed in SEEDS:
             ledger=read(cap.directory/f'search-{seed}.json')
@@ -258,11 +307,16 @@ def analyze(captures,out,graphs=False):
                 for method in METHODS[1:]:
                     transformed=calibrated(p[i],cap.calibration['fits'][i],method);cal=evaluate_metrics(transformed,rows,cap.task)
                     changed=int(np.sum(p[i].argmax(axis=1)!=transformed.argmax(axis=1)))
-                    if method=='temperature' and changed:raise ValueError('Scalar temperature changed argmax')
+                    if method=='temperature':
+                        ids=numerical_temperature_ties(p[i],transformed,rows)
+                        if ids:temperature_ties.append({'task':cap.task,'arm':cap.arm,'panel':panel,**v,'ids':ids})
                     calibration_effects.append({'task':cap.task,'arm':cap.arm,'panel':panel,**v,'calibration':method,'changed_labels':changed,
                        **{m+'_delta':cal[m]-raw[m] for m in METRICS}})
     write_json(out/'paired-intervals.json',intervals);write_json(out/'prediction-changes.json',changes)
     write_json(out/'search-summary.json',ledger_stats);write_json(out/'calibration-effects.json',calibration_effects)
+    write_json(out/'numerical-ties.json',{'scalar_temperature_argmax_ties':temperature_ties,
+                'confidence_rank_tolerance':NUMERICAL_TIE_GAP,
+                'note':'Raw observations and fitted calibrators are unchanged; these are floating-point tie sensitivities, not new Jev calls.'})
     if graphs:
         replay=[]
         for cap in captures:
@@ -300,7 +354,7 @@ def render(out,summary,captures,graphs):
           '','## Main held-out panels','',
           '| Task / original formulation | Baseline accuracy | DSPy accuracy mean ± SD | DSPy raw NLL | DSPy temperature NLL | DSPy temperature + bias NLL |',
           '|---|---:|---:|---:|---:|---:|',*table,'',
-          'Scalar temperature is a probability-quality intervention and leaves argmax accuracy unchanged. Temperature plus bias may change labels. Neither calibration method is guaranteed to improve held-out results.',
+          'Scalar temperature is analytically rank preserving; one recorded near-tie may change its floating-point argmax after transformation. See numerical-ties.json. Temperature plus bias may change labels. Neither calibration method is guaranteed to improve held-out results.',
           '', '## Evidence and interpretation','',
           '- `all-results.csv` and `all-results.json`: every seed, formulation, panel, selection rule and calibration method, including confusion matrices in JSON.',
           '- `seed-summary.json`: means, sample standard deviations, minima and maxima; no best-test-seed selection.',

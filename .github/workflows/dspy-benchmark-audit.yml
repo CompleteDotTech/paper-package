@@ -1,9 +1,5 @@
 name: Audit DSPy benchmark evidence
 on:
-  pull_request:
-    paths:
-      - 'graph_synthesis/dspy_benchmark_analysis/**'
-      - '.github/workflows/dspy-benchmark-audit.yml'
   workflow_dispatch:
 permissions:
   contents: read

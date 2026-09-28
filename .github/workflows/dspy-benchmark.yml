@@ -1,5 +1,5 @@
 name: Live DSPy calibration benchmarks
-# Manual after the expressly requested PR execution, to prevent accidental repeated charges.
+# Retained for protocol ancestry; new paid inference is disabled.
 on:
   workflow_dispatch:
 permissions:
@@ -9,6 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   live:
+    if: github.event_name == 'paid_inference_authorized'
     strategy:
       fail-fast: false
       max-parallel: 8

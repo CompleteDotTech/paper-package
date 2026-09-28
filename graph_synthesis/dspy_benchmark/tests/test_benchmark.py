@@ -147,6 +147,24 @@ class Tests(unittest.TestCase):
             p=Path(d);c=Cache(p/'c');e=ParallelEvaluator(FakeBackend(bad=True),c,p,2)
             with self.assertRaises(RuntimeError):e.evaluate(CFG,[Example('1',{'x':1},'a')],'test')
             c.close()
+    def test_invalid_answer_retry_is_audited_and_charged(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class Flaky(FakeBackend):
+            def predict(self,config,state):
+                answer=super().predict(config,state)
+                if self.count==1:answer['probabilities']={'a':.8,'b':.3}
+                return answer
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=Flaky();budget=CostBudget()
+            e=ParallelEvaluator(b,c,p/'audit',2,budget=budget)
+            e.evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            events=[json.loads(line) for line in (p/'audit'/'calls.jsonl').read_text().splitlines()]
+            self.assertEqual(b.count,2)
+            self.assertEqual(budget.record()['invalid_answer_retries'],1)
+            self.assertEqual(budget.record()['jev_input_tokens'],20)
+            self.assertEqual([x['event'] for x in events if x['event'] in ('invalid_answer','retry_request')],
+                             ['invalid_answer','retry_request'])
+            c.close()
     def test_missing_keys_block_before_model_calls(self):
         with tempfile.TemporaryDirectory() as d,patch.dict(os.environ,{},clear=True):
             p=Path(d)/'run'

@@ -71,3 +71,17 @@ that `json.dumps` could not serialize. It again completed 60 Jev calls and is
 excluded from results. Its guarded estimate was $0.072313654. The audit writer
 now records only scalar token counts and a numeric cost. This changes no model
 request or study rule.
+
+The third attempt, [run 36479851803](https://github.com/CompleteDotTech/paper-package/actions/runs/36479851803),
+completed four proposal calls and 183 accepted Jev responses, then one Jev
+response failed validation. Its `request_failed` event contains only the
+exception class `ValueError`, so the specific failing check cannot be recovered
+from this attempt. The guarded estimate was $0.289215304, including 219,412
+Jev input tokens and four $0.07 proposal reserves. It is excluded from results.
+For the next attempt, a response with the wrong fixed answer schema or invalid
+probabilities is logged and retried against the same request, with at most 20
+such extra calls per seed. Every returned response's tokens count toward the
+$8 seed cap, including rejected answers. A model-ID mismatch, missing usage, or
+other provider error still stops the run. The retry changes no example,
+candidate, score, or acceptance rule; the extra physical calls are explicitly
+recorded in `cost-budget.json` and the raw event log.

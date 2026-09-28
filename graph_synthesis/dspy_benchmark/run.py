@@ -25,6 +25,7 @@ DEEPSEEK_INPUT_USD_PER_MILLION = 0.30
 DEEPSEEK_OUTPUT_USD_PER_MILLION = 1.20
 PROPOSAL_RESERVE_USD = 0.07
 PER_SEED_BUDGET_USD = 8.0  # Five manually dispatched seeds reserve at most $40 of the $50 cap.
+MAX_INVALID_ANSWER_RETRIES_PER_SEED = 20
 
 
 class CostBudget:
@@ -37,6 +38,7 @@ class CostBudget:
         self.proposer_input_tokens = 0
         self.proposer_output_tokens = 0
         self.reserved_usd = 0.0
+        self.invalid_answer_retries = 0
 
     def target(self, usage):
         tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
@@ -65,6 +67,12 @@ class CostBudget:
             self.proposer_output_tokens += output_tokens
         self._check()
 
+    def retry_invalid_answer(self):
+        with self.lock:
+            if self.invalid_answer_retries >= MAX_INVALID_ANSWER_RETRIES_PER_SEED:
+                raise BudgetExhausted('Invalid-answer retry allowance exhausted')
+            self.invalid_answer_retries += 1
+
     def _check(self):
         if self.estimated_usd() > self.limit:
             raise BudgetExhausted('Per-seed estimated spend limit reached')
@@ -82,6 +90,7 @@ class CostBudget:
                 'proposal_input_tokens_reported': self.proposer_input_tokens,
                 'proposal_output_tokens_reported': self.proposer_output_tokens,
                 'proposal_reserve_usd': self.reserved_usd,
+                'invalid_answer_retries': self.invalid_answer_retries,
                 'pricing_basis': {'jev_input_per_million_usd': JEV_INPUT_USD_PER_MILLION,
                                   'deepseek_input_per_million_usd': DEEPSEEK_INPUT_USD_PER_MILLION,
                                   'deepseek_output_per_million_usd': DEEPSEEK_OUTPUT_USD_PER_MILLION},
@@ -120,22 +129,35 @@ class ParallelEvaluator(Evaluator):
             for key, job in jobs:
                 try:
                     response = job.result()
-                    validate_answer(response,config.criteria)
-                    if response.get('model') != self.backend.identity['model']:
-                        raise ValueError('Pinned model drift')
-                    for token in self.usage:
-                        count = response.get('usage',{}).get(token,0)
-                        if type(count) is not int or count < 0:
-                            raise ValueError('Invalid usage')
-                        self.usage[token] += count
-                    if self.budget is not None:
-                        self.budget.target(response.get('usage'))
+                    while True:
+                        for token in self.usage:
+                            count = response.get('usage',{}).get(token,0)
+                            if type(count) is not int or count < 0:
+                                raise ValueError('Invalid usage')
+                            self.usage[token] += count
+                        if self.budget is not None:
+                            self.budget.target(response.get('usage'))
+                        if response.get('model') != self.backend.identity['model']:
+                            raise ValueError('Pinned model drift')
+                        try:
+                            validate_answer(response,config.criteria)
+                            break
+                        except ValueError as invalid:
+                            self.event({'event':'invalid_answer','key':key,'phase':phase,
+                                        'reason':str(invalid),'response':response})
+                            if self.budget is None:
+                                raise
+                            self.budget.retry_invalid_answer()
+                            self.event({'event':'retry_request','key':key,'phase':phase})
+                            response = self.backend.predict(config,parse_json(canonical(missing[key].state)))
                     self.cache.put(key,response)
                     responses[key] = response
                     self.event({'event':'response','key':key,'phase':phase,'response':response})
                 except Exception as exc:
                     errors.append(type(exc).__name__)
-                    self.event({'event':'request_failed','key':key,'phase':phase,'error_type':type(exc).__name__})
+                    reason = str(exc) if isinstance(exc,(ValueError,BudgetExhausted)) else None
+                    self.event({'event':'request_failed','key':key,'phase':phase,
+                                'error_type':type(exc).__name__,'reason':reason})
         if errors:
             raise RuntimeError('Inference failures: '+','.join(sorted(set(errors))))
         predictions = []

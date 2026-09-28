@@ -1,21 +1,7 @@
 name: Post-certificate research
 
 on:
-  pull_request:
-    paths:
-      - "graph_synthesis/post_certificates/**"
-      - "CURRENT_RESULTS.md"
-      - "manuscript/paper-current.*"
-      - ".github/workflows/post-certificates.yml"
-  push:
-    branches:
-      - main
-    paths:
-      - "graph_synthesis/post_certificates/**"
-      - "CURRENT_RESULTS.md"
-      - "manuscript/paper-current.*"
-      - ".github/workflows/post-certificates.yml"
-
+  workflow_dispatch:
 permissions:
   contents: read
 

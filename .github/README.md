@@ -54,3 +54,7 @@ Use the extension verifier for this expanded repository. The original `scripts/v
 This GitHub landing page is separate from the original [root README](../README.md): that file and the baseline `MANIFEST.json` are immutable inputs to the research verifier. The archived evidence remains byte-exact.
 
 Public datasets are downloaded and hash-checked on demand. Dataset rights, attribution, and research limitations remain documented in the [source supplement](../supplementary/REFERENCES_AND_DATA.md); this landing page grants no additional license.
+
+## Validation scheduling
+
+Research workflows run only when explicitly dispatched. Pull requests and pushes do not start CI. Use Run workflow in the Actions tab or follow the [local validation map](LOCAL_VALIDATION.md).

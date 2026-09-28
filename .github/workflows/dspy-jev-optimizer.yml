@@ -1,14 +1,6 @@
 name: DSPy Jev optimizer
 on:
-  pull_request:
-    paths:
-      - 'graph_synthesis/dspy_jev_optimizer/**'
-      - '.github/workflows/dspy-jev-optimizer.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'graph_synthesis/dspy_jev_optimizer/**'
-      - '.github/workflows/dspy-jev-optimizer.yml'
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:

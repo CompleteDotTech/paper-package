@@ -5,7 +5,7 @@
   "original_manifest_git_blob": "a8d9f447c266fbedf8837003ceb9639e00778b0e",
   "preflight_git_blob": "4b99b54a351d0d927656aa6052e4db509ac41a9e",
   "sha256": {
-    ".github/workflows/dspy-comparison.yml": "be6c0551eb6e01651d422baf263762f53110c908c6921ac45f54158b4d9a8e70",
+    ".github/workflows/dspy-comparison.yml": "057025a27d6a6e27acdb0eab708de3f1ce120022c50ac44dd099019e2d1127a8",
     ".github/workflows/dspy-jev-preflight.yml": "11d74371173b42c4ee71972d0a5b8a2f9fba3e9bc3ac85bc2bd44471007736dc",
     "DSPY_BENCHMARKS.md": "3846accfc911b784ba44545d4910807b69eb45bb4b16fa5f6ed43878d86870f8",
     "experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md": "f2997ad8114babc1b85a0885995e11f03b5700db28150dfd303bae119ad31781",

@@ -1,0 +1,3 @@
+self-hosted-runner:
+  labels:
+    - paper-package-live-20260928

@@ -1,0 +1,6 @@
+H1: target not met
+H2: target met
+H3: target met
+H4: target met
+H5: target met
+{"status": "executed", "targets": {"H1": false, "H2": true, "H3": true, "H4": true, "H5": true}, "fresh_service_calls": 0}

@@ -1,8 +1,6 @@
 name: New graph-synthesis mechanisms
 on:
-  push:
-    branches: [main, research/novel-mechanisms-20260918]
-  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -136,7 +134,7 @@ jobs:
           path: ${{ runner.temp }}/novel-review/
           retention-days: 14
   replay:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch'
     strategy:
       fail-fast: false
       matrix:
@@ -181,7 +179,7 @@ jobs:
           PY
           git diff --exit-code
   figures-and-paper:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:

@@ -1,8 +1,6 @@
 name: Graph synthesis research
 on:
-  pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -36,7 +34,7 @@ jobs:
       - name: Install pinned original replay dependency
         run: python -m pip install -r graph_synthesis/requirements-verification.txt
       - name: Acquire standalone datasets and verify their pinned hashes
-        run: python -B scripts/download_datasets.py
+        run: python -B -m graph_synthesis.datasets
       - name: Verify immutable inputs and replay original observations and tests
         run: python -B -m graph_synthesis.verify --replay --tests --output "$RUNNER_TEMP/frozen-verification.json"
       - name: Test relationship semantics, provenance, lifecycle and adapters

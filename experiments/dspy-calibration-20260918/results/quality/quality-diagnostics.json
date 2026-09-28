@@ -1,0 +1,1833 @@
+[
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "distinct_final_configurations": 6,
+    "accuracy_seeds_with_unchanged_baseline": [
+      17,
+      43,
+      101
+    ],
+    "nll_seeds_with_unchanged_baseline": [
+      17,
+      43
+    ],
+    "mass_quality": {},
+    "max_mass_defect": 0.0,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "4481f7a749cddcbf8a19772ae2c5c326519bf2b03070c7aee87eafaff341563e",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          5,
+          6,
+          9
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 242,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.04999999999999999,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "4481f7a749cddcbf8a19772ae2c5c326519bf2b03070c7aee87eafaff341563e",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          5,
+          6,
+          9
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 52,
+        "rows_with_label_disagreement": 2,
+        "max_probability_spread": 0.16999999999999998,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "distinct_final_configurations": 3,
+    "accuracy_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "nll_seeds_with_unchanged_baseline": [
+      29,
+      43,
+      101
+    ],
+    "mass_quality": {
+      "choice_answers": 10639
+    },
+    "max_mass_defect": 0.0,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "d2338c7f236983a25be9ff7f1f7a8d9ede87785854fe61995f632e7b06f78765",
+        "variant_indices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 136,
+        "rows_with_label_disagreement": 1,
+        "max_probability_spread": 0.06000000000000005,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "d2338c7f236983a25be9ff7f1f7a8d9ede87785854fe61995f632e7b06f78765",
+        "variant_indices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 66,
+        "rows_with_label_disagreement": 1,
+        "max_probability_spread": 0.08000000000000007,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "distinct_final_configurations": 6,
+    "accuracy_seeds_with_unchanged_baseline": [
+      29
+    ],
+    "nll_seeds_with_unchanged_baseline": [],
+    "mass_quality": {
+      "choice_answers": 10647
+    },
+    "max_mass_defect": 0.0,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "10f69cc3bba975f7d144ed0770eb26afaf696538f5c79da8519f39ad7aeb2696",
+        "variant_indices": [
+          0,
+          3
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 103,
+        "rows_with_label_disagreement": 1,
+        "max_probability_spread": 0.050000000000000044,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "8b7767a2d88c357b8dba3e60575eb5b997377a2e5f761d1aea0587df7277ba67",
+        "variant_indices": [
+          1,
+          2
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 68,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.040000000000000036,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "ce218df3e4d9cf59864338a7472cf900d317b6df0d00264b227720b75cc8c0ea",
+        "variant_indices": [
+          5,
+          6
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 60,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.050000000000000044,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "4516cdc4552df13b6df11f65e33ecb5606db04ff22cc0c153119238b6055fdf6",
+        "variant_indices": [
+          7,
+          8
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 62,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.07000000000000006,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "80069058b3e24560f60379af6de6c53474e6125cdc5c2d46b11ded7076e9867a",
+        "variant_indices": [
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 61,
+        "rows_with_label_disagreement": 2,
+        "max_probability_spread": 0.050000000000000044,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "10f69cc3bba975f7d144ed0770eb26afaf696538f5c79da8519f39ad7aeb2696",
+        "variant_indices": [
+          0,
+          3
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 21,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.03,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "8b7767a2d88c357b8dba3e60575eb5b997377a2e5f761d1aea0587df7277ba67",
+        "variant_indices": [
+          1,
+          2
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 22,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.04999999999999999,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "ce218df3e4d9cf59864338a7472cf900d317b6df0d00264b227720b75cc8c0ea",
+        "variant_indices": [
+          5,
+          6
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 18,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.050000000000000044,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "4516cdc4552df13b6df11f65e33ecb5606db04ff22cc0c153119238b6055fdf6",
+        "variant_indices": [
+          7,
+          8
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 21,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.06,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "80069058b3e24560f60379af6de6c53474e6125cdc5c2d46b11ded7076e9867a",
+        "variant_indices": [
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 51,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.04000000000000001,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "distinct_final_configurations": 8,
+    "accuracy_seeds_with_unchanged_baseline": [],
+    "nll_seeds_with_unchanged_baseline": [],
+    "mass_quality": {},
+    "max_mass_defect": 0.0,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "7277e14904ec2c39a46ad0b608a7c254295898ffd4c40db679a29676ab49207d",
+        "variant_indices": [
+          5,
+          6
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 128,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.020000000000000018,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "8b5113fa3a1af757648da5f9f3ce175b488dadaefcde635c7dec001c4c1fc87b",
+        "variant_indices": [
+          7,
+          8
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 129,
+        "rows_with_label_disagreement": 1,
+        "max_probability_spread": 0.05999999999999994,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "3d8edbe32e0ca281ed44a831d419fdf1fc5a92cfe63d9a758e30bf9024277a6d",
+        "variant_indices": [
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 413,
+        "rows_with_any_probability_difference": 124,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.04999999999999993,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "7277e14904ec2c39a46ad0b608a7c254295898ffd4c40db679a29676ab49207d",
+        "variant_indices": [
+          5,
+          6
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 67,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.030000000000000027,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "8b5113fa3a1af757648da5f9f3ce175b488dadaefcde635c7dec001c4c1fc87b",
+        "variant_indices": [
+          7,
+          8
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 64,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.06,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "3d8edbe32e0ca281ed44a831d419fdf1fc5a92cfe63d9a758e30bf9024277a6d",
+        "variant_indices": [
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 100,
+        "rows_with_any_probability_difference": 71,
+        "rows_with_label_disagreement": 1,
+        "max_probability_spread": 0.040000000000000036,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "distinct_final_configurations": 1,
+    "accuracy_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "nll_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "mass_quality": {
+      "choice_answers": 10627,
+      "mass_defects": 23,
+      "mass_defects_test": 23
+    },
+    "max_mass_defect": 0.009999999999999898,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "6ba59ea03de264270a87847e89c871086464a9977f15d95ac30061a9f1e36f74",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 339,
+        "rows_with_any_probability_difference": 186,
+        "rows_with_label_disagreement": 9,
+        "max_probability_spread": 0.24000000000000005,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "6ba59ea03de264270a87847e89c871086464a9977f15d95ac30061a9f1e36f74",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 50,
+        "rows_with_any_probability_difference": 21,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.06000000000000005,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "additional_corpus",
+        "identical_config_sha256": "6ba59ea03de264270a87847e89c871086464a9977f15d95ac30061a9f1e36f74",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 336,
+        "rows_with_any_probability_difference": 194,
+        "rows_with_label_disagreement": 5,
+        "max_probability_spread": 0.19000000000000006,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "challenge",
+        "identical_config_sha256": "6ba59ea03de264270a87847e89c871086464a9977f15d95ac30061a9f1e36f74",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 48,
+        "rows_with_any_probability_difference": 11,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.1,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "distinct_final_configurations": 1,
+    "accuracy_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "nll_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "mass_quality": {},
+    "max_mass_defect": 0.0,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "2747bb89b788436be05ab1ce83e7759d63123f0a008ab4d9e31068f26747df99",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 339,
+        "rows_with_any_probability_difference": 335,
+        "rows_with_label_disagreement": 3,
+        "max_probability_spread": 0.15000000000000002,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "2747bb89b788436be05ab1ce83e7759d63123f0a008ab4d9e31068f26747df99",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 50,
+        "rows_with_any_probability_difference": 49,
+        "rows_with_label_disagreement": 2,
+        "max_probability_spread": 0.08640000000000014,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "additional_corpus",
+        "identical_config_sha256": "2747bb89b788436be05ab1ce83e7759d63123f0a008ab4d9e31068f26747df99",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 336,
+        "rows_with_any_probability_difference": 336,
+        "rows_with_label_disagreement": 13,
+        "max_probability_spread": 0.1100000000000001,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "challenge",
+        "identical_config_sha256": "2747bb89b788436be05ab1ce83e7759d63123f0a008ab4d9e31068f26747df99",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 48,
+        "rows_with_any_probability_difference": 45,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.05820000000000003,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "distinct_final_configurations": 1,
+    "accuracy_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "nll_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "mass_quality": {
+      "choice_answers": 10888,
+      "mass_defects": 20,
+      "mass_defects_calibration": 5,
+      "mass_defects_test": 15
+    },
+    "max_mass_defect": 0.009999999999999898,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "ade87e1325f3b658e718cfa7baac48b15b98d63437660a2fcc5672bbd7b8dca4",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 339,
+        "rows_with_any_probability_difference": 201,
+        "rows_with_label_disagreement": 8,
+        "max_probability_spread": 0.15,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "ade87e1325f3b658e718cfa7baac48b15b98d63437660a2fcc5672bbd7b8dca4",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 50,
+        "rows_with_any_probability_difference": 31,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.09000000000000008,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "additional_corpus",
+        "identical_config_sha256": "ade87e1325f3b658e718cfa7baac48b15b98d63437660a2fcc5672bbd7b8dca4",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 336,
+        "rows_with_any_probability_difference": 204,
+        "rows_with_label_disagreement": 6,
+        "max_probability_spread": 0.14,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "challenge",
+        "identical_config_sha256": "ade87e1325f3b658e718cfa7baac48b15b98d63437660a2fcc5672bbd7b8dca4",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 48,
+        "rows_with_any_probability_difference": 15,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.13,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "distinct_final_configurations": 1,
+    "accuracy_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "nll_seeds_with_unchanged_baseline": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "mass_quality": {
+      "choice_answers": 10859,
+      "mass_defects": 13,
+      "mass_defects_calibration": 3,
+      "mass_defects_test": 10
+    },
+    "max_mass_defect": 0.009999999999999898,
+    "duplicate_prompt_diagnostics": [
+      {
+        "panel": "evaluation",
+        "identical_config_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 339,
+        "rows_with_any_probability_difference": 192,
+        "rows_with_label_disagreement": 6,
+        "max_probability_spread": 0.16999999999999998,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "fixtures",
+        "identical_config_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 50,
+        "rows_with_any_probability_difference": 29,
+        "rows_with_label_disagreement": 1,
+        "max_probability_spread": 0.06000000000000005,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "additional_corpus",
+        "identical_config_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 336,
+        "rows_with_any_probability_difference": 195,
+        "rows_with_label_disagreement": 6,
+        "max_probability_spread": 0.24000000000000005,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      },
+      {
+        "panel": "challenge",
+        "identical_config_sha256": "7680cd9864f40075f7cb08793ecb791bb5d47d372656da06d8179ea88b3230f0",
+        "variant_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "variant_roles": [
+          {
+            "selection": "baseline",
+            "seed": 0
+          },
+          {
+            "selection": "accuracy",
+            "seed": 17
+          },
+          {
+            "selection": "nll",
+            "seed": 17
+          },
+          {
+            "selection": "accuracy",
+            "seed": 29
+          },
+          {
+            "selection": "nll",
+            "seed": 29
+          },
+          {
+            "selection": "accuracy",
+            "seed": 43
+          },
+          {
+            "selection": "nll",
+            "seed": 43
+          },
+          {
+            "selection": "accuracy",
+            "seed": 71
+          },
+          {
+            "selection": "nll",
+            "seed": 71
+          },
+          {
+            "selection": "accuracy",
+            "seed": 101
+          },
+          {
+            "selection": "nll",
+            "seed": 101
+          }
+        ],
+        "rows": 48,
+        "rows_with_any_probability_difference": 24,
+        "rows_with_label_disagreement": 0,
+        "max_probability_spread": 0.050000000000000044,
+        "note": "Descriptive same-request, identical-prompt nuisance diagnostic; not additional independent test cases."
+      }
+    ]
+  }
+]

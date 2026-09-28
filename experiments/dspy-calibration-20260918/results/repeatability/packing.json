@@ -1,0 +1,58 @@
+[
+  {
+    "task": "entity_resolution",
+    "input_group": "ordinary",
+    "unique_inputs": 20,
+    "configurations": 18,
+    "batch_http_attempts": 20,
+    "isolated_http_attempts": 360,
+    "batch_input_tokens": 32165,
+    "isolated_input_tokens": 169950,
+    "input_token_saving_fraction": 0.8107384524860253,
+    "mean_batch_request_seconds": 0.1865974906499986,
+    "mean_isolated_request_seconds": 0.17167378017777962,
+    "note": "Request latency covers different numbers of predictions. Timing order/server load were not randomized between batch and isolated modes."
+  },
+  {
+    "task": "entity_resolution",
+    "input_group": "fewshot",
+    "unique_inputs": 20,
+    "configurations": 6,
+    "batch_http_attempts": 20,
+    "isolated_http_attempts": 120,
+    "batch_input_tokens": 49825,
+    "isolated_input_tokens": 182550,
+    "input_token_saving_fraction": 0.7270610791563955,
+    "mean_batch_request_seconds": 0.21503371334999882,
+    "mean_isolated_request_seconds": 0.1760932985750022,
+    "note": "Request latency covers different numbers of predictions. Timing order/server load were not randomized between batch and isolated modes."
+  },
+  {
+    "task": "relation_support",
+    "input_group": "ordinary",
+    "unique_inputs": 20,
+    "configurations": 18,
+    "batch_http_attempts": 20,
+    "isolated_http_attempts": 360,
+    "batch_input_tokens": 76630,
+    "isolated_input_tokens": 320580,
+    "input_token_saving_fraction": 0.7609645018404143,
+    "mean_batch_request_seconds": 0.39607500289999964,
+    "mean_isolated_request_seconds": 0.32834415923888993,
+    "note": "Request latency covers different numbers of predictions. Timing order/server load were not randomized between batch and isolated modes."
+  },
+  {
+    "task": "relation_support",
+    "input_group": "fewshot",
+    "unique_inputs": 20,
+    "configurations": 6,
+    "batch_http_attempts": 20,
+    "isolated_http_attempts": 120,
+    "batch_input_tokens": 94350,
+    "isolated_input_tokens": 434100,
+    "input_token_saving_fraction": 0.7826537664132689,
+    "mean_batch_request_seconds": 0.4270530492000034,
+    "mean_isolated_request_seconds": 0.3979581384000009,
+    "note": "Request latency covers different numbers of predictions. Timing order/server load were not randomized between batch and isolated modes."
+  }
+]

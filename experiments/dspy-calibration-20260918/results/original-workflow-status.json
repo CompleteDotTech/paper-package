@@ -1,0 +1,1180 @@
+{
+  "run": {
+    "id": 35342763186,
+    "name": "Complete live DSPy calibration comparison v2",
+    "node_id": "WFR_kwLOUfhtZc8AAAAIOpfEsg",
+    "head_branch": "study/dspy-calibration-benchmark",
+    "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+    "path": ".github/workflows/dspy-benchmark-v2.yml",
+    "display_title": "Benchmark Jev with and without DSPy across repeated searches and calibration",
+    "run_number": 1,
+    "event": "pull_request",
+    "status": "in_progress",
+    "conclusion": null,
+    "workflow_id": 361332982,
+    "check_suite_id": 95716598414,
+    "check_suite_node_id": "CS_kwDOUfhtZc8AAAAWSSdijg",
+    "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+    "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186",
+    "pull_requests": [
+      {
+        "url": "https://api.github.com/repos/CompleteDotTech/paper-package/pulls/28",
+        "id": 4568113898,
+        "number": 28,
+        "head": {
+          "ref": "study/dspy-calibration-benchmark",
+          "sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+          "repo": {
+            "id": 1375235429,
+            "url": "https://api.github.com/repos/CompleteDotTech/paper-package",
+            "name": "paper-package"
+          }
+        },
+        "base": {
+          "ref": "main",
+          "sha": "c726b66c3a07a115eb928b3f2629de972c728083",
+          "repo": {
+            "id": 1375235429,
+            "url": "https://api.github.com/repos/CompleteDotTech/paper-package",
+            "name": "paper-package"
+          }
+        }
+      }
+    ],
+    "created_at": "2026-09-18T12:04:26Z",
+    "updated_at": "2026-09-18T12:05:57Z",
+    "actor": {
+      "login": "CompleteDotTech",
+      "id": 5861166,
+      "node_id": "MDQ6VXNlcjU4NjExNjY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5861166?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CompleteDotTech",
+      "html_url": "https://github.com/CompleteDotTech",
+      "followers_url": "https://api.github.com/users/CompleteDotTech/followers",
+      "following_url": "https://api.github.com/users/CompleteDotTech/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CompleteDotTech/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CompleteDotTech/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CompleteDotTech/subscriptions",
+      "organizations_url": "https://api.github.com/users/CompleteDotTech/orgs",
+      "repos_url": "https://api.github.com/users/CompleteDotTech/repos",
+      "events_url": "https://api.github.com/users/CompleteDotTech/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CompleteDotTech/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "run_attempt": 1,
+    "referenced_workflows": [],
+    "run_started_at": "2026-09-18T12:04:26Z",
+    "triggering_actor": {
+      "login": "CompleteDotTech",
+      "id": 5861166,
+      "node_id": "MDQ6VXNlcjU4NjExNjY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5861166?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CompleteDotTech",
+      "html_url": "https://github.com/CompleteDotTech",
+      "followers_url": "https://api.github.com/users/CompleteDotTech/followers",
+      "following_url": "https://api.github.com/users/CompleteDotTech/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CompleteDotTech/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CompleteDotTech/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CompleteDotTech/subscriptions",
+      "organizations_url": "https://api.github.com/users/CompleteDotTech/orgs",
+      "repos_url": "https://api.github.com/users/CompleteDotTech/repos",
+      "events_url": "https://api.github.com/users/CompleteDotTech/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CompleteDotTech/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "jobs_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186/jobs",
+    "logs_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186/logs",
+    "check_suite_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-suites/95716598414",
+    "artifacts_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186/artifacts",
+    "cancel_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186/cancel",
+    "rerun_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186/rerun",
+    "previous_attempt_url": null,
+    "workflow_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/workflows/361332982",
+    "head_commit": {
+      "id": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "tree_id": "d11e5ec88a02c9829f4f95ba3683c32b06f4c6e9",
+      "message": "Freeze v2 flat DSPy proposal schema and bounded rounded-probability interpretation; execute complete paired benchmark pipeline",
+      "timestamp": "2026-09-18T12:04:14Z",
+      "author": {
+        "name": "Timothy Wayne Gregg",
+        "email": "Timothy.Gregg@complete.tech"
+      },
+      "committer": {
+        "name": "Timothy Wayne Gregg",
+        "email": "Timothy.Gregg@complete.tech"
+      }
+    },
+    "repository": {
+      "id": 1375235429,
+      "node_id": "R_kgDOUfhtZQ",
+      "name": "paper-package",
+      "full_name": "CompleteDotTech/paper-package",
+      "private": false,
+      "owner": {
+        "login": "CompleteDotTech",
+        "id": 5861166,
+        "node_id": "MDQ6VXNlcjU4NjExNjY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5861166?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/CompleteDotTech",
+        "html_url": "https://github.com/CompleteDotTech",
+        "followers_url": "https://api.github.com/users/CompleteDotTech/followers",
+        "following_url": "https://api.github.com/users/CompleteDotTech/following{/other_user}",
+        "gists_url": "https://api.github.com/users/CompleteDotTech/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/CompleteDotTech/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/CompleteDotTech/subscriptions",
+        "organizations_url": "https://api.github.com/users/CompleteDotTech/orgs",
+        "repos_url": "https://api.github.com/users/CompleteDotTech/repos",
+        "events_url": "https://api.github.com/users/CompleteDotTech/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/CompleteDotTech/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/CompleteDotTech/paper-package",
+      "description": "Jev research manuscript, evidence, and reproducible paper package",
+      "fork": false,
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package",
+      "forks_url": "https://api.github.com/repos/CompleteDotTech/paper-package/forks",
+      "keys_url": "https://api.github.com/repos/CompleteDotTech/paper-package/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/CompleteDotTech/paper-package/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/CompleteDotTech/paper-package/teams",
+      "hooks_url": "https://api.github.com/repos/CompleteDotTech/paper-package/hooks",
+      "issue_events_url": "https://api.github.com/repos/CompleteDotTech/paper-package/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/CompleteDotTech/paper-package/events",
+      "assignees_url": "https://api.github.com/repos/CompleteDotTech/paper-package/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/CompleteDotTech/paper-package/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/CompleteDotTech/paper-package/tags",
+      "blobs_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/CompleteDotTech/paper-package/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/CompleteDotTech/paper-package/languages",
+      "stargazers_url": "https://api.github.com/repos/CompleteDotTech/paper-package/stargazers",
+      "contributors_url": "https://api.github.com/repos/CompleteDotTech/paper-package/contributors",
+      "subscribers_url": "https://api.github.com/repos/CompleteDotTech/paper-package/subscribers",
+      "subscription_url": "https://api.github.com/repos/CompleteDotTech/paper-package/subscription",
+      "commits_url": "https://api.github.com/repos/CompleteDotTech/paper-package/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/CompleteDotTech/paper-package/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/CompleteDotTech/paper-package/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/CompleteDotTech/paper-package/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/CompleteDotTech/paper-package/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/CompleteDotTech/paper-package/merges",
+      "archive_url": "https://api.github.com/repos/CompleteDotTech/paper-package/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/CompleteDotTech/paper-package/downloads",
+      "issues_url": "https://api.github.com/repos/CompleteDotTech/paper-package/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/CompleteDotTech/paper-package/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/CompleteDotTech/paper-package/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/CompleteDotTech/paper-package/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/CompleteDotTech/paper-package/labels{/name}",
+      "releases_url": "https://api.github.com/repos/CompleteDotTech/paper-package/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/CompleteDotTech/paper-package/deployments"
+    },
+    "head_repository": {
+      "id": 1375235429,
+      "node_id": "R_kgDOUfhtZQ",
+      "name": "paper-package",
+      "full_name": "CompleteDotTech/paper-package",
+      "private": false,
+      "owner": {
+        "login": "CompleteDotTech",
+        "id": 5861166,
+        "node_id": "MDQ6VXNlcjU4NjExNjY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5861166?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/CompleteDotTech",
+        "html_url": "https://github.com/CompleteDotTech",
+        "followers_url": "https://api.github.com/users/CompleteDotTech/followers",
+        "following_url": "https://api.github.com/users/CompleteDotTech/following{/other_user}",
+        "gists_url": "https://api.github.com/users/CompleteDotTech/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/CompleteDotTech/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/CompleteDotTech/subscriptions",
+        "organizations_url": "https://api.github.com/users/CompleteDotTech/orgs",
+        "repos_url": "https://api.github.com/users/CompleteDotTech/repos",
+        "events_url": "https://api.github.com/users/CompleteDotTech/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/CompleteDotTech/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/CompleteDotTech/paper-package",
+      "description": "Jev research manuscript, evidence, and reproducible paper package",
+      "fork": false,
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package",
+      "forks_url": "https://api.github.com/repos/CompleteDotTech/paper-package/forks",
+      "keys_url": "https://api.github.com/repos/CompleteDotTech/paper-package/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/CompleteDotTech/paper-package/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/CompleteDotTech/paper-package/teams",
+      "hooks_url": "https://api.github.com/repos/CompleteDotTech/paper-package/hooks",
+      "issue_events_url": "https://api.github.com/repos/CompleteDotTech/paper-package/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/CompleteDotTech/paper-package/events",
+      "assignees_url": "https://api.github.com/repos/CompleteDotTech/paper-package/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/CompleteDotTech/paper-package/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/CompleteDotTech/paper-package/tags",
+      "blobs_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/CompleteDotTech/paper-package/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/CompleteDotTech/paper-package/languages",
+      "stargazers_url": "https://api.github.com/repos/CompleteDotTech/paper-package/stargazers",
+      "contributors_url": "https://api.github.com/repos/CompleteDotTech/paper-package/contributors",
+      "subscribers_url": "https://api.github.com/repos/CompleteDotTech/paper-package/subscribers",
+      "subscription_url": "https://api.github.com/repos/CompleteDotTech/paper-package/subscription",
+      "commits_url": "https://api.github.com/repos/CompleteDotTech/paper-package/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/CompleteDotTech/paper-package/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/CompleteDotTech/paper-package/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/CompleteDotTech/paper-package/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/CompleteDotTech/paper-package/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/CompleteDotTech/paper-package/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/CompleteDotTech/paper-package/merges",
+      "archive_url": "https://api.github.com/repos/CompleteDotTech/paper-package/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/CompleteDotTech/paper-package/downloads",
+      "issues_url": "https://api.github.com/repos/CompleteDotTech/paper-package/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/CompleteDotTech/paper-package/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/CompleteDotTech/paper-package/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/CompleteDotTech/paper-package/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/CompleteDotTech/paper-package/labels{/name}",
+      "releases_url": "https://api.github.com/repos/CompleteDotTech/paper-package/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/CompleteDotTech/paper-package/deployments"
+    }
+  },
+  "primary_jobs": [
+    {
+      "id": 105592636094,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_Cvg",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636094",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636094",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:33:46Z",
+      "name": "primary (relation_support, baseline_choice)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:05:58Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:58Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:02Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:02Z",
+          "completed_at": "2026-09-18T12:06:31Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:31Z",
+          "completed_at": "2026-09-18T12:06:47Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:47Z",
+          "completed_at": "2026-09-18T12:07:00Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-09-18T12:07:00Z",
+          "completed_at": "2026-09-18T12:33:42Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:33:42Z",
+          "completed_at": "2026-09-18T12:33:44Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-09-18T12:33:44Z",
+          "completed_at": "2026-09-18T12:33:44Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:33:44Z",
+          "completed_at": "2026-09-18T12:33:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:33:44Z",
+          "completed_at": "2026-09-18T12:33:44Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636094",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007373,
+      "runner_name": "GitHub Actions 1000007373",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636109,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_CzQ",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636109",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636109",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:35:56Z",
+      "name": "primary (relation_support, evidence_contract)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:05:58Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:58Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:02Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:02Z",
+          "completed_at": "2026-09-18T12:06:39Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:39Z",
+          "completed_at": "2026-09-18T12:07:02Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:07:02Z",
+          "completed_at": "2026-09-18T12:07:13Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-09-18T12:07:13Z",
+          "completed_at": "2026-09-18T12:35:52Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:35:52Z",
+          "completed_at": "2026-09-18T12:35:54Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-09-18T12:35:54Z",
+          "completed_at": "2026-09-18T12:35:54Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:35:54Z",
+          "completed_at": "2026-09-18T12:35:54Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:35:54Z",
+          "completed_at": "2026-09-18T12:35:54Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636109",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007375,
+      "runner_name": "GitHub Actions 1000007375",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636117,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_C1Q",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636117",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636117",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:55Z",
+      "completed_at": "2026-09-18T12:32:58Z",
+      "name": "primary (entity_resolution, identity_noul)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:56Z",
+          "completed_at": "2026-09-18T12:05:57Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:06:00Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:00Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:28Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:28Z",
+          "completed_at": "2026-09-18T12:06:43Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:43Z",
+          "completed_at": "2026-09-18T12:06:58Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-09-18T12:06:58Z",
+          "completed_at": "2026-09-18T12:32:55Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:32:55Z",
+          "completed_at": "2026-09-18T12:32:56Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-09-18T12:32:56Z",
+          "completed_at": "2026-09-18T12:32:56Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:32:56Z",
+          "completed_at": "2026-09-18T12:32:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:32:56Z",
+          "completed_at": "2026-09-18T12:32:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636117",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007372,
+      "runner_name": "GitHub Actions 1000007372",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636135,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_C5w",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636135",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636135",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:32:02Z",
+      "name": "primary (entity_resolution, identity_contract)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:05:58Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:58Z",
+          "completed_at": "2026-09-18T12:06:02Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:02Z",
+          "completed_at": "2026-09-18T12:06:02Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:02Z",
+          "completed_at": "2026-09-18T12:06:34Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:34Z",
+          "completed_at": "2026-09-18T12:06:48Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:48Z",
+          "completed_at": "2026-09-18T12:07:01Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-09-18T12:07:01Z",
+          "completed_at": "2026-09-18T12:31:58Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:31:58Z",
+          "completed_at": "2026-09-18T12:32:00Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-09-18T12:32:00Z",
+          "completed_at": "2026-09-18T12:32:00Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:32:00Z",
+          "completed_at": "2026-09-18T12:32:00Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:32:00Z",
+          "completed_at": "2026-09-18T12:32:00Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636135",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007374,
+      "runner_name": "GitHub Actions 1000007374",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636138,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_C6g",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636138",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636138",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:47:05Z",
+      "name": "primary (relation_support, conditional_nouls)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:56Z",
+          "completed_at": "2026-09-18T12:05:57Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:06:00Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:00Z",
+          "completed_at": "2026-09-18T12:06:00Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:00Z",
+          "completed_at": "2026-09-18T12:06:30Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:30Z",
+          "completed_at": "2026-09-18T12:06:46Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:46Z",
+          "completed_at": "2026-09-18T12:07:00Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-09-18T12:07:00Z",
+          "completed_at": "2026-09-18T12:47:02Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:47:02Z",
+          "completed_at": "2026-09-18T12:47:03Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-09-18T12:47:03Z",
+          "completed_at": "2026-09-18T12:47:03Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:47:03Z",
+          "completed_at": "2026-09-18T12:47:03Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:47:03Z",
+          "completed_at": "2026-09-18T12:47:03Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636138",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007377,
+      "runner_name": "GitHub Actions 1000007377",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636215,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_DNw",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636215",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636215",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:29:25Z",
+      "name": "primary (entity_resolution, baseline_noul)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:05:58Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:58Z",
+          "completed_at": "2026-09-18T12:06:02Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:02Z",
+          "completed_at": "2026-09-18T12:06:02Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:02Z",
+          "completed_at": "2026-09-18T12:06:31Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:31Z",
+          "completed_at": "2026-09-18T12:06:54Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:54Z",
+          "completed_at": "2026-09-18T12:07:07Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-09-18T12:07:07Z",
+          "completed_at": "2026-09-18T12:29:21Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:29:21Z",
+          "completed_at": "2026-09-18T12:29:23Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-09-18T12:29:23Z",
+          "completed_at": "2026-09-18T12:29:23Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:29:23Z",
+          "completed_at": "2026-09-18T12:29:23Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:29:23Z",
+          "completed_at": "2026-09-18T12:29:23Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636215",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007378,
+      "runner_name": "GitHub Actions 1000007378",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636227,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_DQw",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636227",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636227",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:38:10Z",
+      "name": "primary (relation_support, fewshot_contract)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:05:58Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:58Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:31Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:31Z",
+          "completed_at": "2026-09-18T12:06:43Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:43Z",
+          "completed_at": "2026-09-18T12:06:58Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-09-18T12:06:58Z",
+          "completed_at": "2026-09-18T12:38:05Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:38:05Z",
+          "completed_at": "2026-09-18T12:38:07Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-09-18T12:38:07Z",
+          "completed_at": "2026-09-18T12:38:07Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:38:07Z",
+          "completed_at": "2026-09-18T12:38:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:38:07Z",
+          "completed_at": "2026-09-18T12:38:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636227",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007376,
+      "runner_name": "GitHub Actions 1000007376",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 105592636252,
+      "run_id": 35342763186,
+      "workflow_name": "Complete live DSPy calibration comparison v2",
+      "head_branch": "study/dspy-calibration-benchmark",
+      "run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/runs/35342763186",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUfhtZc8AAAAYlc_DXA",
+      "head_sha": "1f081b6be42bb454f241fb8765d597f4674da13f",
+      "url": "https://api.github.com/repos/CompleteDotTech/paper-package/actions/jobs/105592636252",
+      "html_url": "https://github.com/CompleteDotTech/paper-package/actions/runs/35342763186/job/105592636252",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-18T12:05:54Z",
+      "started_at": "2026-09-18T12:05:56Z",
+      "completed_at": "2026-09-18T12:31:41Z",
+      "name": "primary (entity_resolution, fewshot_contract)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-18T12:05:57Z",
+          "completed_at": "2026-09-18T12:05:58Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-18T12:05:58Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:01Z"
+        },
+        {
+          "name": "Run python -m pip install -r graph_synthesis/dspy_benchmark/requirements.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-18T12:06:01Z",
+          "completed_at": "2026-09-18T12:06:40Z"
+        },
+        {
+          "name": "Start checksum-pinned local proposal model without credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-18T12:06:40Z",
+          "completed_at": "2026-09-18T12:06:50Z"
+        },
+        {
+          "name": "Validate real flat-field generation before Jev inference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-18T12:06:50Z",
+          "completed_at": "2026-09-18T12:07:05Z"
+        },
+        {
+          "name": "Execute five fresh searches and complete calibrated evaluation grid",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-09-18T12:07:05Z",
+          "completed_at": "2026-09-18T12:31:37Z"
+        },
+        {
+          "name": "Preserve complete or failed primary capture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-18T12:31:37Z",
+          "completed_at": "2026-09-18T12:31:39Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-09-18T12:31:39Z",
+          "completed_at": "2026-09-18T12:31:39Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-18T12:31:39Z",
+          "completed_at": "2026-09-18T12:31:39Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-18T12:31:39Z",
+          "completed_at": "2026-09-18T12:31:39Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/CompleteDotTech/paper-package/check-runs/105592636252",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000007379,
+      "runner_name": "GitHub Actions 1000007379",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

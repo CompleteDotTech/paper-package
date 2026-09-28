@@ -1,0 +1,82 @@
+[
+  {
+    "shard": 0,
+    "status": "completed",
+    "live": true,
+    "rows": 61,
+    "http_attempts": 732,
+    "reported_input_tokens": 1971837,
+    "estimated_jev_usd": 0.082817154,
+    "capture_manifest_sha256": "f0381e5081408d65511b654cc5f1896a12bdc448d9c0d750c96b70c633adbe98"
+  },
+  {
+    "shard": 1,
+    "status": "completed",
+    "live": true,
+    "rows": 61,
+    "http_attempts": 732,
+    "reported_input_tokens": 1998527,
+    "estimated_jev_usd": 0.08393813400000001,
+    "capture_manifest_sha256": "ee33263231f3fda40c068801f8fc1b1b01c5267fae5622625c73f8d1c395352e"
+  },
+  {
+    "shard": 2,
+    "status": "completed",
+    "live": true,
+    "rows": 61,
+    "http_attempts": 732,
+    "reported_input_tokens": 1948488,
+    "estimated_jev_usd": 0.081836496,
+    "capture_manifest_sha256": "73ae45d9b8a5a83305393d21ec09696479af40bdc6ddfba1feaecc1e82c4298e"
+  },
+  {
+    "shard": 3,
+    "status": "completed",
+    "live": true,
+    "rows": 61,
+    "http_attempts": 732,
+    "reported_input_tokens": 1935007,
+    "estimated_jev_usd": 0.081270294,
+    "capture_manifest_sha256": "5ed3fcc425049bafc1ed7f243268edac7dc86ef612bb72dce66d071eb1b1edd3"
+  },
+  {
+    "shard": 4,
+    "status": "completed",
+    "live": true,
+    "rows": 61,
+    "http_attempts": 732,
+    "reported_input_tokens": 1933882,
+    "estimated_jev_usd": 0.08122304400000001,
+    "capture_manifest_sha256": "708c2d31ea06ee4c376e567a6ad3a3e1f2203e535e9834187d551d2a1ffe2793"
+  },
+  {
+    "shard": 5,
+    "status": "completed",
+    "live": true,
+    "rows": 61,
+    "http_attempts": 732,
+    "reported_input_tokens": 1926061,
+    "estimated_jev_usd": 0.080894562,
+    "capture_manifest_sha256": "b44fd66c10ef0fd97c8b217c06b67d2e1c2c5edffff06ad93263c69f80ca80ec"
+  },
+  {
+    "shard": 6,
+    "status": "completed",
+    "live": true,
+    "rows": 60,
+    "http_attempts": 720,
+    "reported_input_tokens": 1901100,
+    "estimated_jev_usd": 0.0798462,
+    "capture_manifest_sha256": "c91425bbe4a79cad14bc7494e5d210c58cb6923f969f9bfa104865de868d9be8"
+  },
+  {
+    "shard": 7,
+    "status": "completed",
+    "live": true,
+    "rows": 60,
+    "http_attempts": 720,
+    "reported_input_tokens": 1906884,
+    "estimated_jev_usd": 0.08008912800000001,
+    "capture_manifest_sha256": "2923f2826385b122de74463b72d3f9d86eb4682d0c414fd7dbf6f5872a4aae40"
+  }
+]

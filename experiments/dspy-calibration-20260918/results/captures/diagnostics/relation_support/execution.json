@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "live": true,
+  "task": "relation_support",
+  "http_attempts": 640,
+  "reported_input_tokens": 1434610,
+  "estimated_jev_usd": 0.06025362,
+  "expected_successful_calls": 640,
+  "scope": "Three repeatability passes; all original non-few-shot formulations packed together; few-shot state isolated; matched individual calls."
+}

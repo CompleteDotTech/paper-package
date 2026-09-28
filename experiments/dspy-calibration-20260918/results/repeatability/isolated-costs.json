@@ -1,0 +1,82 @@
+[
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 423.25,
+    "dspy_mean_input_tokens_per_prediction": 422.65,
+    "baseline_mean_request_seconds": 0.16078168419999628,
+    "dspy_mean_request_seconds": 0.17261076160000471,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 585.25,
+    "dspy_mean_input_tokens_per_prediction": 530.05,
+    "baseline_mean_request_seconds": 0.19940658535001177,
+    "dspy_mean_request_seconds": 0.1699775988199977,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 517.25,
+    "dspy_mean_input_tokens_per_prediction": 441.65,
+    "baseline_mean_request_seconds": 0.1605308266500117,
+    "dspy_mean_request_seconds": 0.17129342898000033,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 1521.25,
+    "dspy_mean_input_tokens_per_prediction": 1521.25,
+    "baseline_mean_request_seconds": 0.1766016812500027,
+    "dspy_mean_request_seconds": 0.17599162204000207,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 800.5,
+    "dspy_mean_input_tokens_per_prediction": 800.5,
+    "baseline_mean_request_seconds": 0.31238751405000187,
+    "dspy_mean_request_seconds": 0.32242857728000046,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 923.5,
+    "dspy_mean_input_tokens_per_prediction": 923.5,
+    "baseline_mean_request_seconds": 0.3188647904500016,
+    "dspy_mean_request_seconds": 0.3384334861600016,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 947.5,
+    "dspy_mean_input_tokens_per_prediction": 947.5,
+    "baseline_mean_request_seconds": 0.33486480304999733,
+    "dspy_mean_request_seconds": 0.32795348831000154,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "unique_inputs": 20,
+    "baseline_input_tokens_per_prediction": 3617.5,
+    "dspy_mean_input_tokens_per_prediction": 3617.5,
+    "baseline_mean_request_seconds": 0.39979676460000063,
+    "dspy_mean_request_seconds": 0.39759041316000093,
+    "note": "Separate one-configuration requests. Includes inference only, not prompt search or local proposer CPU time."
+  }
+]

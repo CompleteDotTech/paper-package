@@ -1,0 +1,423 @@
+[
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "duplicate": 3
+    },
+    "best_validation_accuracy": 0.9655172413793104
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 2
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 1,
+      "duplicate": 2
+    },
+    "best_validation_accuracy": 0.9655172413793104
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 2
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 1,
+      "duplicate": 2
+    },
+    "best_validation_accuracy": 0.9655172413793104
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 2,
+      "duplicate": 1
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 1,
+      "accepted": 1,
+      "duplicate": 1
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "duplicate": 2
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 1,
+      "duplicate": 1
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 1,
+      "accepted": 1,
+      "duplicate": 1
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 1,
+      "duplicate": 1
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 2
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 2
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "accepted": 1,
+      "rejected": 2
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 2,
+      "accepted": 1
+    },
+    "best_validation_accuracy": 1.0
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "duplicate": 3
+    },
+    "best_validation_accuracy": 0.8620689655172413
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "duplicate": 2,
+      "rejected": 1
+    },
+    "best_validation_accuracy": 0.8620689655172413
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "duplicate": 1,
+      "rejected": 2
+    },
+    "best_validation_accuracy": 0.8620689655172413
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.8620689655172413
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "duplicate": 3
+    },
+    "best_validation_accuracy": 0.8620689655172413
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "seed": 17,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 2,
+      "duplicate": 1
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "seed": 29,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "seed": 43,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "seed": 71,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "seed": 101,
+    "statuses": {
+      "baseline": 1,
+      "rejected": 3
+    },
+    "best_validation_accuracy": 0.896551724137931
+  }
+]

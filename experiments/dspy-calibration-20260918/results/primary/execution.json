@@ -1,0 +1,454 @@
+[
+  {
+    "task": "entity_resolution",
+    "arm": "baseline_noul",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1497,
+    "reported_input_tokens": 785939,
+    "estimated_jev_usd": 0.033009438,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [],
+    "attempts_by_phase": {
+      "seed17": 60,
+      "seed29": 178,
+      "seed43": 89,
+      "seed71": 178,
+      "seed101": 89,
+      "calibration": 390,
+      "test": 513
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.22361968650000108,
+        "p95": 0.3289056084500131
+      },
+      "seed29": {
+        "median": 0.21374638550000213,
+        "p95": 0.3686114141999937
+      },
+      "seed43": {
+        "median": 0.21453122799999846,
+        "p95": 0.3328316966000101
+      },
+      "seed71": {
+        "median": 0.2216991424999435,
+        "p95": 0.3243496291999975
+      },
+      "seed101": {
+        "median": 0.22854695600005925,
+        "p95": 0.5636363049999998
+      },
+      "calibration": {
+        "median": 0.22327679800002898,
+        "p95": 0.35489502915001414
+      },
+      "test": {
+        "median": 0.21294393199991646,
+        "p95": 0.3942246711999359
+      }
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "fewshot_contract",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1609,
+    "reported_input_tokens": 4032906,
+    "estimated_jev_usd": 0.169382052,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [],
+    "attempts_by_phase": {
+      "seed17": 147,
+      "seed29": 147,
+      "seed43": 118,
+      "seed71": 147,
+      "seed101": 147,
+      "calibration": 390,
+      "test": 513
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.1632040410000002,
+        "p95": 0.2570999528000001
+      },
+      "seed29": {
+        "median": 0.1735329090000164,
+        "p95": 0.29911257819999265
+      },
+      "seed43": {
+        "median": 0.16852203799999188,
+        "p95": 0.2928728828999535
+      },
+      "seed71": {
+        "median": 0.17600318699999207,
+        "p95": 0.2757961047000434
+      },
+      "seed101": {
+        "median": 0.18145360700009405,
+        "p95": 0.262366114200006
+      },
+      "calibration": {
+        "median": 0.19297375000002148,
+        "p95": 0.307506090650076
+      },
+      "test": {
+        "median": 0.19284927900002913,
+        "p95": 0.3370992482000474
+      }
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_contract",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1617,
+    "reported_input_tokens": 1958769,
+    "estimated_jev_usd": 0.082268298,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [],
+    "attempts_by_phase": {
+      "seed17": 149,
+      "seed29": 147,
+      "seed43": 120,
+      "seed71": 149,
+      "seed101": 149,
+      "calibration": 390,
+      "test": 513
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.20833316800001,
+        "p95": 0.28759772079999374
+      },
+      "seed29": {
+        "median": 0.21281171199996152,
+        "p95": 0.3304243570999742
+      },
+      "seed43": {
+        "median": 0.22346340850003799,
+        "p95": 0.3068588554499968
+      },
+      "seed71": {
+        "median": 0.21829136600001675,
+        "p95": 0.35625172239999736
+      },
+      "seed101": {
+        "median": 0.2221587220000174,
+        "p95": 0.31187918139999055
+      },
+      "calibration": {
+        "median": 0.21628862149992756,
+        "p95": 0.32956552419997803
+      },
+      "test": {
+        "median": 0.2154991219999829,
+        "p95": 0.3381324949999907
+      }
+    }
+  },
+  {
+    "task": "entity_resolution",
+    "arm": "identity_noul",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1764,
+    "reported_input_tokens": 1160827,
+    "estimated_jev_usd": 0.048754734,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [],
+    "attempts_by_phase": {
+      "seed17": 149,
+      "seed29": 178,
+      "seed43": 178,
+      "seed71": 178,
+      "seed101": 178,
+      "calibration": 390,
+      "test": 513
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.3019426759999817,
+        "p95": 0.43000156360000114
+      },
+      "seed29": {
+        "median": 0.31050687350000317,
+        "p95": 0.4354935636499904
+      },
+      "seed43": {
+        "median": 0.3051923230000284,
+        "p95": 0.4990910723499753
+      },
+      "seed71": {
+        "median": 0.30772636250003416,
+        "p95": 0.42089694370006336
+      },
+      "seed101": {
+        "median": 0.3040793694999593,
+        "p95": 0.45003464240002705
+      },
+      "calibration": {
+        "median": 0.2994241599999441,
+        "p95": 0.3745543647001682
+      },
+      "test": {
+        "median": 0.29886069700000917,
+        "p95": 0.42922381039998064
+      }
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "baseline_choice",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1397,
+    "reported_input_tokens": 1817967,
+    "estimated_jev_usd": 0.076354614,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [],
+    "attempts_by_phase": {
+      "seed17": 60,
+      "seed29": 89,
+      "seed43": 118,
+      "seed71": 147,
+      "seed101": 60,
+      "calibration": 150,
+      "test": 773
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.21679118700001254,
+        "p95": 0.3033742386500101
+      },
+      "seed29": {
+        "median": 0.21605747000000974,
+        "p95": 0.29240278239999495
+      },
+      "seed43": {
+        "median": 0.2164915434999557,
+        "p95": 0.2989099637499319
+      },
+      "seed71": {
+        "median": 0.2235741299999745,
+        "p95": 0.33424281490003976
+      },
+      "seed101": {
+        "median": 0.21509565299999167,
+        "p95": 0.36429438854990503
+      },
+      "calibration": {
+        "median": 0.2191333530000179,
+        "p95": 0.3076701769000347
+      },
+      "test": {
+        "median": 0.21401345000003857,
+        "p95": 0.3512639539998872
+      }
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "conditional_nouls",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1658,
+    "reported_input_tokens": 3562046,
+    "estimated_jev_usd": 0.149605932,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [
+      {
+        "context": "relation_support/conditional_nouls/evaluation/('accuracy', 71)/temperature",
+        "recorded": 0.06607761621401079,
+        "recomputed": 0.0660970231384014,
+        "tie_bounds": [
+          0.0655651692348252,
+          0.06664172610133501
+        ]
+      }
+    ],
+    "attempts_by_phase": {
+      "seed17": 147,
+      "seed29": 147,
+      "seed43": 147,
+      "seed71": 147,
+      "seed101": 147,
+      "calibration": 150,
+      "test": 773
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.2969674100000077,
+        "p95": 0.41334389869999755
+      },
+      "seed29": {
+        "median": 0.31064954700002545,
+        "p95": 0.4489032166999777
+      },
+      "seed43": {
+        "median": 0.2976079600000503,
+        "p95": 0.3725819550999403
+      },
+      "seed71": {
+        "median": 0.291961628999843,
+        "p95": 0.3786342785000442
+      },
+      "seed101": {
+        "median": 0.29714538899997933,
+        "p95": 0.43586981880002895
+      },
+      "calibration": {
+        "median": 0.3737309404999678,
+        "p95": 0.48249320554997416
+      },
+      "test": {
+        "median": 0.3796227060001911,
+        "p95": 0.5266053145998739
+      }
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "evidence_contract",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1658,
+    "reported_input_tokens": 3328516,
+    "estimated_jev_usd": 0.139797672,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [],
+    "attempts_by_phase": {
+      "seed17": 147,
+      "seed29": 147,
+      "seed43": 147,
+      "seed71": 147,
+      "seed101": 147,
+      "calibration": 150,
+      "test": 773
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.2110639859999992,
+        "p95": 0.3211618040000104
+      },
+      "seed29": {
+        "median": 0.21791609299998527,
+        "p95": 0.28886533380000967
+      },
+      "seed43": {
+        "median": 0.2178912780000246,
+        "p95": 0.31149007960001424
+      },
+      "seed71": {
+        "median": 0.21309329200005322,
+        "p95": 0.35059475959995967
+      },
+      "seed101": {
+        "median": 0.21407693600008315,
+        "p95": 0.36547934979998864
+      },
+      "calibration": {
+        "median": 0.24547046149996277,
+        "p95": 0.4515944128000451
+      },
+      "test": {
+        "median": 0.2480794580001202,
+        "p95": 0.37082701620001896
+      }
+    }
+  },
+  {
+    "task": "relation_support",
+    "arm": "fewshot_contract",
+    "status": "completed",
+    "revision": 2,
+    "live": true,
+    "http_attempts": 1629,
+    "reported_input_tokens": 7818600,
+    "estimated_jev_usd": 0.3283812,
+    "price_basis": "$0.042/M input; estimate, not invoice",
+    "dspy_searches": 5,
+    "proposals_planned": 15,
+    "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference.",
+    "numerical_aurc_tie_drift": [
+      {
+        "context": "relation_support/fewshot_contract/evaluation/('accuracy', 29)/temperature_bias",
+        "recorded": 0.06524512480455709,
+        "recomputed": 0.0652295992650446,
+        "tie_bounds": [
+          0.06256811899935585,
+          0.06981748389948696
+        ]
+      }
+    ],
+    "attempts_by_phase": {
+      "seed17": 118,
+      "seed29": 147,
+      "seed43": 147,
+      "seed71": 147,
+      "seed101": 147,
+      "calibration": 150,
+      "test": 773
+    },
+    "latency_seconds_by_phase": {
+      "seed17": {
+        "median": 0.25043901700000504,
+        "p95": 0.37801807844999513
+      },
+      "seed29": {
+        "median": 0.24781661800000165,
+        "p95": 0.3562334033999718
+      },
+      "seed43": {
+        "median": 0.26085151599988876,
+        "p95": 0.38065252220004564
+      },
+      "seed71": {
+        "median": 0.2561255109999365,
+        "p95": 0.4122218102000372
+      },
+      "seed101": {
+        "median": 0.25241751299995485,
+        "p95": 0.3651097000999128
+      },
+      "calibration": {
+        "median": 0.26310276800006704,
+        "p95": 0.47018253785003
+      },
+      "test": {
+        "median": 0.2662833940000837,
+        "p95": 0.4583742106000499
+      }
+    }
+  }
+]

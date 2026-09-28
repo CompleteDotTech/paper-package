@@ -1,0 +1,31 @@
+{
+  "source_files_sha256": {
+    "additional_corpus-predictions.json": "3e93a1e6e9c76c110c2e56f6413ca9c1c9abe0d98941f1eef88aa751d7de7961",
+    "artifact-manifest.json": "1205586303a6073bb587cb382d0262a16089d780baf7ccf59a4360ee90036aae",
+    "calibration.json": "7841ba2975cc1034b21126bca231fd9117c8e2063da017fef84a3ca7c819372d",
+    "calls.jsonl.gz": "47725d06e4ae5867841d5105978413bceac3c5bb9988da7006e7e4589475360e",
+    "challenge-predictions.json": "8aa45d01ec53df1e05f68051887804c741e4f674821a09be9bfe142c66f32843",
+    "evaluation-predictions.json": "1d3368f22192b153d85f07cfa5a69d9b2ddf316223c60ddc55d7276b0fea3959",
+    "execution.json": "39568b8af7e9ceee48f28b489cd5ce712f159c0525e5a57a4033547612bf7344",
+    "fixtures-predictions.json": "e5e4d1b040ee7fb1c415bebb95da573066d6878ab9e52e8e241117829acfd361",
+    "freeze.json": "c158c68184ebdc73f2e7da74c6c0fee4981f07aeda0999e3f8284eed9bddc980",
+    "probability-quality.json": "489f0168351c120e0b8440a2ed33dcf35ae495a4ca8a7e58dcc3235547c5e56b",
+    "proposal-traces-101.jsonl": "a6b90fb70d726d3603c9074ffebf7faa5a8b18766a102f82ca85c94e37e1ee56",
+    "proposal-traces-17.jsonl": "bbd402d024626dccfed3a1f64fb64388f8848a56a5704870f3360556f97a2860",
+    "proposal-traces-29.jsonl": "4f984e1bdefbc4c38330d57cc1112d401bc6b5d1068b72f16e5835b327787476",
+    "proposal-traces-43.jsonl": "c2d217d1a06fdd8e86e2d1ab51ed0228ff7082f3515d61cb67c4704c55f640a2",
+    "proposal-traces-71.jsonl": "e39453f57a360e1921cb563dc2c0877f384393bd8c5d9555ee5fd45625a5925c",
+    "protocol.json": "ca165f07efcc615218e4286751da2f9620f539225bca2824e0db61f96bc65ee4",
+    "results.json": "6abaa61202a27a184cd5153b8570161330d61d85ef9072a8c746a29be58690b3",
+    "search-101.json": "0e28ff273dd98c23916dc0a52afc5963a5090f02c4822c7bde5cbb605caa7dc4",
+    "search-17.json": "1587cb8205642c4d14e24b55545104b00a4806bd35a11c589eb23997a62c6601",
+    "search-29.json": "0e2e79add55f984036d63cc7f89da79c5d2e83de1fe3adf8a62186aa537bbe65",
+    "search-43.json": "e6209cc9216832956cfef7270047d37620e23e8d123fdc01bc1f5bd49f61a1fc",
+    "search-71.json": "b2d2936e8249a320d87653b5e138958807f546beeea3cd24a3fa8d5327f686b5"
+  },
+  "source_workflow_run": 35342763186,
+  "completion_source_sha256": "2f64e354438146d64f1d2d58b46cb119aa1f86fdb748ddcd12bff008a2c7ee01",
+  "new_inference_calls": 0,
+  "verified_final_response_count": 923,
+  "fixture_rule": "Binary classification metrics exclude original uncertain labels; all 100 fixture observations retained, 12 ambiguity rows reported separately."
+}

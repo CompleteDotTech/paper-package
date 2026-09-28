@@ -1,0 +1,88 @@
+{
+  "payload": {
+    "protocol_sha256": "67272721b65fbdc3c9f309e07ca11240d74266a75c4b9a00048563e315b3f79d",
+    "searches": [
+      {
+        "seed": 17,
+        "accuracy_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity based on the provided attributes and context."
+          }
+        },
+        "nll_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity based on the provided authors and title."
+          }
+        },
+        "ledger_sha256": "d133d0b88d51498b21c12e7a05bf6b9fc56602024145e1d978bc523169f144ad"
+      },
+      {
+        "seed": 29,
+        "accuracy_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity, considering the authors, title, venue, and year. Do not base your judgment on similarity or membership in the same category, but instead use the provided attributes and context."
+          }
+        },
+        "nll_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity based on the authors, title, venue, and year."
+          }
+        },
+        "ledger_sha256": "24ca01ff54a55278dbe70543e5ad73d682741a6a4b5cdefa3a5af1eadeef2c1c"
+      },
+      {
+        "seed": 43,
+        "accuracy_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity by considering their authors, titles, venues, and years."
+          }
+        },
+        "nll_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity by considering their authors, titles, venues, and years."
+          }
+        },
+        "ledger_sha256": "249725a90db86228ca5dd2cece81ace74d4c3ae5e6eaa04c0ef526d8914f2d34"
+      },
+      {
+        "seed": 71,
+        "accuracy_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity based on the authors, title, venue, and year. Use all provided attributes and context."
+          }
+        },
+        "nll_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine whether the two records refer to the same entity based on the authors, title, venue, and year. Use all provided attributes and context."
+          }
+        },
+        "ledger_sha256": "48b8be4da6e1f9a2beb52de17ef03addb6dc13cd28301613860dc88dc5176e64"
+      },
+      {
+        "seed": 101,
+        "accuracy_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine if the two records are referring to the same entity by comparing their authors, titles, venues, and years."
+          }
+        },
+        "nll_questions": {
+          "identity_noul__decision": {
+            "type": "noul",
+            "instructions": "Determine if the two records are referring to the same entity by comparing their authors, titles, venues, and years."
+          }
+        },
+        "ledger_sha256": "761e16f2cff95408470ebf80883f0336f358e06a03509884813a66550c7ccaa7"
+      }
+    ]
+  },
+  "sha256": "02627c701a48f2e5454bdf26a5832fc53f4fd56191f0437552c73ea2f2c98cbf"
+}

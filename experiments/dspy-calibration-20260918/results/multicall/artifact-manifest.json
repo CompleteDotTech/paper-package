@@ -1,0 +1,22 @@
+{
+  "sha256": {
+    "REPORT.md": "85f98ba9fd62b223e6e6b14a566adedeab18884c81bc4bca8cd4b9252633ec95",
+    "all-results.csv": "dda252609b2064fac4fb105d133e5e5e08651cfb7bef501768f497884585f075",
+    "all-results.json": "a22cf8e0239b04e4831db5c97d7bae9f8d9c8ed9d282ad2a74fb1014f0418ea7",
+    "calibration-effects.json": "5dadc75b9b20d84631904bddcd634202b4749e8a824faf033a02a21c08f000a4",
+    "calibration-fits.json": "275d6a4893ba366d753a29db527ce04a844898ab44495cf18585a0107424930b",
+    "execution.json": "9759086a498120bb38429a38750a808b9b755fa11be8ac32b50ea545b12abcc4",
+    "figures/forecast_brier.png": "c83f68d707b6133d8eea3d9de73cc630ae093a1a610be1306662f85cf8577e94",
+    "figures/forecast_brier.svg": "aa0e2f0476b98b10029f17db06e987fba0a5cddbb1dd3936233760cc3877abf8",
+    "figures/forecast_ece.png": "58f373d7a8418c40019866a0bce2b69e1ab77d85b2cfe0606cac354aed0c026c",
+    "figures/forecast_ece.svg": "6cdae034acdfebc2d3778f8459164a6ab11c8af2d0d79c8cf173a384b2cc8636",
+    "figures/forecast_log_loss.png": "0b0971f012c8cdcbf2cf6c9fda2bfac6f70f97ba46523b428df922e797c1d5fa",
+    "figures/forecast_log_loss.svg": "6e848064a9afe519a8f14943df39f55afaecb62d63d03eb0f16e47c08b6b2132",
+    "figures/policy_accuracy.png": "f4f63336ae84d2cc020c790fb6ef677f3f7a724fc837ec120b8324b528f37d59",
+    "figures/policy_accuracy.svg": "7c2abe8949929e49e0d17c0005ba553f9abdfed107edf9d4a8ed823cb5de48fb",
+    "input-manifest.json": "d5605bd31f474adb1ff6b6ad5e4c7a388145accb9804e5d556014bc6747da79b",
+    "paired-intervals.json": "2bd8e7d7c827b94675bb8583b00803d18ac41cde2ab625064bfd6fe7d87ee5f5",
+    "policy-results.json": "044431cb7896addac624a7f68949c9409703de81e484295730d019532fd9d5d4",
+    "seed-summary.json": "4260ba9ac74a604836fc032ba87b932322011b30ca7356135a3d37163c308f24"
+  }
+}

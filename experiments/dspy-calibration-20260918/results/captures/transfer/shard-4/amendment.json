@@ -1,0 +1,5 @@
+{
+  "revision": 2,
+  "wrapper_sha256": "9be42b5beb5bcbd39c4323a05b778a45f0832dfbb56904af32472d36cdc5e727",
+  "scope": "Only normalized forecasts use the bounded mass interpretation; original policy scores, labels and adjudication inputs stay raw."
+}

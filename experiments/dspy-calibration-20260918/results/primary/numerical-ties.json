@@ -1,0 +1,16 @@
+{
+  "scalar_temperature_argmax_ties": [
+    {
+      "task": "relation_support",
+      "arm": "baseline_choice",
+      "panel": "evaluation",
+      "selection": "nll",
+      "seed": 17,
+      "ids": [
+        "scifact-384-13770184"
+      ]
+    }
+  ],
+  "confidence_rank_tolerance": 1e-14,
+  "note": "Raw observations and fitted calibrators are unchanged; these are floating-point tie sensitivities, not new Jev calls."
+}

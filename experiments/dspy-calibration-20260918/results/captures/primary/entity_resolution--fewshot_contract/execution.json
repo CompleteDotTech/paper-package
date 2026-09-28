@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "revision": 2,
+  "live": true,
+  "http_attempts": 1609,
+  "reported_input_tokens": 4032906,
+  "estimated_jev_usd": 0.169382052,
+  "price_basis": "$0.042/M input; estimate, not invoice",
+  "dspy_searches": 5,
+  "proposals_planned": 15,
+  "completion": "All required actual v2 responses verified; reporting completed offline with zero extra inference."
+}

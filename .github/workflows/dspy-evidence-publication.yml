@@ -1,0 +1,38 @@
+name: Verify published DSPy benchmark evidence
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Verify the frozen inventory and publication regressions
+        run: |
+          python -B -m graph_synthesis.dspy_jev_optimizer.verify
+          python -B -m unittest graph_synthesis.dspy_publication.test_publish -v
+      - name: Verify committed offline evidence bytes and coverage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from graph_synthesis.dspy_publication.publish import RELATIVE,BASE_COMMIT,read,sha
+          root=Path(RELATIVE)
+          expected=read(root/'publication-manifest.json')['sha256']
+          actual={p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and p.name!='publication-manifest.json'}
+          assert actual==set(expected),'Published inventory mismatch'
+          for name,digest in expected.items():
+              assert sha(root/name)==digest,'Published byte mismatch: '+name
+          status=read(root/'offline-audit-status.json')
+          assert status['analysis_source_commit']==BASE_COMMIT
+          assert status['new_inference_calls']==status['new_paid_api_calls']==0
+          scope=read(root/'summary.json')['scope']
+          assert (scope['formulations'],scope['independent_searches'],scope['graph_replays'])==(8,40,528)
+          print('Committed offline benchmark evidence verified:',len(expected),'files')
+          PY

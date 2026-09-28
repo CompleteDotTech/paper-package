@@ -1,0 +1,24 @@
+[
+  {
+    "task": "entity_resolution",
+    "status": "completed",
+    "live": true,
+    "http_attempts": 640,
+    "reported_input_tokens": 680856,
+    "estimated_jev_usd": 0.028595952,
+    "expected_successful_calls": 640,
+    "scope": "Three repeatability passes; all original non-few-shot formulations packed together; few-shot state isolated; matched individual calls.",
+    "capture_manifest_sha256": "c24b1abc8e616cdc7da69b340c91973d743ffb5dae5d76baacd773c86d35b181"
+  },
+  {
+    "task": "relation_support",
+    "status": "completed",
+    "live": true,
+    "http_attempts": 640,
+    "reported_input_tokens": 1434610,
+    "estimated_jev_usd": 0.06025362,
+    "expected_successful_calls": 640,
+    "scope": "Three repeatability passes; all original non-few-shot formulations packed together; few-shot state isolated; matched individual calls.",
+    "capture_manifest_sha256": "c911c788367307a948b2d0169988860f0acab75d4bd5de1c7b3a6f0131061200"
+  }
+]

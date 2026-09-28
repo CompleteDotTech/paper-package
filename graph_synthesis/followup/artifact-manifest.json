@@ -18,7 +18,7 @@
     "graph_synthesis/followup/figures/05_lineage.png": "b9ca0b08042385d2cffd93f2f919b5e7a366995111e5f18dc9c5c7588e6957fc",
     "graph_synthesis/followup/figures/05_lineage.svg": "80cd4b81336b0e48916574c8e62236d35d91bd9308663a36b79ff575cfba4f51",
     "graph_synthesis/followup/methods.py": "5a0c1f47683bcb31990096e3a625fb0fd10e1fe85f6d36190025e0d40d0ff6b6",
-    "graph_synthesis/followup/report.py": "c834ad187d06f057508be69b78db4306268a0724e5195d96da995782566d944d",
+    "graph_synthesis/followup/report.py": "90c2f7e055d9d30986ac33e256a51843aa2d21d1bab7c0a44c90e8091a7208bd",
     "graph_synthesis/followup/results.json": "2a3c57a2fefcd41dc7aca97ebc42e85d6e0c0ac7b75cf7b00c7f7c399ac7fdd7",
     "graph_synthesis/followup/run.py": "db8afe1bf70ec74f082bd6841d12870540446d552417b4be364e7e9ddc4527b3",
     "graph_synthesis/followup/tests/test_followup.py": "86466d1356fee23205e4446c7aa1339cbfffe5544a4fda172bd2ed6a7cbdab8d"

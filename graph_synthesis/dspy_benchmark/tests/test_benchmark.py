@@ -1,4 +1,5 @@
 import json
+import gzip
 import os
 import tempfile
 import unittest
@@ -9,7 +10,7 @@ from graph_synthesis.dspy_jev_optimizer.core import Example,JevConfig,Cache,Budg
 from graph_synthesis.dspy_benchmark.data import inventory,load_task,panels,SEEDS
 from graph_synthesis.dspy_benchmark.calibration import fit,apply,evaluation,paired_interval
 from graph_synthesis.dspy_benchmark.run import ParallelEvaluator,provider_model,execute,write_artifact_inventory
-from graph_synthesis.dspy_benchmark.report import summarize
+from graph_synthesis.dspy_benchmark.report import summarize,EXPECTED_ARMS,EXPECTED_PANELS,CALIBRATIONS
 
 LABELS={'a':'first','b':'second'}
 CFG=JevConfig('task','classify',LABELS)
@@ -23,19 +24,71 @@ def completed_fixture(root, seed, *, baseline_only=False):
     run_dir=root/f'seed-{seed}'
     run_dir.mkdir()
     arm='without_dspy_baseline_choice' if baseline_only else 'dspy_accuracy'
-    protocol={'seed':seed,'iterations':0 if baseline_only else 1,'baseline_only':baseline_only}
+    registered=inventory()
+    protocol={'seed':seed,'iterations':0 if baseline_only else 8,
+              'baseline_only':baseline_only,'inventory':registered}
+    if not baseline_only:
+        protocol.update({'model':'jev-1.13.0',
+                         'proposer_model':'openai/ollamacloud/deepseek-v4.1-flash',
+                         'source_sha256': {name:digest(name) for name in (
+                             'graph_synthesis/dspy_benchmark/run.py',
+                             'graph_synthesis/dspy_benchmark/data.py',
+                             'graph_synthesis/dspy_benchmark/report.py',
+                             'graph_synthesis/dspy_jev_optimizer/core.py',
+                             'graph_synthesis/dspy_jev_optimizer/providers.py',
+                             'graph_synthesis/dspy_benchmark/requirements.txt')},
+                         'dependency_versions': {name:'test-fixture' for name in
+                                                 ('typesafe-sdk','dspy','litellm','numpy','scipy')}})
     write_json(run_dir/'protocol.json',protocol)
     write_json(run_dir/'status.json',{'status':'completed_baseline_only' if baseline_only else 'completed',
-                                      'protocol_sha256':digest(protocol)})
+                                      'protocol_sha256':digest(protocol),
+                                      'live_logical_calls':0 if baseline_only else 1})
     write_json(run_dir/'usage.json',[])
+    if not baseline_only:
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        budget=CostBudget()
+        for _ in range(32):budget.reserve_proposal(100)
+        budget.target({'input_tokens':10})
+        write_json(run_dir/'cost-budget.json',budget.record())
     rows=[]
     for task in ('relation_support','entity_resolution'):
         task_dir=run_dir/task;task_dir.mkdir()
-        write_json(task_dir/'frozen-targets.json',{'targets':{arm:{}}})
+        arms={arm} if baseline_only else EXPECTED_ARMS[task]
+        write_json(task_dir/'frozen-targets.json',{'targets':{name:{} for name in arms}})
         write_json(task_dir/'calibration-freeze.json',{})
-        rows.append({'task':task,'panel':'test','arm':arm,'calibration':'raw_1.0',
-                     'n':2,'accuracy':.5,'macro_f1':.5,'mcc':0.,'brier':.25,
-                     'log_loss':.69,'ece':.1})
+        if not baseline_only:
+            for objective in ('accuracy','composite'):
+                with (task_dir/f'proposals-{objective}.jsonl').open('w',encoding='utf-8') as stream:
+                    for iteration in range(1,9):
+                        stream.write(json.dumps({'iteration':iteration,'usage':{
+                            'prompt_tokens':0,'completion_tokens':0}})+'\n')
+                search=task_dir/f'search-{objective}';search.mkdir()
+                write_json(search/'ledger.json',{})
+                write_json(search/'freeze.json',{})
+                (search/'calls.jsonl').write_text('',encoding='utf-8')
+        for name in arms:
+            if not baseline_only:
+                folder=task_dir/name;folder.mkdir()
+                write_json(folder/'calibration.json',{})
+                with gzip.open(folder/'calibration-predictions.json.gz','wt',encoding='utf-8') as stream:
+                    json.dump([],stream)
+                (folder/'calls.jsonl').write_text('',encoding='utf-8')
+                for panel in EXPECTED_PANELS[task]:
+                    with gzip.open(folder/(panel+'-predictions.json.gz'),'wt',encoding='utf-8') as stream:
+                        json.dump([{'id':str(i)} for i in range(registered[task]['panels'][panel]['n'])],stream)
+            for panel in (('test',) if baseline_only else EXPECTED_PANELS[task]):
+                details=registered[task]['panels'][panel]
+                for calibration in (('raw_1.0',) if baseline_only else CALIBRATIONS):
+                    rows.append({'task':task,'panel':panel,'arm':name,'calibration':calibration,
+                                 'n':details['scorable'],
+                                 'unscorable_count':details['n']-details['scorable'],
+                                 'accuracy':.5,'macro_f1':.5,'mcc':0.,'brier':.25,
+                                 'log_loss':.69,'ece':.1})
+    if not baseline_only:
+        calls=run_dir/'relation_support'/'search-accuracy'/'calls.jsonl'
+        with calls.open('w',encoding='utf-8') as stream:
+            stream.write(json.dumps({'event':'request'})+'\n')
+            stream.write(json.dumps({'event':'response','response':{'usage':{'input_tokens':10}}})+'\n')
     write_json(run_dir/'metrics.json',rows)
     write_artifact_inventory(run_dir)
     return run_dir
@@ -49,6 +102,53 @@ class FakeBackend:
                 'probabilities':{'a':.8,'b':.2},'usage':{'input_tokens':10,'output_tokens':0}}
 
 class Tests(unittest.TestCase):
+    def test_five_seed_cost_guard_and_usage_fail_closed(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget, BudgetExhausted
+        self.assertEqual(CostBudget().limit * 5, 35.0)
+        budget = CostBudget(limit=.07)
+        budget.reserve_proposal(100)
+        self.assertEqual(budget.record()['proposal_calls'], 1)
+        with self.assertRaises(BudgetExhausted):
+            budget.target({'input_tokens': 1})
+        with self.assertRaises(BudgetExhausted):
+            CostBudget().target({})
+        with self.assertRaises(BudgetExhausted):
+            CostBudget().reserve_proposal(120_001)
+
+    def test_proposal_usage_audit_ignores_litellm_nested_wrappers(self):
+        from graph_synthesis.dspy_benchmark.run import scalar_proposal_usage
+        class Wrapper: pass
+        raw = {'prompt_tokens':6410,'completion_tokens':6442,'total_tokens':12852,
+               'prompt_tokens_details':Wrapper()}
+        self.assertEqual(scalar_proposal_usage(raw),
+                         {'prompt_tokens':6410,'completion_tokens':6442,'total_tokens':12852})
+
+    def test_malformed_proposal_retry_is_recorded_and_reserved(self):
+        import dspy
+        from dspy.utils.exceptions import AdapterParseError
+        from graph_synthesis.dspy_benchmark import run
+        class FakeProposer:
+            def __init__(self,*args,**kwargs):
+                self.identity={'model':'test'}
+                self.lm=type('LM',(),{'history':[{'usage':{'prompt_tokens':10,
+                                                       'completion_tokens':20}}]})()
+                self.calls=0
+            def propose(self,config,feedback,iteration,history):
+                self.calls+=1
+                if self.calls==1:
+                    raise AdapterParseError('JSONAdapter',dspy.Signature,'', 'missing field')
+                return {'task':config.task,'instructions':config.instructions,
+                        'criteria':config.criteria}
+        with tempfile.TemporaryDirectory() as d, patch.object(run,'DSPyProposer',FakeProposer):
+            p=Path(d)/'proposals.jsonl';budget=run.CostBudget()
+            proposer=run.LoggedProposer('openai/test',p,11,budget=budget)
+            proposer.propose(CFG,[],1,[])
+            self.assertEqual(proposer.inner.calls,2)
+            self.assertEqual(budget.record()['proposal_calls'],1)
+            self.assertEqual(budget.record()['proposal_attempts'],2)
+            self.assertEqual(len(p.read_text().splitlines()),1)
+            self.assertEqual(len((p.parent/'proposal-parse-failures.jsonl').read_text().splitlines()),1)
+
     def test_inventory_all_registered_panels(self):
         v=inventory()
         self.assertEqual(v['relation_support']['splits']['test']['n'],339)
@@ -121,10 +221,105 @@ class Tests(unittest.TestCase):
             p=Path(d);c=Cache(p/'c');b=FakeBackend();e=ParallelEvaluator(b,c,p,1)
             with self.assertRaises(BudgetExhausted):e.evaluate(CFG,[Example('1',{'x':1},'a'),Example('2',{'x':2},'a')],'test')
             self.assertEqual(b.count,0);c.close()
+    def test_target_budget_reserves_before_bounded_dispatch(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=FakeBackend()
+            e=ParallelEvaluator(b,c,p/'audit',20,workers=4,budget=CostBudget(limit=.001))
+            with self.assertRaises(BudgetExhausted):
+                e.evaluate(CFG,[Example(str(i),{'x':i},'a') for i in range(20)],'test')
+            self.assertEqual(b.count,0)
+            c.close()
+    def test_rejected_retries_are_not_counted_as_sent(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        timeout=CostBudget(limit=.051)
+        timeout.reserve_target_batch(1)
+        timeout.record_jev_timeout()
+        with self.assertRaises(BudgetExhausted):timeout.retry_jev_timeout()
+        self.assertEqual(timeout.record()['jev_timeout_retries'],0)
+        invalid=CostBudget(limit=.051)
+        invalid.reserve_target_batch(1)
+        invalid.settle_target_call({'input_tokens':1_166_667})
+        with self.assertRaises(BudgetExhausted):invalid.retry_invalid_answer()
+        self.assertEqual(invalid.record()['invalid_answer_retries'],0)
+    def test_legacy_fewshot_payload_is_included_in_priced_bound(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class LargeLegacy(FakeBackend):
+            arm='fewshot_contract'
+            spec={'decision':{'instructions':'short','criteria':LABELS}}
+            demos=[{'text':'x'*121_000}]
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=LargeLegacy()
+            e=ParallelEvaluator(b,c,p/'audit',1,budget=CostBudget())
+            with self.assertRaises(BudgetExhausted):e.evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            self.assertEqual(b.count,0)
+            c.close()
     def test_model_drift_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d);c=Cache(p/'c');e=ParallelEvaluator(FakeBackend(bad=True),c,p,2)
             with self.assertRaises(RuntimeError):e.evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            c.close()
+    def test_invalid_answer_retry_is_audited_and_charged(self):
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class Flaky(FakeBackend):
+            def predict(self,config,state):
+                answer=super().predict(config,state)
+                if self.count==1:answer['probabilities']={'a':.8,'b':.3}
+                return answer
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=Flaky();budget=CostBudget()
+            e=ParallelEvaluator(b,c,p/'audit',2,budget=budget)
+            e.evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            events=[json.loads(line) for line in (p/'audit'/'calls.jsonl').read_text().splitlines()]
+            self.assertEqual(b.count,2)
+            self.assertEqual(budget.record()['invalid_answer_retries'],1)
+            self.assertEqual(budget.record()['jev_input_tokens'],20)
+            self.assertEqual([x['event'] for x in events if x['event'] in ('invalid_answer','retry_request')],
+                             ['invalid_answer','retry_request'])
+            c.close()
+    def test_timeout_retry_is_audited_and_reserves_unknown_usage(self):
+        from typesafe_sdk import TypeSafeAPITimeoutError
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class SlowOnce(FakeBackend):
+            def predict(self,config,state):
+                self.count+=1
+                if self.count==1:raise TypeSafeAPITimeoutError(30.0)
+                return {'model':self.identity['model'],'choice':'a',
+                        'probabilities':{'a':.8,'b':.2},
+                        'usage':{'input_tokens':10,'output_tokens':0}}
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=SlowOnce();budget=CostBudget()
+            ParallelEvaluator(b,c,p/'audit',2,budget=budget).evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            events=[json.loads(line) for line in (p/'audit'/'calls.jsonl').read_text().splitlines()]
+            self.assertEqual(b.count,2)
+            self.assertEqual(budget.record()['jev_timeout_retries'],1)
+            self.assertEqual(budget.record()['unknown_jev_usage_reserve_usd'],.05)
+            self.assertEqual([x['event'] for x in events if x['event'] in ('jev_timeout','retry_timeout_request')],
+                             ['jev_timeout','retry_timeout_request'])
+            c.close()
+    def test_internal_server_retry_is_audited_and_reserves_unknown_usage(self):
+        from typesafe_sdk import TypeSafeInternalServerError
+        from httpx2 import Headers
+        from graph_synthesis.dspy_benchmark.run import CostBudget
+        class FailsOnce(FakeBackend):
+            def predict(self,config,state):
+                self.count+=1
+                if self.count==1:
+                    raise TypeSafeInternalServerError(500,{},Headers())
+                return {'model':self.identity['model'],'choice':'a',
+                        'probabilities':{'a':.8,'b':.2},
+                        'usage':{'input_tokens':10,'output_tokens':0}}
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);c=Cache(p/'c');b=FailsOnce();budget=CostBudget()
+            ParallelEvaluator(b,c,p/'audit',2,budget=budget).evaluate(CFG,[Example('1',{'x':1},'a')],'test')
+            events=[json.loads(line) for line in (p/'audit'/'calls.jsonl').read_text().splitlines()]
+            self.assertEqual(b.count,2)
+            self.assertEqual(budget.record()['jev_internal_error_failures'],1)
+            self.assertEqual(budget.record()['jev_internal_error_retries'],1)
+            self.assertEqual(budget.record()['unknown_jev_usage_reserve_usd'],.05)
+            self.assertEqual([x['event'] for x in events if x['event'] in
+                              ('jev_internal_error','retry_internal_error_request')],
+                             ['jev_internal_error','retry_internal_error_request'])
             c.close()
     def test_missing_keys_block_before_model_calls(self):
         with tempfile.TemporaryDirectory() as d,patch.dict(os.environ,{},clear=True):
@@ -191,6 +386,53 @@ class Tests(unittest.TestCase):
             summary=summarize(root)
             self.assertEqual(summary[0]['runs'],1)
             self.assertEqual(read_json(root/'run-status.json')[1]['status'],'invalid_artifact')
+    def test_missing_metric_is_rejected_even_with_fresh_inventory(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);run_dir=completed_fixture(root,11)
+            rows=read_json(run_dir/'metrics.json')
+            write_json(run_dir/'metrics.json',rows[:-1])
+            write_artifact_inventory(run_dir)
+            self.assertEqual(summarize(root),[])
+            self.assertEqual(read_json(root/'run-status.json')[0]['artifact_error'],
+                             'incomplete or duplicate registered metric matrix')
+    def test_mixed_protocol_cohort_cannot_be_complete(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            for seed in SEEDS:completed_fixture(root,seed)
+            changed=root/'seed-23'
+            protocol=read_json(changed/'protocol.json')
+            protocol['execution_marker']='different-source-version'
+            write_json(changed/'protocol.json',protocol)
+            status=read_json(changed/'status.json')
+            status['protocol_sha256']=digest(protocol)
+            write_json(changed/'status.json',status)
+            write_artifact_inventory(changed)
+            self.assertEqual(summarize(root),[])
+            self.assertTrue(all(x['status']=='invalid_artifact' for x in
+                                read_json(root/'run-status.json')))
+    def test_other_provider_cannot_fill_authorized_matrix(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            for seed in SEEDS:
+                run_dir=completed_fixture(root,seed)
+                protocol=read_json(run_dir/'protocol.json')
+                protocol['proposer_model']='openai/other-model'
+                write_json(run_dir/'protocol.json',protocol)
+                status=read_json(run_dir/'status.json')
+                status['protocol_sha256']=digest(protocol)
+                write_json(run_dir/'status.json',status)
+                write_artifact_inventory(run_dir)
+            self.assertEqual(summarize(root),[])
+            self.assertTrue(all(x['status']=='invalid_artifact' for x in
+                                read_json(root/'run-status.json')))
+    def test_missing_raw_trace_cannot_fill_authorized_matrix(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);run_dir=completed_fixture(root,11)
+            (run_dir/'relation_support'/'dspy_accuracy'/'calls.jsonl').unlink()
+            write_artifact_inventory(run_dir)
+            self.assertEqual(summarize(root),[])
+            self.assertEqual(read_json(root/'run-status.json')[0]['artifact_error'],
+                             'required raw trace or prediction missing')
     def test_provider_is_explicit_not_magic_fallback(self):
         with patch.dict(os.environ,{},clear=True):self.assertIsNone(provider_model())
     def test_existing_output_refused(self):
@@ -206,8 +448,11 @@ class Tests(unittest.TestCase):
                 events.append(state['phase'])
                 return {'model':'jev-1.13.0','choice':'a','probabilities':{'a':.7,'b':.3},'usage':{'input_tokens':2,'output_tokens':0}}
         class Proposer:
-            def __init__(self,*args,**kwargs): self.identity={'test_double':True}
+            def __init__(self,*args,**kwargs):
+                self.identity={'test_double':True}
+                self.budget=kwargs['budget']
             def propose(self,cfg,feedback,iteration,history):
+                self.budget.reserve_proposal(100)
                 return {'task':cfg.task,'instructions':cfg.instructions+' revised','criteria':cfg.criteria}
         def rows(phase,n):
             return [Example(phase+str(i),{'phase':phase,'i':i},'a' if i%2 else 'b',phase+str(i)) for i in range(n)]

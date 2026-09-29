@@ -1,6 +1,36 @@
 # DSPy / Jev comparison: actual execution status
 
-**Live with/without-DSPy comparison: NOT COMPLETED. No new Jev inference calls and no new DSPy inference runs were completed.**
+## Current live execution (2026-09-28)
+
+The [five-seed live comparison](live-five-seed-20260928/README.md) **completed**
+on source commit `306a02b`. Seeds 11, 23, 37, 53, and 71 each produced 294
+validated metric rows and 32 accepted proposals. The aggregate report has 294
+rows with five runs each. The cohort's guarded estimate is $14.866207; all
+earlier failed, canceled, and standalone attempts bring the guarded estimate
+to $24.110630 against the $50 authorization. These are estimates, not invoices.
+The complete result does not establish a uniform DSPy advantage.
+
+Earlier standalone runs [36484331133](https://github.com/CompleteDotTech/paper-package/actions/runs/36484331133)
+and [36489940547](https://github.com/CompleteDotTech/paper-package/actions/runs/36489940547)
+remain separate evidence. Seed-23 runs 36487767662, 36493827639, and
+36494005849 were canceled or failed and are excluded. The [run plan](LIVE_RUN_PLAN.md)
+preserves every amendment and cost receipt. The completed cohort uses one
+source/data/dependency snapshot and bounded retries of transient TypeSafe
+internal server errors.
+
+The sections below preserve the preauthorization and offline audit history;
+their earlier “blocked” status describes that historical phase.
+
+## Authorized follow-up preparation (2026-09-28)
+
+The user authorized a new live comparison with a $50 total cap and the existing
+restricted OmniRoute DeepSeek route for DSPy proposals. The manual workflow now
+selects one seed per dispatch and records a conservative $7 per-seed estimated
+spend limit. See [the run plan](LIVE_RUN_PLAN.md). This preparation creates no
+new five-seed result; the historical status and blockers below remain the
+record of what had been executed before this authorization.
+
+**Historical PR #32 status: the live with/without-DSPy comparison was not completed then. No new Jev or DSPy inference runs had been completed at that stage.**
 
 ## Live execution blockers
 

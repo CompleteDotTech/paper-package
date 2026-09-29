@@ -1,11 +1,11 @@
 # Repeated DSPy versus Jev benchmark comparison
 
-**Live comparison status: blocked, not completed.** The first CI preflight found
-`TYPESAFE_API_KEY` populated, but none of the three explicitly mapped generative
-provider keys (`OPENROUTER_API_KEY`, `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`). It stopped
-before inference. The next diagnostic was marked `action_required` before any job
-ran. The approval gate has not been bypassed. The diagnostic was reduced to
-explicit named keys and made manual-only.
+**Live comparison status: all five registered seeds completed and verified.**
+See the [public result package](../../experiments/dspy-comparison-20260918/live-five-seed-20260928/README.md)
+for aggregate and per-seed metrics, raw trace receipts, costs, and limitations.
+The initial CI preflight found no mapped generative key and stopped before
+inference. The later authorized execution used a dedicated restricted OmniRoute
+DeepSeek key with `TYPESAFE_API_KEY` and manual-only dispatch.
 
 ## Registered comparison
 
@@ -77,22 +77,34 @@ python -B -m graph_synthesis.dspy_benchmark.report \
 Set `TYPESAFE_API_KEY`, `DSPY_PROPOSER_MODEL`, and the provider credential required
 by that DSPy model. Keys must stay in the CI secret store; do not commit or paste
 them into reports. The manual [comparison workflow](../../.github/workflows/dspy-comparison.yml)
-has a five-seed matrix with at most two simultaneous jobs. It never injects keys
-into pull-request tests. Select the desired branch when manually dispatching.
+dispatches exactly one selected seed at a time, so its observed cost can be
+reviewed before the next seed. It uses the restricted OmniRoute DeepSeek route
+for proposals and never injects keys into pull-request tests. Select the desired
+branch and one of seeds 11, 23, 37, 53, 71 when manually dispatching.
 Approval/environment protections remain applicable. `--baseline-only` is an
 explicit partial-run mode and never counts as a completed DSPy comparison. Full
 comparison runs require at least one proposal iteration and the credential for
 the configured OpenRouter, Anthropic or OpenAI proposer model before any Jev
-target inference. The workflow downloads all available seed artifacts into one
-directory, generates a five-seed aggregate report, and publishes that report as
-`dspy-jev-aggregate`; missing or failed seeds remain visible in its status table.
+target inference. Each workflow dispatch publishes one seed artifact. Download
+the five verified seed artifacts into one directory, then run the report command
+above locally; missing, failed, or noncomparable seeds remain visible in its
+status table.
 Baseline-only measurements appear in a separate summary and cannot populate
 the primary DSPy comparison table.
 
 The registered eight-iteration matrix has an upper bound of 65,000 logical Jev
-requests across five seeds before cache savings, with at most two SDK retries per
-request, and 160 DSPy proposal invocations. This is not a dollar-denominated budget
-or a guarantee of provider determinism. Each CI seed job has a 120-minute timeout.
+requests across five seeds before cache savings and 160 accepted DSPy proposals.
+For this authorized execution, automatic SDK retries are disabled. A conservative
+$0.07 is reserved before every DeepSeek proposal attempt. The runner dispatches
+at most four Jev calls at once and reserves $0.05 per in-flight call before
+sending it; returned usage replaces that reserve and unknown usage keeps it.
+Reported Jev input tokens are charged at $0.042 per million. A seed stops if
+this guarded estimate would exceed $7. Five
+seeds therefore have $35 in planned per-seed limits beneath the approved $50
+total cap. Prior attempts and in-flight uncertainty are separately accounted
+for. The estimate is not an invoice. See the
+[cost and execution plan](../../experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md).
+Each CI seed job has a 180-minute timeout.
 
 Every run writes protocol/config/source hashes, proposals, raw requests and
 responses, probability files, calibration parameters, metrics and usage. HTTP

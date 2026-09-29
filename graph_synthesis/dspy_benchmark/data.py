@@ -2,6 +2,7 @@
 from dataclasses import asdict
 from pathlib import Path
 from collections import Counter
+import hashlib
 from graph_synthesis.dspy_jev_optimizer.core import Example, JevConfig, digest, read_json, fingerprints, disjoint
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -75,12 +76,14 @@ def panels(task):
 
 
 def inventory():
-    output = {}
+    output = {'input_files_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                                     for name in (PLAN,MULTICALL,CHALLENGE)}}
     for task in ('relation_support', 'entity_resolution'):
         config, splits, specs, source = load_task(task)
         output[task] = {'labels': list(config.criteria), 'legacy_arms': list(specs),
                         'splits': {s: {'n':len(rows), 'labels':dict(Counter(r.label for r in rows)),
                         'sha256':digest([asdict(r) for r in rows])} for s, rows in splits.items()},
-                        'panels': {s: {'n':len(rows), 'scorable':sum(r.label in config.criteria for r in rows)}
+                        'panels': {s: {'n':len(rows), 'scorable':sum(r.label in config.criteria for r in rows),
+                                       'sha256':digest([asdict(r) for r in rows])}
                                    for s, rows in panels(task).items()}}
     return output

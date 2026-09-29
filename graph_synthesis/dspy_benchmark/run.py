@@ -10,7 +10,9 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
+from importlib.metadata import version
 from pathlib import Path
+from threading import Lock
 import numpy as np
 from graph_synthesis.dspy_jev_optimizer.core import (
     JevConfig, Evaluator, Cache, BudgetExhausted, digest, canonical, parse_json,
@@ -19,16 +21,182 @@ from graph_synthesis.dspy_jev_optimizer.providers import TypeSafeBackend, DSPyPr
 from .data import ROOT, SEEDS, OBJECTIVES, load_task, panels, state, inventory
 from .calibration import fit, apply, evaluation
 
+JEV_INPUT_USD_PER_MILLION = 0.042
+DEEPSEEK_INPUT_USD_PER_MILLION = 0.30
+DEEPSEEK_OUTPUT_USD_PER_MILLION = 1.20
+PROPOSAL_RESERVE_USD = 0.07
+PER_SEED_BUDGET_USD = 7.0  # Five new seeds reserve at most $35 after the recorded failed attempts.
+MAX_INVALID_ANSWER_RETRIES_PER_SEED = 20
+MAX_PROPOSAL_PARSE_RETRIES_PER_SEED = 20
+MAX_TIMEOUT_RETRIES_PER_SEED = 20
+MAX_RECOVERABLE_JEV_RETRIES_PER_SEED = 20
+UNKNOWN_JEV_TIMEOUT_RESERVE_USD = 0.05
+JEV_INFLIGHT_RESERVE_USD = 0.05
+MAX_JEV_REQUEST_BYTES = 120_000
+
+
+class CostBudget:
+    """Conservative per-seed guard; records provider-reported usage, never keys."""
+    def __init__(self, limit=PER_SEED_BUDGET_USD):
+        self.limit = limit
+        self.lock = Lock()
+        self.target_input_tokens = 0
+        self.proposals = 0
+        self.proposer_input_tokens = 0
+        self.proposer_output_tokens = 0
+        self.reserved_usd = 0.0
+        self.invalid_answer_retries = 0
+        self.proposal_parse_retries = 0
+        self.timeout_retries = 0
+        self.timeout_failures = 0
+        self.internal_error_retries = 0
+        self.internal_error_failures = 0
+        self.target_inflight = 0
+        self.target_unknown_failures = 0
+
+    def target(self, usage):
+        tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
+        if type(tokens) is not int or tokens < 0:
+            raise BudgetExhausted('Jev response lacks valid input-token usage')
+        with self.lock:
+            self.target_input_tokens += tokens
+            self._check()
+
+    def reserve_target_batch(self, count):
+        if type(count) is not int or count < 1 or count > 8:
+            raise ValueError('Invalid target dispatch batch')
+        with self.lock:
+            if self.estimated_usd() + count * JEV_INFLIGHT_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for target batch')
+            self.target_inflight += count
+
+    def settle_target_call(self, usage=None, *, timeout=False, internal_error=False):
+        tokens = usage.get('input_tokens') if isinstance(usage, dict) else None
+        with self.lock:
+            if self.target_inflight < 1:
+                raise RuntimeError('Unreserved target call')
+            self.target_inflight -= 1
+            if type(tokens) is int and tokens >= 0:
+                self.target_input_tokens += tokens
+            else:
+                self.target_unknown_failures += 1
+            if timeout:
+                self.timeout_failures += 1
+            if internal_error:
+                self.internal_error_failures += 1
+            self._check()
+        if type(tokens) is not int or tokens < 0:
+            if usage is not None:
+                raise BudgetExhausted('Jev response lacks valid input-token usage')
+
+    def reserve_proposal(self, payload_bytes):
+        if payload_bytes > 120_000:
+            raise BudgetExhausted('Proposal input exceeds pre-priced bound')
+        with self.lock:
+            if self.estimated_usd() + PROPOSAL_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for proposal')
+            self.proposals += 1
+            self.reserved_usd += PROPOSAL_RESERVE_USD
+
+    def proposal_usage(self, usage):
+        if not isinstance(usage, dict):
+            return  # Conservative per-proposal reserve remains charged.
+        input_tokens = usage.get('prompt_tokens', usage.get('input_tokens'))
+        output_tokens = usage.get('completion_tokens', usage.get('output_tokens'))
+        if type(input_tokens) is int and input_tokens >= 0:
+            self.proposer_input_tokens += input_tokens
+        if type(output_tokens) is int and output_tokens >= 0:
+            self.proposer_output_tokens += output_tokens
+        self._check()
+
+    def retry_invalid_answer(self):
+        with self.lock:
+            if self.invalid_answer_retries >= MAX_INVALID_ANSWER_RETRIES_PER_SEED:
+                raise BudgetExhausted('Invalid-answer retry allowance exhausted')
+            if self.estimated_usd() + JEV_INFLIGHT_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for invalid-answer retry')
+            self.invalid_answer_retries += 1
+            self.target_inflight += 1
+
+    def retry_proposal_parse(self):
+        with self.lock:
+            if self.proposal_parse_retries >= MAX_PROPOSAL_PARSE_RETRIES_PER_SEED:
+                raise BudgetExhausted('Proposal parse retry allowance exhausted')
+            if self.estimated_usd() + PROPOSAL_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for proposal retry')
+            self.proposal_parse_retries += 1
+            self.reserved_usd += PROPOSAL_RESERVE_USD
+
+    def record_jev_timeout(self):
+        self.settle_target_call(None,timeout=True)
+
+    def record_jev_internal_error(self):
+        self.settle_target_call(None,internal_error=True)
+
+    def retry_jev_timeout(self):
+        with self.lock:
+            if self.timeout_retries + self.internal_error_retries >= MAX_RECOVERABLE_JEV_RETRIES_PER_SEED:
+                raise BudgetExhausted('Jev recoverable-error retry allowance exhausted')
+            if self.estimated_usd() + JEV_INFLIGHT_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for timeout retry')
+            self.timeout_retries += 1
+            self.target_inflight += 1
+
+    def retry_jev_internal_error(self):
+        with self.lock:
+            if self.timeout_retries + self.internal_error_retries >= MAX_RECOVERABLE_JEV_RETRIES_PER_SEED:
+                raise BudgetExhausted('Jev recoverable-error retry allowance exhausted')
+            if self.estimated_usd() + JEV_INFLIGHT_RESERVE_USD > self.limit:
+                raise BudgetExhausted('Insufficient reserved budget for internal-error retry')
+            self.internal_error_retries += 1
+            self.target_inflight += 1
+
+    def _check(self):
+        if self.estimated_usd() > self.limit:
+            raise BudgetExhausted('Per-seed estimated spend limit reached')
+
+    def estimated_usd(self):
+        jev = self.target_input_tokens * JEV_INPUT_USD_PER_MILLION / 1_000_000
+        observed_proposal = (self.proposer_input_tokens * DEEPSEEK_INPUT_USD_PER_MILLION
+                             + self.proposer_output_tokens * DEEPSEEK_OUTPUT_USD_PER_MILLION) / 1_000_000
+        return (jev + self.target_unknown_failures * JEV_INFLIGHT_RESERVE_USD
+                + self.target_inflight * JEV_INFLIGHT_RESERVE_USD
+                + max(self.reserved_usd, observed_proposal))
+
+    def record(self):
+        return {'limit_usd': self.limit, 'estimated_usd': self.estimated_usd(),
+                'jev_input_tokens': self.target_input_tokens,
+                'proposal_calls': self.proposals,
+                'proposal_input_tokens_reported': self.proposer_input_tokens,
+                'proposal_output_tokens_reported': self.proposer_output_tokens,
+                'proposal_reserve_usd': self.reserved_usd,
+                'invalid_answer_retries': self.invalid_answer_retries,
+                'proposal_parse_retries': self.proposal_parse_retries,
+                'proposal_attempts': self.proposals + self.proposal_parse_retries,
+                'jev_timeout_failures': self.timeout_failures,
+                'jev_timeout_retries': self.timeout_retries,
+                'jev_internal_error_failures': self.internal_error_failures,
+                'jev_internal_error_retries': self.internal_error_retries,
+                'jev_unknown_usage_calls': self.target_unknown_failures,
+                'jev_inflight_calls': self.target_inflight,
+                'unknown_jev_usage_reserve_usd': self.target_unknown_failures * JEV_INFLIGHT_RESERVE_USD,
+                'pricing_basis': {'jev_input_per_million_usd': JEV_INPUT_USD_PER_MILLION,
+                                  'deepseek_input_per_million_usd': DEEPSEEK_INPUT_USD_PER_MILLION,
+                                  'deepseek_output_per_million_usd': DEEPSEEK_OUTPUT_USD_PER_MILLION},
+                'note': 'Estimate from reported tokens and conservative proposal/unknown-target reserves, not an invoice.'}
+
 
 class ParallelEvaluator(Evaluator):
     """Only the caller thread touches SQLite and audit files."""
-    def __init__(self, *args, workers=4, **kwargs):
+    def __init__(self, *args, workers=4, budget=None, **kwargs):
         super().__init__(*args, **kwargs)
         if not 1 <= workers <= 8:
             raise ValueError('workers must be 1..8')
         self.workers = workers
+        self.budget = budget
 
     def evaluate(self, config, rows, phase):
+        from typesafe_sdk import TypeSafeAPITimeoutError, TypeSafeInternalServerError
         keys = [digest({'schema':1, 'backend':self.backend.identity,
                         'config':config.fingerprint(), 'state':r.state}) for r in rows]
         responses, missing = {}, {}
@@ -40,31 +208,97 @@ class ParallelEvaluator(Evaluator):
                 responses[key] = cached
         if len(missing) > self.max_calls-self.calls:
             raise BudgetExhausted('Insufficient budget for a complete evaluation')
-        with ThreadPoolExecutor(max_workers=self.workers) as pool:
-            jobs = []
-            for key, row in missing.items():
-                self.calls += 1
-                self.event({'event':'request', 'key':key, 'phase':phase, 'state':row.state,
-                            'question':config.question(), 'backend':self.backend.identity})
-                jobs.append((key, pool.submit(self.backend.predict, config, parse_json(canonical(row.state)))))
-            errors = []
-            for key, job in jobs:
+        if self.budget is not None:
+            for row in missing.values():
+                state_payload = row.state
+                question_payload = config.question()
+                if hasattr(self.backend,'spec') and hasattr(self.backend,'arm'):
+                    question_payload = self.backend.spec
+                    if self.backend.arm == 'fewshot_contract':
+                        state_payload = {'labeled_examples':self.backend.demos,'input':row.state}
+                size = len(canonical({'model':self.backend.identity['model'],
+                                      'questions':question_payload,'state':state_payload}).encode('utf-8'))
+                if size > MAX_JEV_REQUEST_BYTES:
+                    raise BudgetExhausted('Target request exceeds pre-priced byte bound')
+        def fetch_with_recoverable_retries(key, first_job=None):
+            for attempt in range(3):
                 try:
-                    response = job.result()
-                    validate_answer(response,config.criteria)
-                    if response.get('model') != self.backend.identity['model']:
-                        raise ValueError('Pinned model drift')
-                    for token in self.usage:
-                        count = response.get('usage',{}).get(token,0)
-                        if type(count) is not int or count < 0:
-                            raise ValueError('Invalid usage')
-                        self.usage[token] += count
-                    self.cache.put(key,response)
-                    responses[key] = response
-                    self.event({'event':'response','key':key,'phase':phase,'response':response})
-                except Exception as exc:
-                    errors.append(type(exc).__name__)
-                    self.event({'event':'request_failed','key':key,'phase':phase,'error_type':type(exc).__name__})
+                    if attempt == 0 and first_job is not None:
+                        response = first_job.result()
+                    else:
+                        response = self.backend.predict(config,parse_json(canonical(missing[key].state)))
+                except TypeSafeAPITimeoutError:
+                    self.event({'event':'jev_timeout','key':key,'phase':phase,'attempt':attempt+1,
+                                'unknown_usage_reserve_usd':UNKNOWN_JEV_TIMEOUT_RESERVE_USD})
+                    if self.budget is not None:
+                        self.budget.record_jev_timeout()
+                    if attempt == 2 or self.budget is None:
+                        raise
+                    self.budget.retry_jev_timeout()
+                    self.event({'event':'retry_timeout_request','key':key,'phase':phase})
+                except TypeSafeInternalServerError:
+                    self.event({'event':'jev_internal_error','key':key,'phase':phase,'attempt':attempt+1,
+                                'unknown_usage_reserve_usd':JEV_INFLIGHT_RESERVE_USD})
+                    if self.budget is not None:
+                        self.budget.record_jev_internal_error()
+                    if attempt == 2 or self.budget is None:
+                        raise
+                    self.budget.retry_jev_internal_error()
+                    self.event({'event':'retry_internal_error_request','key':key,'phase':phase})
+                except Exception:
+                    if self.budget is not None:
+                        self.budget.settle_target_call()
+                    raise
+                else:
+                    if self.budget is not None:
+                        self.budget.settle_target_call(response.get('usage'))
+                    return response
+        with ThreadPoolExecutor(max_workers=self.workers) as pool:
+            errors = []
+            pending = list(missing.items())
+            for start in range(0,len(pending),self.workers):
+                batch = pending[start:start+self.workers]
+                if self.budget is not None:
+                    self.budget.reserve_target_batch(len(batch))
+                jobs = []
+                for key, row in batch:
+                    self.calls += 1
+                    self.event({'event':'request', 'key':key, 'phase':phase, 'state':row.state,
+                                'question':config.question(), 'backend':self.backend.identity})
+                    jobs.append((key, pool.submit(self.backend.predict, config,
+                                                  parse_json(canonical(row.state)))))
+                for key, job in jobs:
+                    try:
+                        response = fetch_with_recoverable_retries(key,job)
+                        while True:
+                            for token in self.usage:
+                                count = response.get('usage',{}).get(token,0)
+                                if type(count) is not int or count < 0:
+                                    raise ValueError('Invalid usage')
+                                self.usage[token] += count
+                            if response.get('model') != self.backend.identity['model']:
+                                raise ValueError('Pinned model drift')
+                            try:
+                                validate_answer(response,config.criteria)
+                                break
+                            except ValueError as invalid:
+                                self.event({'event':'invalid_answer','key':key,'phase':phase,
+                                            'reason':str(invalid),'response':response})
+                                if self.budget is None:
+                                    raise
+                                self.budget.retry_invalid_answer()
+                                self.event({'event':'retry_request','key':key,'phase':phase})
+                                response = fetch_with_recoverable_retries(key)
+                        self.cache.put(key,response)
+                        responses[key] = response
+                        self.event({'event':'response','key':key,'phase':phase,'response':response})
+                    except Exception as exc:
+                        errors.append(type(exc).__name__)
+                        reason = str(exc) if isinstance(exc,(ValueError,BudgetExhausted)) else None
+                        self.event({'event':'request_failed','key':key,'phase':phase,
+                                    'error_type':type(exc).__name__,'reason':reason})
+                if errors:
+                    break
         if errors:
             raise RuntimeError('Inference failures: '+','.join(sorted(set(errors))))
         predictions = []
@@ -86,7 +320,7 @@ class ParallelEvaluator(Evaluator):
 class LegacyBackend(TypeSafeBackend):
     """Preserve native Choice/Noul formulations, not a rewritten surrogate."""
     def __init__(self, model, task, arm, spec, demos, seed):
-        super().__init__(model, retries=2)
+        super().__init__(model, retries=0)
         self.task, self.arm, self.spec, self.demos = task,arm,spec,demos
         self.identity.update(legacy_arm=arm, spec_sha256=digest(spec), repeat_seed=seed,
                              demonstration_sha256=digest(demos) if arm=='fewshot_contract' else None)
@@ -118,23 +352,64 @@ class LegacyBackend(TypeSafeBackend):
 
 
 class LoggedProposer:
-    def __init__(self, model, output, seed):
-        self.inner = DSPyProposer(model)
+    def __init__(self, model, output, seed, budget=None):
+        base = os.environ.get('DSPY_PROPOSER_API_BASE', '').strip()
+        if base:
+            if model != 'openai/ollamacloud/deepseek-v4.1-flash' or base != 'https://train.home.complete.tech:20128/v1':
+                raise ValueError('Unregistered proposal model or gateway endpoint')
+            import dspy
+            lm = dspy.LM(model, api_base=base, api_key=os.environ['OPENAI_API_KEY'],
+                         temperature=1.0, max_tokens=16384, timeout=180, num_retries=0, cache=False)
+            self.inner = DSPyProposer(model, lm=lm)
+            self.inner.identity['max_tokens'] = 16384
+        else:
+            self.inner = DSPyProposer(model)
         self.output = output
+        self.budget = budget
         self.identity = {**self.inner.identity,'repeat_seed':seed,
                          'seed_scope':'Python/NumPy and feedback order; remote sampling is not guaranteed deterministic'}
 
     def propose(self, config, feedback, iteration, history):
-        proposal = self.inner.propose(config,feedback,iteration,history)
+        if self.budget is not None:
+            self.budget.reserve_proposal(len(canonical({'config':asdict(config),'feedback':feedback,
+                                                         'history':history,'iteration':iteration}).encode('utf-8')))
+        from dspy.utils.exceptions import AdapterParseError
+        for attempt in range(3):
+            try:
+                proposal = self.inner.propose(config,feedback,iteration,history)
+                break
+            except AdapterParseError:
+                self.output.parent.mkdir(parents=True,exist_ok=True)
+                with self.output.with_name('proposal-parse-failures.jsonl').open('a',encoding='utf-8') as f:
+                    f.write(canonical({'iteration':iteration,'attempt':attempt+1,
+                                       'error_type':'AdapterParseError'})+'\n')
+                if attempt == 2 or self.budget is None:
+                    raise
+                self.budget.retry_proposal_parse()
         records = self.inner.lm.history
         last = records[-1] if records else {}
+        if self.budget is not None:
+            self.budget.proposal_usage(last.get('usage'))
+        # LiteLLM usage may contain nested wrapper objects; record only scalar counts.
+        usage = last.get('usage')
+        usage_record = scalar_proposal_usage(usage)
+        cost = last.get('cost')
+        cost = float(cost) if type(cost) in (int, float) else None
         # Whitelist metadata; never serialize provider arguments or authentication headers.
         row = {'iteration':iteration,'input_config':asdict(config),'training_feedback':feedback,
-               'candidate':proposal,'usage':last.get('usage'), 'cost_usd':last.get('cost')}
+               'candidate':proposal,'usage':usage_record, 'cost_usd':cost}
         self.output.parent.mkdir(parents=True,exist_ok=True)
         with self.output.open('a',encoding='utf-8') as f:
             f.write(canonical(row)+'\n')
         return proposal
+
+
+def scalar_proposal_usage(usage):
+    """Reduce LiteLLM's nested usage wrappers to auditable integer counts."""
+    if not isinstance(usage, dict):
+        return {}
+    return {key: usage[key] for key in ('prompt_tokens','completion_tokens','total_tokens')
+            if type(usage.get(key)) is int and usage[key] >= 0}
 
 
 def provider_model():
@@ -197,13 +472,29 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
         raise RuntimeError('Live benchmark requires TypeSafe and a generative proposal provider')
     random.seed(seed)
     np.random.seed(seed)
+    implementation_files = list(Path(__file__).parent.glob('*.py')) + [
+        ROOT/'graph_synthesis/dspy_jev_optimizer/core.py',
+        ROOT/'graph_synthesis/dspy_jev_optimizer/providers.py',
+        ROOT/'graph_synthesis/dspy_benchmark/requirements.txt']
     protocol = {'seed':seed,'iterations':iterations,'objectives':OBJECTIVES,'model':model,
                 'proposer_model':proposer_model,'baseline_only':baseline_only, 'workers':workers,
                 'inventory':inventory(),'source_sha256':{
-                    p.name:__import__('hashlib').sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')},
+                    p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in implementation_files},
+                'dependency_versions': {name:version(name) for name in
+                                        ('typesafe-sdk','dspy','litellm','numpy','scipy')},
+                'cost_policy': {'seed_limit_usd':PER_SEED_BUDGET_USD,
+                                'jev_inflight_reserve_usd':JEV_INFLIGHT_RESERVE_USD,
+                                'max_jev_request_bytes':MAX_JEV_REQUEST_BYTES,
+                                'proposal_reserve_usd':PROPOSAL_RESERVE_USD,
+                                'max_invalid_answer_retries':MAX_INVALID_ANSWER_RETRIES_PER_SEED,
+                                'max_proposal_parse_retries':MAX_PROPOSAL_PARSE_RETRIES_PER_SEED,
+                                'max_timeout_retries':MAX_TIMEOUT_RETRIES_PER_SEED,
+                                'max_recoverable_jev_retries':MAX_RECOVERABLE_JEV_RETRIES_PER_SEED},
                 'execution':'live_provider_calls',
                 'note':'Historically examined public test sets; held out only from the current optimization.'}
     write_json(output/'protocol.json',protocol)
+    budget = CostBudget()
     all_metrics,usage = [],[]
     try:
         for task in ('relation_support','entity_resolution'):
@@ -213,7 +504,7 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
             task_dir = output/task
             task_dir.mkdir()
             cache = Cache(task_dir/'calls.sqlite3')
-            backend = TypeSafeBackend(model,retries=2)
+            backend = TypeSafeBackend(model,retries=0)
             backend.identity['repeat_seed'] = seed
             targets = []
             try:
@@ -221,10 +512,12 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 if not baseline_only:
                     for objective in OBJECTIVES:
                         search = task_dir/('search-'+objective)
-                        ev = ParallelEvaluator(backend,cache,search,2000,workers=workers)
-                        proposer = LoggedProposer(proposer_model, task_dir/('proposals-'+objective+'.jsonl'),seed)
+                        ev = ParallelEvaluator(backend,cache,search,2000,workers=workers,budget=budget)
+                        proposer = LoggedProposer(proposer_model, task_dir/('proposals-'+objective+'.jsonl'),seed,budget=budget)
                         freeze = optimize(cfg,train,splits['validation'],proposer,ev,search,
                                           iterations=iterations,selection_metric=objective,failure_sample=12,patience=0)
+                        if freeze['stop_reason'] != 'iteration_budget':
+                            raise BudgetExhausted('Search ended before the frozen iteration budget')
                         frozen_run(search)
                         targets.append(('dspy_'+objective,JevConfig.from_dict(freeze['champion']),backend))
                         usage.append({'task':task,'stage':'search_'+objective,**ev.summary()})
@@ -240,7 +533,7 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 # All calibration parameters are persisted before ANY test prediction in this task.
                 for name,config,target_backend in targets:
                     target_dir = task_dir/name
-                    ev = ParallelEvaluator(target_backend,cache,target_dir,12000,workers=workers)
+                    ev = ParallelEvaluator(target_backend,cache,target_dir,12000,workers=workers,budget=budget)
                     _,cal = ev.evaluate(config,splits['calibration'],'calibration')
                     fits = {}
                     for fraction in (.25,.5,1.):
@@ -275,12 +568,17 @@ def execute(output: Path, seed: int, *, iterations=8, baseline_only=False, model
                 backend.close()
                 cache.close()
             write_json(output/'usage.json',usage)
+            write_json(output/'cost-budget.json',budget.record())
+        if not baseline_only and budget.proposals != iterations * len(OBJECTIVES) * 2:
+            raise RuntimeError('Completed comparison lacks frozen proposal count')
         write_json(output/'status.json',{'status':'completed_baseline_only' if baseline_only else 'completed',
-            'live_logical_calls':sum(r['logical_calls'] for r in usage), 'protocol_sha256':digest(protocol)})
+            'live_logical_calls':sum(r['logical_calls'] for r in usage), 'protocol_sha256':digest(protocol),
+            'estimated_cost_usd':budget.estimated_usd()})
         write_artifact_inventory(output)
         return all_metrics
     except Exception as exc:
         write_json(output/'usage.json',usage)
+        write_json(output/'cost-budget.json',budget.record())
         write_json(output/'status.json',{'status':'failed','error_type':type(exc).__name__,
                                        'note':'Partial observations are not complete benchmark results.'})
         raise

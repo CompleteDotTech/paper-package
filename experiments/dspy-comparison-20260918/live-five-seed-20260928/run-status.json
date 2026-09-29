@@ -1,0 +1,37 @@
+[
+  {
+    "seed": 11,
+    "status": "completed",
+    "live_logical_calls": 12242,
+    "protocol_sha256": "d74ad11483b820cf9facfbe37607163a24ca80e05215dbdcf6580b5b25ab37c4",
+    "estimated_cost_usd": 2.8259019740000006
+  },
+  {
+    "seed": 23,
+    "status": "completed",
+    "live_logical_calls": 11194,
+    "protocol_sha256": "4962b4fec39b6f0d16e36d5ac039d82ee50cbf97e625afe1177aa50621d7ee69",
+    "estimated_cost_usd": 2.9629730580000007
+  },
+  {
+    "seed": 37,
+    "status": "completed",
+    "live_logical_calls": 12271,
+    "protocol_sha256": "8cdb6b066a4767039ab1a0713c0106c26840f7764e3268c62a7e30dd62a45a36",
+    "estimated_cost_usd": 3.2567836820000005
+  },
+  {
+    "seed": 53,
+    "status": "completed",
+    "live_logical_calls": 12155,
+    "protocol_sha256": "634a22b1b1d2f98fb3144774bb4e19a7d16b064ffa6047f23ee7af2584557576",
+    "estimated_cost_usd": 2.9667475480000007
+  },
+  {
+    "seed": 71,
+    "status": "completed",
+    "live_logical_calls": 12329,
+    "protocol_sha256": "d6e58bae2ee9335e7ec501af9a3602f1fb96ec23c4ba7e8cc53ebc1a151474e4",
+    "estimated_cost_usd": 2.8538004320000008
+  }
+]

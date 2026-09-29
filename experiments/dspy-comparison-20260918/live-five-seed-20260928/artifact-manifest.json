@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source_commit": "306a02be417e8ed863968ab8fac79c47c82fa555",
+  "sha256": {
+    "per-seed-metrics.json": "a6d73c4cefb3aa5f1c3fbbd9d284f330fd9b646f8d7a5a92d5c48bb225c71ac5",
+    "PRIOR_ATTEMPTS.json": "1e2800136eadf2dddb6c5529529de0aae83498d66e8093e1b493d37a2eb43323",
+    "PUBLICATION_NOTICE.md": "ea616c5be5d2c93138c63b172b6cddac1b19edb108276fa704b889f461d1db0b",
+    "README.md": "014bbe1e1fcd3a373fb489af93d2c69dc5bfcc026537e3c248d4f7cda6d21925",
+    "RESULTS.md": "6a106879d9570d729e52b90534f448a97e49d85ac449b160249dbf5da47e0f56",
+    "run-status.json": "a59cec0c905b035c0e8078554d54a81fe69b99f09ad7b3a009731432c56eff29",
+    "RUN_RECEIPTS.json": "2e07270ea11c2ba5090ed7a6266d176b6d781d2955db4acd52ed3ad84a5ec1fe",
+    "summary.csv": "ca7ed31c97f076891ab1344cc199da404cb99e0cebd2bb65eb06ef7c6b867367",
+    "summary.json": "65de096955dbbc4804226e9f5fbf7675b3d17d7cab7fb62141219c0debade687"
+  }
+}

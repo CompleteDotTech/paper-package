@@ -1,6 +1,7 @@
 # Authorized five-seed comparison run plan
 
-Status: **one standalone seed completed; the comparable five-seed cohort is pending**. The user approved the existing
+Status: **the comparable five-seed cohort completed**; the earlier standalone and failed attempts remain separate.
+See the [validated results](live-five-seed-20260928/README.md). The user approved the existing
 OmniRoute DeepSeek route and a **$50 total spending cap** on 2026-09-28.
 The earlier instruction to use captures only applied to the prior PR remediation;
 this is a new authorized live run. It remains distinct from the published v2

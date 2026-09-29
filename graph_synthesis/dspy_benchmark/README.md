@@ -1,11 +1,11 @@
 # Repeated DSPy versus Jev benchmark comparison
 
-**Live comparison status: one standalone seed completed; the five-seed cohort is pending.** The first CI preflight found
-`TYPESAFE_API_KEY` populated, but none of the three explicitly mapped generative
-provider keys (`OPENROUTER_API_KEY`, `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`). It stopped
-before inference. The next diagnostic was marked `action_required` before any job
-ran. The approval gate has not been bypassed. The diagnostic was reduced to
-explicit named keys and made manual-only.
+**Live comparison status: all five registered seeds completed and verified.**
+See the [public result package](../../experiments/dspy-comparison-20260918/live-five-seed-20260928/README.md)
+for aggregate and per-seed metrics, raw trace receipts, costs, and limitations.
+The initial CI preflight found no mapped generative key and stopped before
+inference. The later authorized execution used a dedicated restricted OmniRoute
+DeepSeek key with `TYPESAFE_API_KEY` and manual-only dispatch.
 
 ## Registered comparison
 
@@ -99,10 +99,10 @@ $0.07 is reserved before every DeepSeek proposal attempt. The runner dispatches
 at most four Jev calls at once and reserves $0.05 per in-flight call before
 sending it; returned usage replaces that reserve and unknown usage keeps it.
 Reported Jev input tokens are charged at $0.042 per million. A seed stops if
-this guarded estimate would exceed $8. Five
-seeds therefore have $40 in planned per-seed limits beneath the approved $50
-total cap. An in-flight request may be billed before its usage is observed, so
-the $10 gap is retained as a buffer. The estimate is not an invoice. See the
+this guarded estimate would exceed $7. Five
+seeds therefore have $35 in planned per-seed limits beneath the approved $50
+total cap. Prior attempts and in-flight uncertainty are separately accounted
+for. The estimate is not an invoice. See the
 [cost and execution plan](../../experiments/dspy-comparison-20260918/LIVE_RUN_PLAN.md).
 Each CI seed job has a 180-minute timeout.
 

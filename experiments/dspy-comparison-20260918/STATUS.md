@@ -2,20 +2,21 @@
 
 ## Current live execution (2026-09-28)
 
-Seed 11 completed in [run 36484331133](https://github.com/CompleteDotTech/paper-package/actions/runs/36484331133)
-with 294 metric rows, all 32 accepted proposals, and a verified artifact ZIP.
-It is retained as standalone evidence. Independent review found a budget
-dispatch flaw and an insufficient aggregate provenance check; the runner and
-report have been corrected. [Seed 23 run 36487767662](https://github.com/CompleteDotTech/paper-package/actions/runs/36487767662)
-was canceled with its partial artifact preserved so the final five seeds can
-be executed on one source/data/dependency snapshot. The comparable five-seed
-matrix remains incomplete. A second seed 11 completed on the revised dispatcher
-in [run 36489940547](https://github.com/CompleteDotTech/paper-package/actions/runs/36489940547),
-but subsequent seed 23 runs 36493827639 and 36494005849 failed on TypeSafe
-internal server errors. The current runner bounds and audits retries of that
-transient provider error, and the final cohort will rerun all five seeds on its
-amended source commit. See the [run plan](LIVE_RUN_PLAN.md) for exact costs,
-failed attempts, and execution amendments. No aggregate gain is claimed.
+The [five-seed live comparison](live-five-seed-20260928/README.md) **completed**
+on source commit `306a02b`. Seeds 11, 23, 37, 53, and 71 each produced 294
+validated metric rows and 32 accepted proposals. The aggregate report has 294
+rows with five runs each. The cohort's guarded estimate is $14.866207; all
+earlier failed, canceled, and standalone attempts bring the guarded estimate
+to $24.110630 against the $50 authorization. These are estimates, not invoices.
+The complete result does not establish a uniform DSPy advantage.
+
+Earlier standalone runs [36484331133](https://github.com/CompleteDotTech/paper-package/actions/runs/36484331133)
+and [36489940547](https://github.com/CompleteDotTech/paper-package/actions/runs/36489940547)
+remain separate evidence. Seed-23 runs 36487767662, 36493827639, and
+36494005849 were canceled or failed and are excluded. The [run plan](LIVE_RUN_PLAN.md)
+preserves every amendment and cost receipt. The completed cohort uses one
+source/data/dependency snapshot and bounded retries of transient TypeSafe
+internal server errors.
 
 The sections below preserve the preauthorization and offline audit history;
 their earlier “blocked” status describes that historical phase.
@@ -29,7 +30,7 @@ spend limit. See [the run plan](LIVE_RUN_PLAN.md). This preparation creates no
 new five-seed result; the historical status and blockers below remain the
 record of what had been executed before this authorization.
 
-**Live with/without-DSPy comparison: NOT COMPLETED. No new Jev inference calls and no new DSPy inference runs were completed.**
+**Historical PR #32 status: the live with/without-DSPy comparison was not completed then. No new Jev or DSPy inference runs had been completed at that stage.**
 
 ## Live execution blockers
 
